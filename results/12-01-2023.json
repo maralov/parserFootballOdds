@@ -1,0 +1,170 @@
+[
+  {
+    "id": "U99Qf5Er",
+    "date": "16:15",
+    "teamHome": "El Bayadh",
+    "teamAway": "Paradou",
+    "url": "https://www.flashscore.com/match/U99Qf5Er/",
+    "country": "algeria",
+    "droppingOdds": {
+      "home": 16,
+      "draw": -9,
+      "away": -20
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 2.16,
+      "draw": 3.32,
+      "away": 3.53
+    }
+  },
+  {
+    "id": "rwJQKMRc",
+    "date": "16:30",
+    "teamHome": "Eleven Angels",
+    "teamAway": "Matebele",
+    "url": "https://www.flashscore.com/match/rwJQKMRc/",
+    "country": "botswana",
+    "droppingOdds": {
+      "home": -4,
+      "draw": 15,
+      "away": -4
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "odds": {
+      "home": 2.75,
+      "draw": 2.93,
+      "away": 2.75
+    }
+  },
+  {
+    "id": "Y7RvuYAM",
+    "date": "22:00",
+    "teamHome": "Preston",
+    "teamAway": "QPR",
+    "url": "https://www.flashscore.com/match/Y7RvuYAM/",
+    "country": "england",
+    "droppingOdds": {
+      "home": 22,
+      "draw": -11,
+      "away": -18
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 2.15,
+      "draw": 3.2,
+      "away": 3.5
+    }
+  },
+  {
+    "id": "z5DeGvgB",
+    "date": "21:45",
+    "teamHome": "Notts Co",
+    "teamAway": "Shrewsbury",
+    "url": "https://www.flashscore.com/match/z5DeGvgB/",
+    "country": "england",
+    "droppingOdds": {
+      "home": -12,
+      "draw": 5,
+      "away": 21
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.4,
+      "away": 3.1
+    }
+  },
+  {
+    "id": "OAsHHFid",
+    "date": "21:15",
+    "teamHome": "Wales W",
+    "teamAway": "Iceland W",
+    "url": "https://www.flashscore.com/match/OAsHHFid/",
+    "country": "europe",
+    "droppingOdds": {
+      "home": -11,
+      "draw": 0,
+      "away": 22
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 2.33,
+      "draw": 3.18,
+      "away": 3.18
+    }
+  },
+  {
+    "id": "M5X7Kbkc",
+    "date": "16:00",
+    "teamHome": "Foresters FC",
+    "teamAway": "Anse Reunion",
+    "url": "https://www.flashscore.com/match/M5X7Kbkc/",
+    "country": "seychelles",
+    "droppingOdds": {
+      "home": -7,
+      "draw": 14,
+      "away": 3
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 2.06,
+      "draw": 3.72,
+      "away": 2.96
+    }
+  },
+  {
+    "id": "nic4nSZs",
+    "date": "19:00",
+    "teamHome": "Adanaspor AS",
+    "teamAway": "Corum",
+    "url": "https://www.flashscore.com/match/nic4nSZs/",
+    "country": "turkey",
+    "droppingOdds": {
+      "home": 17,
+      "draw": 3,
+      "away": -10
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-3",
+      "type": "away"
+    },
+    "result": "win",
+    "odds": {
+      "home": 3.75,
+      "draw": 3.5,
+      "away": 1.95
+    }
+  }
+]

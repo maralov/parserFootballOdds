@@ -1,0 +1,290 @@
+[
+  {
+    "id": "0EPWczTi",
+    "date": "17:00",
+    "teamHome": "Stade Renard",
+    "teamAway": "Cotonsport",
+    "url": "https://www.flashscore.com/match/0EPWczTi/",
+    "country": "cameroon: elite one ",
+    "droppingOdds": {
+      "home": 0,
+      "draw": -2,
+      "away": 4
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "odds": {
+      "home": 2.81,
+      "draw": 3.12,
+      "away": 2.55
+    }
+  },
+  {
+    "id": "x0MQhcVm",
+    "date": "20:00",
+    "teamHome": "Annecy",
+    "teamAway": "Caen",
+    "url": "https://www.flashscore.com/match/x0MQhcVm/",
+    "country": "france: ligue 2 ",
+    "droppingOdds": {
+      "home": -4,
+      "draw": -2,
+      "away": 7
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 2.55,
+      "draw": 3.2,
+      "away": 2.8
+    }
+  },
+  {
+    "id": "UinoOo32",
+    "date": "21:45",
+    "teamHome": "Stuttgart",
+    "teamAway": "Dortmund",
+    "url": "https://www.flashscore.com/match/UinoOo32/",
+    "country": "germany: dfb pokal ",
+    "droppingOdds": {
+      "home": -23,
+      "draw": 6,
+      "away": 33
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 1.91,
+      "draw": 4,
+      "away": 3.6
+    }
+  },
+  {
+    "id": "2aaXrEAi",
+    "date": "14:00",
+    "teamHome": "Empoli U19",
+    "teamAway": "AC Milan U19",
+    "url": "https://www.flashscore.com/match/2aaXrEAi/",
+    "country": "italy: coppa italia primavera ",
+    "droppingOdds": {
+      "home": 20,
+      "draw": 3,
+      "away": -16
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-4",
+      "type": "away"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 2.9,
+      "draw": 3.55,
+      "away": 1.96
+    }
+  },
+  {
+    "id": "pEDewvGO",
+    "date": "17:00",
+    "teamHome": "Heartland",
+    "teamAway": "Bendel",
+    "url": "https://www.flashscore.com/match/pEDewvGO/",
+    "country": "nigeria: npfl ",
+    "droppingOdds": {
+      "home": -34,
+      "draw": 0,
+      "away": 45
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 1.97,
+      "draw": 3.19,
+      "away": 3.86
+    }
+  },
+  {
+    "id": "IR7oCs22",
+    "date": "15:00",
+    "teamHome": "Mukura Victory Sports",
+    "teamAway": "Kiyovu",
+    "url": "https://www.flashscore.com/match/IR7oCs22/",
+    "country": "rwanda: premier league ",
+    "droppingOdds": {
+      "home": -1,
+      "draw": 0,
+      "away": 3
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "4-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 2.34,
+      "draw": 3.12,
+      "away": 3.12
+    }
+  },
+  {
+    "id": "YmJMrx5l",
+    "date": "19:30",
+    "teamHome": "Sekhukhune",
+    "teamAway": "Chippa Utd.",
+    "url": "https://www.flashscore.com/match/YmJMrx5l/",
+    "country": "south africa: premier league ",
+    "droppingOdds": {
+      "home": -9,
+      "draw": -2,
+      "away": 19
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 2.34,
+      "draw": 2.73,
+      "away": 3.64
+    }
+  },
+  {
+    "id": "fwduIHeE",
+    "date": "13:00",
+    "teamHome": "Antequera",
+    "teamAway": "Huesca",
+    "url": "https://www.flashscore.com/match/fwduIHeE/",
+    "country": "spain: copa del rey ",
+    "droppingOdds": {
+      "home": -7,
+      "draw": -15,
+      "away": 31
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 2.5,
+      "draw": 2.75,
+      "away": 3.4
+    }
+  },
+  {
+    "id": "rwRJITUR",
+    "date": "13:00",
+    "teamHome": "Dep. La Coruna",
+    "teamAway": "Tenerife",
+    "url": "https://www.flashscore.com/match/rwRJITUR/",
+    "country": "spain: copa del rey ",
+    "droppingOdds": {
+      "home": -27,
+      "draw": -2,
+      "away": 43
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "odds": {
+      "home": 2.7,
+      "draw": 3,
+      "away": 2.8
+    }
+  },
+  {
+    "id": "hlY6LVp9",
+    "date": "17:00",
+    "teamHome": "Arenteiro",
+    "teamAway": "Burgos CF",
+    "url": "https://www.flashscore.com/match/hlY6LVp9/",
+    "country": "spain: copa del rey ",
+    "droppingOdds": {
+      "home": -2,
+      "draw": 0,
+      "away": 7
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 3.3,
+      "draw": 3,
+      "away": 2.38
+    }
+  },
+  {
+    "id": "8pxGBFYs",
+    "date": "18:00",
+    "teamHome": "Malaga",
+    "teamAway": "Eldense",
+    "url": "https://www.flashscore.com/match/8pxGBFYs/",
+    "country": "spain: copa del rey ",
+    "droppingOdds": {
+      "home": -2,
+      "draw": 8,
+      "away": 3
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "odds": {
+      "home": 2.75,
+      "draw": 3,
+      "away": 2.8
+    }
+  },
+  {
+    "id": "b9LyuVCq",
+    "date": "14:00",
+    "teamHome": "Pattaya United",
+    "teamAway": "Uthai Thani",
+    "url": "https://www.flashscore.com/match/b9LyuVCq/",
+    "country": "thailand: league cup ",
+    "droppingOdds": {
+      "home": 3,
+      "draw": -2,
+      "away": -2
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "odds": {
+      "home": null,
+      "draw": null,
+      "away": null
+    }
+  }
+]
