@@ -63,13 +63,12 @@ async function checkPredictions(page, path= '') {
   yesterday.setDate(yesterday.getDate() - 1);
   const dateString = `${(yesterday.getMonth() + 1).toString().padStart(2, '0')}-${yesterday.getDate().toString().padStart(2, '0')}-${yesterday.getFullYear()}`;
   const filePath = path ? `./results/${path}` : `./results/${dateString}.json`;
-
   if (!fs.existsSync(filePath)) {
     console.log("Немає файлу з прогнозами за вчора.");
     return;
   }
-
   const matchesData = JSON.parse(fs.readFileSync(filePath));
+  const allMatches = JSON.parse(fs.readFileSync('./summary/total.json'));
   console.log(`check yesterday predictions start... ${yesterday.toLocaleString()}`);
 
   for (const match of matchesData) {
@@ -84,38 +83,36 @@ async function checkPredictions(page, path= '') {
         return scoreBlock.length === 3 ? `${scoreBlock[0].textContent}-${scoreBlock[2].textContent}` : null;
       });
 
-	  const odds = await page.evaluate(() => {
-		  const odd1 = document.querySelector('.odds .cell.o_1 .oddsValueInner')?.textContent;
-		  const oddx = document.querySelector('.odds .cell.o_0 .oddsValueInner')?.textContent;
-		  const odd2 = document.querySelector('.odds .cell.o_2 .oddsValueInner')?.textContent;
-
-		  return {home: parseFloat(odd1), draw:parseFloat(oddx), away: parseFloat(odd2)};
-	  })
 
       if (score) {
         const scoreType = score.split('-').map(Number).reduce((a, b) => a === b ? 'draw' : (a > b ? 'home' : 'away'));
         const result = match.prediction === scoreType ? 'win' : 'lose';
-        console.log(`Yesterday match prediction ${match.prediction}: ${result}(${scoreType})`);
+        console.log(`Yesterday match prediction ${match.teamHome} - ${match.teamAway}: ${result} (${scoreType})`);
         match.score = { fullTime: score, type: scoreType };
         match.result = result;
-		match.odds = odds;
+		match.profit = result === 'win' ? match.odds[scoreType] - 1 : -1;
+		match.date = dateString;
       }
     } catch (error) {
       console.error(`Error checking match ${match.id}:`, error);
     }
   }
+  const dayProfit = {
+	  date: dateString,
+	  win: matchesData.filter(match => match.result === 'win').length,
+	  lose: matchesData.filter(match => match.result === 'lose').length,
+	  total: matchesData.length,
+	  profit: matchesData.reduce((acc, match) => {
+		  return acc + match.profit;
+	  }, 0)
+  }
+
+	console.log(`check yesterday predictions end...`, dayProfit)
+
   // Оновлення файлу з результатами
   fs.writeFileSync(filePath, JSON.stringify(matchesData, null, 2));
-}
-
-async function updateAllPredictions(page) {
-	const resultsDir = path.join(__dirname, 'results');
-	console.log(`resultsDir:`, resultsDir)
-	const files = fs.readdirSync(resultsDir);
-	for (const file of files) {
-		console.log(`check file:`, file)
-		await checkPredictions(page, file);
-	}
+  fs.writeFileSync('./summary/total.json', JSON.stringify([...allMatches, ...matchesData], null, 2));
+  fs.writeFileSync('./summary/profit.json', JSON.stringify(dayProfit, null, 2));
 }
 
 async function scrapeLeagueData(page, leagueUrl) {
@@ -156,7 +153,7 @@ async function scrapeLeagueData(page, leagueUrl) {
 
 			return results;
 		});
-		planScrapingBasedOnMatches(matches);
+		// planScrapingBasedOnMatches(matches);
 		console.log(`Collect matches: `, matches.length);
 
 		const filteredMatches = [];
@@ -173,19 +170,18 @@ async function scrapeLeagueData(page, leagueUrl) {
 			const filteredMatch = await page.evaluate((matchItem) => {
 				const range = 2;
 				const odds1 = document.querySelector('a.oddsCell__odd:nth-child(2) span')?.textContent;
+				const oddsx = document.querySelector('a.oddsCell__odd:nth-child(3) span')?.textContent;
 				const odds2 = document.querySelector('a.oddsCell__odd:nth-child(4) span')?.textContent;
 
 
 				if (parseFloat(odds1) >= range && parseFloat(odds2) >= range) {
 					const country = document.querySelector('.tournamentHeader__country')?.textContent.toLowerCase().split('-')[0];
-					return {...matchItem, country};
+					return {...matchItem, country, odds: {home: parseFloat(odds1), draw: parseFloat(oddsx), away: parseFloat(odds2)}};
 				} else {
 					return null;
 				}
 
 			}, match)
-
-
 
 			if (filteredMatch) {
 				const droppingOdds = await page.evaluate(() => {
@@ -219,28 +215,21 @@ async function scrapeLeagueData(page, leagueUrl) {
 					};
 				});
 
-				const advDropping = (droppingOdds.home + droppingOdds.away + droppingOdds.draw) / 3;
 				let prediction = '';
 
-				if (advDropping < -2) {
-					prediction = 'draw'
-					if (droppingOdds.away < -20) {
-						prediction = 'away';
+				if (droppingOdds.home < 0 && droppingOdds.away > 9) {
+					prediction = 'home';
+					if (droppingOdds.draw <= 0 && droppingOdds.draw >= -5) {
+						prediction = 'draw';
 					}
-					if (droppingOdds.home < -30) {
-						prediction = 'home';
-					}
-				} else if (advDropping > 0 & droppingOdds.home <= 0 && droppingOdds.draw <= 0) {
-					prediction = 'draw';
-				} else if (advDropping > 2 && droppingOdds.draw > 1) {
-					prediction = 'draw';
-				} else if (advDropping >= -2  && advDropping < 0.5 && droppingOdds.home >= -10 && droppingOdds.home <= 10 && droppingOdds.draw <= 0 && droppingOdds.draw >= -4 && droppingOdds.away < -1) {
-					prediction = 'draw';
+				}
+
+				if (droppingOdds.away < 0 && droppingOdds.home > 11 && droppingOdds.draw < -1 && droppingOdds.draw > -8) {
+					prediction = 'away';
 				}
 
 				if (prediction) {
 					filteredMatch.droppingOdds = droppingOdds;
-					filteredMatch.droppingOdds.advDropping = advDropping;
 					filteredMatch.prediction = prediction;
 					console.log(`find match: `, prediction)
 					filteredMatches.push(filteredMatch);
@@ -328,13 +317,9 @@ function saveDataToFile(data) {
 	});
 }
 
-async function sendTelegramMessage(matches=[]) {
+async function sendTelegramMessage(messageText) {
 	const telegramApiUrl = `https://api.telegram.org/bot${token}/sendMessage`;
-	let messageText = `Сегодня матчи:\n`;
-	matches.forEach((match, index) => {
-		messageText += `${index + 1}. 🕐 ${match.date}, ${match.teamHome} - ${match.teamAway}(${match.country}) \n Прогноз: ${match.prediction} \n ${match.url}\n`;
-	});
-	console.log(matches)
+
 	try {
 		await axios.post(telegramApiUrl, {
 			chat_id: chatId,
@@ -353,6 +338,12 @@ function isWeekday() {
 	return dayOfWeek >= 1 && dayOfWeek <= 5;
 }
 
+function createPredictionMessage(matches) {
+	let messageText = `Сегодня матчи:\n`;
+	matches.forEach((match, index) => {
+		messageText += `${index + 1}. 🕐 ${match.date}, ${match.teamHome} - ${match.teamAway} (${match.country}) \n Прогноз: <b>${match.prediction}</b> \n ${match.url}\n`;
+	});
+}
 function scrapeDataBasedOnDay() {
 	const all = isWeekday();
 	console.log(`Today scraping: ${all ? 'all' : 'top'} matches`)
@@ -360,7 +351,8 @@ function scrapeDataBasedOnDay() {
 		.then( data => {
 			saveDataToFile(data);
 			if (data.length > 0) {
-				sendTelegramMessage(data).then(console.log).catch(console.error);
+				const message = createPredictionMessage(data);
+				sendTelegramMessage(message).then(console.log).catch(console.error);
 			}
 		})
 		.catch(console.error);

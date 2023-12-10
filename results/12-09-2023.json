@@ -1,0 +1,182 @@
+[
+  {
+    "id": "QJslmV2q",
+    "date": "14:30",
+    "teamHome": "Sunderland",
+    "teamAway": "West Brom",
+    "url": "https://www.flashscore.com/match/QJslmV2q/",
+    "country": "england: championship ",
+    "droppingOdds": {
+      "home": -6,
+      "draw": 4,
+      "away": 9,
+      "advDropping": 2.3333333333333335
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose"
+  },
+  {
+    "id": "GpdIhiuM",
+    "date": "17:00",
+    "teamHome": "QPR",
+    "teamAway": "Hull",
+    "url": "https://www.flashscore.com/match/GpdIhiuM/",
+    "country": "england: championship ",
+    "droppingOdds": {
+      "home": -8,
+      "draw": 0,
+      "away": 9,
+      "advDropping": 0.3333333333333333
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose"
+  },
+  {
+    "id": "fyeMiBfS",
+    "date": "17:00",
+    "teamHome": "Stoke",
+    "teamAway": "Sheffield Wed",
+    "url": "https://www.flashscore.com/match/fyeMiBfS/",
+    "country": "england: championship ",
+    "droppingOdds": {
+      "home": -3,
+      "draw": 4,
+      "away": 6,
+      "advDropping": 2.3333333333333335
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose"
+  },
+  {
+    "id": "4AthnkIk",
+    "date": "17:00",
+    "teamHome": "Watford",
+    "teamAway": "Southampton",
+    "url": "https://www.flashscore.com/match/4AthnkIk/",
+    "country": "england: championship ",
+    "droppingOdds": {
+      "home": 9,
+      "draw": 6,
+      "away": -8,
+      "advDropping": 2.3333333333333335
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win"
+  },
+  {
+    "id": "j1myZ9hT",
+    "date": "16:30",
+    "teamHome": "Heidenheim",
+    "teamAway": "Darmstadt",
+    "url": "https://www.flashscore.com/match/j1myZ9hT/",
+    "country": "germany: bundesliga ",
+    "droppingOdds": {
+      "home": -3,
+      "draw": -4,
+      "away": 11,
+      "advDropping": 1.3333333333333333
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "3-2",
+      "type": "home"
+    },
+    "result": "lose"
+  },
+  {
+    "id": "S8q8uf9o",
+    "date": "16:30",
+    "teamHome": "Union Berlin",
+    "teamAway": "B. Monchengladbach",
+    "url": "https://www.flashscore.com/match/S8q8uf9o/",
+    "country": "germany: bundesliga ",
+    "droppingOdds": {
+      "home": -5,
+      "draw": -1,
+      "away": 11,
+      "advDropping": 1.6666666666666667
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "3-1",
+      "type": "home"
+    },
+    "result": "lose"
+  },
+  {
+    "id": "8IiGwYwb",
+    "date": "16:30",
+    "teamHome": "Wolfsburg",
+    "teamAway": "Freiburg",
+    "url": "https://www.flashscore.com/match/8IiGwYwb/",
+    "country": "germany: bundesliga ",
+    "droppingOdds": {
+      "home": 8,
+      "draw": -1,
+      "away": -7,
+      "advDropping": 0
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose"
+  },
+  {
+    "id": "jNUrZe3l",
+    "date": "16:00",
+    "teamHome": "Michalovce",
+    "teamAway": "Skalica",
+    "url": "https://www.flashscore.com/match/jNUrZe3l/",
+    "country": "slovakia: nike liga ",
+    "droppingOdds": {
+      "home": -4,
+      "draw": -3,
+      "away": 10,
+      "advDropping": 1
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win"
+  },
+  {
+    "id": "ppUnYFIf",
+    "date": "16:00",
+    "teamHome": "Podbrezova",
+    "teamAway": "Slovan Bratislava",
+    "url": "https://www.flashscore.com/match/ppUnYFIf/",
+    "country": "slovakia: nike liga ",
+    "droppingOdds": {
+      "home": 14,
+      "draw": 4,
+      "away": -9,
+      "advDropping": 3
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-6",
+      "type": "away"
+    },
+    "result": "lose"
+  }
+]

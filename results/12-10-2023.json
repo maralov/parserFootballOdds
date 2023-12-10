@@ -1,0 +1,97 @@
+[
+  {
+    "id": "0xKSMYeJ",
+    "date": "16:00",
+    "teamHome": "Everton",
+    "teamAway": "Chelsea",
+    "url": "https://www.flashscore.com/match/0xKSMYeJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 3,
+      "draw": 3.75,
+      "away": 2.25
+    },
+    "droppingOdds": {
+      "home": -17,
+      "draw": 2,
+      "away": 14
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "lhDAoIYJ",
+    "date": "16:00",
+    "teamHome": "Fulham",
+    "teamAway": "West Ham",
+    "url": "https://www.flashscore.com/match/lhDAoIYJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.38,
+      "draw": 3.5,
+      "away": 2.9
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -1,
+      "away": 13
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "vNikvzRg",
+    "date": "18:30",
+    "teamHome": "Tottenham",
+    "teamAway": "Newcastle",
+    "url": "https://www.flashscore.com/match/vNikvzRg/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.8,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": 1,
+      "away": 20
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "0CIu8Teg",
+    "date": "16:00",
+    "teamHome": "Monza",
+    "teamAway": "Genoa",
+    "url": "https://www.flashscore.com/match/0CIu8Teg/",
+    "country": "italy: serie a ",
+    "odds": {
+      "home": 2.05,
+      "draw": 3.1,
+      "away": 4
+    },
+    "droppingOdds": {
+      "home": -2,
+      "draw": -1,
+      "away": 10
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "n9jKxhg4",
+    "date": "18:30",
+    "teamHome": "FC Koln",
+    "teamAway": "Mainz",
+    "url": "https://www.flashscore.com/match/n9jKxhg4/",
+    "country": "germany: bundesliga ",
+    "odds": {
+      "home": 2.5,
+      "draw": 3.4,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -3,
+      "away": -11
+    },
+    "prediction": "away"
+  }
+]
