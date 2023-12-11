@@ -1,7 +1,7 @@
 [
   {
     "id": "0xKSMYeJ",
-    "date": "16:00",
+    "date": "12-10-2023",
     "teamHome": "Everton",
     "teamAway": "Chelsea",
     "url": "https://www.flashscore.com/match/0xKSMYeJ/",
@@ -16,11 +16,17 @@
       "draw": 2,
       "away": 14
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 2
   },
   {
     "id": "lhDAoIYJ",
-    "date": "16:00",
+    "date": "12-10-2023",
     "teamHome": "Fulham",
     "teamAway": "West Ham",
     "url": "https://www.flashscore.com/match/lhDAoIYJ/",
@@ -35,11 +41,17 @@
       "draw": -1,
       "away": 13
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "5-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "vNikvzRg",
-    "date": "18:30",
+    "date": "12-10-2023",
     "teamHome": "Tottenham",
     "teamAway": "Newcastle",
     "url": "https://www.flashscore.com/match/vNikvzRg/",
@@ -54,11 +66,17 @@
       "draw": 1,
       "away": 20
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "4-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.1
   },
   {
     "id": "0CIu8Teg",
-    "date": "16:00",
+    "date": "12-10-2023",
     "teamHome": "Monza",
     "teamAway": "Genoa",
     "url": "https://www.flashscore.com/match/0CIu8Teg/",
@@ -73,11 +91,17 @@
       "draw": -1,
       "away": 10
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "n9jKxhg4",
-    "date": "18:30",
+    "date": "12-10-2023",
     "teamHome": "FC Koln",
     "teamAway": "Mainz",
     "url": "https://www.flashscore.com/match/n9jKxhg4/",
@@ -92,6 +116,12 @@
       "draw": -3,
       "away": -11
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]

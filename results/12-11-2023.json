@@ -1,0 +1,97 @@
+[
+  {
+    "id": "UT7K6JaJ",
+    "date": "21:45",
+    "teamHome": "Cagliari",
+    "teamAway": "Sassuolo",
+    "url": "https://www.flashscore.com/match/UT7K6JaJ/",
+    "country": "italy: serie a ",
+    "odds": {
+      "home": 2.3,
+      "draw": 3.5,
+      "away": 3
+    },
+    "droppingOdds": {
+      "home": -6,
+      "draw": -1,
+      "away": 11
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "h4WXTl6f",
+    "date": "22:00",
+    "teamHome": "Rayo Vallecano",
+    "teamAway": "Celta Vigo",
+    "url": "https://www.flashscore.com/match/h4WXTl6f/",
+    "country": "spain: laliga ",
+    "odds": {
+      "home": 2.75,
+      "draw": 3.1,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": 18,
+      "draw": -4,
+      "away": -14
+    },
+    "prediction": "away"
+  },
+  {
+    "id": "Ucmx9qqH",
+    "date": "21:00",
+    "teamHome": "Peterborough U21",
+    "teamAway": "Bristol City U21",
+    "url": "https://www.flashscore.com/match/Ucmx9qqH/",
+    "country": "england: premier league cup",
+    "odds": {
+      "home": 2.34,
+      "draw": 3.98,
+      "away": 2.36
+    },
+    "droppingOdds": {
+      "home": -24,
+      "draw": -4,
+      "away": 24
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "lpmCGUoJ",
+    "date": "21:00",
+    "teamHome": "Sheffield Utd U21",
+    "teamAway": "West Brom U21",
+    "url": "https://www.flashscore.com/match/lpmCGUoJ/",
+    "country": "england: premier league cup",
+    "odds": {
+      "home": 2.08,
+      "draw": 3.92,
+      "away": 2.81
+    },
+    "droppingOdds": {
+      "home": -16,
+      "draw": -2,
+      "away": 22
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "bkumHi8q",
+    "date": "20:45",
+    "teamHome": "Din. Bucuresti",
+    "teamAway": "U. Cluj",
+    "url": "https://www.flashscore.com/match/bkumHi8q/",
+    "country": "romania: liga 1 ",
+    "odds": {
+      "home": 3.4,
+      "draw": 3.1,
+      "away": 2.2
+    },
+    "droppingOdds": {
+      "home": 17,
+      "draw": -2,
+      "away": -8
+    },
+    "prediction": "away"
+  }
+]

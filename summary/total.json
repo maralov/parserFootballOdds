@@ -1,1 +1,752 @@
-[]
+[
+  {
+    "id": "0xKSMYeJ",
+    "date": "12-10-2023",
+    "teamHome": "Everton",
+    "teamAway": "Chelsea",
+    "url": "https://www.flashscore.com/match/0xKSMYeJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 3,
+      "draw": 3.75,
+      "away": 2.25
+    },
+    "droppingOdds": {
+      "home": -17,
+      "draw": 2,
+      "away": 14
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 2
+  },
+  {
+    "id": "lhDAoIYJ",
+    "date": "12-10-2023",
+    "teamHome": "Fulham",
+    "teamAway": "West Ham",
+    "url": "https://www.flashscore.com/match/lhDAoIYJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.38,
+      "draw": 3.5,
+      "away": 2.9
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -1,
+      "away": 13
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "5-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "vNikvzRg",
+    "date": "12-10-2023",
+    "teamHome": "Tottenham",
+    "teamAway": "Newcastle",
+    "url": "https://www.flashscore.com/match/vNikvzRg/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.8,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": 1,
+      "away": 20
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "4-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.1
+  },
+  {
+    "id": "0CIu8Teg",
+    "date": "12-10-2023",
+    "teamHome": "Monza",
+    "teamAway": "Genoa",
+    "url": "https://www.flashscore.com/match/0CIu8Teg/",
+    "country": "italy: serie a ",
+    "odds": {
+      "home": 2.05,
+      "draw": 3.1,
+      "away": 4
+    },
+    "droppingOdds": {
+      "home": -2,
+      "draw": -1,
+      "away": 10
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "n9jKxhg4",
+    "date": "12-10-2023",
+    "teamHome": "FC Koln",
+    "teamAway": "Mainz",
+    "url": "https://www.flashscore.com/match/n9jKxhg4/",
+    "country": "germany: bundesliga ",
+    "odds": {
+      "home": 2.5,
+      "draw": 3.4,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -3,
+      "away": -11
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "0xKSMYeJ",
+    "date": "12-10-2023",
+    "teamHome": "Everton",
+    "teamAway": "Chelsea",
+    "url": "https://www.flashscore.com/match/0xKSMYeJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 3,
+      "draw": 3.75,
+      "away": 2.25
+    },
+    "droppingOdds": {
+      "home": -17,
+      "draw": 2,
+      "away": 14
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 2
+  },
+  {
+    "id": "lhDAoIYJ",
+    "date": "12-10-2023",
+    "teamHome": "Fulham",
+    "teamAway": "West Ham",
+    "url": "https://www.flashscore.com/match/lhDAoIYJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.38,
+      "draw": 3.5,
+      "away": 2.9
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -1,
+      "away": 13
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "5-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "vNikvzRg",
+    "date": "12-10-2023",
+    "teamHome": "Tottenham",
+    "teamAway": "Newcastle",
+    "url": "https://www.flashscore.com/match/vNikvzRg/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.8,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": 1,
+      "away": 20
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "4-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.1
+  },
+  {
+    "id": "0CIu8Teg",
+    "date": "12-10-2023",
+    "teamHome": "Monza",
+    "teamAway": "Genoa",
+    "url": "https://www.flashscore.com/match/0CIu8Teg/",
+    "country": "italy: serie a ",
+    "odds": {
+      "home": 2.05,
+      "draw": 3.1,
+      "away": 4
+    },
+    "droppingOdds": {
+      "home": -2,
+      "draw": -1,
+      "away": 10
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "n9jKxhg4",
+    "date": "12-10-2023",
+    "teamHome": "FC Koln",
+    "teamAway": "Mainz",
+    "url": "https://www.flashscore.com/match/n9jKxhg4/",
+    "country": "germany: bundesliga ",
+    "odds": {
+      "home": 2.5,
+      "draw": 3.4,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -3,
+      "away": -11
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "0xKSMYeJ",
+    "date": "12-10-2023",
+    "teamHome": "Everton",
+    "teamAway": "Chelsea",
+    "url": "https://www.flashscore.com/match/0xKSMYeJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 3,
+      "draw": 3.75,
+      "away": 2.25
+    },
+    "droppingOdds": {
+      "home": -17,
+      "draw": 2,
+      "away": 14
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 2
+  },
+  {
+    "id": "lhDAoIYJ",
+    "date": "12-10-2023",
+    "teamHome": "Fulham",
+    "teamAway": "West Ham",
+    "url": "https://www.flashscore.com/match/lhDAoIYJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.38,
+      "draw": 3.5,
+      "away": 2.9
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -1,
+      "away": 13
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "5-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "vNikvzRg",
+    "date": "12-10-2023",
+    "teamHome": "Tottenham",
+    "teamAway": "Newcastle",
+    "url": "https://www.flashscore.com/match/vNikvzRg/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.8,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": 1,
+      "away": 20
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "4-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.1
+  },
+  {
+    "id": "0CIu8Teg",
+    "date": "12-10-2023",
+    "teamHome": "Monza",
+    "teamAway": "Genoa",
+    "url": "https://www.flashscore.com/match/0CIu8Teg/",
+    "country": "italy: serie a ",
+    "odds": {
+      "home": 2.05,
+      "draw": 3.1,
+      "away": 4
+    },
+    "droppingOdds": {
+      "home": -2,
+      "draw": -1,
+      "away": 10
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "n9jKxhg4",
+    "date": "12-10-2023",
+    "teamHome": "FC Koln",
+    "teamAway": "Mainz",
+    "url": "https://www.flashscore.com/match/n9jKxhg4/",
+    "country": "germany: bundesliga ",
+    "odds": {
+      "home": 2.5,
+      "draw": 3.4,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -3,
+      "away": -11
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "0xKSMYeJ",
+    "date": "12-10-2023",
+    "teamHome": "Everton",
+    "teamAway": "Chelsea",
+    "url": "https://www.flashscore.com/match/0xKSMYeJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 3,
+      "draw": 3.75,
+      "away": 2.25
+    },
+    "droppingOdds": {
+      "home": -17,
+      "draw": 2,
+      "away": 14
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 2
+  },
+  {
+    "id": "lhDAoIYJ",
+    "date": "12-10-2023",
+    "teamHome": "Fulham",
+    "teamAway": "West Ham",
+    "url": "https://www.flashscore.com/match/lhDAoIYJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.38,
+      "draw": 3.5,
+      "away": 2.9
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -1,
+      "away": 13
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "5-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "vNikvzRg",
+    "date": "12-10-2023",
+    "teamHome": "Tottenham",
+    "teamAway": "Newcastle",
+    "url": "https://www.flashscore.com/match/vNikvzRg/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.8,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": 1,
+      "away": 20
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "4-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.1
+  },
+  {
+    "id": "0CIu8Teg",
+    "date": "12-10-2023",
+    "teamHome": "Monza",
+    "teamAway": "Genoa",
+    "url": "https://www.flashscore.com/match/0CIu8Teg/",
+    "country": "italy: serie a ",
+    "odds": {
+      "home": 2.05,
+      "draw": 3.1,
+      "away": 4
+    },
+    "droppingOdds": {
+      "home": -2,
+      "draw": -1,
+      "away": 10
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "n9jKxhg4",
+    "date": "12-10-2023",
+    "teamHome": "FC Koln",
+    "teamAway": "Mainz",
+    "url": "https://www.flashscore.com/match/n9jKxhg4/",
+    "country": "germany: bundesliga ",
+    "odds": {
+      "home": 2.5,
+      "draw": 3.4,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -3,
+      "away": -11
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "0xKSMYeJ",
+    "date": "12-10-2023",
+    "teamHome": "Everton",
+    "teamAway": "Chelsea",
+    "url": "https://www.flashscore.com/match/0xKSMYeJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 3,
+      "draw": 3.75,
+      "away": 2.25
+    },
+    "droppingOdds": {
+      "home": -17,
+      "draw": 2,
+      "away": 14
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 2
+  },
+  {
+    "id": "lhDAoIYJ",
+    "date": "12-10-2023",
+    "teamHome": "Fulham",
+    "teamAway": "West Ham",
+    "url": "https://www.flashscore.com/match/lhDAoIYJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.38,
+      "draw": 3.5,
+      "away": 2.9
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -1,
+      "away": 13
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "5-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "vNikvzRg",
+    "date": "12-10-2023",
+    "teamHome": "Tottenham",
+    "teamAway": "Newcastle",
+    "url": "https://www.flashscore.com/match/vNikvzRg/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.8,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": 1,
+      "away": 20
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "4-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.1
+  },
+  {
+    "id": "0CIu8Teg",
+    "date": "12-10-2023",
+    "teamHome": "Monza",
+    "teamAway": "Genoa",
+    "url": "https://www.flashscore.com/match/0CIu8Teg/",
+    "country": "italy: serie a ",
+    "odds": {
+      "home": 2.05,
+      "draw": 3.1,
+      "away": 4
+    },
+    "droppingOdds": {
+      "home": -2,
+      "draw": -1,
+      "away": 10
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "n9jKxhg4",
+    "date": "12-10-2023",
+    "teamHome": "FC Koln",
+    "teamAway": "Mainz",
+    "url": "https://www.flashscore.com/match/n9jKxhg4/",
+    "country": "germany: bundesliga ",
+    "odds": {
+      "home": 2.5,
+      "draw": 3.4,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -3,
+      "away": -11
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "0xKSMYeJ",
+    "date": "12-10-2023",
+    "teamHome": "Everton",
+    "teamAway": "Chelsea",
+    "url": "https://www.flashscore.com/match/0xKSMYeJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 3,
+      "draw": 3.75,
+      "away": 2.25
+    },
+    "droppingOdds": {
+      "home": -17,
+      "draw": 2,
+      "away": 14
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 2
+  },
+  {
+    "id": "lhDAoIYJ",
+    "date": "12-10-2023",
+    "teamHome": "Fulham",
+    "teamAway": "West Ham",
+    "url": "https://www.flashscore.com/match/lhDAoIYJ/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.38,
+      "draw": 3.5,
+      "away": 2.9
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -1,
+      "away": 13
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "5-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "vNikvzRg",
+    "date": "12-10-2023",
+    "teamHome": "Tottenham",
+    "teamAway": "Newcastle",
+    "url": "https://www.flashscore.com/match/vNikvzRg/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.8,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": 1,
+      "away": 20
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "4-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.1
+  },
+  {
+    "id": "0CIu8Teg",
+    "date": "12-10-2023",
+    "teamHome": "Monza",
+    "teamAway": "Genoa",
+    "url": "https://www.flashscore.com/match/0CIu8Teg/",
+    "country": "italy: serie a ",
+    "odds": {
+      "home": 2.05,
+      "draw": 3.1,
+      "away": 4
+    },
+    "droppingOdds": {
+      "home": -2,
+      "draw": -1,
+      "away": 10
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "n9jKxhg4",
+    "date": "12-10-2023",
+    "teamHome": "FC Koln",
+    "teamAway": "Mainz",
+    "url": "https://www.flashscore.com/match/n9jKxhg4/",
+    "country": "germany: bundesliga ",
+    "odds": {
+      "home": 2.5,
+      "draw": 3.4,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -3,
+      "away": -11
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  }
+]
