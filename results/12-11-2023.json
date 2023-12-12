@@ -1,7 +1,7 @@
 [
   {
     "id": "UT7K6JaJ",
-    "date": "21:45",
+    "date": "12-11-2023",
     "teamHome": "Cagliari",
     "teamAway": "Sassuolo",
     "url": "https://www.flashscore.com/match/UT7K6JaJ/",
@@ -16,11 +16,17 @@
       "draw": -1,
       "away": 11
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "h4WXTl6f",
-    "date": "22:00",
+    "date": "12-11-2023",
     "teamHome": "Rayo Vallecano",
     "teamAway": "Celta Vigo",
     "url": "https://www.flashscore.com/match/h4WXTl6f/",
@@ -35,7 +41,13 @@
       "draw": -4,
       "away": -14
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "Ucmx9qqH",
@@ -58,7 +70,7 @@
   },
   {
     "id": "lpmCGUoJ",
-    "date": "21:00",
+    "date": "12-11-2023",
     "teamHome": "Sheffield Utd U21",
     "teamAway": "West Brom U21",
     "url": "https://www.flashscore.com/match/lpmCGUoJ/",
@@ -73,11 +85,17 @@
       "draw": -2,
       "away": 22
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "5-2",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "bkumHi8q",
-    "date": "20:45",
+    "date": "12-11-2023",
     "teamHome": "Din. Bucuresti",
     "teamAway": "U. Cluj",
     "url": "https://www.flashscore.com/match/bkumHi8q/",
@@ -92,6 +110,12 @@
       "draw": -2,
       "away": -8
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.2000000000000002
   }
 ]
