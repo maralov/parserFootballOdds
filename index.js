@@ -227,7 +227,57 @@ async function scrapeLeagueData(page, leagueUrl) {
             away: averageChange(oddsChanges.map((change) => change.awayChange)),
           };
         });
+        console.log(`droppingOdds:`, droppingOdds);
+        // Парсинг даних про ранг
+        console.log(`Парсинг даних про ранг`);
 
+        await page.goto(`${match.url}#/standings/table/overall`, { waitUntil: 'networkidle2', timeout: 60000 });
+        selectedMatch.standings = await page.evaluate(
+          (teamHome, teamAway) => {
+            try {
+              const tableRows = document.querySelectorAll('.ui-table__body .table__row--selected');
+              const standing = {};
+
+              tableRows.forEach((row) => {
+                const teamName = row.querySelector('.tableCellParticipant__name').textContent.trim();
+                if (teamName === teamHome || teamName === teamAway) {
+                  const rank = parseInt(row.querySelector('.tableCellRank').textContent.replace('.', ''), 10);
+                  const points = parseInt(row.querySelector('.table__cell--points').textContent, 10);
+                  const goals = parseInt(row.querySelector('.table__cell--score').textContent, 10);
+                  const goalDifference = parseInt(
+                    row.querySelector('.table__cell--goalsForAgainstDiff').textContent,
+                    10
+                  );
+                  const form = Array.from(row.querySelectorAll('.table__cell--form .tableCellFormIcon'))
+                    .slice(1) // Пропускаем первый элемент, если он не содержит информацию о прошедших играх
+                    .map((icon) => {
+                      const title = icon.getAttribute('title');
+                      const regex = /\[b\](\d+:\d+)&nbsp;\[\/b\]\((.*?) - (.*?)\)\n(\d{2}.\d{2}.\d{4})/;
+                      const match = regex.exec(title);
+                      if (match) {
+                        const score = match[1];
+                        const date = match[4];
+                        const res = icon.querySelector('.formIcon').textContent; // W, D, L
+                        return { score, res, date };
+                      }
+                      return null;
+                    })
+                    .filter((match) => match !== null);
+
+                  const selected = teamName === teamHome ? 'home' : 'away';
+                  standing[selected] = { rank, points, goals, goalDifference, form };
+                }
+              });
+              return standing;
+            } catch (e) {
+              console.error(e);
+              return {};
+            }
+          },
+          match.teamHome,
+          match.teamAway
+        );
+        //
         // прогноз
         let prediction = '';
 
@@ -240,7 +290,6 @@ async function scrapeLeagueData(page, leagueUrl) {
         if (droppingOdds.away < 0 && droppingOdds.home > 11 && droppingOdds.draw < -1 && droppingOdds.draw > -8) {
           prediction = 'away';
         }
-
         if (prediction) {
           selectedMatch.droppingOdds = droppingOdds;
           selectedMatch.prediction = prediction;
