@@ -1,7 +1,7 @@
 [
   {
     "id": "tt95BsVj",
-    "date": "19:45",
+    "date": "12-12-2023",
     "teamHome": "PSV",
     "teamAway": "Arsenal",
     "url": "https://www.flashscore.com/match/tt95BsVj/",
@@ -16,11 +16,17 @@
       "draw": -1,
       "away": 23
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.5
   },
   {
     "id": "65sIhfKl",
-    "date": "11:30",
+    "date": "12-12-2023",
     "teamHome": "Buriram (Tha)",
     "teamAway": "Kofu (Jpn)",
     "url": "https://www.flashscore.com/match/65sIhfKl/",
@@ -35,11 +41,17 @@
       "draw": -2,
       "away": -15
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-3",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.7000000000000002
   },
   {
     "id": "0EJWwZc6",
-    "date": "18:00",
+    "date": "12-12-2023",
     "teamHome": "Al Zawraa (Irq)",
     "teamAway": "Al Riffa (Bhr)",
     "url": "https://www.flashscore.com/match/0EJWwZc6/",
@@ -54,11 +66,17 @@
       "draw": 0,
       "away": 10
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "rcgv5j5H",
-    "date": "19:00",
+    "date": "12-12-2023",
     "teamHome": "Hap. Ramat Gan",
     "teamAway": "H. Ironi Rishon",
     "url": "https://www.flashscore.com/match/rcgv5j5H/",
@@ -73,11 +91,17 @@
       "draw": -5,
       "away": -17
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "zoV4LBkb",
-    "date": "19:00",
+    "date": "12-12-2023",
     "teamHome": "MS Kafr Qasim",
     "teamAway": "Hapoel Umm al-Fahm",
     "url": "https://www.flashscore.com/match/zoV4LBkb/",
@@ -92,11 +116,17 @@
       "draw": 4,
       "away": 11
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.2599999999999998
   },
   {
     "id": "AZcNT9Nu",
-    "date": "21:45",
+    "date": "12-12-2023",
     "teamHome": "Morton",
     "teamAway": "Inverness",
     "url": "https://www.flashscore.com/match/AZcNT9Nu/",
@@ -111,11 +141,17 @@
       "draw": -6,
       "away": -14
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "COaoCEL1",
-    "date": "22:00",
+    "date": "12-12-2023",
     "teamHome": "Union Berlin",
     "teamAway": "Real Madrid",
     "url": "https://www.flashscore.com/match/COaoCEL1/",
@@ -130,11 +166,17 @@
       "draw": -8,
       "away": 18
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "hWMn8Wv9",
-    "date": "22:00",
+    "date": "12-12-2023",
     "teamHome": "Sunderland",
     "teamAway": "Leeds",
     "url": "https://www.flashscore.com/match/hWMn8Wv9/",
@@ -149,11 +191,17 @@
       "draw": -1,
       "away": 15
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "t8c4cEj4",
-    "date": "19:15",
+    "date": "12-12-2023",
     "teamHome": "H. Raanana",
     "teamAway": "MS Tira",
     "url": "https://www.flashscore.com/match/t8c4cEj4/",
@@ -168,11 +216,17 @@
       "draw": -4,
       "away": -21
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "KOT58Ff0",
-    "date": "19:00",
+    "date": "12-12-2023",
     "teamHome": "Pontedera",
     "teamAway": "Padova",
     "url": "https://www.flashscore.com/match/KOT58Ff0/",
@@ -187,11 +241,17 @@
       "draw": -4,
       "away": -6
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.7000000000000002
   },
   {
     "id": "YyT6nxNP",
-    "date": "17:20",
+    "date": "12-12-2023",
     "teamHome": "Ohod",
     "teamAway": "Al Arabi",
     "url": "https://www.flashscore.com/match/YyT6nxNP/",
@@ -206,6 +266,12 @@
       "draw": -6,
       "away": 11
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.7999999999999998
   }
 ]

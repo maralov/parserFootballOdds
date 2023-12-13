@@ -848,5 +848,280 @@
     },
     "result": "win",
     "profit": 1.2000000000000002
+  },
+  {
+    "id": "tt95BsVj",
+    "date": "12-12-2023",
+    "teamHome": "PSV",
+    "teamAway": "Arsenal",
+    "url": "https://www.flashscore.com/match/tt95BsVj/",
+    "country": "europe: champions league ",
+    "odds": {
+      "home": 2.7,
+      "draw": 3.5,
+      "away": 2.5
+    },
+    "droppingOdds": {
+      "home": -21,
+      "draw": -1,
+      "away": 23
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.5
+  },
+  {
+    "id": "65sIhfKl",
+    "date": "12-12-2023",
+    "teamHome": "Buriram (Tha)",
+    "teamAway": "Kofu (Jpn)",
+    "url": "https://www.flashscore.com/match/65sIhfKl/",
+    "country": "asia: afc champions league ",
+    "odds": {
+      "home": 2.16,
+      "draw": 3.75,
+      "away": 2.7
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -2,
+      "away": -15
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-3",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.7000000000000002
+  },
+  {
+    "id": "0EJWwZc6",
+    "date": "12-12-2023",
+    "teamHome": "Al Zawraa (Irq)",
+    "teamAway": "Al Riffa (Bhr)",
+    "url": "https://www.flashscore.com/match/0EJWwZc6/",
+    "country": "asia: afc cup ",
+    "odds": {
+      "home": 2.2,
+      "draw": 3.35,
+      "away": 2.85
+    },
+    "droppingOdds": {
+      "home": -7,
+      "draw": 0,
+      "away": 10
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "rcgv5j5H",
+    "date": "12-12-2023",
+    "teamHome": "Hap. Ramat Gan",
+    "teamAway": "H. Ironi Rishon",
+    "url": "https://www.flashscore.com/match/rcgv5j5H/",
+    "country": "israel: leumit league ",
+    "odds": {
+      "home": 2.11,
+      "draw": 3.18,
+      "away": 3.29
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -5,
+      "away": -17
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "zoV4LBkb",
+    "date": "12-12-2023",
+    "teamHome": "MS Kafr Qasim",
+    "teamAway": "Hapoel Umm al-Fahm",
+    "url": "https://www.flashscore.com/match/zoV4LBkb/",
+    "country": "israel: leumit league ",
+    "odds": {
+      "home": 2.26,
+      "draw": 3.08,
+      "away": 3.07
+    },
+    "droppingOdds": {
+      "home": -14,
+      "draw": 4,
+      "away": 11
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.2599999999999998
+  },
+  {
+    "id": "AZcNT9Nu",
+    "date": "12-12-2023",
+    "teamHome": "Morton",
+    "teamAway": "Inverness",
+    "url": "https://www.flashscore.com/match/AZcNT9Nu/",
+    "country": "scotland: championship ",
+    "odds": {
+      "home": 2.7,
+      "draw": 3.1,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": 23,
+      "draw": -6,
+      "away": -14
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "COaoCEL1",
+    "date": "12-12-2023",
+    "teamHome": "Union Berlin",
+    "teamAway": "Real Madrid",
+    "url": "https://www.flashscore.com/match/COaoCEL1/",
+    "country": "europe: champions league ",
+    "odds": {
+      "home": 3.3,
+      "draw": 3.6,
+      "away": 2.1
+    },
+    "droppingOdds": {
+      "home": -19,
+      "draw": -8,
+      "away": 18
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "hWMn8Wv9",
+    "date": "12-12-2023",
+    "teamHome": "Sunderland",
+    "teamAway": "Leeds",
+    "url": "https://www.flashscore.com/match/hWMn8Wv9/",
+    "country": "england: championship ",
+    "odds": {
+      "home": 2.88,
+      "draw": 3.5,
+      "away": 2.4
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": -1,
+      "away": 15
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "t8c4cEj4",
+    "date": "12-12-2023",
+    "teamHome": "H. Raanana",
+    "teamAway": "MS Tira",
+    "url": "https://www.flashscore.com/match/t8c4cEj4/",
+    "country": "israel: state cup ",
+    "odds": {
+      "home": 2.04,
+      "draw": 3.5,
+      "away": 3.26
+    },
+    "droppingOdds": {
+      "home": 20,
+      "draw": -4,
+      "away": -21
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "KOT58Ff0",
+    "date": "12-12-2023",
+    "teamHome": "Pontedera",
+    "teamAway": "Padova",
+    "url": "https://www.flashscore.com/match/KOT58Ff0/",
+    "country": "italy: coppa italia serie c ",
+    "odds": {
+      "home": 2.5,
+      "draw": 2.85,
+      "away": 2.7
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -4,
+      "away": -6
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.7000000000000002
+  },
+  {
+    "id": "YyT6nxNP",
+    "date": "12-12-2023",
+    "teamHome": "Ohod",
+    "teamAway": "Al Arabi",
+    "url": "https://www.flashscore.com/match/YyT6nxNP/",
+    "country": "saudi arabia: division 1 ",
+    "odds": {
+      "home": 2.8,
+      "draw": 3.05,
+      "away": 2.5
+    },
+    "droppingOdds": {
+      "home": -4,
+      "draw": -6,
+      "away": 11
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.7999999999999998
   }
 ]

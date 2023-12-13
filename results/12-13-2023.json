@@ -1,0 +1,40 @@
+[
+  {
+    "id": "trtLOYUI",
+    "date": "16:30",
+    "teamHome": "Al Adalah",
+    "teamAway": "Hajer",
+    "url": "https://www.flashscore.com/match/trtLOYUI/",
+    "country": "saudi arabia: division 1 ",
+    "odds": {
+      "home": 2,
+      "draw": 3.25,
+      "away": 3.35
+    },
+    "droppingOdds": {
+      "home": 21,
+      "draw": -9,
+      "away": -27
+    },
+    "prediction": "away"
+  },
+  {
+    "id": "OMZwufFa",
+    "date": "17:20",
+    "teamHome": "Jeddah",
+    "teamAway": "Al Safa",
+    "url": "https://www.flashscore.com/match/OMZwufFa/",
+    "country": "saudi arabia: division 1 ",
+    "odds": {
+      "home": 2.2,
+      "draw": 2.95,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": 30,
+      "draw": -11,
+      "away": -30
+    },
+    "prediction": "away"
+  }
+]
