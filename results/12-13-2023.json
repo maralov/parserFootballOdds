@@ -1,7 +1,107 @@
 [
   {
+    "id": "EqWyntO6",
+    "date": "12-13-2023",
+    "teamHome": "QPR",
+    "teamAway": "Plymouth",
+    "url": "https://www.flashscore.com/match/EqWyntO6/",
+    "country": "england: championship ",
+    "odds": {
+      "home": 2,
+      "draw": 3.75,
+      "away": 3.6
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": 5,
+      "away": 16
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "OQFYfcH3",
+    "date": "12-13-2023",
+    "teamHome": "Dortmund U19",
+    "teamAway": "PSG U19",
+    "url": "https://www.flashscore.com/match/OQFYfcH3/",
+    "country": "europe: uefa youth league ",
+    "odds": {
+      "home": 2,
+      "draw": 3.3,
+      "away": 3.25
+    },
+    "droppingOdds": {
+      "home": -12,
+      "draw": 2,
+      "away": 18
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1
+  },
+  {
+    "id": "YZTSSjjM",
+    "date": "12-13-2023",
+    "teamHome": "Bidco United",
+    "teamAway": "Tusker",
+    "url": "https://www.flashscore.com/match/YZTSSjjM/",
+    "country": "kenya: premier league ",
+    "odds": {
+      "home": 2.61,
+      "draw": 2.78,
+      "away": 2.79
+    },
+    "droppingOdds": {
+      "home": -3,
+      "draw": -10,
+      "away": 16
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "2TfK7kfm",
+    "date": "12-13-2023",
+    "teamHome": "Nadur",
+    "teamAway": "St. Andrews",
+    "url": "https://www.flashscore.com/match/2TfK7kfm/",
+    "country": "malta: fa trophy ",
+    "odds": {
+      "home": 2.63,
+      "draw": 3.36,
+      "away": 2.36
+    },
+    "droppingOdds": {
+      "home": -18,
+      "draw": -3,
+      "away": 16
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
     "id": "trtLOYUI",
-    "date": "16:30",
+    "date": "12-13-2023",
     "teamHome": "Al Adalah",
     "teamAway": "Hajer",
     "url": "https://www.flashscore.com/match/trtLOYUI/",
@@ -16,11 +116,17 @@
       "draw": -9,
       "away": -27
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "OMZwufFa",
-    "date": "17:20",
+    "date": "12-13-2023",
     "teamHome": "Jeddah",
     "teamAway": "Al Safa",
     "url": "https://www.flashscore.com/match/OMZwufFa/",
@@ -35,6 +141,37 @@
       "draw": -11,
       "away": -30
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "nXvLkOOs",
+    "date": "12-13-2023",
+    "teamHome": "Coventry",
+    "teamAway": "Southampton",
+    "url": "https://www.flashscore.com/match/nXvLkOOs/",
+    "country": "england: championship ",
+    "odds": {
+      "home": 2.4,
+      "draw": 3.5,
+      "away": 2.88
+    },
+    "droppingOdds": {
+      "home": -11,
+      "draw": 3,
+      "away": 13
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]
