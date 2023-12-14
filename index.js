@@ -281,10 +281,14 @@ async function scrapeLeagueData(page, leagueUrl) {
         // прогноз
         let prediction = '';
 
-        if (droppingOdds.home < 0 && droppingOdds.away > 9 && droppingOdds.draw < 4 && droppingOdds.draw > -4) {
+        if (
+          (droppingOdds.home < 0 && droppingOdds.away > 9 && droppingOdds.draw < 4 && droppingOdds.draw > -5) ||
+          droppingOdds.home < -30
+        ) {
           prediction = 'home';
         }
-        if (droppingOdds.away < 0 && droppingOdds.home > 11 && droppingOdds.draw < -1 && droppingOdds.draw > -8) {
+
+        if (droppingOdds.away < 0 && droppingOdds.home > 11 && droppingOdds.draw < -1 && droppingOdds.draw > -12) {
           prediction = 'draw';
         }
         if (prediction) {
