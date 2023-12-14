@@ -1,0 +1,154 @@
+[
+  {
+    "id": "Qg0WPm3q",
+    "date": "19:45",
+    "teamHome": "LASK",
+    "teamAway": "Toulouse",
+    "url": "https://www.flashscore.com/match/Qg0WPm3q/",
+    "country": "europe: europa league ",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.5,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": -10,
+      "draw": 0,
+      "away": 17
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "f1r9FL1c",
+    "date": "19:45",
+    "teamHome": "Royale Union SG",
+    "teamAway": "Liverpool",
+    "url": "https://www.flashscore.com/match/f1r9FL1c/",
+    "country": "europe: europa league ",
+    "odds": {
+      "home": 2.2,
+      "draw": 3.8,
+      "away": 3
+    },
+    "droppingOdds": {
+      "home": -42,
+      "draw": -9,
+      "away": 66
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "IP66LWtn",
+    "date": "16:00",
+    "teamHome": "Ravshan (Taj)",
+    "teamAway": "Altyn Asyr (Tkm)",
+    "url": "https://www.flashscore.com/match/IP66LWtn/",
+    "country": "asia: afc cup ",
+    "odds": {
+      "home": 2.8,
+      "draw": 3.13,
+      "away": 2.53
+    },
+    "droppingOdds": {
+      "home": 26,
+      "draw": -3,
+      "away": -21
+    },
+    "prediction": "away"
+  },
+  {
+    "id": "Mu6j7Rka",
+    "date": "16:00",
+    "teamHome": "Future FC",
+    "teamAway": "Ceramica Cleopatra",
+    "url": "https://www.flashscore.com/match/Mu6j7Rka/",
+    "country": "egypt: premier league ",
+    "odds": {
+      "home": 2.65,
+      "draw": 2.75,
+      "away": 2.8
+    },
+    "droppingOdds": {
+      "home": -16,
+      "draw": -4,
+      "away": 20
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "KUnQ8wLo",
+    "date": "19:45",
+    "teamHome": "Paris FC W",
+    "teamAway": "Real Madrid W",
+    "url": "https://www.flashscore.com/match/KUnQ8wLo/",
+    "country": "europe: champions league women ",
+    "odds": {
+      "home": 2.2,
+      "draw": 3.6,
+      "away": 2.7
+    },
+    "droppingOdds": {
+      "home": -24,
+      "draw": 3,
+      "away": 27
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "x0UC0JiD",
+    "date": "16:00",
+    "teamHome": "Shams Azar Qazvin",
+    "teamAway": "Nassaji Mazandaran",
+    "url": "https://www.flashscore.com/match/x0UC0JiD/",
+    "country": "iran: persian gulf pro league ",
+    "odds": {
+      "home": 2.15,
+      "draw": 3.04,
+      "away": 3.36
+    },
+    "droppingOdds": {
+      "home": 19,
+      "draw": -6,
+      "away": -23
+    },
+    "prediction": "away"
+  },
+  {
+    "id": "KYdWKJ8t",
+    "date": "15:00",
+    "teamHome": "Maan",
+    "teamAway": "Aqaba",
+    "url": "https://www.flashscore.com/match/KYdWKJ8t/",
+    "country": "jordan: premier league ",
+    "odds": {
+      "home": 2.28,
+      "draw": 2.85,
+      "away": 2.9
+    },
+    "droppingOdds": {
+      "home": -15,
+      "draw": 1,
+      "away": 20
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "O0WQFLdf",
+    "date": "17:00",
+    "teamHome": "Al Akhdoud",
+    "teamAway": "Al Taee",
+    "url": "https://www.flashscore.com/match/O0WQFLdf/",
+    "country": "saudi arabia: saudi professional league ",
+    "odds": {
+      "home": 2.38,
+      "draw": 3.2,
+      "away": 2.8
+    },
+    "droppingOdds": {
+      "home": 27,
+      "draw": -8,
+      "away": -22
+    },
+    "prediction": "away"
+  }
+]
