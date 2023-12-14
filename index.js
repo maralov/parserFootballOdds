@@ -101,11 +101,11 @@ async function checkPredictions(page, path = '') {
     }, 0),
   };
 
-  summProfit.forEach((profit, index) => {
-    if (profit.date !== dateString) {
-      summProfit.push(dayProfit);
-    }
-  });
+  const isExistProfit = summProfit.find((profit) => profit.date === dateString);
+
+  if (!isExistProfit) {
+    summProfit.push(dayProfit);
+  }
 
   console.log(`check yesterday predictions end...`, dayProfit);
 
@@ -230,18 +230,16 @@ async function scrapeLeagueData(page, leagueUrl) {
 
         // прогноз
         let prediction = '';
-        if (
-          droppingOdds.home >= -12 &&
-          droppingOdds.home < 0 &&
-          droppingOdds.away > 12 &&
-          droppingOdds.draw < 1 &&
-          droppingOdds.draw > -6
-        ) {
+
+        if (droppingOdds.home < 0 && droppingOdds.away > 12) {
           prediction = 'home';
+          if (droppingOdds.draw < 1 && droppingOdds.draw > -6) {
+            prediction = 'home';
+          }
         }
         if (
-          droppingOdds.draw <= -3 &&
-          droppingOdds.draw > -5 &&
+          droppingOdds.draw < -4 &&
+          droppingOdds.draw > -3 &&
           droppingOdds.home < 18 &&
           droppingOdds.home > 0 &&
           droppingOdds.away < -11
