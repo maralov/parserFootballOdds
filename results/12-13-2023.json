@@ -1,7 +1,7 @@
 [
   {
     "id": "trtLOYUI",
-    "date": "16:30",
+    "date": "12-13-2023",
     "teamHome": "Al Adalah",
     "teamAway": "Hajer",
     "url": "https://www.flashscore.com/match/trtLOYUI/",
@@ -16,11 +16,17 @@
       "draw": -9,
       "away": -27
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "OMZwufFa",
-    "date": "17:20",
+    "date": "12-13-2023",
     "teamHome": "Jeddah",
     "teamAway": "Al Safa",
     "url": "https://www.flashscore.com/match/OMZwufFa/",
@@ -35,6 +41,12 @@
       "draw": -11,
       "away": -30
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]
