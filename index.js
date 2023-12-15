@@ -97,7 +97,7 @@ async function checkPredictions(page, path = '') {
     lose: filteredMatchesData.filter((match) => match.result === 'lose').length,
     total: filteredMatchesData.length,
     profit: filteredMatchesData.reduce((acc, match) => {
-      return acc + match.profit.toFixed(2);
+      return acc + match.profit;
     }, 0),
   };
 
@@ -282,7 +282,7 @@ async function scrapeLeagueData(page, leagueUrl) {
         let prediction = '';
 
         if (
-          (droppingOdds.home < 0 && droppingOdds.away > 9 && droppingOdds.draw < 4 && droppingOdds.draw > -5) ||
+          (droppingOdds.home < 0 && droppingOdds.away > 9 && droppingOdds.draw < 2 && droppingOdds.draw > -5) ||
           droppingOdds.home < -30
         ) {
           prediction = 'home';
