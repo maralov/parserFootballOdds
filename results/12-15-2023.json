@@ -259,5 +259,199 @@
       "away": -18
     },
     "prediction": "draw"
+  },
+  {
+    "id": "nsdE2z9d",
+    "date": "21:00",
+    "teamHome": "FC Emmen",
+    "teamAway": "Roda",
+    "url": "https://www.flashscore.com/match/nsdE2z9d/",
+    "country": "netherlands: eerste divisie ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.5,
+      "away": 3.4
+    },
+    "standings": {
+      "away": {
+        "rank": 2,
+        "points": 35,
+        "goals": 30,
+        "goalDifference": 17,
+        "form": [
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "08.12.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "L",
+            "date": "01.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "19.11.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "12.11.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 3,
+        "points": 32,
+        "goals": 29,
+        "goalDifference": 5,
+        "form": [
+          {
+            "score": "3:2",
+            "res": "L",
+            "date": "08.12.2023"
+          },
+          {
+            "score": "3:0",
+            "res": "L",
+            "date": "01.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "27.11.2023"
+          },
+          {
+            "score": "1:2",
+            "res": "W",
+            "date": "24.11.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "10.11.2023"
+          }
+        ]
+      }
+    },
+    "droppingOdds": {
+      "home": -4,
+      "draw": -1,
+      "away": 10
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "zHVRTeIg",
+    "date": "21:30",
+    "teamHome": "R. Oviedo",
+    "teamAway": "Elche",
+    "url": "https://www.flashscore.com/match/zHVRTeIg/",
+    "country": "spain: laliga2 ",
+    "odds": {
+      "home": 2.2,
+      "draw": 3.1,
+      "away": 3.5
+    },
+    "standings": {
+      "away": {
+        "rank": 9,
+        "points": 29,
+        "goals": 19,
+        "goalDifference": 0,
+        "form": [
+          {
+            "score": "1:2",
+            "res": "L",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "0:2",
+            "res": "W",
+            "date": "03.12.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "W",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "L",
+            "date": "18.11.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "W",
+            "date": "11.11.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 11,
+        "points": 26,
+        "goals": 19,
+        "goalDifference": 6,
+        "form": [
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "W",
+            "date": "01.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "19.11.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "13.11.2023"
+          }
+        ]
+      }
+    },
+    "droppingOdds": {
+      "home": -6,
+      "draw": 1,
+      "away": 10
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "KCqsZgVq",
+    "date": "21:00",
+    "teamHome": "Paraguay U23",
+    "teamAway": "Ecuador U23",
+    "url": "https://www.flashscore.com/match/KCqsZgVq/",
+    "country": "world: friendly international",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.75,
+      "away": 2.75
+    },
+    "standings": {},
+    "droppingOdds": {
+      "home": 42,
+      "draw": -19,
+      "away": -49
+    },
+    "prediction": "away"
   }
 ]

@@ -277,20 +277,23 @@ async function scrapeLeagueData(page, leagueUrl) {
           match.teamHome,
           match.teamAway
         );
+
+        const homeRange = (from, to) => droppingOdds.home >= from && droppingOdds.home <= to;
+        const drawRange = (from, to) => droppingOdds.draw >= from && droppingOdds.draw <= to;
+        const awayRange = (from, to) => droppingOdds.away >= from && droppingOdds.away <= to;
         //
         // прогноз
         let prediction = '';
 
-        if (
-          (droppingOdds.home < 0 && droppingOdds.away > 9 && droppingOdds.draw < 2 && droppingOdds.draw > -5) ||
-          droppingOdds.home < -30
-        ) {
+        if ((droppingOdds.home < 0 && droppingOdds.away > 9 && drawRange(-1, 2)) || droppingOdds.home < -30) {
           prediction = 'home';
         }
-
-        if (droppingOdds.away < 0 && droppingOdds.home > 11 && droppingOdds.draw < -1 && droppingOdds.draw > -12) {
+        if (droppingOdds.away < 0 && droppingOdds.home > 11 && drawRange(-1, -12)) {
           prediction = 'draw';
+        } else if (droppingOdds.away < -30) {
+          prediction = 'away';
         }
+
         if (prediction) {
           selectedMatch.droppingOdds = droppingOdds;
           selectedMatch.prediction = prediction;
