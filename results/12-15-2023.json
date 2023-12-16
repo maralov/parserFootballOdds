@@ -1,7 +1,7 @@
 [
   {
     "id": "SGi4xmm3",
-    "date": "20:30",
+    "date": "12-15-2023",
     "teamHome": "Nimes",
     "teamAway": "GOAL FC",
     "url": "https://www.flashscore.com/match/SGi4xmm3/",
@@ -84,11 +84,17 @@
       "draw": -2,
       "away": -12
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "z3Y4PcG9",
-    "date": "21:00",
+    "date": "12-15-2023",
     "teamHome": "Jong Utrecht",
     "teamAway": "Eindhoven FC",
     "url": "https://www.flashscore.com/match/z3Y4PcG9/",
@@ -171,11 +177,17 @@
       "draw": -6,
       "away": -2
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-5",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "MqlYp4K8",
-    "date": "20:30",
+    "date": "12-15-2023",
     "teamHome": "Wil",
     "teamAway": "Stade Nyonnais",
     "url": "https://www.flashscore.com/match/MqlYp4K8/",
@@ -258,11 +270,17 @@
       "draw": -8,
       "away": -18
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "3-2",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "nsdE2z9d",
-    "date": "21:00",
+    "date": "12-15-2023",
     "teamHome": "FC Emmen",
     "teamAway": "Roda",
     "url": "https://www.flashscore.com/match/nsdE2z9d/",
@@ -345,11 +363,17 @@
       "draw": -1,
       "away": 10
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "zHVRTeIg",
-    "date": "21:30",
+    "date": "12-15-2023",
     "teamHome": "R. Oviedo",
     "teamAway": "Elche",
     "url": "https://www.flashscore.com/match/zHVRTeIg/",
@@ -432,11 +456,17 @@
       "draw": 1,
       "away": 10
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "3-2",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.2000000000000002
   },
   {
     "id": "KCqsZgVq",
-    "date": "21:00",
+    "date": "12-15-2023",
     "teamHome": "Paraguay U23",
     "teamAway": "Ecuador U23",
     "url": "https://www.flashscore.com/match/KCqsZgVq/",
@@ -452,6 +482,12 @@
       "draw": -19,
       "away": -49
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]
