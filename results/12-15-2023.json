@@ -1,7 +1,7 @@
 [
   {
     "id": "MqlYp4K8",
-    "date": "20:30",
+    "date": "12-15-2023",
     "teamHome": "Wil",
     "teamAway": "Stade Nyonnais",
     "url": "https://www.flashscore.com/match/MqlYp4K8/",
@@ -16,6 +16,12 @@
       "draw": -8,
       "away": -18
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "3-2",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]

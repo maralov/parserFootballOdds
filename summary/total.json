@@ -1498,5 +1498,30 @@
     },
     "result": "lose",
     "profit": -1
+  },
+  {
+    "id": "MqlYp4K8",
+    "date": "12-15-2023",
+    "teamHome": "Wil",
+    "teamAway": "Stade Nyonnais",
+    "url": "https://www.flashscore.com/match/MqlYp4K8/",
+    "country": "switzerland: challenge league ",
+    "odds": {
+      "home": 2.16,
+      "draw": 3.65,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": 19,
+      "draw": -8,
+      "away": -18
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "3-2",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]
