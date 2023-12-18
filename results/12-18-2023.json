@@ -1,0 +1,40 @@
+[
+  {
+    "id": "4dDyPmqD",
+    "date": "13:30",
+    "teamHome": "Mes Rafsanjan",
+    "teamAway": "Malavan",
+    "url": "https://www.flashscore.com/match/4dDyPmqD/",
+    "country": "iran: persian gulf pro league ",
+    "odds": {
+      "home": 2.43,
+      "draw": 2.9,
+      "away": 2.97
+    },
+    "droppingOdds": {
+      "home": 21,
+      "draw": -2,
+      "away": -27
+    },
+    "prediction": "away"
+  },
+  {
+    "id": "ChTz7APf",
+    "date": "22:15",
+    "teamHome": "Sporting CP",
+    "teamAway": "FC Porto",
+    "url": "https://www.flashscore.com/match/ChTz7APf/",
+    "country": "portugal: liga portugal ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.3,
+      "away": 3.4
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": 1,
+      "away": 23
+    },
+    "prediction": "home"
+  }
+]
