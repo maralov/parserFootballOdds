@@ -1,0 +1,116 @@
+[
+  {
+    "id": "zaEzOGyk",
+    "date": "18:00",
+    "teamHome": "Petro Atletico (Ang)",
+    "teamAway": "Esperance Tunis (Tun)",
+    "url": "https://www.flashscore.com/match/zaEzOGyk/",
+    "country": "africa: caf champions league ",
+    "odds": {
+      "home": 2.2,
+      "draw": 3.4,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -2,
+      "away": 14
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "txFWOdMr",
+    "date": "21:00",
+    "teamHome": "Al-Hilal Omdurman (Sud)",
+    "teamAway": "Etoile Sahel (Tun)",
+    "url": "https://www.flashscore.com/match/txFWOdMr/",
+    "country": "africa: caf champions league ",
+    "odds": {
+      "home": 2,
+      "draw": 3.2,
+      "away": 3.3
+    },
+    "droppingOdds": {
+      "home": -17,
+      "draw": 2,
+      "away": 24
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "WhpwwzcE",
+    "date": "21:45",
+    "teamHome": "Everton",
+    "teamAway": "Fulham",
+    "url": "https://www.flashscore.com/match/WhpwwzcE/",
+    "country": "england: efl cup ",
+    "odds": {
+      "home": 2.05,
+      "draw": 3.6,
+      "away": 3.5
+    },
+    "droppingOdds": {
+      "home": -19,
+      "draw": 8,
+      "away": 27
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "4Ex4Fjfg",
+    "date": "17:30",
+    "teamHome": "U Craiova 1948",
+    "teamAway": "Petrolul",
+    "url": "https://www.flashscore.com/match/4Ex4Fjfg/",
+    "country": "romania: liga 1 ",
+    "odds": {
+      "home": 2.05,
+      "draw": 3.3,
+      "away": 3.75
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": 2,
+      "away": 13
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "QcYmcl2U",
+    "date": "15:30",
+    "teamHome": "Milford FC",
+    "teamAway": "Black Leopards",
+    "url": "https://www.flashscore.com/match/QcYmcl2U/",
+    "country": "south africa: motsepe foundation championship ",
+    "odds": {
+      "home": 2.38,
+      "draw": 2.85,
+      "away": 2.85
+    },
+    "droppingOdds": {
+      "home": -8,
+      "draw": -4,
+      "away": 13
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "UqKDD9nB",
+    "date": "15:30",
+    "teamHome": "Pretoria U.",
+    "teamAway": "Orbit College",
+    "url": "https://www.flashscore.com/match/UqKDD9nB/",
+    "country": "south africa: motsepe foundation championship ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": -8,
+      "draw": -4,
+      "away": 16
+    },
+    "prediction": "home"
+  }
+]
