@@ -1,7 +1,7 @@
 [
   {
     "id": "4dDyPmqD",
-    "date": "13:30",
+    "date": "12-18-2023",
     "teamHome": "Mes Rafsanjan",
     "teamAway": "Malavan",
     "url": "https://www.flashscore.com/match/4dDyPmqD/",
@@ -16,11 +16,17 @@
       "draw": -2,
       "away": -27
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-4",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.9700000000000002
   },
   {
     "id": "ChTz7APf",
-    "date": "22:15",
+    "date": "12-18-2023",
     "teamHome": "Sporting CP",
     "teamAway": "FC Porto",
     "url": "https://www.flashscore.com/match/ChTz7APf/",
@@ -35,6 +41,12 @@
       "draw": 1,
       "away": 23
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.1
   }
 ]
