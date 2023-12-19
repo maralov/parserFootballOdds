@@ -1,7 +1,7 @@
 [
   {
     "id": "vDzPLNhG",
-    "date": "14:00",
+    "date": "12-18-2023",
     "teamHome": "Iraklis 1908",
     "teamAway": "Makedonikos",
     "url": "https://www.flashscore.com/match/vDzPLNhG/",
@@ -84,11 +84,17 @@
       "draw": -1,
       "away": 11
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "5-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.1
   },
   {
     "id": "rHLPGm4T",
-    "date": "19:00",
+    "date": "12-18-2023",
     "teamHome": "Nes Tziona",
     "teamAway": "Hapoel Kfar Saba",
     "url": "https://www.flashscore.com/match/rHLPGm4T/",
@@ -171,11 +177,17 @@
       "draw": 2,
       "away": 11
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.15
   },
   {
     "id": "ChTz7APf",
-    "date": "22:15",
+    "date": "12-18-2023",
     "teamHome": "Sporting CP",
     "teamAway": "FC Porto",
     "url": "https://www.flashscore.com/match/ChTz7APf/",
@@ -258,6 +270,12 @@
       "draw": 1,
       "away": 23
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.1
   }
 ]
