@@ -1,0 +1,351 @@
+[
+  {
+    "id": "K45VmH9P",
+    "date": "22:30",
+    "teamHome": "Leganes",
+    "teamAway": "Tenerife",
+    "url": "https://www.flashscore.com/match/K45VmH9P/",
+    "country": "spain: laliga2 ",
+    "odds": {
+      "home": 2.25,
+      "draw": 2.9,
+      "away": 3.75
+    },
+    "droppingOdds": {
+      "home": 19,
+      "draw": -9,
+      "away": -17
+    },
+    "standings": {
+      "home": {
+        "rank": 1,
+        "points": 38,
+        "goals": 30,
+        "goalDifference": 18,
+        "form": [
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "17.11.2023"
+          }
+        ]
+      },
+      "away": {
+        "rank": 9,
+        "points": 30,
+        "goals": 20,
+        "goalDifference": 1,
+        "form": [
+          {
+            "score": "3:1",
+            "res": "L",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "11.12.2023"
+          },
+          {
+            "score": "0:3",
+            "res": "W",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "L",
+            "date": "18.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "MJG5FVHb",
+    "date": "15:30",
+    "teamHome": "Platinum City",
+    "teamAway": "JDR Stars",
+    "url": "https://www.flashscore.com/match/MJG5FVHb/",
+    "country": "south africa: motsepe foundation championship ",
+    "odds": {
+      "home": 3.05,
+      "draw": 2.93,
+      "away": 2.36
+    },
+    "droppingOdds": {
+      "home": 9,
+      "draw": -2,
+      "away": -8
+    },
+    "standings": {
+      "away": {
+        "rank": 8,
+        "points": 24,
+        "goals": 20,
+        "goalDifference": 1,
+        "form": [
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "3:1",
+            "res": "L",
+            "date": "09.12.2023"
+          },
+          {
+            "score": "1:2",
+            "res": "L",
+            "date": "01.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "24.11.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "10.11.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 15,
+        "points": 14,
+        "goals": 12,
+        "goalDifference": -5,
+        "form": [
+          {
+            "score": "0:2",
+            "res": "L",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "W",
+            "date": "08.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "25.11.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "12.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "jgL9EkX4",
+    "date": "15:30",
+    "teamHome": "Pretoria Callies",
+    "teamAway": "Casric Stars",
+    "url": "https://www.flashscore.com/match/jgL9EkX4/",
+    "country": "south africa: motsepe foundation championship ",
+    "odds": {
+      "home": 3.08,
+      "draw": 2.69,
+      "away": 2.53
+    },
+    "droppingOdds": {
+      "home": -15,
+      "draw": -6,
+      "away": 15
+    },
+    "standings": {
+      "away": {
+        "rank": 6,
+        "points": 24,
+        "goals": 23,
+        "goalDifference": 5,
+        "form": [
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "3:1",
+            "res": "W",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "6:1",
+            "res": "W",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "10.11.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 16,
+        "points": 14,
+        "goals": 11,
+        "goalDifference": -5,
+        "form": [
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "L",
+            "date": "08.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "1:3",
+            "res": "W",
+            "date": "25.11.2023"
+          },
+          {
+            "score": "4:2",
+            "res": "L",
+            "date": "11.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "away"
+  },
+  {
+    "id": "0KfmwAfB",
+    "date": "20:00",
+    "teamHome": "Arminia Bielefeld",
+    "teamAway": "SG Dynamo Dresden",
+    "url": "https://www.flashscore.com/match/0KfmwAfB/",
+    "country": "germany: 3. liga ",
+    "odds": {
+      "home": 2.88,
+      "draw": 3.6,
+      "away": 2.15
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": 2,
+      "away": 10
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 2,
+        "points": 40,
+        "goals": 32,
+        "goalDifference": 15,
+        "form": [
+          {
+            "score": "2:4",
+            "res": "W",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "03.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "L",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "19.11.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 13,
+        "points": 25,
+        "goals": 32,
+        "goalDifference": 2,
+        "form": [
+          {
+            "score": "2:0",
+            "res": "W",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "08.12.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "11.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  }
+]
