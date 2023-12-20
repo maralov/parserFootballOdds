@@ -1,7 +1,7 @@
 [
   {
     "id": "zaEzOGyk",
-    "date": "18:00",
+    "date": "12-19-2023",
     "teamHome": "Petro Atletico (Ang)",
     "teamAway": "Esperance Tunis (Tun)",
     "url": "https://www.flashscore.com/match/zaEzOGyk/",
@@ -17,11 +17,17 @@
       "draw": -1,
       "away": 19
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "txFWOdMr",
-    "date": "21:00",
+    "date": "12-19-2023",
     "teamHome": "Al-Hilal Omdurman (Sud)",
     "teamAway": "Etoile Sahel (Tun)",
     "url": "https://www.flashscore.com/match/txFWOdMr/",
@@ -37,11 +43,17 @@
       "draw": 1,
       "away": 19
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "UwXeQcum",
-    "date": "15:00",
+    "date": "12-19-2023",
     "teamHome": "Zob Ahan",
     "teamAway": "Foolad",
     "url": "https://www.flashscore.com/match/UwXeQcum/",
@@ -124,11 +136,17 @@
       "draw": 0,
       "away": 11
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "4Ex4Fjfg",
-    "date": "17:30",
+    "date": "12-19-2023",
     "teamHome": "U Craiova 1948",
     "teamAway": "Petrolul",
     "url": "https://www.flashscore.com/match/4Ex4Fjfg/",
@@ -211,6 +229,12 @@
       "draw": 2,
       "away": 13
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.0499999999999998
   }
 ]
