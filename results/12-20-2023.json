@@ -1,7 +1,7 @@
 [
   {
     "id": "0KfmwAfB",
-    "date": "20:00",
+    "date": "12-20-2023",
     "teamHome": "Arminia Bielefeld",
     "teamAway": "SG Dynamo Dresden",
     "url": "https://www.flashscore.com/match/0KfmwAfB/",
@@ -84,11 +84,17 @@
       "draw": 2,
       "away": 10
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "YHzauGv8",
-    "date": "15:00",
+    "date": "12-20-2023",
     "teamHome": "Kalaa",
     "teamAway": "Rades",
     "url": "https://www.flashscore.com/match/YHzauGv8/",
@@ -171,11 +177,17 @@
       "draw": 1,
       "away": 17
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "88zwy5uc",
-    "date": "17:30",
+    "date": "12-20-2023",
     "teamHome": "Al Sharjah",
     "teamAway": "Shabab Al-Ahli Dubai",
     "url": "https://www.flashscore.com/match/88zwy5uc/",
@@ -258,6 +270,12 @@
       "draw": -1,
       "away": 10
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]
