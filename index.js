@@ -103,9 +103,15 @@ function analyzeAndPredictMatch(match) {
   let prediction = '';
 
   // Проверка на сильное падение коэффициентов и сравнение с формой и трендом
-  if (match.droppingOdds.home < threshold && homeFormRating >= awayFormRating && homeFormTrend === 'upward') {
+  if (
+    (homeFormRating >= awayFormRating && homeFormTrend === 'upward' && awayFormTrend === 'downward') ||
+    awayFormTrend === 'stable'
+  ) {
     prediction = 'home';
-  } else if (match.droppingOdds.away < threshold && awayFormRating >= homeFormRating && awayFormTrend === 'upward') {
+  } else if (
+    (awayFormRating >= homeFormRating && awayFormTrend === 'upward' && homeFormTrend === 'downward') ||
+    homeFormTrend === 'stable'
+  ) {
     prediction = 'away';
   } else if (Math.abs(homeFormRating - awayFormRating) < 0.2) {
     // Если рейтинги формы команд близки, проверяем на возможную ничью
@@ -394,7 +400,9 @@ async function scrapeLeagueData(page, leagueUrl) {
         if (
           selectedMatch.standings?.home?.form?.length > 3 &&
           selectedMatch.standings?.away?.form?.length > 3 &&
-          (selectedMatch.droppingOdds.home < threshold || selectedMatch.droppingOdds.away < threshold)
+          (selectedMatch.droppingOdds.home < threshold ||
+            selectedMatch.droppingOdds.away < threshold ||
+            selectedMatch.droppingOdds.draw < threshold * 0.5)
         ) {
           console.log('analyze prediction...');
           selectedMatch.prediction = analyzeAndPredictMatch(selectedMatch);
