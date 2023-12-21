@@ -103,9 +103,9 @@ function analyzeAndPredictMatch(match) {
   let prediction = '';
 
   // Проверка на сильное падение коэффициентов и сравнение с формой и трендом
-  if (match.droppingOdds.home < threshold && homeFormRating > awayFormRating && homeFormTrend === 'upward') {
+  if (match.droppingOdds.home < threshold && homeFormRating >= awayFormRating && homeFormTrend === 'upward') {
     prediction = 'home';
-  } else if (match.droppingOdds.away < threshold && awayFormRating > homeFormRating && awayFormTrend === 'upward') {
+  } else if (match.droppingOdds.away < threshold && awayFormRating >= homeFormRating && awayFormTrend === 'upward') {
     prediction = 'away';
   } else if (Math.abs(homeFormRating - awayFormRating) < 0.2) {
     // Если рейтинги формы команд близки, проверяем на возможную ничью

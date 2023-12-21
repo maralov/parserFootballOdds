@@ -1,1 +1,95 @@
-[]
+[
+  {
+    "id": "K45VmH9P",
+    "date": "12-20-2023",
+    "teamHome": "Leganes",
+    "teamAway": "Tenerife",
+    "url": "https://www.flashscore.com/match/K45VmH9P/",
+    "country": "spain: laliga2 ",
+    "odds": {
+      "home": 2.25,
+      "draw": 2.9,
+      "away": 3.75
+    },
+    "droppingOdds": {
+      "home": 19,
+      "draw": -9,
+      "away": -17
+    },
+    "standings": {
+      "home": {
+        "rank": 1,
+        "points": 38,
+        "goals": 30,
+        "goalDifference": 18,
+        "form": [
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "17.11.2023"
+          }
+        ]
+      },
+      "away": {
+        "rank": 9,
+        "points": 30,
+        "goals": 20,
+        "goalDifference": 1,
+        "form": [
+          {
+            "score": "3:1",
+            "res": "L",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "11.12.2023"
+          },
+          {
+            "score": "0:3",
+            "res": "W",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "L",
+            "date": "18.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 1.9
+  }
+]
