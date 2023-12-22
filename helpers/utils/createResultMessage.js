@@ -1,6 +1,6 @@
 function createResultMessage(dayProfit) {
   return `
-  Результаты за вчерашний день:
+  Результаты за вчерашний день (new):
   \n📅: ${dayProfit.date}
   \n🔢 Всего матчей: ${dayProfit.total}
   \n✅ : ${dayProfit.win}

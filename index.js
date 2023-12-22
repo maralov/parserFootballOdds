@@ -11,7 +11,7 @@ const sendTelegramMessage = require('./helpers/utils/sendTelegramMessage');
 const createPredictionMessage = require('./helpers/utils/createPredictionMessage');
 const createResultMessage = require('./helpers/utils/createResultMessage');
 
-const threshold = -9; // Поріг для падіння коефіцієнтів
+const threshold = -8; // Поріг для падіння коефіцієнтів
 
 let executablePath;
 if (os.platform() === 'linux') {
@@ -104,17 +104,20 @@ function analyzeAndPredictMatch(match) {
 
   // Проверка на сильное падение коэффициентов и сравнение с формой и трендом
   if (
-    (homeFormRating >= awayFormRating && homeFormTrend === 'upward' && awayFormTrend === 'downward') ||
-    awayFormTrend === 'stable'
+    match.droppingOdds.home < threshold &&
+    homeFormRating >= awayFormRating &&
+    homeFormTrend === 'upward' &&
+    (awayFormTrend === 'downward' || awayFormTrend === 'stable')
   ) {
     prediction = 'home';
   } else if (
-    (awayFormRating >= homeFormRating && awayFormTrend === 'upward' && homeFormTrend === 'downward') ||
-    homeFormTrend === 'stable'
+    match.droppingOdds.away < threshold &&
+    awayFormRating >= homeFormRating &&
+    awayFormTrend === 'upward' &&
+    (homeFormTrend === 'downward' || homeFormTrend === 'stable')
   ) {
     prediction = 'away';
-  } else if (Math.abs(homeFormRating - awayFormRating) < 0.2) {
-    // Если рейтинги формы команд близки, проверяем на возможную ничью
+  } else {
     prediction = checkForPossibleDraw(match, homeFormRating, awayFormRating) ? 'draw' : '';
   }
   console.log({
@@ -123,6 +126,8 @@ function analyzeAndPredictMatch(match) {
     awayFormRating,
     homeFormTrend,
     awayFormTrend,
+    droppingOddshome: match.droppingOdds.home < threshold,
+    droppingOddsaway: match.droppingOdds.away < threshold,
   });
   // Если ни один из сценариев не применим, можно оставить прогноз пустым или рассмотреть другие факторы
   return prediction;
@@ -130,8 +135,10 @@ function analyzeAndPredictMatch(match) {
 function checkForPossibleDraw(match, homeFormRating, awayFormRating) {
   const formDifference = Math.abs(homeFormRating - awayFormRating);
   const tableDifference = Math.abs(match.standings.home.rank - match.standings.away.rank);
-  console.log({ PossibleDraw: formDifference < 0.3 && tableDifference > 5, formDifference, tableDifference });
-  return formDifference < 0.3 && tableDifference > 5;
+  return (
+    (formDifference < 0.2 && tableDifference < 4) ||
+    (formDifference > 0.2 && formDifference < 0.4 && tableDifference > 5)
+  );
 }
 
 async function checkLastChecked(dateString) {
@@ -336,14 +343,13 @@ async function scrapeLeagueData(page, leagueUrl) {
           });
 
           if (oddsChanges.length === 0) return '';
-          console.log(`oddsChanges:`, oddsChanges);
           return {
             home: averageChange(oddsChanges.map((change) => change.homeChange)),
             draw: averageChange(oddsChanges.map((change) => change.drawChange)),
             away: averageChange(oddsChanges.map((change) => change.awayChange)),
           };
         });
-        console.log(`droppingOdds:`, selectedMatch.droppingOdds, selectedMatch.id);
+        console.log(`droppingOdds:`, selectedMatch.droppingOdds, selectedMatch.url);
         // Парсинг даних про ранг
         await page.goto(`${match.url}#/standings/table/overall`, { waitUntil: 'networkidle2', timeout: 60000 });
         selectedMatch.standings = await page.evaluate(
