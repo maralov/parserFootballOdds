@@ -1,0 +1,442 @@
+[
+  {
+    "id": "4IEAo4OL",
+    "date": "19:30",
+    "teamHome": "St. Liege",
+    "teamAway": "St. Truiden",
+    "url": "https://www.flashscore.com/match/4IEAo4OL/",
+    "country": "belgium: jupiler pro league ",
+    "odds": {
+      "home": 2.45,
+      "draw": 3,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": 9,
+      "draw": -9,
+      "away": -2
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 8,
+        "points": 26,
+        "goals": 22,
+        "goalDifference": -6,
+        "form": [
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "23.12.2023"
+          },
+          {
+            "score": "3:0",
+            "res": "L",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "09.12.2023"
+          },
+          {
+            "score": "0:2",
+            "res": "W",
+            "date": "03.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "24.11.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 10,
+        "points": 22,
+        "goals": 18,
+        "goalDifference": -10,
+        "form": [
+          {
+            "score": "3:0",
+            "res": "L",
+            "date": "20.12.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "L",
+            "date": "03.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "25.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "bDF0bbye",
+    "date": "17:45",
+    "teamHome": "Koro",
+    "teamAway": "USC Kita",
+    "url": "https://www.flashscore.com/match/bDF0bbye/",
+    "country": "mali: premiere division ",
+    "odds": {
+      "home": 2.48,
+      "draw": 2.86,
+      "away": 2.94
+    },
+    "droppingOdds": {
+      "home": 6,
+      "draw": -1,
+      "away": -9
+    },
+    "standings": {
+      "totalTeams": 16,
+      "home": {
+        "rank": 14,
+        "points": 9,
+        "goals": 9,
+        "goalDifference": -6,
+        "form": [
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "22.12.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "W",
+            "date": "09.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "L",
+            "date": "05.12.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "01.12.2023"
+          }
+        ]
+      },
+      "away": {
+        "rank": 15,
+        "points": 8,
+        "goals": 7,
+        "goalDifference": -2,
+        "form": [
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "23.12.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "06.12.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "01.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "25.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "away"
+  },
+  {
+    "id": "nDl2lMf0",
+    "date": "21:45",
+    "teamHome": "St. Mirren",
+    "teamAway": "Kilmarnock",
+    "url": "https://www.flashscore.com/match/nDl2lMf0/",
+    "country": "scotland: premiership ",
+    "odds": {
+      "home": 2.75,
+      "draw": 3,
+      "away": 2.8
+    },
+    "droppingOdds": {
+      "home": 9,
+      "draw": -11,
+      "away": 5
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 4,
+        "points": 27,
+        "goals": 20,
+        "goalDifference": 2,
+        "form": [
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "23.12.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "W",
+            "date": "06.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "L",
+            "date": "02.12.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 5,
+        "points": 26,
+        "goals": 21,
+        "goalDifference": -3,
+        "form": [
+          {
+            "score": "2:0",
+            "res": "L",
+            "date": "23.12.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "W",
+            "date": "09.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "06.12.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "L",
+            "date": "03.12.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "Q3m6mtA6",
+    "date": "22:00",
+    "teamHome": "Hibernian",
+    "teamAway": "Hearts",
+    "url": "https://www.flashscore.com/match/Q3m6mtA6/",
+    "country": "scotland: premiership ",
+    "odds": {
+      "home": 2.63,
+      "draw": 3.3,
+      "away": 2.6
+    },
+    "droppingOdds": {
+      "home": 15,
+      "draw": -4,
+      "away": -9
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 3,
+        "points": 29,
+        "goals": 19,
+        "goalDifference": 4,
+        "form": [
+          {
+            "score": "2:0",
+            "res": "W",
+            "date": "23.12.2023"
+          },
+          {
+            "score": "0:2",
+            "res": "W",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "09.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "L",
+            "date": "06.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "W",
+            "date": "02.12.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 6,
+        "points": 24,
+        "goals": 24,
+        "goalDifference": -2,
+        "form": [
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "W",
+            "date": "09.12.2023"
+          },
+          {
+            "score": "4:1",
+            "res": "L",
+            "date": "06.12.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "W",
+            "date": "03.12.2023"
+          },
+          {
+            "score": "1:2",
+            "res": "W",
+            "date": "25.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "8U5T4tMH",
+    "date": "15:00",
+    "teamHome": "US Tataouine",
+    "teamAway": "Bizertin",
+    "url": "https://www.flashscore.com/match/8U5T4tMH/",
+    "country": "tunisia: ligue professionnelle 1 ",
+    "odds": {
+      "home": 2.2,
+      "draw": 2.92,
+      "away": 3.59
+    },
+    "droppingOdds": {
+      "home": -17,
+      "draw": 4,
+      "away": 28
+    },
+    "standings": {
+      "totalTeams": 7,
+      "away": {
+        "rank": 4,
+        "points": 9,
+        "goals": 5,
+        "goalDifference": -4,
+        "form": [
+          {
+            "score": "3:1",
+            "res": "W",
+            "date": "25.11.2023"
+          },
+          {
+            "score": "0:2",
+            "res": "L",
+            "date": "08.11.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "05.11.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "28.10.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "08.10.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 6,
+        "points": 6,
+        "goals": 4,
+        "goalDifference": -11,
+        "form": [
+          {
+            "score": "3:0",
+            "res": "L",
+            "date": "13.12.2023"
+          },
+          {
+            "score": "3:0",
+            "res": "L",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "L",
+            "date": "11.11.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "29.10.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "08.10.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  }
+]
