@@ -221,25 +221,28 @@ async function checkPredictions(page, path = '') {
     }
   }
 
-  const dayProfit = {
+  const dayProfit = filteredMatchesData.reduce((acc, match) => {
+    return acc + match.profit;
+  }, 0);
+
+  const dayResult = {
     date: dateString,
     win: filteredMatchesData.filter((match) => match.result === 'win').length,
     lose: filteredMatchesData.filter((match) => match.result === 'lose').length,
     total: filteredMatchesData.length,
-    profit: filteredMatchesData.reduce((acc, match) => {
-      return acc + match.profit;
-    }, 0),
+    profit: dayProfit,
+    totalProfit: summProfit[summProfit.length - 1].totalProfit + dayProfit,
   };
 
   const isExistProfit = summProfit.find((profit) => profit.date === dateString);
 
   if (!isExistProfit) {
-    summProfit.push(dayProfit);
+    summProfit.push(dayResult);
   }
 
-  console.log(`check yesterday predictions end...`, dayProfit);
+  console.log(`check yesterday predictions end...`, dayResult);
 
-  const message = createResultMessage(dayProfit);
+  const message = createResultMessage(dayResult);
 
   fs.writeFileSync(filePath, JSON.stringify(matchesData, null, 2));
   fs.writeFileSync('./summary/total.json', JSON.stringify([...allMatches, ...filteredMatchesData], null, 2));
