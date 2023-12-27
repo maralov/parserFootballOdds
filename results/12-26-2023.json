@@ -1,7 +1,7 @@
 [
   {
     "id": "IZshnAtS",
-    "date": "17:00",
+    "date": "12-26-2023",
     "teamHome": "Sheffield Utd",
     "teamAway": "Luton",
     "url": "https://www.flashscore.com/match/IZshnAtS/",
@@ -23,68 +23,33 @@
         "points": 12,
         "goals": 18,
         "goalDifference": -14,
-        "form": [
-          {
-            "score": "1:0",
-            "res": "W",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "1:2",
-            "res": "L",
-            "date": "10.12.2023"
-          },
-          {
-            "score": "3:4",
-            "res": "L",
-            "date": "05.12.2023"
-          },
-          {
-            "score": "3:1",
-            "res": "L",
-            "date": "02.12.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.010000000000000009,
+          "trend": "downward"
+        }
       },
       "home": {
         "rank": 20,
         "points": 9,
         "goals": 13,
         "goalDifference": -31,
-        "form": [
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "22.12.2023"
-          },
-          {
-            "score": "2:0",
-            "res": "L",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "W",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "0:2",
-            "res": "L",
-            "date": "06.12.2023"
-          },
-          {
-            "score": "5:0",
-            "res": "L",
-            "date": "02.12.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.060866666666666715,
+          "trend": "stable"
+        }
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "dKgqlWBF",
-    "date": "22:00",
+    "date": "12-26-2023",
     "teamHome": "Manchester Utd",
     "teamAway": "Aston Villa",
     "url": "https://www.flashscore.com/match/dKgqlWBF/",
@@ -106,73 +71,33 @@
         "points": 39,
         "goals": 38,
         "goalDifference": 16,
-        "form": [
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "22.12.2023"
-          },
-          {
-            "score": "1:2",
-            "res": "W",
-            "date": "17.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "W",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "W",
-            "date": "06.12.2023"
-          },
-          {
-            "score": "2:2",
-            "res": "D",
-            "date": "03.12.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.7451111111111112,
+          "trend": "upward"
+        }
       },
       "home": {
         "rank": 8,
         "points": 28,
         "goals": 18,
         "goalDifference": -5,
-        "form": [
-          {
-            "score": "2:0",
-            "res": "L",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "17.12.2023"
-          },
-          {
-            "score": "0:3",
-            "res": "L",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "2:1",
-            "res": "W",
-            "date": "06.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "L",
-            "date": "02.12.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.27622222222222226,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "3-2",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "ETLcl6v3",
-    "date": "21:45",
+    "date": "12-26-2023",
     "teamHome": "Club Brugge KV",
     "teamAway": "Royale Union SG",
     "url": "https://www.flashscore.com/match/ETLcl6v3/",
@@ -194,73 +119,33 @@
         "points": 47,
         "goals": 43,
         "goalDifference": 24,
-        "form": [
-          {
-            "score": "1:2",
-            "res": "W",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "W",
-            "date": "17.12.2023"
-          },
-          {
-            "score": "1:3",
-            "res": "W",
-            "date": "10.12.2023"
-          },
-          {
-            "score": "2:1",
-            "res": "W",
-            "date": "03.12.2023"
-          },
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "26.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.8159444444444445,
+          "trend": "upward"
+        }
       },
       "home": {
         "rank": 4,
         "points": 33,
         "goals": 37,
         "goalDifference": 21,
-        "form": [
-          {
-            "score": "1:6",
-            "res": "W",
-            "date": "22.12.2023"
-          },
-          {
-            "score": "2:0",
-            "res": "W",
-            "date": "17.12.2023"
-          },
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "10.12.2023"
-          },
-          {
-            "score": "2:0",
-            "res": "W",
-            "date": "03.12.2023"
-          },
-          {
-            "score": "0:1",
-            "res": "W",
-            "date": "26.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.7856444444444447,
+          "trend": "upward"
+        }
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.2
   },
   {
     "id": "M74HBQ2b",
-    "date": "15:00",
+    "date": "12-26-2023",
     "teamHome": "Millwall",
     "teamAway": "QPR",
     "url": "https://www.flashscore.com/match/M74HBQ2b/",
@@ -282,73 +167,33 @@
         "points": 23,
         "goals": 24,
         "goalDifference": -7,
-        "form": [
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "3:2",
-            "res": "L",
-            "date": "13.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "L",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "02.12.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.17111111111111113,
+          "trend": "downward"
+        }
       },
       "away": {
         "rank": 22,
         "points": 20,
         "goals": 20,
         "goalDifference": -13,
-        "form": [
-          {
-            "score": "0:1",
-            "res": "L",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "2:1",
-            "res": "L",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "13.12.2023"
-          },
-          {
-            "score": "2:0",
-            "res": "W",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "0:2",
-            "res": "W",
-            "date": "01.12.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.1515555555555556,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "d075ESIu",
-    "date": "17:00",
+    "date": "12-26-2023",
     "teamHome": "Huddersfield",
     "teamAway": "Blackburn",
     "url": "https://www.flashscore.com/match/d075ESIu/",
@@ -370,73 +215,33 @@
         "points": 31,
         "goals": 35,
         "goalDifference": -5,
-        "form": [
-          {
-            "score": "1:2",
-            "res": "L",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "4:0",
-            "res": "L",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "2:1",
-            "res": "W",
-            "date": "12.12.2023"
-          },
-          {
-            "score": "0:2",
-            "res": "L",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "3:1",
-            "res": "L",
-            "date": "02.12.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.29200000000000004,
+          "trend": "downward"
+        }
       },
       "home": {
         "rank": 21,
         "points": 22,
         "goals": 21,
         "goalDifference": -17,
-        "form": [
-          {
-            "score": "2:0",
-            "res": "L",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "1:3",
-            "res": "L",
-            "date": "12.12.2023"
-          },
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "02.12.2023"
-          }
-        ]
+        "form": {
+          "rating": -0.014788888888888869,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "3-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "EcqAYuZh",
-    "date": "17:00",
+    "date": "12-26-2023",
     "teamHome": "Salford",
     "teamAway": "Tranmere",
     "url": "https://www.flashscore.com/match/EcqAYuZh/",
@@ -458,73 +263,33 @@
         "points": 24,
         "goals": 31,
         "goalDifference": -5,
-        "form": [
-          {
-            "score": "2:1",
-            "res": "W",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "L",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "2:1",
-            "res": "W",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "2:2",
-            "res": "D",
-            "date": "28.11.2023"
-          },
-          {
-            "score": "3:1",
-            "res": "W",
-            "date": "25.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.542,
+          "trend": "upward"
+        }
       },
       "home": {
         "rank": 21,
         "points": 23,
         "goals": 31,
         "goalDifference": -4,
-        "form": [
-          {
-            "score": "2:1",
-            "res": "L",
-            "date": "22.12.2023"
-          },
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "28.11.2023"
-          },
-          {
-            "score": "2:4",
-            "res": "L",
-            "date": "25.11.2023"
-          },
-          {
-            "score": "3:1",
-            "res": "L",
-            "date": "18.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.10743333333333333,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-5",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.88
   },
   {
     "id": "2PfrDSR9",
-    "date": "16:00",
+    "date": "12-26-2023",
     "teamHome": "Cosenza",
     "teamAway": "Como",
     "url": "https://www.flashscore.com/match/2PfrDSR9/",
@@ -546,73 +311,33 @@
         "points": 32,
         "goals": 23,
         "goalDifference": 3,
-        "form": [
-          {
-            "score": "3:3",
-            "res": "D",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "2:0",
-            "res": "L",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "2:1",
-            "res": "W",
-            "date": "10.12.2023"
-          },
-          {
-            "score": "0:1",
-            "res": "W",
-            "date": "03.12.2023"
-          },
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "28.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.5557777777777778,
+          "trend": "upward"
+        }
       },
       "home": {
         "rank": 12,
         "points": 21,
         "goals": 18,
         "goalDifference": -1,
-        "form": [
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "2:0",
-            "res": "L",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "1:3",
-            "res": "L",
-            "date": "02.12.2023"
-          },
-          {
-            "score": "2:0",
-            "res": "L",
-            "date": "26.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.2307555555555556,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "ltgjB6dM",
-    "date": "16:00",
+    "date": "12-26-2023",
     "teamHome": "Lecco",
     "teamAway": "Sudtirol",
     "url": "https://www.flashscore.com/match/ltgjB6dM/",
@@ -634,73 +359,33 @@
         "points": 20,
         "goals": 25,
         "goalDifference": -1,
-        "form": [
-          {
-            "score": "2:3",
-            "res": "L",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "2:3",
-            "res": "W",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "2:1",
-            "res": "L",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "0:1",
-            "res": "L",
-            "date": "03.12.2023"
-          },
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "28.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.10177777777777774,
+          "trend": "downward"
+        }
       },
       "home": {
         "rank": 17,
         "points": 17,
         "goals": 18,
         "goalDifference": -10,
-        "form": [
-          {
-            "score": "2:2",
-            "res": "D",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "2:3",
-            "res": "L",
-            "date": "17.12.2023"
-          },
-          {
-            "score": "2:0",
-            "res": "L",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "W",
-            "date": "03.12.2023"
-          },
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "28.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.21682222222222222,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "U9qlimgE",
-    "date": "17:00",
+    "date": "12-26-2023",
     "teamHome": "Ards",
     "teamAway": "Bangor FC",
     "url": "https://www.flashscore.com/match/U9qlimgE/",
@@ -722,68 +407,28 @@
         "points": 34,
         "goals": 38,
         "goalDifference": 12,
-        "form": [
-          {
-            "score": "3:0",
-            "res": "W",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "4:1",
-            "res": "W",
-            "date": "15.12.2023"
-          },
-          {
-            "score": "2:3",
-            "res": "W",
-            "date": "02.12.2023"
-          },
-          {
-            "score": "0:4",
-            "res": "W",
-            "date": "25.11.2023"
-          },
-          {
-            "score": "2:2",
-            "res": "D",
-            "date": "18.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.721777777777778,
+          "trend": "upward"
+        }
       },
       "home": {
         "rank": 10,
         "points": 24,
         "goals": 39,
         "goalDifference": -4,
-        "form": [
-          {
-            "score": "3:2",
-            "res": "L",
-            "date": "22.12.2023"
-          },
-          {
-            "score": "4:2",
-            "res": "L",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "2:2",
-            "res": "D",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "4:1",
-            "res": "L",
-            "date": "02.12.2023"
-          },
-          {
-            "score": "3:0",
-            "res": "L",
-            "date": "28.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.4321777777777779,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-2",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.74
   }
 ]
