@@ -43,7 +43,7 @@ function evaluateFormTrend(form) {
   return trendScore > 0.5 ? 'upward' : trendScore < -0.5 ? 'downward' : 'stable';
 }
 
-function calculateTeamForm(standings, isHomeGame, totalTeams) {
+function calculateTeamForm(standings, isHomeGame) {
   let points = 0;
   let totalGoalsScored = 0;
   let totalGoalsConceded = 0;
@@ -74,7 +74,7 @@ function calculateTeamForm(standings, isHomeGame, totalTeams) {
   const averageGoalsConceded = totalGoalsConceded / standings.form.length;
 
   // Врахування місця в таблиці
-  const tablePositionFactor = 1 - standings.rank / totalTeams;
+  const tablePositionFactor = 1 - standings.rank / standings.totalTeams;
 
   // Врахування різниці голів
   const goalDifferenceFactor = standings.goalDifference / 10;
@@ -95,10 +95,10 @@ function calculateTeamForm(standings, isHomeGame, totalTeams) {
 }
 
 function analyzeAndPredictMatch(match) {
-  const homeFormRating = calculateTeamForm(match.standings.home, true, match.standings.totalTeams);
-  const awayFormRating = calculateTeamForm(match.standings.away, false, match.standings.totalTeams);
-  const homeFormTrend = evaluateFormTrend(match.standings.home.form);
-  const awayFormTrend = evaluateFormTrend(match.standings.away.form);
+  const homeFormRating = match.standings.home.formRating;
+  const awayFormRating = match.standings.away.formRating;
+  const homeFormTrend = match.standings.home.formTrend;
+  const awayFormTrend = match.standings.away.formTrend;
 
   let prediction = '';
 
@@ -126,8 +126,6 @@ function analyzeAndPredictMatch(match) {
     awayFormRating,
     homeFormTrend,
     awayFormTrend,
-    droppingOddshome: match.droppingOdds.home < threshold,
-    droppingOddsaway: match.droppingOdds.away < threshold,
   });
   // Если ни один из сценариев не применим, можно оставить прогноз пустым или рассмотреть другие факторы
   return prediction;
@@ -357,15 +355,17 @@ async function scrapeLeagueData(page, leagueUrl) {
             try {
               const tableRows = document.querySelectorAll('.ui-table__body .table__row--selected');
               const totalTeams = document.querySelectorAll('.ui-table__body .ui-table__row').length;
+
               const standing = {};
+
               if (totalTeams < 5) {
                 return standing;
-              } else {
-                standing.totalTeams = totalTeams;
               }
+
               tableRows.forEach((row) => {
                 const teamName = row.querySelector('.tableCellParticipant__name').textContent.trim();
                 if (teamName === teamHome || teamName === teamAway) {
+                  const isHome = teamName === teamHome;
                   const rank = parseInt(row.querySelector('.tableCellRank').textContent.replace('.', ''), 10);
                   const points = parseInt(row.querySelector('.table__cell--points').textContent, 10);
                   const goals = parseInt(row.querySelector('.table__cell--score').textContent, 10);
@@ -389,8 +389,15 @@ async function scrapeLeagueData(page, leagueUrl) {
                     })
                     .filter((match) => match !== null);
 
-                  const selected = teamName === teamHome ? 'home' : 'away';
-                  standing[selected] = { rank, points, goals, goalDifference, form };
+                  if (form.length < 4) {
+                    return;
+                  }
+
+                  const formRating = calculateTeamForm({ form, rank, goalDifference, totalTeams }, isHome);
+                  const formTrend = evaluateFormTrend(form);
+
+                  const selected = isHome ? 'home' : 'away';
+                  standing[selected] = { formRating, formTrend };
                 }
               });
               return standing;
@@ -404,8 +411,8 @@ async function scrapeLeagueData(page, leagueUrl) {
         );
 
         if (
-          selectedMatch.standings?.home?.form?.length > 3 &&
-          selectedMatch.standings?.away?.form?.length > 3 &&
+          selectedMatch.standings?.home?.formRating &&
+          selectedMatch.standings?.away?.formRating &&
           (selectedMatch.droppingOdds.home < threshold ||
             selectedMatch.droppingOdds.away < threshold ||
             selectedMatch.droppingOdds.draw < threshold * 0.5)
