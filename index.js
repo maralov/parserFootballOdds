@@ -367,8 +367,6 @@ async function scrapeLeagueData(page, leagueUrl) {
                 if (teamName === teamHome || teamName === teamAway) {
                   const isHome = teamName === teamHome;
                   const rank = parseInt(row.querySelector('.tableCellRank').textContent.replace('.', ''), 10);
-                  const points = parseInt(row.querySelector('.table__cell--points').textContent, 10);
-                  const goals = parseInt(row.querySelector('.table__cell--score').textContent, 10);
                   const goalDifference = parseInt(
                     row.querySelector('.table__cell--goalsForAgainstDiff').textContent,
                     10
