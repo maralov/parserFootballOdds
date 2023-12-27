@@ -126,8 +126,6 @@ function analyzeAndPredictMatch(match) {
     awayFormRating,
     homeFormTrend,
     awayFormTrend,
-    droppingOddshome: match.droppingOdds.home < threshold,
-    droppingOddsaway: match.droppingOdds.away < threshold,
   });
   // Если ни один из сценариев не применим, можно оставить прогноз пустым или рассмотреть другие факторы
   return prediction;
@@ -206,6 +204,15 @@ async function checkPredictions(page, path = '') {
         match.result = result;
         match.profit = result === 'win' ? match.odds[scoreType] - 1 : -1;
         match.date = dateString;
+
+        match.standings.home.form = {
+          rating: calculateTeamForm(match.standings.home, true, match.standings.totalTeams),
+          trend: evaluateFormTrend(match.standings.home.form),
+        };
+        match.standings.away.form = {
+          rating: calculateTeamForm(match.standings.away, false, match.standings.totalTeams),
+          trend: evaluateFormTrend(match.standings.away.form),
+        };
 
         filteredMatchesData.push(match);
       }
