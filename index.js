@@ -137,7 +137,7 @@ function checkForPossibleDraw(match, homeFormRating, awayFormRating) {
   const tableDifference = Math.abs(match.standings.home.rank - match.standings.away.rank);
   return (
     (formDifference < 0.2 && tableDifference < 4) ||
-    (formDifference > 0.2 && formDifference < 0.4 && tableDifference > 5)
+    (formDifference > 0.2 && formDifference < 0.4 && tableDifference > 3 && tableDifference < 6)
   );
 }
 
