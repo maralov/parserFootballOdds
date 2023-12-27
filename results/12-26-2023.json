@@ -1,7 +1,7 @@
 [
   {
     "id": "IZshnAtS",
-    "date": "17:00",
+    "date": "12-26-2023",
     "teamHome": "Sheffield Utd",
     "teamAway": "Luton",
     "url": "https://www.flashscore.com/match/IZshnAtS/",
@@ -80,11 +80,17 @@
         ]
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "dKgqlWBF",
-    "date": "22:00",
+    "date": "12-26-2023",
     "teamHome": "Manchester Utd",
     "teamAway": "Aston Villa",
     "url": "https://www.flashscore.com/match/dKgqlWBF/",
@@ -168,11 +174,17 @@
         ]
       }
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "3-2",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "ETLcl6v3",
-    "date": "21:45",
+    "date": "12-26-2023",
     "teamHome": "Club Brugge KV",
     "teamAway": "Royale Union SG",
     "url": "https://www.flashscore.com/match/ETLcl6v3/",
@@ -256,11 +268,17 @@
         ]
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.2
   },
   {
     "id": "M74HBQ2b",
-    "date": "15:00",
+    "date": "12-26-2023",
     "teamHome": "Millwall",
     "teamAway": "QPR",
     "url": "https://www.flashscore.com/match/M74HBQ2b/",
@@ -344,11 +362,17 @@
         ]
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "d075ESIu",
-    "date": "17:00",
+    "date": "12-26-2023",
     "teamHome": "Huddersfield",
     "teamAway": "Blackburn",
     "url": "https://www.flashscore.com/match/d075ESIu/",
@@ -432,11 +456,17 @@
         ]
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "3-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "EcqAYuZh",
-    "date": "17:00",
+    "date": "12-26-2023",
     "teamHome": "Salford",
     "teamAway": "Tranmere",
     "url": "https://www.flashscore.com/match/EcqAYuZh/",
@@ -520,11 +550,17 @@
         ]
       }
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-5",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.88
   },
   {
     "id": "2PfrDSR9",
-    "date": "16:00",
+    "date": "12-26-2023",
     "teamHome": "Cosenza",
     "teamAway": "Como",
     "url": "https://www.flashscore.com/match/2PfrDSR9/",
@@ -608,11 +644,17 @@
         ]
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "ltgjB6dM",
-    "date": "16:00",
+    "date": "12-26-2023",
     "teamHome": "Lecco",
     "teamAway": "Sudtirol",
     "url": "https://www.flashscore.com/match/ltgjB6dM/",
@@ -696,11 +738,17 @@
         ]
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "U9qlimgE",
-    "date": "17:00",
+    "date": "12-26-2023",
     "teamHome": "Ards",
     "teamAway": "Bangor FC",
     "url": "https://www.flashscore.com/match/U9qlimgE/",
@@ -784,6 +832,12 @@
         ]
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-2",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.74
   }
 ]
