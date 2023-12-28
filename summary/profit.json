@@ -38,5 +38,13 @@
     "total": 9,
     "profit": 0.82,
     "totalProfit": 5.27
+  },
+  {
+    "date": "12-27-2023",
+    "win": 1,
+    "lose": 4,
+    "total": 5,
+    "profit": -2,
+    "totalProfit": 3.2699999999999996
   }
 ]
