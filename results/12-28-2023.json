@@ -1,0 +1,90 @@
+[
+  {
+    "id": "ChTl7Y2S",
+    "date": "21:00",
+    "teamHome": "Moghreb Tetouan",
+    "teamAway": "Union Touarga",
+    "url": "https://www.flashscore.com/match/ChTl7Y2S/",
+    "country": "morocco: botola pro ",
+    "odds": {
+      "home": 2.25,
+      "draw": 2.88,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": 9,
+      "draw": -5,
+      "away": -8
+    },
+    "standings": {
+      "totalTeams": 16,
+      "home": {
+        "rank": 6,
+        "points": 18,
+        "goals": 13,
+        "goalDifference": 6,
+        "form": [
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "13.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "10.11.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "04.11.2023"
+          }
+        ]
+      },
+      "away": {
+        "rank": 10,
+        "points": 14,
+        "goals": 13,
+        "goalDifference": -2,
+        "form": [
+          {
+            "score": "1:2",
+            "res": "L",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "L",
+            "date": "12.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "09.12.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "24.11.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "W",
+            "date": "10.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  }
+]
