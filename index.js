@@ -103,18 +103,13 @@ function analyzeAndPredictMatch(match) {
   let prediction = '';
 
   // Проверка на сильное падение коэффициентов и сравнение с формой и трендом
-  if (
-    match.droppingOdds.home < threshold &&
-    homeFormRating >= awayFormRating &&
-    homeFormTrend === 'upward' &&
-    (awayFormTrend === 'downward' || awayFormTrend === 'stable')
-  ) {
+  if (homeFormRating >= awayFormRating && homeFormTrend === 'downward' && awayFormTrend === 'downward') {
     prediction = 'home';
   } else if (
-    match.droppingOdds.away < threshold &&
-    awayFormRating >= homeFormRating &&
+    awayFormRating >= 0.4 &&
+    awayFormRating <= 0.6 &&
     awayFormTrend === 'upward' &&
-    (homeFormTrend === 'downward' || homeFormTrend === 'stable')
+    homeFormTrend === 'downward'
   ) {
     prediction = 'away';
   } else {
@@ -303,7 +298,7 @@ async function scrapeLeagueData(page, leagueUrl) {
       });
 
       const selectedMatch = await page.evaluate((matchItem) => {
-        const range = 2;
+        const range = 2.1;
         const odds1 = document.querySelector('a.oddsCell__odd:nth-child(2) span')?.textContent;
         const oddsx = document.querySelector('a.oddsCell__odd:nth-child(3) span')?.textContent;
         const odds2 = document.querySelector('a.oddsCell__odd:nth-child(4) span')?.textContent;
@@ -522,7 +517,7 @@ function isWeekday() {
 function scrapeDataBasedOnDay() {
   const all = isWeekday();
   console.log(`Today scraping: ${all ? 'all' : 'top'} matches`);
-  scrapeData({ all })
+  scrapeData({ all: true })
     .then((data) => {
       saveDataToFile(data);
       if (data.length > 0) {
