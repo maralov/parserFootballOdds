@@ -1980,5 +1980,245 @@
     },
     "result": "lose",
     "profit": -1
+  },
+  {
+    "id": "ChTl7Y2S",
+    "date": "12-28-2023",
+    "teamHome": "Moghreb Tetouan",
+    "teamAway": "Union Touarga",
+    "url": "https://www.flashscore.com/match/ChTl7Y2S/",
+    "country": "morocco: botola pro ",
+    "odds": {
+      "home": 2.25,
+      "draw": 2.88,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": 9,
+      "draw": -5,
+      "away": -8
+    },
+    "standings": {
+      "totalTeams": 16,
+      "home": {
+        "rank": 6,
+        "points": 18,
+        "goals": 13,
+        "goalDifference": 6,
+        "form": {
+          "rating": 0.42105555555555557,
+          "trend": "stable"
+        }
+      },
+      "away": {
+        "rank": 10,
+        "points": 14,
+        "goals": 13,
+        "goalDifference": -2,
+        "form": {
+          "rating": 0.13833333333333336,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 1.88
+  },
+  {
+    "id": "8Ojw72HT",
+    "date": "12-29-2023",
+    "teamHome": "Birmingham",
+    "teamAway": "Bristol City",
+    "url": "https://www.flashscore.com/match/8Ojw72HT/",
+    "country": "england: championship ",
+    "odds": {
+      "home": 2.75,
+      "draw": 3.3,
+      "away": 2.55
+    },
+    "droppingOdds": {
+      "home": 9,
+      "draw": 5,
+      "away": -11
+    },
+    "standings": {
+      "totalTeams": 24,
+      "away": {
+        "rank": 8,
+        "points": 35,
+        "goals": 30,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.48377777777777786,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 19,
+        "points": 27,
+        "goals": 30,
+        "goalDifference": -8,
+        "form": {
+          "rating": 0.02505555555555556,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "fJPAVxTJ",
+    "date": "12-29-2023",
+    "teamHome": "Wigan",
+    "teamAway": "Carlisle",
+    "url": "https://www.flashscore.com/match/fJPAVxTJ/",
+    "country": "england: league one ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.4,
+      "away": 3.75
+    },
+    "droppingOdds": {
+      "home": 15,
+      "draw": -6,
+      "away": -16
+    },
+    "standings": {
+      "totalTeams": 24,
+      "home": {
+        "rank": 19,
+        "points": 23,
+        "goals": 32,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.4785000000000001,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 24,
+        "points": 17,
+        "goals": 18,
+        "goalDifference": -15,
+        "form": {
+          "rating": 0.15622222222222226,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "CzpCAyif",
+    "date": "12-29-2023",
+    "teamHome": "Lincoln",
+    "teamAway": "Northampton",
+    "url": "https://www.flashscore.com/match/CzpCAyif/",
+    "country": "england: league one ",
+    "odds": {
+      "home": 2.45,
+      "draw": 3.2,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": 14,
+      "draw": -4,
+      "away": -11
+    },
+    "standings": {
+      "totalTeams": 24,
+      "home": {
+        "rank": 9,
+        "points": 32,
+        "goals": 28,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.3056777777777778,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 11,
+        "points": 30,
+        "goals": 28,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.4652222222222222,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 2.1
+  },
+  {
+    "id": "GOELnllc",
+    "date": "12-29-2023",
+    "teamHome": "Hapoel Umm al-Fahm",
+    "teamAway": "Hap. Ramat Gan",
+    "url": "https://www.flashscore.com/match/GOELnllc/",
+    "country": "israel: leumit league ",
+    "odds": {
+      "home": 2.57,
+      "draw": 3.08,
+      "away": 2.58
+    },
+    "droppingOdds": {
+      "home": 33,
+      "draw": -6,
+      "away": -31
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 10,
+        "points": 16,
+        "goals": 19,
+        "goalDifference": 2,
+        "form": {
+          "rating": 0.5136666666666667,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 11,
+        "points": 16,
+        "goals": 16,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.42295000000000005,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "4-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]
