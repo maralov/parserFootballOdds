@@ -2508,5 +2508,149 @@
     },
     "result": "lose",
     "profit": -1
+  },
+  {
+    "id": "xQBvyFg5",
+    "date": "12-31-2023",
+    "teamHome": "Aluminium Arak",
+    "teamAway": "Malavan",
+    "url": "https://www.flashscore.com/match/xQBvyFg5/",
+    "country": "iran: persian gulf pro league ",
+    "odds": {
+      "home": 2.46,
+      "draw": 2.8,
+      "away": 3.05
+    },
+    "droppingOdds": {
+      "home": 0,
+      "draw": -5,
+      "away": 7
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 6,
+        "points": 23,
+        "goals": 19,
+        "goalDifference": 8,
+        "form": {
+          "rating": 0.24144444444444443,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 8,
+        "points": 21,
+        "goals": 11,
+        "goalDifference": -2,
+        "form": {
+          "rating": 0.3275555555555556,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 1.7999999999999998
+  },
+  {
+    "id": "bZCzxeva",
+    "date": "12-31-2023",
+    "teamHome": "Havadar SC",
+    "teamAway": "Esteghlal Khuzestan",
+    "url": "https://www.flashscore.com/match/bZCzxeva/",
+    "country": "iran: persian gulf pro league ",
+    "odds": {
+      "home": 2.11,
+      "draw": 2.93,
+      "away": 3.6
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -8,
+      "away": -12
+    },
+    "standings": {
+      "totalTeams": 16,
+      "home": {
+        "rank": 12,
+        "points": 11,
+        "goals": 12,
+        "goalDifference": -8,
+        "form": {
+          "rating": -0.18259999999999998,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 16,
+        "points": 8,
+        "goals": 10,
+        "goalDifference": -8,
+        "form": {
+          "rating": 0.08555555555555554,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "G0f5WbVD",
+    "date": "12-31-2023",
+    "teamHome": "Portmore",
+    "teamAway": "Arnett Gardens",
+    "url": "https://www.flashscore.com/match/G0f5WbVD/",
+    "country": "jamaica: premier league ",
+    "odds": {
+      "home": 3.31,
+      "draw": 3.02,
+      "away": 2.18
+    },
+    "droppingOdds": {
+      "home": 19,
+      "draw": 2,
+      "away": -12
+    },
+    "standings": {
+      "totalTeams": 14,
+      "away": {
+        "rank": 3,
+        "points": 21,
+        "goals": 18,
+        "goalDifference": 11,
+        "form": {
+          "rating": 0.8213650793650794,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 4,
+        "points": 21,
+        "goals": 16,
+        "goalDifference": 9,
+        "form": {
+          "rating": 0.7775428571428572,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]
