@@ -410,7 +410,13 @@ async function scrapeLeagueData(page, leagueUrl) {
           match.teamAway
         );
 
-        if (selectedMatch.standings?.home?.form?.length > 3 && selectedMatch.standings?.away?.form?.length > 3) {
+        if (
+          selectedMatch.standings?.home?.form?.length > 3 &&
+          selectedMatch.standings?.away?.form?.length > 3 &&
+          (selectedMatch.droppingOdds.home < threshold ||
+            selectedMatch.droppingOdds.away < threshold ||
+            selectedMatch.droppingOdds.draw < threshold * 0.5)
+        ) {
           console.log('analyze prediction...');
           selectedMatch.prediction = analyzeAndPredictMatch(selectedMatch);
         }
