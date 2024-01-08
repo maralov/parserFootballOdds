@@ -1,0 +1,146 @@
+[
+  {
+    "id": "nV5iRtO8",
+    "date": "01-07-2024",
+    "teamHome": "Pro Sesto",
+    "teamAway": "Pergolettese",
+    "url": "https://www.flashscore.com/match/nV5iRtO8/",
+    "country": "italy: serie c ",
+    "odds": {
+      "home": 2.59,
+      "draw": 2.95,
+      "away": 2.65
+    },
+    "droppingOdds": {
+      "home": 20,
+      "draw": 0,
+      "away": -20
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 16,
+        "points": 20,
+        "goals": 19,
+        "goalDifference": -8,
+        "form": {
+          "rating": 0.2311111111111111,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 18,
+        "points": 16,
+        "goals": 13,
+        "goalDifference": -8,
+        "form": {
+          "rating": 0.00733333333333332,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "lxgoRAKg",
+    "date": "01-07-2024",
+    "teamHome": "Gombe",
+    "teamAway": "Rivers United",
+    "url": "https://www.flashscore.com/match/lxgoRAKg/",
+    "country": "nigeria: npfl ",
+    "odds": {
+      "home": 2.34,
+      "draw": 2.7,
+      "away": 3.46
+    },
+    "droppingOdds": {
+      "home": 14,
+      "draw": -13,
+      "away": -8
+    },
+    "standings": {
+      "totalTeams": 20,
+      "home": {
+        "rank": 14,
+        "points": 19,
+        "goals": 13,
+        "goalDifference": -11,
+        "form": {
+          "rating": 0.4695777777777778,
+          "trend": "upward"
+        }
+      },
+      "away": {
+        "rank": 16,
+        "points": 16,
+        "goals": 10,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.49711111111111106,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 1.7000000000000002
+  },
+  {
+    "id": "xYRlVVG0",
+    "date": "01-07-2024",
+    "teamHome": "Rejiche",
+    "teamAway": "Moknine",
+    "url": "https://www.flashscore.com/match/xYRlVVG0/",
+    "country": "tunisia: ligue 2 ",
+    "odds": {
+      "home": 3.28,
+      "draw": 3.02,
+      "away": 2.19
+    },
+    "droppingOdds": {
+      "home": -14,
+      "draw": -7,
+      "away": 14
+    },
+    "standings": {
+      "totalTeams": 13,
+      "away": {
+        "rank": 6,
+        "points": 16,
+        "goals": 12,
+        "goalDifference": 2,
+        "form": {
+          "rating": 0.4690256410256411,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 13,
+        "points": 2,
+        "goals": 6,
+        "goalDifference": -14,
+        "form": {
+          "rating": -0.1843111111111111,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.19
+  }
+]
