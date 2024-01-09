@@ -1,0 +1,434 @@
+[
+  {
+    "id": "IZshnAtS",
+    "date": "12-26-2023",
+    "teamHome": "Sheffield Utd",
+    "teamAway": "Luton",
+    "url": "https://www.flashscore.com/match/IZshnAtS/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.4,
+      "draw": 3.25,
+      "away": 3
+    },
+    "droppingOdds": {
+      "home": 9,
+      "draw": -6,
+      "away": -4
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 18,
+        "points": 12,
+        "goals": 18,
+        "goalDifference": -14,
+        "form": {
+          "rating": 0.010000000000000009,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 20,
+        "points": 9,
+        "goals": 13,
+        "goalDifference": -31,
+        "form": {
+          "rating": 0.060866666666666715,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "dKgqlWBF",
+    "date": "12-26-2023",
+    "teamHome": "Manchester Utd",
+    "teamAway": "Aston Villa",
+    "url": "https://www.flashscore.com/match/dKgqlWBF/",
+    "country": "england: premier league ",
+    "odds": {
+      "home": 2.4,
+      "draw": 3.6,
+      "away": 2.8
+    },
+    "droppingOdds": {
+      "home": 9,
+      "draw": 8,
+      "away": -16
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 3,
+        "points": 39,
+        "goals": 38,
+        "goalDifference": 16,
+        "form": {
+          "rating": 0.7451111111111112,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 8,
+        "points": 28,
+        "goals": 18,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.27622222222222226,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "3-2",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "ETLcl6v3",
+    "date": "12-26-2023",
+    "teamHome": "Club Brugge KV",
+    "teamAway": "Royale Union SG",
+    "url": "https://www.flashscore.com/match/ETLcl6v3/",
+    "country": "belgium: jupiler pro league ",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.2,
+      "away": 3.3
+    },
+    "droppingOdds": {
+      "home": -3,
+      "draw": -5,
+      "away": 10
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 1,
+        "points": 47,
+        "goals": 43,
+        "goalDifference": 24,
+        "form": {
+          "rating": 0.8159444444444445,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 4,
+        "points": 33,
+        "goals": 37,
+        "goalDifference": 21,
+        "form": {
+          "rating": 0.7856444444444447,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.2
+  },
+  {
+    "id": "M74HBQ2b",
+    "date": "12-26-2023",
+    "teamHome": "Millwall",
+    "teamAway": "QPR",
+    "url": "https://www.flashscore.com/match/M74HBQ2b/",
+    "country": "england: championship ",
+    "odds": {
+      "home": 2.2,
+      "draw": 3.2,
+      "away": 3.6
+    },
+    "droppingOdds": {
+      "home": 2,
+      "draw": -5,
+      "away": 6
+    },
+    "standings": {
+      "totalTeams": 24,
+      "home": {
+        "rank": 20,
+        "points": 23,
+        "goals": 24,
+        "goalDifference": -7,
+        "form": {
+          "rating": 0.17111111111111113,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 22,
+        "points": 20,
+        "goals": 20,
+        "goalDifference": -13,
+        "form": {
+          "rating": 0.1515555555555556,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "d075ESIu",
+    "date": "12-26-2023",
+    "teamHome": "Huddersfield",
+    "teamAway": "Blackburn",
+    "url": "https://www.flashscore.com/match/d075ESIu/",
+    "country": "england: championship ",
+    "odds": {
+      "home": 3.1,
+      "draw": 3.6,
+      "away": 2.2
+    },
+    "droppingOdds": {
+      "home": 11,
+      "draw": 6,
+      "away": -10
+    },
+    "standings": {
+      "totalTeams": 24,
+      "away": {
+        "rank": 14,
+        "points": 31,
+        "goals": 35,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.29200000000000004,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 21,
+        "points": 22,
+        "goals": 21,
+        "goalDifference": -17,
+        "form": {
+          "rating": -0.014788888888888869,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "3-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "EcqAYuZh",
+    "date": "12-26-2023",
+    "teamHome": "Salford",
+    "teamAway": "Tranmere",
+    "url": "https://www.flashscore.com/match/EcqAYuZh/",
+    "country": "england: league two ",
+    "odds": {
+      "home": 2.4,
+      "draw": 3.5,
+      "away": 2.88
+    },
+    "droppingOdds": {
+      "home": 10,
+      "draw": 0,
+      "away": -10
+    },
+    "standings": {
+      "totalTeams": 24,
+      "away": {
+        "rank": 18,
+        "points": 24,
+        "goals": 31,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.542,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 21,
+        "points": 23,
+        "goals": 31,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.10743333333333333,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-5",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.88
+  },
+  {
+    "id": "2PfrDSR9",
+    "date": "12-26-2023",
+    "teamHome": "Cosenza",
+    "teamAway": "Como",
+    "url": "https://www.flashscore.com/match/2PfrDSR9/",
+    "country": "italy: serie b ",
+    "odds": {
+      "home": 2.4,
+      "draw": 3.1,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": -12,
+      "draw": -1,
+      "away": 17
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 4,
+        "points": 32,
+        "goals": 23,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.5557777777777778,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 12,
+        "points": 21,
+        "goals": 18,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.2307555555555556,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "ltgjB6dM",
+    "date": "12-26-2023",
+    "teamHome": "Lecco",
+    "teamAway": "Sudtirol",
+    "url": "https://www.flashscore.com/match/ltgjB6dM/",
+    "country": "italy: serie b ",
+    "odds": {
+      "home": 2.3,
+      "draw": 3,
+      "away": 3.5
+    },
+    "droppingOdds": {
+      "home": -15,
+      "draw": -4,
+      "away": 24
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 15,
+        "points": 20,
+        "goals": 25,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.10177777777777774,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 17,
+        "points": 17,
+        "goals": 18,
+        "goalDifference": -10,
+        "form": {
+          "rating": 0.21682222222222222,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "U9qlimgE",
+    "date": "12-26-2023",
+    "teamHome": "Ards",
+    "teamAway": "Bangor FC",
+    "url": "https://www.flashscore.com/match/U9qlimgE/",
+    "country": "northern ireland: nifl championship ",
+    "odds": {
+      "home": 2.29,
+      "draw": 3.74,
+      "away": 2.51
+    },
+    "droppingOdds": {
+      "home": -12,
+      "draw": 3,
+      "away": 11
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 4,
+        "points": 34,
+        "goals": 38,
+        "goalDifference": 12,
+        "form": {
+          "rating": 0.721777777777778,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 10,
+        "points": 24,
+        "goals": 39,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.4321777777777779,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-2",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.74
+  }
+]

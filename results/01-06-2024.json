@@ -1,0 +1,674 @@
+[
+  {
+    "id": "C8BUYolj",
+    "date": "01-06-2024",
+    "teamHome": "Brisbane Roar",
+    "teamAway": "Sydney FC",
+    "url": "https://www.flashscore.com/match/C8BUYolj/",
+    "country": "australia: a",
+    "odds": {
+      "home": 2.9,
+      "draw": 4.2,
+      "away": 2.15
+    },
+    "droppingOdds": {
+      "home": 17,
+      "draw": 12,
+      "away": -17
+    },
+    "standings": {
+      "totalTeams": 12,
+      "home": {
+        "rank": 8,
+        "points": 14,
+        "goals": 16,
+        "goalDifference": -7,
+        "form": {
+          "rating": 0.3048222222222222,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 10,
+        "points": 12,
+        "goals": 15,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.52,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.15
+  },
+  {
+    "id": "6XaPzY4a",
+    "date": "01-06-2024",
+    "teamHome": "Burton",
+    "teamAway": "Wycombe",
+    "url": "https://www.flashscore.com/match/6XaPzY4a/",
+    "country": "england: league one ",
+    "odds": {
+      "home": 3.2,
+      "draw": 3.3,
+      "away": 2.25
+    },
+    "droppingOdds": {
+      "home": 21,
+      "draw": 1,
+      "away": -13
+    },
+    "standings": {
+      "totalTeams": 24,
+      "away": {
+        "rank": 16,
+        "points": 28,
+        "goals": 28,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.3082222222222223,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 19,
+        "points": 27,
+        "goals": 20,
+        "goalDifference": -14,
+        "form": {
+          "rating": 0.41323333333333345,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.3
+  },
+  {
+    "id": "IPI5BFW3",
+    "date": "01-06-2024",
+    "teamHome": "Salford",
+    "teamAway": "Forest Green",
+    "url": "https://www.flashscore.com/match/IPI5BFW3/",
+    "country": "england: league two ",
+    "odds": {
+      "home": 2.6,
+      "draw": 3.5,
+      "away": 2.6
+    },
+    "droppingOdds": {
+      "home": 18,
+      "draw": 0,
+      "away": -17
+    },
+    "standings": {
+      "totalTeams": 24,
+      "home": {
+        "rank": 21,
+        "points": 23,
+        "goals": 32,
+        "goalDifference": -14,
+        "form": {
+          "rating": -0.20081111111111113,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 24,
+        "points": 17,
+        "goals": 24,
+        "goalDifference": -20,
+        "form": {
+          "rating": 0.07266666666666668,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-2",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "KIQh6unq",
+    "date": "01-06-2024",
+    "teamHome": "Virtus Verona",
+    "teamAway": "Atalanta U23",
+    "url": "https://www.flashscore.com/match/KIQh6unq/",
+    "country": "italy: serie c ",
+    "odds": {
+      "home": 2.66,
+      "draw": 3.04,
+      "away": 2.52
+    },
+    "droppingOdds": {
+      "home": 24,
+      "draw": 0,
+      "away": -24
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 5,
+        "points": 30,
+        "goals": 21,
+        "goalDifference": 1,
+        "form": {
+          "rating": 0.38400000000000006,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 8,
+        "points": 28,
+        "goals": 22,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.3612888888888889,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "UexQrRbs",
+    "date": "01-06-2024",
+    "teamHome": "Vis Pesaro",
+    "teamAway": "Spal",
+    "url": "https://www.flashscore.com/match/UexQrRbs/",
+    "country": "italy: serie c ",
+    "odds": {
+      "home": 2.68,
+      "draw": 2.91,
+      "away": 2.6
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": 0,
+      "away": 10
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 15,
+        "points": 19,
+        "goals": 15,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.33111111111111113,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 16,
+        "points": 19,
+        "goals": 19,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.2339333333333333,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 1.9100000000000001
+  },
+  {
+    "id": "WSKR03Ek",
+    "date": "01-06-2024",
+    "teamHome": "Latina",
+    "teamAway": "Avellino",
+    "url": "https://www.flashscore.com/match/WSKR03Ek/",
+    "country": "italy: serie c ",
+    "odds": {
+      "home": 3.31,
+      "draw": 3.02,
+      "away": 2.18
+    },
+    "droppingOdds": {
+      "home": 24,
+      "draw": 1,
+      "away": -14
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 4,
+        "points": 34,
+        "goals": 24,
+        "goalDifference": 12,
+        "form": {
+          "rating": 0.5377777777777779,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 9,
+        "points": 27,
+        "goals": 23,
+        "goalDifference": 1,
+        "form": {
+          "rating": 0.2530000000000001,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-5",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.1800000000000002
+  },
+  {
+    "id": "4fW4WPu6",
+    "date": "01-06-2024",
+    "teamHome": "Chabab Mohammedia",
+    "teamAway": "IR Tanger",
+    "url": "https://www.flashscore.com/match/4fW4WPu6/",
+    "country": "morocco: botola pro ",
+    "odds": {
+      "home": 2.25,
+      "draw": 2.88,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": 5,
+      "draw": 3,
+      "away": -9
+    },
+    "standings": {
+      "totalTeams": 16,
+      "home": {
+        "rank": 12,
+        "points": 15,
+        "goals": 13,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.3627555555555556,
+          "trend": "stable"
+        }
+      },
+      "away": {
+        "rank": 15,
+        "points": 11,
+        "goals": 12,
+        "goalDifference": -11,
+        "form": {
+          "rating": 0.26716666666666666,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "G4xHvkoQ",
+    "date": "01-06-2024",
+    "teamHome": "Estrela",
+    "teamAway": "Vizela",
+    "url": "https://www.flashscore.com/match/G4xHvkoQ/",
+    "country": "portugal: liga portugal ",
+    "odds": {
+      "home": 2.7,
+      "draw": 3.3,
+      "away": 2.6
+    },
+    "droppingOdds": {
+      "home": 24,
+      "draw": -3,
+      "away": -19
+    },
+    "standings": {
+      "totalTeams": 18,
+      "home": {
+        "rank": 13,
+        "points": 16,
+        "goals": 16,
+        "goalDifference": -6,
+        "form": {
+          "rating": 0.10266666666666673,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 16,
+        "points": 12,
+        "goals": 14,
+        "goalDifference": -8,
+        "form": {
+          "rating": 0.014444444444444454,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "YqPrz9gs",
+    "date": "01-06-2024",
+    "teamHome": "SC Farense",
+    "teamAway": "Gil Vicente",
+    "url": "https://www.flashscore.com/match/YqPrz9gs/",
+    "country": "portugal: liga portugal ",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.3,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": 15,
+      "draw": -3,
+      "away": -16
+    },
+    "standings": {
+      "totalTeams": 18,
+      "home": {
+        "rank": 8,
+        "points": 18,
+        "goals": 22,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.3752222222222223,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 14,
+        "points": 15,
+        "goals": 26,
+        "goalDifference": -3,
+        "form": {
+          "rating": 0.42644444444444446,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "63C23xUf",
+    "date": "01-06-2024",
+    "teamHome": "Canelas 2010",
+    "teamAway": "Varzim",
+    "url": "https://www.flashscore.com/match/63C23xUf/",
+    "country": "portugal: liga 3 ",
+    "odds": {
+      "home": 3.05,
+      "draw": 3.2,
+      "away": 2.2
+    },
+    "droppingOdds": {
+      "home": 15,
+      "draw": 1,
+      "away": -9
+    },
+    "standings": {
+      "totalTeams": 10,
+      "away": {
+        "rank": 5,
+        "points": 19,
+        "goals": 13,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.31111111111111106,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 6,
+        "points": 18,
+        "goals": 18,
+        "goalDifference": -6,
+        "form": {
+          "rating": -0.039599999999999975,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 2.05
+  },
+  {
+    "id": "COiamaEh",
+    "date": "01-06-2024",
+    "teamHome": "Elgin City",
+    "teamAway": "Stranraer",
+    "url": "https://www.flashscore.com/match/COiamaEh/",
+    "country": "scotland: league two ",
+    "odds": {
+      "home": 2.8,
+      "draw": 3.25,
+      "away": 2.3
+    },
+    "droppingOdds": {
+      "home": 10,
+      "draw": -14,
+      "away": 6
+    },
+    "standings": {
+      "totalTeams": 10,
+      "away": {
+        "rank": 6,
+        "points": 19,
+        "goals": 21,
+        "goalDifference": -14,
+        "form": {
+          "rating": 0.19488888888888894,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 9,
+        "points": 15,
+        "goals": 13,
+        "goalDifference": -20,
+        "form": {
+          "rating": 0.19506666666666675,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "jFj3nJTb",
+    "date": "01-06-2024",
+    "teamHome": "Peterhead",
+    "teamAway": "Spartans",
+    "url": "https://www.flashscore.com/match/jFj3nJTb/",
+    "country": "scotland: league two ",
+    "odds": {
+      "home": 2.4,
+      "draw": 3.75,
+      "away": 2.4
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -2,
+      "away": -12
+    },
+    "standings": {
+      "totalTeams": 10,
+      "home": {
+        "rank": 2,
+        "points": 32,
+        "goals": 30,
+        "goalDifference": 13,
+        "form": {
+          "rating": 0.6072000000000001,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 4,
+        "points": 29,
+        "goals": 30,
+        "goalDifference": 11,
+        "form": {
+          "rating": 0.49800000000000005,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.4
+  },
+  {
+    "id": "Gba7IO3M",
+    "date": "01-06-2024",
+    "teamHome": "Bangkok Utd",
+    "teamAway": "Buriram",
+    "url": "https://www.flashscore.com/match/Gba7IO3M/",
+    "country": "thailand: thai league 1 ",
+    "odds": {
+      "home": 2.35,
+      "draw": 3.15,
+      "away": 2.63
+    },
+    "droppingOdds": {
+      "home": -19,
+      "draw": 1,
+      "away": 32
+    },
+    "standings": {
+      "totalTeams": 16,
+      "home": {
+        "rank": 1,
+        "points": 34,
+        "goals": 27,
+        "goalDifference": 21,
+        "form": {
+          "rating": 0.9474055555555556,
+          "trend": "upward"
+        }
+      },
+      "away": {
+        "rank": 4,
+        "points": 27,
+        "goals": 25,
+        "goalDifference": 14,
+        "form": {
+          "rating": 0.9797777777777779,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "pQinVTGO",
+    "date": "01-06-2024",
+    "teamHome": "Samsunspor",
+    "teamAway": "Karagumruk",
+    "url": "https://www.flashscore.com/match/pQinVTGO/",
+    "country": "turkey: super lig ",
+    "odds": {
+      "home": 2.15,
+      "draw": 3.25,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": -5,
+      "draw": -6,
+      "away": 15
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 17,
+        "points": 17,
+        "goals": 18,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.258,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 18,
+        "points": 15,
+        "goals": 19,
+        "goalDifference": -10,
+        "form": {
+          "rating": 0.26375555555555563,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  }
+]

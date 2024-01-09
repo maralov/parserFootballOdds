@@ -11,11 +11,129 @@ const sendTelegramMessage = require('./helpers/utils/sendTelegramMessage');
 const createPredictionMessage = require('./helpers/utils/createPredictionMessage');
 const createResultMessage = require('./helpers/utils/createResultMessage');
 
+const threshold = -8; // Поріг для падіння коефіцієнтів
+
 let executablePath;
 if (os.platform() === 'linux') {
   executablePath = '/usr/bin/google-chrome';
 } else if (os.platform() === 'darwin') {
   executablePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+}
+
+function evaluateFormTrend(form) {
+  let trendScore = 0;
+  let weight = 1.0; // Вес последней игры
+
+  form.forEach((match, index) => {
+    const [goalsFor, goalsAgainst] = match.score.split(':').map(Number);
+    let matchScore = 0;
+
+    if (match.res === 'W') {
+      matchScore = 1 + (goalsFor - goalsAgainst) / 5; // Учитываем разницу голов
+    } else if (match.res === 'D') {
+      matchScore = (goalsFor - goalsAgainst) / 5; // Ничья с большой разницей голов оценивается выше
+    } else if (match.res === 'L') {
+      matchScore = -1 - (goalsAgainst - goalsFor) / 5; // Большая разница голов в поражении оценивается ниже
+    }
+
+    trendScore += matchScore * weight;
+    weight *= 0.8; // Уменьшаем вес для предыдущих игр
+  });
+
+  return trendScore > 0.5 ? 'upward' : trendScore < -0.5 ? 'downward' : 'stable';
+}
+
+function calculateTeamForm(standings, isHomeGame, totalTeams) {
+  let points = 0;
+  let totalGoalsScored = 0;
+  let totalGoalsConceded = 0;
+  let formTrendFactor = 0;
+  let matchWeight = 1.5; // Більше ваги для останніх матчів
+
+  standings.form.forEach((match, index) => {
+    totalGoalsScored += parseInt(match.score.split(':')[0]);
+    totalGoalsConceded += parseInt(match.score.split(':')[1]);
+
+    switch (match.res) {
+      case 'W':
+        points += 3 * matchWeight;
+        break;
+      case 'D':
+        points += 1 * matchWeight;
+        break;
+      case 'L':
+        points += 0;
+        break;
+    }
+
+    formTrendFactor += index * (match.res === 'W' ? 1 : match.res === 'D' ? 0.5 : 0);
+    matchWeight -= 0.2; // Зменшення ваги для більш р
+  });
+
+  const averageGoalsScored = totalGoalsScored / standings.form.length;
+  const averageGoalsConceded = totalGoalsConceded / standings.form.length;
+
+  // Врахування місця в таблиці
+  const tablePositionFactor = 1 - standings.rank / totalTeams;
+
+  // Врахування різниці голів
+  const goalDifferenceFactor = standings.goalDifference / 10;
+
+  // Фактор домашньої переваги
+  let homeAdvantageFactor = isHomeGame ? 1.1 : 1.0;
+
+  // Формула загального рейтингу
+  const formRating =
+    ((points / (15 * 1.5)) * 0.4 + // Загальні очки з підвищеною вагою для останніх матчів
+      (averageGoalsScored - averageGoalsConceded) * 0.2 + // Різниця між забитими і пропущеними голами
+      tablePositionFactor * 0.2 + // Позиція в таблиці
+      goalDifferenceFactor * 0.1 + // Різниця голів
+      (formTrendFactor / standings.form.length) * 0.1) * // Тенденція останніх матчів
+    homeAdvantageFactor;
+
+  return formRating;
+}
+
+function analyzeAndPredictMatch(match) {
+  const homeFormRating = calculateTeamForm(match.standings.home, true, match.standings.totalTeams);
+  const awayFormRating = calculateTeamForm(match.standings.away, false, match.standings.totalTeams);
+  const homeFormTrend = evaluateFormTrend(match.standings.home.form);
+  const awayFormTrend = evaluateFormTrend(match.standings.away.form);
+
+  let prediction = '';
+
+  // Проверка на сильное падение коэффициентов и сравнение с формой и трендом
+  if (homeFormTrend === 'downward' && awayFormTrend === 'downward') {
+    prediction = 'home';
+  } else if (
+    awayFormRating >= 0.4 &&
+    awayFormRating <= 0.6 &&
+    awayFormTrend === 'upward' &&
+    homeFormTrend === 'downward'
+  ) {
+    prediction = 'away';
+  } else if (homeFormTrend === 'upward' && awayFormTrend === 'upward' && match.droppingOdds.draw < threshold * 0.5) {
+    prediction = 'draw';
+  } else {
+    prediction = checkForPossibleDraw(match, homeFormRating, awayFormRating) ? 'draw' : '';
+  }
+  console.log({
+    prediction,
+    homeFormRating,
+    awayFormRating,
+    homeFormTrend,
+    awayFormTrend,
+  });
+  // Если ни один из сценариев не применим, можно оставить прогноз пустым или рассмотреть другие факторы
+  return prediction;
+}
+function checkForPossibleDraw(match, homeFormRating, awayFormRating) {
+  const formDifference = Math.abs(homeFormRating - awayFormRating);
+  const tableDifference = Math.abs(match.standings.home.rank - match.standings.away.rank);
+  return (
+    (formDifference < 0.2 && tableDifference < 4) ||
+    (formDifference > 0.2 && formDifference < 0.4 && tableDifference > 3 && tableDifference < 6)
+  );
 }
 
 async function checkLastChecked(dateString) {
@@ -84,6 +202,15 @@ async function checkPredictions(page, path = '') {
         match.profit = result === 'win' ? match.odds[scoreType] - 1 : -1;
         match.date = dateString;
 
+        match.standings.home.form = {
+          rating: calculateTeamForm(match.standings.home, true, match.standings.totalTeams),
+          trend: evaluateFormTrend(match.standings.home.form),
+        };
+        match.standings.away.form = {
+          rating: calculateTeamForm(match.standings.away, false, match.standings.totalTeams),
+          trend: evaluateFormTrend(match.standings.away.form),
+        };
+
         filteredMatchesData.push(match);
       }
     } catch (error) {
@@ -91,25 +218,28 @@ async function checkPredictions(page, path = '') {
     }
   }
 
-  const dayProfit = {
+  const dayProfit = filteredMatchesData.reduce((acc, match) => {
+    return acc + match.profit;
+  }, 0);
+
+  const dayResult = {
     date: dateString,
     win: filteredMatchesData.filter((match) => match.result === 'win').length,
     lose: filteredMatchesData.filter((match) => match.result === 'lose').length,
     total: filteredMatchesData.length,
-    profit: filteredMatchesData.reduce((acc, match) => {
-      return acc + match.profit;
-    }, 0),
+    profit: dayProfit,
+    totalProfit: summProfit[summProfit.length - 1].totalProfit + dayProfit,
   };
 
   const isExistProfit = summProfit.find((profit) => profit.date === dateString);
 
   if (!isExistProfit) {
-    summProfit.push(dayProfit);
+    summProfit.push(dayResult);
   }
 
-  console.log(`check yesterday predictions end...`, dayProfit);
+  console.log(`check yesterday predictions end...`, dayResult);
 
-  const message = createResultMessage(dayProfit);
+  const message = createResultMessage(dayResult);
 
   fs.writeFileSync(filePath, JSON.stringify(matchesData, null, 2));
   fs.writeFileSync('./summary/total.json', JSON.stringify([...allMatches, ...filteredMatchesData], null, 2));
@@ -170,12 +300,12 @@ async function scrapeLeagueData(page, leagueUrl) {
       });
 
       const selectedMatch = await page.evaluate((matchItem) => {
-        const range = 2;
+        const range = 2.1;
         const odds1 = document.querySelector('a.oddsCell__odd:nth-child(2) span')?.textContent;
         const oddsx = document.querySelector('a.oddsCell__odd:nth-child(3) span')?.textContent;
         const odds2 = document.querySelector('a.oddsCell__odd:nth-child(4) span')?.textContent;
 
-        if (parseFloat(odds1) >= range && parseFloat(odds2) >= range) {
+        if (parseFloat(odds1) > range && parseFloat(odds2) > range) {
           const country = document.querySelector('.tournamentHeader__country')?.textContent.toLowerCase().split('-')[0];
           return {
             ...matchItem,
@@ -192,7 +322,7 @@ async function scrapeLeagueData(page, leagueUrl) {
       }, match);
 
       if (selectedMatch) {
-        const droppingOdds = await page.evaluate(() => {
+        selectedMatch.droppingOdds = await page.evaluate(() => {
           const processOddsChange = (title) => {
             const odds = title.split(' » ').map(Number);
             if (odds.length === 2 && !isNaN(odds[0]) && !isNaN(odds[1])) {
@@ -220,24 +350,26 @@ async function scrapeLeagueData(page, leagueUrl) {
           });
 
           if (oddsChanges.length === 0) return '';
-          console.log(`oddsChanges:`, oddsChanges);
           return {
             home: averageChange(oddsChanges.map((change) => change.homeChange)),
             draw: averageChange(oddsChanges.map((change) => change.drawChange)),
             away: averageChange(oddsChanges.map((change) => change.awayChange)),
           };
         });
-        console.log(`droppingOdds:`, droppingOdds);
+        console.log(`droppingOdds:`, selectedMatch.droppingOdds, selectedMatch.url);
         // Парсинг даних про ранг
-        console.log(`Парсинг даних про ранг`);
-
         await page.goto(`${match.url}#/standings/table/overall`, { waitUntil: 'networkidle2', timeout: 60000 });
         selectedMatch.standings = await page.evaluate(
           (teamHome, teamAway) => {
             try {
               const tableRows = document.querySelectorAll('.ui-table__body .table__row--selected');
+              const totalTeams = document.querySelectorAll('.ui-table__body .ui-table__row').length;
               const standing = {};
-
+              if (totalTeams < 5) {
+                return standing;
+              } else {
+                standing.totalTeams = totalTeams;
+              }
               tableRows.forEach((row) => {
                 const teamName = row.querySelector('.tableCellParticipant__name').textContent.trim();
                 if (teamName === teamHome || teamName === teamAway) {
@@ -278,26 +410,19 @@ async function scrapeLeagueData(page, leagueUrl) {
           match.teamAway
         );
 
-        const homeRange = (from, to) => droppingOdds.home >= from && droppingOdds.home <= to;
-        const drawRange = (from, to) => droppingOdds.draw >= from && droppingOdds.draw <= to;
-        const awayRange = (from, to) => droppingOdds.away >= from && droppingOdds.away <= to;
-        //
-        // прогноз
-        let prediction = '';
-
-        if ((droppingOdds.home < 0 && droppingOdds.away > 9 && drawRange(-1, 2)) || droppingOdds.home < -30) {
-          prediction = 'home';
-        }
-        if (droppingOdds.away < 0 && droppingOdds.home > 11 && drawRange(-1, -12)) {
-          prediction = 'draw';
-        } else if (droppingOdds.away < -30) {
-          prediction = 'away';
+        if (
+          selectedMatch.standings?.home?.form?.length > 3 &&
+          selectedMatch.standings?.away?.form?.length > 3 &&
+          (selectedMatch.droppingOdds.home < threshold ||
+            selectedMatch.droppingOdds.away < threshold ||
+            selectedMatch.droppingOdds.draw < threshold * 0.5)
+        ) {
+          console.log('analyze prediction...');
+          selectedMatch.prediction = analyzeAndPredictMatch(selectedMatch);
         }
 
-        if (prediction) {
-          selectedMatch.droppingOdds = droppingOdds;
-          selectedMatch.prediction = prediction;
-          console.log(`find match: `, prediction);
+        if (selectedMatch.prediction) {
+          console.log(`prediction: `, selectedMatch.prediction);
           filteredMatches.push(selectedMatch);
         }
       }
@@ -394,7 +519,7 @@ function isWeekday() {
 function scrapeDataBasedOnDay() {
   const all = isWeekday();
   console.log(`Today scraping: ${all ? 'all' : 'top'} matches`);
-  scrapeData({ all })
+  scrapeData({ all: true })
     .then((data) => {
       saveDataToFile(data);
       if (data.length > 0) {

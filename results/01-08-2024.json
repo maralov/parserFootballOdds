@@ -1,0 +1,146 @@
+[
+  {
+    "id": "vV3ri9tc",
+    "date": "01-08-2024",
+    "teamHome": "Panathinaikos B",
+    "teamAway": "Panachaiki",
+    "url": "https://www.flashscore.com/match/vV3ri9tc/",
+    "country": "greece: super league 2 ",
+    "odds": {
+      "home": 2.66,
+      "draw": 3.08,
+      "away": 2.63
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": 2,
+      "away": -16
+    },
+    "standings": {
+      "totalTeams": 12,
+      "home": {
+        "rank": 10,
+        "points": 10,
+        "goals": 7,
+        "goalDifference": -11,
+        "form": {
+          "rating": 0.1415333333333334,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 12,
+        "points": 6,
+        "goals": 8,
+        "goalDifference": -9,
+        "form": {
+          "rating": 0.10822222222222223,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-2",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "CGV2EpcS",
+    "date": "01-08-2024",
+    "teamHome": "Maccabi Petah Tikva",
+    "teamAway": "Hapoel Haifa",
+    "url": "https://www.flashscore.com/match/CGV2EpcS/",
+    "country": "israel: ligat ha'al ",
+    "odds": {
+      "home": 3,
+      "draw": 3.4,
+      "away": 2.3
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -1,
+      "away": -10
+    },
+    "standings": {
+      "totalTeams": 14,
+      "away": {
+        "rank": 4,
+        "points": 24,
+        "goals": 18,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.5733015873015873,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 10,
+        "points": 15,
+        "goals": 20,
+        "goalDifference": -7,
+        "form": {
+          "rating": 0.3583904761904763,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-3",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.2999999999999998
+  },
+  {
+    "id": "Ob3VnoQn",
+    "date": "01-08-2024",
+    "teamHome": "Jeunesse Sportive Soualem",
+    "teamAway": "Youssoufia Berrechid",
+    "url": "https://www.flashscore.com/match/Ob3VnoQn/",
+    "country": "morocco: botola pro ",
+    "odds": {
+      "home": 2.5,
+      "draw": 2.8,
+      "away": 2.8
+    },
+    "droppingOdds": {
+      "home": 6,
+      "draw": 2,
+      "away": -9
+    },
+    "standings": {
+      "totalTeams": 16,
+      "home": {
+        "rank": 14,
+        "points": 12,
+        "goals": 12,
+        "goalDifference": -11,
+        "form": {
+          "rating": 0.28172222222222226,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 16,
+        "points": 9,
+        "goals": 10,
+        "goalDifference": -12,
+        "form": {
+          "rating": 0.039111111111111124,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "3-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.5
+  }
+]

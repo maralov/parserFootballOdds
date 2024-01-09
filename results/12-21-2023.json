@@ -1,0 +1,378 @@
+[
+  {
+    "id": "fy1sRSy8",
+    "date": "12-21-2023",
+    "teamHome": "FC Hermannstadt",
+    "teamAway": "Sepsi Sf. Gheorghe",
+    "url": "https://www.flashscore.com/match/fy1sRSy8/",
+    "country": "romania: liga 1 ",
+    "odds": {
+      "home": 2.5,
+      "draw": 2.63,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": -2,
+      "draw": -5,
+      "away": 10
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 6,
+        "points": 29,
+        "goals": 26,
+        "goalDifference": 2,
+        "form": [
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "2:3",
+            "res": "W",
+            "date": "12.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "04.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "27.11.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "10.11.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 8,
+        "points": 28,
+        "goals": 26,
+        "goalDifference": 4,
+        "form": [
+          {
+            "score": "3:0",
+            "res": "L",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "L",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "24.11.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "11.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "SAf5sFng",
+    "date": "12-21-2023",
+    "teamHome": "Huesca",
+    "teamAway": "FC Cartagena SAD",
+    "url": "https://www.flashscore.com/match/SAf5sFng/",
+    "country": "spain: laliga2 ",
+    "odds": {
+      "home": 2.15,
+      "draw": 2.88,
+      "away": 4.2
+    },
+    "droppingOdds": {
+      "home": 1,
+      "draw": -5,
+      "away": 10
+    },
+    "standings": {
+      "totalTeams": 22,
+      "home": {
+        "rank": 19,
+        "points": 19,
+        "goals": 13,
+        "goalDifference": -5,
+        "form": [
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "03.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "L",
+            "date": "24.11.2023"
+          },
+          {
+            "score": "0:2",
+            "res": "W",
+            "date": "18.11.2023"
+          }
+        ]
+      },
+      "away": {
+        "rank": 22,
+        "points": 15,
+        "goals": 17,
+        "goalDifference": -14,
+        "form": [
+          {
+            "score": "0:3",
+            "res": "L",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "1:2",
+            "res": "W",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "19.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "3-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.15
+  },
+  {
+    "id": "Aik55ovi",
+    "date": "12-21-2023",
+    "teamHome": "Tanzania Prisons",
+    "teamAway": "Namungo",
+    "url": "https://www.flashscore.com/match/Aik55ovi/",
+    "country": "tanzania: ligi kuu bara ",
+    "odds": {
+      "home": 2.4,
+      "draw": 2.5,
+      "away": 3.4
+    },
+    "droppingOdds": {
+      "home": 2,
+      "draw": -5,
+      "away": 2
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 8,
+        "points": 17,
+        "goals": 12,
+        "goalDifference": 2,
+        "form": [
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "07.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "03.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "26.11.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "W",
+            "date": "23.11.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "09.11.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 11,
+        "points": 14,
+        "goals": 12,
+        "goalDifference": -4,
+        "form": [
+          {
+            "score": "0:2",
+            "res": "W",
+            "date": "08.12.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "04.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "29.11.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "L",
+            "date": "23.11.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "03.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "Iw6iNEIm",
+    "date": "12-21-2023",
+    "teamHome": "Ankaragucu",
+    "teamAway": "Hatayspor",
+    "url": "https://www.flashscore.com/match/Iw6iNEIm/",
+    "country": "turkey: super lig ",
+    "odds": {
+      "home": 2.1,
+      "draw": 3.4,
+      "away": 2.88
+    },
+    "droppingOdds": {
+      "home": 9,
+      "draw": -10,
+      "away": -4
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 10,
+        "points": 18,
+        "goals": 24,
+        "goalDifference": 2,
+        "form": [
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "10.12.2023"
+          },
+          {
+            "score": "3:3",
+            "res": "D",
+            "date": "01.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "25.11.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "11.11.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "04.11.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 11,
+        "points": 18,
+        "goals": 21,
+        "goalDifference": 0,
+        "form": [
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "11.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "03.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "W",
+            "date": "25.11.2023"
+          },
+          {
+            "score": "0:4",
+            "res": "L",
+            "date": "10.11.2023"
+          },
+          {
+            "score": "3:3",
+            "res": "D",
+            "date": "05.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  }
+]
