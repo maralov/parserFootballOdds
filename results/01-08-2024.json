@@ -1,7 +1,7 @@
 [
   {
     "id": "vV3ri9tc",
-    "date": "14:00",
+    "date": "01-08-2024",
     "teamHome": "Panathinaikos B",
     "teamAway": "Panachaiki",
     "url": "https://www.flashscore.com/match/vV3ri9tc/",
@@ -23,73 +23,33 @@
         "points": 10,
         "goals": 7,
         "goalDifference": -11,
-        "form": [
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "L",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "2:1",
-            "res": "W",
-            "date": "03.12.2023"
-          },
-          {
-            "score": "0:2",
-            "res": "L",
-            "date": "29.11.2023"
-          },
-          {
-            "score": "2:0",
-            "res": "L",
-            "date": "25.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.1415333333333334,
+          "trend": "downward"
+        }
       },
       "away": {
         "rank": 12,
         "points": 6,
         "goals": 8,
         "goalDifference": -9,
-        "form": [
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "17.12.2023"
-          },
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "L",
-            "date": "03.12.2023"
-          },
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "26.11.2023"
-          },
-          {
-            "score": "2:2",
-            "res": "D",
-            "date": "19.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.10822222222222223,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-2",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "CGV2EpcS",
-    "date": "19:00",
+    "date": "01-08-2024",
     "teamHome": "Maccabi Petah Tikva",
     "teamAway": "Hapoel Haifa",
     "url": "https://www.flashscore.com/match/CGV2EpcS/",
@@ -111,73 +71,33 @@
         "points": 24,
         "goals": 18,
         "goalDifference": -1,
-        "form": [
-          {
-            "score": "3:2",
-            "res": "W",
-            "date": "04.01.2024"
-          },
-          {
-            "score": "0:1",
-            "res": "L",
-            "date": "31.12.2023"
-          },
-          {
-            "score": "4:0",
-            "res": "L",
-            "date": "26.12.2023"
-          },
-          {
-            "score": "2:1",
-            "res": "W",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "20.12.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.5733015873015873,
+          "trend": "upward"
+        }
       },
       "home": {
         "rank": 10,
         "points": 15,
         "goals": 20,
         "goalDifference": -7,
-        "form": [
-          {
-            "score": "3:1",
-            "res": "L",
-            "date": "03.01.2024"
-          },
-          {
-            "score": "3:2",
-            "res": "L",
-            "date": "31.12.2023"
-          },
-          {
-            "score": "2:0",
-            "res": "W",
-            "date": "27.12.2023"
-          },
-          {
-            "score": "1:2",
-            "res": "L",
-            "date": "24.12.2023"
-          },
-          {
-            "score": "2:0",
-            "res": "L",
-            "date": "19.12.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.3583904761904763,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-3",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.2999999999999998
   },
   {
     "id": "Ob3VnoQn",
-    "date": "17:00",
+    "date": "01-08-2024",
     "teamHome": "Jeunesse Sportive Soualem",
     "teamAway": "Youssoufia Berrechid",
     "url": "https://www.flashscore.com/match/Ob3VnoQn/",
@@ -199,68 +119,28 @@
         "points": 12,
         "goals": 12,
         "goalDifference": -11,
-        "form": [
-          {
-            "score": "3:1",
-            "res": "L",
-            "date": "04.01.2024"
-          },
-          {
-            "score": "2:2",
-            "res": "D",
-            "date": "29.12.2023"
-          },
-          {
-            "score": "3:2",
-            "res": "L",
-            "date": "16.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "W",
-            "date": "09.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "L",
-            "date": "26.11.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.28172222222222226,
+          "trend": "downward"
+        }
       },
       "away": {
         "rank": 16,
         "points": 9,
         "goals": 10,
         "goalDifference": -12,
-        "form": [
-          {
-            "score": "1:2",
-            "res": "L",
-            "date": "04.01.2024"
-          },
-          {
-            "score": "1:1",
-            "res": "D",
-            "date": "28.12.2023"
-          },
-          {
-            "score": "1:0",
-            "res": "L",
-            "date": "23.12.2023"
-          },
-          {
-            "score": "0:0",
-            "res": "D",
-            "date": "17.12.2023"
-          },
-          {
-            "score": "3:1",
-            "res": "L",
-            "date": "10.12.2023"
-          }
-        ]
+        "form": {
+          "rating": 0.039111111111111124,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "3-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.5
   }
 ]
