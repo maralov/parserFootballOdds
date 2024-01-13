@@ -1,0 +1,194 @@
+[
+  {
+    "id": "noxguecf",
+    "date": "01-12-2024",
+    "teamHome": "Wellington Phoenix W",
+    "teamAway": "Central Coast Mariners W",
+    "url": "https://www.flashscore.com/match/noxguecf/",
+    "country": "australia: a",
+    "odds": {
+      "home": 2.33,
+      "draw": 3.5,
+      "away": 2.45
+    },
+    "droppingOdds": {
+      "home": 34,
+      "draw": -3,
+      "away": -24
+    },
+    "standings": {
+      "totalTeams": 12,
+      "home": {
+        "rank": 4,
+        "points": 16,
+        "goals": 16,
+        "goalDifference": 4,
+        "form": {
+          "rating": 0.576888888888889,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 10,
+        "points": 12,
+        "goals": 10,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.15466666666666667,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "fs6HVXZj",
+    "date": "01-12-2024",
+    "teamHome": "RFC Liege",
+    "teamAway": "Patro Eisden",
+    "url": "https://www.flashscore.com/match/fs6HVXZj/",
+    "country": "belgium: challenger pro league ",
+    "odds": {
+      "home": 2.8,
+      "draw": 3.1,
+      "away": 2.45
+    },
+    "droppingOdds": {
+      "home": 27,
+      "draw": -7,
+      "away": -18
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 4,
+        "points": 28,
+        "goals": 22,
+        "goalDifference": 5,
+        "form": {
+          "rating": 0.3573333333333334,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 7,
+        "points": 25,
+        "goals": 21,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.4808833333333334,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "dAKklpnF",
+    "date": "01-12-2024",
+    "teamHome": "Avranches",
+    "teamAway": "Cholet",
+    "url": "https://www.flashscore.com/match/dAKklpnF/",
+    "country": "france: national ",
+    "odds": {
+      "home": 2.28,
+      "draw": 3,
+      "away": 2.95
+    },
+    "droppingOdds": {
+      "home": 21,
+      "draw": -3,
+      "away": -22
+    },
+    "standings": {
+      "totalTeams": 18,
+      "home": {
+        "rank": 12,
+        "points": 19,
+        "goals": 19,
+        "goalDifference": -6,
+        "form": {
+          "rating": 0.37693333333333345,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 18,
+        "points": 12,
+        "goals": 10,
+        "goalDifference": -16,
+        "form": {
+          "rating": 0.11733333333333335,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.2799999999999998
+  },
+  {
+    "id": "nJmDC0D1",
+    "date": "01-12-2024",
+    "teamHome": "Giugliano",
+    "teamAway": "Foggia",
+    "url": "https://www.flashscore.com/match/nJmDC0D1/",
+    "country": "italy: serie c ",
+    "odds": {
+      "home": 2.9,
+      "draw": 3.05,
+      "away": 2.3
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": 6,
+      "away": -15
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 13,
+        "points": 25,
+        "goals": 18,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.3153333333333333,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 14,
+        "points": 25,
+        "goals": 21,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.4018666666666667,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "4-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.9
+  }
+]
