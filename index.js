@@ -255,9 +255,6 @@ async function scrapeLeagueData(page, leagueUrl) {
       timeout: 60000,
     });
 
-    const leagueName = leagueUrl ? leagueUrl : `All ${new Date().toLocaleString()} matches`;
-
-    console.log(`Get summary from ${leagueName}...${new Date().toLocaleString()}`);
     // отримання матчів початок
     const matches = await page.evaluate(() => {
       const results = [];
@@ -299,27 +296,35 @@ async function scrapeLeagueData(page, leagueUrl) {
         timeout: 60000,
       });
 
-      const selectedMatch = await page.evaluate((matchItem) => {
-        const range = 2.1;
-        const odds1 = document.querySelector('a.oddsCell__odd:nth-child(2) span')?.textContent;
-        const oddsx = document.querySelector('a.oddsCell__odd:nth-child(3) span')?.textContent;
-        const odds2 = document.querySelector('a.oddsCell__odd:nth-child(4) span')?.textContent;
-
-        if (parseFloat(odds1) > range && parseFloat(odds2) > range) {
-          const country = document.querySelector('.tournamentHeader__country')?.textContent.toLowerCase().split('-')[0];
-          return {
-            ...matchItem,
-            country,
-            odds: {
-              home: parseFloat(odds1),
-              draw: parseFloat(oddsx),
-              away: parseFloat(odds2),
-            },
-          };
-        } else {
-          return null;
-        }
-      }, match);
+      const selectedMatch = await page.evaluate(
+        (matchItem, leagues) => {
+          const range = 2.1;
+          const odds1 = document.querySelector('a.oddsCell__odd:nth-child(2) span')?.textContent;
+          const oddsx = document.querySelector('a.oddsCell__odd:nth-child(3) span')?.textContent;
+          const odds2 = document.querySelector('a.oddsCell__odd:nth-child(4) span')?.textContent;
+          const country = document.querySelector('.tournamentHeader__country')?.textContent.toLowerCase().split(':')[0];
+          console.log('country: ', country);
+          if (parseFloat(odds1) > range && parseFloat(odds2) > range && leagues.includes(country)) {
+            const league = document
+              .querySelector('.tournamentHeader__country')
+              ?.textContent.toLowerCase()
+              .split('-')[0];
+            return {
+              ...matchItem,
+              country: league,
+              odds: {
+                home: parseFloat(odds1),
+                draw: parseFloat(oddsx),
+                away: parseFloat(odds2),
+              },
+            };
+          } else {
+            return null;
+          }
+        },
+        match,
+        LEAGUES
+      );
 
       if (selectedMatch) {
         selectedMatch.droppingOdds = await page.evaluate(() => {
@@ -356,7 +361,7 @@ async function scrapeLeagueData(page, leagueUrl) {
             away: averageChange(oddsChanges.map((change) => change.awayChange)),
           };
         });
-        console.log(`droppingOdds:`, selectedMatch.droppingOdds, selectedMatch.url);
+        console.log(`droppingOdds:`, selectedMatch.droppingOdds, selectedMatch.url, selectedMatch.country);
         // Парсинг даних про ранг
         await page.goto(`${match.url}#/standings/table/overall`, { waitUntil: 'networkidle2', timeout: 60000 });
         selectedMatch.standings = await page.evaluate(
@@ -437,7 +442,7 @@ async function scrapeLeagueData(page, leagueUrl) {
   }
 }
 
-async function scrapeData({ all: all = false }) {
+async function scrapeData() {
   const browser = await puppeteer.launch({
     executablePath,
     headless: 'new',
@@ -459,18 +464,9 @@ async function scrapeData({ all: all = false }) {
 
   console.log(`Statring scraping... ${new Date().toLocaleString()}`);
 
-  if (all) {
-    await page.setUserAgent(USER_AGENTS);
-    const leagueMatches = await scrapeLeagueData(page, '');
-    allMatches = allMatches.concat(leagueMatches);
-  } else {
-    for (const league of LEAGUES) {
-      await page.setUserAgent(USER_AGENTS);
-
-      const leagueMatches = await scrapeLeagueData(page, league);
-      allMatches = allMatches.concat(leagueMatches);
-    }
-  }
+  await page.setUserAgent(USER_AGENTS);
+  const leagueMatches = await scrapeLeagueData(page, '');
+  allMatches = allMatches.concat(leagueMatches);
 
   console.log(`done! add ${allMatches.length} ... ${new Date().toLocaleString()}`);
 
@@ -510,16 +506,8 @@ function saveDataToFile(data) {
   });
 }
 
-function isWeekday() {
-  const dayOfWeek = new Date().getDay();
-  // Понедельник = 1, вторник = 2, ..., воскресенье = 0 или 7
-  return dayOfWeek >= 1 && dayOfWeek <= 5;
-}
-
 function scrapeDataBasedOnDay() {
-  const all = isWeekday();
-  console.log(`Today scraping: ${all ? 'all' : 'top'} matches`);
-  scrapeData({ all: true })
+  scrapeData()
     .then((data) => {
       saveDataToFile(data);
       if (data.length > 0) {
