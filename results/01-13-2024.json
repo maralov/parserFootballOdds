@@ -1,0 +1,354 @@
+[
+  {
+    "id": "thsmGGF7",
+    "date": "19:30",
+    "teamHome": "Pro Patria",
+    "teamAway": "Novara",
+    "url": "https://www.flashscore.com/match/thsmGGF7/",
+    "country": "italy: serie c ",
+    "odds": {
+      "home": 2.75,
+      "draw": 2.75,
+      "away": 2.65
+    },
+    "droppingOdds": {
+      "home": 12,
+      "draw": -2,
+      "away": -11
+    },
+    "standings": {
+      "totalTeams": 20,
+      "home": {
+        "rank": 16,
+        "points": 22,
+        "goals": 17,
+        "goalDifference": -10,
+        "form": [
+          {
+            "score": "1:2",
+            "res": "W",
+            "date": "06.01.2024"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "23.12.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "L",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "08.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "02.12.2023"
+          }
+        ]
+      },
+      "away": {
+        "rank": 17,
+        "points": 18,
+        "goals": 22,
+        "goalDifference": -10,
+        "form": [
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "06.01.2024"
+          },
+          {
+            "score": "1:2",
+            "res": "W",
+            "date": "22.12.2023"
+          },
+          {
+            "score": "2:3",
+            "res": "L",
+            "date": "17.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "08.12.2023"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "03.12.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "v3c6HKnE",
+    "date": "16:00",
+    "teamHome": "Kozakken Boys",
+    "teamAway": "Rijnsburgse Boys",
+    "url": "https://www.flashscore.com/match/v3c6HKnE/",
+    "country": "netherlands: tweede divisie ",
+    "odds": {
+      "home": 2.75,
+      "draw": 3.4,
+      "away": 2.2
+    },
+    "droppingOdds": {
+      "home": -22,
+      "draw": -3,
+      "away": 22
+    },
+    "standings": {
+      "totalTeams": 18,
+      "away": {
+        "rank": 15,
+        "points": 18,
+        "goals": 19,
+        "goalDifference": -6,
+        "form": [
+          {
+            "score": "1:4",
+            "res": "W",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "1:2",
+            "res": "L",
+            "date": "09.12.2023"
+          },
+          {
+            "score": "1:2",
+            "res": "W",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "25.11.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "18.11.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 18,
+        "points": 8,
+        "goals": 16,
+        "goalDifference": -13,
+        "form": [
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "4:1",
+            "res": "L",
+            "date": "09.12.2023"
+          },
+          {
+            "score": "2:3",
+            "res": "L",
+            "date": "02.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "L",
+            "date": "25.11.2023"
+          },
+          {
+            "score": "1:2",
+            "res": "L",
+            "date": "18.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "dIbColFa",
+    "date": "17:00",
+    "teamHome": "Queen of South",
+    "teamAway": "Alloa",
+    "url": "https://www.flashscore.com/match/dIbColFa/",
+    "country": "scotland: league one ",
+    "odds": {
+      "home": 2.3,
+      "draw": 3.2,
+      "away": 2.7
+    },
+    "droppingOdds": {
+      "home": 19,
+      "draw": -12,
+      "away": -12
+    },
+    "standings": {
+      "totalTeams": 10,
+      "away": {
+        "rank": 5,
+        "points": 25,
+        "goals": 24,
+        "goalDifference": -3,
+        "form": [
+          {
+            "score": "3:1",
+            "res": "W",
+            "date": "06.01.2024"
+          },
+          {
+            "score": "2:2",
+            "res": "D",
+            "date": "23.12.2023"
+          },
+          {
+            "score": "1:2",
+            "res": "W",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "0:0",
+            "res": "D",
+            "date": "09.12.2023"
+          },
+          {
+            "score": "3:0",
+            "res": "L",
+            "date": "18.11.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 7,
+        "points": 23,
+        "goals": 27,
+        "goalDifference": -6,
+        "form": [
+          {
+            "score": "1:0",
+            "res": "L",
+            "date": "06.01.2024"
+          },
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "30.12.2023"
+          },
+          {
+            "score": "1:1",
+            "res": "D",
+            "date": "23.12.2023"
+          },
+          {
+            "score": "3:1",
+            "res": "W",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "1:4",
+            "res": "W",
+            "date": "09.12.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "lQ0rwFjo",
+    "date": "17:00",
+    "teamHome": "Spartans",
+    "teamAway": "Stenhousemuir",
+    "url": "https://www.flashscore.com/match/lQ0rwFjo/",
+    "country": "scotland: league two ",
+    "odds": {
+      "home": 2.5,
+      "draw": 3.2,
+      "away": 2.6
+    },
+    "droppingOdds": {
+      "home": 0,
+      "draw": -5,
+      "away": 5
+    },
+    "standings": {
+      "totalTeams": 10,
+      "away": {
+        "rank": 1,
+        "points": 46,
+        "goals": 35,
+        "goalDifference": 22,
+        "form": [
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "06.01.2024"
+          },
+          {
+            "score": "1:2",
+            "res": "W",
+            "date": "30.12.2023"
+          },
+          {
+            "score": "2:0",
+            "res": "W",
+            "date": "23.12.2023"
+          },
+          {
+            "score": "2:1",
+            "res": "W",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "0:1",
+            "res": "W",
+            "date": "09.12.2023"
+          }
+        ]
+      },
+      "home": {
+        "rank": 3,
+        "points": 32,
+        "goals": 31,
+        "goalDifference": 12,
+        "form": [
+          {
+            "score": "0:1",
+            "res": "W",
+            "date": "06.01.2024"
+          },
+          {
+            "score": "3:0",
+            "res": "W",
+            "date": "23.12.2023"
+          },
+          {
+            "score": "0:4",
+            "res": "W",
+            "date": "16.12.2023"
+          },
+          {
+            "score": "1:0",
+            "res": "W",
+            "date": "09.12.2023"
+          },
+          {
+            "score": "1:2",
+            "res": "L",
+            "date": "18.11.2023"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  }
+]
