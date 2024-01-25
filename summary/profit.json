@@ -118,5 +118,37 @@
     "total": 4,
     "profit": 1.1799999999999997,
     "totalProfit": 15.429999989999999
+  },
+  {
+    "date": "01-13-2024",
+    "win": 1,
+    "lose": 3,
+    "total": 4,
+    "profit": -0.7999999999999998,
+    "totalProfit": 14.629999989999998
+  },
+  {
+    "date": "01-14-2024",
+    "win": 0,
+    "lose": 8,
+    "total": 8,
+    "profit": -8,
+    "totalProfit": 6.629999989999998
+  },
+  {
+    "date": "01-15-2024",
+    "win": 0,
+    "lose": 1,
+    "total": 1,
+    "profit": -1,
+    "totalProfit": 5.629999989999998
+  },
+  {
+    "date": "01-17-2024",
+    "win": 0,
+    "lose": 1,
+    "total": 1,
+    "profit": -1,
+    "totalProfit": 4.629999989999998
   }
 ]

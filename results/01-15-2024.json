@@ -1,0 +1,50 @@
+[
+  {
+    "id": "IRaGtbUr",
+    "date": "01-15-2024",
+    "teamHome": "PAOK B",
+    "teamAway": "Iraklis 1908",
+    "url": "https://www.flashscore.com/match/IRaGtbUr/",
+    "country": "greece: super league 2 ",
+    "odds": {
+      "home": 2.17,
+      "draw": 3.4,
+      "away": 3.12
+    },
+    "droppingOdds": {
+      "home": -24,
+      "draw": 6,
+      "away": 33
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 7,
+        "points": 17,
+        "goals": 17,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.5371111111111111,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 9,
+        "points": 16,
+        "goals": 16,
+        "goalDifference": -3,
+        "form": {
+          "rating": 0.17453333333333337,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  }
+]

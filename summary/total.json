@@ -3324,5 +3324,677 @@
     },
     "result": "win",
     "profit": 1.9
+  },
+  {
+    "id": "thsmGGF7",
+    "date": "01-13-2024",
+    "teamHome": "Pro Patria",
+    "teamAway": "Novara",
+    "url": "https://www.flashscore.com/match/thsmGGF7/",
+    "country": "italy: serie c ",
+    "odds": {
+      "home": 2.75,
+      "draw": 2.75,
+      "away": 2.65
+    },
+    "droppingOdds": {
+      "home": 12,
+      "draw": -2,
+      "away": -11
+    },
+    "standings": {
+      "totalTeams": 20,
+      "home": {
+        "rank": 16,
+        "points": 22,
+        "goals": 17,
+        "goalDifference": -10,
+        "form": {
+          "rating": 0.326088888888889,
+          "trend": "upward"
+        }
+      },
+      "away": {
+        "rank": 17,
+        "points": 18,
+        "goals": 22,
+        "goalDifference": -10,
+        "form": {
+          "rating": 0.15777777777777774,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "3-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "v3c6HKnE",
+    "date": "01-13-2024",
+    "teamHome": "Kozakken Boys",
+    "teamAway": "Rijnsburgse Boys",
+    "url": "https://www.flashscore.com/match/v3c6HKnE/",
+    "country": "netherlands: tweede divisie ",
+    "odds": {
+      "home": 2.75,
+      "draw": 3.4,
+      "away": 2.2
+    },
+    "droppingOdds": {
+      "home": -22,
+      "draw": -3,
+      "away": 22
+    },
+    "standings": {
+      "totalTeams": 18,
+      "away": {
+        "rank": 15,
+        "points": 18,
+        "goals": 19,
+        "goalDifference": -6,
+        "form": {
+          "rating": 0.13999999999999999,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 18,
+        "points": 8,
+        "goals": 16,
+        "goalDifference": -13,
+        "form": {
+          "rating": -0.02566666666666668,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "dIbColFa",
+    "date": "01-13-2024",
+    "teamHome": "Queen of South",
+    "teamAway": "Alloa",
+    "url": "https://www.flashscore.com/match/dIbColFa/",
+    "country": "scotland: league one ",
+    "odds": {
+      "home": 2.3,
+      "draw": 3.2,
+      "away": 2.7
+    },
+    "droppingOdds": {
+      "home": 19,
+      "draw": -12,
+      "away": -12
+    },
+    "standings": {
+      "totalTeams": 10,
+      "away": {
+        "rank": 5,
+        "points": 25,
+        "goals": 24,
+        "goalDifference": -3,
+        "form": {
+          "rating": 0.4877777777777778,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 7,
+        "points": 23,
+        "goals": 27,
+        "goalDifference": -6,
+        "form": {
+          "rating": 0.4336444444444446,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.2
+  },
+  {
+    "id": "lQ0rwFjo",
+    "date": "01-13-2024",
+    "teamHome": "Spartans",
+    "teamAway": "Stenhousemuir",
+    "url": "https://www.flashscore.com/match/lQ0rwFjo/",
+    "country": "scotland: league two ",
+    "odds": {
+      "home": 2.5,
+      "draw": 3.2,
+      "away": 2.6
+    },
+    "droppingOdds": {
+      "home": 0,
+      "draw": -5,
+      "away": 5
+    },
+    "standings": {
+      "totalTeams": 10,
+      "away": {
+        "rank": 1,
+        "points": 46,
+        "goals": 35,
+        "goalDifference": 22,
+        "form": {
+          "rating": 0.9733333333333334,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 3,
+        "points": 32,
+        "goals": 31,
+        "goalDifference": 12,
+        "form": {
+          "rating": 0.6116000000000001,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "bLia4Ix1",
+    "date": "01-14-2024",
+    "teamHome": "Metz",
+    "teamAway": "Toulouse",
+    "url": "https://www.flashscore.com/match/bLia4Ix1/",
+    "country": "france: ligue 1 ",
+    "odds": {
+      "home": 2.88,
+      "draw": 3.2,
+      "away": 2.55
+    },
+    "droppingOdds": {
+      "home": 7,
+      "draw": -8,
+      "away": 2
+    },
+    "standings": {
+      "totalTeams": 18,
+      "home": {
+        "rank": 14,
+        "points": 16,
+        "goals": 16,
+        "goalDifference": -11,
+        "form": {
+          "rating": 0.10095555555555558,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 16,
+        "points": 14,
+        "goals": 15,
+        "goalDifference": -8,
+        "form": {
+          "rating": 0.14133333333333334,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "4pia543U",
+    "date": "01-14-2024",
+    "teamHome": "Panetolikos",
+    "teamAway": "Aris",
+    "url": "https://www.flashscore.com/match/4pia543U/",
+    "country": "greece: super league ",
+    "odds": {
+      "home": 3,
+      "draw": 3,
+      "away": 2.63
+    },
+    "droppingOdds": {
+      "home": -14,
+      "draw": -9,
+      "away": 21
+    },
+    "standings": {
+      "totalTeams": 14,
+      "away": {
+        "rank": 5,
+        "points": 27,
+        "goals": 25,
+        "goalDifference": 4,
+        "form": {
+          "rating": 0.5561269841269842,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 11,
+        "points": 14,
+        "goals": 17,
+        "goalDifference": -12,
+        "form": {
+          "rating": 0.45658730158730165,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-4",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "z5ar9n45",
+    "date": "01-14-2024",
+    "teamHome": "Asteras Tripolis",
+    "teamAway": "Volos",
+    "url": "https://www.flashscore.com/match/z5ar9n45/",
+    "country": "greece: super league ",
+    "odds": {
+      "home": 2.2,
+      "draw": 3,
+      "away": 3.75
+    },
+    "droppingOdds": {
+      "home": 15,
+      "draw": -7,
+      "away": -15
+    },
+    "standings": {
+      "totalTeams": 14,
+      "home": {
+        "rank": 7,
+        "points": 23,
+        "goals": 22,
+        "goalDifference": -6,
+        "form": {
+          "rating": 0.29186666666666666,
+          "trend": "stable"
+        }
+      },
+      "away": {
+        "rank": 12,
+        "points": 14,
+        "goals": 16,
+        "goalDifference": -16,
+        "form": {
+          "rating": -0.05098412698412702,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "KjKum0iF",
+    "date": "01-14-2024",
+    "teamHome": "Karditsa",
+    "teamAway": "Makedonikos",
+    "url": "https://www.flashscore.com/match/KjKum0iF/",
+    "country": "greece: super league 2 ",
+    "odds": {
+      "home": 2.21,
+      "draw": 2.79,
+      "away": 3.78
+    },
+    "droppingOdds": {
+      "home": 20,
+      "draw": -5,
+      "away": -20
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 3,
+        "points": 22,
+        "goals": 19,
+        "goalDifference": 1,
+        "form": {
+          "rating": 0.5031111111111112,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 5,
+        "points": 19,
+        "goals": 14,
+        "goalDifference": 1,
+        "form": {
+          "rating": 0.35444444444444445,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "jTkZtPIk",
+    "date": "01-14-2024",
+    "teamHome": "Panachaiki",
+    "teamAway": "Giouchtas",
+    "url": "https://www.flashscore.com/match/jTkZtPIk/",
+    "country": "greece: super league 2 ",
+    "odds": {
+      "home": 2.31,
+      "draw": 2.79,
+      "away": 3.53
+    },
+    "droppingOdds": {
+      "home": 8,
+      "draw": -4,
+      "away": -9
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 7,
+        "points": 15,
+        "goals": 12,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.318,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 12,
+        "points": 7,
+        "goals": 10,
+        "goalDifference": -9,
+        "form": {
+          "rating": 0.11195555555555554,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "3-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "pbDRAnL3",
+    "date": "01-14-2024",
+    "teamHome": "Lazio U19",
+    "teamAway": "Cagliari U19",
+    "url": "https://www.flashscore.com/match/pbDRAnL3/",
+    "country": "italy: primavera 1 ",
+    "odds": {
+      "home": 2.63,
+      "draw": 3.15,
+      "away": 2.28
+    },
+    "droppingOdds": {
+      "home": 15,
+      "draw": 0,
+      "away": -14
+    },
+    "standings": {
+      "totalTeams": 18,
+      "home": {
+        "rank": 4,
+        "points": 29,
+        "goals": 20,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.7829555555555557,
+          "trend": "upward"
+        }
+      },
+      "away": {
+        "rank": 9,
+        "points": 24,
+        "goals": 24,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.5311111111111111,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "tOH7RMXG",
+    "date": "01-14-2024",
+    "teamHome": "Como W",
+    "teamAway": "Sampdoria W",
+    "url": "https://www.flashscore.com/match/tOH7RMXG/",
+    "country": "italy: serie a women ",
+    "odds": {
+      "home": 2.65,
+      "draw": 3.3,
+      "away": 2.35
+    },
+    "droppingOdds": {
+      "home": 44,
+      "draw": -8,
+      "away": -33
+    },
+    "standings": {
+      "totalTeams": 10,
+      "home": {
+        "rank": 5,
+        "points": 15,
+        "goals": 11,
+        "goalDifference": -6,
+        "form": {
+          "rating": 0.07993333333333336,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 7,
+        "points": 11,
+        "goals": 8,
+        "goalDifference": -12,
+        "form": {
+          "rating": -0.060888888888888854,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "OMDCka0j",
+    "date": "01-14-2024",
+    "teamHome": "Ceuta",
+    "teamAway": "Malaga",
+    "url": "https://www.flashscore.com/match/OMDCka0j/",
+    "country": "spain: primera rfef ",
+    "odds": {
+      "home": 2.8,
+      "draw": 3.1,
+      "away": 2.3
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": 5,
+      "away": -12
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 4,
+        "points": 36,
+        "goals": 27,
+        "goalDifference": 13,
+        "form": {
+          "rating": 0.5480000000000002,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 10,
+        "points": 25,
+        "goals": 19,
+        "goalDifference": 1,
+        "form": {
+          "rating": 0.24444444444444452,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "3-2",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "IRaGtbUr",
+    "date": "01-15-2024",
+    "teamHome": "PAOK B",
+    "teamAway": "Iraklis 1908",
+    "url": "https://www.flashscore.com/match/IRaGtbUr/",
+    "country": "greece: super league 2 ",
+    "odds": {
+      "home": 2.17,
+      "draw": 3.4,
+      "away": 3.12
+    },
+    "droppingOdds": {
+      "home": -24,
+      "draw": 6,
+      "away": 33
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 7,
+        "points": 17,
+        "goals": 17,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.5371111111111111,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 9,
+        "points": 16,
+        "goals": 16,
+        "goalDifference": -3,
+        "form": {
+          "rating": 0.17453333333333337,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "4znIJuZ7",
+    "date": "01-17-2024",
+    "teamHome": "Maccabi Petah Tikva",
+    "teamAway": "SC Ashdod",
+    "url": "https://www.flashscore.com/match/4znIJuZ7/",
+    "country": "israel: ligat ha'al ",
+    "odds": {
+      "home": 2.6,
+      "draw": 3.1,
+      "away": 2.6
+    },
+    "droppingOdds": {
+      "home": 15,
+      "draw": -5,
+      "away": -12
+    },
+    "standings": {
+      "totalTeams": 14,
+      "home": {
+        "rank": 11,
+        "points": 15,
+        "goals": 20,
+        "goalDifference": -15,
+        "form": {
+          "rating": 0.3192095238095239,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 14,
+        "points": 10,
+        "goals": 11,
+        "goalDifference": -16,
+        "form": {
+          "rating": -0.3268888888888889,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "4znIJuZ7",
+    "date": "01-17-2024",
+    "teamHome": "Maccabi Petah Tikva",
+    "teamAway": "SC Ashdod",
+    "url": "https://www.flashscore.com/match/4znIJuZ7/",
+    "country": "israel: ligat ha'al ",
+    "odds": {
+      "home": 2.6,
+      "draw": 3.1,
+      "away": 2.6
+    },
+    "droppingOdds": {
+      "home": 15,
+      "draw": -5,
+      "away": -12
+    },
+    "standings": {
+      "totalTeams": 14,
+      "home": {
+        "rank": 11,
+        "points": 15,
+        "goals": 20,
+        "goalDifference": -15,
+        "form": {
+          "rating": 0.3192095238095239,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 14,
+        "points": 10,
+        "goals": 11,
+        "goalDifference": -16,
+        "form": {
+          "rating": -0.3268888888888889,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  }
+]
