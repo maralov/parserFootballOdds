@@ -1,0 +1,266 @@
+[
+  {
+    "id": "8AFXHlKL",
+    "date": "20:45",
+    "teamHome": "Livingston",
+    "teamAway": "Ross County",
+    "url": "https://www.flashscore.com/match/8AFXHlKL/",
+    "country": "scotland",
+    "odds": {
+      "home": 2.38,
+      "draw": 3.2,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": 7,
+      "draw": -4,
+      "away": 0
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 11,
+        "points": 18,
+        "goals": 17,
+        "goalDifference": -13,
+        "form": [
+          {
+            "date": "27.01.24",
+            "score": "1:0",
+            "res": "L"
+          },
+          {
+            "date": "20.01.24",
+            "score": "0:3",
+            "res": "L"
+          },
+          {
+            "date": "02.01.24",
+            "score": "0:3",
+            "res": "L"
+          },
+          {
+            "date": "30.12.23",
+            "score": "2:2",
+            "res": "D"
+          },
+          {
+            "date": "16.12.23",
+            "score": "0:1",
+            "res": "L"
+          }
+        ]
+      },
+      "home": {
+        "rank": 12,
+        "points": 12,
+        "goals": 13,
+        "goalDifference": -23,
+        "form": [
+          {
+            "date": "27.01.24",
+            "score": "1:4",
+            "res": "L"
+          },
+          {
+            "date": "20.01.24",
+            "score": "2:1",
+            "res": "W"
+          },
+          {
+            "date": "11.01.24",
+            "score": "3:2",
+            "res": "L"
+          },
+          {
+            "date": "02.01.24",
+            "score": "1:2",
+            "res": "L"
+          },
+          {
+            "date": "30.12.23",
+            "score": "3:1",
+            "res": "L"
+          }
+        ]
+      }
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "Ei23LkPr",
+    "date": "20:45",
+    "teamHome": "East Fife",
+    "teamAway": "Spartans",
+    "url": "https://www.flashscore.com/match/Ei23LkPr/",
+    "country": "scotland",
+    "odds": {
+      "home": 2.7,
+      "draw": 3.2,
+      "away": 2.38
+    },
+    "droppingOdds": {
+      "home": -1,
+      "draw": -6,
+      "away": 4
+    },
+    "standings": {
+      "totalTeams": 10,
+      "away": {
+        "rank": 4,
+        "points": 33,
+        "goals": 32,
+        "goalDifference": 10,
+        "form": [
+          {
+            "date": "27.01.24",
+            "score": "1:1",
+            "res": "D"
+          },
+          {
+            "date": "20.01.24",
+            "score": "1:2",
+            "res": "L"
+          },
+          {
+            "date": "13.01.24",
+            "score": "0:2",
+            "res": "L"
+          },
+          {
+            "date": "06.01.24",
+            "score": "0:1",
+            "res": "W"
+          },
+          {
+            "date": "23.12.23",
+            "score": "3:0",
+            "res": "W"
+          }
+        ]
+      },
+      "home": {
+        "rank": 5,
+        "points": 25,
+        "goals": 28,
+        "goalDifference": 1,
+        "form": [
+          {
+            "date": "27.01.24",
+            "score": "0:1",
+            "res": "W"
+          },
+          {
+            "date": "20.01.24",
+            "score": "2:2",
+            "res": "D"
+          },
+          {
+            "date": "13.01.24",
+            "score": "1:1",
+            "res": "D"
+          },
+          {
+            "date": "06.01.24",
+            "score": "1:2",
+            "res": "W"
+          },
+          {
+            "date": "30.12.23",
+            "score": "0:0",
+            "res": "D"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "dGi8K9vk",
+    "date": "20:45",
+    "teamHome": "Elgin City",
+    "teamAway": "Clyde",
+    "url": "https://www.flashscore.com/match/dGi8K9vk/",
+    "country": "scotland",
+    "odds": {
+      "home": 2.9,
+      "draw": 3.3,
+      "away": 2.2
+    },
+    "droppingOdds": {
+      "home": 32,
+      "draw": -2,
+      "away": -23
+    },
+    "standings": {
+      "totalTeams": 10,
+      "home": {
+        "rank": 9,
+        "points": 18,
+        "goals": 16,
+        "goalDifference": -21,
+        "form": [
+          {
+            "date": "27.01.24",
+            "score": "0:1",
+            "res": "L"
+          },
+          {
+            "date": "13.01.24",
+            "score": "2:1",
+            "res": "L"
+          },
+          {
+            "date": "06.01.24",
+            "score": "2:1",
+            "res": "W"
+          },
+          {
+            "date": "30.12.23",
+            "score": "2:1",
+            "res": "W"
+          },
+          {
+            "date": "23.12.23",
+            "score": "2:0",
+            "res": "L"
+          }
+        ]
+      },
+      "away": {
+        "rank": 10,
+        "points": 14,
+        "goals": 23,
+        "goalDifference": -16,
+        "form": [
+          {
+            "date": "27.01.24",
+            "score": "1:1",
+            "res": "D"
+          },
+          {
+            "date": "19.01.24",
+            "score": "0:2",
+            "res": "L"
+          },
+          {
+            "date": "13.01.24",
+            "score": "1:1",
+            "res": "D"
+          },
+          {
+            "date": "06.01.24",
+            "score": "3:2",
+            "res": "W"
+          },
+          {
+            "date": "30.12.23",
+            "score": "1:2",
+            "res": "L"
+          }
+        ]
+      }
+    },
+    "prediction": "home"
+  }
+]
