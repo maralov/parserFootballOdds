@@ -20,6 +20,26 @@ if (os.platform() === 'linux') {
   executablePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 }
 
+async function getTeamForm(page, sectionIndex) {
+  return await page.evaluate((index) => {
+    const rows = document.querySelectorAll('.h2h__section.section')[index].querySelectorAll('.h2h__row');
+    return Array.from(rows).map((row) => {
+      const date = row.querySelector('.h2h__date').textContent.trim();
+
+      const scoreHome = row.querySelector('.h2h__result span:first-child').textContent.trim();
+      const scoreAway = row.querySelector('.h2h__result span:last-child').textContent.trim();
+
+      const resElement = row.querySelector('.h2h__icon div');
+      const res = resElement ? resElement.getAttribute('title').charAt(0) : ''; // 'W', 'D', or 'L'
+      return {
+        date,
+        score: `${scoreHome}:${scoreAway}`,
+        res,
+      };
+    });
+  }, sectionIndex);
+}
+
 function evaluateFormTrend(form) {
   let trendScore = 0;
   let weight = 1.0; // Вес последней игры
@@ -59,7 +79,7 @@ function calculateTeamForm(standings, isHomeGame, totalTeams) {
         points += 3 * matchWeight;
         break;
       case 'D':
-        points += 1 * matchWeight;
+        points += matchWeight;
         break;
       case 'L':
         points += 0;
@@ -83,15 +103,14 @@ function calculateTeamForm(standings, isHomeGame, totalTeams) {
   let homeAdvantageFactor = isHomeGame ? 1.1 : 1.0;
 
   // Формула загального рейтингу
-  const formRating =
+  return (
     ((points / (15 * 1.5)) * 0.4 + // Загальні очки з підвищеною вагою для останніх матчів
       (averageGoalsScored - averageGoalsConceded) * 0.2 + // Різниця між забитими і пропущеними голами
       tablePositionFactor * 0.2 + // Позиція в таблиці
       goalDifferenceFactor * 0.1 + // Різниця голів
       (formTrendFactor / standings.form.length) * 0.1) * // Тенденція останніх матчів
-    homeAdvantageFactor;
-
-  return formRating;
+    homeAdvantageFactor
+  );
 }
 
 function analyzeAndPredictMatch(match) {
@@ -296,42 +315,32 @@ async function scrapeLeagueData(page, leagueUrl) {
         timeout: 60000,
       });
 
-      const selectedMatch = await page.evaluate(
-        (matchItem, leagues) => {
-          const range = 2.1;
-          const odds1 = document.querySelector('a.oddsCell__odd:nth-child(2) span')?.textContent;
-          const oddsx = document.querySelector('a.oddsCell__odd:nth-child(3) span')?.textContent;
-          const odds2 = document.querySelector('a.oddsCell__odd:nth-child(4) span')?.textContent;
-          const country = document.querySelector('.tournamentHeader__country')?.textContent.toLowerCase().split(':')[0];
-          console.log('country: ', country);
-          if (parseFloat(odds1) > range && parseFloat(odds2) > range && leagues.includes(country)) {
-            const league = document
-              .querySelector('.tournamentHeader__country')
-              ?.textContent.toLowerCase()
-              .split('-')[0];
-            return {
-              ...matchItem,
-              country: league,
-              odds: {
-                home: parseFloat(odds1),
-                draw: parseFloat(oddsx),
-                away: parseFloat(odds2),
-              },
-            };
-          } else {
-            return null;
-          }
-        },
-        match,
-        LEAGUES
-      );
+      const selectedMatch = await page.evaluate((matchItem) => {
+        const range = 2.1;
+        const odds1 = document.querySelector('a.oddsCell__odd:nth-child(2) span')?.textContent;
+        const oddsx = document.querySelector('a.oddsCell__odd:nth-child(3) span')?.textContent;
+        const odds2 = document.querySelector('a.oddsCell__odd:nth-child(4) span')?.textContent;
+        const country = document.querySelector('.tournamentHeader__country')?.textContent.toLowerCase().split(':')[0];
+        if (parseFloat(odds1) > range && parseFloat(odds2) > range) {
+          return {
+            ...matchItem,
+            country,
+            odds: {
+              home: parseFloat(odds1),
+              draw: parseFloat(oddsx),
+              away: parseFloat(odds2),
+            },
+          };
+        } else {
+          return null;
+        }
+      }, match);
 
-      if (selectedMatch) {
+      if (selectedMatch && LEAGUES.includes(selectedMatch?.country)) {
         selectedMatch.droppingOdds = await page.evaluate(() => {
           const processOddsChange = (title) => {
             const odds = title.split(' » ').map(Number);
             if (odds.length === 2 && !isNaN(odds[0]) && !isNaN(odds[1])) {
-              console.log(`odds:`, ((odds[1] - odds[0]) / odds[0]) * 100);
               return ((odds[1] - odds[0]) / odds[0]) * 100;
             }
             return null;
@@ -361,8 +370,9 @@ async function scrapeLeagueData(page, leagueUrl) {
             away: averageChange(oddsChanges.map((change) => change.awayChange)),
           };
         });
-        console.log(`droppingOdds:`, selectedMatch.droppingOdds, selectedMatch.url, selectedMatch.country);
+
         // Парсинг даних про ранг
+        console.log(`Parsing standings...`);
         await page.goto(`${match.url}#/standings/table/overall`, { waitUntil: 'networkidle2', timeout: 60000 });
         selectedMatch.standings = await page.evaluate(
           (teamHome, teamAway) => {
@@ -371,6 +381,7 @@ async function scrapeLeagueData(page, leagueUrl) {
               const totalTeams = document.querySelectorAll('.ui-table__body .ui-table__row').length;
               const standing = {};
               if (totalTeams < 5) {
+                console.info(`Not enough teams in the league.`);
                 return standing;
               } else {
                 standing.totalTeams = totalTeams;
@@ -385,24 +396,8 @@ async function scrapeLeagueData(page, leagueUrl) {
                     row.querySelector('.table__cell--goalsForAgainstDiff').textContent,
                     10
                   );
-                  const form = Array.from(row.querySelectorAll('.table__cell--form .tableCellFormIcon'))
-                    .slice(1) // Пропускаем первый элемент, если он не содержит информацию о прошедших играх
-                    .map((icon) => {
-                      const title = icon.getAttribute('title');
-                      const regex = /\[b\](\d+:\d+)&nbsp;\[\/b\]\((.*?) - (.*?)\)\n(\d{2}.\d{2}.\d{4})/;
-                      const match = regex.exec(title);
-                      if (match) {
-                        const score = match[1];
-                        const date = match[4];
-                        const res = icon.querySelector('.formIcon').textContent; // W, D, L
-                        return { score, res, date };
-                      }
-                      return null;
-                    })
-                    .filter((match) => match !== null);
-
                   const selected = teamName === teamHome ? 'home' : 'away';
-                  standing[selected] = { rank, points, goals, goalDifference, form };
+                  standing[selected] = { rank, points, goals, goalDifference };
                 }
               });
               return standing;
@@ -414,13 +409,30 @@ async function scrapeLeagueData(page, leagueUrl) {
           match.teamHome,
           match.teamAway
         );
+        console.log(`Parsing standings end:`, Object.keys(selectedMatch.standings).length > 0);
+
+        if (Object.keys(selectedMatch.standings).length > 0) {
+          await page.goto(`${match.url}#/h2h/overall`, { waitUntil: 'networkidle2', timeout: 60000 });
+          await page.waitForSelector('.h2h__section.section');
+
+          const homeForm = await getTeamForm(page, 0);
+          const awayForm = await getTeamForm(page, 1);
+
+          selectedMatch.standings.home.form = homeForm;
+          selectedMatch.standings.away.form = awayForm;
+        }
+
+        console.log(`droppingOdds:`, {
+          droppingOdds: selectedMatch.droppingOdds,
+          matchUrl: selectedMatch.url,
+        });
 
         if (
           selectedMatch.standings?.home?.form?.length > 3 &&
           selectedMatch.standings?.away?.form?.length > 3 &&
-          (selectedMatch.droppingOdds.home < threshold ||
-            selectedMatch.droppingOdds.away < threshold ||
-            selectedMatch.droppingOdds.draw < threshold * 0.5)
+          (selectedMatch.droppingOdds.home <= threshold ||
+            selectedMatch.droppingOdds.away <= threshold ||
+            selectedMatch.droppingOdds.draw <= threshold * 0.5)
         ) {
           console.log('analyze prediction...');
           selectedMatch.prediction = analyzeAndPredictMatch(selectedMatch);
