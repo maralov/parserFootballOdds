@@ -3996,5 +3996,149 @@
     },
     "result": "lose",
     "profit": -1
+  },
+  {
+    "id": "8AFXHlKL",
+    "date": "01-30-2024",
+    "teamHome": "Livingston",
+    "teamAway": "Ross County",
+    "url": "https://www.flashscore.com/match/8AFXHlKL/",
+    "country": "scotland",
+    "odds": {
+      "home": 2.38,
+      "draw": 3.2,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": 7,
+      "draw": -4,
+      "away": 0
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 11,
+        "points": 18,
+        "goals": 17,
+        "goalDifference": -13,
+        "form": {
+          "rating": -0.30733333333333335,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 12,
+        "points": 12,
+        "goals": 13,
+        "goalDifference": -23,
+        "form": {
+          "rating": -0.15473333333333328,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-2",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "Ei23LkPr",
+    "date": "01-30-2024",
+    "teamHome": "East Fife",
+    "teamAway": "Spartans",
+    "url": "https://www.flashscore.com/match/Ei23LkPr/",
+    "country": "scotland",
+    "odds": {
+      "home": 2.7,
+      "draw": 3.2,
+      "away": 2.38
+    },
+    "droppingOdds": {
+      "home": -1,
+      "draw": -6,
+      "away": 4
+    },
+    "standings": {
+      "totalTeams": 10,
+      "away": {
+        "rank": 4,
+        "points": 33,
+        "goals": 32,
+        "goalDifference": 10,
+        "form": {
+          "rating": 0.43200000000000005,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 5,
+        "points": 25,
+        "goals": 28,
+        "goalDifference": 1,
+        "form": {
+          "rating": 0.37742222222222227,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "dGi8K9vk",
+    "date": "01-30-2024",
+    "teamHome": "Elgin City",
+    "teamAway": "Clyde",
+    "url": "https://www.flashscore.com/match/dGi8K9vk/",
+    "country": "scotland",
+    "odds": {
+      "home": 2.9,
+      "draw": 3.3,
+      "away": 2.2
+    },
+    "droppingOdds": {
+      "home": 32,
+      "draw": -2,
+      "away": -23
+    },
+    "standings": {
+      "totalTeams": 10,
+      "home": {
+        "rank": 9,
+        "points": 18,
+        "goals": 16,
+        "goalDifference": -21,
+        "form": {
+          "rating": 0.1943333333333334,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 10,
+        "points": 14,
+        "goals": 23,
+        "goalDifference": -16,
+        "form": {
+          "rating": -0.06577777777777782,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.9
   }
 ]
