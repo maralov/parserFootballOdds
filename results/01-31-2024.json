@@ -1,7 +1,7 @@
 [
   {
     "id": "GtMNvSMs",
-    "date": "23:15",
+    "date": "01-31-2024",
     "teamHome": "Belgrano",
     "teamAway": "San Lorenzo",
     "url": "https://www.flashscore.com/match/GtMNvSMs/",
@@ -23,73 +23,33 @@
         "points": 0,
         "goals": 0,
         "goalDifference": -1,
-        "form": [
-          {
-            "date": "29.01.24",
-            "score": "1:0",
-            "res": "L"
-          },
-          {
-            "date": "21.01.24",
-            "score": "1:0",
-            "res": "L"
-          },
-          {
-            "date": "17.01.24",
-            "score": "1:0",
-            "res": "L"
-          },
-          {
-            "date": "03.12.23",
-            "score": "2:1",
-            "res": "L"
-          },
-          {
-            "date": "28.11.23",
-            "score": "4:1",
-            "res": "L"
-          }
-        ]
+        "form": {
+          "rating": 0.34414285714285714,
+          "trend": "downward"
+        }
       },
       "away": {
         "rank": 13,
         "points": 0,
         "goals": 0,
         "goalDifference": -2,
-        "form": [
-          {
-            "date": "27.01.24",
-            "score": "0:2",
-            "res": "L"
-          },
-          {
-            "date": "19.01.24",
-            "score": "0:1",
-            "res": "L"
-          },
-          {
-            "date": "16.01.24",
-            "score": "0:1",
-            "res": "L"
-          },
-          {
-            "date": "27.11.23",
-            "score": "2:0",
-            "res": "W"
-          },
-          {
-            "date": "24.11.23",
-            "score": "1:0",
-            "res": "L"
-          }
-        ]
+        "form": {
+          "rating": 0.062285714285714264,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "home"
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "WbXHyoP4",
-    "date": "20:30",
+    "date": "01-31-2024",
     "teamHome": "St. Gallen",
     "teamAway": "Servette",
     "url": "https://www.flashscore.com/match/WbXHyoP4/",
@@ -111,68 +71,28 @@
         "points": 36,
         "goals": 35,
         "goalDifference": 10,
-        "form": [
-          {
-            "date": "28.01.24",
-            "score": "1:4",
-            "res": "L"
-          },
-          {
-            "date": "20.01.24",
-            "score": "0:1",
-            "res": "W"
-          },
-          {
-            "date": "12.01.24",
-            "score": "4:0",
-            "res": "L"
-          },
-          {
-            "date": "06.01.24",
-            "score": "1:0",
-            "res": "L"
-          },
-          {
-            "date": "16.12.23",
-            "score": "1:0",
-            "res": "W"
-          }
-        ]
+        "form": {
+          "rating": 0.6086666666666667,
+          "trend": "downward"
+        }
       },
       "away": {
         "rank": 3,
         "points": 35,
         "goals": 34,
         "goalDifference": 9,
-        "form": [
-          {
-            "date": "27.01.24",
-            "score": "1:0",
-            "res": "W"
-          },
-          {
-            "date": "23.01.24",
-            "score": "3:3",
-            "res": "D"
-          },
-          {
-            "date": "12.01.24",
-            "score": "5:1",
-            "res": "W"
-          },
-          {
-            "date": "09.01.24",
-            "score": "0:4",
-            "res": "W"
-          },
-          {
-            "date": "17.12.23",
-            "score": "2:2",
-            "res": "D"
-          }
-        ]
+        "form": {
+          "rating": 0.6522222222222223,
+          "trend": "upward"
+        }
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]

@@ -4140,5 +4140,149 @@
     },
     "result": "win",
     "profit": 1.9
+  },
+  {
+    "id": "GtMNvSMs",
+    "date": "01-31-2024",
+    "teamHome": "Belgrano",
+    "teamAway": "San Lorenzo",
+    "url": "https://www.flashscore.com/match/GtMNvSMs/",
+    "country": "argentina",
+    "odds": {
+      "home": 2.3,
+      "draw": 2.9,
+      "away": 3.5
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -1,
+      "away": 17
+    },
+    "standings": {
+      "totalTeams": 14,
+      "home": {
+        "rank": 11,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.34414285714285714,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 13,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": -2,
+        "form": {
+          "rating": 0.062285714285714264,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "WbXHyoP4",
+    "date": "01-31-2024",
+    "teamHome": "St. Gallen",
+    "teamAway": "Servette",
+    "url": "https://www.flashscore.com/match/WbXHyoP4/",
+    "country": "switzerland",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.6,
+      "away": 3
+    },
+    "droppingOdds": {
+      "home": 19,
+      "draw": -7,
+      "away": -14
+    },
+    "standings": {
+      "totalTeams": 12,
+      "home": {
+        "rank": 2,
+        "points": 36,
+        "goals": 35,
+        "goalDifference": 10,
+        "form": {
+          "rating": 0.6086666666666667,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 3,
+        "points": 35,
+        "goals": 34,
+        "goalDifference": 9,
+        "form": {
+          "rating": 0.6522222222222223,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "bkct1Rij",
+    "date": "02-01-2024",
+    "teamHome": "Aberystwyth W",
+    "teamAway": "Cardiff Met. W",
+    "url": "https://www.flashscore.com/match/bkct1Rij/",
+    "country": "wales",
+    "odds": {
+      "home": 2.9,
+      "draw": 3.2,
+      "away": 2.2
+    },
+    "droppingOdds": {
+      "home": 15,
+      "draw": -6,
+      "away": -9
+    },
+    "standings": {
+      "totalTeams": 8,
+      "home": {
+        "rank": 5,
+        "points": 12,
+        "goals": 13,
+        "goalDifference": -5,
+        "form": {
+          "rating": -0.03727777777777784,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 7,
+        "points": 11,
+        "goals": 14,
+        "goalDifference": -13,
+        "form": {
+          "rating": 0.2736666666666667,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "4-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.9
   }
 ]
