@@ -122,7 +122,7 @@ function analyzeAndPredictMatch(match) {
   let prediction = '';
 
   // Проверка на сильное падение коэффициентов и сравнение с формой и трендом
-  if (homeFormTrend === 'downward' && awayFormTrend === 'downward') {
+  if (homeFormTrend === 'downward' && awayFormTrend === 'downward' && homeFormRating > awayFormRating && homeFormRating - awayFormRating < 0.4) {
     prediction = 'home';
   } else if (
     awayFormRating >= 0.4 &&
@@ -131,7 +131,7 @@ function analyzeAndPredictMatch(match) {
     homeFormTrend === 'downward'
   ) {
     prediction = 'away';
-  } else if (homeFormTrend === 'upward' && awayFormTrend === 'upward' && match.droppingOdds.draw < threshold * 0.5) {
+  } else if (homeFormTrend === 'upward' && awayFormTrend === 'upward' && match.droppingOdds.draw < threshold * 0.5 && awayFormRating > homeFormRating) {
     prediction = 'draw';
   } else {
     prediction = checkForPossibleDraw(match, homeFormRating, awayFormRating) ? 'draw' : '';
