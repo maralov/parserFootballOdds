@@ -4284,5 +4284,1253 @@
     },
     "result": "win",
     "profit": 1.9
+  },
+  {
+    "id": "CGijjrCn",
+    "date": "02-02-2024",
+    "teamHome": "Nes Tziona",
+    "teamAway": "Hap. Ramat Gan",
+    "url": "https://www.flashscore.com/match/CGijjrCn/",
+    "country": "israel",
+    "odds": {
+      "home": 2.48,
+      "draw": 3.05,
+      "away": 2.65
+    },
+    "droppingOdds": {
+      "home": 11,
+      "draw": -3,
+      "away": -10
+    },
+    "standings": {
+      "totalTeams": 16,
+      "home": {
+        "rank": 12,
+        "points": 19,
+        "goals": 20,
+        "goalDifference": -12,
+        "form": {
+          "rating": -0.023222222222222238,
+          "trend": "stable"
+        }
+      },
+      "away": {
+        "rank": 13,
+        "points": 18,
+        "goals": 20,
+        "goalDifference": -3,
+        "form": {
+          "rating": -0.07250000000000001,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "COoTxT7N",
+    "date": "02-02-2024",
+    "teamHome": "Den Bosch",
+    "teamAway": "Helmond",
+    "url": "https://www.flashscore.com/match/COoTxT7N/",
+    "country": "netherlands",
+    "odds": {
+      "home": 2.75,
+      "draw": 3,
+      "away": 2.8
+    },
+    "droppingOdds": {
+      "home": 7,
+      "draw": -4,
+      "away": 0
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 14,
+        "points": 29,
+        "goals": 35,
+        "goalDifference": -3,
+        "form": {
+          "rating": 0.3615555555555556,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 18,
+        "points": 18,
+        "goals": 24,
+        "goalDifference": -18,
+        "form": {
+          "rating": -0.03593333333333333,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2
+  },
+  {
+    "id": "KKmoN8Jt",
+    "date": "02-02-2024",
+    "teamHome": "Hatayspor",
+    "teamAway": "Karagumruk",
+    "url": "https://www.flashscore.com/match/KKmoN8Jt/",
+    "country": "turkey",
+    "odds": {
+      "home": 2.55,
+      "draw": 3.2,
+      "away": 2.8
+    },
+    "droppingOdds": {
+      "home": 19,
+      "draw": -8,
+      "away": -13
+    },
+    "standings": {
+      "totalTeams": 20,
+      "home": {
+        "rank": 15,
+        "points": 25,
+        "goals": 28,
+        "goalDifference": -3,
+        "form": {
+          "rating": 0.5869111111111112,
+          "trend": "upward"
+        }
+      },
+      "away": {
+        "rank": 16,
+        "points": 24,
+        "goals": 27,
+        "goalDifference": 1,
+        "form": {
+          "rating": 0.7175555555555555,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "3-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "C6bLIi3O",
+    "date": "02-03-2024",
+    "teamHome": "FC Koln",
+    "teamAway": "Eintracht Frankfurt",
+    "url": "https://www.flashscore.com/match/C6bLIi3O/",
+    "country": "germany",
+    "odds": {
+      "home": 2.9,
+      "draw": 3.3,
+      "away": 2.45
+    },
+    "droppingOdds": {
+      "home": 8,
+      "draw": -7,
+      "away": -1
+    },
+    "standings": {
+      "totalTeams": 18,
+      "away": {
+        "rank": 6,
+        "points": 31,
+        "goals": 30,
+        "goalDifference": 8,
+        "form": {
+          "rating": 0.4624444444444445,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 16,
+        "points": 12,
+        "goals": 12,
+        "goalDifference": -22,
+        "form": {
+          "rating": -0.18211111111111114,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "WhfsnNPR",
+    "date": "02-03-2024",
+    "teamHome": "All Boys",
+    "teamAway": "Tristan Suarez",
+    "url": "https://www.flashscore.com/match/WhfsnNPR/",
+    "country": "argentina",
+    "odds": {
+      "home": 2.63,
+      "draw": 2.75,
+      "away": 3.25
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": 2,
+      "away": 12
+    },
+    "standings": {
+      "totalTeams": 19,
+      "home": {
+        "rank": 7,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.254080701754386,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 10,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.42407017543859654,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "2knBBP9S",
+    "date": "02-03-2024",
+    "teamHome": "Treze PB",
+    "teamAway": "River-PI",
+    "url": "https://www.flashscore.com/match/2knBBP9S/",
+    "country": "brazil",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.1,
+      "away": 2.9
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -1,
+      "away": 12
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 6,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.5783333333333334,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 6,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.32010000000000005,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "t6YpcH42",
+    "date": "02-03-2024",
+    "teamHome": "Osijek",
+    "teamAway": "Hajduk Split",
+    "url": "https://www.flashscore.com/match/t6YpcH42/",
+    "country": "croatia",
+    "odds": {
+      "home": 2.9,
+      "draw": 3.4,
+      "away": 2.38
+    },
+    "droppingOdds": {
+      "home": -5,
+      "draw": -4,
+      "away": 9
+    },
+    "standings": {
+      "totalTeams": 10,
+      "away": {
+        "rank": 2,
+        "points": 41,
+        "goals": 26,
+        "goalDifference": 14,
+        "form": {
+          "rating": 0.5342222222222223,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 4,
+        "points": 30,
+        "goals": 39,
+        "goalDifference": 11,
+        "form": {
+          "rating": 0.6558444444444446,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.4
+  },
+  {
+    "id": "rZnZYHd5",
+    "date": "02-03-2024",
+    "teamHome": "Grenoble",
+    "teamAway": "Caen",
+    "url": "https://www.flashscore.com/match/rZnZYHd5/",
+    "country": "france",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.2,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": 18,
+      "draw": -5,
+      "away": -20
+    },
+    "standings": {
+      "totalTeams": 20,
+      "home": {
+        "rank": 4,
+        "points": 37,
+        "goals": 29,
+        "goalDifference": 8,
+        "form": {
+          "rating": 0.5023333333333335,
+          "trend": "stable"
+        }
+      },
+      "away": {
+        "rank": 6,
+        "points": 33,
+        "goals": 30,
+        "goalDifference": 4,
+        "form": {
+          "rating": 0.48711111111111116,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "5-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "EitcaRZi",
+    "date": "02-03-2024",
+    "teamHome": "Giana Erminio",
+    "teamAway": "Novara",
+    "url": "https://www.flashscore.com/match/EitcaRZi/",
+    "country": "italy",
+    "odds": {
+      "home": 2.3,
+      "draw": 3,
+      "away": 2.88
+    },
+    "droppingOdds": {
+      "home": 6,
+      "draw": 0,
+      "away": -8
+    },
+    "standings": {
+      "totalTeams": 20,
+      "home": {
+        "rank": 9,
+        "points": 31,
+        "goals": 31,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.33048888888888894,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 17,
+        "points": 19,
+        "goals": 23,
+        "goalDifference": -16,
+        "form": {
+          "rating": 0.12844444444444444,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "4AzpuKVd",
+    "date": "02-03-2024",
+    "teamHome": "Grasshoppers",
+    "teamAway": "Winterthur",
+    "url": "https://www.flashscore.com/match/4AzpuKVd/",
+    "country": "switzerland",
+    "odds": {
+      "home": 2.45,
+      "draw": 3.8,
+      "away": 2.6
+    },
+    "droppingOdds": {
+      "home": 5,
+      "draw": -4,
+      "away": -2
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 7,
+        "points": 26,
+        "goals": 39,
+        "goalDifference": -7,
+        "form": {
+          "rating": 0.40755555555555556,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 8,
+        "points": 25,
+        "goals": 29,
+        "goalDifference": 1,
+        "form": {
+          "rating": 0.4082222222222224,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "x4n2Gzgd",
+    "date": "02-03-2024",
+    "teamHome": "Basel",
+    "teamAway": "Lugano",
+    "url": "https://www.flashscore.com/match/x4n2Gzgd/",
+    "country": "switzerland",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.5,
+      "away": 3
+    },
+    "droppingOdds": {
+      "home": -8,
+      "draw": -3,
+      "away": 15
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 6,
+        "points": 30,
+        "goals": 38,
+        "goalDifference": 4,
+        "form": {
+          "rating": 0.29933333333333334,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 9,
+        "points": 25,
+        "goals": 27,
+        "goalDifference": -7,
+        "form": {
+          "rating": 0.1703777777777778,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "YBqAI8cB",
+    "date": "02-04-2024",
+    "teamHome": "Metz",
+    "teamAway": "Lorient",
+    "url": "https://www.flashscore.com/match/YBqAI8cB/",
+    "country": "france",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.1,
+      "away": 3.6
+    },
+    "droppingOdds": {
+      "home": 1,
+      "draw": -7,
+      "away": 8
+    },
+    "standings": {
+      "totalTeams": 18,
+      "home": {
+        "rank": 15,
+        "points": 16,
+        "goals": 16,
+        "goalDifference": -13,
+        "form": {
+          "rating": 0.2185333333333334,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 18,
+        "points": 13,
+        "goals": 24,
+        "goalDifference": -17,
+        "form": {
+          "rating": 0.1366666666666667,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "88KsQ06C",
+    "date": "02-04-2024",
+    "teamHome": "Osasuna",
+    "teamAway": "Celta Vigo",
+    "url": "https://www.flashscore.com/match/88KsQ06C/",
+    "country": "spain",
+    "odds": {
+      "home": 2.3,
+      "draw": 3.1,
+      "away": 3.4
+    },
+    "droppingOdds": {
+      "home": -2,
+      "draw": -4,
+      "away": 10
+    },
+    "standings": {
+      "totalTeams": 20,
+      "home": {
+        "rank": 11,
+        "points": 26,
+        "goals": 26,
+        "goalDifference": -7,
+        "form": {
+          "rating": 0.25495555555555555,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 17,
+        "points": 17,
+        "goals": 21,
+        "goalDifference": -11,
+        "form": {
+          "rating": -0.11955555555555555,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "0-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "McTajxHD",
+    "date": "02-04-2024",
+    "teamHome": "Almirante Brown",
+    "teamAway": "Atletico Atlanta",
+    "url": "https://www.flashscore.com/match/McTajxHD/",
+    "country": "argentina",
+    "odds": {
+      "home": 2.15,
+      "draw": 3,
+      "away": 4
+    },
+    "droppingOdds": {
+      "home": 14,
+      "draw": -3,
+      "away": -17
+    },
+    "standings": {
+      "totalTeams": 19,
+      "home": {
+        "rank": 6,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.21432631578947373,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 7,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.3387602339181287,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "nHv3qCLm",
+    "date": "02-04-2024",
+    "teamHome": "Seraing",
+    "teamAway": "Genk U23",
+    "url": "https://www.flashscore.com/match/nHv3qCLm/",
+    "country": "belgium",
+    "odds": {
+      "home": 2.8,
+      "draw": 3.5,
+      "away": 2.25
+    },
+    "droppingOdds": {
+      "home": 30,
+      "draw": 0,
+      "away": -24
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 11,
+        "points": 22,
+        "goals": 31,
+        "goalDifference": -3,
+        "form": {
+          "rating": 0.4042777777777778,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 16,
+        "points": 15,
+        "goals": 20,
+        "goalDifference": -11,
+        "form": {
+          "rating": -0.12906666666666666,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-3",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.25
+  },
+  {
+    "id": "QHnaBae1",
+    "date": "02-04-2024",
+    "teamHome": "Xylotymbou",
+    "teamAway": "ENAD",
+    "url": "https://www.flashscore.com/match/QHnaBae1/",
+    "country": "cyprus",
+    "odds": {
+      "home": 2.7,
+      "draw": 3.2,
+      "away": 2.38
+    },
+    "droppingOdds": {
+      "home": 17,
+      "draw": -4,
+      "away": -13
+    },
+    "standings": {
+      "totalTeams": 8,
+      "away": {
+        "rank": 14,
+        "points": 15,
+        "goals": 1,
+        "goalDifference": -2,
+        "form": {
+          "rating": 0.126,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 15,
+        "points": 15,
+        "goals": 0,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.12845555555555557,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "CIlxnKKI",
+    "date": "02-04-2024",
+    "teamHome": "Elversberg",
+    "teamAway": "Kaiserslautern",
+    "url": "https://www.flashscore.com/match/CIlxnKKI/",
+    "country": "germany",
+    "odds": {
+      "home": 2.2,
+      "draw": 3.6,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": 9,
+      "draw": -5,
+      "away": -8
+    },
+    "standings": {
+      "totalTeams": 18,
+      "home": {
+        "rank": 12,
+        "points": 25,
+        "goals": 29,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.268888888888889,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 15,
+        "points": 21,
+        "goals": 32,
+        "goalDifference": -7,
+        "form": {
+          "rating": 0.37,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "d24YlOHc",
+    "date": "02-04-2024",
+    "teamHome": "Giannina",
+    "teamAway": "Lamia",
+    "url": "https://www.flashscore.com/match/d24YlOHc/",
+    "country": "greece",
+    "odds": {
+      "home": 2.45,
+      "draw": 2.88,
+      "away": 3.3
+    },
+    "droppingOdds": {
+      "home": 6,
+      "draw": -6,
+      "away": 2
+    },
+    "standings": {
+      "totalTeams": 14,
+      "away": {
+        "rank": 7,
+        "points": 27,
+        "goals": 25,
+        "goalDifference": -7,
+        "form": {
+          "rating": 0.4026666666666667,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 13,
+        "points": 12,
+        "goals": 17,
+        "goalDifference": -19,
+        "form": {
+          "rating": 0.23351428571428576,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-4",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 2.3
+  },
+  {
+    "id": "IB5Uk42i",
+    "date": "02-04-2024",
+    "teamHome": "Panathinaikos",
+    "teamAway": "Olympiacos Piraeus",
+    "url": "https://www.flashscore.com/match/IB5Uk42i/",
+    "country": "greece",
+    "odds": {
+      "home": 2.45,
+      "draw": 3.2,
+      "away": 3
+    },
+    "droppingOdds": {
+      "home": 9,
+      "draw": -6,
+      "away": -2
+    },
+    "standings": {
+      "totalTeams": 14,
+      "home": {
+        "rank": 3,
+        "points": 44,
+        "goals": 50,
+        "goalDifference": 34,
+        "form": {
+          "rating": 0.7673460317460319,
+          "trend": "stable"
+        }
+      },
+      "away": {
+        "rank": 4,
+        "points": 41,
+        "goals": 43,
+        "goalDifference": 24,
+        "form": {
+          "rating": 0.7121904761904762,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "KQzkExjE",
+    "date": "02-04-2024",
+    "teamHome": "Apollon Pontou",
+    "teamAway": "Kampaniakos",
+    "url": "https://www.flashscore.com/match/KQzkExjE/",
+    "country": "greece",
+    "odds": {
+      "home": 2.12,
+      "draw": 3.02,
+      "away": 3.41
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": 0,
+      "away": 7
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 11,
+        "points": 12,
+        "goals": 12,
+        "goalDifference": -14,
+        "form": {
+          "rating": 0.0926666666666667,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 12,
+        "points": 8,
+        "goals": 7,
+        "goalDifference": -15,
+        "form": {
+          "rating": 0.09606666666666666,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "win",
+    "profit": 1.12
+  },
+  {
+    "id": "QHUxUh0H",
+    "date": "02-04-2024",
+    "teamHome": "Mezokovesd-Zsory",
+    "teamAway": "Kecskemeti TE",
+    "url": "https://www.flashscore.com/match/QHUxUh0H/",
+    "country": "hungary",
+    "odds": {
+      "home": 2.45,
+      "draw": 3.6,
+      "away": 2.75
+    },
+    "droppingOdds": {
+      "home": -8,
+      "draw": 1,
+      "away": 9
+    },
+    "standings": {
+      "totalTeams": 12,
+      "away": {
+        "rank": 8,
+        "points": 21,
+        "goals": 25,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.4595555555555556,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 11,
+        "points": 15,
+        "goals": 17,
+        "goalDifference": -9,
+        "form": {
+          "rating": -0.022977777777777795,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-3",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.75
+  },
+  {
+    "id": "KMrSTB8I",
+    "date": "02-04-2024",
+    "teamHome": "Ascoli",
+    "teamAway": "Sudtirol",
+    "url": "https://www.flashscore.com/match/KMrSTB8I/",
+    "country": "italy",
+    "odds": {
+      "home": 2.15,
+      "draw": 2.9,
+      "away": 3.9
+    },
+    "droppingOdds": {
+      "home": -4,
+      "draw": -6,
+      "away": 17
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 15,
+        "points": 24,
+        "goals": 28,
+        "goalDifference": -2,
+        "form": {
+          "rating": 0.16177777777777777,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 16,
+        "points": 22,
+        "goals": 22,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.16353333333333334,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "4SgyrQ4H",
+    "date": "02-04-2024",
+    "teamHome": "Pro Vercelli",
+    "teamAway": "Atalanta U23",
+    "url": "https://www.flashscore.com/match/4SgyrQ4H/",
+    "country": "italy",
+    "odds": {
+      "home": 2.5,
+      "draw": 2.8,
+      "away": 2.8
+    },
+    "droppingOdds": {
+      "home": 15,
+      "draw": -4,
+      "away": -14
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 5,
+        "points": 37,
+        "goals": 23,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.5180000000000001,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 6,
+        "points": 36,
+        "goals": 32,
+        "goalDifference": 8,
+        "form": {
+          "rating": 0.22782222222222226,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "ruACJVWL",
+    "date": "02-04-2024",
+    "teamHome": "Arezzo",
+    "teamAway": "Entella",
+    "url": "https://www.flashscore.com/match/ruACJVWL/",
+    "country": "italy",
+    "odds": {
+      "home": 3.05,
+      "draw": 2.75,
+      "away": 2.4
+    },
+    "droppingOdds": {
+      "home": 21,
+      "draw": -5,
+      "away": -12
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 9,
+        "points": 30,
+        "goals": 19,
+        "goalDifference": 1,
+        "form": {
+          "rating": 0.3646666666666667,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 11,
+        "points": 29,
+        "goals": 28,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.3290222222222222,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 1.75
+  },
+  {
+    "id": "fshEbSvr",
+    "date": "02-04-2024",
+    "teamHome": "Ferrol",
+    "teamAway": "Eibar",
+    "url": "https://www.flashscore.com/match/fshEbSvr/",
+    "country": "spain",
+    "odds": {
+      "home": 3.2,
+      "draw": 3,
+      "away": 2.45
+    },
+    "droppingOdds": {
+      "home": 15,
+      "draw": 1,
+      "away": -10
+    },
+    "standings": {
+      "totalTeams": 22,
+      "away": {
+        "rank": 2,
+        "points": 41,
+        "goals": 40,
+        "goalDifference": 11,
+        "form": {
+          "rating": 0.5722626262626264,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 3,
+        "points": 41,
+        "goals": 32,
+        "goalDifference": 5,
+        "form": {
+          "rating": 0.2855777777777778,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "CC15SRGT",
+    "date": "02-04-2024",
+    "teamHome": "R. Sociedad B",
+    "teamAway": "Gimnastic",
+    "url": "https://www.flashscore.com/match/CC15SRGT/",
+    "country": "spain",
+    "odds": {
+      "home": 2.15,
+      "draw": 2.9,
+      "away": 3.3
+    },
+    "droppingOdds": {
+      "home": -10,
+      "draw": 3,
+      "away": 16
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 2,
+        "points": 39,
+        "goals": 25,
+        "goalDifference": 13,
+        "form": {
+          "rating": 0.8300000000000001,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 7,
+        "points": 31,
+        "goals": 25,
+        "goalDifference": 5,
+        "form": {
+          "rating": 0.4312,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]

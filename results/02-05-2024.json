@@ -1,0 +1,178 @@
+[
+  {
+    "id": "bXH3NHYN",
+    "date": "22:00",
+    "teamHome": "San Lorenzo",
+    "teamAway": "Union de Santa Fe",
+    "url": "https://www.flashscore.com/match/bXH3NHYN/",
+    "country": "argentina",
+    "odds": {
+      "home": 2.3,
+      "draw": 2.8,
+      "away": 3.6
+    },
+    "droppingOdds": {
+      "home": 3,
+      "draw": -4,
+      "away": 4
+    },
+    "standings": {
+      "totalTeams": 14,
+      "away": {
+        "rank": 8,
+        "points": 3,
+        "goals": 1,
+        "goalDifference": 0,
+        "form": [
+          {
+            "date": "02.02.24",
+            "score": "0:1",
+            "res": "L"
+          },
+          {
+            "date": "28.01.24",
+            "score": "0:1",
+            "res": "W"
+          },
+          {
+            "date": "19.01.24",
+            "score": "1:0",
+            "res": "D"
+          },
+          {
+            "date": "17.01.24",
+            "score": "1:2",
+            "res": "D"
+          },
+          {
+            "date": "14.01.24",
+            "score": "2:1",
+            "res": "D"
+          }
+        ]
+      },
+      "home": {
+        "rank": 11,
+        "points": 1,
+        "goals": 1,
+        "goalDifference": -2,
+        "form": [
+          {
+            "date": "31.01.24",
+            "score": "1:1",
+            "res": "D"
+          },
+          {
+            "date": "27.01.24",
+            "score": "0:2",
+            "res": "L"
+          },
+          {
+            "date": "19.01.24",
+            "score": "0:1",
+            "res": "L"
+          },
+          {
+            "date": "16.01.24",
+            "score": "0:1",
+            "res": "L"
+          },
+          {
+            "date": "27.11.23",
+            "score": "2:0",
+            "res": "W"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  },
+  {
+    "id": "6s5vvR5q",
+    "date": "20:00",
+    "teamHome": "Jong Utrecht",
+    "teamAway": "Jong Ajax",
+    "url": "https://www.flashscore.com/match/6s5vvR5q/",
+    "country": "netherlands",
+    "odds": {
+      "home": 2.55,
+      "draw": 3.6,
+      "away": 2.55
+    },
+    "droppingOdds": {
+      "home": 17,
+      "draw": 1,
+      "away": -16
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 15,
+        "points": 24,
+        "goals": 36,
+        "goalDifference": -8,
+        "form": [
+          {
+            "date": "29.01.24",
+            "score": "2:2",
+            "res": "D"
+          },
+          {
+            "date": "22.01.24",
+            "score": "0:1",
+            "res": "L"
+          },
+          {
+            "date": "19.01.24",
+            "score": "1:1",
+            "res": "D"
+          },
+          {
+            "date": "23.12.23",
+            "score": "2:2",
+            "res": "D"
+          },
+          {
+            "date": "15.12.23",
+            "score": "2:2",
+            "res": "D"
+          }
+        ]
+      },
+      "home": {
+        "rank": 17,
+        "points": 20,
+        "goals": 19,
+        "goalDifference": -22,
+        "form": [
+          {
+            "date": "26.01.24",
+            "score": "0:0",
+            "res": "D"
+          },
+          {
+            "date": "19.01.24",
+            "score": "3:0",
+            "res": "L"
+          },
+          {
+            "date": "15.01.24",
+            "score": "0:0",
+            "res": "D"
+          },
+          {
+            "date": "22.12.23",
+            "score": "2:1",
+            "res": "L"
+          },
+          {
+            "date": "15.12.23",
+            "score": "2:5",
+            "res": "L"
+          }
+        ]
+      }
+    },
+    "prediction": "draw"
+  }
+]

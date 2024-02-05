@@ -174,5 +174,29 @@
     "total": 1,
     "profit": 1.9,
     "totalProfit": 4.429999989999999
+  },
+  {
+    "date": "02-02-2024",
+    "win": 1,
+    "lose": 2,
+    "total": 3,
+    "profit": 0,
+    "totalProfit": 4.429999989999999
+  },
+  {
+    "date": "02-03-2024",
+    "win": 1,
+    "lose": 7,
+    "total": 8,
+    "profit": -4.6,
+    "totalProfit": -0.17000001000000076
+  },
+  {
+    "date": "02-04-2024",
+    "win": 5,
+    "lose": 10,
+    "total": 15,
+    "profit": -1.83,
+    "totalProfit": -2.000000010000001
   }
 ]

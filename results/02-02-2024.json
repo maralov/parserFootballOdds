@@ -1,7 +1,7 @@
 [
   {
     "id": "CGijjrCn",
-    "date": "14:00",
+    "date": "02-02-2024",
     "teamHome": "Nes Tziona",
     "teamAway": "Hap. Ramat Gan",
     "url": "https://www.flashscore.com/match/CGijjrCn/",
@@ -23,73 +23,33 @@
         "points": 19,
         "goals": 20,
         "goalDifference": -12,
-        "form": [
-          {
-            "date": "19.01.24",
-            "score": "2:1",
-            "res": "W"
-          },
-          {
-            "date": "12.01.24",
-            "score": "0:2",
-            "res": "W"
-          },
-          {
-            "date": "09.01.24",
-            "score": "1:2",
-            "res": "D"
-          },
-          {
-            "date": "05.01.24",
-            "score": "2:3",
-            "res": "L"
-          },
-          {
-            "date": "01.01.24",
-            "score": "0:1",
-            "res": "L"
-          }
-        ]
+        "form": {
+          "rating": -0.023222222222222238,
+          "trend": "stable"
+        }
       },
       "away": {
         "rank": 13,
         "points": 18,
         "goals": 20,
         "goalDifference": -3,
-        "form": [
-          {
-            "date": "25.01.24",
-            "score": "0:1",
-            "res": "L"
-          },
-          {
-            "date": "19.01.24",
-            "score": "0:1",
-            "res": "L"
-          },
-          {
-            "date": "15.01.24",
-            "score": "1:1",
-            "res": "D"
-          },
-          {
-            "date": "09.01.24",
-            "score": "0:5",
-            "res": "W"
-          },
-          {
-            "date": "05.01.24",
-            "score": "0:0",
-            "res": "D"
-          }
-        ]
+        "form": {
+          "rating": -0.07250000000000001,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   },
   {
     "id": "COoTxT7N",
-    "date": "20:00",
+    "date": "02-02-2024",
     "teamHome": "Den Bosch",
     "teamAway": "Helmond",
     "url": "https://www.flashscore.com/match/COoTxT7N/",
@@ -111,73 +71,33 @@
         "points": 29,
         "goals": 35,
         "goalDifference": -3,
-        "form": [
-          {
-            "date": "26.01.24",
-            "score": "1:0",
-            "res": "W"
-          },
-          {
-            "date": "19.01.24",
-            "score": "2:2",
-            "res": "D"
-          },
-          {
-            "date": "12.01.24",
-            "score": "2:0",
-            "res": "L"
-          },
-          {
-            "date": "06.01.24",
-            "score": "0:0",
-            "res": "D"
-          },
-          {
-            "date": "23.12.23",
-            "score": "3:3",
-            "res": "D"
-          }
-        ]
+        "form": {
+          "rating": 0.3615555555555556,
+          "trend": "upward"
+        }
       },
       "home": {
         "rank": 18,
         "points": 18,
         "goals": 24,
         "goalDifference": -18,
-        "form": [
-          {
-            "date": "26.01.24",
-            "score": "0:0",
-            "res": "D"
-          },
-          {
-            "date": "19.01.24",
-            "score": "0:0",
-            "res": "D"
-          },
-          {
-            "date": "15.01.24",
-            "score": "2:2",
-            "res": "D"
-          },
-          {
-            "date": "22.12.23",
-            "score": "3:1",
-            "res": "W"
-          },
-          {
-            "date": "15.12.23",
-            "score": "0:4",
-            "res": "L"
-          }
-        ]
+        "form": {
+          "rating": -0.03593333333333333,
+          "trend": "stable"
+        }
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2
   },
   {
     "id": "KKmoN8Jt",
-    "date": "15:00",
+    "date": "02-02-2024",
     "teamHome": "Hatayspor",
     "teamAway": "Karagumruk",
     "url": "https://www.flashscore.com/match/KKmoN8Jt/",
@@ -199,68 +119,28 @@
         "points": 25,
         "goals": 28,
         "goalDifference": -3,
-        "form": [
-          {
-            "date": "27.01.24",
-            "score": "0:1",
-            "res": "W"
-          },
-          {
-            "date": "23.01.24",
-            "score": "1:1",
-            "res": "D"
-          },
-          {
-            "date": "20.01.24",
-            "score": "3:0",
-            "res": "L"
-          },
-          {
-            "date": "16.01.24",
-            "score": "5:1",
-            "res": "W"
-          },
-          {
-            "date": "13.01.24",
-            "score": "1:1",
-            "res": "D"
-          }
-        ]
+        "form": {
+          "rating": 0.5869111111111112,
+          "trend": "upward"
+        }
       },
       "away": {
         "rank": 16,
         "points": 24,
         "goals": 27,
         "goalDifference": 1,
-        "form": [
-          {
-            "date": "28.01.24",
-            "score": "4:0",
-            "res": "W"
-          },
-          {
-            "date": "24.01.24",
-            "score": "2:0",
-            "res": "L"
-          },
-          {
-            "date": "20.01.24",
-            "score": "1:1",
-            "res": "D"
-          },
-          {
-            "date": "16.01.24",
-            "score": "2:0",
-            "res": "W"
-          },
-          {
-            "date": "13.01.24",
-            "score": "3:0",
-            "res": "L"
-          }
-        ]
+        "form": {
+          "rating": 0.7175555555555555,
+          "trend": "upward"
+        }
       }
     },
-    "prediction": "draw"
+    "prediction": "draw",
+    "score": {
+      "fullTime": "3-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]
