@@ -118,23 +118,24 @@ function analyzeAndPredictMatch(match) {
   const awayFormRating = calculateTeamForm(match.standings.away, false, match.standings.totalTeams);
   const homeFormTrend = evaluateFormTrend(match.standings.home.form);
   const awayFormTrend = evaluateFormTrend(match.standings.away.form);
-
+  const formDifference = homeFormRating - awayFormRating;
   let prediction = '';
 
   // Проверка на сильное падение коэффициентов и сравнение с формой и трендом
-  if (homeFormTrend === 'downward' && awayFormTrend === 'downward' && homeFormRating > awayFormRating && homeFormRating - awayFormRating < 0.4) {
+  if (homeFormTrend === 'downward' && awayFormTrend === 'downward' && formDifference < 0.4) {
     prediction = 'home';
-  } else if (
-    awayFormRating >= 0.4 &&
-    awayFormRating <= 0.6 &&
-    awayFormTrend === 'upward' &&
-    homeFormTrend === 'downward'
-  ) {
+  } else if (awayFormTrend === 'upward' && homeFormTrend === 'downward' && formDifference < 0.3) {
     prediction = 'away';
-  } else if (homeFormTrend === 'upward' && awayFormTrend === 'upward' && match.droppingOdds.draw < threshold * 0.5 && awayFormRating > homeFormRating) {
+  } else if (
+    (homeFormTrend === 'upward' &&
+      awayFormTrend === 'upward' &&
+      match.droppingOdds.draw < threshold * 0.5 &&
+      formDifference < 0.1) ||
+    (homeFormTrend !== 'downward' &&
+      match.droppingOdds.draw < 0 &&
+      checkForPossibleDraw(match, homeFormRating, awayFormRating))
+  ) {
     prediction = 'draw';
-  } else {
-    prediction = checkForPossibleDraw(match, homeFormRating, awayFormRating) ? 'draw' : '';
   }
   console.log({
     prediction,
