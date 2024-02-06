@@ -5532,5 +5532,149 @@
     },
     "result": "lose",
     "profit": -1
+  },
+  {
+    "id": "bXH3NHYN",
+    "date": "02-05-2024",
+    "teamHome": "San Lorenzo",
+    "teamAway": "Union de Santa Fe",
+    "url": "https://www.flashscore.com/match/bXH3NHYN/",
+    "country": "argentina",
+    "odds": {
+      "home": 2.3,
+      "draw": 2.8,
+      "away": 3.6
+    },
+    "droppingOdds": {
+      "home": 3,
+      "draw": -4,
+      "away": 4
+    },
+    "standings": {
+      "totalTeams": 14,
+      "away": {
+        "rank": 8,
+        "points": 3,
+        "goals": 1,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.2730476190476191,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 11,
+        "points": 1,
+        "goals": 1,
+        "goalDifference": -2,
+        "form": {
+          "rating": 0.09554285714285718,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 1.7999999999999998
+  },
+  {
+    "id": "6s5vvR5q",
+    "date": "02-05-2024",
+    "teamHome": "Jong Utrecht",
+    "teamAway": "Jong Ajax",
+    "url": "https://www.flashscore.com/match/6s5vvR5q/",
+    "country": "netherlands",
+    "odds": {
+      "home": 2.55,
+      "draw": 3.6,
+      "away": 2.55
+    },
+    "droppingOdds": {
+      "home": 17,
+      "draw": 1,
+      "away": -16
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 15,
+        "points": 24,
+        "goals": 36,
+        "goalDifference": -8,
+        "form": {
+          "rating": 0.09466666666666664,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 17,
+        "points": 20,
+        "goals": 19,
+        "goalDifference": -22,
+        "form": {
+          "rating": -0.09215555555555559,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "nTzrSuKh",
+    "date": "02-05-2024",
+    "teamHome": "Tigre",
+    "teamAway": "Boca Juniors",
+    "url": "https://www.flashscore.com/match/nTzrSuKh/",
+    "country": "argentina",
+    "odds": {
+      "home": 3.3,
+      "draw": 2.9,
+      "away": 2.5
+    },
+    "droppingOdds": {
+      "home": -5,
+      "draw": -6,
+      "away": 13
+    },
+    "standings": {
+      "totalTeams": 14,
+      "away": {
+        "rank": 9,
+        "points": 2,
+        "goals": 1,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.3352063492063493,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 13,
+        "points": 1,
+        "goals": 0,
+        "goalDifference": -3,
+        "form": {
+          "rating": 0.24280317460317463,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.5
   }
 ]
