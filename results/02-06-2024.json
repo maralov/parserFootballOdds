@@ -89,7 +89,7 @@
   },
   {
     "id": "C6n6U76g",
-    "date": "20:45",
+    "date": "02-06-2024",
     "teamHome": "Port Vale",
     "teamAway": "Leyton Orient",
     "url": "https://www.flashscore.com/match/C6n6U76g/",
@@ -111,68 +111,28 @@
         "points": 42,
         "goals": 33,
         "goalDifference": -1,
-        "form": [
-          {
-            "date": "03.02.24",
-            "score": "3:2",
-            "res": "W"
-          },
-          {
-            "date": "27.01.24",
-            "score": "1:1",
-            "res": "D"
-          },
-          {
-            "date": "20.01.24",
-            "score": "1:0",
-            "res": "W"
-          },
-          {
-            "date": "13.01.24",
-            "score": "0:3",
-            "res": "W"
-          },
-          {
-            "date": "01.01.24",
-            "score": "0:2",
-            "res": "W"
-          }
-        ]
+        "form": {
+          "rating": 0.43211111111111117,
+          "trend": "upward"
+        }
       },
       "home": {
         "rank": 20,
         "points": 30,
         "goals": 28,
         "goalDifference": -14,
-        "form": [
-          {
-            "date": "03.02.24",
-            "score": "3:0",
-            "res": "L"
-          },
-          {
-            "date": "27.01.24",
-            "score": "0:1",
-            "res": "L"
-          },
-          {
-            "date": "06.01.24",
-            "score": "3:3",
-            "res": "D"
-          },
-          {
-            "date": "01.01.24",
-            "score": "2:1",
-            "res": "L"
-          },
-          {
-            "date": "29.12.23",
-            "score": "3:0",
-            "res": "W"
-          }
-        ]
+        "form": {
+          "rating": 0.3192444444444446,
+          "trend": "downward"
+        }
       }
     },
-    "prediction": "away"
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.2000000000000002
   }
 ]

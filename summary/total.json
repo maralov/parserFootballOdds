@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "id": "C6n6U76g",
+    "date": "02-06-2024",
+    "teamHome": "Port Vale",
+    "teamAway": "Leyton Orient",
+    "url": "https://www.flashscore.com/match/C6n6U76g/",
+    "country": "england",
+    "odds": {
+      "home": 3.1,
+      "draw": 3.5,
+      "away": 2.2
+    },
+    "droppingOdds": {
+      "home": 22,
+      "draw": 1,
+      "away": -15
+    },
+    "standings": {
+      "totalTeams": 24,
+      "away": {
+        "rank": 9,
+        "points": 42,
+        "goals": 33,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.43211111111111117,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 20,
+        "points": 30,
+        "goals": 28,
+        "goalDifference": -14,
+        "form": {
+          "rating": 0.3192444444444446,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.2000000000000002
+  },
+  {
+    "id": "Y9Sy9mxp",
+    "date": "02-07-2024",
+    "teamHome": "St. Mirren",
+    "teamAway": "Dundee FC",
+    "url": "https://www.flashscore.com/match/Y9Sy9mxp/",
+    "country": "scotland",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.1,
+      "away": 3.4
+    },
+    "droppingOdds": {
+      "home": 3,
+      "draw": -4,
+      "away": 0
+    },
+    "standings": {
+      "totalTeams": 12,
+      "home": {
+        "rank": 5,
+        "points": 32,
+        "goals": 27,
+        "goalDifference": -2,
+        "form": {
+          "rating": 0.03593333333333332,
+          "trend": "stable"
+        }
+      },
+      "away": {
+        "rank": 6,
+        "points": 26,
+        "goals": 31,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.14177777777777778,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  }
+]
