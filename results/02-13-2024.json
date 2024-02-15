@@ -1,0 +1,338 @@
+[
+  {
+    "id": "bRdf1XGS",
+    "date": "02-13-2024",
+    "teamHome": "San Lorenzo",
+    "teamAway": "Estudiantes L.P.",
+    "url": "https://www.flashscore.com/match/bRdf1XGS/",
+    "country": "argentina",
+    "odds": {
+      "home": 2.7,
+      "draw": 2.8,
+      "away": 2.87
+    },
+    "droppingOdds": {
+      "home": 8,
+      "draw": -10,
+      "away": 1
+    },
+    "standings": {
+      "totalTeams": 14,
+      "away": {
+        "rank": 4,
+        "points": 10,
+        "goals": 4,
+        "goalDifference": 4,
+        "form": {
+          "rating": 0.819968253968254,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 12,
+        "points": 2,
+        "goals": 2,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.056361904761904794,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "rTVDyrc1",
+    "date": "02-13-2024",
+    "teamHome": "Birmingham",
+    "teamAway": "Blackburn",
+    "url": "https://www.flashscore.com/match/rTVDyrc1/",
+    "country": "england",
+    "odds": {
+      "home": 2.2,
+      "draw": 3.75,
+      "away": 2.95
+    },
+    "droppingOdds": {
+      "home": -14,
+      "draw": 7,
+      "away": 13
+    },
+    "standings": {
+      "totalTeams": 24,
+      "away": {
+        "rank": 17,
+        "points": 36,
+        "goals": 45,
+        "goalDifference": -11,
+        "form": {
+          "rating": 0.3854444444444445,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 19,
+        "points": 32,
+        "goals": 34,
+        "goalDifference": -13,
+        "form": {
+          "rating": 0.4147000000000002,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "4bf6aOea",
+    "date": "02-13-2024",
+    "teamHome": "Bradford City",
+    "teamAway": "MK Dons",
+    "url": "https://www.flashscore.com/match/4bf6aOea/",
+    "country": "england",
+    "odds": {
+      "home": 2.3,
+      "draw": 3.3,
+      "away": 2.95
+    },
+    "droppingOdds": {
+      "home": -2,
+      "draw": -6,
+      "away": 5
+    },
+    "standings": {
+      "totalTeams": 24,
+      "away": {
+        "rank": 6,
+        "points": 51,
+        "goals": 49,
+        "goalDifference": 11,
+        "form": {
+          "rating": 0.7066666666666667,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 14,
+        "points": 40,
+        "goals": 36,
+        "goalDifference": -3,
+        "form": {
+          "rating": 0.4373111111111112,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "4-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "COcEc2QB",
+    "date": "02-13-2024",
+    "teamHome": "Crawley",
+    "teamAway": "Walsall",
+    "url": "https://www.flashscore.com/match/COcEc2QB/",
+    "country": "england",
+    "odds": {
+      "home": 2.6,
+      "draw": 3.5,
+      "away": 2.45
+    },
+    "droppingOdds": {
+      "home": 16,
+      "draw": -7,
+      "away": -11
+    },
+    "standings": {
+      "totalTeams": 24,
+      "home": {
+        "rank": 15,
+        "points": 39,
+        "goals": 44,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.07956666666666667,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 16,
+        "points": 38,
+        "goals": 42,
+        "goalDifference": -2,
+        "form": {
+          "rating": 0.23933333333333337,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "Eq2DzCcA",
+    "date": "02-13-2024",
+    "teamHome": "Newport",
+    "teamAway": "Notts Co",
+    "url": "https://www.flashscore.com/match/Eq2DzCcA/",
+    "country": "england",
+    "odds": {
+      "home": 2.6,
+      "draw": 3.5,
+      "away": 2.45
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -8,
+      "away": 14
+    },
+    "standings": {
+      "totalTeams": 24,
+      "away": {
+        "rank": 10,
+        "points": 44,
+        "goals": 62,
+        "goalDifference": 5,
+        "form": {
+          "rating": 0.29222222222222216,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 11,
+        "points": 43,
+        "goals": 45,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.3223000000000001,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "A7ie8MIM",
+    "date": "02-13-2024",
+    "teamHome": "Virtus Verona",
+    "teamAway": "Arzignano",
+    "url": "https://www.flashscore.com/match/A7ie8MIM/",
+    "country": "italy",
+    "odds": {
+      "home": 2.6,
+      "draw": 2.85,
+      "away": 2.55
+    },
+    "droppingOdds": {
+      "home": 10,
+      "draw": 10,
+      "away": -18
+    },
+    "standings": {
+      "totalTeams": 20,
+      "home": {
+        "rank": 9,
+        "points": 34,
+        "goals": 25,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.46762222222222233,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 12,
+        "points": 32,
+        "goals": 21,
+        "goalDifference": -2,
+        "form": {
+          "rating": 0.34511111111111115,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "zkNDnU08",
+    "date": "02-13-2024",
+    "teamHome": "Recanatese",
+    "teamAway": "Rimini",
+    "url": "https://www.flashscore.com/match/zkNDnU08/",
+    "country": "italy",
+    "odds": {
+      "home": 2.3,
+      "draw": 3.3,
+      "away": 2.6
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": 12,
+      "away": 6
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 13,
+        "points": 29,
+        "goals": 26,
+        "goalDifference": -8,
+        "form": {
+          "rating": 0.1831111111111111,
+          "trend": "downward"
+        }
+      },
+      "home": {
+        "rank": 18,
+        "points": 24,
+        "goals": 33,
+        "goalDifference": -10,
+        "form": {
+          "rating": -0.030311111111111115,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "home",
+    "score": {
+      "fullTime": "1-4",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  }
+]

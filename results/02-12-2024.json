@@ -1,0 +1,50 @@
+[
+  {
+    "id": "MokQvJ3b",
+    "date": "02-12-2024",
+    "teamHome": "Instituto",
+    "teamAway": "Talleres Cordoba",
+    "url": "https://www.flashscore.com/match/MokQvJ3b/",
+    "country": "argentina",
+    "odds": {
+      "home": 3.1,
+      "draw": 2.8,
+      "away": 2.5
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -5,
+      "away": 11
+    },
+    "standings": {
+      "totalTeams": 14,
+      "home": {
+        "rank": 3,
+        "points": 7,
+        "goals": 5,
+        "goalDifference": 5,
+        "form": {
+          "rating": 0.6099238095238095,
+          "trend": "upward"
+        }
+      },
+      "away": {
+        "rank": 6,
+        "points": 6,
+        "goals": 6,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.4709523809523809,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-2",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 1.7999999999999998
+  }
+]

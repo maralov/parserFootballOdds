@@ -1,0 +1,378 @@
+[
+  {
+    "id": "8U73oaS6",
+    "date": "02-09-2024",
+    "teamHome": "Waalwijk",
+    "teamAway": "Nijmegen",
+    "url": "https://www.flashscore.com/match/8U73oaS6/",
+    "country": "netherlands",
+    "odds": {
+      "home": 2.8,
+      "draw": 3.75,
+      "away": 2.4
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -4,
+      "away": -6
+    },
+    "standings": {
+      "totalTeams": 18,
+      "away": {
+        "rank": 7,
+        "points": 29,
+        "goals": 39,
+        "goalDifference": 6,
+        "form": {
+          "rating": 0.8964444444444445,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 16,
+        "points": 15,
+        "goals": 18,
+        "goalDifference": -20,
+        "form": {
+          "rating": 0.11855555555555561,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "00SCVEQp",
+    "date": "02-09-2024",
+    "teamHome": "Union de Santa Fe",
+    "teamAway": "Newells Old Boys",
+    "url": "https://www.flashscore.com/match/00SCVEQp/",
+    "country": "argentina",
+    "odds": {
+      "home": 2.88,
+      "draw": 2.8,
+      "away": 2.88
+    },
+    "droppingOdds": {
+      "home": 6,
+      "draw": -5,
+      "away": 4
+    },
+    "standings": {
+      "totalTeams": 14,
+      "away": {
+        "rank": 2,
+        "points": 9,
+        "goals": 4,
+        "goalDifference": 4,
+        "form": {
+          "rating": 0.559873015873016,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 7,
+        "points": 4,
+        "goals": 1,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.2681555555555556,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-3",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "K2n1UVoF",
+    "date": "02-09-2024",
+    "teamHome": "Boavista",
+    "teamAway": "Portuguesa RJ",
+    "url": "https://www.flashscore.com/match/K2n1UVoF/",
+    "country": "brazil",
+    "odds": {
+      "home": 2.38,
+      "draw": 3.1,
+      "away": 2.7
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -1,
+      "away": -15
+    },
+    "standings": {
+      "totalTeams": 12,
+      "home": {
+        "rank": 7,
+        "points": 10,
+        "goals": 7,
+        "goalDifference": -2,
+        "form": {
+          "rating": 0.5434000000000001,
+          "trend": "upward"
+        }
+      },
+      "away": {
+        "rank": 8,
+        "points": 9,
+        "goals": 4,
+        "goalDifference": 1,
+        "form": {
+          "rating": 0.36400000000000005,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-2",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.1
+  },
+  {
+    "id": "l8a1IkdK",
+    "date": "02-09-2024",
+    "teamHome": "Odisha FC",
+    "teamAway": "Goa",
+    "url": "https://www.flashscore.com/match/l8a1IkdK/",
+    "country": "india",
+    "odds": {
+      "home": 3,
+      "draw": 3.3,
+      "away": 2.25
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": -2,
+      "away": 8
+    },
+    "standings": {
+      "totalTeams": 12,
+      "home": {
+        "rank": 1,
+        "points": 30,
+        "goals": 27,
+        "goalDifference": 14,
+        "form": {
+          "rating": 0.7013111111111113,
+          "trend": "upward"
+        }
+      },
+      "away": {
+        "rank": 2,
+        "points": 27,
+        "goals": 18,
+        "goalDifference": 13,
+        "form": {
+          "rating": 0.5957777777777779,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.3
+  },
+  {
+    "id": "xfXHf3lN",
+    "date": "20:45",
+    "teamHome": "Pro Sesto",
+    "teamAway": "Alessandria",
+    "url": "https://www.flashscore.com/match/xfXHf3lN/",
+    "country": "italy",
+    "odds": {
+      "home": 2.38,
+      "draw": 2.8,
+      "away": 2.9
+    },
+    "droppingOdds": {
+      "home": 8,
+      "draw": -5,
+      "away": -6
+    },
+    "standings": {
+      "totalTeams": 20,
+      "home": {
+        "rank": 19,
+        "points": 19,
+        "goals": 14,
+        "goalDifference": -12,
+        "form": [
+          {
+            "date": "03.02.24",
+            "score": "1:1",
+            "res": "D"
+          },
+          {
+            "date": "28.01.24",
+            "score": "0:0",
+            "res": "D"
+          },
+          {
+            "date": "21.01.24",
+            "score": "0:2",
+            "res": "L"
+          },
+          {
+            "date": "13.01.24",
+            "score": "0:0",
+            "res": "D"
+          },
+          {
+            "date": "07.01.24",
+            "score": "0:2",
+            "res": "L"
+          }
+        ]
+      },
+      "away": {
+        "rank": 20,
+        "points": 14,
+        "goals": 13,
+        "goalDifference": -15,
+        "form": [
+          {
+            "date": "04.02.24",
+            "score": "2:1",
+            "res": "L"
+          },
+          {
+            "date": "27.01.24",
+            "score": "0:0",
+            "res": "D"
+          },
+          {
+            "date": "20.01.24",
+            "score": "1:0",
+            "res": "L"
+          },
+          {
+            "date": "14.01.24",
+            "score": "0:1",
+            "res": "L"
+          },
+          {
+            "date": "06.01.24",
+            "score": "1:0",
+            "res": "L"
+          }
+        ]
+      }
+    },
+    "prediction": "home"
+  },
+  {
+    "id": "OQPsMuB5",
+    "date": "02-09-2024",
+    "teamHome": "Stal Mielec",
+    "teamAway": "Puszcza",
+    "url": "https://www.flashscore.com/match/OQPsMuB5/",
+    "country": "poland",
+    "odds": {
+      "home": 2.2,
+      "draw": 3.5,
+      "away": 3.2
+    },
+    "droppingOdds": {
+      "home": 7,
+      "draw": -1,
+      "away": -8
+    },
+    "standings": {
+      "totalTeams": 18,
+      "home": {
+        "rank": 11,
+        "points": 22,
+        "goals": 25,
+        "goalDifference": -4,
+        "form": {
+          "rating": 0.2745111111111111,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 14,
+        "points": 20,
+        "goals": 24,
+        "goalDifference": -10,
+        "form": {
+          "rating": 0.5195555555555557,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "xMXEGO2O",
+    "date": "02-09-2024",
+    "teamHome": "Adana Demirspor",
+    "teamAway": "Kasimpasa",
+    "url": "https://www.flashscore.com/match/xMXEGO2O/",
+    "country": "turkey",
+    "odds": {
+      "home": 2.2,
+      "draw": 4,
+      "away": 2.9
+    },
+    "droppingOdds": {
+      "home": 7,
+      "draw": 1,
+      "away": -8
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 6,
+        "points": 35,
+        "goals": 43,
+        "goalDifference": -3,
+        "form": {
+          "rating": 0.5073333333333334,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 9,
+        "points": 31,
+        "goals": 35,
+        "goalDifference": 6,
+        "form": {
+          "rating": 0.29480000000000006,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-3",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.9
+  }
+]
