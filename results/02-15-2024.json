@@ -1,0 +1,50 @@
+[
+  {
+    "id": "QwSXQgWu",
+    "date": "02-15-2024",
+    "teamHome": "US Souf U21",
+    "teamAway": "Biskra U21",
+    "url": "https://www.flashscore.com/match/QwSXQgWu/",
+    "country": "algeria",
+    "odds": {
+      "home": 2.23,
+      "draw": 3.05,
+      "away": 3.12
+    },
+    "droppingOdds": {
+      "home": 11,
+      "draw": -3,
+      "away": -15
+    },
+    "standings": {
+      "totalTeams": 16,
+      "home": {
+        "rank": 11,
+        "points": 18,
+        "goals": 10,
+        "goalDifference": -15,
+        "form": {
+          "rating": 0.32688333333333336,
+          "trend": "stable"
+        }
+      },
+      "away": {
+        "rank": 14,
+        "points": 13,
+        "goals": 11,
+        "goalDifference": -18,
+        "form": {
+          "rating": 0.21011111111111108,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  }
+]

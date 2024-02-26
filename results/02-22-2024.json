@@ -1,0 +1,98 @@
+[
+  {
+    "id": "04CSBWcK",
+    "date": "02-22-2024",
+    "teamHome": "Torino",
+    "teamAway": "Lazio",
+    "url": "https://www.flashscore.com/match/04CSBWcK/",
+    "country": "italy",
+    "odds": {
+      "home": 2.5,
+      "draw": 3,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": 3,
+      "draw": -4,
+      "away": 2
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 8,
+        "points": 37,
+        "goals": 29,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.3904444444444445,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 10,
+        "points": 36,
+        "goals": 23,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.5314222222222224,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "CYnwg4W8",
+    "date": "02-22-2024",
+    "teamHome": "Oran U21",
+    "teamAway": "US Souf U21",
+    "url": "https://www.flashscore.com/match/CYnwg4W8/",
+    "country": "algeria",
+    "odds": {
+      "home": 2.5,
+      "draw": 2.9,
+      "away": 2.55
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": -3,
+      "away": 18
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 9,
+        "points": 21,
+        "goals": 12,
+        "goalDifference": -13,
+        "form": {
+          "rating": 0.5979444444444445,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 15,
+        "points": 12,
+        "goals": 13,
+        "goalDifference": -20,
+        "form": {
+          "rating": -0.28056111111111115,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  }
+]

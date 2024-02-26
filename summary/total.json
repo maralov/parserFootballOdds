@@ -2302,5 +2302,389 @@
     },
     "result": "lose",
     "profit": -1
+  },
+  {
+    "id": "QwSXQgWu",
+    "date": "02-15-2024",
+    "teamHome": "US Souf U21",
+    "teamAway": "Biskra U21",
+    "url": "https://www.flashscore.com/match/QwSXQgWu/",
+    "country": "algeria",
+    "odds": {
+      "home": 2.23,
+      "draw": 3.05,
+      "away": 3.12
+    },
+    "droppingOdds": {
+      "home": 11,
+      "draw": -3,
+      "away": -15
+    },
+    "standings": {
+      "totalTeams": 16,
+      "home": {
+        "rank": 11,
+        "points": 18,
+        "goals": 10,
+        "goalDifference": -15,
+        "form": {
+          "rating": 0.32688333333333336,
+          "trend": "stable"
+        }
+      },
+      "away": {
+        "rank": 14,
+        "points": 13,
+        "goals": 11,
+        "goalDifference": -18,
+        "form": {
+          "rating": 0.21011111111111108,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "zDZcszeB",
+    "date": "02-16-2024",
+    "teamHome": "Galway",
+    "teamAway": "St. Patricks",
+    "url": "https://www.flashscore.com/match/zDZcszeB/",
+    "country": "ireland",
+    "odds": {
+      "home": 2.6,
+      "draw": 3.5,
+      "away": 2.55
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": 0,
+      "away": 15
+    },
+    "standings": {
+      "totalTeams": 10,
+      "home": {
+        "rank": 1,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.1200222222222222,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 6,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.4342222222222223,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.5499999999999998
+  },
+  {
+    "id": "xYHoayp7",
+    "date": "02-16-2024",
+    "teamHome": "Famalicao",
+    "teamAway": "Rio Ave",
+    "url": "https://www.flashscore.com/match/xYHoayp7/",
+    "country": "portugal",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.1,
+      "away": 3.5
+    },
+    "droppingOdds": {
+      "home": 6,
+      "draw": -7,
+      "away": -1
+    },
+    "standings": {
+      "totalTeams": 18,
+      "home": {
+        "rank": 10,
+        "points": 23,
+        "goals": 19,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.16060000000000002,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 14,
+        "points": 21,
+        "goals": 21,
+        "goalDifference": -8,
+        "form": {
+          "rating": 0.3231111111111111,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "04CSBWcK",
+    "date": "02-22-2024",
+    "teamHome": "Torino",
+    "teamAway": "Lazio",
+    "url": "https://www.flashscore.com/match/04CSBWcK/",
+    "country": "italy",
+    "odds": {
+      "home": 2.5,
+      "draw": 3,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": 3,
+      "draw": -4,
+      "away": 2
+    },
+    "standings": {
+      "totalTeams": 20,
+      "away": {
+        "rank": 8,
+        "points": 37,
+        "goals": 29,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.3904444444444445,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 10,
+        "points": 36,
+        "goals": 23,
+        "goalDifference": 3,
+        "form": {
+          "rating": 0.5314222222222224,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-2",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "CYnwg4W8",
+    "date": "02-22-2024",
+    "teamHome": "Oran U21",
+    "teamAway": "US Souf U21",
+    "url": "https://www.flashscore.com/match/CYnwg4W8/",
+    "country": "algeria",
+    "odds": {
+      "home": 2.5,
+      "draw": 2.9,
+      "away": 2.55
+    },
+    "droppingOdds": {
+      "home": -13,
+      "draw": -3,
+      "away": 18
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 9,
+        "points": 21,
+        "goals": 12,
+        "goalDifference": -13,
+        "form": {
+          "rating": 0.5979444444444445,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 15,
+        "points": 12,
+        "goals": 13,
+        "goalDifference": -20,
+        "form": {
+          "rating": -0.28056111111111115,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-0",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "zLkNKivL",
+    "date": "02-23-2024",
+    "teamHome": "Wigan",
+    "teamAway": "Cheltenham",
+    "url": "https://www.flashscore.com/match/zLkNKivL/",
+    "country": "england",
+    "odds": {
+      "home": 2.3,
+      "draw": 3.3,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": 19,
+      "draw": -5,
+      "away": -18
+    },
+    "standings": {
+      "totalTeams": 24,
+      "home": {
+        "rank": 13,
+        "points": 40,
+        "goals": 47,
+        "goalDifference": 5,
+        "form": {
+          "rating": 0.27463333333333334,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 21,
+        "points": 32,
+        "goals": 27,
+        "goalDifference": -15,
+        "form": {
+          "rating": 0.18300000000000005,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "1-1",
+      "type": "draw"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "OYRAvYvU",
+    "date": "02-23-2024",
+    "teamHome": "Drogheda",
+    "teamAway": "Waterford",
+    "url": "https://www.flashscore.com/match/OYRAvYvU/",
+    "country": "ireland",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.1,
+      "away": 3.25
+    },
+    "droppingOdds": {
+      "home": 10,
+      "draw": -2,
+      "away": -11
+    },
+    "standings": {
+      "totalTeams": 10,
+      "away": {
+        "rank": 5,
+        "points": 1,
+        "goals": 1,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.6188888888888889,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 9,
+        "points": 0,
+        "goals": 1,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.33660000000000007,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "1-4",
+      "type": "away"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "4Q0Q8mOr",
+    "date": "02-23-2024",
+    "teamHome": "H. Akko",
+    "teamAway": "Bnei Yehuda",
+    "url": "https://www.flashscore.com/match/4Q0Q8mOr/",
+    "country": "israel",
+    "odds": {
+      "home": 2.47,
+      "draw": 3.1,
+      "away": 2.64
+    },
+    "droppingOdds": {
+      "home": 25,
+      "draw": 0,
+      "away": -29
+    },
+    "standings": {
+      "totalTeams": 16,
+      "away": {
+        "rank": 2,
+        "points": 45,
+        "goals": 41,
+        "goalDifference": 19,
+        "form": {
+          "rating": 0.8890000000000001,
+          "trend": "upward"
+        }
+      },
+      "home": {
+        "rank": 10,
+        "points": 26,
+        "goals": 31,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.05683333333333337,
+          "trend": "downward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
   }
 ]

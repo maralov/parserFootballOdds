@@ -1,0 +1,98 @@
+[
+  {
+    "id": "zDZcszeB",
+    "date": "02-16-2024",
+    "teamHome": "Galway",
+    "teamAway": "St. Patricks",
+    "url": "https://www.flashscore.com/match/zDZcszeB/",
+    "country": "ireland",
+    "odds": {
+      "home": 2.6,
+      "draw": 3.5,
+      "away": 2.55
+    },
+    "droppingOdds": {
+      "home": -9,
+      "draw": 0,
+      "away": 15
+    },
+    "standings": {
+      "totalTeams": 10,
+      "home": {
+        "rank": 1,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.1200222222222222,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 6,
+        "points": 0,
+        "goals": 0,
+        "goalDifference": 0,
+        "form": {
+          "rating": 0.4342222222222223,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "0-1",
+      "type": "away"
+    },
+    "result": "win",
+    "profit": 1.5499999999999998
+  },
+  {
+    "id": "xYHoayp7",
+    "date": "02-16-2024",
+    "teamHome": "Famalicao",
+    "teamAway": "Rio Ave",
+    "url": "https://www.flashscore.com/match/xYHoayp7/",
+    "country": "portugal",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.1,
+      "away": 3.5
+    },
+    "droppingOdds": {
+      "home": 6,
+      "draw": -7,
+      "away": -1
+    },
+    "standings": {
+      "totalTeams": 18,
+      "home": {
+        "rank": 10,
+        "points": 23,
+        "goals": 19,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.16060000000000002,
+          "trend": "downward"
+        }
+      },
+      "away": {
+        "rank": 14,
+        "points": 21,
+        "goals": 21,
+        "goalDifference": -8,
+        "form": {
+          "rating": 0.3231111111111111,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "away",
+    "score": {
+      "fullTime": "2-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  }
+]

@@ -156,116 +156,118 @@ function checkForPossibleDraw(match, homeFormRating, awayFormRating) {
   );
 }
 
-async function checkLastChecked(dateString) {
+async function getLastCheckedDate() {
   const lastCheckedPath = './summary/lastChecked.json';
-  let lastCheckedDate = null;
-
   if (fs.existsSync(lastCheckedPath)) {
-    lastCheckedDate = JSON.parse(fs.readFileSync(lastCheckedPath)).date;
-    if (dateString === lastCheckedDate) {
-      console.log('Перевірка за вчора вже була зроблена.');
-      return false;
-    } else {
-      fs.writeFileSync(lastCheckedPath, JSON.stringify({ date: dateString }));
-      return true;
-    }
+    const lastCheckedData = JSON.parse(fs.readFileSync(lastCheckedPath));
+    return lastCheckedData.date;
   }
+  return null; // або поверніть дату, від якої ви хочете почати перевірку
 }
 
 async function checkPredictions(page, path = '') {
-  const yesterday = dateFns.subDays(new Date(), 1);
-  const dateString = dateFns.format(yesterday, 'MM-dd-yyyy');
+  const lastCheckedDateStr = await getLastCheckedDate();
+  let lastCheckedDate = lastCheckedDateStr
+    ? dateFns.parse(lastCheckedDateStr, 'MM-dd-yyyy', new Date())
+    : dateFns.subDays(new Date(), 1);
 
-  const shouldUpdate = await checkLastChecked(dateString);
+  // Починаємо перевірку з наступного дня після останньої перевіреної дати
+  let currentDate = dateFns.addDays(lastCheckedDate, 1);
 
-  if (!shouldUpdate) {
-    return;
-  }
+  while (dateFns.isBefore(currentDate, new Date())) {
+    const dateString = dateFns.format(currentDate, 'MM-dd-yyyy');
+    const filePath = `./results/${dateString}.json`;
 
-  const filePath = path ? `./results/${path}` : `./results/${dateString}.json`;
-  if (!fs.existsSync(filePath)) {
-    console.log('Немає файлу з прогнозами за вчора.');
-    return;
-  }
-  const matchesData = JSON.parse(fs.readFileSync(filePath));
-  const allMatches = JSON.parse(fs.readFileSync('./summary/total.json'));
-  const summProfit = JSON.parse(fs.readFileSync('./summary/profit.json'));
-  console.log(`check yesterday predictions start... ${yesterday.toLocaleString()}`);
+    if (fs.existsSync(filePath)) {
+      console.log(`Перевіряємо результати за ${dateString}.`);
+      const matchesData = JSON.parse(fs.readFileSync(filePath));
+      const allMatches = JSON.parse(fs.readFileSync('./summary/total.json'));
+      const summProfit = JSON.parse(fs.readFileSync('./summary/profit.json'));
+      console.log(`check  predictions start...`);
 
-  const filteredMatchesData = [];
+      const filteredMatchesData = [];
 
-  for (const match of matchesData) {
-    if (match.result && !path) continue;
-    try {
-      await page.goto(match.url, {
-        waitUntil: 'networkidle2',
-        timeout: 60000,
-      });
+      for (const match of matchesData) {
+        if (match.result && !path) continue;
+        try {
+          await page.goto(match.url, {
+            waitUntil: 'networkidle2',
+            timeout: 60000,
+          });
 
-      const score = await page.evaluate(() => {
-        const scoreElements = document.querySelectorAll('.duelParticipant__score .detailScore__wrapper span');
-        const scoreElementsFullTime = document.querySelectorAll('.duelParticipant__score .detailScore__fullTime span');
-        const scoreBlock =
-          scoreElementsFullTime && scoreElementsFullTime.length > 0 ? scoreElementsFullTime : scoreElements;
-        return scoreBlock.length === 3 ? `${scoreBlock[0].textContent}-${scoreBlock[2].textContent}` : null;
-      });
+          const score = await page.evaluate(() => {
+            const scoreElements = document.querySelectorAll('.duelParticipant__score .detailScore__wrapper span');
+            const scoreElementsFullTime = document.querySelectorAll(
+              '.duelParticipant__score .detailScore__fullTime span'
+            );
+            const scoreBlock =
+              scoreElementsFullTime && scoreElementsFullTime.length > 0 ? scoreElementsFullTime : scoreElements;
+            return scoreBlock.length === 3 ? `${scoreBlock[0].textContent}-${scoreBlock[2].textContent}` : null;
+          });
 
-      if (score) {
-        const scoreType = score
-          .split('-')
-          .map(Number)
-          .reduce((a, b) => (a === b ? 'draw' : a > b ? 'home' : 'away'));
-        const result = match.prediction === scoreType ? 'win' : 'lose';
-        console.log(`Yesterday match prediction ${match.teamHome} - ${match.teamAway}: ${result} (${scoreType})`);
-        match.score = { fullTime: score, type: scoreType };
-        match.result = result;
-        match.profit = result === 'win' ? match.odds[scoreType] - 1 : -1;
-        match.date = dateString;
+          if (score) {
+            const scoreType = score
+              .split('-')
+              .map(Number)
+              .reduce((a, b) => (a === b ? 'draw' : a > b ? 'home' : 'away'));
+            const result = match.prediction === scoreType ? 'win' : 'lose';
+            console.log(`Yesterday match prediction ${match.teamHome} - ${match.teamAway}: ${result} (${scoreType})`);
+            match.score = { fullTime: score, type: scoreType };
+            match.result = result;
+            match.profit = result === 'win' ? match.odds[scoreType] - 1 : -1;
+            match.date = dateString;
 
-        match.standings.home.form = {
-          rating: calculateTeamForm(match.standings.home, true, match.standings.totalTeams),
-          trend: evaluateFormTrend(match.standings.home.form),
-        };
-        match.standings.away.form = {
-          rating: calculateTeamForm(match.standings.away, false, match.standings.totalTeams),
-          trend: evaluateFormTrend(match.standings.away.form),
-        };
+            match.standings.home.form = {
+              rating: calculateTeamForm(match.standings.home, true, match.standings.totalTeams),
+              trend: evaluateFormTrend(match.standings.home.form),
+            };
+            match.standings.away.form = {
+              rating: calculateTeamForm(match.standings.away, false, match.standings.totalTeams),
+              trend: evaluateFormTrend(match.standings.away.form),
+            };
 
-        filteredMatchesData.push(match);
+            filteredMatchesData.push(match);
+          }
+        } catch (error) {
+          console.error(`Error checking match ${match.id}:`, error);
+        }
       }
-    } catch (error) {
-      console.error(`Error checking match ${match.id}:`, error);
+
+      const dayProfit = filteredMatchesData.reduce((acc, match) => {
+        return acc + match.profit;
+      }, 0);
+
+      const dayResult = {
+        date: dateString,
+        win: filteredMatchesData.filter((match) => match.result === 'win').length,
+        lose: filteredMatchesData.filter((match) => match.result === 'lose').length,
+        total: filteredMatchesData.length,
+        profit: dayProfit,
+        totalProfit: summProfit[summProfit.length - 1].totalProfit + dayProfit,
+      };
+
+      const isExistProfit = summProfit.find((profit) => profit.date === dateString);
+
+      if (!isExistProfit) {
+        summProfit.push(dayResult);
+      }
+
+      console.log(`check yesterday predictions end...`, dayResult);
+
+      const message = createResultMessage(dayResult);
+
+      await sendTelegramMessage(message);
+      fs.writeFileSync(filePath, JSON.stringify(matchesData, null, 2));
+      fs.writeFileSync('./summary/total.json', JSON.stringify([...allMatches, ...filteredMatchesData], null, 2));
+      fs.writeFileSync('./summary/profit.json', JSON.stringify(summProfit, null, 2));
+      fs.writeFileSync('./summary/lastChecked.json', JSON.stringify({ date: dateString }));
+    } else {
+      console.log(`Немає файлу з прогнозами за ${dateString}.`);
     }
+
+    // Переходимо до наступної дати
+    currentDate = dateFns.addDays(currentDate, 1);
   }
-
-  const dayProfit = filteredMatchesData.reduce((acc, match) => {
-    return acc + match.profit;
-  }, 0);
-
-  const dayResult = {
-    date: dateString,
-    win: filteredMatchesData.filter((match) => match.result === 'win').length,
-    lose: filteredMatchesData.filter((match) => match.result === 'lose').length,
-    total: filteredMatchesData.length,
-    profit: dayProfit,
-    totalProfit: summProfit[summProfit.length - 1].totalProfit + dayProfit,
-  };
-
-  const isExistProfit = summProfit.find((profit) => profit.date === dateString);
-
-  if (!isExistProfit) {
-    summProfit.push(dayResult);
-  }
-
-  console.log(`check yesterday predictions end...`, dayResult);
-
-  const message = createResultMessage(dayResult);
-
-  fs.writeFileSync(filePath, JSON.stringify(matchesData, null, 2));
-  fs.writeFileSync('./summary/total.json', JSON.stringify([...allMatches, ...filteredMatchesData], null, 2));
-  fs.writeFileSync('./summary/profit.json', JSON.stringify(summProfit, null, 2));
-
-  await sendTelegramMessage(message);
 }
 
 async function scrapeLeagueData(page, leagueUrl) {
