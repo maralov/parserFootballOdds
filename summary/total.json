@@ -5676,5 +5676,101 @@
     },
     "result": "win",
     "profit": 1.5
+  },
+  {
+    "id": "2HEbDTFR",
+    "date": "02-26-2024",
+    "teamHome": "Ramat Hasharon",
+    "teamAway": "Hap. Ramat Gan",
+    "url": "https://www.flashscore.com/match/2HEbDTFR/",
+    "country": "israel",
+    "odds": {
+      "home": 2.25,
+      "draw": 3.2,
+      "away": 2.8
+    },
+    "droppingOdds": {
+      "home": 13,
+      "draw": -3,
+      "away": -13
+    },
+    "standings": {
+      "totalTeams": 16,
+      "home": {
+        "rank": 9,
+        "points": 30,
+        "goals": 39,
+        "goalDifference": 2,
+        "form": {
+          "rating": 0.25905000000000006,
+          "trend": "stable"
+        }
+      },
+      "away": {
+        "rank": 12,
+        "points": 25,
+        "goals": 24,
+        "goalDifference": -1,
+        "form": {
+          "rating": 0.21466666666666667,
+          "trend": "stable"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "3-1",
+      "type": "home"
+    },
+    "result": "lose",
+    "profit": -1
+  },
+  {
+    "id": "hvHdZkoM",
+    "date": "02-26-2024",
+    "teamHome": "Warta Poznan",
+    "teamAway": "Radomiak Radom",
+    "url": "https://www.flashscore.com/match/hvHdZkoM/",
+    "country": "poland",
+    "odds": {
+      "home": 2.4,
+      "draw": 3.1,
+      "away": 3.1
+    },
+    "droppingOdds": {
+      "home": -1,
+      "draw": -7,
+      "away": 9
+    },
+    "standings": {
+      "totalTeams": 18,
+      "away": {
+        "rank": 13,
+        "points": 24,
+        "goals": 24,
+        "goalDifference": -9,
+        "form": {
+          "rating": 0.27355555555555555,
+          "trend": "stable"
+        }
+      },
+      "home": {
+        "rank": 14,
+        "points": 23,
+        "goals": 22,
+        "goalDifference": -5,
+        "form": {
+          "rating": 0.37253333333333344,
+          "trend": "upward"
+        }
+      }
+    },
+    "prediction": "draw",
+    "score": {
+      "fullTime": "0-0",
+      "type": "draw"
+    },
+    "result": "win",
+    "profit": 2.1
   }
 ]
