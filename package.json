@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "parse": "node index.js",
-    "table": "node csv.js"
+    "build": "node scripts/rebuild.js",
+    "analyze": "node scripts/analyze.js"
   },
   "author": "",
   "license": "ISC",
