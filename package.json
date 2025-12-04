@@ -6,7 +6,8 @@
   "scripts": {
     "parse": "node index.js",
     "build": "node scripts/rebuild.js",
-    "analyze": "node scripts/analyze.js"
+    "analyze": "node scripts/analyze.js",
+    "analyze-g": "node scripts/analyzeGroupe.js"
   },
   "author": "",
   "license": "ISC",

@@ -29,10 +29,10 @@ const BASE_URL = 'https://www.flashscore.com/football/';
 
 
 const LEAGUES = [
-    // {
-    //     country: 'spain',
-    //     name: 'laliga'
-    // },
+    {
+        country: 'spain',
+        name: 'laliga'
+    },
     {
         country: 'england',
         name: 'premier-league'
@@ -72,6 +72,10 @@ const LEAGUES = [
     {
         country: 'turkey',
         name: 'super-lig',
+    },
+    {
+        country: 'sweden',
+        name: 'superettan',
     }
 ];
 

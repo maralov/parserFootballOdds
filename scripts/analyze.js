@@ -47,6 +47,22 @@ function runAnalysis() {
     const lateGoals = all.filter(hasLateGoal);
     const noGoals = all.filter(m => !hasLateGoal(m));
 
+    let goals_70_80 = 0;
+    let goals_80_90 = 0;
+
+    for (const match of all) {
+        if (!match.timeline || !Array.isArray(match.timeline)) continue;
+        for (const ev of match.timeline) {
+            if (ev.type === "goal" && typeof ev.minute === "number") {
+                if (ev.minute >= 70 && ev.minute < 80) {
+                    goals_70_80++;
+                } else if (ev.minute >= 80 && ev.minute <= 90) {
+                    goals_80_90++;
+                }
+            }
+        }
+    }
+
     console.log("=====================================");
     console.log("📊 Загальна кількість матчів:", all.length);
     console.log("⚽ З голом після 70 хв:", lateGoals.length);
@@ -56,23 +72,51 @@ function runAnalysis() {
     const statsLate = aggregateStats(lateGoals);
     const statsDry = aggregateStats(noGoals);
 
-    const diff = {};
-    for (const key in statsLate.averages) {
-        diff[key] = Number((statsLate.averages[key] - (statsDry.averages[key] || 0)).toFixed(3));
-    }
+    // Grouping by leagues
+    const leagues = {};
+    for (const match of all) {
+        const leagueName = match.league || "Unknown";
+        if (!leagues[leagueName]) {
+            leagues[leagueName] = {
+                all: 0,
+                lateGoals: 0,
+                noGoals: 0,
+                goals_70_80: 0,
+                goals_80_90: 0
+            };
+        }
+        leagues[leagueName].all++;
 
-    const sortedDiff = Object.entries(diff)
-        .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]));
+        if (hasLateGoal(match)) {
+            leagues[leagueName].lateGoals++;
+        } else {
+            leagues[leagueName].noGoals++;
+        }
+
+        if (match.timeline && Array.isArray(match.timeline)) {
+            for (const ev of match.timeline) {
+                if (ev.type === "goal" && typeof ev.minute === "number") {
+                    if (ev.minute >= 70 && ev.minute < 80) {
+                        leagues[leagueName].goals_70_80++;
+                    } else if (ev.minute >= 80 && ev.minute <= 90) {
+                        leagues[leagueName].goals_80_90++;
+                    }
+                }
+            }
+        }
+    }
 
     const report = {
         totals: {
             all: all.length,
             lateGoals: statsLate.count,
             noGoals: statsDry.count,
+            goals_70_80,
+            goals_80_90
         },
         avgLateGoals: statsLate.averages,
         avgDry: statsDry.averages,
-        importanceSorted: sortedDiff
+        leagues
     };
 
     fs.writeFileSync(
@@ -81,8 +125,7 @@ function runAnalysis() {
     );
 
     console.log("📁 Saved → data/analysis.json");
-    console.log("Top predictors:");
-    console.log(sortedDiff.slice(0, 15));
+    console.log("📁", report);
 }
 
 runAnalysis();
