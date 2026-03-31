@@ -79,8 +79,11 @@ const LEAGUES = [
     }
 ];
 
+const USER_AGENT = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
+
 module.exports = {
-  USER_AGENTS: USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)],
+  USER_AGENTS,
+  USER_AGENT,
   BASE_URL,
   LEAGUES,
 };
