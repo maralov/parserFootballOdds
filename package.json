@@ -5,6 +5,13 @@
   "main": "index.js",
   "scripts": {
     "parse": "node index.js",
+    "live": "node index.js",
+    "live:watch": "node index.js --watch",
+    "live:watch:3m": "LIVE_POLL_INTERVAL_MS=180000 node index.js --watch",
+    "live:watch:5m": "LIVE_POLL_INTERVAL_MS=300000 node index.js --watch",
+    "live:start": "bash scripts/live-start.sh",
+    "live:stop": "bash scripts/live-stop.sh",
+    "live:status": "bash scripts/live-status.sh",
     "build": "node scripts/rebuild.js",
     "analyze": "node scripts/analyze.js",
     "analyze-g": "node scripts/analyzeGroupe.js"

@@ -1,5 +1,3 @@
-// src/helpers/predictLateGoal.js
-
 function getIntensityZone(stats = {}) {
   // Отримуємо значення тільки з вхідних даних (без fallback на середні)
   const xg = stats.expectedGoalsXg;
@@ -80,59 +78,18 @@ function getIntensityZone(stats = {}) {
   return 0;
 }
 
-export function predictLateGoal(stats) {
-  const zone = getIntensityZone(stats);
-
-  // Zone 4 → MUST BET OVER
-  if (zone === 4) {
-    return {
-      bet: 'OVER_0_5',
-      confidence: 'max',
-      zone,
-      reason: 'Ultra-high intensity (Zone 4). Historical PLate=1.00',
-    };
-  }
-
-  // Zone 2 → STRONG BET OVER
-  if (zone === 2) {
-    return {
-      bet: 'OVER_0_5',
-      confidence: 'strong',
-      zone,
-      reason: 'High intensity (Zone 2). Historical PLate≈0.90',
-    };
-  }
-
-  // Zone 1 → STRONG BET UNDER
-  if (zone === 1) {
-    return {
-      bet: 'UNDER_0_5',
-      confidence: 'strong',
-      zone,
-      reason: 'Low intensity (Zone 1). PLate≈0.14',
-    };
-  }
-
-  // Zone 3 → 50/50 → SKIP
-  if (zone === 3) {
-    return {
-      bet: 'SKIP',
-      confidence: 'medium',
-      zone,
-      reason: 'Mixed intensity (Zone 3). PLate≈0.55',
-    };
-  }
-
-  // Zone 0 → UNDEFINED
+function legacyPredictLateGoal(scored, decision) {
   return {
-    bet: 'SKIP',
-    confidence: 'low',
-    zone,
-    reason: 'Zone 0 (undefined or noisy stats)',
+    bet: decision.bet,
+    confidence: scored.confidence,
+    zone: scored.zone,
+    pGoal: scored.pGoal,
+    edge: decision.edge,
+    reason: decision.reason,
   };
 }
 
 module.exports = {
-  predictLateGoal,
   getIntensityZone,
+  legacyPredictLateGoal,
 };

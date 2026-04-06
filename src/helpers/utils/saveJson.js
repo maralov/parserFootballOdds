@@ -15,4 +15,14 @@ function saveJson(file, data) {
     console.log(`💾 Saved to ${outputPath}`);
 }
 
-module.exports = {saveJson};
+function saveRunBatch({ runId, startedAt, rawMatches, processedMatches, decisions }) {
+    const safeRunId = String(runId || 'unknown-run');
+    const timestamp = String(startedAt || new Date().toISOString()).replace(/[:.]/g, '-');
+    const base = path.join("runs", `${timestamp}-${safeRunId}`);
+
+    saveJson(path.join(base, "raw_matches.json"), rawMatches || []);
+    saveJson(path.join(base, "processed_matches.json"), processedMatches || []);
+    saveJson(path.join(base, "decisions.json"), decisions || []);
+}
+
+module.exports = {saveJson, saveRunBatch};

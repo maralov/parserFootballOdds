@@ -1,27 +1,70 @@
-const {Worker} = require("worker_threads");
-const {LEAGUES} = require("./src/helpers/constants");
+require('dotenv').config();
+const { Worker } = require('worker_threads');
+const { LIVE_POLL_INTERVAL_MS } = require('./src/helpers/constants');
+const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
 
-function runWorker(league) {
-    return new Promise((resolve, reject) => {
-        const worker = new Worker("./worker.js", {
-            workerData: {league}
-        });
+let processedMatchIds = [];
+let lastHeartbeat = 0;
+const HEARTBEAT_INTERVAL_MS = 60 * 60 * 1000;
 
-        worker.on("message", resolve);
-        worker.on("error", reject);
-        worker.on("exit", (code) => {
-            if (code !== 0) reject(new Error(`❌ Worker stopped with exit code ${code}`));
-        });
+function runLiveWorker() {
+  return new Promise((resolve, reject) => {
+    const worker = new Worker('./worker.js', {
+      workerData: { processedMatchIds },
     });
+
+    worker.on('message', resolve);
+    worker.on('error', reject);
+    worker.on('exit', (code) => {
+      if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`));
+    });
+  });
+}
+
+async function sendHeartbeat(runCount) {
+  const now = Date.now();
+  if (now - lastHeartbeat < HEARTBEAT_INTERVAL_MS) return;
+  lastHeartbeat = now;
+
+  const time = new Date().toLocaleTimeString('uk-UA', { hour: '2-digit', minute: '2-digit' });
+  const msg = `🟢 Парсер активний (${time})\nЦиклів: ${runCount} | Оброблено: ${processedMatchIds.length} матчів`;
+  try {
+    await sendTelegramMessage(msg);
+  } catch (e) {
+    console.log(`Heartbeat error: ${e.message}`);
+  }
 }
 
 (async () => {
-    console.log("🚀 Starting parallel scraping...");
+  const isContinuous = process.argv.includes('--watch');
+  console.log(`🚀 Starting live scraping${isContinuous ? ' (watch mode)' : ''}...`);
 
-    const tasks = LEAGUES.map((league) => runWorker(league));
+  if (isContinuous) {
+    lastHeartbeat = 0;
+    await sendHeartbeat(0);
+  }
 
-    const results = await Promise.all(tasks);
+  let runCount = 0;
 
-    console.log("\n🔥 ALL LEAGUES FINISHED:");
-    console.log(results);
+  do {
+    try {
+      runCount++;
+      const result = await runLiveWorker();
+      console.log(`\n🔥 RUN #${runCount}: analyzed=${result.matchesAnalyzed}, signals=${result.signalsSent}`);
+
+      if (result.processedMatchIds) {
+        processedMatchIds = result.processedMatchIds;
+      }
+    } catch (e) {
+      console.log(`\n❌ RUN #${runCount} FAILED: ${e.message}`);
+    }
+
+    if (!isContinuous) break;
+
+    await sendHeartbeat(runCount);
+
+    const waitMin = Math.round(LIVE_POLL_INTERVAL_MS / 60000);
+    console.log(`⏳ Next scan in ${waitMin}m...`);
+    await new Promise((resolve) => setTimeout(resolve, LIVE_POLL_INTERVAL_MS));
+  } while (true);
 })();

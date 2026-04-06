@@ -1,3 +1,6 @@
-import {saveJson} from "./saveJson.js";
+const { saveJson, saveRunBatch } = require('./saveJson');
 
-export {saveJson};
+module.exports = {
+  saveJson,
+  saveRunBatch,
+};

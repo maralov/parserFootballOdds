@@ -1,9 +1,14 @@
 const fs = require("fs");
 const path = require("path");
+const { getIntensityZone } = require("../src/helpers/utils/predictLateGoal");
 
 // === 1) ЗАВАНТАЖУЄМО ВСІ JSON-ФАЙЛИ З data/ ===
 function loadAllMatchFiles() {
     const dir = path.join(__dirname, "../data");
+    if (!fs.existsSync(dir)) {
+        console.log("⚠️ data directory not found, returning empty dataset");
+        return [];
+    }
 
     return fs.readdirSync(dir)
         .filter(f => f.endsWith(".json") && f.startsWith("league_"))
@@ -14,41 +19,16 @@ function loadAllMatchFiles() {
 // === 2) ЧИ Є ГОЛ ПІСЛЯ 70' ===
 function hasLateGoal(match) {
     if (!match.timeline || !Array.isArray(match.timeline)) return false;
-    return match.timeline.some(ev => ev.minute >= 70);
-}
-
-// === 3) ЗОНИ ІНТЕНСИВНОСТІ ===
-function getIntensityZone(stats = {}) {
-    const xg = stats.expectedGoalsXg || 0;
-    const shotsOnTarget = stats.shotsOnTarget || 0;
-    const touches = stats.touchesInOppositionBox || 0;
-
-    if (xg <= 0.5 && shotsOnTarget <= 3 && touches <= 18) {
-        return 1;
-    }
-
-    if (xg >= 2 && shotsOnTarget >= 8 && touches >= 20) {
-        return 4;
-    }
-
-    if (xg >= 1.3 && shotsOnTarget >= 6 && touches >= 18) {
-        return 2;
-    }
-
-    if (
-        xg > 0.5 && xg < 1.3 &&
-        shotsOnTarget > 3 && shotsOnTarget < 6 &&
-        touches >= 12 && touches <= 20
-    ) {
-        return 3;
-    }
-
-    return 0;
+    return match.timeline.some(ev => ev.type === "goal" && ev.minute >= 70);
 }
 
 // === 4) ГОЛОВНА ФУНКЦІЯ АНАЛІЗУ ===
 function runZonesAnalysis() {
     const all = loadAllMatchFiles();
+    if (all.length === 0) {
+        console.log("No matches found for zone analysis");
+        return;
+    }
 
     let total = all.length;
     let lateAny = 0;
@@ -68,7 +48,9 @@ function runZonesAnalysis() {
         const stats = m.stats2h || {};
         const zone = getIntensityZone(stats);
 
-        const events = (m.timeline || []).map(ev => ev.minute);
+        const events = (m.timeline || [])
+            .filter(ev => ev.type === "goal" && typeof ev.minute === "number")
+            .map(ev => ev.minute);
         const late = events.filter(min => min >= 70);
 
         console.log(`Match ${m.league}: zone=${zone}, late=${late.length > 0}`);
@@ -138,6 +120,7 @@ function runZonesAnalysis() {
             late80_90,
         },
         zones: zonesSummary,
+        generatedAt: new Date().toISOString(),
     };
 
     fs.writeFileSync(
