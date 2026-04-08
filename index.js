@@ -1,12 +1,13 @@
 require('dotenv').config();
 const { Worker } = require('worker_threads');
 const { LIVE_POLL_INTERVAL_MS } = require('./src/helpers/constants');
+const { dateKeyLocal, timeHHmm } = require('./src/helpers/date');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
 
 let processedMatchIds = [];
 let lastResultCheckHour = -1;
 let lastHeartbeat = 0;
-let lastDay = new Date().getDate();
+let lastDayKey = dateKeyLocal();
 const HEARTBEAT_INTERVAL_MS = 60 * 60 * 1000;
 
 function runLiveWorker() {
@@ -28,7 +29,7 @@ async function sendHeartbeat(runCount) {
   if (now - lastHeartbeat < HEARTBEAT_INTERVAL_MS) return;
   lastHeartbeat = now;
 
-  const time = new Date().toLocaleTimeString('uk-UA', { hour: '2-digit', minute: '2-digit' });
+  const time = timeHHmm();
   const msg = `🟢 Парсер активний (${time})\nЦиклів: ${runCount} | Оброблено: ${processedMatchIds.length} матчів`;
   try {
     await sendTelegramMessage(msg);
@@ -49,12 +50,12 @@ async function sendHeartbeat(runCount) {
   let runCount = 0;
 
   do {
-    const today = new Date().getDate();
-    if (today !== lastDay) {
+    const todayKey = dateKeyLocal();
+    if (todayKey !== lastDayKey) {
       console.log(`📅 New day — reset processedMatchIds (was ${processedMatchIds.length})`);
       processedMatchIds = [];
       lastResultCheckHour = -1;
-      lastDay = today;
+      lastDayKey = todayKey;
     }
 
     try {

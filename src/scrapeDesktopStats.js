@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { toISO } = require('./helpers/date');
 
 const TIMEOUT = 20000;
 const DESKTOP_BASE = 'https://www.flashscore.ua/match';
@@ -116,7 +117,7 @@ const STAT_LABEL_MAP = {
 };
 
 function logDomAlert(matchId, alertType, details) {
-  const entry = { matchId, alertType, details, timestamp: new Date().toISOString() };
+  const entry = { matchId, alertType, details, timestamp: toISO() };
   console.log(`  ⚠ DOM ALERT [${matchId}]: ${alertType} — ${details}`);
   try {
     const dir = path.dirname(DOM_ALERT_FILE);

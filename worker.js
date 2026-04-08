@@ -13,6 +13,7 @@ const { checkYesterdayResults } = require('./src/pipeline/resultChecker');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
 const { formatTelegramMessage, formatDailySummary } = require('./src/helpers/utils/formatTelegramMessage');
 const { USER_AGENT, STATS_CONCURRENCY, MAX_TELEGRAM_MINUTE, isWithinWorkingHours } = require('./src/helpers/constants');
+const { dayjs } = require('./src/helpers/date');
 
 const processedMatchIds = workerData?.processedMatchIds
   ? new Set(workerData.processedMatchIds)
@@ -30,10 +31,10 @@ async function mapWithConcurrency(items, limit, fn) {
 
 (async () => {
   const runCtx = createRunContext();
-  const now = new Date();
-  console.log(`[${now.toLocaleTimeString('uk-UA')}] Live scan`);
+  const now = dayjs();
+  console.log(`[${now.format('HH:mm:ss')}] Live scan`);
 
-  const hr = now.getHours();
+  const hr = now.hour();
   const needResultCheck = hr === 10 && lastResultCheckHour !== 10;
 
   if (needResultCheck) {
@@ -53,7 +54,7 @@ async function mapWithConcurrency(items, limit, fn) {
     await browser.close();
   }
 
-  if (!isWithinWorkingHours(now)) {
+  if (!isWithinWorkingHours()) {
     console.log(`  Outside working hours → skip`);
     parentPort.postMessage({ runId: runCtx.runId, matchesAnalyzed: 0, signalsSent: 0, processedMatchIds: Array.from(processedMatchIds), lastResultCheckHour, skipped: 'outside_hours' });
     return;

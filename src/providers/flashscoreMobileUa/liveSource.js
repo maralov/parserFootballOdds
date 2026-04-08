@@ -1,6 +1,7 @@
 const { createLiveMatchCandidate } = require('../../pipeline/contracts');
+const { LIVE_MIN_CANDIDATE_MINUTE } = require('../../helpers/constants');
 
-function parseLiveMatchesFromDocument() {
+function parseLiveMatchesFromDocument(minMinute) {
   function parseMinute(text) {
     const minuteMatch = String(text || '')
       .trim()
@@ -51,7 +52,7 @@ function parseLiveMatchesFromDocument() {
       health.missingMinute += 1;
       continue;
     }
-    if (minute < 60) continue;
+    if (minute < minMinute) continue;
 
     if (!linkNode) {
       health.missingUrl += 1;
@@ -105,7 +106,10 @@ async function collectLiveMatches(page, liveUrl) {
   });
   await page.waitForSelector('#score-data', { timeout: 20000 });
   await page.waitForTimeout(1200);
-  const { matches, health } = await page.evaluate(parseLiveMatchesFromDocument);
+  const { matches, health } = await page.evaluate(
+    parseLiveMatchesFromDocument,
+    LIVE_MIN_CANDIDATE_MINUTE
+  );
   return {
     matches: matches.map((item) => createLiveMatchCandidate(item)),
     health,

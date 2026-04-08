@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { toISO } = require("../src/helpers/date");
 const { getIntensityZone } = require("../src/helpers/utils/predictLateGoal");
 
 // === 1) ЗАВАНТАЖУЄМО ВСІ JSON ФАЙЛИ З DATA ===
@@ -172,7 +173,7 @@ function runAnalysis() {
     }
 
     const qa = {
-        generatedAt: new Date().toISOString(),
+        generatedAt: toISO(),
         sampleSize: all.length,
         minReliableSample: 20,
         zoneWarnings: Object.entries(zones)

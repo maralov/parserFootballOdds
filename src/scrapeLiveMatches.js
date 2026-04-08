@@ -1,9 +1,9 @@
-const { LIVE_BASE_URL } = require('./helpers/constants');
+const { LIVE_BASE_URL, LIVE_MIN_CANDIDATE_MINUTE } = require('./helpers/constants');
 const { collectLiveMatches } = require('./providers/flashscoreMobileUa/liveSource');
 
 async function scrapeLiveMatches(page) {
   try {
-    console.log('Opening:', LIVE_BASE_URL);
+    console.log('Opening:', LIVE_BASE_URL, `(minute >= ${LIVE_MIN_CANDIDATE_MINUTE}, 0:0 only)`);
     const { matches, health } = await collectLiveMatches(page, LIVE_BASE_URL);
     console.log(
       `Provider health: rows=${health.totalRows}, missingId=${health.missingId}, missingMinute=${health.missingMinute}, missingUrl=${health.missingUrl}`

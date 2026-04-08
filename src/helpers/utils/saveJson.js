@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { toISO } = require("../date");
 
 function saveJson(file, data) {
     const outputPath = path.join(__dirname, "../../../", "data", file);
@@ -17,7 +18,7 @@ function saveJson(file, data) {
 
 function saveRunBatch({ runId, startedAt, rawMatches, processedMatches, decisions }) {
     const safeRunId = String(runId || 'unknown-run');
-    const timestamp = String(startedAt || new Date().toISOString()).replace(/[:.]/g, '-');
+    const timestamp = String(startedAt || toISO()).replace(/[:.]/g, '-');
     const base = path.join("runs", `${timestamp}-${safeRunId}`);
 
     saveJson(path.join(base, "raw_matches.json"), rawMatches || []);

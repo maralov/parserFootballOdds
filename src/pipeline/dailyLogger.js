@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const { dateKeyLocal, toISO } = require('../helpers/date');
 
 const DATA_DIR = path.join(__dirname, '..', '..', 'data', 'logs');
 
 function getDateString(date) {
-  return (date || new Date()).toISOString().slice(0, 10);
+  return dateKeyLocal(date);
 }
 
 function getDayDir(date) {
@@ -32,7 +33,7 @@ function appendMatchEntry(entry, date) {
 }
 
 function createMatchLogEntry(match, features, scored, decision, extras = {}) {
-  const ts = new Date().toISOString();
+  const ts = toISO();
   return {
     matchId: match.id,
     league: match.league,

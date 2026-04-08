@@ -1,9 +1,8 @@
 const { loadDayMatches, saveDayMatches, saveDaySummary } = require('./dailyLogger');
+const { yesterday, dateKeyLocal, toISO } = require('../helpers/date');
 
 function getYesterdayDate() {
-  const d = new Date();
-  d.setDate(d.getDate() - 1);
-  return d;
+  return yesterday();
 }
 
 async function checkSingleResult(page, entry) {
@@ -32,8 +31,8 @@ async function checkSingleResult(page, entry) {
 }
 
 async function checkYesterdayResults(page) {
-  const yesterday = getYesterdayDate();
-  const matches = loadDayMatches(yesterday);
+  const yesterdayRef = getYesterdayDate();
+  const matches = loadDayMatches(yesterdayRef);
 
   if (matches.length === 0) return null;
 
@@ -66,11 +65,11 @@ async function checkYesterdayResults(page) {
     else if (entry.hit === false) misses++;
   }
 
-  saveDayMatches(yesterday, matches);
+  saveDayMatches(yesterdayRef, matches);
 
   const actionable = matches.filter((m) => m.prediction?.bet && m.prediction.bet !== 'SKIP');
   const summary = {
-    date: yesterday.toISOString().slice(0, 10),
+    date: dateKeyLocal(yesterdayRef),
     totalMatches: matches.length,
     actionable: actionable.length,
     checked,
@@ -79,10 +78,10 @@ async function checkYesterdayResults(page) {
     hitRate: actionable.length > 0
       ? Number((actionable.filter((m) => m.hit === true).length / actionable.length).toFixed(3))
       : null,
-    generatedAt: new Date().toISOString(),
+    generatedAt: toISO(),
   };
 
-  saveDaySummary(yesterday, summary);
+  saveDaySummary(yesterdayRef, summary);
   return summary;
 }
 

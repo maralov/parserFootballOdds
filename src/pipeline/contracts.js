@@ -1,3 +1,5 @@
+const { toISO } = require('../helpers/date');
+
 const CONTRACT_VERSION = '1.0.0';
 
 function createLiveMatchCandidate(payload = {}) {
@@ -32,8 +34,7 @@ function createFeaturePayload(payload = {}) {
 }
 
 function createRunContext() {
-  const now = new Date();
-  const iso = now.toISOString();
+  const iso = toISO();
   const runId = `${iso.replace(/[:.]/g, '-')}-${Math.random().toString(36).slice(2, 8)}`;
   return {
     runId,
