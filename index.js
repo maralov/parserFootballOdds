@@ -1,4 +1,7 @@
 require('dotenv').config();
+if (process.argv.includes('--ignore-hours')) {
+  process.env.LIVE_IGNORE_HOURS = '1';
+}
 const { Worker } = require('worker_threads');
 const { LIVE_POLL_INTERVAL_MS } = require('./src/helpers/constants');
 const { dateKeyLocal, timeHHmm } = require('./src/helpers/date');
