@@ -4,13 +4,15 @@ const { LIVE_POLL_INTERVAL_MS } = require('./src/helpers/constants');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
 
 let processedMatchIds = [];
+let lastResultCheckHour = -1;
 let lastHeartbeat = 0;
+let lastDay = new Date().getDate();
 const HEARTBEAT_INTERVAL_MS = 60 * 60 * 1000;
 
 function runLiveWorker() {
   return new Promise((resolve, reject) => {
     const worker = new Worker('./worker.js', {
-      workerData: { processedMatchIds },
+      workerData: { processedMatchIds, lastResultCheckHour },
     });
 
     worker.on('message', resolve);
@@ -47,14 +49,21 @@ async function sendHeartbeat(runCount) {
   let runCount = 0;
 
   do {
+    const today = new Date().getDate();
+    if (today !== lastDay) {
+      console.log(`📅 New day — reset processedMatchIds (was ${processedMatchIds.length})`);
+      processedMatchIds = [];
+      lastResultCheckHour = -1;
+      lastDay = today;
+    }
+
     try {
       runCount++;
       const result = await runLiveWorker();
       console.log(`\n🔥 RUN #${runCount}: analyzed=${result.matchesAnalyzed}, signals=${result.signalsSent}`);
 
-      if (result.processedMatchIds) {
-        processedMatchIds = result.processedMatchIds;
-      }
+      if (result.processedMatchIds) processedMatchIds = result.processedMatchIds;
+      if (result.lastResultCheckHour != null) lastResultCheckHour = result.lastResultCheckHour;
     } catch (e) {
       console.log(`\n❌ RUN #${runCount} FAILED: ${e.message}`);
     }

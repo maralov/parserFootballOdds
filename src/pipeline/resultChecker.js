@@ -52,9 +52,10 @@ async function checkYesterdayResults(page) {
     entry.actualResult = `${finalScore.home}:${finalScore.away}`;
     const totalGoals = finalScore.home + finalScore.away;
 
-    if (entry.prediction.bet === 'OVER_0_5') {
+    const bet = entry.prediction?.bet;
+    if (bet === 'OVER_0_5') {
       entry.hit = totalGoals > 0;
-    } else if (entry.prediction.bet === 'UNDER_0_5') {
+    } else if (bet === 'UNDER_0_5') {
       entry.hit = totalGoals === 0;
     } else {
       entry.hit = null;
@@ -67,7 +68,7 @@ async function checkYesterdayResults(page) {
 
   saveDayMatches(yesterday, matches);
 
-  const actionable = matches.filter((m) => m.prediction.bet !== 'SKIP');
+  const actionable = matches.filter((m) => m.prediction?.bet && m.prediction.bet !== 'SKIP');
   const summary = {
     date: yesterday.toISOString().slice(0, 10),
     totalMatches: matches.length,

@@ -12,6 +12,13 @@
     "live:start": "bash scripts/live-start.sh",
     "live:stop": "bash scripts/live-stop.sh",
     "live:status": "bash scripts/live-status.sh",
+    "service:install": "bash scripts/install-service.sh",
+    "service:uninstall": "bash scripts/uninstall-service.sh",
+    "service:start": "launchctl start com.parser.football",
+    "service:stop": "launchctl stop com.parser.football",
+    "service:status": "launchctl list com.parser.football 2>/dev/null || echo 'Not installed'",
+    "service:logs": "tail -f logs/launchd-stdout.log",
+    "deploy": "bash scripts/deploy.sh",
     "build": "node scripts/rebuild.js",
     "analyze": "node scripts/analyze.js",
     "analyze-g": "node scripts/analyzeGroupe.js"

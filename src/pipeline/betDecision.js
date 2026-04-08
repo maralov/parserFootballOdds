@@ -1,81 +1,59 @@
-function generateReason(features, scored) {
-  const raw = features.raw || {};
+const THRESHOLDS = {
+  '60-69': { overPGoal: 0.65, underPDry: 0.70 },
+  '70-75': { overPGoal: 0.70, underPDry: 0.75 },
+  '76-80': { overPGoal: 0.70, underPDry: 0.75 },
+  '81-84': { overPGoal: 0.75, underPDry: 0.80 },
+  '85+':   { overPGoal: 0.80, underPDry: 0.85 },
+};
+
+function buildReason(features, scored) {
+  const raw = features.raw2H || features.rawOverall || {};
   const parts = [];
-
-  if (raw.shotsOnTarget !== null && raw.shotsOnTarget !== undefined) {
-    parts.push(`${raw.shotsOnTarget} уд. в площину`);
-  }
-  if (raw.bigChances !== null && raw.bigChances !== undefined) {
-    parts.push(`${raw.bigChances} мом.`);
-  }
-  if (raw.touchesInOppositionBox !== null && raw.touchesInOppositionBox !== undefined) {
-    parts.push(`${raw.touchesInOppositionBox} дотик. в штр.`);
-  }
-  if (raw.goalkeeperSaves !== null && raw.goalkeeperSaves !== undefined) {
-    parts.push(`${raw.goalkeeperSaves} сейвів`);
-  }
-  if (raw.cornerKicks !== null && raw.cornerKicks !== undefined) {
-    parts.push(`${raw.cornerKicks} кутових`);
-  }
-  if (raw.expectedGoalsXg !== null && raw.expectedGoalsXg !== undefined) {
-    parts.push(`xG ${raw.expectedGoalsXg}`);
-  }
-
-  const statsLine = parts.length > 0 ? parts.join(', ') : 'мало даних';
-
-  if (scored.pGoal >= 0.65) {
-    return `Високий тиск: ${statsLine}`;
-  }
-  if (scored.pDry >= 0.75) {
-    return `Низька якість атак: ${statsLine}`;
-  }
-  return `Невизначений сигнал: ${statsLine}`;
+  if (raw.shotsOnTarget != null) parts.push(`${raw.shotsOnTarget} уд. в площ.`);
+  if (raw.bigChances != null) parts.push(`${raw.bigChances} мом.`);
+  if (raw.touchesInOppositionBox != null) parts.push(`${raw.touchesInOppositionBox} дотик.`);
+  if (raw.goalkeeperSaves != null) parts.push(`${raw.goalkeeperSaves} сейвів`);
+  if (raw.cornerKicks != null) parts.push(`${raw.cornerKicks} кутових`);
+  if (raw.expectedGoalsXg != null) parts.push(`xG ${raw.expectedGoalsXg}`);
+  const statsLine = parts.length ? parts.join(', ') : 'мало даних';
+  const src = features.statsStatus === 'both' ? '(2H+O)' :
+              features.statsStatus === '2h_only' ? '(2H)' : '(O)';
+  return `${statsLine} ${src}`;
 }
 
 function decideBet(scored, features) {
   if (!scored || !Number.isFinite(scored.pGoal)) {
-    return {
-      bet: 'SKIP',
-      confidence: 'low',
-      pGoal: null,
-      pDry: null,
-      edge: null,
-      reason: 'Некоректні дані для скорингу',
-    };
+    return { bet: 'SKIP', confidence: 'none', pGoal: null, pDry: null, edge: null, reason: 'Некоректні дані' };
   }
 
-  const confidence = scored.confidence || 'low';
-  const reason = generateReason(features, scored);
+  const bucket = scored.minuteBucket || '70-75';
+  const th = THRESHOLDS[bucket] || THRESHOLDS['70-75'];
+  const conf = scored.confidence || 'low';
+  const reason = buildReason(features, scored);
 
-  if (scored.pGoal >= 0.65 && confidence !== 'low') {
+  if (scored.pGoal >= th.overPGoal && conf !== 'low' && conf !== 'none') {
     return {
-      bet: 'OVER_0_5',
-      confidence,
-      pGoal: scored.pGoal,
-      pDry: scored.pDry,
+      bet: 'OVER_0_5', confidence: conf,
+      pGoal: scored.pGoal, pDry: scored.pDry,
       edge: Number((scored.pGoal - 0.5).toFixed(3)),
-      reason,
+      reason: `OVER: ${reason}`,
     };
   }
 
-  if (scored.pDry >= 0.75 && confidence !== 'low') {
+  if (scored.pDry >= th.underPDry && conf !== 'low' && conf !== 'none') {
     return {
-      bet: 'UNDER_0_5',
-      confidence,
-      pGoal: scored.pGoal,
-      pDry: scored.pDry,
+      bet: 'UNDER_0_5', confidence: conf,
+      pGoal: scored.pGoal, pDry: scored.pDry,
       edge: Number((scored.pDry - 0.5).toFixed(3)),
-      reason,
+      reason: `UNDER: ${reason}`,
     };
   }
 
   return {
-    bet: 'SKIP',
-    confidence,
-    pGoal: scored.pGoal,
-    pDry: scored.pDry,
+    bet: 'SKIP', confidence: conf,
+    pGoal: scored.pGoal, pDry: scored.pDry,
     edge: null,
-    reason,
+    reason: `SKIP: ${reason}`,
   };
 }
 
