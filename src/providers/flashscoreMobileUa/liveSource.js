@@ -1,7 +1,7 @@
 const { createLiveMatchCandidate } = require('../../pipeline/contracts');
 const { LIVE_MIN_CANDIDATE_MINUTE } = require('../../helpers/constants');
 
-function parseLiveMatchesFromDocument(minMinute) {
+function parseLiveMatchesFromDocument(minMinute, feedLabel, feedUrl) {
   function parseMinute(text) {
     const minuteMatch = String(text || '')
       .trim()
@@ -22,7 +22,8 @@ function parseLiveMatchesFromDocument(minMinute) {
 
   const lines = scoreData.innerHTML.split(/<br\s*\/?>/i);
   const matches = [];
-  const health = { totalRows: 0, missingId: 0, missingMinute: 0, missingUrl: 0 };
+  const skippedByMinute = [];
+  const health = { totalRows: 0, missingId: 0, missingMinute: 0, missingUrl: 0, totalZeroZero: 0 };
   let currentLeague = 'unknown';
 
   for (const line of lines) {
@@ -52,7 +53,6 @@ function parseLiveMatchesFromDocument(minMinute) {
       health.missingMinute += 1;
       continue;
     }
-    if (minute < minMinute) continue;
 
     if (!linkNode) {
       health.missingUrl += 1;
@@ -64,6 +64,7 @@ function parseLiveMatchesFromDocument(minMinute) {
     const homeScore = scoreMatch[1];
     const awayScore = scoreMatch[2];
     if (homeScore !== '0' || awayScore !== '0') continue;
+    health.totalZeroZero += 1;
 
     const matchLink = linkNode.getAttribute('href') || '';
     const idMatch = matchLink.match(/\/match\/([^\/\?]+)/);
@@ -81,6 +82,11 @@ function parseLiveMatchesFromDocument(minMinute) {
       .filter(Boolean);
     if (teams.length !== 2) continue;
 
+    if (minute < minMinute) {
+      skippedByMinute.push({ home: teams[0], away: teams[1], minute, league: currentLeague });
+      continue;
+    }
+
     const cleanUrl = matchLink.split('?')[0];
     const fullUrl = cleanUrl.startsWith('http') ? cleanUrl : `https://m.flashscore.ua${cleanUrl}`;
 
@@ -93,10 +99,12 @@ function parseLiveMatchesFromDocument(minMinute) {
       away: teams[1],
       score: { home: homeScore, away: awayScore },
       provider: 'flashscore-mobile-ua',
+      feed: feedLabel || null,
+      feedUrl: feedUrl || null,
     });
   }
 
-  return { matches, health };
+  return { matches, skippedByMinute, health };
 }
 
 async function collectLiveMatches(page, liveUrl) {
@@ -106,12 +114,15 @@ async function collectLiveMatches(page, liveUrl) {
   });
   await page.waitForSelector('#score-data', { timeout: 20000 });
   await page.waitForTimeout(1200);
-  const { matches, health } = await page.evaluate(
+  const { matches, skippedByMinute, health } = await page.evaluate(
     parseLiveMatchesFromDocument,
-    LIVE_MIN_CANDIDATE_MINUTE
+    LIVE_MIN_CANDIDATE_MINUTE,
+    liveUrl.includes('s=1') ? 's=1' : 's=2',
+    liveUrl
   );
   return {
     matches: matches.map((item) => createLiveMatchCandidate(item)),
+    skippedByMinute: skippedByMinute || [],
     health,
   };
 }

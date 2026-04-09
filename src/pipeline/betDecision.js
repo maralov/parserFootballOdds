@@ -31,7 +31,19 @@ function decideBet(scored, features) {
   const conf = scored.confidence || 'low';
   const reason = buildReason(features, scored);
 
-  if (scored.pGoal >= th.overPGoal && conf !== 'low' && conf !== 'none') {
+  // Якщо статистика є, завжди віддаємо прогноз; SKIP лише при відсутності даних/метрик.
+  if (!features?.allowDecision) {
+    return {
+      bet: 'SKIP',
+      confidence: conf,
+      pGoal: scored.pGoal,
+      pDry: scored.pDry,
+      edge: null,
+      reason: `SKIP: недостатньо метрик (${reason})`,
+    };
+  }
+
+  if (scored.pGoal >= th.overPGoal && conf !== 'none') {
     return {
       bet: 'OVER_0_5', confidence: conf,
       pGoal: scored.pGoal, pDry: scored.pDry,
@@ -40,7 +52,7 @@ function decideBet(scored, features) {
     };
   }
 
-  if (scored.pDry >= th.underPDry && conf !== 'low' && conf !== 'none') {
+  if (scored.pDry >= th.underPDry && conf !== 'none') {
     return {
       bet: 'UNDER_0_5', confidence: conf,
       pGoal: scored.pGoal, pDry: scored.pDry,
@@ -49,11 +61,17 @@ function decideBet(scored, features) {
     };
   }
 
+  // Фолбек: якщо пороги не дотягнули, все одно даємо сторону
+  const fallbackBet = scored.pGoal >= 0.5 ? 'OVER_0_5' : 'UNDER_0_5';
+  const fallbackEdge = Number(((fallbackBet === 'OVER_0_5' ? scored.pGoal : scored.pDry) - 0.5).toFixed(3));
+
   return {
-    bet: 'SKIP', confidence: conf,
-    pGoal: scored.pGoal, pDry: scored.pDry,
-    edge: null,
-    reason: `SKIP: ${reason}`,
+    bet: fallbackBet,
+    confidence: conf,
+    pGoal: scored.pGoal,
+    pDry: scored.pDry,
+    edge: fallbackEdge,
+    reason: `${fallbackBet === 'OVER_0_5' ? 'OVER' : 'UNDER'} (fallback): ${reason}`,
   };
 }
 

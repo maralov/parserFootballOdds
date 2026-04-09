@@ -15,6 +15,8 @@ function createLiveMatchCandidate(payload = {}) {
     },
     matchDetailsUrl: payload.matchDetailsUrl || '',
     provider: payload.provider || 'flashscore-mobile-ua',
+    feed: payload.feed || null,
+    feedUrl: payload.feedUrl || null,
   };
 }
 

@@ -44,6 +44,8 @@ function createMatchLogEntry(match, features, scored, decision, extras = {}) {
     score: match.score,
     mobileUrl: match.matchDetailsUrl,
     desktopUrl: extras.desktopUrl || null,
+    feed: match.feed || extras.feed || null,
+    feedUrl: match.feedUrl || extras.feedUrl || null,
     statsStatus: features?.statsStatus || 'unavailable',
     stats: {
       overall: features?.rawOverall || null,
@@ -66,6 +68,7 @@ function createMatchLogEntry(match, features, scored, decision, extras = {}) {
       reason: decision.reason,
     } : null,
     pipeline: extras.pipeline || 'candidate_found',
+    skipReason: extras.skipReason || null,
     timestamp: ts,
     resultChecked: false,
     actualResult: null,
@@ -77,4 +80,20 @@ function saveDaySummary(date, summary) {
   fs.writeFileSync(path.join(getDayDir(date), 'summary.json'), JSON.stringify(summary, null, 2), 'utf8');
 }
 
-module.exports = { getDateString, getDayDir, loadDayMatches, saveDayMatches, appendMatchEntry, createMatchLogEntry, saveDaySummary };
+function updateMatchResult(matchId, finalScore, hit, date) {
+  const current = loadDayMatches(date);
+  let updated = false;
+  for (let i = current.length - 1; i >= 0; i--) {
+    if (current[i].matchId === matchId && current[i].pipeline === 'decision_made') {
+      current[i].resultChecked = true;
+      current[i].actualResult = finalScore;
+      current[i].hit = hit;
+      current[i].resultTimestamp = toISO();
+      updated = true;
+    }
+  }
+  if (updated) saveDayMatches(date, current);
+  return updated;
+}
+
+module.exports = { getDateString, getDayDir, loadDayMatches, saveDayMatches, appendMatchEntry, createMatchLogEntry, updateMatchResult, saveDaySummary };

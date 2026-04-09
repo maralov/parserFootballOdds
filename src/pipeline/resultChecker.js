@@ -6,38 +6,51 @@ function getYesterdayDate() {
 }
 
 async function checkSingleResult(page, entry) {
-  if (!entry.matchDetailsUrl) return null;
+  const url = entry.mobileUrl || entry.desktopUrl;
+  if (!url) return null;
 
   try {
-    await page.goto(entry.matchDetailsUrl, { waitUntil: 'domcontentloaded', timeout: 20000 });
-    await page.waitForTimeout(1500);
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 20000 });
+    await page.waitForTimeout(2000);
 
-    const result = await page.evaluate(() => {
-      const scoreLink = document.querySelector('a.live[href], a[href*="/match/"]');
-      if (scoreLink) {
-        const match = scoreLink.textContent.trim().match(/(\d+):(\d+)/);
-        if (match) return { home: Number(match[1]), away: Number(match[2]) };
+    return await page.evaluate(() => {
+      const detailBold = document.querySelector('div.detail > b');
+      if (detailBold) {
+        const m = detailBold.textContent.trim().match(/^(\d+):(\d+)/);
+        if (m) return { home: Number(m[1]), away: Number(m[2]) };
       }
-      const bodyText = document.body?.textContent || '';
-      const scoreMatch = bodyText.match(/(\d+)\s*:\s*(\d+)/);
-      if (scoreMatch) return { home: Number(scoreMatch[1]), away: Number(scoreMatch[2]) };
+
+      const liveLink = document.querySelector('a.live[href]');
+      if (liveLink) {
+        const m = liveLink.textContent.trim().match(/(\d+):(\d+)/);
+        if (m) return { home: Number(m[1]), away: Number(m[2]) };
+      }
+
+      const title = document.title || '';
+      const tm = title.match(/(\d+)\s*[-–:]\s*(\d+)/);
+      if (tm) return { home: Number(tm[1]), away: Number(tm[2]) };
+
       return null;
     });
-
-    return result;
   } catch (e) {
+    console.log(`  [result] Error checking ${entry.matchId}: ${e.message}`);
     return null;
   }
 }
 
-async function checkYesterdayResults(page) {
-  const yesterdayRef = getYesterdayDate();
-  const matches = loadDayMatches(yesterdayRef);
-
+async function checkDayResults(page, dateRef) {
+  const matches = loadDayMatches(dateRef);
   if (matches.length === 0) return null;
 
-  const unchecked = matches.filter((m) => !m.resultChecked);
-  if (unchecked.length === 0) return null;
+  const unchecked = matches.filter(
+    (m) => !m.resultChecked && m.pipeline === 'decision_made' && m.prediction?.bet && m.prediction.bet !== 'SKIP'
+  );
+  if (unchecked.length === 0) {
+    console.log(`  [result] No unchecked predictions for ${dateKeyLocal(dateRef)}`);
+    return buildSummary(matches, dateRef, 0, 0, 0);
+  }
+
+  console.log(`  [result] Checking ${unchecked.length} predictions for ${dateKeyLocal(dateRef)}...`);
 
   let checked = 0;
   let hits = 0;
@@ -45,44 +58,74 @@ async function checkYesterdayResults(page) {
 
   for (const entry of unchecked) {
     const finalScore = await checkSingleResult(page, entry);
-    if (!finalScore) continue;
+    if (!finalScore) {
+      console.log(`  [result] ${entry.matchId} ${entry.home} - ${entry.away}: score not found`);
+      continue;
+    }
 
     entry.resultChecked = true;
     entry.actualResult = `${finalScore.home}:${finalScore.away}`;
     const totalGoals = finalScore.home + finalScore.away;
 
-    const bet = entry.prediction?.bet;
-    if (bet === 'OVER_0_5') {
+    if (entry.prediction.bet === 'OVER_0_5') {
       entry.hit = totalGoals > 0;
-    } else if (bet === 'UNDER_0_5') {
+    } else if (entry.prediction.bet === 'UNDER_0_5') {
       entry.hit = totalGoals === 0;
-    } else {
-      entry.hit = null;
     }
+
+    const mark = entry.hit ? '✅' : '❌';
+    console.log(`  [result] ${entry.home} - ${entry.away}: ${entry.actualResult} → ${mark} (${entry.prediction.bet}, ${entry.prediction.confidence})`);
 
     checked++;
     if (entry.hit === true) hits++;
     else if (entry.hit === false) misses++;
   }
 
-  saveDayMatches(yesterdayRef, matches);
+  saveDayMatches(dateRef, matches);
+  return buildSummary(matches, dateRef, checked, hits, misses);
+}
 
-  const actionable = matches.filter((m) => m.prediction?.bet && m.prediction.bet !== 'SKIP');
+function buildSummary(matches, dateRef, checked, hits, misses) {
+  const actionable = matches.filter(
+    (m) => m.pipeline === 'decision_made' && m.prediction?.bet && m.prediction.bet !== 'SKIP'
+  );
+
+  const byConfidence = {};
+  for (const conf of ['high', 'medium', 'low']) {
+    const group = actionable.filter((m) => m.prediction.confidence === conf);
+    const groupHits = group.filter((m) => m.hit === true).length;
+    const groupMisses = group.filter((m) => m.hit === false).length;
+    const groupChecked = groupHits + groupMisses;
+    byConfidence[conf] = {
+      total: group.length,
+      checked: groupChecked,
+      hits: groupHits,
+      misses: groupMisses,
+      hitRate: groupChecked > 0 ? Number((groupHits / groupChecked).toFixed(3)) : null,
+    };
+  }
+
+  const totalChecked = actionable.filter((m) => m.hit === true || m.hit === false);
+  const totalHits = actionable.filter((m) => m.hit === true).length;
+
   const summary = {
-    date: dateKeyLocal(yesterdayRef),
+    date: dateKeyLocal(dateRef),
     totalMatches: matches.length,
     actionable: actionable.length,
     checked,
     hits,
     misses,
-    hitRate: actionable.length > 0
-      ? Number((actionable.filter((m) => m.hit === true).length / actionable.length).toFixed(3))
-      : null,
+    hitRate: totalChecked.length > 0 ? Number((totalHits / totalChecked.length).toFixed(3)) : null,
+    byConfidence,
     generatedAt: toISO(),
   };
 
-  saveDaySummary(yesterdayRef, summary);
+  saveDaySummary(dateRef, summary);
   return summary;
 }
 
-module.exports = { checkYesterdayResults, getYesterdayDate };
+async function checkYesterdayResults(page) {
+  return checkDayResults(page, getYesterdayDate());
+}
+
+module.exports = { checkYesterdayResults, checkDayResults, getYesterdayDate };

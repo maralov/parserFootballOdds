@@ -8,6 +8,8 @@ const { dateKeyLocal, timeHHmm } = require('./src/helpers/date');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
 
 let processedMatchIds = [];
+let sentTelegramIds = [];
+let activePredictions = [];
 let lastResultCheckHour = -1;
 let lastHeartbeat = 0;
 let lastDayKey = dateKeyLocal();
@@ -16,7 +18,7 @@ const HEARTBEAT_INTERVAL_MS = 60 * 60 * 1000;
 function runLiveWorker() {
   return new Promise((resolve, reject) => {
     const worker = new Worker('./worker.js', {
-      workerData: { processedMatchIds, lastResultCheckHour },
+      workerData: { processedMatchIds, sentTelegramIds, activePredictions, lastResultCheckHour },
     });
 
     worker.on('message', resolve);
@@ -33,7 +35,7 @@ async function sendHeartbeat(runCount) {
   lastHeartbeat = now;
 
   const time = timeHHmm();
-  const msg = `🟢 Парсер активний (${time})\nЦиклів: ${runCount} | Оброблено: ${processedMatchIds.length} матчів`;
+  const msg = `🟢 Парсер активний (${time})\nЦиклів: ${runCount} | Skipped: ${processedMatchIds.length} | TG: ${sentTelegramIds.length} | Active: ${activePredictions.length}`;
   try {
     await sendTelegramMessage(msg);
   } catch (e) {
@@ -55,8 +57,10 @@ async function sendHeartbeat(runCount) {
   do {
     const todayKey = dateKeyLocal();
     if (todayKey !== lastDayKey) {
-      console.log(`📅 New day — reset processedMatchIds (was ${processedMatchIds.length})`);
+      console.log(`📅 New day — reset (skipped=${processedMatchIds.length}, tgSent=${sentTelegramIds.length}, active=${activePredictions.length})`);
       processedMatchIds = [];
+      sentTelegramIds = [];
+      activePredictions = [];
       lastResultCheckHour = -1;
       lastDayKey = todayKey;
     }
@@ -67,6 +71,8 @@ async function sendHeartbeat(runCount) {
       console.log(`\n🔥 RUN #${runCount}: analyzed=${result.matchesAnalyzed}, signals=${result.signalsSent}`);
 
       if (result.processedMatchIds) processedMatchIds = result.processedMatchIds;
+      if (result.sentTelegramIds) sentTelegramIds = result.sentTelegramIds;
+      if (result.activePredictions) activePredictions = result.activePredictions;
       if (result.lastResultCheckHour != null) lastResultCheckHour = result.lastResultCheckHour;
     } catch (e) {
       console.log(`\n❌ RUN #${runCount} FAILED: ${e.message}`);

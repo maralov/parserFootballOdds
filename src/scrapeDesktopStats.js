@@ -135,8 +135,7 @@ function logDomAlert(matchId, alertType, details) {
 async function resolveDesktopUrl(page, matchId) {
   const shortUrl = `${DESKTOP_BASE}/${matchId}/`;
   try {
-    await page.goto(shortUrl, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
-    await page.waitForTimeout(1500);
+    await page.goto(shortUrl, { waitUntil: 'networkidle2', timeout: TIMEOUT });
     const finalUrl = page.url();
     if (finalUrl.includes('/match/') && finalUrl !== shortUrl) {
       return { desktopUrl: finalUrl, resolved: true };
@@ -212,7 +211,9 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
   const labelMapJSON = JSON.stringify(STAT_LABEL_MAP);
   const results = { matchId, overall: null, secondHalf: null, statsStatus: 'unavailable', diagnostics: {} };
 
-  const basePath = desktopUrl.replace(/\/$/, '').replace(/\/?(summary.*)?$/, '');
+  const urlObj = new URL(desktopUrl);
+  const cleanPath = urlObj.pathname.replace(/\/$/, '').replace(/\/?(summary.*)?$/, '');
+  const basePath = `${urlObj.origin}${cleanPath}`;
 
   const endpoints = [
     { key: 'overall', suffix: '/summary/stats/overall/' },
@@ -222,19 +223,26 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
   for (const ep of endpoints) {
     const url = `${basePath}${ep.suffix}?mid=${matchId}`;
     try {
-      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
-      await page.waitForTimeout(2000);
+      await page.goto(url, { waitUntil: 'networkidle2', timeout: TIMEOUT });
 
-      const hasStats = await page.evaluate(() =>
-        document.querySelectorAll('[data-testid="wcl-statistics"]').length > 0
-      );
+      let hasStats = false;
+      try {
+        await page.waitForSelector('[data-testid="wcl-statistics"]', { timeout: 8000 });
+        hasStats = true;
+      } catch {
+        hasStats = await page.evaluate(() =>
+          document.querySelectorAll('[data-testid="wcl-statistics"]').length > 0
+        );
+      }
 
       if (!hasStats) {
-        const hasOldSelector = await page.evaluate(() =>
-          document.querySelectorAll('[class*="statisticsMobi"]').length > 0 ||
-          document.querySelectorAll('.stat__row').length > 0
-        );
-        if (hasOldSelector) {
+        const fallbackInfo = await page.evaluate(() => {
+          const old = document.querySelectorAll('[class*="statisticsMobi"], .stat__row').length;
+          const any = document.querySelectorAll('[class*="statistic"], [class*="wcl-row"]').length;
+          return { old, any, bodyLen: (document.body?.textContent || '').length };
+        });
+        console.log(`  [stats] ${matchId} ${ep.key}: no data-testid (old=${fallbackInfo.old}, any=${fallbackInfo.any}, body=${fallbackInfo.bodyLen})`);
+        if (fallbackInfo.old > 0) {
           logDomAlert(matchId, 'SELECTOR_CHANGED', `${ep.key}: data-testid not found but old selectors present`);
         }
         continue;
@@ -273,4 +281,32 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
   return results;
 }
 
-module.exports = { scrapeDesktopStats, resolveDesktopUrl, logDomAlert, STAT_LABEL_MAP };
+async function checkMatchResult(page, matchId) {
+  const url = `${DESKTOP_BASE}/${matchId}/`;
+  try {
+    await page.goto(url, { waitUntil: 'networkidle2', timeout: TIMEOUT });
+
+    return await page.evaluate(() => {
+      const title = document.title || '';
+      const body = (document.body?.textContent || '').slice(0, 8000).toLowerCase();
+
+      const finished =
+        /завершено|закінч|finished|full[\s-]?time/.test(body) ||
+        /після матчу|after match|після додаткового/.test(body);
+
+      const scoreMatch = title.match(/\b(\d+)\s*[-–:]\s*(\d+)\b/);
+      let homeScore = null;
+      let awayScore = null;
+      if (scoreMatch) {
+        homeScore = parseInt(scoreMatch[1], 10);
+        awayScore = parseInt(scoreMatch[2], 10);
+      }
+
+      return { finished, homeScore, awayScore, title: title.slice(0, 200) };
+    });
+  } catch (e) {
+    return { finished: false, homeScore: null, awayScore: null, error: e.message };
+  }
+}
+
+module.exports = { scrapeDesktopStats, resolveDesktopUrl, checkMatchResult, logDomAlert, STAT_LABEL_MAP };

@@ -5,6 +5,7 @@ const USER_AGENTS = [
 
 const BASE_URL = 'https://www.flashscore.com/football/';
 const LIVE_BASE_URL = process.env.LIVE_BASE_URL || 'https://m.flashscore.ua/?s=2';
+const LIVE_BASE_URL_ALT = process.env.LIVE_BASE_URL_ALT || null;
 const LIVE_POLL_INTERVAL_MS = Number(process.env.LIVE_POLL_INTERVAL_MS || 180000);
 const STATS_CONCURRENCY = Number(process.env.STATS_CONCURRENCY || 2);
 const MAX_TELEGRAM_MINUTE = 84;
@@ -12,7 +13,7 @@ const MAX_TELEGRAM_MINUTE = 84;
 const _rawMinCand = Number(process.env.LIVE_MIN_CANDIDATE_MINUTE);
 const LIVE_MIN_CANDIDATE_MINUTE = Math.min(
   120,
-  Math.max(0, Number.isFinite(_rawMinCand) ? _rawMinCand : 0)
+  Math.max(0, Number.isFinite(_rawMinCand) ? _rawMinCand : 60)
 );
 const LIVE_IGNORE_HOURS = /^(1|true|yes)$/i.test(String(process.env.LIVE_IGNORE_HOURS || ''));
 const { hour: dHour, dayOfWeek } = require('./date');
@@ -30,7 +31,7 @@ const USER_AGENT = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
 
 module.exports = {
   USER_AGENTS, USER_AGENT, BASE_URL,
-  LIVE_BASE_URL, LIVE_POLL_INTERVAL_MS, STATS_CONCURRENCY,
+  LIVE_BASE_URL, LIVE_BASE_URL_ALT, LIVE_POLL_INTERVAL_MS, STATS_CONCURRENCY,
   MAX_TELEGRAM_MINUTE,
   LIVE_MIN_CANDIDATE_MINUTE,
   isWithinWorkingHours,

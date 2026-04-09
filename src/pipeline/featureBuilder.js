@@ -142,7 +142,7 @@ function buildFeatures(match, statsResult) {
 
   let confidence = 'low';
   if (availPrimary >= 5 && secondHalf) confidence = 'high';
-  else if (availPrimary >= 4) confidence = 'medium';
+  else if (availPrimary >= 3) confidence = 'medium';
 
   return {
     matchId: match.id, league: match.league, minute: match.minute,
@@ -152,7 +152,10 @@ function buildFeatures(match, statsResult) {
     ratios, trend, dominanceRatio,
     dataQualityScore: dq, availablePrimary: availPrimary,
     confidence,
-    allowDecision: availPrimary >= 3 && confidence !== 'low' && confidence !== 'none',
+    allowDecision:
+      Boolean(primary) &&
+      (availPrimary >= 1 || availSecondary >= 1) &&
+      statsStatus !== 'unavailable',
   };
 }
 
