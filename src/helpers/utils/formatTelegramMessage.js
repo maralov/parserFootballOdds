@@ -45,12 +45,14 @@ function formatConfLine(label, data) {
 function formatDailySummary(summary) {
   if (!summary) return null;
 
+  const resolved = summary.resolved ?? (summary.hits + summary.misses);
   let msg = `📊 *Звіт за ${summary.date}*
 
 🔢 Всього записів: ${summary.totalMatches}
 🎯 З прогнозами: ${summary.actionable}
 ✅ Влучень: ${summary.hits}
 ❌ Промахів: ${summary.misses}
+📋 З результатом: ${resolved}${resolved < summary.actionable ? ` (ще ${summary.actionable - resolved} без фіналу)` : ''}
 📈 *Hit-rate:* ${summary.hitRate !== null ? (summary.hitRate * 100).toFixed(1) + '%' : 'N/A'}`;
 
   if (summary.byConfidence) {

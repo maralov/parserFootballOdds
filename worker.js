@@ -54,7 +54,8 @@ async function mapWithConcurrency(items, limit, fn) {
     try {
       const summary = await checkYesterdayResults(page);
       if (summary) {
-        console.log(`  Yesterday: ${summary.hits}/${summary.actionable} hits`);
+        const r = summary.resolved ?? (summary.hits + summary.misses);
+        console.log(`  Yesterday: ${summary.hits}/${r} hits (${summary.actionable} з прогнозом)`);
         const msg = formatDailySummary(summary);
         if (msg) await sendTelegramMessage(msg);
       }

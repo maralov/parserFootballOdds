@@ -105,17 +105,21 @@ function buildSummary(matches, dateRef, checked, hits, misses) {
     };
   }
 
-  const totalChecked = actionable.filter((m) => m.hit === true || m.hit === false);
-  const totalHits = actionable.filter((m) => m.hit === true).length;
+  const totalHitsAll = actionable.filter((m) => m.hit === true).length;
+  const totalMissesAll = actionable.filter((m) => m.hit === false).length;
+  const totalResolved = totalHitsAll + totalMissesAll;
 
   const summary = {
     date: dateKeyLocal(dateRef),
     totalMatches: matches.length,
     actionable: actionable.length,
-    checked,
-    hits,
-    misses,
-    hitRate: totalChecked.length > 0 ? Number((totalHits / totalChecked.length).toFixed(3)) : null,
+    checkedThisRun: checked,
+    hitsThisRun: hits,
+    missesThisRun: misses,
+    resolved: totalResolved,
+    hits: totalHitsAll,
+    misses: totalMissesAll,
+    hitRate: totalResolved > 0 ? Number((totalHitsAll / totalResolved).toFixed(3)) : null,
     byConfidence,
     generatedAt: toISO(),
   };
