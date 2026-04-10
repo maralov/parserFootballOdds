@@ -144,30 +144,40 @@ async function mapWithConcurrency(items, limit, fn) {
       results.push({ match, decision, logEntry });
 
       if (decision.bet !== 'SKIP') {
+        const prev = activePredictions.get(match.id);
+        const confChanged = prev && prev.confidence !== decision.confidence;
+        const betChanged = prev && prev.bet !== decision.bet;
+
         activePredictions.set(match.id, {
           bet: decision.bet,
+          confidence: decision.confidence,
           desktopUrl,
           home: match.home,
           away: match.away,
           league: match.league,
         });
-      }
 
-      const alreadySentTg = sentTelegramIds.has(match.id);
-      const canSendTg = decision.bet !== 'SKIP' && decision.confidence === 'high' && match.minute <= MAX_TELEGRAM_MINUTE && !alreadySentTg;
+        const alreadySentTg = sentTelegramIds.has(match.id);
+        const isNewSignal = !alreadySentTg && decision.confidence === 'high' && match.minute <= MAX_TELEGRAM_MINUTE;
+        const isUpdate = alreadySentTg && (confChanged || betChanged);
 
-      if (canSendTg) {
-        try {
-          await sendTelegramMessage(formatTelegramMessage(match, decision, desktopUrl));
-          sentTelegramIds.add(match.id);
-          console.log(`  ✓ Telegram sent`);
-        } catch (e) { console.log(`  Telegram err: ${e.message}`); }
-      } else if (decision.bet !== 'SKIP' && alreadySentTg) {
-        console.log(`  ↻ Re-analysis done (TG already sent at earlier cycle)`);
-      } else if (decision.bet !== 'SKIP' && decision.confidence !== 'high') {
-        console.log(`  ⏸ ${decision.confidence} confidence — logged only`);
-      } else if (decision.bet !== 'SKIP') {
-        console.log(`  ⏭ ${match.minute}' > ${MAX_TELEGRAM_MINUTE}' — logged only`);
+        if (isNewSignal) {
+          try {
+            await sendTelegramMessage(formatTelegramMessage(match, decision, desktopUrl));
+            sentTelegramIds.add(match.id);
+            console.log(`  ✓ Telegram sent`);
+          } catch (e) { console.log(`  Telegram err: ${e.message}`); }
+        } else if (isUpdate) {
+          const changeLabel = betChanged ? `прогноз → ${decision.bet === 'OVER_0_5' ? 'ТБ' : 'ТМ'}` : `впевненість → ${decision.confidence}`;
+          try {
+            await sendTelegramMessage(`🔄 *Оновлення (${match.minute}')*\n🏆 ${match.home} - ${match.away}\n${changeLabel}\n🎯 P(гол): ${decision.pGoal} | P(сухий): ${decision.pDry}`);
+            console.log(`  ✓ Telegram update sent (${changeLabel})`);
+          } catch (e) { console.log(`  Telegram update err: ${e.message}`); }
+        } else if (alreadySentTg) {
+          console.log(`  ↻ Re-analysis done (no change)`);
+        } else if (decision.confidence !== 'high') {
+          console.log(`  ⏸ ${decision.confidence} confidence — logged only`);
+        }
       }
     } catch (e) {
       console.log(`  ✗ Error: ${e.message}`);
@@ -200,6 +210,16 @@ async function mapWithConcurrency(items, limit, fn) {
 
           console.log(`  ⚽ ${pred.home} - ${pred.away}: ${res.homeScore}:${res.awayScore} → ${hit ? '✅ HIT' : '❌ MISS'} (bet=${pred.bet})`);
           updateMatchResult(matchId, finalScore, hit);
+
+          if (sentTelegramIds.has(matchId)) {
+            const betLabel = pred.bet === 'OVER_0_5' ? 'ТБ 0,5' : 'ТМ 0,5';
+            const mark = hit ? '✅ HIT' : '❌ MISS';
+            try {
+              await sendTelegramMessage(`⚽ *${pred.home} - ${pred.away}*\n🏁 Фінал: ${res.homeScore}:${res.awayScore}\n📊 Прогноз: ${betLabel}\n${mark}`);
+              console.log(`  ✓ Telegram FT result sent`);
+            } catch (e) { console.log(`  Telegram FT err: ${e.message}`); }
+          }
+
           activePredictions.delete(matchId);
         } else if (res.finished) {
           console.log(`  ⚽ ${pred.home} - ${pred.away}: FT but score not parsed (${res.title})`);

@@ -8,7 +8,7 @@ const LIVE_BASE_URL = process.env.LIVE_BASE_URL || 'https://m.flashscore.ua/?s=2
 const LIVE_BASE_URL_ALT = process.env.LIVE_BASE_URL_ALT || null;
 const LIVE_POLL_INTERVAL_MS = Number(process.env.LIVE_POLL_INTERVAL_MS || 180000);
 const STATS_CONCURRENCY = Number(process.env.STATS_CONCURRENCY || 2);
-const MAX_TELEGRAM_MINUTE = 84;
+const MAX_TELEGRAM_MINUTE = 90;
 /** Мінімальна хвилина матчу для відбору кандидата (0–120). Env: LIVE_MIN_CANDIDATE_MINUTE */
 const _rawMinCand = Number(process.env.LIVE_MIN_CANDIDATE_MINUTE);
 const LIVE_MIN_CANDIDATE_MINUTE = Math.min(
