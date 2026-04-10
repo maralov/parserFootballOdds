@@ -1,12 +1,17 @@
+/**
+ * Ваги калібровані за 7-денним аналізом (214 матчів, 2026-04-03..09).
+ * Дискримінатори dry/lateGoal: xgOnTargetXgot ×4.94, bigChances ×3.46, xG ×1.92
+ * cornerKicks медіана dry=5 vs lateGoal=5 — не дискримінує → мінімальна вага.
+ */
 const WEIGHTS_2H = {
-  shotsOnTarget:          0.18,
-  bigChances:             0.16,
-  expectedGoalsXg:        0.14,
+  bigChances:             0.20,
+  xgOnTargetXgot:         0.15,
+  expectedGoalsXg:        0.18,
+  shotsOnTarget:          0.16,
   touchesInOppositionBox: 0.10,
   shotsInsideTheBox:      0.08,
   goalkeeperSaves:        0.06,
-  cornerKicks:            0.03,
-  xgOnTargetXgot:         0.03,
+  cornerKicks:            0.01,
   errorsLeadingToShot:    0.02,
 };
 
@@ -25,6 +30,18 @@ const MINUTE_ADJ = {
   '76-80': 0,
   '81-84': -0.03,
   '85+': -0.08,
+};
+
+/**
+ * Під часові вікна 60–70 / 70–80 / 80+ (лайв-модель): рання фаза — сухіша, пізня — тиск на гол.
+ * Калібровано за pctWithGoal: 60-70=17.3%, 70-80=15.0%, 80-90+=22.4% (30.4% у 85+).
+ */
+const WINDOW_MINUTE_ADJ = {
+  '60-69': -0.03,
+  '70-75': 0,
+  '76-80': 0.03,
+  '81-84': 0.05,
+  '85+':   0.12,
 };
 
 function clamp01(v) { return Math.max(0, Math.min(1, v)); }
@@ -49,7 +66,7 @@ function computeDryPenalty(features) {
   if (raw.bigChances === 0 || raw.bigChances === null) {
     if ((raw.totalShots ?? 0) > 5) penalty += 0.15;
   }
-  if ((raw.touchesInOppositionBox ?? 99) < 10) penalty += 0.10;
+  if ((raw.touchesInOppositionBox ?? 99) < 18) penalty += 0.10;
   if (raw.shotsOutsideTheBox !== null && raw.shotsInsideTheBox !== null &&
       raw.shotsOutsideTheBox > raw.shotsInsideTheBox) penalty += 0.08;
   if ((raw.clearances ?? 0) + (raw.interceptions ?? 0) > 15) penalty += 0.05;
@@ -86,7 +103,7 @@ function scoreMatch(features) {
   const minuteAdj = MINUTE_ADJ[features.minuteBucket] || 0;
 
   const pGoal = Number(clamp01(
-    0.30 + goalPressureIndex - dryPenalty + trendBonus + imbalanceBonus + minuteAdj
+    0.45 + goalPressureIndex - dryPenalty + trendBonus + imbalanceBonus + minuteAdj
   ).toFixed(3));
   const pDry = Number((1 - pGoal).toFixed(3));
 
@@ -102,4 +119,33 @@ function scoreMatch(features) {
   };
 }
 
-module.exports = { scoreMatch };
+function scoreMatchWindowed(features) {
+  const norm = features.normalized || {};
+  const gpi2H = weightedSum(norm, WEIGHTS_2H);
+  const gpiO = weightedSum(norm, WEIGHTS_OVERALL);
+  const goalPressureIndex = Number((gpi2H * 0.7 + gpiO * 0.3).toFixed(4));
+
+  const dryPenalty = computeDryPenalty(features);
+  const trendBonus = computeTrendBonus(features);
+  const imbalanceBonus = computeImbalanceBonus(features);
+  const minuteAdj = WINDOW_MINUTE_ADJ[features.minuteBucket] || 0;
+
+  const pGoal = Number(clamp01(
+    0.45 + goalPressureIndex - dryPenalty + trendBonus + imbalanceBonus + minuteAdj
+  ).toFixed(3));
+  const pDry = Number((1 - pGoal).toFixed(3));
+
+  return {
+    goalPressureIndex: Number(goalPressureIndex.toFixed(3)),
+    dryPenalty: Number(dryPenalty.toFixed(3)),
+    trendBonus, imbalanceBonus, minuteAdj,
+    pGoal, pDry,
+    confidence: features.confidence,
+    minuteBucket: features.minuteBucket,
+    dataQualityScore: features.dataQualityScore,
+    statsStatus: features.statsStatus,
+    scoringMode: 'windowed',
+  };
+}
+
+module.exports = { scoreMatch, scoreMatchWindowed };

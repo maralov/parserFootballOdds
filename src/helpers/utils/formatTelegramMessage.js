@@ -5,18 +5,19 @@ function getTimingLabel(minute) {
   return '🔴 Занадто пізно';
 }
 
-function formatTelegramMessage(match, decision, desktopUrl) {
+function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
   const { home, away, league, score, minute } = match;
-  const { bet, confidence, pGoal, pDry, edge, reason } = decision;
+  const { bet, confidence, pGoal, pDry, edge, reason, odds1X2, impliedProb, timeWindow } = decision;
 
   const betLabel = bet === 'OVER_0_5' ? 'ТБ 0,5' : bet === 'UNDER_0_5' ? 'ТМ 0,5' : 'SKIP';
   const emoji = bet === 'OVER_0_5' ? '📈' : bet === 'UNDER_0_5' ? '📉' : '⏸️';
 
-  const confMap = { high: '🔥 Висока', medium: '💪 Середня', low: '⚠️ Низька' };
+  const confMap = { high: '🔥 Висока', medium: '⚠️ Середня', low: '🔅 Низька' };
   const confText = confMap[confidence] || confidence;
   const timing = getTimingLabel(minute);
+  const windowLabel = timeWindow ? ` [${timeWindow}]` : '';
 
-  let msg = `${emoji} *${betLabel}*
+  let msg = `${emoji} *${betLabel}*${windowLabel}
 
 🏆 ${home} - ${away}
 📊 ${league}
@@ -25,9 +26,14 @@ function formatTelegramMessage(match, decision, desktopUrl) {
 
 🎯 *P(гол):* ${pGoal ?? 'N/A'} | *P(сухий):* ${pDry ?? 'N/A'}
 💪 *Впевненість:* ${confText}
-🧮 *Edge:* ${edge ?? '-'}
+🧮 *Edge:* ${edge ?? '-'}`;
 
-📝 ${reason}`;
+  if (odds1X2) {
+    const drawImpl = impliedProb?.draw != null ? ` (нічия ${(impliedProb.draw * 100).toFixed(1)}%)` : '';
+    msg += `\n💰 *Кф:* ${odds1X2.home} / ${odds1X2.draw} / ${odds1X2.away}${drawImpl}`;
+  }
+
+  msg += `\n\n📝 ${reason}`;
 
   if (desktopUrl) {
     msg += `\n\n🔗 [Flashscore](${desktopUrl})`;

@@ -24,11 +24,52 @@ function saveDayMatches(date, matches) {
   fs.writeFileSync(path.join(getDayDir(date), 'matches.json'), JSON.stringify(matches, null, 2), 'utf8');
 }
 
+/**
+ * Один запис на матч (dedup по matchId). predictions — об'єкт по часових вікнах:
+ * { '60-70': {...}, '70-80': {...}, '80-90+': {...} }
+ */
 function appendMatchEntry(entry, date) {
   const current = loadDayMatches(date);
-  const idx = current.findIndex((m) => m.matchId === entry.matchId && m.minuteBucket === entry.minuteBucket);
-  if (idx === -1) current.push(entry);
-  else current[idx] = { ...current[idx], ...entry };
+  const idx = current.findIndex((m) => m.matchId === entry.matchId);
+
+  if (idx === -1) {
+    const stored = { ...entry };
+    if (entry.prediction && entry.prediction.timeWindow) {
+      stored.predictions = {
+        [entry.prediction.timeWindow]: { ...entry.prediction, minute: entry.minute, timestamp: entry.timestamp },
+      };
+      stored.latestPrediction = entry.prediction;
+    } else {
+      stored.predictions = {};
+      stored.latestPrediction = null;
+    }
+    delete stored.prediction;
+    current.push(stored);
+  } else {
+    const ex = current[idx];
+    if (entry.minute !== undefined) ex.minute = entry.minute;
+    if (entry.minuteBucket) ex.minuteBucket = entry.minuteBucket;
+    if (entry.desktopUrl) ex.desktopUrl = entry.desktopUrl;
+    if (entry.statsStatus && entry.statsStatus !== 'unavailable') {
+      ex.statsStatus = entry.statsStatus;
+      ex.stats = entry.stats;
+    }
+    if (entry.indices) ex.indices = entry.indices;
+    if (entry.pipeline) ex.pipeline = entry.pipeline;
+    if (entry.skipReason !== undefined) ex.skipReason = entry.skipReason;
+    ex.timestamp = entry.timestamp;
+
+    if (entry.prediction && entry.prediction.timeWindow) {
+      if (!ex.predictions) ex.predictions = {};
+      ex.predictions[entry.prediction.timeWindow] = {
+        ...entry.prediction,
+        minute: entry.minute,
+        timestamp: entry.timestamp,
+      };
+      ex.latestPrediction = entry.prediction;
+    }
+  }
+
   saveDayMatches(date, current);
 }
 
@@ -66,6 +107,10 @@ function createMatchLogEntry(match, features, scored, decision, extras = {}) {
       pDry: decision.pDry,
       edge: decision.edge,
       reason: decision.reason,
+      timeWindow: decision.timeWindow,
+      signalEligible: decision.signalEligible,
+      impliedProb: decision.impliedProb,
+      odds1X2: decision.odds1X2,
     } : null,
     pipeline: extras.pipeline || 'candidate_found',
     skipReason: extras.skipReason || null,
@@ -82,18 +127,16 @@ function saveDaySummary(date, summary) {
 
 function updateMatchResult(matchId, finalScore, hit, date) {
   const current = loadDayMatches(date);
-  let updated = false;
-  for (let i = current.length - 1; i >= 0; i--) {
-    if (current[i].matchId === matchId && current[i].pipeline === 'decision_made') {
-      current[i].resultChecked = true;
-      current[i].actualResult = finalScore;
-      current[i].hit = hit;
-      current[i].resultTimestamp = toISO();
-      updated = true;
-    }
+  const idx = current.findIndex((m) => m.matchId === matchId);
+  if (idx !== -1) {
+    current[idx].resultChecked = true;
+    current[idx].actualResult = finalScore;
+    current[idx].hit = hit;
+    current[idx].resultTimestamp = toISO();
+    saveDayMatches(date, current);
+    return true;
   }
-  if (updated) saveDayMatches(date, current);
-  return updated;
+  return false;
 }
 
 module.exports = { getDateString, getDayDir, loadDayMatches, saveDayMatches, appendMatchEntry, createMatchLogEntry, updateMatchResult, saveDaySummary };
