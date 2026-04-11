@@ -8,6 +8,7 @@ function getTimingLabel(minute) {
 function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
   const { home, away, league, score, minute } = match;
   const { bet, confidence, pGoal, pDry, edge, reason, odds1X2, impliedProb, timeWindow } = decision;
+  const { redCards } = opts;
 
   const betLabel = bet === 'OVER_0_5' ? 'ТБ 0,5' : bet === 'UNDER_0_5' ? 'ТМ 0,5' : 'SKIP';
   const emoji = bet === 'OVER_0_5' ? '📈' : bet === 'UNDER_0_5' ? '📉' : '⏸️';
@@ -31,6 +32,10 @@ function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
   if (odds1X2) {
     const drawImpl = impliedProb?.draw != null ? ` (нічия ${(impliedProb.draw * 100).toFixed(1)}%)` : '';
     msg += `\n💰 *Кф:* ${odds1X2.home} / ${odds1X2.draw} / ${odds1X2.away}${drawImpl}`;
+  }
+
+  if (redCards && (redCards.homeRedCards > 0 || redCards.awayRedCards > 0)) {
+    msg += `\n🟥 Червона картка: ${home} ×${redCards.homeRedCards} / ${away} ×${redCards.awayRedCards}`;
   }
 
   msg += `\n\n📝 ${reason}`;

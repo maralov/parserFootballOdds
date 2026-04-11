@@ -8,6 +8,7 @@ const { buildFeatures } = require('./src/pipeline/featureBuilder');
 const { scoreMatchWindowed } = require('./src/pipeline/modelScoring');
 const { decideWindowedLiveBet } = require('./src/pipeline/windowedLiveDecision');
 const { fetchOdds1X2 } = require('./src/scrapeLiveOdds');
+const { scrapeMatchIncidents } = require('./src/scrapeMatchIncidents');
 const { createRunContext } = require('./src/pipeline/contracts');
 const { appendMatchEntry, createMatchLogEntry, updateMatchResult } = require('./src/pipeline/dailyLogger');
 const { checkYesterdayResults } = require('./src/pipeline/resultChecker');
@@ -123,9 +124,16 @@ async function mapWithConcurrency(items, limit, fn) {
       console.log(`  Desktop: ${desktopUrl}`);
 
       const statsResult = await scrapeDesktopStats(statPage, desktopUrl, match.id);
+      const incidents = await scrapeMatchIncidents(statPage, match.id);
 
-      const features = { ...buildFeatures(match, statsResult), odds1X2: odds1X2 || null };
-      console.log(`  Features: quality=${features.dataQualityScore}, primary=${features.availablePrimary}, status=${features.statsStatus}`);
+      const features = {
+        ...buildFeatures(match, statsResult),
+        odds1X2: odds1X2 || null,
+        redCards: incidents,
+      };
+      const rcLog = incidents && (incidents.homeRedCards + incidents.awayRedCards) > 0
+        ? ` | redCards=${incidents.homeRedCards}H+${incidents.awayRedCards}A` : '';
+      console.log(`  Features: quality=${features.dataQualityScore}, primary=${features.availablePrimary}, status=${features.statsStatus}${rcLog}`);
 
       if (!features.allowDecision) {
         const isNoStats = features.statsStatus === 'unavailable';
@@ -187,7 +195,7 @@ async function mapWithConcurrency(items, limit, fn) {
 
         if (isNewSignal) {
           try {
-            await sendTelegramMessage(formatTelegramMessage(match, decision, desktopUrl, { flipHint: false }));
+            await sendTelegramMessage(formatTelegramMessage(match, decision, desktopUrl, { redCards: incidents }));
             sentTelegramIds.add(match.id);
             telegramSent = true;
             console.log(`  ✓ Telegram sent`);

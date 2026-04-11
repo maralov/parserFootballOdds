@@ -84,6 +84,28 @@ function computeTrendBonus(features) {
   return 0;
 }
 
+/**
+ * Коригування pGoal при червоних картках.
+ * Команда з вилученим гравцем захищається → суперник тисне → більше голів.
+ * Якщо фаворит грає вдесятьох — аутсайдер тисне ще сильніше.
+ */
+function computeRedCardAdjustment(features) {
+  const rc = features.redCards;
+  if (!rc || (rc.homeRedCards === 0 && rc.awayRedCards === 0)) return 0;
+
+  const totalCards = (rc.homeRedCards || 0) + (rc.awayRedCards || 0);
+  let adj = 0.04 * totalCards;
+
+  const odds = features.odds1X2;
+  if (odds && odds.home > 0 && odds.away > 0) {
+    const favIsHome = odds.home < odds.away;
+    if (favIsHome && rc.homeRedCards > 0) adj += 0.04;   // фаворит-хазяїн -1
+    if (!favIsHome && rc.awayRedCards > 0) adj += 0.04;  // фаворит-гість -1
+  }
+
+  return Math.min(adj, 0.12);
+}
+
 function computeImbalanceBonus(features) {
   const dr = features.dominanceRatio || 0.5;
   if (dr > 0.75) return 0.04;
@@ -129,16 +151,17 @@ function scoreMatchWindowed(features) {
   const trendBonus = computeTrendBonus(features);
   const imbalanceBonus = computeImbalanceBonus(features);
   const minuteAdj = WINDOW_MINUTE_ADJ[features.minuteBucket] || 0;
+  const redCardAdj = computeRedCardAdjustment(features);
 
   const pGoal = Number(clamp01(
-    0.45 + goalPressureIndex - dryPenalty + trendBonus + imbalanceBonus + minuteAdj
+    0.45 + goalPressureIndex - dryPenalty + trendBonus + imbalanceBonus + minuteAdj + redCardAdj
   ).toFixed(3));
   const pDry = Number((1 - pGoal).toFixed(3));
 
   return {
     goalPressureIndex: Number(goalPressureIndex.toFixed(3)),
     dryPenalty: Number(dryPenalty.toFixed(3)),
-    trendBonus, imbalanceBonus, minuteAdj,
+    trendBonus, imbalanceBonus, minuteAdj, redCardAdj,
     pGoal, pDry,
     confidence: features.confidence,
     minuteBucket: features.minuteBucket,

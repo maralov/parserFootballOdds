@@ -25,26 +25,15 @@ function saveDayMatches(date, matches) {
 }
 
 /**
- * Один запис на матч (dedup по matchId). predictions — об'єкт по часових вікнах:
- * { '60-70': {...}, '70-80': {...}, '80-90+': {...} }
+ * Один запис на матч (dedup по matchId).
+ * prediction — flat об'єкт, оновлюється при кожному re-аналізі.
  */
 function appendMatchEntry(entry, date) {
   const current = loadDayMatches(date);
   const idx = current.findIndex((m) => m.matchId === entry.matchId);
 
   if (idx === -1) {
-    const stored = { ...entry };
-    if (entry.prediction && entry.prediction.timeWindow) {
-      stored.predictions = {
-        [entry.prediction.timeWindow]: { ...entry.prediction, minute: entry.minute, timestamp: entry.timestamp },
-      };
-      stored.latestPrediction = entry.prediction;
-    } else {
-      stored.predictions = {};
-      stored.latestPrediction = null;
-    }
-    delete stored.prediction;
-    current.push(stored);
+    current.push({ ...entry });
   } else {
     const ex = current[idx];
     if (entry.minute !== undefined) ex.minute = entry.minute;
@@ -57,17 +46,8 @@ function appendMatchEntry(entry, date) {
     if (entry.indices) ex.indices = entry.indices;
     if (entry.pipeline) ex.pipeline = entry.pipeline;
     if (entry.skipReason !== undefined) ex.skipReason = entry.skipReason;
+    if (entry.prediction) ex.prediction = entry.prediction;
     ex.timestamp = entry.timestamp;
-
-    if (entry.prediction && entry.prediction.timeWindow) {
-      if (!ex.predictions) ex.predictions = {};
-      ex.predictions[entry.prediction.timeWindow] = {
-        ...entry.prediction,
-        minute: entry.minute,
-        timestamp: entry.timestamp,
-      };
-      ex.latestPrediction = entry.prediction;
-    }
   }
 
   saveDayMatches(date, current);
@@ -111,6 +91,8 @@ function createMatchLogEntry(match, features, scored, decision, extras = {}) {
       signalEligible: decision.signalEligible,
       impliedProb: decision.impliedProb,
       odds1X2: decision.odds1X2,
+      minute: match.minute,
+      timestamp: ts,
     } : null,
     pipeline: extras.pipeline || 'candidate_found',
     skipReason: extras.skipReason || null,

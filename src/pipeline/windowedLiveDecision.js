@@ -11,11 +11,14 @@ function getLiveTimeWindow(minute) {
   return 'after';
 }
 
-/** Пороги: сигнал у Telegram лише при features.confidence === 'high'. */
+/**
+ * Пороги калібровані під базову pGoal=0.45.
+ * 60-70: тільки ТМ. 70-80: ТМ або ТБ. 80-90+: тільки ТБ.
+ */
 const THRESHOLDS = {
-  '60-70': { minPDryUnder: 0.56, minPGoalOver: 1 },
-  '70-80': { minPDryUnder: 0.58, minPGoalOver: 0.64 },
-  '80-90+': { minPDryUnder: 1, minPGoalOver: 0.58 },
+  '60-70':  { minPDryUnder: 0.52, minPGoalOver: 1   },
+  '70-80':  { minPDryUnder: 0.54, minPGoalOver: 0.60 },
+  '80-90+': { minPDryUnder: 1,    minPGoalOver: 0.55 },
 };
 
 function buildReason(features, scored, extra = '') {
@@ -151,8 +154,16 @@ function decideWindowedLiveBet(scored, features, prevBet = null) {
 
   // 80-90+
   const flipFromUnder = prevBet === 'UNDER_0_5';
-  if (pGoal >= th.minPGoalOver) {
-    const label = flipFromUnder ? 'ТБ 80+ (зміна з ТМ)' : 'ТБ 80+';
+
+  // Бонус фаворита: якщо явний фаворит (implied > 0.52) — команді невигідно 0:0, вона давить.
+  // Використовується тільки для порівняння з порогом, не змінює pGoal у відповіді.
+  const favBonus = (oc.impliedProb && Math.max(oc.impliedProb.home, oc.impliedProb.away) > 0.52)
+    ? 0.04 : 0;
+  const pGoalForDecision = Math.min(pGoal + favBonus, 1);
+  const favNote = favBonus > 0 ? ' [фаворит+]' : '';
+
+  if (pGoalForDecision >= th.minPGoalOver) {
+    const label = flipFromUnder ? `ТБ 80+ (зміна з ТМ)${favNote}` : `ТБ 80+${favNote}`;
     return make('OVER_0_5', label, true);
   }
   return {
