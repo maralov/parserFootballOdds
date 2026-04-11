@@ -11,7 +11,7 @@ let processedMatchIds = [];
 let sentTelegramIds = [];
 let activePredictions = [];
 let lastResultCheckHour = -1;
-let lastHeartbeat = 0;
+let lastHeartbeat = Date.now();
 let lastDayKey = dateKeyLocal();
 const HEARTBEAT_INTERVAL_MS = 60 * 60 * 1000;
 
@@ -46,11 +46,6 @@ async function sendHeartbeat(runCount) {
 (async () => {
   const isContinuous = process.argv.includes('--watch');
   console.log(`🚀 Starting live scraping${isContinuous ? ' (watch mode)' : ''}...`);
-
-  if (isContinuous) {
-    lastHeartbeat = 0;
-    await sendHeartbeat(0);
-  }
 
   let runCount = 0;
 

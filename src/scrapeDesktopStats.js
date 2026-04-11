@@ -1,6 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const { toISO } = require('./helpers/date');
+const {
+  MOBILE_STAT_LABEL_MAP,
+  parseMobileFlashscoreStatsFromDocument,
+} = require('./parsers/mobileFlashscoreStats');
 
 const TIMEOUT = 20000;
 const DESKTOP_BASE = 'https://www.flashscore.ua/match';
@@ -267,6 +271,35 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
     }
   }
 
+  if (!results.overall) {
+    const statsUrl = `https://m.flashscore.ua/match/${matchId}/?t=stats`;
+    try {
+      await page.goto(statsUrl, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
+      await page.waitForTimeout(1200);
+      try {
+        await page.waitForSelector('#statistics-mobi, [class*="statisticsMobi"]', { timeout: 8000 });
+      } catch {
+        /* інколи блок уже в DOM без очікуваного селектора */
+      }
+      const stats = await page.evaluate(
+        parseMobileFlashscoreStatsFromDocument,
+        JSON.stringify(MOBILE_STAT_LABEL_MAP)
+      );
+      if (stats && Object.keys(stats.sum || {}).length > 0) {
+        results.overall = stats;
+        results.diagnostics.mobileFallbackOverall = {
+          url: statsUrl,
+          metricCount: Object.keys(stats.sum).length,
+        };
+        console.log(
+          `  [stats] ${matchId} mobile fallback overall: ${Object.keys(stats.sum).length} metrics`
+        );
+      }
+    } catch (e) {
+      logDomAlert(matchId, 'MOBILE_STATS_FALLBACK', e.message);
+    }
+  }
+
   if (results.overall && results.secondHalf) results.statsStatus = 'both';
   else if (results.secondHalf) results.statsStatus = '2h_only';
   else if (results.overall) results.statsStatus = 'overall_only';
@@ -282,30 +315,70 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
 }
 
 async function checkMatchResult(page, matchId) {
-  const url = `${DESKTOP_BASE}/${matchId}/`;
+  const mobileUrl = `https://m.flashscore.ua/match/${matchId}/?s=2`;
   try {
-    await page.goto(url, { waitUntil: 'networkidle2', timeout: TIMEOUT });
+    await page.goto(mobileUrl, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
+    await page.waitForTimeout(1200);
 
-    return await page.evaluate(() => {
-      const title = document.title || '';
-      const body = (document.body?.textContent || '').slice(0, 8000).toLowerCase();
+    const mobileResult = await page.evaluate(() => {
+      const body = document.body?.textContent || '';
+      const bodyLower = body.toLowerCase();
 
       const finished =
-        /завершено|закінч|finished|full[\s-]?time/.test(body) ||
-        /після матчу|after match|після додаткового/.test(body);
+        /завершено|закінч|finished|full[\s-]?time|після матчу|after match/.test(bodyLower);
 
-      const scoreMatch = title.match(/\b(\d+)\s*[-–:]\s*(\d+)\b/);
+      // Парсимо рахунок з жирного тексту виду "1:0" або "2:1"
+      const boldEls = document.querySelectorAll('b, strong, h1, h2, h3');
       let homeScore = null;
       let awayScore = null;
-      if (scoreMatch) {
-        homeScore = parseInt(scoreMatch[1], 10);
-        awayScore = parseInt(scoreMatch[2], 10);
+      for (const el of boldEls) {
+        const m = el.textContent.trim().match(/^(\d+):(\d+)$/);
+        if (m) {
+          homeScore = parseInt(m[1], 10);
+          awayScore = parseInt(m[2], 10);
+          break;
+        }
       }
 
-      return { finished, homeScore, awayScore, title: title.slice(0, 200) };
+      // Fallback: перший числовий N:M у тексті (не 0:0 якщо є інший)
+      if (homeScore === null) {
+        const scoreMatch = body.match(/\b(\d+):(\d+)\b/);
+        if (scoreMatch) {
+          homeScore = parseInt(scoreMatch[1], 10);
+          awayScore = parseInt(scoreMatch[2], 10);
+        }
+      }
+
+      // Якщо рахунок не 0:0 (гол вже забитий) — вважаємо "вирішено" навіть якщо матч іще не завершений
+      const hasGoal = homeScore !== null && (homeScore + awayScore) > 0;
+      const resolvedByGoal = hasGoal && !finished;
+
+      return { finished, resolvedByGoal, homeScore, awayScore, body: body.slice(0, 400) };
     });
+
+    // Якщо не спрацювало — fallback на desktop
+    if (mobileResult.homeScore === null) {
+      await page.goto(`${DESKTOP_BASE}/${matchId}/`, { waitUntil: 'networkidle2', timeout: TIMEOUT });
+      return await page.evaluate(() => {
+        const title = document.title || '';
+        const body = (document.body?.textContent || '').slice(0, 8000).toLowerCase();
+        const finished =
+          /завершено|закінч|finished|full[\s-]?time/.test(body) ||
+          /після матчу|after match/.test(body);
+        const sm = title.match(/\b(\d+)\s*[-–:]\s*(\d+)\b/);
+        return {
+          finished,
+          resolvedByGoal: false,
+          homeScore: sm ? parseInt(sm[1], 10) : null,
+          awayScore: sm ? parseInt(sm[2], 10) : null,
+          title: title.slice(0, 200),
+        };
+      });
+    }
+
+    return mobileResult;
   } catch (e) {
-    return { finished: false, homeScore: null, awayScore: null, error: e.message };
+    return { finished: false, resolvedByGoal: false, homeScore: null, awayScore: null, error: e.message };
   }
 }
 

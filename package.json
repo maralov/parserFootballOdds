@@ -7,6 +7,7 @@
     "parse": "node index.js",
     "live": "node index.js",
     "live:watch": "node index.js --watch",
+    "verify:live-parser": "node scripts/verifyLiveParser.js",
     "live:watch:anytime": "node index.js --watch --ignore-hours",
     "live:watch:3m": "LIVE_POLL_INTERVAL_MS=180000 node index.js --watch",
     "live:watch:3m:anytime": "LIVE_POLL_INTERVAL_MS=180000 node index.js --watch --ignore-hours",
@@ -23,7 +24,13 @@
     "deploy": "bash scripts/deploy.sh",
     "build": "node scripts/rebuild.js",
     "analyze": "node scripts/analyze.js",
-    "analyze-g": "node scripts/analyzeGroupe.js"
+    "analyze-g": "node scripts/analyzeGroupe.js",
+    "historical:scrape": "node scripts/scrapeHistorical.js",
+    "historical:scrape:7d": "node scripts/scrapeHistorical.js --days 7",
+    "historical:scrape:1d": "node scripts/scrapeHistorical.js --days 1",
+    "historical:scrape:2-7": "node scripts/scrapeHistorical.js --from-day 2 --to-day 7",
+    "historical:analyze": "node scripts/analyzeHistorical.js",
+    "historical:analyze:research": "node scripts/analyzeHistorical.js --research"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +38,7 @@
     "axios": "^1.6.2",
     "dayjs": "^1.11.13",
     "dotenv": "^16.3.1",
+    "exceljs": "^4.4.0",
     "prettier": "^3.1.1",
     "puppeteer": "^21.5.2"
   }
