@@ -10,7 +10,7 @@ const { decideWindowedLiveBet } = require('./src/pipeline/windowedLiveDecision')
 const { fetchOdds1X2 } = require('./src/scrapeLiveOdds');
 const { scrapeMatchIncidents } = require('./src/scrapeMatchIncidents');
 const { createRunContext } = require('./src/pipeline/contracts');
-const { appendMatchEntry, createMatchLogEntry, updateMatchResult } = require('./src/pipeline/dailyLogger');
+const { appendMatchEntry, createMatchLogEntry, updateMatchResult, markTelegramInitialSent } = require('./src/pipeline/dailyLogger');
 const { checkYesterdayResults } = require('./src/pipeline/resultChecker');
 const { wasDailyReportTelegramSent, markDailyReportTelegramSent } = require('./src/pipeline/telegramDailyReportGate');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
@@ -29,6 +29,46 @@ const sentTelegramIds = workerData?.sentTelegramIds
 const activePredictions = workerData?.activePredictions
   ? new Map(workerData.activePredictions)
   : new Map();
+
+// При першому запуску (або після перезапуску) відновлюємо стан із денного лога,
+// щоб уникнути дублювання Telegram-повідомлень
+if (sentTelegramIds.size === 0 && processedMatchIds.size === 0) {
+  try {
+    const { loadDayMatches } = require('./src/pipeline/dailyLogger');
+    const todayEntries = loadDayMatches();
+    for (const m of todayEntries) {
+      // Відновлюємо матчі що вже були оброблені (без статистики або перманентний скіп)
+      if (m.pipeline === 'no_decision_data' || m.pipeline === 'resolve_failed') {
+        processedMatchIds.add(m.matchId);
+      }
+      if (
+        m.telegramInitialSent === true ||
+        (m.prediction?.signalEligible === true && m.prediction?.bet && m.prediction.bet !== 'SKIP')
+      ) {
+        sentTelegramIds.add(m.matchId);
+      }
+      if (m.prediction?.bet && m.prediction.bet !== 'SKIP' && !m.resultChecked) {
+        activePredictions.set(m.matchId, {
+          bet: m.prediction.bet,
+          confidence: m.prediction.confidence,
+          desktopUrl: m.desktopUrl,
+          mobileUrl: m.mobileUrl,
+          home: m.home,
+          away: m.away,
+          league: m.league,
+          betHistory: Array.isArray(m.betHistory) && m.betHistory.length > 0
+            ? m.betHistory.map((h) => ({ bet: h.bet, timeWindow: h.timeWindow, minute: h.minute }))
+            : [{ bet: m.prediction.bet, timeWindow: m.prediction.timeWindow, minute: m.minute }],
+        });
+      }
+    }
+    if (sentTelegramIds.size > 0 || processedMatchIds.size > 0) {
+      console.log(`  [restore] Відновлено з лога: ${processedMatchIds.size} оброблених, ${sentTelegramIds.size} надісланих TG, ${activePredictions.size} активних ставок`);
+    }
+  } catch (e) {
+    console.log(`  [restore] Помилка відновлення стану: ${e.message}`);
+  }
+}
 
 let lastResultCheckHour = workerData?.lastResultCheckHour ?? -1;
 
@@ -178,14 +218,29 @@ async function mapWithConcurrency(items, limit, fn) {
         const confChanged = prev && prev.confidence !== decision.confidence;
         const betChanged = prev && prev.bet !== decision.bet;
 
+        const prevHist = prev?.betHistory && prev.betHistory.length > 0
+          ? [...prev.betHistory]
+          : (prev?.bet ? [{ bet: prev.bet, timeWindow: prev.timeWindow, minute: prev.minute }] : []);
+        let betHistory = prevHist;
+        if (decision.bet !== 'SKIP') {
+          const last = betHistory[betHistory.length - 1];
+          if (!last || last.bet !== decision.bet || last.timeWindow !== decision.timeWindow) {
+            betHistory = [...betHistory, { bet: decision.bet, timeWindow: decision.timeWindow, minute: match.minute }];
+          }
+        }
+
         activePredictions.set(match.id, {
           bet: decision.bet,
           confidence: decision.confidence,
           desktopUrl,
+          mobileUrl: match.matchDetailsUrl,
           home: match.home,
           away: match.away,
           league: match.league,
+          betHistory,
         });
+
+        const matchUrl = desktopUrl || `https://m.flashscore.ua/match/${match.id}/`;
 
         const alreadySentTg = sentTelegramIds.has(match.id);
         const canPush = decision.signalEligible && match.minute <= MAX_TELEGRAM_MINUTE;
@@ -197,18 +252,23 @@ async function mapWithConcurrency(items, limit, fn) {
           try {
             await sendTelegramMessage(formatTelegramMessage(match, decision, desktopUrl, { redCards: incidents }));
             sentTelegramIds.add(match.id);
+            markTelegramInitialSent(match.id);
             telegramSent = true;
             console.log(`  ✓ Telegram sent`);
           } catch (e) { console.log(`  Telegram err: ${e.message}`); }
         } else if (isUpdate) {
           const changeLabel = isFlipToOver
-            ? 'Фліп ТМ→ТБ (оновлення сценарію)'
-            : (betChanged ? `прогноз → ${decision.bet === 'OVER_0_5' ? 'ТБ' : 'ТМ'}` : `впевненість → ${decision.confidence}`);
+            ? '🔀 Фліп ТМ→ТБ (оновлення сценарію)'
+            : (betChanged ? `📊 Прогноз → ${decision.bet === 'OVER_0_5' ? 'ТБ 0,5' : 'ТМ 0,5'}` : `📶 Впевненість → ${decision.confidence}`);
           try {
-            await sendTelegramMessage(
-              `🔄 *Оновлення (${match.minute}')* — ${decision.timeWindow}\n🏆 ${match.home} - ${match.away}\n${changeLabel}\n` +
-              `🎯 P(гол): ${decision.pGoal} | P(сухий): ${decision.pDry}\n📝 ${decision.reason}`
-            );
+            const flipMsg =
+              `🔄 *Оновлення (${match.minute}')* — ${decision.timeWindow}\n` +
+              `🏆 ${match.home} - ${match.away}\n` +
+              `${changeLabel}\n` +
+              `🎯 P(гол): ${decision.pGoal} | P(сухий): ${decision.pDry}\n` +
+              `📝 ${decision.reason}\n\n` +
+              `🔗 [Flashscore](${matchUrl})`;
+            await sendTelegramMessage(flipMsg);
             telegramSent = true;
             console.log(`  ✓ Telegram update sent (${changeLabel})`);
           } catch (e) { console.log(`  Telegram update err: ${e.message}`); }
@@ -246,20 +306,35 @@ async function mapWithConcurrency(items, limit, fn) {
         if (isResolved && res.homeScore !== null) {
           const total = res.homeScore + res.awayScore;
           const actualOver = total > 0;
-          const predictedOver = pred.bet === 'OVER_0_5';
-          const hit = actualOver === predictedOver;
           const finalScore = { home: res.homeScore, away: res.awayScore };
-          const statusLabel = res.finished ? 'FT' : `${res.homeScore}:${res.awayScore} (ще тривае, гол вирішив)`;
+          const statusLabel = res.finished ? 'FT' : `${res.homeScore}:${res.awayScore} (ще триває, гол вирішив)`;
 
-          console.log(`  ⚽ ${pred.home} - ${pred.away}: ${res.homeScore}:${res.awayScore} ${res.finished ? '[FT]' : '[GOAL→resolved]'} → ${hit ? '✅ HIT' : '❌ MISS'} (bet=${pred.bet})`);
-          updateMatchResult(matchId, finalScore, hit);
+          const legs = pred.betHistory && pred.betHistory.length > 0
+            ? pred.betHistory.map((h) => h.bet)
+            : [pred.bet];
+          const hitLegs = legs.map((bet) => ({
+            bet,
+            hit: actualOver === (bet === 'OVER_0_5'),
+          }));
+          const hit = hitLegs.length ? hitLegs[hitLegs.length - 1].hit : actualOver === (pred.bet === 'OVER_0_5');
+
+          console.log(
+            `  ⚽ ${pred.home} - ${pred.away}: ${res.homeScore}:${res.awayScore} ${res.finished ? '[FT]' : '[GOAL→resolved]'} → ` +
+            hitLegs.map((l) => `${l.bet === 'OVER_0_5' ? 'ТБ' : 'ТМ'}:${l.hit ? '✅' : '❌'}`).join(' ')
+          );
+          updateMatchResult(matchId, finalScore, { hit, hitLegs });
 
           if (sentTelegramIds.has(matchId)) {
-            const betLabel = pred.bet === 'OVER_0_5' ? 'ТБ 0,5' : 'ТМ 0,5';
-            const mark = hit ? '✅ HIT' : '❌ MISS';
-            const suffix = res.finished ? `🏁 Фінал: ${res.homeScore}:${res.awayScore}` : `⚽ Гол на ${res.homeScore}:${res.awayScore} — прогноз вирішено`;
+            const suffix = res.finished ? `🏁 Фінал: ${res.homeScore}:${res.awayScore}` : `⚽ Рахунок: ${res.homeScore}:${res.awayScore} — прогноз вирішено`;
+            const legLines = hitLegs.map((l) => {
+              const lbl = l.bet === 'OVER_0_5' ? 'ТБ 0,5' : 'ТМ 0,5';
+              return `${lbl}: ${l.hit ? '✅' : '❌'}`;
+            }).join('\n');
+            const resultUrl = pred.desktopUrl || pred.mobileUrl || `https://m.flashscore.ua/match/${matchId}/`;
             try {
-              await sendTelegramMessage(`⚽ *${pred.home} - ${pred.away}*\n${suffix}\n📊 Прогноз: ${betLabel}\n${mark}`);
+              await sendTelegramMessage(
+                `⚽ *${pred.home} - ${pred.away}*\n${suffix}\n\n*По ногах:*\n${legLines}\n\n🔗 [Flashscore](${resultUrl})`
+              );
               console.log(`  ✓ Telegram result sent (${statusLabel})`);
             } catch (e) { console.log(`  Telegram result err: ${e.message}`); }
           }

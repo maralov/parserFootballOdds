@@ -47,34 +47,62 @@ function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
   return msg;
 }
 
-function formatConfLine(label, data) {
+function formatStatLine(label, data) {
   if (!data || data.total === 0) return null;
   const rate = data.hitRate !== null ? (data.hitRate * 100).toFixed(0) + '%' : '—';
-  return `${label}: ${data.hits}/${data.checked} (${rate}) з ${data.total}`;
+  const unchecked = data.total - data.checked;
+  const uncheckedStr = unchecked > 0 ? ` (+${unchecked} без фіналу)` : '';
+  return `${label}: ${data.hits}/${data.checked} (${rate})${uncheckedStr}`;
 }
 
 function formatDailySummary(summary) {
   if (!summary) return null;
 
   const resolved = summary.resolved ?? (summary.hits + summary.misses);
-  let msg = `📊 *Звіт за ${summary.date}*
+  const hitRateStr = summary.hitRate !== null ? (summary.hitRate * 100).toFixed(1) + '%' : 'N/A';
+  const pending = summary.actionable - resolved;
 
-🔢 Всього записів: ${summary.totalMatches}
-🎯 З прогнозами: ${summary.actionable}
-✅ Влучень: ${summary.hits}
-❌ Промахів: ${summary.misses}
-📋 З результатом: ${resolved}${resolved < summary.actionable ? ` (ще ${summary.actionable - resolved} без фіналу)` : ''}
-📈 *Hit-rate:* ${summary.hitRate !== null ? (summary.hitRate * 100).toFixed(1) + '%' : 'N/A'}`;
+  const rowsNote = summary.totalRowsInLog != null && summary.uniqueMatches != null && summary.totalRowsInLog > summary.uniqueMatches
+    ? `\n⚠️ У файлі ${summary.totalRowsInLog} рядків / ${summary.uniqueMatches} унік. матчів (старі дублікати враховані в підсумку)`
+    : '';
 
+  const legsResolved = summary.legsResolved ?? 0;
+  const legHitStr = summary.legHitRate != null ? (summary.legHitRate * 100).toFixed(1) + '%' : 'N/A';
+
+  let msg = `📊 *Підсумок ${summary.date}*${rowsNote}
+
+🔢 Унікальних матчів зі ставкою: ${summary.actionable}
+📎 Ніг ставок (ТМ/ТБ за історією): ${summary.stakeLegsPlanned ?? '—'}
+✅ Влучень (остання нога): ${summary.hits} | ❌ Промахів: ${summary.misses}
+📋 Матчів з фіналом: ${resolved}${pending > 0 ? ` (${pending} без фіналу)` : ''}
+📈 *Hit-rate (остання нога): ${hitRateStr}*
+🧩 Ніг з результатом: ${legsResolved} → ✅ ${summary.legHits ?? 0} | ❌ ${summary.legMisses ?? 0}
+📊 *Hit-rate по ногах: ${legHitStr}*`;
+
+  // Розбивка по типу ставки (окремі ноги ТМ / ТБ)
+  if (summary.byBetType) {
+    const tmLine = formatStatLine('📉 ТМ 0,5 (ніги)', summary.byBetType.UNDER_0_5);
+    const tbLine = formatStatLine('📈 ТБ 0,5 (ніги)', summary.byBetType.OVER_0_5);
+    const lines = [tmLine, tbLine].filter(Boolean);
+    if (lines.length > 0) {
+      msg += '\n\n*По типу ставки (ніги):*\n' + lines.join('\n');
+    }
+  }
+
+  // Розбивка по впевненості (останній прогноз)
   if (summary.byConfidence) {
     const lines = [
-      formatConfLine('🔥 High', summary.byConfidence.high),
-      formatConfLine('💪 Medium', summary.byConfidence.medium),
-      formatConfLine('⚠️ Low', summary.byConfidence.low),
+      formatStatLine('🔥 High', summary.byConfidence.high),
+      formatStatLine('⚠️ Medium', summary.byConfidence.medium),
+      formatStatLine('🔅 Low', summary.byConfidence.low),
     ].filter(Boolean);
     if (lines.length > 0) {
-      msg += '\n\n*По впевненості:*\n' + lines.join('\n');
+      msg += '\n\n*По впевненості (ост. прогноз):*\n' + lines.join('\n');
     }
+  }
+
+  if (summary.flips > 0) {
+    msg += `\n\n🔀 Матчів з фліпом ТМ→ТБ: ${summary.flips}`;
   }
 
   return msg;

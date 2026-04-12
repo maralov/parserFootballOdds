@@ -26,14 +26,18 @@ function saveDayMatches(date, matches) {
 
 /**
  * Один запис на матч (dedup по matchId).
- * prediction — flat об'єкт, оновлюється при кожному re-аналізі.
+ * prediction — зберігає ОСТАННІЙ NON-SKIP bet: SKIP не перезаписує попередню ставку.
+ * betHistory — масив всіх NON-SKIP ставок (для обліку флів ТМ→ТБ).
  */
 function appendMatchEntry(entry, date) {
   const current = loadDayMatches(date);
   const idx = current.findIndex((m) => m.matchId === entry.matchId);
 
   if (idx === -1) {
-    current.push({ ...entry });
+    const stored = { ...entry };
+    stored.betHistory = [];
+    _applyPrediction(stored, entry);
+    current.push(stored);
   } else {
     const ex = current[idx];
     if (entry.minute !== undefined) ex.minute = entry.minute;
@@ -46,11 +50,48 @@ function appendMatchEntry(entry, date) {
     if (entry.indices) ex.indices = entry.indices;
     if (entry.pipeline) ex.pipeline = entry.pipeline;
     if (entry.skipReason !== undefined) ex.skipReason = entry.skipReason;
-    if (entry.prediction) ex.prediction = entry.prediction;
+    if (entry.telegramInitialSent === true) ex.telegramInitialSent = true;
     ex.timestamp = entry.timestamp;
+    _applyPrediction(ex, entry);
   }
 
   saveDayMatches(date, current);
+}
+
+/**
+ * Застосовує prediction до запису.
+ * SKIP не перезаписує існуючий non-SKIP prediction.
+ * Non-SKIP завжди оновлює prediction і додає в betHistory.
+ */
+function _applyPrediction(stored, entry) {
+  if (!entry.prediction) return;
+
+  const newBet = entry.prediction.bet;
+  const oldBet = stored.prediction?.bet;
+
+  if (newBet !== 'SKIP') {
+    stored.prediction = entry.prediction;
+
+    // betHistory: додаємо тільки якщо ставка або вікно змінились
+    if (!stored.betHistory) stored.betHistory = [];
+    const last = stored.betHistory[stored.betHistory.length - 1];
+    const isDifferent = !last || last.bet !== newBet || last.timeWindow !== entry.prediction.timeWindow;
+    if (isDifferent) {
+      stored.betHistory.push({
+        bet: newBet,
+        timeWindow: entry.prediction.timeWindow,
+        minute: entry.minute,
+        confidence: entry.prediction.confidence,
+        pGoal: entry.prediction.pGoal,
+        pDry: entry.prediction.pDry,
+        timestamp: entry.prediction.timestamp || entry.timestamp,
+      });
+    }
+  } else if (!oldBet || oldBet === 'SKIP') {
+    // Записати SKIP тільки якщо не було попередньої non-SKIP ставки
+    stored.prediction = entry.prediction;
+  }
+  // Якщо oldBet = non-SKIP і newBet = SKIP → НЕ перезаписуємо
 }
 
 function createMatchLogEntry(match, features, scored, decision, extras = {}) {
@@ -107,18 +148,42 @@ function saveDaySummary(date, summary) {
   fs.writeFileSync(path.join(getDayDir(date), 'summary.json'), JSON.stringify(summary, null, 2), 'utf8');
 }
 
-function updateMatchResult(matchId, finalScore, hit, date) {
+/**
+ * @param {boolean|object} hitOrPayload — legacy: boolean; новий формат: { hit, hitLegs?: [{ bet, hit }] }
+ */
+function updateMatchResult(matchId, finalScore, hitOrPayload, date) {
+  const current = loadDayMatches(date);
+  let updated = false;
+  for (let i = 0; i < current.length; i++) {
+    if (current[i].matchId !== matchId) continue;
+    current[i].resultChecked = true;
+    current[i].actualResult = finalScore;
+    if (typeof hitOrPayload === 'boolean') {
+      current[i].hit = hitOrPayload;
+    } else if (hitOrPayload && typeof hitOrPayload === 'object') {
+      current[i].hit = hitOrPayload.hit;
+      if (Array.isArray(hitOrPayload.hitLegs)) current[i].hitLegs = hitOrPayload.hitLegs;
+    }
+    current[i].resultTimestamp = toISO();
+    updated = true;
+  }
+  if (updated) saveDayMatches(date, current);
+  return updated;
+}
+
+/** Позначити що перший сигнал у Telegram вже надіслано (анти-дубль після рестарту). */
+function markTelegramInitialSent(matchId, date) {
   const current = loadDayMatches(date);
   const idx = current.findIndex((m) => m.matchId === matchId);
   if (idx !== -1) {
-    current[idx].resultChecked = true;
-    current[idx].actualResult = finalScore;
-    current[idx].hit = hit;
-    current[idx].resultTimestamp = toISO();
+    current[idx].telegramInitialSent = true;
     saveDayMatches(date, current);
     return true;
   }
   return false;
 }
 
-module.exports = { getDateString, getDayDir, loadDayMatches, saveDayMatches, appendMatchEntry, createMatchLogEntry, updateMatchResult, saveDaySummary };
+module.exports = {
+  getDateString, getDayDir, loadDayMatches, saveDayMatches, appendMatchEntry, createMatchLogEntry,
+  updateMatchResult, markTelegramInitialSent, saveDaySummary,
+};
