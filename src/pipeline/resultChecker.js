@@ -55,6 +55,7 @@ function dedupeByMatchId(matches) {
           timeWindow: r.prediction.timeWindow,
           minute: r.minute,
           timestamp: r.timestamp,
+          confidence: r.prediction.confidence,
         };
         const key = `${h.bet}|${h.timeWindow}|${h.minute}`;
         if (!seen.has(key)) {
@@ -204,7 +205,8 @@ function resolvedLegsForMatch(m) {
   return [];
 }
 
-function buildSummary(matches, dateRef, checked, hits, misses) {
+function buildSummary(matches, dateRef, checked, hits, misses, options = {}) {
+  const persist = options.persist !== false;
   const unique = dedupeByMatchId(matches);
   const actionable = unique.filter(
     (m) => m.pipeline === 'decision_made' && m.prediction?.bet && m.prediction.bet !== 'SKIP'
@@ -300,7 +302,7 @@ function buildSummary(matches, dateRef, checked, hits, misses) {
     generatedAt: toISO(),
   };
 
-  saveDaySummary(dateRef, summary);
+  if (persist) saveDaySummary(dateRef, summary);
   return summary;
 }
 
@@ -308,4 +310,12 @@ async function checkYesterdayResults(page) {
   return checkDayResults(page, getYesterdayDate());
 }
 
-module.exports = { checkYesterdayResults, checkDayResults, getYesterdayDate };
+module.exports = {
+  checkYesterdayResults,
+  checkDayResults,
+  getYesterdayDate,
+  dedupeByMatchId,
+  betLegsFromEntry,
+  resolvedLegsForMatch,
+  buildSummary,
+};

@@ -30,7 +30,9 @@
     "historical:scrape:1d": "node scripts/scrapeHistorical.js --days 1",
     "historical:scrape:2-7": "node scripts/scrapeHistorical.js --from-day 2 --to-day 7",
     "historical:analyze": "node scripts/analyzeHistorical.js",
-    "historical:analyze:research": "node scripts/analyzeHistorical.js --research"
+    "historical:analyze:research": "node scripts/analyzeHistorical.js --research",
+    "report:yesterday": "node scripts/sendYesterdayStakeReport.js",
+    "report:day": "node scripts/sendYesterdayStakeReport.js"
   },
   "author": "",
   "license": "ISC",
