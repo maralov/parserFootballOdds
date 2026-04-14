@@ -32,7 +32,9 @@
     "historical:analyze": "node scripts/analyzeHistorical.js",
     "historical:analyze:research": "node scripts/analyzeHistorical.js --research",
     "report:yesterday": "node scripts/sendYesterdayStakeReport.js",
-    "report:day": "node scripts/sendYesterdayStakeReport.js"
+    "report:day": "node scripts/sendYesterdayStakeReport.js",
+    "model:replay-compare": "node scripts/replayModelCompare.js",
+    "model:replay-compare:strict": "node scripts/replayModelCompare.js --strict-tuned"
   },
   "author": "",
   "license": "ISC",

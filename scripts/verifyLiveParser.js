@@ -16,10 +16,6 @@ const { USER_AGENT, LIVE_BASE_URL, LIVE_MIN_CANDIDATE_MINUTE } = require('../src
   await page.setUserAgent(USER_AGENT);
 
   try {
-    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await page.waitForSelector('#score-data', { timeout: 20000 });
-    await page.waitForTimeout(1200);
-
     const debug = process.env.LIVE_PARSER_DEBUG === '1';
     if (debug) {
       const samples = await page.evaluate(() => {
@@ -49,7 +45,7 @@ const { USER_AGENT, LIVE_BASE_URL, LIVE_MIN_CANDIDATE_MINUTE } = require('../src
       console.log('DEBUG sample live score rows:', JSON.stringify(samples, null, 2));
     }
 
-    const { matches, skippedByMinute, health } = await collectLiveMatches(page, url, { skipNavigation: true });
+    const { matches, skippedByMinute, health } = await collectLiveMatches(page, url);
     console.log('health:', health);
     console.log('candidates (>= min):', matches.length);
     matches.slice(0, 8).forEach((m) => {

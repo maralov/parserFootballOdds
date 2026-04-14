@@ -34,7 +34,6 @@ const MINUTE_ADJ = {
 
 /**
  * Під часові вікна 60–70 / 70–80 / 80+ (лайв-модель): рання фаза — сухіша, пізня — тиск на гол.
- * Калібровано за pctWithGoal: 60-70=17.3%, 70-80=15.0%, 80-90+=22.4% (30.4% у 85+).
  */
 const WINDOW_MINUTE_ADJ = {
   '60-69': -0.03,
@@ -141,16 +140,26 @@ function scoreMatch(features) {
   };
 }
 
-function scoreMatchWindowed(features) {
+/**
+ * @param {object} [scoringOpts]
+ * @param {Record<string, number>} [scoringOpts.windowMinuteAdj] — заміна WINDOW_MINUTE_ADJ (replay baseline)
+ * @param {Record<string, number>} [scoringOpts.weights2H]
+ * @param {Record<string, number>} [scoringOpts.weightsOverall]
+ */
+function scoreMatchWindowed(features, scoringOpts = {}) {
+  const w2h = scoringOpts.weights2H || WEIGHTS_2H;
+  const wOv = scoringOpts.weightsOverall || WEIGHTS_OVERALL;
+  const wMinAdj = scoringOpts.windowMinuteAdj || WINDOW_MINUTE_ADJ;
+
   const norm = features.normalized || {};
-  const gpi2H = weightedSum(norm, WEIGHTS_2H);
-  const gpiO = weightedSum(norm, WEIGHTS_OVERALL);
+  const gpi2H = weightedSum(norm, w2h);
+  const gpiO = weightedSum(norm, wOv);
   const goalPressureIndex = Number((gpi2H * 0.7 + gpiO * 0.3).toFixed(4));
 
   const dryPenalty = computeDryPenalty(features);
   const trendBonus = computeTrendBonus(features);
   const imbalanceBonus = computeImbalanceBonus(features);
-  const minuteAdj = WINDOW_MINUTE_ADJ[features.minuteBucket] || 0;
+  const minuteAdj = wMinAdj[features.minuteBucket] || 0;
   const redCardAdj = computeRedCardAdjustment(features);
 
   const pGoal = Number(clamp01(
@@ -171,4 +180,4 @@ function scoreMatchWindowed(features) {
   };
 }
 
-module.exports = { scoreMatch, scoreMatchWindowed };
+module.exports = { scoreMatch, scoreMatchWindowed, WINDOW_MINUTE_ADJ, WEIGHTS_2H, WEIGHTS_OVERALL };

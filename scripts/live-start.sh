@@ -19,7 +19,7 @@ if [[ -f "$PID_FILE" ]]; then
 fi
 
 cd "$ROOT_DIR"
-nohup caffeinate -i npm run live:watch:3m >>"$LOG_FILE" 2>&1 &
+nohup caffeinate -i npm run live:watch:3m:anytime >>"$LOG_FILE" 2>&1 &
 NEW_PID=$!
 echo "$NEW_PID" >"$PID_FILE"
 

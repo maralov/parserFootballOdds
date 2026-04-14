@@ -13,10 +13,22 @@ const { createRunContext } = require('./src/pipeline/contracts');
 const { appendMatchEntry, createMatchLogEntry, updateMatchResult, markTelegramInitialSent } = require('./src/pipeline/dailyLogger');
 const { checkYesterdayResults } = require('./src/pipeline/resultChecker');
 const { wasDailyReportTelegramSent, markDailyReportTelegramSent } = require('./src/pipeline/telegramDailyReportGate');
+const { analyzeStakeLegs, formatStakeAnalysisMessage } = require('./src/pipeline/stakeDayAnalysis');
+const { loadDayMatches } = require('./src/pipeline/dailyLogger');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
 const { formatTelegramMessage, formatDailySummary } = require('./src/helpers/utils/formatTelegramMessage');
-const { USER_AGENT, STATS_CONCURRENCY, MAX_TELEGRAM_MINUTE, isWithinWorkingHours } = require('./src/helpers/constants');
+const {
+  USER_AGENT,
+  STATS_CONCURRENCY,
+  MAX_TELEGRAM_MINUTE,
+  isWithinWorkingHours,
+  LIVE_SNAPSHOT_MIN_MINUTE,
+} = require('./src/helpers/constants');
+const { recordAndComputeDeltas, pruneSnapshotStore } = require('./src/pipeline/statsSnapshotTracker');
 const { dayjs } = require('./src/helpers/date');
+
+const REPORT_AVG_ODDS = Number(process.env.REPORT_AVG_ODDS || 2.5);
+const REPORT_STAKE_PCT_BANK = Number(process.env.REPORT_STAKE_PCT_BANK || 5);
 
 const processedMatchIds = workerData?.processedMatchIds
   ? new Set(workerData.processedMatchIds)
@@ -30,11 +42,13 @@ const activePredictions = workerData?.activePredictions
   ? new Map(workerData.activePredictions)
   : new Map();
 
+/** Зрізи raw2H для дельт між циклами (не серіалізується; після рестарту знову з 2-го тику). */
+const statsSnapshotStore = new Map();
+
 // При першому запуску (або після перезапуску) відновлюємо стан із денного лога,
 // щоб уникнути дублювання Telegram-повідомлень
 if (sentTelegramIds.size === 0 && processedMatchIds.size === 0) {
   try {
-    const { loadDayMatches } = require('./src/pipeline/dailyLogger');
     const todayEntries = loadDayMatches();
     for (const m of todayEntries) {
       // Відновлюємо матчі що вже були оброблені (без статистики або перманентний скіп)
@@ -89,6 +103,7 @@ async function mapWithConcurrency(items, limit, fn) {
   const isFirstRun = lastResultCheckHour === -1;
   const needResultCheck = (hr === 10 && lastResultCheckHour !== 10) || isFirstRun;
 
+  // Фаза A: перевірка «вчора» + усі ранкові Telegram (підсумок + аналіз ніг/P&L). Live-скрапінг — лише після цього.
   if (needResultCheck) {
     console.log(`  ${isFirstRun ? 'First run' : '10:00'} — checking yesterday results`);
     const browser = await launchBrowser();
@@ -102,9 +117,21 @@ async function mapWithConcurrency(items, limit, fn) {
         const msg = formatDailySummary(summary);
         if (msg) {
           if (!wasDailyReportTelegramSent(summary.date)) {
-            await sendTelegramMessage(msg);
-            markDailyReportTelegramSent(summary.date);
-            console.log(`  Daily report Telegram sent (date=${summary.date})`);
+            try {
+              await sendTelegramMessage(msg);
+              const dateRef = dayjs(summary.date);
+              const stakeMsg = formatStakeAnalysisMessage(
+                analyzeStakeLegs(loadDayMatches(dateRef), dateRef, {
+                  avgOdds: REPORT_AVG_ODDS,
+                  stakeFrac: REPORT_STAKE_PCT_BANK / 100,
+                })
+              );
+              await sendTelegramMessage(stakeMsg);
+              markDailyReportTelegramSent(summary.date);
+              console.log(`  Daily report + stake analysis Telegram sent (date=${summary.date})`);
+            } catch (e) {
+              console.log(`  Morning Telegram err: ${e.message}`);
+            }
           } else {
             console.log(`  Daily report already sent for ${summary.date} — skip Telegram`);
           }
@@ -121,6 +148,7 @@ async function mapWithConcurrency(items, limit, fn) {
     return;
   }
 
+  console.log('  Запуск live-скрапера (після ранкових Telegram, якщо були).');
   const browser = await launchBrowser();
   const page = await browser.newPage();
   await page.setUserAgent(USER_AGENT);
@@ -171,6 +199,16 @@ async function mapWithConcurrency(items, limit, fn) {
         odds1X2: odds1X2 || null,
         redCards: incidents,
       };
+      if (match.minute >= LIVE_SNAPSHOT_MIN_MINUTE && features.raw2H) {
+        features.liveTrajectory = recordAndComputeDeltas(
+          statsSnapshotStore,
+          match.id,
+          match.minute,
+          features.raw2H
+        );
+      } else {
+        features.liveTrajectory = null;
+      }
       const rcLog = incidents && (incidents.homeRedCards + incidents.awayRedCards) > 0
         ? ` | redCards=${incidents.homeRedCards}H+${incidents.awayRedCards}A` : '';
       console.log(`  Features: quality=${features.dataQualityScore}, primary=${features.availablePrimary}, status=${features.statsStatus}${rcLog}`);
@@ -197,8 +235,14 @@ async function mapWithConcurrency(items, limit, fn) {
       const prevBet = activePredictions.get(match.id)?.bet ?? null;
       const scored = scoreMatchWindowed(features);
       const decision = decideWindowedLiveBet(scored, features, prevBet);
+      const lt = features.liveTrajectory;
+      const deltaLine =
+        lt && lt.snapshotCount >= 2 && lt.deltas
+          ? ` | Δ2H SOT=${lt.deltas.shotsOnTarget ?? '—'} xG=${lt.deltas.expectedGoalsXg ?? '—'} (Δ${lt.deltaMatchMinutes ?? '—'}′ матчу)`
+          : '';
       console.log(
         `  Score (windowed): pGoal=${scored.pGoal}, pDry=${scored.pDry} | ${decision.timeWindow} → ${decision.bet}` +
+        deltaLine +
         (decision.signalEligible ? ' [TG]' : '')
       );
 
@@ -291,8 +335,10 @@ async function mapWithConcurrency(items, limit, fn) {
   const tgSent = results.filter((r) => r.telegramSent).length;
   console.log(`\nDone: ${results.length} analyzed, ${actionable.length} actionable, ${tgSent} TG sent`);
 
-  // --- Check finished matches ---
   const currentCandidateIds = new Set(allMatches.map((m) => m.id));
+  pruneSnapshotStore(statsSnapshotStore, currentCandidateIds);
+
+  // --- Check finished matches ---
   const maybeFinished = [...activePredictions.entries()].filter(([id]) => !currentCandidateIds.has(id));
 
   if (maybeFinished.length > 0) {

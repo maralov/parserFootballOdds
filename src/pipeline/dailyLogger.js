@@ -48,6 +48,7 @@ function appendMatchEntry(entry, date) {
       ex.stats = entry.stats;
     }
     if (entry.indices) ex.indices = entry.indices;
+    if (entry.liveTrajectory !== undefined) ex.liveTrajectory = entry.liveTrajectory;
     if (entry.pipeline) ex.pipeline = entry.pipeline;
     if (entry.skipReason !== undefined) ex.skipReason = entry.skipReason;
     if (entry.telegramInitialSent === true) ex.telegramInitialSent = true;
@@ -113,6 +114,7 @@ function createMatchLogEntry(match, features, scored, decision, extras = {}) {
       overall: features?.rawOverall || null,
       secondHalf: features?.raw2H || null,
     },
+    liveTrajectory: features?.liveTrajectory || null,
     indices: scored ? {
       goalPressureIndex: scored.goalPressureIndex,
       dryPenalty: scored.dryPenalty,

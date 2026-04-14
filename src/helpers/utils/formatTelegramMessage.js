@@ -1,7 +1,7 @@
 function getTimingLabel(minute) {
   if (minute <= 65) return '🟢 Раннє вікно';
   if (minute <= 75) return '🟡 Основне вікно';
-  if (minute <= 84) return '🟠 Пізнє вікно';
+  if (minute <= 89) return '🟠 Пізнє вікно';
   return '🔴 Занадто пізно';
 }
 
