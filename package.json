@@ -34,7 +34,8 @@
     "report:yesterday": "node scripts/sendYesterdayStakeReport.js",
     "report:day": "node scripts/sendYesterdayStakeReport.js",
     "model:replay-compare": "node scripts/replayModelCompare.js",
-    "model:replay-compare:strict": "node scripts/replayModelCompare.js --strict-tuned"
+    "model:replay-compare:strict": "node scripts/replayModelCompare.js --strict-tuned",
+    "test": "node --test test"
   },
   "author": "",
   "license": "ISC",

@@ -1,8 +1,9 @@
 /**
- * Replay baseline vs tuned windowed model на збережених рядках логів.
+ * Replay: baseline windowed v1 vs production v1 vs live model v2 на збережених рядках логів.
+ * v2: snapshotHistoryV2 з логу або один синтетичний зріз з stats.secondHalf.
  * Використання: node scripts/replayModelCompare.js [--days N] [--strict-tuned] [--no-gates] [YYYY-MM-DD ...]
- * --strict-tuned — третій стовпчик: агресивні пороги (на малій вибірці знижували hit-rate).
- * --no-gates — без liveModelGates (лише пороги моделі).
+ * --strict-tuned — агресивні пороги v1 (на малій вибірці знижували hit-rate).
+ * --no-gates — без applyLiveModelGates для v1 і v2.
  * За замовчуванням: останні 7 днів з data/logs.
  */
 require('dotenv').config({ path: require('path').join(__dirname, '..', '.env') });
@@ -11,12 +12,16 @@ const path = require('path');
 const baseline = require('../src/replay/baselineParams');
 const {
   buildFeaturesFromLogRow,
+  rowToMatch,
   inferPrevBet,
   actualTotalGoals,
   hitForBet,
   listLogDates,
   lastResolvedDecisionRows,
 } = require('../src/replay/logReplay');
+const { evaluateLiveModelV2 } = require('../src/pipeline/liveModelV2');
+const { sliceRaw2HForStore } = require('../src/pipeline/matchSnapshotStore');
+const { applyLiveModelGates } = require('../src/pipeline/liveModelGates');
 const { scoreMatchWindowed } = require('../src/pipeline/modelScoring');
 const { decideWindowedLiveBet, THRESHOLDS, PGOAL_MAX_FOR_UNDER_60_70_DEFAULT, TIE_BREAK_MIN_MARGIN_DEFAULT } = require('../src/pipeline/windowedLiveDecision');
 const {
@@ -102,6 +107,26 @@ function rate(h, n) {
   return `${((h / n) * 100).toFixed(1)}%`;
 }
 
+/** Історія зрізів з логу або один синтетичний зріз з row.stats.secondHalf. */
+function rowToSnapshotHistoryV2(row) {
+  if (row.snapshotHistoryV2 && row.snapshotHistoryV2.length > 0) {
+    return row.snapshotHistoryV2;
+  }
+  const half = row.stats?.secondHalf;
+  const sum = half?.sum || half;
+  const slice = sliceRaw2HForStore(sum);
+  if (!slice) return [];
+  return [
+    {
+      matchMinute: row.minute,
+      score: row.score,
+      raw2H: slice,
+      homeRedCards: 0,
+      awayRedCards: 0,
+    },
+  ];
+}
+
 function printAgg(label, agg) {
   const n = agg.hits + agg.misses;
   console.log(`\n${label}`);
@@ -132,6 +157,7 @@ function main() {
 
   const baseAgg = emptyAgg();
   const tunedAgg = emptyAgg();
+  const v2Agg = emptyAgg();
   const strictAgg = runStrict ? emptyAgg() : null;
   const loggedAgg = emptyAgg();
   let processed = 0;
@@ -159,8 +185,26 @@ function main() {
     const scoredN = scoreMatchWindowed(features, {});
     const decN = decideWindowedLiveBet(scoredN, features, prevBet, { skipQualityGates: skipGates });
 
+    const historyV2 = rowToSnapshotHistoryV2(row);
+    const matchObj = rowToMatch(row);
+    const { decision: rawV2 } = evaluateLiveModelV2({
+      match: matchObj,
+      features,
+      odds1X2: features.odds1X2,
+      incidents: { homeRedCards: 0, awayRedCards: 0 },
+      history: historyV2,
+      secondHalfSides: row.stats?.secondHalf?.home && row.stats?.secondHalf?.away
+        ? { home: row.stats.secondHalf.home, away: row.stats.secondHalf.away }
+        : null,
+      previousState: null,
+      prevBet,
+      liveTrajectory: row.liveTrajectory || null,
+    });
+    const decV2 = skipGates ? rawV2 : applyLiveModelGates(features, rawV2);
+
     bump(baseAgg, decB, goals);
     bump(tunedAgg, decN, goals);
+    bump(v2Agg, decV2, goals);
 
     if (runStrict) {
       const scoredS = scoreMatchWindowed(features, { windowMinuteAdj: STRICT_TUNED.windowMinuteAdj });
@@ -182,7 +226,7 @@ function main() {
     }
   }
 
-  console.log('=== Replay моделі на логах (останній рядок на matchId, decision_made + фінал) ===');
+  console.log('=== Replay моделей на логах (останній рядок на matchId, decision_made + фінал) ===');
   console.log(`Дні: ${dates.join(', ')}`);
   console.log(`Унікальних матчів з фіналом і decision_made: ${eligible.length}`);
   console.log(`З allowDecision (replay): ${processed} (без метрик: ${skippedNoFeatures})`);
@@ -199,7 +243,8 @@ function main() {
   console.log('  Підказка: жорсткіші пороги на малій вибірці знижували hit-rate; див. baselineParams + scoringOpts у replay.');
 
   printAgg('Baseline (знімок до змін)', baseAgg);
-  printAgg('Production (поточний код, збігається з baseline при тих самих константах)', tunedAgg);
+  printAgg('Windowed v1 (production scoring + decideWindowedLiveBet)', tunedAgg);
+  printAgg('Live model v2 (снэпшоти з логу або 1 синтетичний зріз)', v2Agg);
   if (runStrict && strictAgg) {
     printAgg('Експеримент --strict-tuned (жорсткі пороги; не рекомендовано без більшої вибірки)', strictAgg);
   }

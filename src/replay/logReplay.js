@@ -99,6 +99,7 @@ function lastResolvedDecisionRows(logsRoot, dateStrs) {
 
 module.exports = {
   buildFeaturesFromLogRow,
+  rowToMatch,
   inferPrevBet,
   actualTotalGoals,
   hitForBet,

@@ -9,11 +9,15 @@ const LIVE_BASE_URL_ALT = process.env.LIVE_BASE_URL_ALT || null;
 const LIVE_POLL_INTERVAL_MS = Number(process.env.LIVE_POLL_INTERVAL_MS || 180000);
 const STATS_CONCURRENCY = Number(process.env.STATS_CONCURRENCY || 2);
 const MAX_TELEGRAM_MINUTE = 90;
-/** Мінімальна хвилина матчу для відбору кандидата (0–120). Env: LIVE_MIN_CANDIDATE_MINUTE */
+/**
+ * Мінімальна хвилина матчу для відбору кандидата 0:0 (0–120).
+ * За замовчуванням 52 — щоб до початку вікна 60+ встигли накопичитись ≥2 зрізи raw2H між циклами опитування.
+ * Env: LIVE_MIN_CANDIDATE_MINUTE
+ */
 const _rawMinCand = Number(process.env.LIVE_MIN_CANDIDATE_MINUTE);
 const LIVE_MIN_CANDIDATE_MINUTE = Math.min(
   120,
-  Math.max(0, Number.isFinite(_rawMinCand) ? _rawMinCand : 60)
+  Math.max(0, Number.isFinite(_rawMinCand) ? _rawMinCand : 52)
 );
 const LIVE_IGNORE_HOURS = /^(1|true|yes)$/i.test(String(process.env.LIVE_IGNORE_HOURS || ''));
 const { hour: dHour, dayOfWeek } = require('./date');
@@ -74,10 +78,29 @@ const LIVE_70_80_TIE_BREAK_MARGIN = Math.max(
   envFloat(process.env.LIVE_70_80_TIE_BREAK_MARGIN, 0)
 );
 
-/** З якої хвилини матчу збирати зрізи raw2H для дельт (MVP). */
+/**
+ * З якої хвилини матчу збирати зрізи raw2H для дельт.
+ * За замовчуванням узгоджено з LIVE_MIN_CANDIDATE_MINUTE (52), щоб перший цикл кандидата вже писав зріз.
+ * Env: LIVE_SNAPSHOT_MIN_MINUTE
+ */
 const LIVE_SNAPSHOT_MIN_MINUTE = Math.min(
   120,
-  Math.max(0, envInt(process.env.LIVE_SNAPSHOT_MIN_MINUTE, 55))
+  Math.max(0, envInt(process.env.LIVE_SNAPSHOT_MIN_MINUTE, 52))
+);
+
+/**
+ * Пауза (мс) і повторний scrape desktop-статистики в тому ж циклі, якщо вже ≥60′, а зрізів менше ніж LIVE_V2_UNDER_CONFIRM_SNAPSHOTS.
+ * 0 = вимкнено (достатньо раннього кандидата + наступних циклів). Env: LIVE_SNAPSHOT_SECOND_PASS_MS
+ */
+const LIVE_SNAPSHOT_SECOND_PASS_MS = Math.max(
+  0,
+  Math.min(120000, envInt(process.env.LIVE_SNAPSHOT_SECOND_PASS_MS, 0))
+);
+
+/** Початок вікон рішень v2 (60–70, …). Має збігатися з getLiveTimeWindow у liveModelV2. Env: LIVE_DECISION_WINDOW_START_MINUTE */
+const LIVE_DECISION_WINDOW_START_MINUTE = Math.min(
+  120,
+  Math.max(0, envInt(process.env.LIVE_DECISION_WINDOW_START_MINUTE, 60))
 );
 
 /** Гейт ТМ 60–70: SKIP якщо між тиками різкий приріст тиску (дельта 2H). */
@@ -93,11 +116,63 @@ const LIVE_SNAPSHOT_BURST_MIN_XG = Math.max(
   envFloat(process.env.LIVE_SNAPSHOT_BURST_MIN_XG, 0.25)
 );
 
+/** Крок «логічного» сегмента для нормалізації приросту (хв). Env: LIVE_SEGMENT_STEP_MINUTES */
+const LIVE_SEGMENT_STEP_MINUTES = Math.max(
+  1,
+  Math.min(20, envInt(process.env.LIVE_SEGMENT_STEP_MINUTES, 5))
+);
+
+/** Макс. зрізів raw2H на матч у пам’яті та в лозі. Env: LIVE_SNAPSHOT_HISTORY_MAX */
+const LIVE_SNAPSHOT_HISTORY_MAX = Math.max(
+  4,
+  Math.min(60, envInt(process.env.LIVE_SNAPSHOT_HISTORY_MAX, 24))
+);
+
+/** Кінець вікна «60–70» (хв матчу). Env: LIVE_WINDOW_END_60_70 */
+const LIVE_WINDOW_END_60_70 = Math.max(
+  61,
+  Math.min(89, envInt(process.env.LIVE_WINDOW_END_60_70, 70))
+);
+
+/** Кінець вікна «70–80». Має бути > LIVE_WINDOW_END_60_70. Env: LIVE_WINDOW_END_70_80 */
+const _rawW80 = envInt(process.env.LIVE_WINDOW_END_70_80, 80);
+const LIVE_WINDOW_END_70_80 = Math.max(
+  LIVE_WINDOW_END_60_70 + 1,
+  Math.min(100, Number.isFinite(_rawW80) ? _rawW80 : 80)
+);
+
+/** Мінімум signalQuality для Telegram (0–1). Env: LIVE_V2_MIN_SIGNAL_QUALITY_TELEGRAM */
+const LIVE_V2_MIN_SIGNAL_QUALITY_TELEGRAM = Math.max(
+  0,
+  Math.min(1, envFloat(process.env.LIVE_V2_MIN_SIGNAL_QUALITY_TELEGRAM, 0.4))
+);
+
+/** Скільки зрізів потрібно для ТМ у 60–70. Env: LIVE_V2_UNDER_CONFIRM_SNAPSHOTS */
+const LIVE_V2_UNDER_CONFIRM_SNAPSHOTS = Math.max(
+  1,
+  Math.min(8, envInt(process.env.LIVE_V2_UNDER_CONFIRM_SNAPSHOTS, 2))
+);
+
+/** Пороги рішень v2 (після applyOddsContext). */
+const LIVE_V2_PDRY_MIN_60_70 = Math.max(0.35, Math.min(0.85, envFloat(process.env.LIVE_V2_PDRY_MIN_60_70, 0.52)));
+const LIVE_V2_PGOAL_MAX_60_70 = Math.max(0.35, Math.min(0.65, envFloat(process.env.LIVE_V2_PGOAL_MAX_60_70, 0.48)));
+const LIVE_V2_PGOAL_MIN_70_80 = Math.max(0.45, Math.min(0.9, envFloat(process.env.LIVE_V2_PGOAL_MIN_70_80, 0.58)));
+const LIVE_V2_PDRY_MIN_70_80 = Math.max(0.45, Math.min(0.9, envFloat(process.env.LIVE_V2_PDRY_MIN_70_80, 0.54)));
+const LIVE_V2_PGOAL_MIN_80 = Math.max(0.45, Math.min(0.95, envFloat(process.env.LIVE_V2_PGOAL_MIN_80, 0.55)));
+
+/** Сплеск 2H для блокування ТМ 60–70 (як раніше burst gate). Env: LIVE_V2_BURST_* */
+const LIVE_V2_BURST_MIN_SOT = Math.max(0, envFloat(process.env.LIVE_V2_BURST_MIN_SOT, LIVE_SNAPSHOT_BURST_MIN_SOT));
+const LIVE_V2_BURST_MIN_XG = Math.max(0, envFloat(process.env.LIVE_V2_BURST_MIN_XG, LIVE_SNAPSHOT_BURST_MIN_XG));
+
+/** Пізній сплеск: сегмент vs середнє 2H. Env: LIVE_V2_LATE_SURGE_RATIO */
+const LIVE_V2_LATE_SURGE_RATIO = Math.max(1, envFloat(process.env.LIVE_V2_LATE_SURGE_RATIO, 1.18));
+
 module.exports = {
   USER_AGENTS, USER_AGENT, BASE_URL,
   LIVE_BASE_URL, LIVE_BASE_URL_ALT, LIVE_POLL_INTERVAL_MS, STATS_CONCURRENCY,
   MAX_TELEGRAM_MINUTE,
   LIVE_MIN_CANDIDATE_MINUTE,
+  LIVE_DECISION_WINDOW_START_MINUTE,
   isWithinWorkingHours,
   LIVE_QUALITY_GATES_ENABLED,
   LIVE_BET_MIN_PRIMARY_METRICS,
@@ -106,7 +181,22 @@ module.exports = {
   LIVE_MIN_DECISION_EDGE,
   LIVE_70_80_TIE_BREAK_MARGIN,
   LIVE_SNAPSHOT_MIN_MINUTE,
+  LIVE_SNAPSHOT_SECOND_PASS_MS,
   LIVE_SNAPSHOT_BURST_GATE_ENABLED,
   LIVE_SNAPSHOT_BURST_MIN_SOT,
   LIVE_SNAPSHOT_BURST_MIN_XG,
+  LIVE_SEGMENT_STEP_MINUTES,
+  LIVE_SNAPSHOT_HISTORY_MAX,
+  LIVE_WINDOW_END_60_70,
+  LIVE_WINDOW_END_70_80,
+  LIVE_V2_MIN_SIGNAL_QUALITY_TELEGRAM,
+  LIVE_V2_UNDER_CONFIRM_SNAPSHOTS,
+  LIVE_V2_PDRY_MIN_60_70,
+  LIVE_V2_PGOAL_MAX_60_70,
+  LIVE_V2_PGOAL_MIN_70_80,
+  LIVE_V2_PDRY_MIN_70_80,
+  LIVE_V2_PGOAL_MIN_80,
+  LIVE_V2_BURST_MIN_SOT,
+  LIVE_V2_BURST_MIN_XG,
+  LIVE_V2_LATE_SURGE_RATIO,
 };

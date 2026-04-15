@@ -5,30 +5,29 @@ const { launchBrowser } = require('./src/browser');
 const scrapeLiveMatches = require('./src/scrapeLiveMatches');
 const { resolveDesktopUrl, scrapeDesktopStats, checkMatchResult } = require('./src/scrapeDesktopStats');
 const { buildFeatures } = require('./src/pipeline/featureBuilder');
-const { scoreMatchWindowed } = require('./src/pipeline/modelScoring');
-const { decideWindowedLiveBet } = require('./src/pipeline/windowedLiveDecision');
+const { evaluateLiveModelV2 } = require('./src/pipeline/liveModelV2');
+const { applyLiveModelGates } = require('./src/pipeline/liveModelGates');
 const { fetchOdds1X2 } = require('./src/scrapeLiveOdds');
 const { scrapeMatchIncidents } = require('./src/scrapeMatchIncidents');
 const { createRunContext } = require('./src/pipeline/contracts');
 const { appendMatchEntry, createMatchLogEntry, updateMatchResult, markTelegramInitialSent } = require('./src/pipeline/dailyLogger');
 const { checkYesterdayResults } = require('./src/pipeline/resultChecker');
-const { wasDailyReportTelegramSent, markDailyReportTelegramSent } = require('./src/pipeline/telegramDailyReportGate');
-const { analyzeStakeLegs, formatStakeAnalysisMessage } = require('./src/pipeline/stakeDayAnalysis');
 const { loadDayMatches } = require('./src/pipeline/dailyLogger');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
-const { formatTelegramMessage, formatDailySummary } = require('./src/helpers/utils/formatTelegramMessage');
+const { formatTelegramMessage } = require('./src/helpers/utils/formatTelegramMessage');
+const { sanitizeLeagueName, sanitizeTeams, formatBetLabel } = require('./src/helpers/utils/normalizeMatchText');
 const {
   USER_AGENT,
   STATS_CONCURRENCY,
   MAX_TELEGRAM_MINUTE,
   isWithinWorkingHours,
   LIVE_SNAPSHOT_MIN_MINUTE,
+  LIVE_SNAPSHOT_SECOND_PASS_MS,
+  LIVE_DECISION_WINDOW_START_MINUTE,
+  LIVE_V2_UNDER_CONFIRM_SNAPSHOTS,
 } = require('./src/helpers/constants');
-const { recordAndComputeDeltas, pruneSnapshotStore } = require('./src/pipeline/statsSnapshotTracker');
+const { appendSnapshot, pruneSnapshotStore, seedSnapshots } = require('./src/pipeline/matchSnapshotStore');
 const { dayjs } = require('./src/helpers/date');
-
-const REPORT_AVG_ODDS = Number(process.env.REPORT_AVG_ODDS || 2.5);
-const REPORT_STAKE_PCT_BANK = Number(process.env.REPORT_STAKE_PCT_BANK || 5);
 
 const processedMatchIds = workerData?.processedMatchIds
   ? new Set(workerData.processedMatchIds)
@@ -42,11 +41,26 @@ const activePredictions = workerData?.activePredictions
   ? new Map(workerData.activePredictions)
   : new Map();
 
-/** Зрізи raw2H для дельт між циклами (не серіалізується; після рестарту знову з 2-го тику). */
-const statsSnapshotStore = new Map();
+/** Історія зрізів raw2H на матч (відновлюється з snapshotHistoryV2 у лозі кожного циклу воркера). */
+const matchSnapshotStore = new Map();
+/** Останній currentState моделі v2 для зміни сценарію між тиками. */
+const lastModelStateByMatchId = new Map();
 
-// При першому запуску (або після перезапуску) відновлюємо стан із денного лога,
-// щоб уникнути дублювання Telegram-повідомлень
+// Відновлення снэпшотів і стану v2 з лога + при першому проході — TG / predictions
+try {
+  const todayEntries = loadDayMatches();
+  for (const m of todayEntries) {
+    if (m.matchId && Array.isArray(m.snapshotHistoryV2) && m.snapshotHistoryV2.length > 0) {
+      seedSnapshots(matchSnapshotStore, m.matchId, m.snapshotHistoryV2);
+    }
+    if (m.matchId && m.modelV2 && m.modelV2.currentState != null) {
+      lastModelStateByMatchId.set(m.matchId, m.modelV2.currentState);
+    }
+  }
+} catch (e) {
+  console.log(`  [restore] snapshot/modelV2: ${e.message}`);
+}
+
 if (sentTelegramIds.size === 0 && processedMatchIds.size === 0) {
   try {
     const todayEntries = loadDayMatches();
@@ -94,6 +108,23 @@ async function mapWithConcurrency(items, limit, fn) {
   return result;
 }
 
+function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
+  const src = Array.isArray(betHistory) && betHistory.length > 0
+    ? betHistory
+    : (fallbackBet ? [{ bet: fallbackBet, timeWindow: null, minute: null }] : []);
+
+  const out = [];
+  let prevBet = null;
+  for (const h of src) {
+    const bet = h?.bet;
+    if (!bet || bet === 'SKIP') continue;
+    if (bet === prevBet) continue;
+    out.push({ bet, timeWindow: h.timeWindow || 'unknown', minute: h.minute ?? null });
+    prevBet = bet;
+  }
+  return out;
+}
+
 (async () => {
   const runCtx = createRunContext();
   const now = dayjs();
@@ -114,28 +145,7 @@ async function mapWithConcurrency(items, limit, fn) {
       if (summary) {
         const r = summary.resolved ?? (summary.hits + summary.misses);
         console.log(`  Yesterday: ${summary.hits}/${r} hits (${summary.actionable} з прогнозом)`);
-        const msg = formatDailySummary(summary);
-        if (msg) {
-          if (!wasDailyReportTelegramSent(summary.date)) {
-            try {
-              await sendTelegramMessage(msg);
-              const dateRef = dayjs(summary.date);
-              const stakeMsg = formatStakeAnalysisMessage(
-                analyzeStakeLegs(loadDayMatches(dateRef), dateRef, {
-                  avgOdds: REPORT_AVG_ODDS,
-                  stakeFrac: REPORT_STAKE_PCT_BANK / 100,
-                })
-              );
-              await sendTelegramMessage(stakeMsg);
-              markDailyReportTelegramSent(summary.date);
-              console.log(`  Daily report + stake analysis Telegram sent (date=${summary.date})`);
-            } catch (e) {
-              console.log(`  Morning Telegram err: ${e.message}`);
-            }
-          } else {
-            console.log(`  Daily report already sent for ${summary.date} — skip Telegram`);
-          }
-        }
+        console.log(`  Daily summary Telegram disabled (date=${summary.date})`);
       }
       lastResultCheckHour = hr;
     } catch (e) { console.log(`  Result check err: ${e.message}`); }
@@ -192,20 +202,55 @@ async function mapWithConcurrency(items, limit, fn) {
       console.log(`  Desktop: ${desktopUrl}`);
 
       const statsResult = await scrapeDesktopStats(statPage, desktopUrl, match.id);
-      const incidents = await scrapeMatchIncidents(statPage, match.id);
+      let incidents = await scrapeMatchIncidents(statPage, match.id);
 
-      const features = {
+      let features = {
         ...buildFeatures(match, statsResult),
         odds1X2: odds1X2 || null,
         redCards: incidents,
       };
+      let history = [];
+      let liveTrajectory = null;
       if (match.minute >= LIVE_SNAPSHOT_MIN_MINUTE && features.raw2H) {
-        features.liveTrajectory = recordAndComputeDeltas(
-          statsSnapshotStore,
-          match.id,
-          match.minute,
-          features.raw2H
-        );
+        let snap = appendSnapshot(matchSnapshotStore, match.id, {
+          matchMinute: match.minute,
+          score: match.score,
+          raw2H: features.raw2H,
+          redCards: incidents,
+        });
+        history = snap.history;
+        liveTrajectory = snap.liveTrajectory;
+        features.liveTrajectory = liveTrajectory;
+
+        const secondPassMs = LIVE_SNAPSHOT_SECOND_PASS_MS;
+        if (
+          secondPassMs > 0 &&
+          match.minute >= LIVE_DECISION_WINDOW_START_MINUTE &&
+          history.length < LIVE_V2_UNDER_CONFIRM_SNAPSHOTS
+        ) {
+          console.log(
+            `  ⏳ Другий зріз у циклі: пауза ${secondPassMs / 1000}s (зараз зрізів ${history.length}/${LIVE_V2_UNDER_CONFIRM_SNAPSHOTS})…`
+          );
+          await new Promise((r) => setTimeout(r, secondPassMs));
+          const statsResult2 = await scrapeDesktopStats(statPage, desktopUrl, match.id);
+          incidents = await scrapeMatchIncidents(statPage, match.id);
+          features = {
+            ...buildFeatures(match, statsResult2),
+            odds1X2: odds1X2 || null,
+            redCards: incidents,
+          };
+          if (features.raw2H) {
+            const snap2 = appendSnapshot(matchSnapshotStore, match.id, {
+              matchMinute: match.minute,
+              score: match.score,
+              raw2H: features.raw2H,
+              redCards: incidents,
+            });
+            history = snap2.history;
+            liveTrajectory = snap2.liveTrajectory;
+            features.liveTrajectory = liveTrajectory;
+          }
+        }
       } else {
         features.liveTrajectory = null;
       }
@@ -232,26 +277,58 @@ async function mapWithConcurrency(items, limit, fn) {
         return;
       }
 
+      if (match.minute < LIVE_DECISION_WINDOW_START_MINUTE) {
+        console.log(
+          `  ⏳ До вікна рішень v2 (${LIVE_DECISION_WINDOW_START_MINUTE}′): зрізів=${history.length}, хв=${match.minute} — без моделі`
+        );
+        appendMatchEntry(
+          createMatchLogEntry(match, features, null, null, {
+            desktopUrl,
+            pipeline: 'snapshot_warmup',
+            feed: match.feed,
+            feedUrl: match.feedUrl,
+            skipReason: 'before_decision_window',
+            snapshotHistoryV2: history.length ? history : null,
+          })
+        );
+        return;
+      }
+
       const prevBet = activePredictions.get(match.id)?.bet ?? null;
-      const scored = scoreMatchWindowed(features);
-      const decision = decideWindowedLiveBet(scored, features, prevBet);
+      const previousState = lastModelStateByMatchId.get(match.id) ?? null;
+      const { modelV2, decision: rawDecision, scoredSummary } = evaluateLiveModelV2({
+        match,
+        features,
+        odds1X2: odds1X2 || null,
+        incidents,
+        history,
+        secondHalfSides: statsResult.secondHalf,
+        previousState,
+        prevBet,
+        liveTrajectory,
+      });
+      lastModelStateByMatchId.set(match.id, modelV2.currentState);
+
+      const decision = applyLiveModelGates(features, rawDecision);
       const lt = features.liveTrajectory;
       const deltaLine =
         lt && lt.snapshotCount >= 2 && lt.deltas
           ? ` | Δ2H SOT=${lt.deltas.shotsOnTarget ?? '—'} xG=${lt.deltas.expectedGoalsXg ?? '—'} (Δ${lt.deltaMatchMinutes ?? '—'}′ матчу)`
           : '';
       console.log(
-        `  Score (windowed): pGoal=${scored.pGoal}, pDry=${scored.pDry} | ${decision.timeWindow} → ${decision.bet}` +
+        `  Model v2: pGoal=${decision.pGoal}, pDry=${decision.pDry} sq=${decision.signalQuality ?? '—'} state=${modelV2.currentState} | ${decision.timeWindow} → ${decision.bet}` +
         deltaLine +
         (decision.signalEligible ? ' [TG]' : '')
       );
 
-      const logEntry = createMatchLogEntry(match, features, scored, decision, {
+      const logEntry = createMatchLogEntry(match, features, scoredSummary, decision, {
         desktopUrl,
         pipeline: 'decision_made',
         feed: match.feed,
         feedUrl: match.feedUrl,
-        skipReason: decision.bet === 'SKIP' ? 'windowed_wait_or_skip' : null,
+        skipReason: decision.bet === 'SKIP' ? 'v2_wait_or_skip' : null,
+        modelV2,
+        snapshotHistoryV2: history,
       });
       appendMatchEntry(logEntry);
 
@@ -294,22 +371,25 @@ async function mapWithConcurrency(items, limit, fn) {
 
         if (isNewSignal) {
           try {
-            await sendTelegramMessage(formatTelegramMessage(match, decision, desktopUrl, { redCards: incidents }));
+            await sendTelegramMessage(formatTelegramMessage(match, decision, desktopUrl, { redCards: incidents, modelV2 }));
             sentTelegramIds.add(match.id);
             markTelegramInitialSent(match.id);
             telegramSent = true;
             console.log(`  ✓ Telegram sent`);
           } catch (e) { console.log(`  Telegram err: ${e.message}`); }
         } else if (isUpdate) {
+          const cleanLeague = sanitizeLeagueName(match.league);
+          const { home: cleanHome, away: cleanAway } = sanitizeTeams(match.home, match.away);
           const changeLabel = isFlipToOver
             ? '🔀 Фліп ТМ→ТБ (оновлення сценарію)'
             : (betChanged ? `📊 Прогноз → ${decision.bet === 'OVER_0_5' ? 'ТБ 0,5' : 'ТМ 0,5'}` : `📶 Впевненість → ${decision.confidence}`);
           try {
             const flipMsg =
               `🔄 *Оновлення (${match.minute}')* — ${decision.timeWindow}\n` +
-              `🏆 ${match.home} - ${match.away}\n` +
+              `🏆 ${cleanLeague}\n` +
+              `⚽ ${cleanHome} - ${cleanAway}\n` +
               `${changeLabel}\n` +
-              `🎯 P(гол): ${decision.pGoal} | P(сухий): ${decision.pDry}\n` +
+              `🎯 P(гол): ${decision.pGoal} | P(сухий): ${decision.pDry}${decision.signalQuality != null ? ` | SQ: ${decision.signalQuality}` : ''}\n` +
               `📝 ${decision.reason}\n\n` +
               `🔗 [Flashscore](${matchUrl})`;
             await sendTelegramMessage(flipMsg);
@@ -336,7 +416,7 @@ async function mapWithConcurrency(items, limit, fn) {
   console.log(`\nDone: ${results.length} analyzed, ${actionable.length} actionable, ${tgSent} TG sent`);
 
   const currentCandidateIds = new Set(allMatches.map((m) => m.id));
-  pruneSnapshotStore(statsSnapshotStore, currentCandidateIds);
+  pruneSnapshotStore(matchSnapshotStore, currentCandidateIds);
 
   // --- Check finished matches ---
   const maybeFinished = [...activePredictions.entries()].filter(([id]) => !currentCandidateIds.has(id));
@@ -355,12 +435,11 @@ async function mapWithConcurrency(items, limit, fn) {
           const finalScore = { home: res.homeScore, away: res.awayScore };
           const statusLabel = res.finished ? 'FT' : `${res.homeScore}:${res.awayScore} (ще триває, гол вирішив)`;
 
-          const legs = pred.betHistory && pred.betHistory.length > 0
-            ? pred.betHistory.map((h) => h.bet)
-            : [pred.bet];
-          const hitLegs = legs.map((bet) => ({
-            bet,
-            hit: actualOver === (bet === 'OVER_0_5'),
+          const stakeSignals = collapseBetHistoryForResult(pred.betHistory, pred.bet);
+          const hitLegs = stakeSignals.map((signal) => ({
+            bet: signal.bet,
+            timeWindow: signal.timeWindow,
+            hit: actualOver === (signal.bet === 'OVER_0_5'),
           }));
           const hit = hitLegs.length ? hitLegs[hitLegs.length - 1].hit : actualOver === (pred.bet === 'OVER_0_5');
 
@@ -371,15 +450,25 @@ async function mapWithConcurrency(items, limit, fn) {
           updateMatchResult(matchId, finalScore, { hit, hitLegs });
 
           if (sentTelegramIds.has(matchId)) {
-            const suffix = res.finished ? `🏁 Фінал: ${res.homeScore}:${res.awayScore}` : `⚽ Рахунок: ${res.homeScore}:${res.awayScore} — прогноз вирішено`;
-            const legLines = hitLegs.map((l) => {
-              const lbl = l.bet === 'OVER_0_5' ? 'ТБ 0,5' : 'ТМ 0,5';
-              return `${lbl}: ${l.hit ? '✅' : '❌'}`;
+            const league = sanitizeLeagueName(pred.league);
+            const { home, away } = sanitizeTeams(pred.home, pred.away);
+            const suffix = res.finished
+              ? `⚽ Рахунок: ${res.homeScore}:${res.awayScore} (FT)`
+              : `⚽ Рахунок: ${res.homeScore}:${res.awayScore} — прогноз вирішено`;
+            const legLines = hitLegs.map((l, idx) => {
+              return `${idx + 1}) ${formatBetLabel(l.bet)} [${l.timeWindow || 'unknown'}] — ${l.hit ? '✅' : '❌'}`;
             }).join('\n');
+            const wins = hitLegs.filter((l) => l.hit === true).length;
+            const losses = hitLegs.filter((l) => l.hit === false).length;
             const resultUrl = pred.desktopUrl || pred.mobileUrl || `https://m.flashscore.ua/match/${matchId}/`;
             try {
               await sendTelegramMessage(
-                `⚽ *${pred.home} - ${pred.away}*\n${suffix}\n\n*По ногах:*\n${legLines}\n\n🔗 [Flashscore](${resultUrl})`
+                `🏆 ${league}\n` +
+                `⚽ ${home} - ${away}\n` +
+                `${suffix}\n\n` +
+                `📌 *Прогнози по вікнах:*\n${legLines}\n` +
+                `📊 Підсумок прогнозу: ✅ ${wins} | ❌ ${losses}\n\n` +
+                `🔗 [Flashscore](${resultUrl})`
               );
               console.log(`  ✓ Telegram result sent (${statusLabel})`);
             } catch (e) { console.log(`  Telegram result err: ${e.message}`); }

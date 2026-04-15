@@ -1,3 +1,5 @@
+const { sanitizeLeagueName, sanitizeTeams, formatBetLabel } = require('./normalizeMatchText');
+
 function getTimingLabel(minute) {
   if (minute <= 65) return '🟢 Раннє вікно';
   if (minute <= 75) return '🟡 Основне вікно';
@@ -6,11 +8,13 @@ function getTimingLabel(minute) {
 }
 
 function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
-  const { home, away, league, score, minute } = match;
-  const { bet, confidence, pGoal, pDry, edge, reason, odds1X2, impliedProb, timeWindow } = decision;
-  const { redCards } = opts;
+  const { home, away } = sanitizeTeams(match.home, match.away);
+  const league = sanitizeLeagueName(match.league);
+  const { score, minute } = match;
+  const { bet, confidence, pGoal, pDry, edge, reason, odds1X2, impliedProb, timeWindow, signalQuality } = decision;
+  const { redCards, modelV2 } = opts;
 
-  const betLabel = bet === 'OVER_0_5' ? 'ТБ 0,5' : bet === 'UNDER_0_5' ? 'ТМ 0,5' : 'SKIP';
+  const betLabel = formatBetLabel(bet);
   const emoji = bet === 'OVER_0_5' ? '📈' : bet === 'UNDER_0_5' ? '📉' : '⏸️';
 
   const confMap = { high: '🔥 Висока', medium: '⚠️ Середня', low: '🔅 Низька' };
@@ -29,13 +33,21 @@ function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
 💪 *Впевненість:* ${confText}
 🧮 *Edge:* ${edge ?? '-'}`;
 
+  if (signalQuality != null && signalQuality !== undefined) {
+    msg += `\n⭐ *Signal quality (v2):* ${signalQuality}`;
+  }
+  if (modelV2?.currentState) {
+    msg += `\n🔬 *Стан матчу:* ${modelV2.currentState}`;
+  }
+
   if (odds1X2) {
     const drawImpl = impliedProb?.draw != null ? ` (нічия ${(impliedProb.draw * 100).toFixed(1)}%)` : '';
     msg += `\n💰 *Кф:* ${odds1X2.home} / ${odds1X2.draw} / ${odds1X2.away}${drawImpl}`;
   }
 
-  if (redCards && (redCards.homeRedCards > 0 || redCards.awayRedCards > 0)) {
-    msg += `\n🟥 Червона картка: ${home} ×${redCards.homeRedCards} / ${away} ×${redCards.awayRedCards}`;
+  if (redCards && (redCards.homeRedCards > 0 || redCards.awayRedCards > 0 || redCards.unknownRedCards > 0)) {
+    const unknown = redCards.unknownRedCards > 0 ? ` / невизн. ×${redCards.unknownRedCards}` : '';
+    msg += `\n🟥 Червона картка: ${home} ×${redCards.homeRedCards} / ${away} ×${redCards.awayRedCards}${unknown}`;
   }
 
   msg += `\n\n📝 ${reason}`;

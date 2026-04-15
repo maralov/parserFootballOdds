@@ -1,0 +1,1093 @@
+{
+  "meta": {
+    "date": "2026-04-07",
+    "selectionCriteria": {
+      "finalScoresAllowed": [
+        "0:0",
+        "1:0",
+        "0:1",
+        "1:1",
+        "2:0",
+        "0:2"
+      ],
+      "noGoalBeforeMinute": 60,
+      "goalMinutesHow": "Хвилини голів зчитуються з мобільної сторінки матчу m.flashscore.ua/match/{id}/ (події/інциденти). Це потрібно, щоб перевірити: не було голу до 60-ї хв.",
+      "statsHow": "Спочатку перевірка наявності статистики на мобільній (?t=stats), далі повний збір overall + 2-й тайм на десктопі — як у live-скрапері.",
+      "modelHow": "Прогноз: той самий ланцюжок buildFeatures → scoreMatch → decideBet, з хвилиною LIVE_MIN_CANDIDATE_MINUTE і рахунком 0:0 для порівняння з поточною моделлю."
+    }
+  },
+  "matches": [
+    {
+      "matchId": "E5xgqLv3",
+      "date": "2026-04-07",
+      "country": "ЄВРОПА",
+      "leagueName": "Ліга чемпіонів - Плей-оф",
+      "league": "ЄВРОПА: Ліга чемпіонів - Плей-оф",
+      "home": "Спортінг",
+      "away": "Арсенал",
+      "finalScore": {
+        "home": 0,
+        "away": 1,
+        "goalMinutes": [
+          91
+        ],
+        "goalEvents": [
+          {
+            "minute": 91,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "0:1"
+          }
+        ]
+      },
+      "scoreCategory": "0:1",
+      "mobileUrl": "https://m.flashscore.ua/match/E5xgqLv3/",
+      "desktopUrl": "https://www.flashscore.ua/match/soccer/arsenal-hA1Zm19f/sporting-lisbon-tljXuHBC/?mid=E5xgqLv3",
+      "kickoffTime": "22:00",
+      "firstGoalMinute": 91,
+      "hasEarlyGoal": false,
+      "hasLateGoal": true,
+      "wasZeroZeroAt60": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 4.44,
+        "draw": 3.79,
+        "away": 1.85
+      },
+      "impliedProb": {
+        "home": 0.219,
+        "draw": 0.256,
+        "away": 0.525
+      },
+      "stats": {
+        "overall": {
+          "home": {
+            "expectedGoalsXg": 0.71,
+            "ballPossession": 44,
+            "totalShots": 11,
+            "shotsOnTarget": 5,
+            "bigChances": 2,
+            "cornerKicks": 3,
+            "passes": 85,
+            "yellowCards": 1,
+            "xgOnTargetXgot": 1.57,
+            "shotsOffTarget": 4,
+            "blockedShots": 2,
+            "shotsInsideTheBox": 8,
+            "shotsOutsideTheBox": 3,
+            "hitTheWoodwork": 1,
+            "touchesInOppositionBox": 16,
+            "accurateThroughPasses": 1,
+            "offsides": 2,
+            "freeKicks": 10,
+            "longPasses": 52,
+            "passesInFinalThird": 74,
+            "crosses": 9,
+            "expectedAssistsXa": 0.44,
+            "throwIns": 15,
+            "fouls": 11,
+            "tackles": 87,
+            "duelsWon": 32,
+            "clearances": 19,
+            "interceptions": 8,
+            "errorsLeadingToShot": 1,
+            "errorsLeadingToGoal": 0,
+            "goalkeeperSaves": 3,
+            "xgotFaced": 0.94,
+            "goalsPrevented": -0.06
+          },
+          "away": {
+            "expectedGoalsXg": 1.33,
+            "ballPossession": 56,
+            "totalShots": 8,
+            "shotsOnTarget": 4,
+            "bigChances": 2,
+            "cornerKicks": 4,
+            "passes": 92,
+            "yellowCards": 0,
+            "xgOnTargetXgot": 0.94,
+            "shotsOffTarget": 2,
+            "blockedShots": 2,
+            "shotsInsideTheBox": 4,
+            "shotsOutsideTheBox": 4,
+            "hitTheWoodwork": 1,
+            "touchesInOppositionBox": 14,
+            "accurateThroughPasses": 1,
+            "offsides": 2,
+            "freeKicks": 11,
+            "longPasses": 52,
+            "passesInFinalThird": 81,
+            "crosses": 13,
+            "expectedAssistsXa": 1.35,
+            "throwIns": 7,
+            "fouls": 10,
+            "tackles": 64,
+            "duelsWon": 37,
+            "clearances": 13,
+            "interceptions": 12,
+            "errorsLeadingToShot": 0,
+            "errorsLeadingToGoal": 0,
+            "goalkeeperSaves": 5,
+            "xgotFaced": 1.57,
+            "goalsPrevented": 1.57
+          },
+          "sum": {
+            "expectedGoalsXg": 2.04,
+            "ballPossession": 100,
+            "totalShots": 19,
+            "shotsOnTarget": 9,
+            "bigChances": 4,
+            "cornerKicks": 7,
+            "passes": 177,
+            "yellowCards": 1,
+            "xgOnTargetXgot": 2.51,
+            "shotsOffTarget": 6,
+            "blockedShots": 4,
+            "shotsInsideTheBox": 12,
+            "shotsOutsideTheBox": 7,
+            "hitTheWoodwork": 2,
+            "touchesInOppositionBox": 30,
+            "accurateThroughPasses": 2,
+            "offsides": 4,
+            "freeKicks": 21,
+            "longPasses": 104,
+            "passesInFinalThird": 155,
+            "crosses": 22,
+            "expectedAssistsXa": 1.79,
+            "throwIns": 22,
+            "fouls": 21,
+            "tackles": 151,
+            "duelsWon": 69,
+            "clearances": 32,
+            "interceptions": 20,
+            "errorsLeadingToShot": 1,
+            "errorsLeadingToGoal": 0,
+            "goalkeeperSaves": 8,
+            "xgotFaced": 2.51,
+            "goalsPrevented": 1.51
+          }
+        },
+        "secondHalf": {
+          "home": {
+            "expectedGoalsXg": 0.46,
+            "ballPossession": 40,
+            "totalShots": 6,
+            "shotsOnTarget": 3,
+            "bigChances": 1,
+            "cornerKicks": 3,
+            "passes": 82,
+            "xgOnTargetXgot": 0.77,
+            "shotsOffTarget": 2,
+            "blockedShots": 1,
+            "shotsInsideTheBox": 6,
+            "shotsOutsideTheBox": 0,
+            "hitTheWoodwork": 0,
+            "touchesInOppositionBox": 12,
+            "accurateThroughPasses": 0,
+            "offsides": 1,
+            "freeKicks": 5,
+            "longPasses": 47,
+            "passesInFinalThird": 72,
+            "crosses": 10,
+            "expectedAssistsXa": 0.14,
+            "throwIns": 7,
+            "fouls": 7,
+            "tackles": 89,
+            "duelsWon": 18,
+            "clearances": 13,
+            "interceptions": 2,
+            "errorsLeadingToShot": 1,
+            "errorsLeadingToGoal": 0,
+            "goalkeeperSaves": 2,
+            "xgotFaced": 0.91,
+            "goalsPrevented": -0.09
+          },
+          "away": {
+            "expectedGoalsXg": 0.83,
+            "ballPossession": 60,
+            "totalShots": 4,
+            "shotsOnTarget": 3,
+            "bigChances": 1,
+            "cornerKicks": 2,
+            "passes": 93,
+            "xgOnTargetXgot": 0.91,
+            "shotsOffTarget": 1,
+            "blockedShots": 0,
+            "shotsInsideTheBox": 2,
+            "shotsOutsideTheBox": 2,
+            "hitTheWoodwork": 0,
+            "touchesInOppositionBox": 8,
+            "accurateThroughPasses": 1,
+            "offsides": 1,
+            "freeKicks": 7,
+            "longPasses": 50,
+            "passesInFinalThird": 88,
+            "crosses": 0,
+            "expectedAssistsXa": 0.63,
+            "throwIns": 4,
+            "fouls": 5,
+            "tackles": 80,
+            "duelsWon": 19,
+            "clearances": 9,
+            "interceptions": 5,
+            "errorsLeadingToShot": 0,
+            "errorsLeadingToGoal": 0,
+            "goalkeeperSaves": 3,
+            "xgotFaced": 0.77,
+            "goalsPrevented": 0.77
+          },
+          "sum": {
+            "expectedGoalsXg": 1.29,
+            "ballPossession": 100,
+            "totalShots": 10,
+            "shotsOnTarget": 6,
+            "bigChances": 2,
+            "cornerKicks": 5,
+            "passes": 175,
+            "xgOnTargetXgot": 1.68,
+            "shotsOffTarget": 3,
+            "blockedShots": 1,
+            "shotsInsideTheBox": 8,
+            "shotsOutsideTheBox": 2,
+            "hitTheWoodwork": 0,
+            "touchesInOppositionBox": 20,
+            "accurateThroughPasses": 1,
+            "offsides": 2,
+            "freeKicks": 12,
+            "longPasses": 97,
+            "passesInFinalThird": 160,
+            "crosses": 10,
+            "expectedAssistsXa": 0.77,
+            "throwIns": 11,
+            "fouls": 12,
+            "tackles": 169,
+            "duelsWon": 37,
+            "clearances": 22,
+            "interceptions": 7,
+            "errorsLeadingToShot": 1,
+            "errorsLeadingToGoal": 0,
+            "goalkeeperSaves": 5,
+            "xgotFaced": 1.68,
+            "goalsPrevented": 0.68
+          }
+        },
+        "statsStatus": "both"
+      },
+      "statsClassification": {
+        "statsLevel": "full",
+        "hasXG": true,
+        "hasXGOT": true,
+        "metricsCount": 32,
+        "availableGroups": [
+          "attackPressure",
+          "chanceCreation",
+          "shotEfficiency",
+          "defensiveBlock",
+          "gameTempo",
+          "discipline"
+        ],
+        "groupCoverage": {
+          "attackPressure": 6,
+          "chanceCreation": 4,
+          "shotEfficiency": 5,
+          "defensiveBlock": 5,
+          "gameTempo": 5,
+          "discipline": 1
+        }
+      },
+      "modelPrediction": {
+        "pGoal": 0.704,
+        "pDry": 0.296,
+        "bet": "OVER_0_5",
+        "confidence": "high",
+        "edge": 0.204,
+        "reason": "OVER: 6 уд. в площ., 2 мом., 20 дотик., 5 сейвів, 5 кутових, xG 1.29 (2H+O)",
+        "indices": {
+          "goalPressureIndex": 0.374,
+          "dryPenalty": 0.05,
+          "trendBonus": 0.06,
+          "imbalanceBonus": -0.02
+        },
+        "simulation": {
+          "minute": 60,
+          "score": {
+            "home": "0",
+            "away": "0"
+          },
+          "liveAligned": true,
+          "note": "Той самий пайплайн, що в worker.js: buildFeatures → scoreMatch → decideBet. Синтетичний матч: хвилина = LIVE_MIN_CANDIDATE_MINUTE з .env/constants (як мінімальна хвилина кандидата в лайві), рахунок 0:0. Матчі відібрані без голу до 60', тобто на цій хвилині рахунок міг лишатися 0:0. Порівняння HIT/MISS — фактичний підсумок матчу (total goals) проти прогнозу ТБ/ТМ 0,5."
+        }
+      },
+      "result": {
+        "totalGoals": 1,
+        "goalsAfter60": 1,
+        "goalsAfter60Note": "Скільки голів забито на 60-й хвилині або пізніше — за масивом finalScore.goalMinutes. Для 0:0 завжди 0. Для матчів у вибірці без голу до 60 при наявності голів усі вони після 60 — тут буде >0.",
+        "hit": true,
+        "label": "HIT"
+      },
+      "pipeline": "analyzed"
+    },
+    {
+      "matchId": "YycJDG0S",
+      "date": "2026-04-07",
+      "country": "АЗЕРБАЙДЖАН",
+      "leagueName": "Прем'єр-ліга",
+      "league": "АЗЕРБАЙДЖАН: Прем'єр-ліга",
+      "home": "Зіра",
+      "away": "Шамахи",
+      "finalScore": {
+        "home": 1,
+        "away": 1,
+        "goalMinutes": [
+          69,
+          92
+        ],
+        "goalEvents": [
+          {
+            "minute": 69,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          },
+          {
+            "minute": 92,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "1:1"
+          }
+        ]
+      },
+      "scoreCategory": "1:1",
+      "mobileUrl": "https://m.flashscore.ua/match/YycJDG0S/",
+      "desktopUrl": "https://www.flashscore.ua/match/soccer/shamakhi-WUDXYotm/zira-ik-4CQ5BXNJ/?mid=YycJDG0S",
+      "kickoffTime": "16:15",
+      "firstGoalMinute": 69,
+      "hasEarlyGoal": false,
+      "hasLateGoal": true,
+      "wasZeroZeroAt60": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 1.86,
+        "draw": 3.22,
+        "away": 4.49
+      },
+      "impliedProb": {
+        "home": 0.502,
+        "draw": 0.29,
+        "away": 0.208
+      },
+      "stats": {
+        "overall": {
+          "home": {
+            "ballPossession": 59,
+            "totalShots": 8,
+            "shotsOnTarget": 3,
+            "cornerKicks": 2,
+            "yellowCards": 2,
+            "redCards": 0,
+            "shotsOffTarget": 5
+          },
+          "away": {
+            "ballPossession": 41,
+            "totalShots": 3,
+            "shotsOnTarget": 1,
+            "cornerKicks": 0,
+            "yellowCards": 2,
+            "redCards": 1,
+            "shotsOffTarget": 2
+          },
+          "sum": {
+            "ballPossession": 100,
+            "totalShots": 11,
+            "shotsOnTarget": 4,
+            "cornerKicks": 2,
+            "yellowCards": 4,
+            "redCards": 1,
+            "shotsOffTarget": 7
+          }
+        },
+        "secondHalf": {
+          "home": {
+            "ballPossession": 63,
+            "totalShots": 3,
+            "shotsOnTarget": 2,
+            "cornerKicks": 2,
+            "yellowCards": 2,
+            "redCards": 0,
+            "shotsOffTarget": 1
+          },
+          "away": {
+            "ballPossession": 37,
+            "totalShots": 2,
+            "shotsOnTarget": 1,
+            "cornerKicks": 0,
+            "yellowCards": 1,
+            "redCards": 1,
+            "shotsOffTarget": 1
+          },
+          "sum": {
+            "ballPossession": 100,
+            "totalShots": 5,
+            "shotsOnTarget": 3,
+            "cornerKicks": 2,
+            "yellowCards": 3,
+            "redCards": 1,
+            "shotsOffTarget": 2
+          }
+        },
+        "statsStatus": "both"
+      },
+      "statsClassification": {
+        "statsLevel": "basic",
+        "hasXG": false,
+        "hasXGOT": false,
+        "metricsCount": 7,
+        "availableGroups": [
+          "attackPressure",
+          "shotEfficiency",
+          "gameTempo",
+          "discipline"
+        ],
+        "groupCoverage": {
+          "attackPressure": 1,
+          "chanceCreation": 0,
+          "shotEfficiency": 2,
+          "defensiveBlock": 0,
+          "gameTempo": 1,
+          "discipline": 2
+        }
+      },
+      "modelPrediction": {
+        "pGoal": 0.545,
+        "pDry": 0.455,
+        "bet": "OVER_0_5",
+        "confidence": "low",
+        "edge": 0.045,
+        "reason": "OVER (fallback): 3 уд. в площ., 2 кутових (2H+O)",
+        "indices": {
+          "goalPressureIndex": 0.205,
+          "dryPenalty": 0,
+          "trendBonus": 0,
+          "imbalanceBonus": 0
+        },
+        "simulation": {
+          "minute": 60,
+          "score": {
+            "home": "0",
+            "away": "0"
+          },
+          "liveAligned": true,
+          "note": "Той самий пайплайн, що в worker.js: buildFeatures → scoreMatch → decideBet. Синтетичний матч: хвилина = LIVE_MIN_CANDIDATE_MINUTE з .env/constants (як мінімальна хвилина кандидата в лайві), рахунок 0:0. Матчі відібрані без голу до 60', тобто на цій хвилині рахунок міг лишатися 0:0. Порівняння HIT/MISS — фактичний підсумок матчу (total goals) проти прогнозу ТБ/ТМ 0,5."
+        }
+      },
+      "result": {
+        "totalGoals": 2,
+        "goalsAfter60": 2,
+        "goalsAfter60Note": "Скільки голів забито на 60-й хвилині або пізніше — за масивом finalScore.goalMinutes. Для 0:0 завжди 0. Для матчів у вибірці без голу до 60 при наявності голів усі вони після 60 — тут буде >0.",
+        "hit": true,
+        "label": "HIT"
+      },
+      "pipeline": "analyzed"
+    },
+    {
+      "matchId": "4Wls4UzK",
+      "date": "2026-04-07",
+      "country": "БРАЗИЛІЯ",
+      "leagueName": "Серія С - Перший етап",
+      "league": "БРАЗИЛІЯ: Серія С - Перший етап",
+      "home": "ФК Іпіранга",
+      "away": "Фігейренсе",
+      "finalScore": {
+        "home": 1,
+        "away": 1,
+        "goalMinutes": [
+          66,
+          84
+        ],
+        "goalEvents": [
+          {
+            "minute": 66,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          },
+          {
+            "minute": 84,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "1:1"
+          }
+        ]
+      },
+      "scoreCategory": "1:1",
+      "mobileUrl": "https://m.flashscore.ua/match/4Wls4UzK/",
+      "desktopUrl": "https://www.flashscore.ua/match/soccer/figueirense-joO7tfhP/ypiranga-fc-Ekl6KsWC/?mid=4Wls4UzK",
+      "kickoffTime": "02:00",
+      "firstGoalMinute": 66,
+      "hasEarlyGoal": false,
+      "hasLateGoal": true,
+      "wasZeroZeroAt60": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.3,
+        "draw": 3,
+        "away": 3.34
+      },
+      "impliedProb": {
+        "home": 0.407,
+        "draw": 0.312,
+        "away": 0.28
+      },
+      "stats": {
+        "overall": {
+          "home": {
+            "ballPossession": 50,
+            "totalShots": 12,
+            "shotsOnTarget": 8,
+            "cornerKicks": 4,
+            "yellowCards": 3,
+            "shotsOffTarget": 4
+          },
+          "away": {
+            "ballPossession": 50,
+            "totalShots": 6,
+            "shotsOnTarget": 2,
+            "cornerKicks": 5,
+            "yellowCards": 2,
+            "shotsOffTarget": 4
+          },
+          "sum": {
+            "ballPossession": 100,
+            "totalShots": 18,
+            "shotsOnTarget": 10,
+            "cornerKicks": 9,
+            "yellowCards": 5,
+            "shotsOffTarget": 8
+          }
+        },
+        "secondHalf": {
+          "home": {
+            "ballPossession": 45,
+            "totalShots": 5,
+            "shotsOnTarget": 2,
+            "cornerKicks": 1,
+            "yellowCards": 1,
+            "shotsOffTarget": 3
+          },
+          "away": {
+            "ballPossession": 55,
+            "totalShots": 5,
+            "shotsOnTarget": 1,
+            "cornerKicks": 1,
+            "yellowCards": 2,
+            "shotsOffTarget": 4
+          },
+          "sum": {
+            "ballPossession": 100,
+            "totalShots": 10,
+            "shotsOnTarget": 3,
+            "cornerKicks": 2,
+            "yellowCards": 3,
+            "shotsOffTarget": 7
+          }
+        },
+        "statsStatus": "both"
+      },
+      "statsClassification": {
+        "statsLevel": "basic",
+        "hasXG": false,
+        "hasXGOT": false,
+        "metricsCount": 6,
+        "availableGroups": [
+          "attackPressure",
+          "shotEfficiency",
+          "gameTempo",
+          "discipline"
+        ],
+        "groupCoverage": {
+          "attackPressure": 1,
+          "chanceCreation": 0,
+          "shotEfficiency": 2,
+          "defensiveBlock": 0,
+          "gameTempo": 1,
+          "discipline": 1
+        }
+      },
+      "modelPrediction": {
+        "pGoal": 0.395,
+        "pDry": 0.605,
+        "bet": "UNDER_0_5",
+        "confidence": "low",
+        "edge": 0.105,
+        "reason": "UNDER (fallback): 3 уд. в площ., 2 кутових (2H+O)",
+        "indices": {
+          "goalPressureIndex": 0.205,
+          "dryPenalty": 0.15,
+          "trendBonus": 0,
+          "imbalanceBonus": 0
+        },
+        "simulation": {
+          "minute": 60,
+          "score": {
+            "home": "0",
+            "away": "0"
+          },
+          "liveAligned": true,
+          "note": "Той самий пайплайн, що в worker.js: buildFeatures → scoreMatch → decideBet. Синтетичний матч: хвилина = LIVE_MIN_CANDIDATE_MINUTE з .env/constants (як мінімальна хвилина кандидата в лайві), рахунок 0:0. Матчі відібрані без голу до 60', тобто на цій хвилині рахунок міг лишатися 0:0. Порівняння HIT/MISS — фактичний підсумок матчу (total goals) проти прогнозу ТБ/ТМ 0,5."
+        }
+      },
+      "result": {
+        "totalGoals": 2,
+        "goalsAfter60": 2,
+        "goalsAfter60Note": "Скільки голів забито на 60-й хвилині або пізніше — за масивом finalScore.goalMinutes. Для 0:0 завжди 0. Для матчів у вибірці без голу до 60 при наявності голів усі вони після 60 — тут буде >0.",
+        "hit": false,
+        "label": "MISS"
+      },
+      "pipeline": "analyzed"
+    },
+    {
+      "matchId": "dxoyWZzJ",
+      "date": "2026-04-07",
+      "country": "КОЛУМБІЯ",
+      "leagueName": "Прімера В - Апертура",
+      "league": "КОЛУМБІЯ: Прімера В - Апертура",
+      "home": "Бока Хуніорс К.",
+      "away": "Ind. Yumbo",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "scoreCategory": "0:0",
+      "mobileUrl": "https://m.flashscore.ua/match/dxoyWZzJ/",
+      "desktopUrl": "https://www.flashscore.ua/match/soccer/boca-juniors-de-cali-6yoKBtoR/ind-yumbo-25WDovil/?mid=dxoyWZzJ",
+      "kickoffTime": "23:00",
+      "firstGoalMinute": null,
+      "hasEarlyGoal": false,
+      "hasLateGoal": false,
+      "wasZeroZeroAt60": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 3.32,
+        "draw": 3.27,
+        "away": 2.17
+      },
+      "impliedProb": {
+        "home": 0.282,
+        "draw": 0.286,
+        "away": 0.432
+      },
+      "stats": {
+        "overall": {
+          "home": {
+            "ballPossession": 34,
+            "totalShots": 1,
+            "shotsOnTarget": 0,
+            "cornerKicks": 3,
+            "yellowCards": 2,
+            "shotsOffTarget": 1
+          },
+          "away": {
+            "ballPossession": 66,
+            "totalShots": 8,
+            "shotsOnTarget": 6,
+            "cornerKicks": 7,
+            "yellowCards": 0,
+            "shotsOffTarget": 2
+          },
+          "sum": {
+            "ballPossession": 100,
+            "totalShots": 9,
+            "shotsOnTarget": 6,
+            "cornerKicks": 10,
+            "yellowCards": 2,
+            "shotsOffTarget": 3
+          }
+        },
+        "secondHalf": {
+          "home": {
+            "ballPossession": 39,
+            "totalShots": 0,
+            "shotsOnTarget": 0,
+            "cornerKicks": 3,
+            "yellowCards": 1,
+            "shotsOffTarget": 0
+          },
+          "away": {
+            "ballPossession": 61,
+            "totalShots": 5,
+            "shotsOnTarget": 3,
+            "cornerKicks": 5,
+            "yellowCards": 0,
+            "shotsOffTarget": 2
+          },
+          "sum": {
+            "ballPossession": 100,
+            "totalShots": 5,
+            "shotsOnTarget": 3,
+            "cornerKicks": 8,
+            "yellowCards": 1,
+            "shotsOffTarget": 2
+          }
+        },
+        "statsStatus": "both"
+      },
+      "statsClassification": {
+        "statsLevel": "basic",
+        "hasXG": false,
+        "hasXGOT": false,
+        "metricsCount": 6,
+        "availableGroups": [
+          "attackPressure",
+          "shotEfficiency",
+          "gameTempo",
+          "discipline"
+        ],
+        "groupCoverage": {
+          "attackPressure": 1,
+          "chanceCreation": 0,
+          "shotEfficiency": 2,
+          "defensiveBlock": 0,
+          "gameTempo": 1,
+          "discipline": 1
+        }
+      },
+      "modelPrediction": {
+        "pGoal": 0.623,
+        "pDry": 0.377,
+        "bet": "OVER_0_5",
+        "confidence": "low",
+        "edge": 0.123,
+        "reason": "OVER (fallback): 3 уд. в площ., 8 кутових (2H+O)",
+        "indices": {
+          "goalPressureIndex": 0.243,
+          "dryPenalty": 0,
+          "trendBonus": 0,
+          "imbalanceBonus": 0.04
+        },
+        "simulation": {
+          "minute": 60,
+          "score": {
+            "home": "0",
+            "away": "0"
+          },
+          "liveAligned": true,
+          "note": "Той самий пайплайн, що в worker.js: buildFeatures → scoreMatch → decideBet. Синтетичний матч: хвилина = LIVE_MIN_CANDIDATE_MINUTE з .env/constants (як мінімальна хвилина кандидата в лайві), рахунок 0:0. Матчі відібрані без голу до 60', тобто на цій хвилині рахунок міг лишатися 0:0. Порівняння HIT/MISS — фактичний підсумок матчу (total goals) проти прогнозу ТБ/ТМ 0,5."
+        }
+      },
+      "result": {
+        "totalGoals": 0,
+        "goalsAfter60": 0,
+        "goalsAfter60Note": "Скільки голів забито на 60-й хвилині або пізніше — за масивом finalScore.goalMinutes. Для 0:0 завжди 0. Для матчів у вибірці без голу до 60 при наявності голів усі вони після 60 — тут буде >0.",
+        "hit": false,
+        "label": "MISS"
+      },
+      "pipeline": "analyzed"
+    },
+    {
+      "matchId": "hEOOPjMa",
+      "date": "2026-04-07",
+      "country": "УЗБЕКИСТАН",
+      "leagueName": "Суперліга",
+      "league": "УЗБЕКИСТАН: Суперліга",
+      "home": "Машал Муборак",
+      "away": "Буньодкор",
+      "finalScore": {
+        "home": 0,
+        "away": 1,
+        "goalMinutes": [
+          91
+        ],
+        "goalEvents": [
+          {
+            "minute": 91,
+            "team": "away",
+            "type": "penalty",
+            "scoreAfter": "0:1"
+          }
+        ]
+      },
+      "scoreCategory": "0:1",
+      "mobileUrl": "https://m.flashscore.ua/match/hEOOPjMa/",
+      "desktopUrl": "https://www.flashscore.ua/match/soccer/bunyodkor-lI4EpIdE/mashal-muborak-6kNEblGu/?mid=hEOOPjMa",
+      "kickoffTime": "16:00",
+      "firstGoalMinute": 91,
+      "hasEarlyGoal": false,
+      "hasLateGoal": true,
+      "wasZeroZeroAt60": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 4.23,
+        "draw": 3.42,
+        "away": 1.81
+      },
+      "impliedProb": {
+        "home": 0.219,
+        "draw": 0.27,
+        "away": 0.511
+      },
+      "stats": {
+        "overall": {
+          "home": {
+            "ballPossession": 45,
+            "totalShots": 13,
+            "shotsOnTarget": 6,
+            "cornerKicks": 4,
+            "yellowCards": 3,
+            "redCards": 1,
+            "shotsOffTarget": 7
+          },
+          "away": {
+            "ballPossession": 55,
+            "totalShots": 11,
+            "shotsOnTarget": 4,
+            "cornerKicks": 5,
+            "yellowCards": 0,
+            "redCards": 0,
+            "shotsOffTarget": 7
+          },
+          "sum": {
+            "ballPossession": 100,
+            "totalShots": 24,
+            "shotsOnTarget": 10,
+            "cornerKicks": 9,
+            "yellowCards": 3,
+            "redCards": 1,
+            "shotsOffTarget": 14
+          }
+        },
+        "secondHalf": {
+          "home": {
+            "ballPossession": 46,
+            "totalShots": 8,
+            "shotsOnTarget": 3,
+            "cornerKicks": 4,
+            "yellowCards": 2,
+            "redCards": 1,
+            "shotsOffTarget": 5
+          },
+          "away": {
+            "ballPossession": 54,
+            "totalShots": 5,
+            "shotsOnTarget": 3,
+            "cornerKicks": 2,
+            "yellowCards": 0,
+            "redCards": 0,
+            "shotsOffTarget": 2
+          },
+          "sum": {
+            "ballPossession": 100,
+            "totalShots": 13,
+            "shotsOnTarget": 6,
+            "cornerKicks": 6,
+            "yellowCards": 2,
+            "redCards": 1,
+            "shotsOffTarget": 7
+          }
+        },
+        "statsStatus": "both"
+      },
+      "statsClassification": {
+        "statsLevel": "basic",
+        "hasXG": false,
+        "hasXGOT": false,
+        "metricsCount": 7,
+        "availableGroups": [
+          "attackPressure",
+          "shotEfficiency",
+          "gameTempo",
+          "discipline"
+        ],
+        "groupCoverage": {
+          "attackPressure": 1,
+          "chanceCreation": 0,
+          "shotEfficiency": 2,
+          "defensiveBlock": 0,
+          "gameTempo": 1,
+          "discipline": 2
+        }
+      },
+      "modelPrediction": {
+        "pGoal": 0.594,
+        "pDry": 0.406,
+        "bet": "OVER_0_5",
+        "confidence": "low",
+        "edge": 0.094,
+        "reason": "OVER (fallback): 6 уд. в площ., 6 кутових (2H+O)",
+        "indices": {
+          "goalPressureIndex": 0.424,
+          "dryPenalty": 0.15,
+          "trendBonus": 0,
+          "imbalanceBonus": -0.02
+        },
+        "simulation": {
+          "minute": 60,
+          "score": {
+            "home": "0",
+            "away": "0"
+          },
+          "liveAligned": true,
+          "note": "Той самий пайплайн, що в worker.js: buildFeatures → scoreMatch → decideBet. Синтетичний матч: хвилина = LIVE_MIN_CANDIDATE_MINUTE з .env/constants (як мінімальна хвилина кандидата в лайві), рахунок 0:0. Матчі відібрані без голу до 60', тобто на цій хвилині рахунок міг лишатися 0:0. Порівняння HIT/MISS — фактичний підсумок матчу (total goals) проти прогнозу ТБ/ТМ 0,5."
+        }
+      },
+      "result": {
+        "totalGoals": 1,
+        "goalsAfter60": 1,
+        "goalsAfter60Note": "Скільки голів забито на 60-й хвилині або пізніше — за масивом finalScore.goalMinutes. Для 0:0 завжди 0. Для матчів у вибірці без голу до 60 при наявності голів усі вони після 60 — тут буде >0.",
+        "hit": true,
+        "label": "HIT"
+      },
+      "pipeline": "analyzed"
+    },
+    {
+      "matchId": "Ovra9VyJ",
+      "date": "2026-04-07",
+      "country": "УЗБЕКИСТАН",
+      "leagueName": "Суперліга",
+      "league": "УЗБЕКИСТАН: Суперліга",
+      "home": "Андіжан",
+      "away": "Навбахор Наманган",
+      "finalScore": {
+        "home": 0,
+        "away": 1,
+        "goalMinutes": [
+          96
+        ],
+        "goalEvents": [
+          {
+            "minute": 96,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "0:1"
+          }
+        ]
+      },
+      "scoreCategory": "0:1",
+      "mobileUrl": "https://m.flashscore.ua/match/Ovra9VyJ/",
+      "desktopUrl": "https://www.flashscore.ua/match/soccer/andijan-K6dxHEG0/navbahor-namangan-AiFncn0b/?mid=Ovra9VyJ",
+      "kickoffTime": "17:15",
+      "firstGoalMinute": 96,
+      "hasEarlyGoal": false,
+      "hasLateGoal": true,
+      "wasZeroZeroAt60": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.68,
+        "draw": 2.88,
+        "away": 2.78
+      },
+      "impliedProb": {
+        "home": 0.345,
+        "draw": 0.321,
+        "away": 0.333
+      },
+      "stats": {
+        "overall": {
+          "home": {
+            "ballPossession": 43,
+            "totalShots": 5,
+            "shotsOnTarget": 3,
+            "cornerKicks": 4,
+            "yellowCards": 3,
+            "shotsOffTarget": 2
+          },
+          "away": {
+            "ballPossession": 57,
+            "totalShots": 10,
+            "shotsOnTarget": 4,
+            "cornerKicks": 5,
+            "yellowCards": 1,
+            "shotsOffTarget": 6
+          },
+          "sum": {
+            "ballPossession": 100,
+            "totalShots": 15,
+            "shotsOnTarget": 7,
+            "cornerKicks": 9,
+            "yellowCards": 4,
+            "shotsOffTarget": 8
+          }
+        },
+        "secondHalf": {
+          "home": {
+            "ballPossession": 39,
+            "totalShots": 4,
+            "shotsOnTarget": 3,
+            "cornerKicks": 3,
+            "yellowCards": 2,
+            "shotsOffTarget": 1
+          },
+          "away": {
+            "ballPossession": 61,
+            "totalShots": 7,
+            "shotsOnTarget": 4,
+            "cornerKicks": 3,
+            "yellowCards": 1,
+            "shotsOffTarget": 3
+          },
+          "sum": {
+            "ballPossession": 100,
+            "totalShots": 11,
+            "shotsOnTarget": 7,
+            "cornerKicks": 6,
+            "yellowCards": 3,
+            "shotsOffTarget": 4
+          }
+        },
+        "statsStatus": "both"
+      },
+      "statsClassification": {
+        "statsLevel": "basic",
+        "hasXG": false,
+        "hasXGOT": false,
+        "metricsCount": 6,
+        "availableGroups": [
+          "attackPressure",
+          "shotEfficiency",
+          "gameTempo",
+          "discipline"
+        ],
+        "groupCoverage": {
+          "attackPressure": 1,
+          "chanceCreation": 0,
+          "shotEfficiency": 2,
+          "defensiveBlock": 0,
+          "gameTempo": 1,
+          "discipline": 1
+        }
+      },
+      "modelPrediction": {
+        "pGoal": 0.677,
+        "pDry": 0.323,
+        "bet": "OVER_0_5",
+        "confidence": "low",
+        "edge": 0.177,
+        "reason": "OVER: 7 уд. в площ., 6 кутових (2H+O)",
+        "indices": {
+          "goalPressureIndex": 0.487,
+          "dryPenalty": 0.15,
+          "trendBonus": 0,
+          "imbalanceBonus": 0
+        },
+        "simulation": {
+          "minute": 60,
+          "score": {
+            "home": "0",
+            "away": "0"
+          },
+          "liveAligned": true,
+          "note": "Той самий пайплайн, що в worker.js: buildFeatures → scoreMatch → decideBet. Синтетичний матч: хвилина = LIVE_MIN_CANDIDATE_MINUTE з .env/constants (як мінімальна хвилина кандидата в лайві), рахунок 0:0. Матчі відібрані без голу до 60', тобто на цій хвилині рахунок міг лишатися 0:0. Порівняння HIT/MISS — фактичний підсумок матчу (total goals) проти прогнозу ТБ/ТМ 0,5."
+        }
+      },
+      "result": {
+        "totalGoals": 1,
+        "goalsAfter60": 1,
+        "goalsAfter60Note": "Скільки голів забито на 60-й хвилині або пізніше — за масивом finalScore.goalMinutes. Для 0:0 завжди 0. Для матчів у вибірці без голу до 60 при наявності голів усі вони після 60 — тут буде >0.",
+        "hit": true,
+        "label": "HIT"
+      },
+      "pipeline": "analyzed"
+    }
+  ]
+}

@@ -59,7 +59,10 @@ function parseLiveMatchesFromDocument(minMinute, feedLabel, feedUrl) {
 
   function getLeagueName(node) {
     if (!node) return 'unknown';
-    return node.textContent.replace(/\s*Standings\s*$/i, '').trim() || 'unknown';
+    return node.textContent
+      .replace(/\s*Таблиця\s*$/i, '')
+      .replace(/\s*Standings\s*$/i, '')
+      .trim() || 'unknown';
   }
 
   /** У плоскому #score-data час майже завжди в span.live одразу перед лінком рахунку. */

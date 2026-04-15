@@ -1,0 +1,945 @@
+{
+  "meta": {
+    "date": "2026-04-06",
+    "selectionCriteria": {
+      "finalScoresAllowed": [
+        "0:0",
+        "1:0",
+        "0:1",
+        "1:1",
+        "2:0",
+        "0:2"
+      ],
+      "noGoalBeforeMinute": 60,
+      "goalMinutesHow": "Хвилини голів зчитуються з мобільної сторінки матчу m.flashscore.ua/match/{id}/ (події/інциденти). Це потрібно, щоб перевірити: не було голу до 60-ї хв.",
+      "statsHow": "Спочатку перевірка наявності статистики на мобільній (?t=stats), далі повний збір overall + 2-й тайм на десктопі — як у live-скрапері.",
+      "modelHow": "Прогноз: той самий ланцюжок buildFeatures → scoreMatch → decideBet, з хвилиною LIVE_MIN_CANDIDATE_MINUTE і рахунком 0:0 для порівняння з поточною моделлю."
+    }
+  },
+  "matches": [
+    {
+      "matchId": "b9eMZVoI",
+      "date": "2026-04-06",
+      "country": "ІТАЛІЯ",
+      "leagueName": "Серія А",
+      "league": "ІТАЛІЯ: Серія А",
+      "home": "Наполі",
+      "away": "Мілан",
+      "finalScore": {
+        "home": 1,
+        "away": 0,
+        "goalMinutes": [
+          79
+        ],
+        "goalEvents": [
+          {
+            "minute": 79,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          }
+        ]
+      },
+      "firstGoalMinute": 79,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.46,
+        "draw": 3.08,
+        "away": 3.34
+      }
+    },
+    {
+      "matchId": "EXTldUWb",
+      "date": "2026-04-06",
+      "country": "АВСТРІЯ",
+      "leagueName": "2. Ліга",
+      "league": "АВСТРІЯ: 2. Ліга",
+      "home": "Ліферінг",
+      "away": "Амштеттен",
+      "finalScore": {
+        "home": 0,
+        "away": 1,
+        "goalMinutes": [
+          63
+        ],
+        "goalEvents": [
+          {
+            "minute": 63,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "0:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 63,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.52,
+        "draw": 3.63,
+        "away": 2.52
+      }
+    },
+    {
+      "matchId": "OvNHWeVg",
+      "date": "2026-04-06",
+      "country": "АНГЛІЯ",
+      "leagueName": "Чемпіоншип",
+      "league": "АНГЛІЯ: Чемпіоншип",
+      "home": "Блекберн",
+      "away": "Вест Бромвіч",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 3.05,
+        "draw": 3.1,
+        "away": 2.63
+      }
+    },
+    {
+      "matchId": "jTLXcYTh",
+      "date": "2026-04-06",
+      "country": "АНГЛІЯ",
+      "leagueName": "Чемпіоншип",
+      "league": "АНГЛІЯ: Чемпіоншип",
+      "home": "Вотфорд",
+      "away": "Чарльтон",
+      "finalScore": {
+        "home": 1,
+        "away": 1,
+        "goalMinutes": [
+          62,
+          74
+        ],
+        "goalEvents": [
+          {
+            "minute": 62,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          },
+          {
+            "minute": 74,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "1:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 62,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.01,
+        "draw": 3.3,
+        "away": 4.34
+      }
+    },
+    {
+      "matchId": "pSGJjHMP",
+      "date": "2026-04-06",
+      "country": "АНГЛІЯ",
+      "leagueName": "Чемпіоншип",
+      "league": "АНГЛІЯ: Чемпіоншип",
+      "home": "Халл",
+      "away": "Ковентрі",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 4.09,
+        "draw": 3.68,
+        "away": 1.94
+      }
+    },
+    {
+      "matchId": "hbknbJi2",
+      "date": "2026-04-06",
+      "country": "АНГЛІЯ",
+      "leagueName": "Перша ліга",
+      "league": "АНГЛІЯ: Перша ліга",
+      "home": "Менсфілд",
+      "away": "Бертон",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.23,
+        "draw": 3.44,
+        "away": 3.04
+      }
+    },
+    {
+      "matchId": "tIjNaWS6",
+      "date": "2026-04-06",
+      "country": "АНГЛІЯ",
+      "leagueName": "Перша ліга",
+      "league": "АНГЛІЯ: Перша ліга",
+      "home": "Стівенедж",
+      "away": "Блекпул",
+      "finalScore": {
+        "home": 1,
+        "away": 0,
+        "goalMinutes": [
+          66
+        ],
+        "goalEvents": [
+          {
+            "minute": 66,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          }
+        ]
+      },
+      "firstGoalMinute": 66,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 1.87,
+        "draw": 3.34,
+        "away": 4.25
+      }
+    },
+    {
+      "matchId": "db2VqQ4l",
+      "date": "2026-04-06",
+      "country": "АНГЛІЯ",
+      "leagueName": "Друга ліга",
+      "league": "АНГЛІЯ: Друга ліга",
+      "home": "Транмер",
+      "away": "Колчестер",
+      "finalScore": {
+        "home": 0,
+        "away": 1,
+        "goalMinutes": [
+          75
+        ],
+        "goalEvents": [
+          {
+            "minute": 75,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "0:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 75,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 3.2,
+        "draw": 3.3,
+        "away": 2.2
+      }
+    },
+    {
+      "matchId": "EV0M4KgU",
+      "date": "2026-04-06",
+      "country": "АНГЛІЯ",
+      "leagueName": "Національна ліга",
+      "league": "АНГЛІЯ: Національна ліга",
+      "home": "Бреклі Таун",
+      "away": "Бостон",
+      "finalScore": {
+        "home": 1,
+        "away": 1,
+        "goalMinutes": [
+          71,
+          78
+        ],
+        "goalEvents": [
+          {
+            "minute": 71,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          },
+          {
+            "minute": 78,
+            "team": "away",
+            "type": "penalty",
+            "scoreAfter": "1:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 71,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.74,
+        "draw": 3.3,
+        "away": 2.49
+      }
+    },
+    {
+      "matchId": "CvteFA7k",
+      "date": "2026-04-06",
+      "country": "АНГЛІЯ",
+      "leagueName": "Національна ліга",
+      "league": "АНГЛІЯ: Національна ліга",
+      "home": "Труро",
+      "away": "Форест Грін",
+      "finalScore": {
+        "home": 1,
+        "away": 1,
+        "goalMinutes": [
+          75,
+          84
+        ],
+        "goalEvents": [
+          {
+            "minute": 75,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          },
+          {
+            "minute": 84,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "1:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 75,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 4.19,
+        "draw": 4.09,
+        "away": 1.7
+      }
+    },
+    {
+      "matchId": "8pbT0Bhd",
+      "date": "2026-04-06",
+      "country": "АНГЛІЯ",
+      "leagueName": "Національна ліга",
+      "league": "АНГЛІЯ: Національна ліга",
+      "home": "Хартлпул",
+      "away": "Рочдейл",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 4.41,
+        "draw": 3.56,
+        "away": 1.78
+      }
+    },
+    {
+      "matchId": "2oxgQIUh",
+      "date": "2026-04-06",
+      "country": "БРАЗИЛІЯ",
+      "leagueName": "Серія A Betano",
+      "league": "БРАЗИЛІЯ: Серія A Betano",
+      "home": "Корінтіанс",
+      "away": "Інтернасьйонал",
+      "finalScore": {
+        "home": 0,
+        "away": 1,
+        "goalMinutes": [
+          78
+        ],
+        "goalEvents": [
+          {
+            "minute": 78,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "0:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 78,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.23,
+        "draw": 3.11,
+        "away": 3.84
+      }
+    },
+    {
+      "matchId": "IsSHKEbU",
+      "date": "2026-04-06",
+      "country": "БРАЗИЛІЯ",
+      "leagueName": "Серія A Betano",
+      "league": "БРАЗИЛІЯ: Серія A Betano",
+      "home": "Греміу",
+      "away": "Ремо",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 1.74,
+        "draw": 3.8,
+        "away": 5.14
+      }
+    },
+    {
+      "matchId": "v3toQSnn",
+      "date": "2026-04-06",
+      "country": "ВІРМЕНІЯ",
+      "leagueName": "Прем'єр-ліга",
+      "league": "ВІРМЕНІЯ: Прем'єр-ліга",
+      "home": "Арарат-Вірменія",
+      "away": "Алашкерт",
+      "finalScore": {
+        "home": 1,
+        "away": 1,
+        "goalMinutes": [
+          62,
+          64
+        ],
+        "goalEvents": [
+          {
+            "minute": 62,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          },
+          {
+            "minute": 64,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "1:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 62,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 1.72,
+        "draw": 3.65,
+        "away": 4.69
+      }
+    },
+    {
+      "matchId": "pziK0flJ",
+      "date": "2026-04-06",
+      "country": "ГВАТЕМАЛА",
+      "leagueName": "Національна ліга - Клаусура",
+      "league": "ГВАТЕМАЛА: Національна ліга - Клаусура",
+      "home": "Мунісіпаль",
+      "away": "Кобан Імперіаль",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 1.3,
+        "draw": 5.02,
+        "away": 10
+      }
+    },
+    {
+      "matchId": "GAIafOKM",
+      "date": "2026-04-06",
+      "country": "ДАНІЯ",
+      "leagueName": "Суперліга - Група вибування",
+      "league": "ДАНІЯ: Суперліга - Група вибування",
+      "home": "Оденсе",
+      "away": "Фредерісія",
+      "finalScore": {
+        "home": 1,
+        "away": 0,
+        "goalMinutes": [
+          93
+        ],
+        "goalEvents": [
+          {
+            "minute": 93,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          }
+        ]
+      },
+      "firstGoalMinute": 93,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 1.6,
+        "draw": 4.57,
+        "away": 4.82
+      }
+    },
+    {
+      "matchId": "8CuYIm9U",
+      "date": "2026-04-06",
+      "country": "ЕКВАДОР",
+      "leagueName": "Ліга Про",
+      "league": "ЕКВАДОР: Ліга Про",
+      "home": "Макара",
+      "away": "Аукас",
+      "finalScore": {
+        "home": 0,
+        "away": 1,
+        "goalMinutes": [
+          75
+        ],
+        "goalEvents": [
+          {
+            "minute": 75,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "0:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 75,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.38,
+        "draw": 3.18,
+        "away": 2.99
+      }
+    },
+    {
+      "matchId": "ANbALPz1",
+      "date": "2026-04-06",
+      "country": "ЄГИПЕТ",
+      "leagueName": "Прем'єр-ліга - Група вибування",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+      "home": "ЗЕД",
+      "away": "Араб Контракторс",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.67,
+        "draw": 2.72,
+        "away": 3.06
+      }
+    },
+    {
+      "matchId": "fHIu5ofU",
+      "date": "2026-04-06",
+      "country": "ІРЛАНДІЯ",
+      "leagueName": "Прем'єр-дивізіон",
+      "league": "ІРЛАНДІЯ: Прем'єр-дивізіон",
+      "home": "Слайго Роверс",
+      "away": "Деррі Сіті",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 3.78,
+        "draw": 3.15,
+        "away": 2.05
+      }
+    },
+    {
+      "matchId": "GUVcREHN",
+      "date": "2026-04-06",
+      "country": "ІРЛАНДІЯ",
+      "leagueName": "Перший дивізіон",
+      "league": "ІРЛАНДІЯ: Перший дивізіон",
+      "home": "ЮК Дублін",
+      "away": "Вексфорд",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.57,
+        "draw": 3.35,
+        "away": 2.62
+      }
+    },
+    {
+      "matchId": "jog0YQbs",
+      "date": "2026-04-06",
+      "country": "ІТАЛІЯ",
+      "leagueName": "Серія B",
+      "league": "ІТАЛІЯ: Серія B",
+      "home": "Мантова",
+      "away": "Ентелла",
+      "finalScore": {
+        "home": 1,
+        "away": 0,
+        "goalMinutes": [
+          84
+        ],
+        "goalEvents": [
+          {
+            "minute": 84,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          }
+        ]
+      },
+      "firstGoalMinute": 84,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.51,
+        "draw": 3.11,
+        "away": 3.01
+      }
+    },
+    {
+      "matchId": "YgO97CWr",
+      "date": "2026-04-06",
+      "country": "ІТАЛІЯ",
+      "leagueName": "Серія С - Група А",
+      "league": "ІТАЛІЯ: Серія С - Група А",
+      "home": "Віртус Верона",
+      "away": "Оспіталетто",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 3.02,
+        "draw": 3.23,
+        "away": 2.34
+      }
+    },
+    {
+      "matchId": "0Qkdd8vQ",
+      "date": "2026-04-06",
+      "country": "ІТАЛІЯ",
+      "leagueName": "Серія С - Група С",
+      "league": "ІТАЛІЯ: Серія С - Група С",
+      "home": "Салернітана",
+      "away": "Беневенто",
+      "finalScore": {
+        "home": 0,
+        "away": 1,
+        "goalMinutes": [
+          68
+        ],
+        "goalEvents": [
+          {
+            "minute": 68,
+            "team": "away",
+            "type": "penalty",
+            "scoreAfter": "0:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 68,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 3.37,
+        "draw": 3.32,
+        "away": 2.13
+      }
+    },
+    {
+      "matchId": "88CECsim",
+      "date": "2026-04-06",
+      "country": "НІДЕРЛАНДИ",
+      "leagueName": "Еерсте Дивізі",
+      "league": "НІДЕРЛАНДИ: Еерсте Дивізі",
+      "home": "Камбур",
+      "away": "Дордрехт",
+      "finalScore": {
+        "home": 1,
+        "away": 1,
+        "goalMinutes": [
+          64,
+          81
+        ],
+        "goalEvents": [
+          {
+            "minute": 64,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          },
+          {
+            "minute": 81,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "1:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 64,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 1.66,
+        "draw": 3.97,
+        "away": 4.71
+      }
+    },
+    {
+      "matchId": "IoUwbp7j",
+      "date": "2026-04-06",
+      "country": "НОРВЕГІЯ",
+      "leagueName": "Дивізіон 2 - Група 2",
+      "league": "НОРВЕГІЯ: Дивізіон 2 - Група 2",
+      "home": "Ейдсвольд",
+      "away": "Леренског",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 1.73,
+        "draw": 4.19,
+        "away": 3.98
+      }
+    },
+    {
+      "matchId": "2awiZuv9",
+      "date": "2026-04-06",
+      "country": "ПАНАМА",
+      "leagueName": "ЛПФ - Клаусура",
+      "league": "ПАНАМА: ЛПФ - Клаусура",
+      "home": "Арабе Унідо",
+      "away": "Мігеліто",
+      "finalScore": {
+        "home": 1,
+        "away": 0,
+        "goalMinutes": [
+          69
+        ],
+        "goalEvents": [
+          {
+            "minute": 69,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          }
+        ]
+      },
+      "firstGoalMinute": 69,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.43,
+        "draw": 3.21,
+        "away": 2.9
+      }
+    },
+    {
+      "matchId": "GA881ZQr",
+      "date": "2026-04-06",
+      "country": "ПЕРУ",
+      "leagueName": "Ліга 2",
+      "league": "ПЕРУ: Ліга 2",
+      "home": "Пірата",
+      "away": "АДА Хаен",
+      "finalScore": {
+        "home": 0,
+        "away": 1,
+        "goalMinutes": [
+          92
+        ],
+        "goalEvents": [
+          {
+            "minute": 92,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "0:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 92,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.39,
+        "draw": 3.43,
+        "away": 2.7
+      }
+    },
+    {
+      "matchId": "lYr60Bse",
+      "date": "2026-04-06",
+      "country": "ПОРТУГАЛІЯ",
+      "leagueName": "Ліга Португалії",
+      "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+      "home": "Каса Піа",
+      "away": "Бенфіка",
+      "finalScore": {
+        "home": 1,
+        "away": 1,
+        "goalMinutes": [
+          68,
+          78
+        ],
+        "goalEvents": [
+          {
+            "minute": 68,
+            "team": "home",
+            "type": "goal",
+            "scoreAfter": "1:0"
+          },
+          {
+            "minute": 78,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "1:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 68,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 14.2,
+        "draw": 7.1,
+        "away": 1.22
+      }
+    },
+    {
+      "matchId": "xfF51rJG",
+      "date": "2026-04-06",
+      "country": "ШВЕЦІЯ",
+      "leagueName": "Аллсвенскан",
+      "league": "ШВЕЦІЯ: Аллсвенскан",
+      "home": "ГАІС",
+      "away": "Юргорден",
+      "finalScore": {
+        "home": 0,
+        "away": 1,
+        "goalMinutes": [
+          65
+        ],
+        "goalEvents": [
+          {
+            "minute": 65,
+            "team": "away",
+            "type": "goal",
+            "scoreAfter": "0:1"
+          }
+        ]
+      },
+      "firstGoalMinute": 65,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": true,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 2.14,
+        "draw": 3.28,
+        "away": 3.38
+      }
+    },
+    {
+      "matchId": "0MhlO4Z0",
+      "date": "2026-04-06",
+      "country": "ЯМАЙКА",
+      "leagueName": "Прем'єр-ліга",
+      "league": "ЯМАЙКА: Прем'єр-ліга",
+      "home": "Маунт Плезант",
+      "away": "Расінг Юнайтед",
+      "finalScore": {
+        "home": 0,
+        "away": 0,
+        "goalMinutes": [],
+        "goalEvents": []
+      },
+      "firstGoalMinute": null,
+      "wasZeroZeroAt60": true,
+      "hasLateGoal": false,
+      "goalMinutesReliable": true,
+      "odds1X2": {
+        "home": 1.68,
+        "draw": 3.43,
+        "away": 5.46
+      }
+    }
+  ]
+}
