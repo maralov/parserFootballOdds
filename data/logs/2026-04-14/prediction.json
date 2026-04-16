@@ -1,0 +1,327 @@
+{
+  "date": "2026-04-14",
+  "generatedAt": "2026-04-15T09:51:46.067Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 6,
+    "stakes": 9,
+    "stakesResolved": 9,
+    "wins": 5,
+    "losses": 4,
+    "hitRate": 0.556
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 4,
+      "checked": 4,
+      "hits": 2,
+      "misses": 2,
+      "hitRate": 0.5
+    },
+    "70-80": {
+      "total": 4,
+      "checked": 4,
+      "hits": 3,
+      "misses": 1,
+      "hitRate": 0.75
+    },
+    "80-90+": {
+      "total": 1,
+      "checked": 1,
+      "hits": 0,
+      "misses": 1,
+      "hitRate": 0
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "matches": [
+    {
+      "matchId": "Srmdt5dM",
+      "league": "АЗІЯ: Ліга чемпіонів АФК - Плей-оф",
+      "home": "Трактор (Irn)",
+      "away": "Аль-Ахлі Дубай (Uae)",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 65,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.369,
+          "pDry": 0.631,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-14T16:09:27.106Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.995,
+        "latestSignalQuality": 0.7714
+      }
+    },
+    {
+      "matchId": "hvIn3NJt",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+      "home": "Модерн Спорт",
+      "away": "Ель-Гуна",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 64,
+          "snapshots": 9,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.202,
+          "pDry": 0.798,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-14T16:39:08.704Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "falseDry",
+        "dominanceStrength": 0.5462,
+        "latestSignalQuality": 0.8343
+      }
+    },
+    {
+      "matchId": "WvxzZMld",
+      "league": "АЗІЯ: Ліга чемпіонів АФК - Плей-оф",
+      "home": "ФК Аль-Іттіхад (Sau)",
+      "away": "Аль-Вахда (Uae)",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 68,
+          "snapshots": 9,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.365,
+          "pDry": 0.635,
+          "signalQuality": 0.7871,
+          "timestamp": "2026-04-14T19:28:49.372Z",
+          "hit": false
+        },
+        {
+          "period": "70-80",
+          "minute": 79,
+          "snapshots": 9,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.595,
+          "pDry": 0.405,
+          "signalQuality": 0.7543,
+          "timestamp": "2026-04-14T19:39:35.214Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.5061,
+        "latestSignalQuality": 0.7543
+      }
+    },
+    {
+      "matchId": "Sj4F1Fi3",
+      "league": "АНГЛІЯ: Перша ліга",
+      "home": "Порт Вейл",
+      "away": "Барнслі",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 72,
+          "snapshots": 9,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.435,
+          "pDry": 0.565,
+          "signalQuality": 0.7229,
+          "timestamp": "2026-04-14T20:14:15.022Z",
+          "hit": true
+        },
+        {
+          "period": "80-90+",
+          "minute": 80,
+          "snapshots": 9,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.585,
+          "pDry": 0.415,
+          "signalQuality": 0.7543,
+          "timestamp": "2026-04-14T20:21:17.023Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "accumulatedPressure",
+        "dominanceStrength": 0.654,
+        "latestSignalQuality": 0.77
+      }
+    },
+    {
+      "matchId": "n5pHOUVO",
+      "league": "АНГЛІЯ: Перша ліга",
+      "home": "Лейтон Орієнт",
+      "away": "Менсфілд",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 66,
+          "snapshots": 9,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.296,
+          "pDry": 0.704,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-14T20:10:35.783Z",
+          "hit": true
+        },
+        {
+          "period": "70-80",
+          "minute": 79,
+          "snapshots": 9,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.606,
+          "pDry": 0.394,
+          "signalQuality": 0.8343,
+          "timestamp": "2026-04-14T20:24:57.176Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.5737,
+        "latestSignalQuality": 0.8014
+      }
+    },
+    {
+      "matchId": "OdLTIvyf",
+      "league": "ЄВРОПА: Ліга чемпіонів - Плей-оф",
+      "home": "Ліверпуль",
+      "away": "ПСЖ",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 71,
+          "snapshots": 5,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.623,
+          "pDry": 0.377,
+          "signalQuality": 0.8029,
+          "timestamp": "2026-04-14T20:35:24.472Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "pressureGrowth",
+        "dominanceStrength": 0.9353,
+        "latestSignalQuality": 0.8029
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "date": "2026-04-08",
+  "totalMatches": 29,
+  "actionable": 6,
+  "checkedThisRun": 0,
+  "hitsThisRun": 0,
+  "missesThisRun": 0,
+  "resolved": 6,
+  "hits": 5,
+  "misses": 1,
+  "hitRate": 0.833,
+  "byConfidence": {
+    "high": {
+      "total": 6,
+      "checked": 6,
+      "hits": 5,
+      "misses": 1,
+      "hitRate": 0.833
+    },
+    "medium": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "low": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "generatedAt": "2026-04-09T18:16:40.314Z"
+}

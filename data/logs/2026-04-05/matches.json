@@ -1,0 +1,71 @@
+[
+  {
+    "key": "2026-04-05T17:05_Мец_vs_Нант",
+    "matchId": "EmxM6SXH",
+    "league": "ФРАНЦІЯ: Ліга 1 Таблиця",
+    "home": "Мец",
+    "away": "Нант",
+    "minute": 90,
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "matchDetailsUrl": "https://m.flashscore.ua/match/EmxM6SXH/",
+    "stats": {
+      "shotsOnTarget": 7,
+      "shotsInsideTheBox": 17,
+      "bigChances": 2,
+      "touchesInOppositionBox": 45,
+      "cornerKicks": 8,
+      "goalkeeperSaves": 7,
+      "expectedGoalsXg": 2.41,
+      "xgOnTargetXgot": 1.9,
+      "passesInFinalThird": 126,
+      "expectedAssistsXa": 1.68,
+      "totalShots": 23,
+      "shotsOffTarget": 10,
+      "shotsOutsideTheBox": 6,
+      "blockedShots": 6,
+      "hitTheWoodwork": 0,
+      "crosses": 51,
+      "longPasses": 74,
+      "accurateThroughPasses": 1,
+      "fouls": 23,
+      "tackles": 136,
+      "duelsWon": 88,
+      "clearances": 43,
+      "interceptions": 19,
+      "errorsLeadingToShot": 1,
+      "errorsLeadingToGoal": 0,
+      "ballPossession": 100,
+      "yellowCards": 3,
+      "redCards": 1,
+      "throwIns": 32,
+      "passes": 166,
+      "offsides": 6,
+      "freeKicks": 23,
+      "xgotFaced": 1.9,
+      "goalsPrevented": 1.9,
+      "headedGoals": null
+    },
+    "indices": {
+      "goalPressureIndex": 0.609,
+      "dryPenalty": 0,
+      "pGoal": 0.899,
+      "pDry": 0.101
+    },
+    "prediction": {
+      "bet": "OVER_0_5",
+      "confidence": "high",
+      "pGoal": 0.899,
+      "pDry": 0.101,
+      "edge": 0.399,
+      "reason": "Високий тиск: 7 уд. в площину, 2 мом., 45 дотик. в штр., 7 сейвів, 8 кутових, xG 2.41"
+    },
+    "provider": "flashscore-mobile-ua",
+    "timestamp": "2026-04-05T17:05:03.413Z",
+    "resultChecked": true,
+    "actualResult": "0:0",
+    "hit": false
+  }
+]

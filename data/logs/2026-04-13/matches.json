@@ -1,0 +1,92 @@
+[
+  {
+    "matchId": "4bBgr12n",
+    "league": "ВЕНЕСУЕЛА: Ліга ФУТВЕ 2 Таблиця",
+    "home": "Монагас B",
+    "away": "Арагуа",
+    "minute": 75,
+    "minuteBucket": "70-75",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/4bBgr12n/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/aragua-CbfwrDH9/monagas-z1jpHUsI/?mid=4bBgr12n",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "unavailable",
+    "stats": {
+      "overall": null,
+      "secondHalf": null
+    },
+    "indices": null,
+    "prediction": null,
+    "pipeline": "no_decision_data",
+    "skipReason": "no_stats",
+    "timestamp": "2026-04-12T21:17:09.948Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": []
+  },
+  {
+    "matchId": "Mcf5VzrS",
+    "league": "ВЕНЕСУЕЛА: Ліга ФУТВЕ 2 Таблиця",
+    "home": "Урена",
+    "away": "Лара",
+    "minute": 74,
+    "minuteBucket": "70-75",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/Mcf5VzrS/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/lara-jN0gcWo9/urena-x6MdZOGO/?mid=Mcf5VzrS",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "unavailable",
+    "stats": {
+      "overall": null,
+      "secondHalf": null
+    },
+    "indices": null,
+    "prediction": null,
+    "pipeline": "no_decision_data",
+    "skipReason": "no_stats",
+    "timestamp": "2026-04-12T21:17:07.317Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": []
+  },
+  {
+    "matchId": "jJFoJHXP",
+    "league": "ЯМАЙКА: Прем'єр-ліга Таблиця",
+    "home": "Расінг Юнайтед",
+    "away": "Вотерхаус",
+    "minute": 78,
+    "minuteBucket": null,
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/jJFoJHXP/",
+    "desktopUrl": null,
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "unavailable",
+    "stats": {
+      "overall": null,
+      "secondHalf": null
+    },
+    "indices": null,
+    "prediction": null,
+    "pipeline": "resolve_failed",
+    "skipReason": null,
+    "timestamp": "2026-04-12T22:06:39.823Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": []
+  }
+]
