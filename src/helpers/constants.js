@@ -176,6 +176,9 @@ const LIVE_PREMATCH_BIAS_CAP = Math.max(0, Math.min(0.12, envFloat(process.env.L
 /** Тег у Telegram (напр. v3) для паралельних серверів. Env: TELEGRAM_MODEL_TAG */
 const TELEGRAM_MODEL_TAG = String(process.env.TELEGRAM_MODEL_TAG || '').trim();
 
+/** Яку оцінку викликати в worker: v2 | v3. Env: LIVE_EVAL_MODEL */
+const LIVE_EVAL_MODEL = String(process.env.LIVE_EVAL_MODEL || 'v2').toLowerCase() === 'v3' ? 'v3' : 'v2';
+
 module.exports = {
   USER_AGENTS, USER_AGENT, BASE_URL,
   LIVE_BASE_URL, LIVE_BASE_URL_ALT, LIVE_POLL_INTERVAL_MS, STATS_CONCURRENCY,
@@ -213,4 +216,5 @@ module.exports = {
   LIVE_FORM_H2H_MAX_H2H_ROWS,
   LIVE_PREMATCH_BIAS_CAP,
   TELEGRAM_MODEL_TAG,
+  LIVE_EVAL_MODEL,
 };

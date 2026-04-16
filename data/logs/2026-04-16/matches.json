@@ -3363,5 +3363,38 @@
       }
     ],
     "resultTimestamp": "2026-04-16T03:48:10.849Z"
+  },
+  {
+    "matchId": "UaebDobC",
+    "league": "КАЗАХСТАН: Перша ліга",
+    "home": "КАЗАХСТАН: Перша ліга Таблиця61'Каспій Актау 2",
+    "away": "Кайрат Алмати 2",
+    "minute": 61,
+    "minuteBucket": null,
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/UaebDobC/",
+    "desktopUrl": null,
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "unavailable",
+    "stats": {
+      "overall": null,
+      "secondHalf": null
+    },
+    "liveTrajectory": null,
+    "indices": null,
+    "modelV2": null,
+    "snapshotHistoryV2": null,
+    "prediction": null,
+    "pipeline": "candidate_found",
+    "skipReason": null,
+    "timestamp": "2026-04-16T11:19:23.960Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": []
   }
 ]

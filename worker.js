@@ -6,6 +6,7 @@ const scrapeLiveMatches = require('./src/scrapeLiveMatches');
 const { resolveDesktopUrl, scrapeDesktopStats, checkMatchResult } = require('./src/scrapeDesktopStats');
 const { buildFeatures } = require('./src/pipeline/featureBuilder');
 const { evaluateLiveModelV2 } = require('./src/pipeline/liveModelV2');
+const { evaluateLiveModelV3 } = require('./src/pipeline/liveModelV3');
 const { applyLiveModelGates } = require('./src/pipeline/liveModelGates');
 const { fetchOdds1X2 } = require('./src/scrapeLiveOdds');
 const { scrapeMatchIncidents } = require('./src/scrapeMatchIncidents');
@@ -26,9 +27,12 @@ const {
   LIVE_DECISION_WINDOW_START_MINUTE,
   LIVE_V2_UNDER_CONFIRM_SNAPSHOTS,
   LIVE_FORM_H2H_ENABLED,
+  LIVE_EVAL_MODEL,
 } = require('./src/helpers/constants');
 const { scrapeMatchFormAndH2h } = require('./src/scrapeMatchFormAndH2h');
 const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
+
+const evaluateLiveModel = LIVE_EVAL_MODEL === 'v3' ? evaluateLiveModelV3 : evaluateLiveModelV2;
 const { appendSnapshot, pruneSnapshotStore, seedSnapshots } = require('./src/pipeline/matchSnapshotStore');
 const { dayjs } = require('./src/helpers/date');
 
@@ -61,7 +65,7 @@ try {
     if (m.matchId && m.modelV2 && m.modelV2.currentState != null) {
       lastModelStateByMatchId.set(m.matchId, m.modelV2.currentState);
     }
-    if (m.matchId && m.preMatchV3 !== undefined) {
+    if (LIVE_EVAL_MODEL === 'v3' && m.matchId && m.preMatchV3 !== undefined) {
       formH2hCache.set(m.matchId, m.preMatchV3);
     }
   }
@@ -228,7 +232,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
       let incidents = await scrapeMatchIncidents(statPage, match.id);
 
       let preMatchContext = null;
-      if (LIVE_FORM_H2H_ENABLED) {
+      if (LIVE_FORM_H2H_ENABLED && LIVE_EVAL_MODEL === 'v3') {
         if (formH2hCache.has(match.id)) {
           preMatchContext = formH2hCache.get(match.id);
         } else if (match.minute >= LIVE_DECISION_WINDOW_START_MINUTE) {
@@ -332,7 +336,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
 
       const prevBet = activePredictions.get(match.id)?.bet ?? null;
       const previousState = lastModelStateByMatchId.get(match.id) ?? null;
-      const { modelV2, decision: rawDecision, scoredSummary } = evaluateLiveModelV2({
+      const { modelV2, decision: rawDecision, scoredSummary } = evaluateLiveModel({
         match,
         features,
         odds1X2: odds1X2 || null,
