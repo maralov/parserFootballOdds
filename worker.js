@@ -319,7 +319,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
 
       if (match.minute < LIVE_DECISION_WINDOW_START_MINUTE) {
         console.log(
-          `  ⏳ До вікна рішень v2 (${LIVE_DECISION_WINDOW_START_MINUTE}′): зрізів=${history.length}, хв=${match.minute} — без моделі`
+          `  ⏳ До вікна рішень (${LIVE_DECISION_WINDOW_START_MINUTE}′): зрізів=${history.length}, хв=${match.minute} — без моделі`
         );
         appendMatchEntry(
           createMatchLogEntry(match, features, null, null, {
