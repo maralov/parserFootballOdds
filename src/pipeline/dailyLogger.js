@@ -48,8 +48,6 @@ function appendMatchEntry(entry, date) {
       ex.stats = entry.stats;
     }
     if (entry.indices) ex.indices = entry.indices;
-    if (entry.modelV2 !== undefined) ex.modelV2 = entry.modelV2;
-    if (entry.snapshotHistoryV2 !== undefined) ex.snapshotHistoryV2 = entry.snapshotHistoryV2;
     if (entry.liveTrajectory !== undefined) ex.liveTrajectory = entry.liveTrajectory;
     if (entry.pipeline) ex.pipeline = entry.pipeline;
     if (entry.skipReason !== undefined) ex.skipReason = entry.skipReason;
@@ -87,8 +85,6 @@ function _applyPrediction(stored, entry) {
         confidence: entry.prediction.confidence,
         pGoal: entry.prediction.pGoal,
         pDry: entry.prediction.pDry,
-        signalQuality: entry.prediction.signalQuality,
-        snapshotCount: entry.prediction.snapshotCount ?? null,
         timestamp: entry.prediction.timestamp || entry.timestamp,
       });
     }
@@ -119,9 +115,14 @@ function createMatchLogEntry(match, features, scored, decision, extras = {}) {
       secondHalf: features?.raw2H || null,
     },
     liveTrajectory: features?.liveTrajectory || null,
-    indices: scored ? { ...scored } : null,
-    modelV2: extras.modelV2 ?? null,
-    snapshotHistoryV2: extras.snapshotHistoryV2 ?? null,
+    indices: scored ? {
+      goalPressureIndex: scored.goalPressureIndex,
+      dryPenalty: scored.dryPenalty,
+      trendBonus: scored.trendBonus,
+      imbalanceBonus: scored.imbalanceBonus,
+      pGoal: scored.pGoal,
+      pDry: scored.pDry,
+    } : null,
     prediction: decision ? {
       bet: decision.bet,
       confidence: decision.confidence,
@@ -133,8 +134,6 @@ function createMatchLogEntry(match, features, scored, decision, extras = {}) {
       signalEligible: decision.signalEligible,
       impliedProb: decision.impliedProb,
       odds1X2: decision.odds1X2,
-      signalQuality: decision.signalQuality,
-      snapshotCount: extras.modelV2?.snapshotHistoryUsed ?? null,
       minute: match.minute,
       timestamp: ts,
     } : null,
@@ -149,22 +148,6 @@ function createMatchLogEntry(match, features, scored, decision, extras = {}) {
 
 function saveDaySummary(date, summary) {
   fs.writeFileSync(path.join(getDayDir(date), 'summary.json'), JSON.stringify(summary, null, 2), 'utf8');
-}
-
-function saveDayPredictions(date, predictionsPayload) {
-  fs.writeFileSync(
-    path.join(getDayDir(date), 'prediction.json'),
-    JSON.stringify(predictionsPayload, null, 2),
-    'utf8'
-  );
-}
-
-function saveDayStakeRoi(date, payload) {
-  fs.writeFileSync(
-    path.join(getDayDir(date), 'stake_roi.json'),
-    JSON.stringify(payload, null, 2),
-    'utf8'
-  );
 }
 
 /**
@@ -204,5 +187,5 @@ function markTelegramInitialSent(matchId, date) {
 
 module.exports = {
   getDateString, getDayDir, loadDayMatches, saveDayMatches, appendMatchEntry, createMatchLogEntry,
-  updateMatchResult, markTelegramInitialSent, saveDaySummary, saveDayPredictions, saveDayStakeRoi,
+  updateMatchResult, markTelegramInitialSent, saveDaySummary,
 };
