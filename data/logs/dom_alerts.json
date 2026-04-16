@@ -1,0 +1,524 @@
+[
+  {
+    "matchId": "A1EWCHH0",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T10:18:19.013Z"
+  },
+  {
+    "matchId": "0hkZnaX9",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T12:51:42.290Z"
+  },
+  {
+    "matchId": "lEXBgPgT",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T13:25:42.925Z"
+  },
+  {
+    "matchId": "lEXBgPgT",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T13:32:58.623Z"
+  },
+  {
+    "matchId": "lEXBgPgT",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T13:46:51.364Z"
+  },
+  {
+    "matchId": "zaG2UVkd",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T14:19:54.795Z"
+  },
+  {
+    "matchId": "zaG2UVkd",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T14:23:35.230Z"
+  },
+  {
+    "matchId": "zaG2UVkd",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T14:27:15.561Z"
+  },
+  {
+    "matchId": "zaG2UVkd",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T14:30:55.974Z"
+  },
+  {
+    "matchId": "YV9S7UaS",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T14:34:43.693Z"
+  },
+  {
+    "matchId": "zaG2UVkd",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T14:38:34.158Z"
+  },
+  {
+    "matchId": "S0lTLyMa",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T14:45:38.942Z"
+  },
+  {
+    "matchId": "nJ6okPuK",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T15:27:48.314Z"
+  },
+  {
+    "matchId": "nJ6okPuK",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T15:38:13.221Z"
+  },
+  {
+    "matchId": "IoAERP95",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T16:17:22.885Z"
+  },
+  {
+    "matchId": "besKNcFl",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T16:21:03.161Z"
+  },
+  {
+    "matchId": "b5VmtPOb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T16:21:28.247Z"
+  },
+  {
+    "matchId": "IoAERP95",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T16:21:37.383Z"
+  },
+  {
+    "matchId": "b5VmtPOb",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T16:25:22.327Z"
+  },
+  {
+    "matchId": "besKNcFl",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T16:29:02.419Z"
+  },
+  {
+    "matchId": "U1YZWKn3",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:22:16.075Z"
+  },
+  {
+    "matchId": "nR1VNs9U",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:22:16.380Z"
+  },
+  {
+    "matchId": "IB6DrAFs",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:26:06.369Z"
+  },
+  {
+    "matchId": "IB6DrAFs",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:29:47.030Z"
+  },
+  {
+    "matchId": "IB6DrAFs",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:33:27.646Z"
+  },
+  {
+    "matchId": "pUyOyEcM",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:37:07.856Z"
+  },
+  {
+    "matchId": "xjsurofn",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:40:48.668Z"
+  },
+  {
+    "matchId": "pUyOyEcM",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:40:48.940Z"
+  },
+  {
+    "matchId": "IB6DrAFs",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:44:29.217Z"
+  },
+  {
+    "matchId": "IB6DrAFs",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:48:09.294Z"
+  },
+  {
+    "matchId": "xjsurofn",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:48:17.421Z"
+  },
+  {
+    "matchId": "IB6DrAFs",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:52:02.933Z"
+  },
+  {
+    "matchId": "Qo9OqE13",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:55:42.843Z"
+  },
+  {
+    "matchId": "pUyOyEcM",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T17:55:43.107Z"
+  },
+  {
+    "matchId": "EXP7KtuR",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T18:19:40.616Z"
+  },
+  {
+    "matchId": "EXP7KtuR",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T18:23:20.790Z"
+  },
+  {
+    "matchId": "EXP7KtuR",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T18:27:08.995Z"
+  },
+  {
+    "matchId": "pOU8SzWQ",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T18:30:57.068Z"
+  },
+  {
+    "matchId": "EXP7KtuR",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T18:48:15.323Z"
+  },
+  {
+    "matchId": "reEbQoBc",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T18:55:15.234Z"
+  },
+  {
+    "matchId": "xvNLZTMt",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T19:21:30.081Z"
+  },
+  {
+    "matchId": "nFsCFQyP",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T19:25:10.317Z"
+  },
+  {
+    "matchId": "xvNLZTMt",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T19:28:50.338Z"
+  },
+  {
+    "matchId": "xvNLZTMt",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T19:32:30.285Z"
+  },
+  {
+    "matchId": "xvNLZTMt",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T19:36:11.004Z"
+  },
+  {
+    "matchId": "xvNLZTMt",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T19:39:51.830Z"
+  },
+  {
+    "matchId": "xvNLZTMt",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T19:50:18.851Z"
+  },
+  {
+    "matchId": "j91h3dn2",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T19:57:21.235Z"
+  },
+  {
+    "matchId": "j91h3dn2",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T20:04:33.382Z"
+  },
+  {
+    "matchId": "nJz1sa9F",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T20:18:29.264Z"
+  },
+  {
+    "matchId": "j91h3dn2",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T20:18:29.290Z"
+  },
+  {
+    "matchId": "nJz1sa9F",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T20:35:40.624Z"
+  },
+  {
+    "matchId": "nJz1sa9F",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T20:42:43.429Z"
+  },
+  {
+    "matchId": "4Sn5OC95",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T21:53:30.415Z"
+  },
+  {
+    "matchId": "4Sn5OC95",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T21:57:11.520Z"
+  },
+  {
+    "matchId": "4Sn5OC95",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T22:00:51.786Z"
+  },
+  {
+    "matchId": "jqoDMjvI",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T22:00:51.931Z"
+  },
+  {
+    "matchId": "4Sn5OC95",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T22:04:32.023Z"
+  },
+  {
+    "matchId": "4Sn5OC95",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T22:08:12.025Z"
+  },
+  {
+    "matchId": "4Sn5OC95",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T22:11:52.046Z"
+  },
+  {
+    "matchId": "4Sn5OC95",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T22:15:32.245Z"
+  },
+  {
+    "matchId": "ADqseF1B",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T23:20:29.202Z"
+  },
+  {
+    "matchId": "2c9Cr39r",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T23:20:54.517Z"
+  },
+  {
+    "matchId": "ADqseF1B",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T23:24:40.177Z"
+  },
+  {
+    "matchId": "2c9Cr39r",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T23:24:48.590Z"
+  },
+  {
+    "matchId": "nRlCIqWs",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T23:28:42.048Z"
+  },
+  {
+    "matchId": "2mtZdyXb",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T23:32:43.269Z"
+  },
+  {
+    "matchId": "2mtZdyXb",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T23:36:23.552Z"
+  },
+  {
+    "matchId": "2mtZdyXb",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T23:40:03.747Z"
+  },
+  {
+    "matchId": "2c9Cr39r",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T23:40:03.928Z"
+  },
+  {
+    "matchId": "2mtZdyXb",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T23:43:44.704Z"
+  },
+  {
+    "matchId": "2c9Cr39r",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-15T23:43:44.908Z"
+  },
+  {
+    "matchId": "E9YKmXgo",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T01:36:59.437Z"
+  },
+  {
+    "matchId": "E9YKmXgo",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T01:40:40.377Z"
+  },
+  {
+    "matchId": "E9YKmXgo",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T01:44:21.840Z"
+  },
+  {
+    "matchId": "lSlJCyxq",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T01:44:21.976Z"
+  },
+  {
+    "matchId": "E9YKmXgo",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T01:48:02.090Z"
+  },
+  {
+    "matchId": "CfutFP97",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T01:51:42.772Z"
+  },
+  {
+    "matchId": "U5jZ8gy8",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T01:51:51.568Z"
+  },
+  {
+    "matchId": "E9YKmXgo",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T01:55:38.765Z"
+  },
+  {
+    "matchId": "CfutFP97",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T01:55:38.767Z"
+  },
+  {
+    "matchId": "CfutFP97",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T01:59:33.191Z"
+  },
+  {
+    "matchId": "CfutFP97",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T02:03:15.196Z"
+  },
+  {
+    "matchId": "E9YKmXgo",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T02:03:15.333Z"
+  },
+  {
+    "matchId": "KEh99OWj",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T03:20:40.861Z"
+  },
+  {
+    "matchId": "ImnH4pqT",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T03:34:30.486Z"
+  },
+  {
+    "matchId": "ImnH4pqT",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-16T03:44:56.970Z"
+  }
+]
