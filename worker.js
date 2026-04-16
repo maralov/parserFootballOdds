@@ -336,7 +336,6 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
 
       if (decision.bet !== 'SKIP') {
         const prev = activePredictions.get(match.id);
-        const confChanged = prev && prev.confidence !== decision.confidence;
         const betChanged = prev && prev.bet !== decision.bet;
 
         const prevHist = prev?.betHistory && prev.betHistory.length > 0
@@ -367,7 +366,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
         const canPush = decision.signalEligible && match.minute <= MAX_TELEGRAM_MINUTE;
         const isNewSignal = !alreadySentTg && canPush;
         const isFlipToOver = betChanged && prev?.bet === 'UNDER_0_5' && decision.bet === 'OVER_0_5';
-        const isUpdate = alreadySentTg && canPush && (betChanged || confChanged);
+        const isUpdate = alreadySentTg && canPush && (betChanged);
 
         if (isNewSignal) {
           try {
