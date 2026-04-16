@@ -1,4 +1,5 @@
 const { sanitizeLeagueName, sanitizeTeams, formatBetLabel } = require('./normalizeMatchText');
+const { getTelegramMarkdownPrefix } = require('../telegramModelTag');
 
 function getTimingLabel(minute) {
   if (minute <= 65) return '🟢 Раннє вікно';
@@ -22,7 +23,7 @@ function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
   const timing = getTimingLabel(minute);
   const windowLabel = timeWindow ? ` [${timeWindow}]` : '';
 
-  let msg = `${emoji} *${betLabel}*${windowLabel}
+  let msg = `${getTelegramMarkdownPrefix()}${emoji} *${betLabel}*${windowLabel}
 
 🏆 ${home} - ${away}
 📊 ${league}

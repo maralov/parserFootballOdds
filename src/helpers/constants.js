@@ -167,6 +167,15 @@ const LIVE_V2_BURST_MIN_XG = Math.max(0, envFloat(process.env.LIVE_V2_BURST_MIN_
 /** Пізній сплеск: сегмент vs середнє 2H. Env: LIVE_V2_LATE_SURGE_RATIO */
 const LIVE_V2_LATE_SURGE_RATIO = Math.max(1, envFloat(process.env.LIVE_V2_LATE_SURGE_RATIO, 1.18));
 
+/** Форма + H2H з m.match/.../?t=h2h для pre-match bias (v3). Env: LIVE_FORM_H2H_ENABLED */
+const LIVE_FORM_H2H_ENABLED = envBool(process.env.LIVE_FORM_H2H_ENABLED, false);
+const LIVE_FORM_H2H_MAX_FORM_ROWS = Math.max(3, Math.min(15, envInt(process.env.LIVE_FORM_H2H_MAX_FORM_ROWS, 8)));
+const LIVE_FORM_H2H_MAX_H2H_ROWS = Math.max(2, Math.min(15, envInt(process.env.LIVE_FORM_H2H_MAX_H2H_ROWS, 8)));
+/** Макс. |Δ basePGoal| від форми/H2H перед applyOddsContext. Env: LIVE_PREMATCH_BIAS_CAP */
+const LIVE_PREMATCH_BIAS_CAP = Math.max(0, Math.min(0.12, envFloat(process.env.LIVE_PREMATCH_BIAS_CAP, 0.045)));
+/** Тег у Telegram (напр. v3) для паралельних серверів. Env: TELEGRAM_MODEL_TAG */
+const TELEGRAM_MODEL_TAG = String(process.env.TELEGRAM_MODEL_TAG || '').trim();
+
 module.exports = {
   USER_AGENTS, USER_AGENT, BASE_URL,
   LIVE_BASE_URL, LIVE_BASE_URL_ALT, LIVE_POLL_INTERVAL_MS, STATS_CONCURRENCY,
@@ -199,4 +208,9 @@ module.exports = {
   LIVE_V2_BURST_MIN_SOT,
   LIVE_V2_BURST_MIN_XG,
   LIVE_V2_LATE_SURGE_RATIO,
+  LIVE_FORM_H2H_ENABLED,
+  LIVE_FORM_H2H_MAX_FORM_ROWS,
+  LIVE_FORM_H2H_MAX_H2H_ROWS,
+  LIVE_PREMATCH_BIAS_CAP,
+  TELEGRAM_MODEL_TAG,
 };

@@ -4,6 +4,7 @@ if (process.argv.includes('--ignore-hours')) {
 }
 const { Worker } = require('worker_threads');
 const { LIVE_POLL_INTERVAL_MS } = require('./src/helpers/constants');
+const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
 const { dateKeyLocal, timeHHmm } = require('./src/helpers/date');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
 
@@ -35,7 +36,7 @@ async function sendHeartbeat(runCount) {
   lastHeartbeat = now;
 
   const time = timeHHmm();
-  const msg = `🟢 Парсер активний (${time})\nЦиклів: ${runCount} | Skipped: ${processedMatchIds.length} | TG: ${sentTelegramIds.length} | Active: ${activePredictions.length}`;
+  const msg = `${getTelegramMarkdownPrefix()}🟢 Парсер активний (${time})\nЦиклів: ${runCount} | Skipped: ${processedMatchIds.length} | TG: ${sentTelegramIds.length} | Active: ${activePredictions.length}`;
   try {
     await sendTelegramMessage(msg);
   } catch (e) {

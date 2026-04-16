@@ -20,6 +20,7 @@ const {
   LIVE_V2_LATE_SURGE_RATIO,
   LIVE_70_80_TIE_BREAK_MARGIN,
 } = require('../helpers/constants');
+const { computePreMatchBasePBias } = require('./preMatchFormBias');
 
 function getLiveTimeWindow(minute) {
   const m = Number(minute);
@@ -177,6 +178,7 @@ function buildStatsReasonLine(features) {
  * @param {string|null} [input.previousState]
  * @param {string|null} [input.prevBet]
  * @param {object|null} [input.liveTrajectory]
+ * @param {object|null} [input.preMatchContext] — parseFormH2h / scrapeMatchFormAndH2h (форма + очні)
  */
 function evaluateLiveModelV2(input) {
   const {
@@ -189,6 +191,7 @@ function evaluateLiveModelV2(input) {
     previousState,
     prevBet,
     liveTrajectory,
+    preMatchContext,
   } = input;
 
   const minute = match.minute;
@@ -217,10 +220,13 @@ function evaluateLiveModelV2(input) {
     market: marketContext,
     redCtx: redCardContext,
   });
-  const baseDry = Number((1 - baseP).toFixed(4));
+  const preBias = computePreMatchBasePBias(preMatchContext || null, tw, odds1X2);
+  let basePForOdds = Number((baseP + preBias.deltaPGoal).toFixed(4));
+  basePForOdds = Math.max(0.08, Math.min(0.92, basePForOdds));
+  const baseDryForOdds = Number((1 - basePForOdds).toFixed(4));
 
   const twOdds = tw === '60-70' || tw === '70-80' || tw === '80-90+' ? tw : '70-80';
-  const oc = applyOddsContext(baseP, baseDry, twOdds, odds1X2);
+  const oc = applyOddsContext(basePForOdds, baseDryForOdds, twOdds, odds1X2);
   const pGoal = oc.pGoal;
   const pDry = oc.pDry;
 
@@ -345,6 +351,9 @@ function evaluateLiveModelV2(input) {
   if (oc.oddsNote) {
     reason += ` [ринок ΔpG ${oc.oddsAdjust >= 0 ? '+' : ''}${oc.oddsAdjust}]`;
   }
+  if (preBias.note || preBias.deltaPGoal !== 0) {
+    reason += ` [форма:${preBias.note || '—'} Δp=${preBias.deltaPGoal}]`;
+  }
 
   const decision = {
     bet,
@@ -414,6 +423,12 @@ function evaluateLiveModelV2(input) {
     snapshotHistoryUsed: historyLen,
     pGoal,
     pDry,
+    basePGoalCore: baseP,
+    basePGoalPreOdds: basePForOdds,
+    preMatchFormBias: {
+      deltaPGoal: preBias.deltaPGoal,
+      note: preBias.note,
+    },
   };
 
   const scoredSummary = {
@@ -423,6 +438,7 @@ function evaluateLiveModelV2(input) {
     signalQuality,
     currentState,
     snapshotEvidenceWeight,
+    preMatchDeltaPGoal: preBias.deltaPGoal,
   };
 
   return { modelV2, decision, scoredSummary };

@@ -49,6 +49,7 @@ function appendMatchEntry(entry, date) {
     }
     if (entry.indices) ex.indices = entry.indices;
     if (entry.modelV2 !== undefined) ex.modelV2 = entry.modelV2;
+    if (entry.preMatchV3 !== undefined) ex.preMatchV3 = entry.preMatchV3;
     if (entry.snapshotHistoryV2 !== undefined) ex.snapshotHistoryV2 = entry.snapshotHistoryV2;
     if (entry.liveTrajectory !== undefined) ex.liveTrajectory = entry.liveTrajectory;
     if (entry.pipeline) ex.pipeline = entry.pipeline;
@@ -144,6 +145,7 @@ function createMatchLogEntry(match, features, scored, decision, extras = {}) {
     resultChecked: false,
     actualResult: null,
     hit: null,
+    ...(extras.preMatchV3 !== undefined ? { preMatchV3: extras.preMatchV3 } : {}),
   };
 }
 

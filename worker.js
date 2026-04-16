@@ -25,7 +25,10 @@ const {
   LIVE_SNAPSHOT_SECOND_PASS_MS,
   LIVE_DECISION_WINDOW_START_MINUTE,
   LIVE_V2_UNDER_CONFIRM_SNAPSHOTS,
+  LIVE_FORM_H2H_ENABLED,
 } = require('./src/helpers/constants');
+const { scrapeMatchFormAndH2h } = require('./src/scrapeMatchFormAndH2h');
+const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
 const { appendSnapshot, pruneSnapshotStore, seedSnapshots } = require('./src/pipeline/matchSnapshotStore');
 const { dayjs } = require('./src/helpers/date');
 
@@ -45,6 +48,8 @@ const activePredictions = workerData?.activePredictions
 const matchSnapshotStore = new Map();
 /** Останній currentState моделі v2 для зміни сценарію між тиками. */
 const lastModelStateByMatchId = new Map();
+/** Кеш форми/H2H з ?t=h2h (один запис на matchId за цикл життя воркера). */
+const formH2hCache = new Map();
 
 // Відновлення снэпшотів і стану v2 з лога + при першому проході — TG / predictions
 try {
@@ -55,6 +60,9 @@ try {
     }
     if (m.matchId && m.modelV2 && m.modelV2.currentState != null) {
       lastModelStateByMatchId.set(m.matchId, m.modelV2.currentState);
+    }
+    if (m.matchId && m.preMatchV3 !== undefined) {
+      formH2hCache.set(m.matchId, m.preMatchV3);
     }
   }
 } catch (e) {
@@ -106,6 +114,21 @@ async function mapWithConcurrency(items, limit, fn) {
   async function w() { while (idx < items.length) { const i = idx++; result[i] = await fn(items[i], i); } }
   await Promise.all(Array.from({ length: Math.min(limit, items.length || 1) }, () => w()));
   return result;
+}
+
+function slimPreMatchForLog(ctx) {
+  if (!ctx) return null;
+  return {
+    parseOk: ctx.parseOk,
+    error: ctx.error || null,
+    fetchedAt: ctx.fetchedAt || null,
+    aggregates: ctx.aggregates || null,
+    counts: {
+      formHome: ctx.formHome?.length ?? 0,
+      formAway: ctx.formAway?.length ?? 0,
+      h2h: ctx.h2hMutual?.length ?? 0,
+    },
+  };
 }
 
 function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
@@ -203,6 +226,19 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
 
       const statsResult = await scrapeDesktopStats(statPage, desktopUrl, match.id);
       let incidents = await scrapeMatchIncidents(statPage, match.id);
+
+      let preMatchContext = null;
+      if (LIVE_FORM_H2H_ENABLED) {
+        if (formH2hCache.has(match.id)) {
+          preMatchContext = formH2hCache.get(match.id);
+        } else if (match.minute >= LIVE_DECISION_WINDOW_START_MINUTE) {
+          preMatchContext = await scrapeMatchFormAndH2h(statPage, match.id, {
+            home: match.home,
+            away: match.away,
+          });
+          formH2hCache.set(match.id, preMatchContext);
+        }
+      }
 
       let features = {
         ...buildFeatures(match, statsResult),
@@ -306,6 +342,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
         previousState,
         prevBet,
         liveTrajectory,
+        preMatchContext,
       });
       lastModelStateByMatchId.set(match.id, modelV2.currentState);
 
@@ -329,6 +366,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
         skipReason: decision.bet === 'SKIP' ? 'v2_wait_or_skip' : null,
         modelV2,
         snapshotHistoryV2: history,
+        preMatchV3: slimPreMatchForLog(preMatchContext),
       });
       appendMatchEntry(logEntry);
 
@@ -384,6 +422,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
             : (betChanged ? `📊 Прогноз → ${decision.bet === 'OVER_0_5' ? 'ТБ 0,5' : 'ТМ 0,5'}` : `📶 Впевненість → ${decision.confidence}`);
           try {
             const flipMsg =
+              `${getTelegramMarkdownPrefix()}` +
               `🔄 *Оновлення (${match.minute}')* — ${decision.timeWindow}\n` +
               `🏆 ${cleanLeague}\n` +
               `⚽ ${cleanHome} - ${cleanAway}\n` +
@@ -462,6 +501,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
             const resultUrl = pred.desktopUrl || pred.mobileUrl || `https://m.flashscore.ua/match/${matchId}/`;
             try {
               await sendTelegramMessage(
+                `${getTelegramMarkdownPrefix()}` +
                 `🏆 ${league}\n` +
                 `⚽ ${home} - ${away}\n` +
                 `${suffix}\n\n` +
