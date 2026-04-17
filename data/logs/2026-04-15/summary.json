@@ -3,7 +3,7 @@
   "totalRowsInLog": 33,
   "uniqueMatches": 33,
   "actionable": 5,
-  "stakeLegsPlanned": 8,
+  "stakeLegsPlanned": 10,
   "checkedThisRun": 0,
   "hitsThisRun": 0,
   "missesThisRun": 0,
@@ -55,5 +55,5 @@
     }
   },
   "flips": 3,
-  "generatedAt": "2026-04-16T07:49:41.968Z"
+  "generatedAt": "2026-04-16T11:49:41.803Z"
 }

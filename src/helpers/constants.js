@@ -28,7 +28,7 @@ function isWithinWorkingHours(date) {
   const day = dayOfWeek(date);
   const isWeekend = day === 0 || day === 5 || day === 6;
   const startHour = isWeekend ? 16 : 17;
-  return h >= startHour && h < 23;
+  return h >= startHour && h <= 24;
 }
 
 const USER_AGENT = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
