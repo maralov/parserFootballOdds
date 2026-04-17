@@ -1,6 +1,6 @@
 {
-  "date": "2026-04-15",
-  "generatedAt": "2026-04-16T11:51:10.671Z",
+  "date": "2026-04-16",
+  "generatedAt": "2026-04-16T21:00:58.966Z",
   "rules": {
     "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
     "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
@@ -16,51 +16,51 @@
     }
   },
   "overall": {
-    "bets": 8,
-    "checked": 8,
-    "wins": 3,
-    "losses": 5,
+    "bets": 7,
+    "checked": 7,
+    "wins": 4,
+    "losses": 3,
     "pending": 0,
-    "turnover": 4000,
-    "profit": -600,
-    "roi": -0.15,
-    "hitRate": 0.375,
+    "turnover": 3500,
+    "profit": 1150,
+    "roi": 0.329,
+    "hitRate": 0.571,
     "bankStart": 10000,
-    "bankEnd": 9400
+    "bankEnd": 11150
   },
   "byPeriod": {
     "60-70": {
-      "total": 2,
-      "checked": 2,
-      "wins": 0,
+      "total": 4,
+      "checked": 4,
+      "wins": 2,
       "losses": 2,
       "pending": 0,
-      "turnover": 1000,
-      "profit": -1000,
-      "roi": -1,
-      "hitRate": 0
+      "turnover": 2000,
+      "profit": 500,
+      "roi": 0.25,
+      "hitRate": 0.5
     },
     "70-80": {
-      "total": 3,
-      "checked": 3,
+      "total": 1,
+      "checked": 1,
       "wins": 1,
-      "losses": 2,
+      "losses": 0,
       "pending": 0,
-      "turnover": 1500,
-      "profit": -600,
-      "roi": -0.4,
-      "hitRate": 0.333
+      "turnover": 500,
+      "profit": 400,
+      "roi": 0.8,
+      "hitRate": 1
     },
     "80-90+": {
-      "total": 3,
-      "checked": 3,
-      "wins": 2,
+      "total": 2,
+      "checked": 2,
+      "wins": 1,
       "losses": 1,
       "pending": 0,
-      "turnover": 1500,
-      "profit": 1000,
-      "roi": 0.667,
-      "hitRate": 0.667
+      "turnover": 1000,
+      "profit": 250,
+      "roi": 0.25,
+      "hitRate": 0.5
     },
     "other": {
       "total": 0,
@@ -78,17 +78,6 @@
     "UNDER_0_5": {
       "total": 4,
       "checked": 4,
-      "wins": 1,
-      "losses": 3,
-      "pending": 0,
-      "turnover": 2000,
-      "profit": -1100,
-      "roi": -0.55,
-      "hitRate": 0.25
-    },
-    "OVER_0_5": {
-      "total": 4,
-      "checked": 4,
       "wins": 2,
       "losses": 2,
       "pending": 0,
@@ -96,27 +85,38 @@
       "profit": 500,
       "roi": 0.25,
       "hitRate": 0.5
+    },
+    "OVER_0_5": {
+      "total": 3,
+      "checked": 3,
+      "wins": 2,
+      "losses": 1,
+      "pending": 0,
+      "turnover": 1500,
+      "profit": 650,
+      "roi": 0.433,
+      "hitRate": 0.667
     }
   },
   "noFlipsScenario": {
-    "bets": 5,
-    "checked": 5,
-    "wins": 1,
-    "losses": 4,
+    "bets": 4,
+    "checked": 4,
+    "wins": 2,
+    "losses": 2,
     "pending": 0,
-    "turnover": 2500,
-    "profit": -1600,
-    "roi": -0.64,
-    "hitRate": 0.2,
+    "turnover": 2000,
+    "profit": 500,
+    "roi": 0.25,
+    "hitRate": 0.5,
     "bankStart": 10000,
-    "bankEnd": 8400
+    "bankEnd": 10500
   },
   "matches": [
     {
-      "matchId": "0hkZnaX9",
-      "league": "КИТАЙ: League Two",
-      "home": "Ухань Трі Таунс B",
-      "away": "Ченду Рончен B",
+      "matchId": "2c9Cr39r",
+      "league": "ПІВДЕННА АМЕРИКА: Кубок Лібертадорес - Груповий етап",
+      "home": "Лібертад Асунсьйон (Par)",
+      "away": "Росаріо Сентраль (Arg)",
       "finalResult": {
         "home": 0,
         "away": 1
@@ -125,20 +125,48 @@
       "uniqueSignals": [
         {
           "order": 1,
-          "period": "70-80",
+          "period": "60-70",
           "bet": "ТМ 0,5",
           "hit": false
+        },
+        {
+          "order": 2,
+          "period": "70-80",
+          "bet": "ТБ 0,5",
+          "hit": true
         }
       ],
-      "wins": 0,
+      "wins": 1,
       "losses": 1,
       "pending": 0
     },
     {
-      "matchId": "zaG2UVkd",
-      "league": "САУДІВСЬКА АРАВІЯ: Дивізіон 1",
-      "home": "Абха",
-      "away": "Джедда",
+      "matchId": "lSlJCyxq",
+      "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+      "home": "Олімпія Асунсьйон (Par)",
+      "away": "Барракас Сентраль (Arg)",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "ImnH4pqT",
+      "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+      "home": "Мільйонаріос (Col)",
+      "away": "Бостон Рівер (Uru)",
       "finalResult": {
         "home": 1,
         "away": 0
@@ -163,69 +191,16 @@
       "pending": 0
     },
     {
-      "matchId": "pUyOyEcM",
-      "league": "САУДІВСЬКА АРАВІЯ: Дивізіон 1",
-      "home": "Аль-Раед",
-      "away": "Аль-Оруба",
-      "finalResult": {
-        "home": 0,
-        "away": 1
-      },
-      "totalGoals": 1,
+      "matchId": "AyqEP1It",
+      "league": "АНГЛІЯ: Друга ліга",
+      "home": "Бромлі",
+      "away": "Кембридж Юнайтед",
+      "finalResult": "0:0",
+      "totalGoals": 0,
       "uniqueSignals": [
         {
           "order": 1,
           "period": "60-70",
-          "bet": "ТМ 0,5",
-          "hit": false
-        },
-        {
-          "order": 2,
-          "period": "80-90+",
-          "bet": "ТБ 0,5",
-          "hit": true
-        }
-      ],
-      "wins": 1,
-      "losses": 1,
-      "pending": 0
-    },
-    {
-      "matchId": "EXP7KtuR",
-      "league": "НОРВЕГІЯ: Елітсеріен",
-      "home": "Тромсе",
-      "away": "Ліллестрем",
-      "finalResult": {
-        "home": 0,
-        "away": 0
-      },
-      "totalGoals": 0,
-      "uniqueSignals": [
-        {
-          "order": 1,
-          "period": "70-80",
-          "bet": "ТБ 0,5",
-          "hit": false
-        }
-      ],
-      "wins": 0,
-      "losses": 1,
-      "pending": 0
-    },
-    {
-      "matchId": "nJz1sa9F",
-      "league": "ЄВРОПА: Ліга чемпіонів - Плей-оф",
-      "home": "Арсенал",
-      "away": "Спортінг",
-      "finalResult": {
-        "home": 0,
-        "away": 0
-      },
-      "totalGoals": 0,
-      "uniqueSignals": [
-        {
-          "order": 1,
-          "period": "70-80",
           "bet": "ТМ 0,5",
           "hit": true
         },

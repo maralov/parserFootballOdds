@@ -1,0 +1,242 @@
+{
+  "date": "2026-04-16",
+  "generatedAt": "2026-04-16T21:00:58.965Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 4,
+    "stakes": 7,
+    "stakesResolved": 7,
+    "wins": 4,
+    "losses": 3,
+    "hitRate": 0.571
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 4,
+      "checked": 4,
+      "hits": 2,
+      "misses": 2,
+      "hitRate": 0.5
+    },
+    "70-80": {
+      "total": 1,
+      "checked": 1,
+      "hits": 1,
+      "misses": 0,
+      "hitRate": 1
+    },
+    "80-90+": {
+      "total": 2,
+      "checked": 2,
+      "hits": 1,
+      "misses": 1,
+      "hitRate": 0.5
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "matches": [
+    {
+      "matchId": "2c9Cr39r",
+      "league": "ПІВДЕННА АМЕРИКА: Кубок Лібертадорес - Груповий етап",
+      "home": "Лібертад Асунсьйон (Par)",
+      "away": "Росаріо Сентраль (Arg)",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 64,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.359,
+          "pDry": 0.641,
+          "signalQuality": 0.7114,
+          "timestamp": "2026-04-15T23:24:54.654Z",
+          "hit": false
+        },
+        {
+          "period": "70-80",
+          "minute": 76,
+          "snapshots": 5,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.629,
+          "pDry": 0.371,
+          "signalQuality": 0.8186,
+          "timestamp": "2026-04-15T23:36:07.740Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "overall_only",
+        "currentState": "dry",
+        "dominanceStrength": 0.5,
+        "latestSignalQuality": 0.8186
+      }
+    },
+    {
+      "matchId": "lSlJCyxq",
+      "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+      "home": "Олімпія Асунсьйон (Par)",
+      "away": "Барракас Сентраль (Arg)",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 66,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.439,
+          "pDry": 0.561,
+          "signalQuality": 0.6914,
+          "timestamp": "2026-04-16T01:26:35.610Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.7257,
+        "latestSignalQuality": 0.8029
+      }
+    },
+    {
+      "matchId": "ImnH4pqT",
+      "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+      "home": "Мільйонаріос (Col)",
+      "away": "Бостон Рівер (Uru)",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 63,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.385,
+          "pDry": 0.615,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-16T03:24:04.955Z",
+          "hit": false
+        },
+        {
+          "period": "80-90+",
+          "minute": 81,
+          "snapshots": 2,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.675,
+          "pDry": 0.325,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-16T03:41:17.033Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "overall_only",
+        "currentState": "dry",
+        "dominanceStrength": 0.5,
+        "latestSignalQuality": 0.7714
+      }
+    },
+    {
+      "matchId": "AyqEP1It",
+      "league": "АНГЛІЯ: Друга ліга",
+      "home": "Бромлі",
+      "away": "Кембридж Юнайтед",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 66,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.42,
+          "pDry": 0.58,
+          "signalQuality": 0.6914,
+          "timestamp": "2026-04-16T20:26:49.331Z",
+          "hit": true
+        },
+        {
+          "period": "80-90+",
+          "minute": 80,
+          "snapshots": 6,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.64,
+          "pDry": 0.36,
+          "signalQuality": 0.8343,
+          "timestamp": "2026-04-16T20:40:39.598Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": "0:0",
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "pressureGrowth",
+        "dominanceStrength": 0.6575,
+        "latestSignalQuality": 0.8343
+      }
+    }
+  ]
+}
