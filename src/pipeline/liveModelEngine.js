@@ -19,6 +19,10 @@ const {
   LIVE_V2_BURST_MIN_XG,
   LIVE_V2_LATE_SURGE_RATIO,
   LIVE_70_80_TIE_BREAK_MARGIN,
+  LIVE_V3_PDRY_MIN_60_70,
+  LIVE_V3_SQ_MIN_60_70,
+  LIVE_V3_SQ_MIN_70_80,
+  LIVE_V3_MIN_SNAPSHOTS,
 } = require('../helpers/constants');
 const { computePreMatchBasePBias } = require('./preMatchFormBias');
 
@@ -273,42 +277,48 @@ function evaluateLiveModel(input, options = {}) {
     bet = 'SKIP';
     reason = `Недостатньо метрик: ${statsLine} ${src}`;
   } else if (tw === '60-70') {
-    const confirmOk = historyLen >= LIVE_V2_UNDER_CONFIRM_SNAPSHOTS;
+    const confirmOk = historyLen >= LIVE_V3_MIN_SNAPSHOTS;
     const badState =
       currentState === 'desperatePressure' ||
       currentState === 'lateSurge' ||
-      currentState === 'pressureGrowth';
+      currentState === 'pressureGrowth' ||
+      currentState === 'falseDry' ||
+      currentState === 'dry' ||
+      currentState === 'accumulatedPressure';
+    const sqOk60 = signalQuality >= LIVE_V3_SQ_MIN_60_70;
     if (
       confirmOk &&
       !burst &&
-      pDry >= LIVE_V2_PDRY_MIN_60_70 &&
+      pDry >= LIVE_V3_PDRY_MIN_60_70 &&
       pGoal <= LIVE_V2_PGOAL_MAX_60_70 &&
+      sqOk60 &&
       !badState
     ) {
       bet = 'UNDER_0_5';
-      reason = `ТМ 60–70 ${reasonTag} | ${statsLine} ${src} | стан=${currentState} | зрізів=${historyLen}`;
+      reason = `ТМ 60–70 ${reasonTag} | ${statsLine} ${src} | стан=${currentState} | зрізів=${historyLen} | SQ=${signalQuality}`;
     } else {
       reason =
-        `60–70 ${reasonTag} очікування: зрізів=${historyLen}/${LIVE_V2_UNDER_CONFIRM_SNAPSHOTS} burst=${burst} ` +
-        `pD=${pDry} pG=${pGoal} стан=${currentState} | ${statsLine}`;
+        `60–70 ${reasonTag} очікування: зрізів=${historyLen}/${LIVE_V3_MIN_SNAPSHOTS} burst=${burst} ` +
+        `pD=${pDry} pG=${pGoal} SQ=${signalQuality}(мін ${LIVE_V3_SQ_MIN_60_70}) стан=${currentState} | ${statsLine}`;
     }
   } else if (tw === '70-80') {
-    const overOk = pGoal >= LIVE_V2_PGOAL_MIN_70_80;
-    const underOk = pDry >= LIVE_V2_PDRY_MIN_70_80 && pGoal <= 0.55;
+    const sqOk70 = signalQuality >= LIVE_V3_SQ_MIN_70_80;
+    const overOk = pGoal >= LIVE_V2_PGOAL_MIN_70_80 && sqOk70;
+    const underOk = pDry >= LIVE_V2_PDRY_MIN_70_80 && pGoal <= 0.55 && sqOk70;
     if (overOk && underOk) {
       const margin = LIVE_70_80_TIE_BREAK_MARGIN;
       if (margin > 0 && Math.abs(pGoal - pDry) < margin) {
         reason = `70–80 ${reasonTag}: tie-break |pG−pD|<${margin} | ${statsLine}`;
       } else {
         bet = pGoal >= pDry ? 'OVER_0_5' : 'UNDER_0_5';
-        reason = `${bet === 'OVER_0_5' ? 'ТБ' : 'ТМ'} 70–80 ${reasonTag} | ${statsLine} ${src}`;
+        reason = `${bet === 'OVER_0_5' ? 'ТБ' : 'ТМ'} 70–80 ${reasonTag} | ${statsLine} ${src} | SQ=${signalQuality}`;
       }
     } else if (overOk) {
       bet = 'OVER_0_5';
-      reason = `ТБ 70–80 ${reasonTag} | ${statsLine} ${src}`;
+      reason = `ТБ 70–80 ${reasonTag} | ${statsLine} ${src} | SQ=${signalQuality}`;
     } else if (underOk) {
       bet = 'UNDER_0_5';
-      reason = `ТМ 70–80 ${reasonTag} | ${statsLine} ${src}`;
+      reason = `ТМ 70–80 ${reasonTag} | ${statsLine} ${src} | SQ=${signalQuality}`;
     } else {
       reason = `70–80 ${reasonTag}: немає порогів pG=${pGoal} pD=${pDry} | ${statsLine}`;
     }
