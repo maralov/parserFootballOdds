@@ -160,6 +160,11 @@ const LIVE_V2_PGOAL_MIN_70_80 = Math.max(0.45, Math.min(0.9, envFloat(process.en
 const LIVE_V2_PDRY_MIN_70_80 = Math.max(0.45, Math.min(0.9, envFloat(process.env.LIVE_V2_PDRY_MIN_70_80, 0.54)));
 const LIVE_V2_PGOAL_MIN_80 = Math.max(0.45, Math.min(0.95, envFloat(process.env.LIVE_V2_PGOAL_MIN_80, 0.55)));
 
+/** Золоті фільтри v3.1 — виведено з аналізу 04-15..04-19 (HR 66.7% / 62.5%). */
+const LIVE_V3_PDRY_MIN_60_70 = Math.max(0.35, Math.min(0.95, envFloat(process.env.LIVE_V3_PDRY_MIN_60_70, 0.67)));
+const LIVE_V3_SQ_MIN_60_70   = Math.max(0,    Math.min(1,    envFloat(process.env.LIVE_V3_SQ_MIN_60_70,   0.77)));
+const LIVE_V3_SQ_MIN_70_80   = Math.max(0,    Math.min(1,    envFloat(process.env.LIVE_V3_SQ_MIN_70_80,   0.71)));
+
 /** Сплеск 2H для блокування ТМ 60–70 (як раніше burst gate). Env: LIVE_V2_BURST_* */
 const LIVE_V2_BURST_MIN_SOT = Math.max(0, envFloat(process.env.LIVE_V2_BURST_MIN_SOT, LIVE_SNAPSHOT_BURST_MIN_SOT));
 const LIVE_V2_BURST_MIN_XG = Math.max(0, envFloat(process.env.LIVE_V2_BURST_MIN_XG, LIVE_SNAPSHOT_BURST_MIN_XG));
@@ -208,6 +213,9 @@ module.exports = {
   LIVE_V2_PGOAL_MIN_70_80,
   LIVE_V2_PDRY_MIN_70_80,
   LIVE_V2_PGOAL_MIN_80,
+  LIVE_V3_PDRY_MIN_60_70,
+  LIVE_V3_SQ_MIN_60_70,
+  LIVE_V3_SQ_MIN_70_80,
   LIVE_V2_BURST_MIN_SOT,
   LIVE_V2_BURST_MIN_XG,
   LIVE_V2_LATE_SURGE_RATIO,

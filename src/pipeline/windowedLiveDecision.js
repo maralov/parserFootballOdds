@@ -1,6 +1,11 @@
 const { applyOddsContext } = require('./oddsContext');
 const { applyLiveModelGates, applyLiveSnapshotBurstGate } = require('./liveModelGates');
-const { LIVE_70_80_TIE_BREAK_MARGIN } = require('../helpers/constants');
+const {
+  LIVE_70_80_TIE_BREAK_MARGIN,
+  LIVE_V3_PDRY_MIN_60_70,
+  LIVE_V3_SQ_MIN_60_70,
+  LIVE_V3_SQ_MIN_70_80,
+} = require('../helpers/constants');
 
 /** Бізнес-вікна лайв-моделі (хвилини матчу). */
 function getLiveTimeWindow(minute) {
@@ -14,13 +19,13 @@ function getLiveTimeWindow(minute) {
 }
 
 /**
- * Пороги під базову pGoal=0.45.
- * `tieBreakMinMargin` за замовчуванням 0 — як раніше; для експериментів передайте opts у decideWindowedLiveBet або скрипт replay.
+ * Пороги рішень v3.1 з золотими фільтрами (з аналізу 04-15..04-19).
+ * minSQ — мінімальний signalQuality для дозволу Telegram-сигналу.
  */
 const THRESHOLDS = {
-  '60-70':  { minPDryUnder: 0.52, minPGoalOver: 1   },
-  '70-80':  { minPDryUnder: 0.54, minPGoalOver: 0.60 },
-  '80-90+': { minPDryUnder: 1,    minPGoalOver: 0.55 },
+  '60-70':  { minPDryUnder: LIVE_V3_PDRY_MIN_60_70, minSQ: LIVE_V3_SQ_MIN_60_70, minPGoalOver: 1 },
+  '70-80':  { minPDryUnder: 0.54, minSQ: LIVE_V3_SQ_MIN_70_80, minPGoalOver: 0.60 },
+  '80-90+': { minPDryUnder: 1,    minSQ: 0,                     minPGoalOver: 0.55 },
 };
 
 const PGOAL_MAX_FOR_UNDER_60_70_DEFAULT = 0.48;
@@ -125,18 +130,30 @@ function decideWindowedLiveBet(scored, features, prevBet = null, opts = {}) {
    * Telegram-сигнал: high — завжди, medium — з поміткою ⚠️.
    * low/none — не відправляємо, але відстежуємо.
    */
-  const make = (bet, label, signalEligible) => ({
-    bet,
-    confidence: highStats ? 'high' : mediumStats ? 'medium' : 'low',
-    pGoal,
-    pDry,
-    edge: Number(((bet === 'OVER_0_5' ? pGoal : pDry) - 0.5).toFixed(3)),
-    reason: `${label}: ${reasonBase}${oddsSuffix}`,
-    timeWindow: tw,
-    signalEligible: Boolean(signalEligible && (highStats || mediumStats)),
-    impliedProb: oc.impliedProb,
-    odds1X2: features.odds1X2 || null,
-  });
+  const make = (bet, label, signalEligible) => {
+    const sq = scored?.signalQuality ?? null;
+    const sqMin = th.minSQ ?? 0;
+    const sqOk = sqMin === 0 || (sq !== null && sq >= sqMin);
+
+    const filterParts = [];
+    if (bet === 'UNDER_0_5' && th.minPDryUnder > 0 && th.minPDryUnder < 1) filterParts.push(`pDry≥${th.minPDryUnder}`);
+    if (bet === 'OVER_0_5' && th.minPGoalOver > 0 && th.minPGoalOver < 1) filterParts.push(`pGoal≥${th.minPGoalOver}`);
+    if (sqMin > 0) filterParts.push(`SQ≥${sqMin}`);
+
+    return {
+      bet,
+      confidence: highStats ? 'high' : mediumStats ? 'medium' : 'low',
+      pGoal,
+      pDry,
+      edge: Number(((bet === 'OVER_0_5' ? pGoal : pDry) - 0.5).toFixed(3)),
+      reason: `${label}: ${reasonBase}${oddsSuffix}`,
+      timeWindow: tw,
+      signalEligible: Boolean(signalEligible && (highStats || mediumStats) && sqOk),
+      filtersApplied: filterParts.join(', '),
+      impliedProb: oc.impliedProb,
+      odds1X2: features.odds1X2 || null,
+    };
+  };
 
   if (tw === '60-70') {
     if (pDry >= th.minPDryUnder && pGoal <= pGoalMax60) {
@@ -147,7 +164,7 @@ function decideWindowedLiveBet(scored, features, prevBet = null, opts = {}) {
       confidence: features.confidence,
       pGoal, pDry,
       edge: null,
-      reason: `60–70: очікуємо сильний сигнал ТМ (high stats + pDry≥${th.minPDryUnder}, pGoal≤${pGoalMax60}) — ${reasonBase}${oddsSuffix}`,
+      reason: `60–70: очікуємо ТМ (pDry≥${th.minPDryUnder}, SQ≥${th.minSQ ?? 0}, pGoal≤${pGoalMax60}) — ${reasonBase}${oddsSuffix}`,
       timeWindow: tw,
       signalEligible: false,
       impliedProb: oc.impliedProb,

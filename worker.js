@@ -97,8 +97,8 @@ if (sentTelegramIds.size === 0 && processedMatchIds.size === 0) {
           away: m.away,
           league: m.league,
           betHistory: Array.isArray(m.betHistory) && m.betHistory.length > 0
-            ? m.betHistory.map((h) => ({ bet: h.bet, timeWindow: h.timeWindow, minute: h.minute }))
-            : [{ bet: m.prediction.bet, timeWindow: m.prediction.timeWindow, minute: m.minute }],
+            ? m.betHistory.map((h) => ({ bet: h.bet, timeWindow: h.timeWindow, minute: h.minute, filtersApplied: h.filtersApplied || '' }))
+            : [{ bet: m.prediction.bet, timeWindow: m.prediction.timeWindow, minute: m.minute, filtersApplied: '' }],
         });
       }
     }
@@ -387,7 +387,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
         if (decision.bet !== 'SKIP') {
           const last = betHistory[betHistory.length - 1];
           if (!last || last.bet !== decision.bet || last.timeWindow !== decision.timeWindow) {
-            betHistory = [...betHistory, { bet: decision.bet, timeWindow: decision.timeWindow, minute: match.minute }];
+            betHistory = [...betHistory, { bet: decision.bet, timeWindow: decision.timeWindow, minute: match.minute, filtersApplied: decision.filtersApplied || '' }];
           }
         }
 
@@ -497,11 +497,13 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
             const suffix = res.finished
               ? `⚽ Рахунок: ${res.homeScore}:${res.awayScore} (FT)`
               : `⚽ Рахунок: ${res.homeScore}:${res.awayScore} — прогноз вирішено`;
-            const legLines = hitLegs.map((l, idx) => {
-              return `${idx + 1}) ${formatBetLabel(l.bet)} [${l.timeWindow || 'unknown'}] — ${l.hit ? '✅' : '❌'}`;
-            }).join('\n');
             const wins = hitLegs.filter((l) => l.hit === true).length;
             const losses = hitLegs.filter((l) => l.hit === false).length;
+            const resultEmoji = losses === 0 ? '✅' : wins === 0 ? '❌' : '⚠️';
+            const lastSig = stakeSignals[stakeSignals.length - 1];
+            const filtersLine = lastSig?.filtersApplied
+              ? `\n🔍 *Фільтри:* ${lastSig.filtersApplied} [${lastSig.timeWindow || ''}]`
+              : '';
             const resultUrl = pred.desktopUrl || pred.mobileUrl || `https://m.flashscore.ua/match/${matchId}/`;
             try {
               await sendTelegramMessage(
@@ -509,8 +511,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
                 `🏆 ${league}\n` +
                 `⚽ ${home} - ${away}\n` +
                 `${suffix}\n\n` +
-                `📌 *Прогнози по вікнах:*\n${legLines}\n` +
-                `📊 Підсумок прогнозу: ✅ ${wins} | ❌ ${losses}\n\n` +
+                `📊 *Підсумок прогнозу:* ${resultEmoji}${filtersLine}\n\n` +
                 `🔗 [Flashscore](${resultUrl})`
               );
               console.log(`  ✓ Telegram result sent (${statusLabel})`);

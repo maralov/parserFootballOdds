@@ -12,7 +12,7 @@ function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
   const { home, away } = sanitizeTeams(match.home, match.away);
   const league = sanitizeLeagueName(match.league);
   const { score, minute } = match;
-  const { bet, confidence, pGoal, pDry, edge, reason, odds1X2, impliedProb, timeWindow, signalQuality } = decision;
+  const { bet, confidence, pGoal, pDry, edge, reason, odds1X2, impliedProb, timeWindow, signalQuality, filtersApplied } = decision;
   const { redCards, modelV2 } = opts;
 
   const betLabel = formatBetLabel(bet);
@@ -35,7 +35,10 @@ function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
 🧮 *Edge:* ${edge ?? '-'}`;
 
   if (signalQuality != null && signalQuality !== undefined) {
-    msg += `\n⭐ *Signal quality (v2):* ${signalQuality}`;
+    msg += `\n⭐ *Signal quality:* ${signalQuality}`;
+  }
+  if (filtersApplied) {
+    msg += `\n🔍 *Фільтри:* ${filtersApplied}`;
   }
   if (modelV2?.currentState) {
     msg += `\n🔬 *Стан матчу:* ${modelV2.currentState}`;
