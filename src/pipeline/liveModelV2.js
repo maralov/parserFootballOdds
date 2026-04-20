@@ -358,6 +358,7 @@ function evaluateLiveModelV2(input) {
     impliedProb: oc.impliedProb,
     odds1X2: odds1X2 || null,
     signalQuality,
+    oddsAdjusted: oc.oddsNote === true,
   };
 
   const trendFeatures = {

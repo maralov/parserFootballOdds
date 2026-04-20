@@ -167,6 +167,11 @@ const LIVE_V2_BURST_MIN_XG = Math.max(0, envFloat(process.env.LIVE_V2_BURST_MIN_
 /** Пізній сплеск: сегмент vs середнє 2H. Env: LIVE_V2_LATE_SURGE_RATIO */
 const LIVE_V2_LATE_SURGE_RATIO = Math.max(1, envFloat(process.env.LIVE_V2_LATE_SURGE_RATIO, 1.18));
 
+/** Золоті фільтри 70-80 ТМ — виведено з аналізу 17-19.04 (HR 93% при цих порогах). */
+const LIVE_70_80_UNDER_MAX_PGOAL       = Math.max(0.30, Math.min(0.55, envFloat(process.env.LIVE_70_80_UNDER_MAX_PGOAL,       0.40)));
+const LIVE_70_80_UNDER_MIN_PDRY        = Math.max(0.50, Math.min(0.85, envFloat(process.env.LIVE_70_80_UNDER_MIN_PDRY,        0.65)));
+const LIVE_70_80_UNDER_ODDS_ADJ_MAX_PG = Math.max(0.28, Math.min(0.50, envFloat(process.env.LIVE_70_80_UNDER_ODDS_ADJ_MAX_PG, 0.37)));
+
 module.exports = {
   USER_AGENTS, USER_AGENT, BASE_URL,
   LIVE_BASE_URL, LIVE_BASE_URL_ALT, LIVE_POLL_INTERVAL_MS, STATS_CONCURRENCY,
@@ -199,4 +204,7 @@ module.exports = {
   LIVE_V2_BURST_MIN_SOT,
   LIVE_V2_BURST_MIN_XG,
   LIVE_V2_LATE_SURGE_RATIO,
+  LIVE_70_80_UNDER_MAX_PGOAL,
+  LIVE_70_80_UNDER_MIN_PDRY,
+  LIVE_70_80_UNDER_ODDS_ADJ_MAX_PG,
 };

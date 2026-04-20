@@ -8,6 +8,9 @@ const {
   LIVE_SNAPSHOT_BURST_GATE_ENABLED,
   LIVE_SNAPSHOT_BURST_MIN_SOT,
   LIVE_SNAPSHOT_BURST_MIN_XG,
+  LIVE_70_80_UNDER_MAX_PGOAL,
+  LIVE_70_80_UNDER_MIN_PDRY,
+  LIVE_70_80_UNDER_ODDS_ADJ_MAX_PG,
 } = require('../helpers/constants');
 
 function skipFromGate(prev, note) {
@@ -101,4 +104,30 @@ function applyLiveSnapshotBurstGate(features, decision) {
   );
 }
 
-module.exports = { applyLiveModelGates, applyLiveSnapshotBurstGate };
+/**
+ * Золоті фільтри для 70-80 ТМ (аналіз 17-19.04).
+ * Результат: HR 93% при pGoal<0.40 + pDry>=0.65 (vs 59% без фільтрів).
+ */
+function applyGoldenFilters(decision) {
+  if (!decision || decision.bet !== 'UNDER_0_5' || decision.timeWindow !== '70-80') {
+    return decision;
+  }
+
+  const { pGoal, pDry, oddsAdjusted } = decision;
+
+  if (Number.isFinite(pGoal) && pGoal >= LIVE_70_80_UNDER_MAX_PGOAL) {
+    return skipFromGate(decision, `70–80 ТМ: pGoal=${pGoal} ≥ ${LIVE_70_80_UNDER_MAX_PGOAL}`);
+  }
+
+  if (Number.isFinite(pDry) && pDry < LIVE_70_80_UNDER_MIN_PDRY) {
+    return skipFromGate(decision, `70–80 ТМ: pDry=${pDry} < ${LIVE_70_80_UNDER_MIN_PDRY}`);
+  }
+
+  if (oddsAdjusted && Number.isFinite(pGoal) && pGoal >= LIVE_70_80_UNDER_ODDS_ADJ_MAX_PG) {
+    return skipFromGate(decision, `70–80 ТМ: ринок ΔpG + pGoal=${pGoal} ≥ ${LIVE_70_80_UNDER_ODDS_ADJ_MAX_PG}`);
+  }
+
+  return decision;
+}
+
+module.exports = { applyLiveModelGates, applyLiveSnapshotBurstGate, applyGoldenFilters };

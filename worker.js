@@ -6,7 +6,7 @@ const scrapeLiveMatches = require('./src/scrapeLiveMatches');
 const { resolveDesktopUrl, scrapeDesktopStats, checkMatchResult } = require('./src/scrapeDesktopStats');
 const { buildFeatures } = require('./src/pipeline/featureBuilder');
 const { evaluateLiveModelV2 } = require('./src/pipeline/liveModelV2');
-const { applyLiveModelGates } = require('./src/pipeline/liveModelGates');
+const { applyLiveModelGates, applyGoldenFilters } = require('./src/pipeline/liveModelGates');
 const { fetchOdds1X2 } = require('./src/scrapeLiveOdds');
 const { scrapeMatchIncidents } = require('./src/scrapeMatchIncidents');
 const { createRunContext } = require('./src/pipeline/contracts');
@@ -309,7 +309,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
       });
       lastModelStateByMatchId.set(match.id, modelV2.currentState);
 
-      const decision = applyLiveModelGates(features, rawDecision);
+      const decision = applyGoldenFilters(applyLiveModelGates(features, rawDecision));
       const lt = features.liveTrajectory;
       const deltaLine =
         lt && lt.snapshotCount >= 2 && lt.deltas
