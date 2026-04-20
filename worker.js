@@ -335,6 +335,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
       }
 
       const prevBet = activePredictions.get(match.id)?.bet ?? null;
+      const dryAlertActive = activePredictions.get(match.id)?.dryAlert ?? false;
       const previousState = lastModelStateByMatchId.get(match.id) ?? null;
       const { modelV2, decision: rawDecision, scoredSummary } = evaluateLiveModel({
         match,
@@ -347,6 +348,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
         prevBet,
         liveTrajectory,
         preMatchContext,
+        dryAlertActive,
       });
       lastModelStateByMatchId.set(match.id, modelV2.currentState);
 
@@ -443,6 +445,15 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
         } else if (!decision.signalEligible) {
           console.log(`  ⏸ сигнал не пройшов (вікно ${decision.timeWindow}, впевненість: ${features.confidence}, bet: ${decision.bet})`);
         }
+      }
+
+      // Зберігаємо/очищаємо dryAlert між циклами (незалежно від SKIP)
+      if (rawDecision.dryAlert) {
+        const existingForAlert = activePredictions.get(match.id) || {};
+        activePredictions.set(match.id, { ...existingForAlert, dryAlert: true });
+        console.log(`  🔔 dryAlert встановлено (стан dry@${match.minute}')`);
+      } else if (activePredictions.get(match.id)?.dryAlert) {
+        activePredictions.set(match.id, { ...activePredictions.get(match.id), dryAlert: false });
       }
 
       results.push({ match, decision, logEntry, telegramSent });
