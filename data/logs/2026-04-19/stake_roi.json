@@ -1,0 +1,379 @@
+{
+  "date": "2026-04-19",
+  "generatedAt": "2026-04-20T07:59:44.829Z",
+  "rules": {
+    "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
+    "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
+  },
+  "model": {
+    "bankStart": 10000,
+    "stakePct": 0.05,
+    "stakePerBet": 500,
+    "oddsByPeriod": {
+      "tm_60_70": 2.5,
+      "tm_or_tb_70_80": 1.8,
+      "tb_80_90": 2.5
+    }
+  },
+  "overall": {
+    "bets": 15,
+    "checked": 15,
+    "wins": 8,
+    "losses": 7,
+    "pending": 0,
+    "turnover": 7500,
+    "profit": 1450,
+    "roi": 0.193,
+    "hitRate": 0.533,
+    "bankStart": 10000,
+    "bankEnd": 11450
+  },
+  "byPeriod": {
+    "60-70": {
+      "total": 6,
+      "checked": 6,
+      "wins": 4,
+      "losses": 2,
+      "pending": 0,
+      "turnover": 3000,
+      "profit": 2000,
+      "roi": 0.667,
+      "hitRate": 0.667
+    },
+    "70-80": {
+      "total": 5,
+      "checked": 5,
+      "wins": 3,
+      "losses": 2,
+      "pending": 0,
+      "turnover": 2500,
+      "profit": 200,
+      "roi": 0.08,
+      "hitRate": 0.6
+    },
+    "80-90+": {
+      "total": 4,
+      "checked": 4,
+      "wins": 1,
+      "losses": 3,
+      "pending": 0,
+      "turnover": 2000,
+      "profit": -750,
+      "roi": -0.375,
+      "hitRate": 0.25
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "byBetType": {
+    "UNDER_0_5": {
+      "total": 10,
+      "checked": 10,
+      "wins": 6,
+      "losses": 4,
+      "pending": 0,
+      "turnover": 5000,
+      "profit": 1800,
+      "roi": 0.36,
+      "hitRate": 0.6
+    },
+    "OVER_0_5": {
+      "total": 5,
+      "checked": 5,
+      "wins": 2,
+      "losses": 3,
+      "pending": 0,
+      "turnover": 2500,
+      "profit": -350,
+      "roi": -0.14,
+      "hitRate": 0.4
+    }
+  },
+  "noFlipsScenario": {
+    "bets": 11,
+    "checked": 11,
+    "wins": 7,
+    "losses": 4,
+    "pending": 0,
+    "turnover": 5500,
+    "profit": 2550,
+    "roi": 0.464,
+    "hitRate": 0.636,
+    "bankStart": 10000,
+    "bankEnd": 12550
+  },
+  "matches": [
+    {
+      "matchId": "EDvS9l04",
+      "league": "КАНАДА: Прем'єр-ліга Канади",
+      "home": "Фордж",
+      "away": "Кевалрі",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "bqxs2CCd",
+      "league": "США: USL Чемпіоншип",
+      "home": "Луїсвілл Сіті",
+      "away": "Спортінг Джекс",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "zw6KvPnl",
+      "league": "ЕКВАДОР: Ліга Про",
+      "home": "Оренсе",
+      "away": "Дельфін",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "8tGw1T1E",
+      "league": "ІТАЛІЯ: Серія А",
+      "home": "Кремонезе",
+      "away": "Торіно",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "dtpwPWCd",
+      "league": "БЕЛЬГІЯ: Ліга Жупіле - Чемпіонська група",
+      "home": "Гент",
+      "away": "Сінт-Трейден",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        },
+        {
+          "order": 2,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "2JJMO08F",
+      "league": "РОСІЯ: Прем'єр-ліга",
+      "home": "Динамо Махачкала",
+      "away": "Зеніт",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "xIaSjtBT",
+      "league": "ТАЇЛАНД: Ліга Тайланду 1",
+      "home": "Порт МТІ",
+      "away": "Патум Юнайтед",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        },
+        {
+          "order": 2,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "MNM9G33C",
+      "league": "НОРВЕГІЯ: Елітсеріен",
+      "home": "Волеренга",
+      "away": "Ліллестрем",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        },
+        {
+          "order": 2,
+          "period": "70-80",
+          "bet": "ТБ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "Ov7YF3z2",
+      "league": "АНГЛІЯ: Перша ліга",
+      "home": "Порт Вейл",
+      "away": "Віган",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        },
+        {
+          "order": 2,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "QuTF2T9k",
+      "league": "ІТАЛІЯ: Серія B",
+      "home": "Падова",
+      "away": "Реджана",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "UT3XgPYP",
+      "league": "УГОРЩИНА: NB I.",
+      "home": "Дьор",
+      "away": "Ференцварош",
+      "finalResult": "1:0",
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    }
+  ]
+}

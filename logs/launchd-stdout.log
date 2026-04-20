@@ -8721,3 +8721,191 @@ Done: 0 analyzed, 0 actionable, 0 TG sent
 
 🔥 RUN #3: analyzed=0, signals=0
 ⏳ Next scan in 3m...
+🚀 Starting live scraping (watch mode)...
+[10:59:22] Live scan
+  First run — checking yesterday results
+  [result] Checking 1 prediction(s) (163 унік. матчів у логу)...
+  [result] УГОРЩИНА: NB I. Таблиця68'Дьор - Ференцварош: 1:0 → ❌ остання нога | ТМ:❌
+  Yesterday: 5/11 hits (11 з прогнозом)
+  Daily summary Telegram disabled (date=2026-04-19)
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=1, 0:0 total=0, candidates=0
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #1: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:02:58] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=1, 0:0 total=0, candidates=0
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #2: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:06:12] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=1, 0:0 total=0, candidates=0
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #3: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:09:24] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=1, 0:0 total=0, candidates=0
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #4: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:12:36] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=1, 0:0 total=0, candidates=0
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #5: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:15:49] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=1, 0:0 total=0, candidates=0
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #6: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:19:04] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=1, 0:0 total=0, candidates=0
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #7: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:22:19] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=1, 0:0 total=0, candidates=0
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #8: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:25:30] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=1, 0:0 total=0, candidates=0
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #9: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:28:40] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=1, 0:0 total=0, candidates=0
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #10: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:31:50] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=1, 0:0 total=0, candidates=0
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #11: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:35:01] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=2, 0:0 total=1, candidates=0
+  ⏸ 0:0 ще рано (< 60'):
+    6' ІНДОНЕЗІЯ: Суперліга Таблиця6'Семен Паданг - Персіяп Джепара [ІНДОНЕЗІЯ: Суперліга]
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #12: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:38:12] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=2, 0:0 total=1, candidates=0
+  ⏸ 0:0 ще рано (< 60'):
+    8' ІНДОНЕЗІЯ: Суперліга Таблиця8'Семен Паданг - Персіяп Джепара [ІНДОНЕЗІЯ: Суперліга]
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #13: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:41:24] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=2, 0:0 total=1, candidates=0
+  ⏸ 0:0 ще рано (< 60'):
+    12' ІНДОНЕЗІЯ: Суперліга Таблиця12'Семен Паданг - Персіяп Джепара [ІНДОНЕЗІЯ: Суперліга]
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #14: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:44:35] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=2, 0:0 total=1, candidates=0
+  ⏸ 0:0 ще рано (< 60'):
+    15' ІНДОНЕЗІЯ: Суперліга Таблиця15'Семен Паданг - Персіяп Джепара [ІНДОНЕЗІЯ: Суперліга]
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #15: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:47:45] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=2, 0:0 total=1, candidates=0
+  ⏸ 0:0 ще рано (< 60'):
+    18' ІНДОНЕЗІЯ: Суперліга Таблиця18'Семен Паданг - Персіяп Джепара [ІНДОНЕЗІЯ: Суперліга]
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #16: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[11:50:57] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=2, 0:0 total=1, candidates=0
+  ⏸ 0:0 ще рано (< 60'):
+    21' ІНДОНЕЗІЯ: Суперліга Таблиця21'Семен Паданг - Персіяп Джепара [ІНДОНЕЗІЯ: Суперліга]
+  Found: 0 candidates, 0 new, 0 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #17: analyzed=0, signals=0
+⏳ Next scan in 3m...

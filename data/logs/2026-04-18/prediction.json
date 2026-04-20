@@ -1,0 +1,1231 @@
+{
+  "date": "2026-04-18",
+  "generatedAt": "2026-04-19T07:00:06.341Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 26,
+    "stakes": 36,
+    "stakesResolved": 36,
+    "wins": 14,
+    "losses": 22,
+    "hitRate": 0.389
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 19,
+      "checked": 19,
+      "hits": 8,
+      "misses": 11,
+      "hitRate": 0.421
+    },
+    "70-80": {
+      "total": 10,
+      "checked": 10,
+      "hits": 5,
+      "misses": 5,
+      "hitRate": 0.5
+    },
+    "80-90+": {
+      "total": 7,
+      "checked": 7,
+      "hits": 1,
+      "misses": 6,
+      "hitRate": 0.143
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "matches": [
+    {
+      "matchId": "lOHGe71B",
+      "league": "ПІВНІЧНА ТА ЦЕНТРАЛЬНА АМЕРИКА: Чемпіонат КОНКАКАФ (Жінки) - Кваліфікація",
+      "home": "Суринам Ж",
+      "away": "Беліз Ж",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 66,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.304,
+          "pDry": 0.696,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-17T22:23:06.281Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "neutral",
+        "dominanceStrength": 0.8738,
+        "latestSignalQuality": 0.7714
+      }
+    },
+    {
+      "matchId": "UJ7zysnD",
+      "league": "ЕКВАДОР: Ліга Про",
+      "home": "Леонес дель Норте",
+      "away": "Аукас",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 65,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.294,
+          "pDry": 0.706,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-17T23:24:14.945Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.6763,
+        "latestSignalQuality": 0.8343
+      }
+    },
+    {
+      "matchId": "ALfkhYfJ",
+      "league": "ПІВНІЧНА ТА ЦЕНТРАЛЬНА АМЕРИКА: Чемпіонат КОНКАКАФ (Жінки) - Кваліфікація",
+      "home": "Гаїті Ж",
+      "away": "Домініканська Республіка Ж",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 67,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.467,
+          "pDry": 0.533,
+          "signalQuality": 0.6471,
+          "timestamp": "2026-04-18T01:24:35.479Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "falseDry",
+        "dominanceStrength": 0.9206,
+        "latestSignalQuality": 0.6471
+      }
+    },
+    {
+      "matchId": "IFqCZqfU",
+      "league": "ЯПОНІЯ: J1-ліга",
+      "home": "Касіма",
+      "away": "Урава",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 68,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.347,
+          "pDry": 0.653,
+          "signalQuality": 0.7871,
+          "timestamp": "2026-04-18T06:28:32.724Z",
+          "hit": false
+        },
+        {
+          "period": "70-80",
+          "minute": 75,
+          "snapshots": 5,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.627,
+          "pDry": 0.373,
+          "signalQuality": 0.8186,
+          "timestamp": "2026-04-18T06:35:15.946Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "accumulatedPressure",
+        "dominanceStrength": 0.7729,
+        "latestSignalQuality": 0.8186
+      }
+    },
+    {
+      "matchId": "r7qEIyKj",
+      "league": "КИТАЙ: League One",
+      "home": "Яньбянь Лондін",
+      "away": "Ningbo Professional",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 64,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.453,
+          "pDry": 0.547,
+          "signalQuality": 0.6914,
+          "timestamp": "2026-04-18T08:22:23.158Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.5798,
+        "latestSignalQuality": 0.7543
+      }
+    },
+    {
+      "matchId": "vsTHuhnI",
+      "league": "КИТАЙ: Кубок ФА",
+      "home": "Ухань Ляньчжень",
+      "away": "Xiamen Feilu",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 66,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.408,
+          "pDry": 0.592,
+          "signalQuality": 0.6674,
+          "timestamp": "2026-04-18T08:26:09.259Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 1,
+        "latestSignalQuality": 0.6674
+      }
+    },
+    {
+      "matchId": "8Sq7vJtA",
+      "league": "КИТАЙ: League One",
+      "home": "Шаансі Юніон",
+      "away": "Нантон Чжиюн",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 66,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.425,
+          "pDry": 0.575,
+          "signalQuality": 0.6914,
+          "timestamp": "2026-04-18T08:53:30.219Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.7705,
+        "latestSignalQuality": 0.8186
+      }
+    },
+    {
+      "matchId": "IFPvkvTF",
+      "league": "АВСТРАЛІЯ: А-Ліга",
+      "home": "ФК Сідней",
+      "away": "Перт Глорі",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 70,
+          "snapshots": 4,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.606,
+          "pDry": 0.394,
+          "signalQuality": 0.8029,
+          "timestamp": "2026-04-18T11:14:31.254Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "accumulatedPressure",
+        "dominanceStrength": 0.6674,
+        "latestSignalQuality": 0.8814
+      }
+    },
+    {
+      "matchId": "dxqTvmz1",
+      "league": "АНГЛІЯ: Прем'єр-ліга",
+      "home": "Брентфорд",
+      "away": "Фулгем",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 79,
+          "snapshots": 5,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.684,
+          "pDry": 0.316,
+          "signalQuality": 0.8186,
+          "timestamp": "2026-04-18T13:07:26.527Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "accumulatedPressure",
+        "dominanceStrength": 0.7313,
+        "latestSignalQuality": 0.85
+      }
+    },
+    {
+      "matchId": "f7m0l7Z0",
+      "league": "ПІВДЕННА АФРИКА: Прем'єр-ліга",
+      "home": "Марумо Галлантс",
+      "away": "Siwelele",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 70,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.369,
+          "pDry": 0.631,
+          "signalQuality": 0.7871,
+          "timestamp": "2026-04-18T14:28:47.136Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.6376,
+        "latestSignalQuality": 0.8029
+      }
+    },
+    {
+      "matchId": "prG3wqpd",
+      "league": "ГРЕЦІЯ: Суперліга - Група вибування",
+      "home": "Кіфісіа",
+      "away": "Астерас Тріполі",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 70,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.423,
+          "pDry": 0.577,
+          "signalQuality": 0.6914,
+          "timestamp": "2026-04-18T14:28:29.397Z",
+          "hit": true
+        },
+        {
+          "period": "80-90+",
+          "minute": 86,
+          "snapshots": 6,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.603,
+          "pDry": 0.397,
+          "signalQuality": 0.8343,
+          "timestamp": "2026-04-18T14:44:22.014Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.998,
+        "latestSignalQuality": 0.85
+      }
+    },
+    {
+      "matchId": "Q1Gy6YG6",
+      "league": "ЄВРОПА: Чемпіонат світу (Жінки) - Кваліфікація - Ліга А",
+      "home": "Данія Ж",
+      "away": "Італія Ж",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 69,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.266,
+          "pDry": 0.734,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-18T14:28:29.727Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "neutral",
+        "dominanceStrength": 0.6366,
+        "latestSignalQuality": 0.6629
+      }
+    },
+    {
+      "matchId": "6Nzezpq2",
+      "league": "ЧЕХІЯ: 1. Ліга",
+      "home": "Ліберец",
+      "away": "Млада Болеслав",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 69,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.326,
+          "pDry": 0.674,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-18T14:29:33.251Z",
+          "hit": true
+        },
+        {
+          "period": "80-90+",
+          "minute": 89,
+          "snapshots": 6,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.532,
+          "pDry": 0.468,
+          "signalQuality": 0.7543,
+          "timestamp": "2026-04-18T14:48:45.281Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.5032,
+        "latestSignalQuality": 0.7543
+      }
+    },
+    {
+      "matchId": "xM7tWIc3",
+      "league": "АНГЛІЯ: Друга ліга",
+      "home": "Челтнем",
+      "away": "Ньюпорт",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 68,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.421,
+          "pDry": 0.579,
+          "signalQuality": 0.6914,
+          "timestamp": "2026-04-18T15:25:50.175Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "accumulatedPressure",
+        "dominanceStrength": 0.8208,
+        "latestSignalQuality": 0.7071
+      }
+    },
+    {
+      "matchId": "hrVhKo4m",
+      "league": "НОРВЕГІЯ: Елітсеріен",
+      "home": "Саннефйорд",
+      "away": "Русенборг",
+      "periods": [
+        {
+          "period": "80-90+",
+          "minute": 85,
+          "snapshots": 5,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.65,
+          "pDry": 0.35,
+          "signalQuality": 0.8186,
+          "timestamp": "2026-04-18T15:43:29.848Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "pressureGrowth",
+        "dominanceStrength": 0.6779,
+        "latestSignalQuality": 0.7543
+      }
+    },
+    {
+      "matchId": "Kp7n2ZyJ",
+      "league": "ФІНЛЯНДІЯ: Вейккаусліга",
+      "home": "АК Оулу",
+      "away": "ВПС",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 68,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.426,
+          "pDry": 0.574,
+          "signalQuality": 0.6314,
+          "timestamp": "2026-04-18T15:28:58.413Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "falseDry",
+        "dominanceStrength": 0.7215,
+        "latestSignalQuality": 0.6314
+      }
+    },
+    {
+      "matchId": "rksMNumg",
+      "league": "АНГЛІЯ: Друга ліга",
+      "home": "Кроулі",
+      "away": "Шрусбері",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 72,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.46,
+          "pDry": 0.54,
+          "signalQuality": 0.6914,
+          "timestamp": "2026-04-18T15:33:18.875Z",
+          "hit": true
+        },
+        {
+          "period": "70-80",
+          "minute": 77,
+          "snapshots": 3,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.64,
+          "pDry": 0.36,
+          "signalQuality": 0.7871,
+          "timestamp": "2026-04-18T15:38:13.759Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "pressureGrowth",
+        "dominanceStrength": 0.6391,
+        "latestSignalQuality": 0.7871
+      }
+    },
+    {
+      "matchId": "OMHfxu2n",
+      "league": "АНГЛІЯ: Друга ліга",
+      "home": "Харрогейт",
+      "away": "Колчестер",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 73,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.292,
+          "pDry": 0.708,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-18T15:33:19.014Z",
+          "hit": false
+        },
+        {
+          "period": "80-90+",
+          "minute": 83,
+          "snapshots": 4,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.542,
+          "pDry": 0.458,
+          "signalQuality": 0.7229,
+          "timestamp": "2026-04-18T15:42:52.736Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.5767,
+        "latestSignalQuality": 0.8186
+      }
+    },
+    {
+      "matchId": "lSNdvRPa",
+      "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+      "home": "Насьонал",
+      "away": "Алверка",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 65,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.377,
+          "pDry": 0.623,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-18T15:59:31.209Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.6526,
+        "latestSignalQuality": 0.7714
+      }
+    },
+    {
+      "matchId": "M98RGG9M",
+      "league": "АВСТРІЯ: Бундесліга - Група вибування",
+      "home": "Вольфсберг",
+      "away": "БВ Лінц",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 66,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.309,
+          "pDry": 0.691,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-18T16:23:54.584Z",
+          "hit": true
+        },
+        {
+          "period": "80-90+",
+          "minute": 86,
+          "snapshots": 7,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.585,
+          "pDry": 0.415,
+          "signalQuality": 0.77,
+          "timestamp": "2026-04-18T16:44:19.654Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.6888,
+        "latestSignalQuality": 0.7857
+      }
+    },
+    {
+      "matchId": "IuZfAldK",
+      "league": "ПІВДЕННА АФРИКА: Прем'єр-ліга",
+      "home": "Полокване Сіті",
+      "away": "Кайзер Чіфс",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 65,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.403,
+          "pDry": 0.597,
+          "signalQuality": 0.6914,
+          "timestamp": "2026-04-18T16:52:01.169Z",
+          "hit": true
+        },
+        {
+          "period": "70-80",
+          "minute": 79,
+          "snapshots": 6,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.641,
+          "pDry": 0.359,
+          "signalQuality": 0.8343,
+          "timestamp": "2026-04-18T17:06:04.771Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.6068,
+        "latestSignalQuality": 0.8014
+      }
+    },
+    {
+      "matchId": "8t8d36AU",
+      "league": "ПОЛЬЩА: Екстракляса",
+      "home": "Гурнік Забже",
+      "away": "Корона Кєльце",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 68,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.474,
+          "pDry": 0.526,
+          "signalQuality": 0.6914,
+          "timestamp": "2026-04-18T16:59:04.442Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "accumulatedPressure",
+        "dominanceStrength": 0.8396,
+        "latestSignalQuality": 0.6914
+      }
+    },
+    {
+      "matchId": "29NrXZeJ",
+      "league": "СЛОВАЧЧИНА: Nike liga - Чемпіонська група",
+      "home": "Жиліна",
+      "away": "Слован Братислава",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 67,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.407,
+          "pDry": 0.593,
+          "signalQuality": 0.6314,
+          "timestamp": "2026-04-18T17:24:38.447Z",
+          "hit": false
+        },
+        {
+          "period": "70-80",
+          "minute": 79,
+          "snapshots": 5,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.647,
+          "pDry": 0.353,
+          "signalQuality": 0.8186,
+          "timestamp": "2026-04-18T17:36:01.151Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "neutral",
+        "dominanceStrength": 0.6002,
+        "latestSignalQuality": 0.8186
+      }
+    },
+    {
+      "matchId": "ryRxYnDO",
+      "league": "БЕЛЬГІЯ: Ліга Жупіле - Conference League Group",
+      "home": "Вестерло",
+      "away": "Генк",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 64,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.352,
+          "pDry": 0.648,
+          "signalQuality": 0.7114,
+          "timestamp": "2026-04-18T17:39:23.637Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "falseDry",
+        "dominanceStrength": 0.8491,
+        "latestSignalQuality": 0.7114
+      }
+    },
+    {
+      "matchId": "MuM4x5fC",
+      "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+      "home": "Каса Піа",
+      "away": "Санта-Клара",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 64,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.402,
+          "pDry": 0.598,
+          "signalQuality": 0.6914,
+          "timestamp": "2026-04-18T18:22:55.067Z",
+          "hit": true
+        },
+        {
+          "period": "80-90+",
+          "minute": 85,
+          "snapshots": 8,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.55,
+          "pDry": 0.45,
+          "signalQuality": 0.7857,
+          "timestamp": "2026-04-18T18:43:58.443Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "pressureGrowth",
+        "dominanceStrength": 0.831,
+        "latestSignalQuality": 0.7857
+      }
+    },
+    {
+      "matchId": "f59vJswo",
+      "league": "ІЗРАЇЛЬ: Прем'єр-ліга - Група вибування",
+      "home": "Сахнін",
+      "away": "Іроні Тверія",
+      "periods": [
+        {
+          "period": "60-70",
+          "minute": 64,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.268,
+          "pDry": 0.732,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-18T18:37:01.284Z",
+          "hit": true
+        },
+        {
+          "period": "80-90+",
+          "minute": 81,
+          "snapshots": 7,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.545,
+          "pDry": 0.455,
+          "signalQuality": 0.77,
+          "timestamp": "2026-04-18T18:54:14.056Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "pressureGrowth",
+        "dominanceStrength": 0.6185,
+        "latestSignalQuality": 0.7857
+      }
+    }
+  ]
+}

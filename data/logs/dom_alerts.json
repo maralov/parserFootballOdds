@@ -520,5 +520,59 @@
     "alertType": "PAGE_ERROR",
     "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
     "timestamp": "2026-04-16T03:44:56.970Z"
+  },
+  {
+    "matchId": "AyZM0f6K",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-18T20:52:30.201Z"
+  },
+  {
+    "matchId": "tWhkZVVs",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-18T20:52:30.258Z"
+  },
+  {
+    "matchId": "AyZM0f6K",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-18T20:52:50.260Z"
+  },
+  {
+    "matchId": "tWhkZVVs",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-18T20:52:50.274Z"
+  },
+  {
+    "matchId": "AyZM0f6K",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "net::ERR_TIMED_OUT at https://m.flashscore.ua/match/AyZM0f6K/?t=stats",
+    "timestamp": "2026-04-18T20:52:50.539Z"
+  },
+  {
+    "matchId": "tWhkZVVs",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "net::ERR_TIMED_OUT at https://m.flashscore.ua/match/tWhkZVVs/?t=stats",
+    "timestamp": "2026-04-18T20:52:50.545Z"
+  },
+  {
+    "matchId": "CtwsqPxB",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-18T23:27:05.185Z"
+  },
+  {
+    "matchId": "OS0hd3Xi",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: net::ERR_FAILED at https://www.flashscore.ua/match/soccer/irapuato-dIjKh24D/zacatecas-mineros-MwA7wxoa/summary/stats/overall/?mid=OS0hd3Xi",
+    "timestamp": "2026-04-19T02:42:37.155Z"
+  },
+  {
+    "matchId": "K060GoX7",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-19T04:50:58.083Z"
   }
 ]

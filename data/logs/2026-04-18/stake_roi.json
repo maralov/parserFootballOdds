@@ -1,0 +1,748 @@
+{
+  "date": "2026-04-18",
+  "generatedAt": "2026-04-19T07:00:06.343Z",
+  "rules": {
+    "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
+    "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
+  },
+  "model": {
+    "bankStart": 10000,
+    "stakePct": 0.05,
+    "stakePerBet": 500,
+    "oddsByPeriod": {
+      "tm_60_70": 2.5,
+      "tm_or_tb_70_80": 1.8,
+      "tb_80_90": 2.5
+    }
+  },
+  "overall": {
+    "bets": 36,
+    "checked": 36,
+    "wins": 14,
+    "losses": 22,
+    "pending": 0,
+    "turnover": 18000,
+    "profit": -2250,
+    "roi": -0.125,
+    "hitRate": 0.389,
+    "bankStart": 10000,
+    "bankEnd": 7750
+  },
+  "byPeriod": {
+    "60-70": {
+      "total": 19,
+      "checked": 19,
+      "wins": 8,
+      "losses": 11,
+      "pending": 0,
+      "turnover": 9500,
+      "profit": 500,
+      "roi": 0.053,
+      "hitRate": 0.421
+    },
+    "70-80": {
+      "total": 10,
+      "checked": 10,
+      "wins": 5,
+      "losses": 5,
+      "pending": 0,
+      "turnover": 5000,
+      "profit": -500,
+      "roi": -0.1,
+      "hitRate": 0.5
+    },
+    "80-90+": {
+      "total": 7,
+      "checked": 7,
+      "wins": 1,
+      "losses": 6,
+      "pending": 0,
+      "turnover": 3500,
+      "profit": -2250,
+      "roi": -0.643,
+      "hitRate": 0.143
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "byBetType": {
+    "UNDER_0_5": {
+      "total": 23,
+      "checked": 23,
+      "wins": 11,
+      "losses": 12,
+      "pending": 0,
+      "turnover": 11500,
+      "profit": 1200,
+      "roi": 0.104,
+      "hitRate": 0.478
+    },
+    "OVER_0_5": {
+      "total": 13,
+      "checked": 13,
+      "wins": 3,
+      "losses": 10,
+      "pending": 0,
+      "turnover": 6500,
+      "profit": -3450,
+      "roi": -0.531,
+      "hitRate": 0.231
+    }
+  },
+  "noFlipsScenario": {
+    "bets": 26,
+    "checked": 26,
+    "wins": 11,
+    "losses": 15,
+    "pending": 0,
+    "turnover": 13000,
+    "profit": -300,
+    "roi": -0.023,
+    "hitRate": 0.423,
+    "bankStart": 10000,
+    "bankEnd": 9700
+  },
+  "matches": [
+    {
+      "matchId": "lOHGe71B",
+      "league": "ПІВНІЧНА ТА ЦЕНТРАЛЬНА АМЕРИКА: Чемпіонат КОНКАКАФ (Жінки) - Кваліфікація",
+      "home": "Суринам Ж",
+      "away": "Беліз Ж",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "UJ7zysnD",
+      "league": "ЕКВАДОР: Ліга Про",
+      "home": "Леонес дель Норте",
+      "away": "Аукас",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "ALfkhYfJ",
+      "league": "ПІВНІЧНА ТА ЦЕНТРАЛЬНА АМЕРИКА: Чемпіонат КОНКАКАФ (Жінки) - Кваліфікація",
+      "home": "Гаїті Ж",
+      "away": "Домініканська Республіка Ж",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "IFqCZqfU",
+      "league": "ЯПОНІЯ: J1-ліга",
+      "home": "Касіма",
+      "away": "Урава",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        },
+        {
+          "order": 2,
+          "period": "70-80",
+          "bet": "ТБ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "r7qEIyKj",
+      "league": "КИТАЙ: League One",
+      "home": "Яньбянь Лондін",
+      "away": "Ningbo Professional",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "vsTHuhnI",
+      "league": "КИТАЙ: Кубок ФА",
+      "home": "Ухань Ляньчжень",
+      "away": "Xiamen Feilu",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "8Sq7vJtA",
+      "league": "КИТАЙ: League One",
+      "home": "Шаансі Юніон",
+      "away": "Нантон Чжиюн",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "IFPvkvTF",
+      "league": "АВСТРАЛІЯ: А-Ліга",
+      "home": "ФК Сідней",
+      "away": "Перт Глорі",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "dxqTvmz1",
+      "league": "АНГЛІЯ: Прем'єр-ліга",
+      "home": "Брентфорд",
+      "away": "Фулгем",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "f7m0l7Z0",
+      "league": "ПІВДЕННА АФРИКА: Прем'єр-ліга",
+      "home": "Марумо Галлантс",
+      "away": "Siwelele",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "prG3wqpd",
+      "league": "ГРЕЦІЯ: Суперліга - Група вибування",
+      "home": "Кіфісіа",
+      "away": "Астерас Тріполі",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        },
+        {
+          "order": 2,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "Q1Gy6YG6",
+      "league": "ЄВРОПА: Чемпіонат світу (Жінки) - Кваліфікація - Ліга А",
+      "home": "Данія Ж",
+      "away": "Італія Ж",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "6Nzezpq2",
+      "league": "ЧЕХІЯ: 1. Ліга",
+      "home": "Ліберец",
+      "away": "Млада Болеслав",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        },
+        {
+          "order": 2,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "xM7tWIc3",
+      "league": "АНГЛІЯ: Друга ліга",
+      "home": "Челтнем",
+      "away": "Ньюпорт",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "hrVhKo4m",
+      "league": "НОРВЕГІЯ: Елітсеріен",
+      "home": "Саннефйорд",
+      "away": "Русенборг",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "Kp7n2ZyJ",
+      "league": "ФІНЛЯНДІЯ: Вейккаусліга",
+      "home": "АК Оулу",
+      "away": "ВПС",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "rksMNumg",
+      "league": "АНГЛІЯ: Друга ліга",
+      "home": "Кроулі",
+      "away": "Шрусбері",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        },
+        {
+          "order": 2,
+          "period": "70-80",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "OMHfxu2n",
+      "league": "АНГЛІЯ: Друга ліга",
+      "home": "Харрогейт",
+      "away": "Колчестер",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        },
+        {
+          "order": 2,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "lSNdvRPa",
+      "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+      "home": "Насьонал",
+      "away": "Алверка",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "M98RGG9M",
+      "league": "АВСТРІЯ: Бундесліга - Група вибування",
+      "home": "Вольфсберг",
+      "away": "БВ Лінц",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        },
+        {
+          "order": 2,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "IuZfAldK",
+      "league": "ПІВДЕННА АФРИКА: Прем'єр-ліга",
+      "home": "Полокване Сіті",
+      "away": "Кайзер Чіфс",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        },
+        {
+          "order": 2,
+          "period": "70-80",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "8t8d36AU",
+      "league": "ПОЛЬЩА: Екстракляса",
+      "home": "Гурнік Забже",
+      "away": "Корона Кєльце",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "29NrXZeJ",
+      "league": "СЛОВАЧЧИНА: Nike liga - Чемпіонська група",
+      "home": "Жиліна",
+      "away": "Слован Братислава",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        },
+        {
+          "order": 2,
+          "period": "70-80",
+          "bet": "ТБ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "ryRxYnDO",
+      "league": "БЕЛЬГІЯ: Ліга Жупіле - Conference League Group",
+      "home": "Вестерло",
+      "away": "Генк",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "MuM4x5fC",
+      "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+      "home": "Каса Піа",
+      "away": "Санта-Клара",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        },
+        {
+          "order": 2,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "f59vJswo",
+      "league": "ІЗРАЇЛЬ: Прем'єр-ліга - Група вибування",
+      "home": "Сахнін",
+      "away": "Іроні Тверія",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-70",
+          "bet": "ТМ 0,5",
+          "hit": true
+        },
+        {
+          "order": 2,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    }
+  ]
+}
