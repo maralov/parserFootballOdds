@@ -105,11 +105,18 @@ function applyLiveSnapshotBurstGate(features, decision) {
 }
 
 /**
- * Золоті фільтри для 70-80 ТМ (аналіз 17-19.04).
- * Результат: HR 93% при pGoal<0.40 + pDry>=0.65 (vs 59% без фільтрів).
+ * Золоті фільтри (аналіз 17-19.04).
+ * 60-70 ТМ: реальний HR=9% (1/11) — жоден поріг не рятує, блокуємо повністю.
+ * 70-80 ТМ: HR 93% при pGoal<0.40 + pDry>=0.65 (vs 59% без фільтрів).
  */
 function applyGoldenFilters(decision) {
-  if (!decision || decision.bet !== 'UNDER_0_5' || decision.timeWindow !== '70-80') {
+  if (!decision || decision.bet === 'SKIP') return decision;
+
+  if (decision.bet === 'UNDER_0_5' && decision.timeWindow === '60-70') {
+    return skipFromGate(decision, '60–70 ТМ: заблоковано (HR=9% на реальних даних)');
+  }
+
+  if (decision.bet !== 'UNDER_0_5' || decision.timeWindow !== '70-80') {
     return decision;
   }
 
