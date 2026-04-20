@@ -23,7 +23,26 @@ const {
   LIVE_V3_SQ_MIN_60_70,
   LIVE_V3_SQ_MIN_70_80,
   LIVE_V3_MIN_SNAPSHOTS,
+  LIVE_V3_KELLY_FRACTION,
+  LIVE_V3_MAX_STAKE_PCT,
+  LIVE_V3_BANK_SIZE,
 } = require('../helpers/constants');
+
+/**
+ * Розраховує розмір ставки за Kelly Criterion (capped at maxPct).
+ * @returns {{ pct: number, amount: number }} частка від банку і сума в грн
+ */
+function computeKellyStake(pWin, odds) {
+  const b = odds - 1;
+  const q = 1 - pWin;
+  const fullKelly = (pWin * b - q) / b;
+  if (fullKelly <= 0) return { pct: 0, amount: 0 };
+  const pct = Math.min(fullKelly * LIVE_V3_KELLY_FRACTION, LIVE_V3_MAX_STAKE_PCT);
+  return {
+    pct: Number(pct.toFixed(4)),
+    amount: Math.round(pct * LIVE_V3_BANK_SIZE),
+  };
+}
 const { computePreMatchBasePBias } = require('./preMatchFormBias');
 
 function getLiveTimeWindow(minute) {
@@ -370,6 +389,16 @@ function evaluateLiveModel(input, options = {}) {
         ? Number((pDry - 0.5).toFixed(3))
         : null;
 
+  // Assumed odds по вікнах (до інтеграції реальних коефіцієнтів)
+  const assumedOdds =
+    tw === '60-70' ? 2.4 :
+    tw === '70-80' ? 1.8 :
+    tw === '80-90+' ? 2.5 : 2.0;
+
+  // Kelly stake
+  const pWin = bet === 'OVER_0_5' ? pGoal : bet === 'UNDER_0_5' ? pDry : 0;
+  const kelly = bet !== 'SKIP' ? computeKellyStake(pWin, assumedOdds) : { pct: 0, amount: 0 };
+
   // dryAlert: dry у 60-70 при 0:0 — передаємо в наступний цикл для TB у 70-80
   const dryAlert =
     tw === '60-70' &&
@@ -420,6 +449,9 @@ function evaluateLiveModel(input, options = {}) {
     signalQuality,
     dryAlert,
     filtersApplied,
+    kellyStakePct: kelly.pct,
+    kellyStakeAmount: kelly.amount,
+    assumedOdds: bet !== 'SKIP' ? assumedOdds : null,
   };
 
   const trendFeatures = {

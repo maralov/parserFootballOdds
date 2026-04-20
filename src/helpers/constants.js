@@ -167,6 +167,13 @@ const LIVE_V3_SQ_MIN_70_80   = Math.max(0,    Math.min(1,    envFloat(process.en
 /** Мін. кількість зрізів (snapshot) для дозволу ставки. Env: LIVE_V3_MIN_SNAPSHOTS */
 const LIVE_V3_MIN_SNAPSHOTS  = Math.max(1,    Math.min(8,    envInt(process.env.LIVE_V3_MIN_SNAPSHOTS,    2)));
 
+/** Kelly Criterion: частка від full Kelly. Env: LIVE_V3_KELLY_FRACTION */
+const LIVE_V3_KELLY_FRACTION  = Math.max(0.05, Math.min(1, envFloat(process.env.LIVE_V3_KELLY_FRACTION, 0.25)));
+/** Максимальна ставка як частка від банку (0.10 = 10%). Env: LIVE_V3_MAX_STAKE_PCT */
+const LIVE_V3_MAX_STAKE_PCT   = Math.max(0.01, Math.min(0.5, envFloat(process.env.LIVE_V3_MAX_STAKE_PCT, 0.10)));
+/** Розмір банку для відображення рекомендованої ставки у грн. Env: LIVE_V3_BANK_SIZE */
+const LIVE_V3_BANK_SIZE       = Math.max(100,  envFloat(process.env.LIVE_V3_BANK_SIZE, 10000));
+
 /** Сплеск 2H для блокування ТМ 60–70 (як раніше burst gate). Env: LIVE_V2_BURST_* */
 const LIVE_V2_BURST_MIN_SOT = Math.max(0, envFloat(process.env.LIVE_V2_BURST_MIN_SOT, LIVE_SNAPSHOT_BURST_MIN_SOT));
 const LIVE_V2_BURST_MIN_XG = Math.max(0, envFloat(process.env.LIVE_V2_BURST_MIN_XG, LIVE_SNAPSHOT_BURST_MIN_XG));
@@ -219,6 +226,9 @@ module.exports = {
   LIVE_V3_SQ_MIN_60_70,
   LIVE_V3_SQ_MIN_70_80,
   LIVE_V3_MIN_SNAPSHOTS,
+  LIVE_V3_KELLY_FRACTION,
+  LIVE_V3_MAX_STAKE_PCT,
+  LIVE_V3_BANK_SIZE,
   LIVE_V2_BURST_MIN_SOT,
   LIVE_V2_BURST_MIN_XG,
   LIVE_V2_LATE_SURGE_RATIO,

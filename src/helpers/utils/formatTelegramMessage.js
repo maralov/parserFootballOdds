@@ -12,7 +12,7 @@ function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
   const { home, away } = sanitizeTeams(match.home, match.away);
   const league = sanitizeLeagueName(match.league);
   const { score, minute } = match;
-  const { bet, confidence, pGoal, pDry, edge, reason, odds1X2, impliedProb, timeWindow, signalQuality, filtersApplied } = decision;
+  const { bet, confidence, pGoal, pDry, edge, reason, odds1X2, impliedProb, timeWindow, signalQuality, filtersApplied, kellyStakePct, kellyStakeAmount, assumedOdds } = decision;
   const { redCards, modelV2 } = opts;
 
   const betLabel = formatBetLabel(bet);
@@ -39,6 +39,11 @@ function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
   }
   if (filtersApplied) {
     msg += `\n🔍 *Фільтри:* ${filtersApplied}`;
+  }
+  if (kellyStakePct > 0 && kellyStakeAmount > 0) {
+    const pctDisplay = (kellyStakePct * 100).toFixed(1);
+    const oddsNote = assumedOdds ? ` (кф ~${assumedOdds})` : '';
+    msg += `\n💸 *Ставка (Kelly):* ${pctDisplay}% банку = ~${kellyStakeAmount} грн${oddsNote}`;
   }
   if (modelV2?.currentState) {
     msg += `\n🔬 *Стан матчу:* ${modelV2.currentState}`;
