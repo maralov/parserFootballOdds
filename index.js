@@ -4,7 +4,7 @@ if (process.argv.includes('--ignore-hours')) {
 }
 const { Worker } = require('worker_threads');
 const { LIVE_POLL_INTERVAL_MS } = require('./src/helpers/constants');
-const { dateKeyLocal, timeHHmm } = require('./src/helpers/date');
+const { sessionDateKey, timeHHmm } = require('./src/helpers/date');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
 
 let processedMatchIds = [];
@@ -12,7 +12,7 @@ let sentTelegramIds = [];
 let activePredictions = [];
 let lastResultCheckHour = -1;
 let lastHeartbeat = Date.now();
-let lastDayKey = dateKeyLocal();
+let lastDayKey = sessionDateKey();
 const HEARTBEAT_INTERVAL_MS = 60 * 60 * 1000;
 
 function runLiveWorker() {
@@ -50,7 +50,7 @@ async function sendHeartbeat(runCount) {
   let runCount = 0;
 
   do {
-    const todayKey = dateKeyLocal();
+    const todayKey = sessionDateKey();
     if (todayKey !== lastDayKey) {
       console.log(`📅 New day — reset (skipped=${processedMatchIds.length}, tgSent=${sentTelegramIds.length}, active=${activePredictions.length})`);
       processedMatchIds = [];

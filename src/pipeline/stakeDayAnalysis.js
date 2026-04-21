@@ -1,4 +1,4 @@
-const { dateKeyLocal } = require('../helpers/date');
+const { sessionDateKey } = require('../helpers/date');
 const {
   dedupeByMatchId,
   resolvedLegsForMatch,
@@ -93,7 +93,7 @@ function analyzeStakeLegs(matches, dateRef, opts = {}) {
   const flipMatches = actionable.filter(isFlipMatch);
 
   return {
-    dateKey: dateKeyLocal(dateRef),
+    dateKey: sessionDateKey(dateRef),
     avgOdds,
     stakeFrac,
     stakePct: stakeFrac * 100,

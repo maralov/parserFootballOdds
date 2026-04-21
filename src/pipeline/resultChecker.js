@@ -1,8 +1,8 @@
 const { loadDayMatches, saveDayMatches, saveDaySummary } = require('./dailyLogger');
-const { yesterday, dateKeyLocal, toISO } = require('../helpers/date');
+const { previousSessionDateKey, sessionDateKey, toISO } = require('../helpers/date');
 
 function getYesterdayDate() {
-  return yesterday();
+  return previousSessionDateKey();
 }
 
 function rowPriority(m) {
@@ -135,7 +135,7 @@ async function checkDayResults(page, dateRef) {
     (m) => !m.resultChecked && m.pipeline === 'decision_made' && m.prediction?.bet && m.prediction.bet !== 'SKIP'
   );
   if (unchecked.length === 0) {
-    console.log(`  [result] No unchecked predictions for ${dateKeyLocal(dateRef)}`);
+    console.log(`  [result] No unchecked predictions for ${sessionDateKey(dateRef)}`);
     return buildSummary(matches, dateRef, 0, 0, 0);
   }
 
@@ -280,7 +280,7 @@ function buildSummary(matches, dateRef, checked, hits, misses, options = {}) {
   const totalResolved = totalHitsAll + totalMissesAll;
 
   const summary = {
-    date: dateKeyLocal(dateRef),
+    date: sessionDateKey(dateRef),
     totalRowsInLog: matches.length,
     uniqueMatches: unique.length,
     actionable: actionable.length,
