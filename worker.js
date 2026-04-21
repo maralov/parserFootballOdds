@@ -61,19 +61,21 @@ try {
   console.log(`  [restore] snapshot/modelV2: ${e.message}`);
 }
 
-if (sentTelegramIds.size === 0 && processedMatchIds.size === 0) {
-  try {
-    const todayEntries = loadDayMatches();
-    for (const m of todayEntries) {
+try {
+  const todayEntries = loadDayMatches();
+  const isFreshStart = sentTelegramIds.size === 0 && processedMatchIds.size === 0;
+  for (const m of todayEntries) {
+    // sentTelegramIds завжди мержимо з файлу — захист від дублів при перезапуску
+    if (
+      m.telegramInitialSent === true ||
+      (m.prediction?.signalEligible === true && m.prediction?.bet && m.prediction.bet !== 'SKIP')
+    ) {
+      sentTelegramIds.add(m.matchId);
+    }
+    if (isFreshStart) {
       // Відновлюємо матчі що вже були оброблені (без статистики або перманентний скіп)
       if (m.pipeline === 'no_decision_data' || m.pipeline === 'resolve_failed') {
         processedMatchIds.add(m.matchId);
-      }
-      if (
-        m.telegramInitialSent === true ||
-        (m.prediction?.signalEligible === true && m.prediction?.bet && m.prediction.bet !== 'SKIP')
-      ) {
-        sentTelegramIds.add(m.matchId);
       }
       if (m.prediction?.bet && m.prediction.bet !== 'SKIP' && !m.resultChecked) {
         activePredictions.set(m.matchId, {
@@ -90,12 +92,12 @@ if (sentTelegramIds.size === 0 && processedMatchIds.size === 0) {
         });
       }
     }
-    if (sentTelegramIds.size > 0 || processedMatchIds.size > 0) {
-      console.log(`  [restore] Відновлено з лога: ${processedMatchIds.size} оброблених, ${sentTelegramIds.size} надісланих TG, ${activePredictions.size} активних ставок`);
-    }
-  } catch (e) {
-    console.log(`  [restore] Помилка відновлення стану: ${e.message}`);
   }
+  if (sentTelegramIds.size > 0 || processedMatchIds.size > 0) {
+    console.log(`  [restore] Відновлено з лога: ${processedMatchIds.size} оброблених, ${sentTelegramIds.size} надісланих TG, ${activePredictions.size} активних ставок`);
+  }
+} catch (e) {
+  console.log(`  [restore] Помилка відновлення стану: ${e.message}`);
 }
 
 let lastResultCheckHour = workerData?.lastResultCheckHour ?? -1;
