@@ -4,8 +4,8 @@
   "uniqueMatches": 196,
   "actionable": 21,
   "stakeLegsPlanned": 21,
-  "checkedThisRun": 1,
-  "hitsThisRun": 1,
+  "checkedThisRun": 0,
+  "hitsThisRun": 0,
   "missesThisRun": 0,
   "resolved": 21,
   "hits": 14,
@@ -55,5 +55,5 @@
     }
   },
   "flips": 0,
-  "generatedAt": "2026-04-19T21:00:36.787Z"
+  "generatedAt": "2026-04-20T17:04:07.398Z"
 }

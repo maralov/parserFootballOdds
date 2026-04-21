@@ -17006,3 +17006,34 @@ Done: 0 analyzed, 0 actionable, 0 TG sent
 
 🔥 RUN #1094: analyzed=0, signals=0
 ⏳ Next scan in 3m...
+
+> parseodds@1.0.0 live:watch:3m:anytime
+> LIVE_POLL_INTERVAL_MS=180000 node index.js --watch --ignore-hours
+
+🚀 Starting live scraping (watch mode)...
+  [restore] Відновлено з лога: 1 оброблених, 4 надісланих TG, 0 активних ставок
+[20:03:01] Live scan
+  First run — checking yesterday results
+  [result] No unchecked predictions for 2026-04-19
+  Yesterday: 14/21 hits (21 з прогнозом)
+  Daily summary Telegram disabled (date=2026-04-19)
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 60, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=20, 0:0 total=10, candidates=0
+  ⏸ 0:0 ще рано (< 60'):
+    34' ГАМБІЯ: Ліга ГФА Таблиця34'Бомбада - Грейтер Томорроу [ГАМБІЯ: Ліга ГФА]
+    4' ДАНІЯ: Суперліга - Чемпіонська група Таблиця4'Мідтьюлланн - Орхус [ДАНІЯ: Суперліга - Чемпіонська група]
+    19' ЄВРОПА: Молодіжна ліга УЄФА - Плей-оф19'Брюгге U19 - Реал Мадрид U19 [ЄВРОПА: Молодіжна ліга УЄФА - Плей-оф]
+    4' НОРВЕГІЯ: ОБОС-ліга Таблиця4'Люн - Саннес Ульф [НОРВЕГІЯ: ОБОС-ліга]
+    4' НОРВЕГІЯ: Дивізіон 3 - Група 1 Таблиця4'К. Осло 2 - Уніон Карл Бренер [НОРВЕГІЯ: Дивізіон 3 - Група 1]
+    4' НОРВЕГІЯ: Дивізіон 3 - Група 5 Таблиця4'Ліллестрем 2 - Ск'єттен [НОРВЕГІЯ: Дивізіон 3 - Група 5]
+    4' ПОЛЬЩА: Екстракляса Таблиця4'Лехія Гданськ - П'яст Глівіце [ПОЛЬЩА: Екстракляса]
+    4' СЕНЕГАЛ: Ліга 1 Таблиця4'АСК ХЛМ - Мбур [СЕНЕГАЛ: Ліга 1]
+    4' ТУРЕЧЧИНА: Суперліга Таблиця4'Газіантеп - Кайсеріспор [ТУРЕЧЧИНА: Суперліга]
+    4' ШВЕЦІЯ: Супереттан Таблиця4'Уддеволд - Естерс [ШВЕЦІЯ: Супереттан]
+  Found: 0 candidates, 0 new, 1 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #1: analyzed=0, signals=0
+⏳ Next scan in 3m...
