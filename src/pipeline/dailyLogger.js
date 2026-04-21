@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const { dateKeyLocal, toISO } = require('../helpers/date');
+const { sessionDateKey, dateKeyLocal, toISO } = require('../helpers/date');
 
 const DATA_DIR = path.join(__dirname, '..', '..', 'data', 'logs');
 
 function getDateString(date) {
-  return dateKeyLocal(date);
+  return sessionDateKey(date);
 }
 
 function getDayDir(date) {

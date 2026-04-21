@@ -352,7 +352,11 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
       });
       lastModelStateByMatchId.set(match.id, modelV2.currentState);
 
-      const decision = applyLiveModelGates(features, rawDecision);
+      const gatedDecision = applyLiveModelGates(features, rawDecision);
+      const decision =
+        prevBet === 'UNDER_0_5' && gatedDecision.bet === 'OVER_0_5'
+          ? { ...gatedDecision, bet: 'SKIP', signalEligible: false, edge: null, reason: `[flip blocked] ТМ→ТБ заблоковано | ${gatedDecision.reason}` }
+          : gatedDecision;
       const lt = features.liveTrajectory;
       const deltaLine =
         lt && lt.snapshotCount >= 2 && lt.deltas

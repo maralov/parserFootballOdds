@@ -1,5 +1,5 @@
 const { loadDayMatches, saveDayMatches, saveDaySummary, saveDayPredictions, saveDayStakeRoi } = require('./dailyLogger');
-const { yesterday, dateKeyLocal, toISO } = require('../helpers/date');
+const { yesterday, sessionDateKey, dateKeyLocal, toISO } = require('../helpers/date');
 const { sanitizeLeagueName, sanitizeTeams, formatBetLabel } = require('../helpers/utils/normalizeMatchText');
 
 const STAKE_ROI_MODEL = {
@@ -14,7 +14,8 @@ const STAKE_ROI_MODEL = {
 };
 
 function getYesterdayDate() {
-  return yesterday();
+  // Сесія закінчується о 10:00 — "вчора" = попередня сесія
+  return sessionDateKey(yesterday());
 }
 
 function rowPriority(m) {

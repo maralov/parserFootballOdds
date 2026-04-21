@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(python3 -c ' *)",
-      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, ensure_ascii=False, indent=2\\)\\)\")"
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(node --check worker.js)",
+      "Bash(node --check src/helpers/date.js)",
+      "Bash(node --check src/pipeline/dailyLogger.js)",
+      "Bash(node --check src/pipeline/resultChecker.js)",
+      "Bash(git stash *)",
+      "Bash(git pull *)",
+      "Bash(git rebase *)",
+      "Bash(git add *)"
     ]
   }
 }
