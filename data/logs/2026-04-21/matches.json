@@ -1241,7 +1241,9 @@
         "hit": false
       }
     ],
-    "resultTimestamp": "2026-04-21T00:57:52.699Z"
+    "resultTimestamp": "2026-04-21T00:57:52.699Z",
+    "hadExtraTime": true,
+    "regularTimeGoals": 0
   },
   {
     "matchId": "hj2LYutB",
