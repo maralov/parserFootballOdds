@@ -3335,7 +3335,7 @@
       "home": 1,
       "away": 0
     },
-    "hit": false,
+    "hit": true,
     "betHistory": [
       {
         "bet": "UNDER_0_5",
@@ -3381,10 +3381,12 @@
       {
         "bet": "UNDER_0_5",
         "timeWindow": "70-80",
-        "hit": false
+        "hit": true
       }
     ],
-    "resultTimestamp": "2026-04-21T20:09:31.246Z"
+    "resultTimestamp": "2026-04-21T20:09:31.246Z",
+    "hadExtraTime": true,
+    "regularTimeGoals": 0
   },
   {
     "matchId": "GWSPQB1N",

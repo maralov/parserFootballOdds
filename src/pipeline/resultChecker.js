@@ -162,23 +162,82 @@ async function checkSingleResult(page, entry) {
     await page.waitForTimeout(2000);
 
     return await page.evaluate(() => {
+      const bodyText = (document.body && document.body.innerText) || '';
+      // AET = After Extra Time, AP = After Penalties (ua: після дод. часу / після пен.)
+      const hadExtraTime = /\bAET\b|\bAP\b|після дод\.?\s*час|after extra time/i.test(bodyText);
+
+      // Sum goals from section headers (wclHeaderSection--summary) by section index.
+      // FlashScore shows sections in order: 1-й тайм, 2-й тайм, [ET 1-й тайм, ET 2-й тайм].
+      // Regular time = first two sections. Score format inside section: "0 - 1" (home - away).
+      function extractSectionScore(section) {
+        const spans = section.querySelectorAll('span');
+        for (const span of spans) {
+          const div = span.querySelector('div');
+          if (!div) continue;
+          const m = div.textContent.trim().match(/^(\d+)\s*-\s*(\d+)$/);
+          if (m) return { home: Number(m[1]), away: Number(m[2]) };
+        }
+        return null;
+      }
+
+      function getRegularTimeGoalsFromSections() {
+        const sections = document.querySelectorAll('.wclHeaderSection--summary');
+        if (sections.length < 2) return null;
+        // Only the first two sections belong to regular time (1-й тайм + 2-й тайм)
+        const half1 = extractSectionScore(sections[0]);
+        const half2 = extractSectionScore(sections[1]);
+        if (!half1 || !half2) return null;
+        return half1.home + half1.away + half2.home + half2.away;
+      }
+
+      // Fallback: base minute only (before "+") — goals at base ≤ 90 are regular-time
+      function parseBaseMinute(text) {
+        const m = String(text || '').match(/(\d{1,3})(?:\+\d+)?/);
+        return m ? Number(m[1]) : null;
+      }
+
+      function countGoalsByBaseMinute(maxBase) {
+        const incidents = document.querySelectorAll('.incident.soccer, div.incident.soccer');
+        if (!incidents.length) return null;
+        let count = 0;
+        incidents.forEach((row) => {
+          const icon = row.querySelector('p.i-field.icon');
+          if (!icon || !icon.classList.contains('ball')) return;
+          const timeEl = row.querySelector('p.i-field.time, p.i-field.time-wide');
+          if (!timeEl) return;
+          const base = parseBaseMinute(timeEl.textContent);
+          if (base !== null && base <= maxBase) count++;
+        });
+        return count;
+      }
+
+      let score = null;
       const detailBold = document.querySelector('div.detail > b');
       if (detailBold) {
         const m = detailBold.textContent.trim().match(/^(\d+):(\d+)/);
-        if (m) return { home: Number(m[1]), away: Number(m[2]) };
+        if (m) score = { home: Number(m[1]), away: Number(m[2]) };
+      }
+      if (!score) {
+        const liveLink = document.querySelector('a.live[href]');
+        if (liveLink) {
+          const m = liveLink.textContent.trim().match(/(\d+):(\d+)/);
+          if (m) score = { home: Number(m[1]), away: Number(m[2]) };
+        }
+      }
+      if (!score) {
+        const title = document.title || '';
+        const tm = title.match(/(\d+)\s*[-–:]\s*(\d+)/);
+        if (tm) score = { home: Number(tm[1]), away: Number(tm[2]) };
       }
 
-      const liveLink = document.querySelector('a.live[href]');
-      if (liveLink) {
-        const m = liveLink.textContent.trim().match(/(\d+):(\d+)/);
-        if (m) return { home: Number(m[1]), away: Number(m[2]) };
+      if (score && hadExtraTime) {
+        // Prefer section-based approach (1-й тайм + 2-й тайм headers), fall back to incident counting
+        const regularTimeGoals =
+          getRegularTimeGoalsFromSections() ?? countGoalsByBaseMinute(90);
+        return { ...score, hadExtraTime: true, regularTimeGoals };
       }
 
-      const title = document.title || '';
-      const tm = title.match(/(\d+)\s*[-–:]\s*(\d+)/);
-      if (tm) return { home: Number(tm[1]), away: Number(tm[2]) };
-
-      return null;
+      return score;
     });
   } catch (e) {
     console.log(`  [result] Error checking ${entry.matchId}: ${e.message}`);
@@ -194,6 +253,8 @@ function applyResultToAllRows(matches, matchId, payload) {
     m.actualResult = payload.actualResult;
     m.hit = payload.hit;
     if (payload.hitLegs) m.hitLegs = payload.hitLegs;
+    if (payload.hadExtraTime) m.hadExtraTime = true;
+    if (payload.regularTimeGoals !== undefined) m.regularTimeGoals = payload.regularTimeGoals;
     m.resultTimestamp = ts;
   }
 }
@@ -224,7 +285,26 @@ async function checkDayResults(page, dateRef) {
       continue;
     }
 
-    const totalGoals = finalScore.home + finalScore.away;
+    // ET matches: evaluate bet on regular time only (base minute ≤ 90)
+    let totalGoals;
+    let scoreLabel;
+    let hadExtraTime = false;
+    let regularTimeGoals;
+
+    if (finalScore.hadExtraTime && finalScore.regularTimeGoals !== null && finalScore.regularTimeGoals !== undefined) {
+      hadExtraTime = true;
+      regularTimeGoals = finalScore.regularTimeGoals;
+      totalGoals = regularTimeGoals;
+      scoreLabel = `${finalScore.home}:${finalScore.away} (ДЧ, осн.час: ${totalGoals} г.)`;
+    } else {
+      totalGoals = finalScore.home + finalScore.away;
+      scoreLabel = `${finalScore.home}:${finalScore.away}`;
+      if (finalScore.hadExtraTime) {
+        hadExtraTime = true;
+        scoreLabel += ' (ДЧ, голи не визначено)';
+      }
+    }
+
     const actualOver = totalGoals > 0;
     const legs = betLegsFromEntry(entry);
     const hitLegs = legs.map((bet) => ({
@@ -234,11 +314,17 @@ async function checkDayResults(page, dateRef) {
     const hit = hitLegs.length ? hitLegs[hitLegs.length - 1].hit : false;
 
     const actualResult = `${finalScore.home}:${finalScore.away}`;
-    applyResultToAllRows(matches, entry.matchId, { actualResult, hit, hitLegs });
+    applyResultToAllRows(matches, entry.matchId, {
+      actualResult,
+      hit,
+      hitLegs,
+      hadExtraTime: hadExtraTime || undefined,
+      regularTimeGoals: regularTimeGoals !== undefined ? regularTimeGoals : undefined,
+    });
 
     const legStr = hitLegs.map((l) => `${l.bet === 'OVER_0_5' ? 'ТБ' : 'ТМ'}:${l.hit ? '✅' : '❌'}`).join(' ');
     const mark = hit ? '✅' : '❌';
-    console.log(`  [result] ${entry.home} - ${entry.away}: ${actualResult} → ${mark} остання нога | ${legStr}`);
+    console.log(`  [result] ${entry.home} - ${entry.away}: ${scoreLabel} → ${mark} остання нога | ${legStr}`);
 
     checked++;
     if (hit === true) hits++;
@@ -247,6 +333,14 @@ async function checkDayResults(page, dateRef) {
 
   saveDayMatches(dateRef, matches);
   return buildSummary(matches, dateRef, checked, hits, misses);
+}
+
+// For ET matches prefers regularTimeGoals over full-time total
+function getEffectiveGoals(entry) {
+  if (entry && entry.regularTimeGoals !== null && entry.regularTimeGoals !== undefined) {
+    return entry.regularTimeGoals;
+  }
+  return parseActualGoals(entry && entry.actualResult);
 }
 
 function parseActualGoals(actualResult) {
@@ -335,7 +429,7 @@ function buildStakeRoiReport(matches, dateRef) {
     const rawSignals = signalHistoryFromEntry(m);
     const stakeSignals = collapseSignalsByFlip(rawSignals);
     const firstOnlySignals = firstSignalOnly(stakeSignals);
-    const totalGoals = parseActualGoals(m.actualResult);
+    const totalGoals = getEffectiveGoals(m);
 
     const matchRows = stakeSignals.map((signal, idx) => {
       const period = normalizePeriod(signal.timeWindow);
@@ -480,7 +574,7 @@ function buildPredictionsFile(matches, dateRef) {
     const teams = sanitizeTeams(m.home, m.away);
     const rawSignals = signalHistoryFromEntry(m);
     const stakeSignals = collapseSignalsByFlip(rawSignals);
-    const totalGoals = parseActualGoals(m.actualResult);
+    const totalGoals = getEffectiveGoals(m);
 
     const periodPredictions = stakeSignals.map((s) => {
       const resolved = m.resultChecked === true && totalGoals !== null;
@@ -572,7 +666,7 @@ function resolvedLegsForMatch(m) {
   if (m.hitLegs && m.hitLegs.length > 0) return m.hitLegs;
 
   const legs = betLegsFromEntry(m);
-  const totalGoals = parseActualGoals(m.actualResult);
+  const totalGoals = getEffectiveGoals(m);
   if (legs.length > 1 && totalGoals !== null) {
     const actualOver = totalGoals > 0;
     return legs.map((bet) => ({ bet, hit: actualOver === (bet === 'OVER_0_5') }));
@@ -701,4 +795,5 @@ module.exports = {
   betLegsFromEntry,
   resolvedLegsForMatch,
   buildSummary,
+  getEffectiveGoals,
 };
