@@ -30,6 +30,8 @@ const {
   LIVE_EVAL_MODEL,
 } = require('./src/helpers/constants');
 const { scrapeMatchFormAndH2h } = require('./src/scrapeMatchFormAndH2h');
+const { scrapeGGBetOdds } = require('./src/scrapeGGBetOdds');
+const { computeKellyStake } = require('./src/pipeline/liveModelEngine');
 const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
 
 const evaluateLiveModel = LIVE_EVAL_MODEL === 'v3' ? evaluateLiveModelV3 : evaluateLiveModelV2;
@@ -417,12 +419,37 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
         const isUpdate = alreadySentTg && canPush && (betChanged);
 
         if (isNewSignal) {
+          // Фоновий скрапінг GGBet: відкриваємо окрему вкладку з таймаутом 15с
+          let ggbet = null;
+          let ggbetKelly = null;
           try {
-            await sendTelegramMessage(formatTelegramMessage(match, decision, desktopUrl, { redCards: incidents, modelV2 }));
+            const ggbetPage = await browser.newPage();
+            await ggbetPage.setUserAgent(USER_AGENT);
+            const ggbetPromise = scrapeGGBetOdds(ggbetPage, match.home, match.away)
+              .finally(() => ggbetPage.close().catch(() => {}));
+            ggbet = await Promise.race([
+              ggbetPromise,
+              new Promise((resolve) => setTimeout(() => resolve(null), 15000)),
+            ]);
+          } catch (e) {
+            console.log(`  [ggbet] Launch error: ${e.message}`);
+          }
+
+          if (ggbet) {
+            const realOdds = decision.bet === 'UNDER_0_5' ? ggbet.underOdds : ggbet.overOdds;
+            if (realOdds) {
+              const pWin = decision.bet === 'OVER_0_5' ? decision.pGoal : decision.pDry;
+              const k = computeKellyStake(pWin, realOdds);
+              if (k.amount > 0) ggbetKelly = k;
+            }
+          }
+
+          try {
+            await sendTelegramMessage(formatTelegramMessage(match, decision, desktopUrl, { redCards: incidents, modelV2, ggbet, ggbetKelly }));
             sentTelegramIds.add(match.id);
             markTelegramInitialSent(match.id);
             telegramSent = true;
-            console.log(`  ✓ Telegram sent`);
+            console.log(`  ✓ Telegram sent${ggbet ? ' [+GGBet]' : ''}`);
           } catch (e) { console.log(`  Telegram err: ${e.message}`); }
         } else if (isUpdate) {
           const cleanLeague = sanitizeLeagueName(match.league);

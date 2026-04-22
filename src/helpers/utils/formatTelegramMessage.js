@@ -13,7 +13,7 @@ function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
   const league = sanitizeLeagueName(match.league);
   const { score, minute } = match;
   const { bet, confidence, pGoal, pDry, edge, reason, odds1X2, impliedProb, timeWindow, signalQuality, filtersApplied, kellyStakePct, kellyStakeAmount, assumedOdds } = decision;
-  const { redCards, modelV2 } = opts;
+  const { redCards, modelV2, ggbet, ggbetKelly } = opts;
 
   const betLabel = formatBetLabel(bet);
   const emoji = bet === 'OVER_0_5' ? '📈' : bet === 'UNDER_0_5' ? '📉' : '⏸️';
@@ -44,6 +44,19 @@ function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
     const pctDisplay = (kellyStakePct * 100).toFixed(1);
     const oddsNote = assumedOdds ? ` (кф ~${assumedOdds})` : '';
     msg += `\n💸 *Ставка (Kelly):* ${pctDisplay}% банку = ~${kellyStakeAmount} грн${oddsNote}`;
+  }
+  // GGBet: реальний коеф і перерахований Kelly
+  const ggbetOdds = ggbet ? (bet === 'UNDER_0_5' ? ggbet.underOdds : ggbet.overOdds) : null;
+  if (ggbet?.url || ggbetOdds) {
+    if (ggbetOdds && ggbetKelly && ggbetKelly.amount > 0) {
+      const pctReal = (ggbetKelly.pct * 100).toFixed(1);
+      msg += `\n🎰 *GGBet кф:* ${ggbetOdds} → Ставка ${pctReal}% = ~${ggbetKelly.amount} грн`;
+    } else if (ggbetOdds) {
+      msg += `\n🎰 *GGBet кф:* ${ggbetOdds}`;
+    }
+    if (ggbet?.url) {
+      msg += `\n🔗 [GGBet Live](${ggbet.url})`;
+    }
   }
   if (modelV2?.currentState) {
     msg += `\n🔬 *Стан матчу:* ${modelV2.currentState}`;

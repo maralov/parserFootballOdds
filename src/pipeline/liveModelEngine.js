@@ -538,4 +538,5 @@ module.exports = {
   getLiveTimeWindow,
   drySignalsFromRaw,
   classifyState,
+  computeKellyStake,
 };
