@@ -1176,7 +1176,7 @@
       "home": 0,
       "away": 0
     },
-    "hit": false,
+    "hit": true,
     "betHistory": [
       {
         "bet": "UNDER_0_5",
@@ -1198,7 +1198,8 @@
         "pDry": 0.469,
         "signalQuality": 0.7229,
         "snapshotCount": 4,
-        "timestamp": "2026-04-21T00:44:43.622Z"
+        "timestamp": "2026-04-21T00:44:43.622Z",
+        "telegramFlipBlocked": true
       }
     ],
     "preMatchV3": {

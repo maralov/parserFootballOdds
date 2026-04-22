@@ -93,7 +93,7 @@ function betLegsFromEntry(entry) {
 function signalHistoryFromEntry(entry) {
   if (Array.isArray(entry.betHistory) && entry.betHistory.length > 0) {
     return entry.betHistory
-      .filter((h) => h?.bet && h.bet !== 'SKIP')
+      .filter((h) => h?.bet && h.bet !== 'SKIP' && !h.telegramFlipBlocked)
       .map((h) => ({
         bet: h.bet,
         timeWindow: h.timeWindow || null,
