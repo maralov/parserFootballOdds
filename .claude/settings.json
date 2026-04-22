@@ -10,7 +10,10 @@
       "Bash(git stash *)",
       "Bash(git pull *)",
       "Bash(git rebase *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git merge *)",
+      "Bash(git push *)"
     ]
   }
 }
