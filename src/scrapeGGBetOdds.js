@@ -2,27 +2,26 @@ const GGBET_LIVE_URL = 'https://ggbet.ua/uk-ua/live?sportId=football';
 const PAGE_TIMEOUT = 20000;
 const LOAD_WAIT_MS = 3500;
 
-/**
- * Нормалізація рядка для нечіткого пошуку:
- * нижній регістр, і/ї/є/ґ → латиниця, лише алфавіт+цифри.
- */
+const TEAM_MATCH_THRESHOLD = 0.4; // Jaccard ≥ 0.4 → збіг
+
 function norm(s) {
   return String(s || '')
     .toLowerCase()
-    .replace(/і/g, 'i').replace(/ї/g, 'i').replace(/є/g, 'e').replace(/ґ/g, 'g')
-    .replace(/[^a-zа-я0-9]/gi, '')
-    .trim();
+    .replace(/і/g, 'i').replace(/ї/g, 'i').replace(/є/g, 'e').replace(/ґ/g, 'g');
 }
 
+/**
+ * Jaccard similarity по токенах (слова ≥ 3 символів після нормалізації).
+ * Стійкий до порядку слів, пропущених FC/FK, різної транслітерації.
+ */
 function teamsSimilar(a, b) {
-  const na = norm(a);
-  const nb = norm(b);
-  if (!na || !nb) return false;
-  if (na === nb) return true;
-  const shorter = na.length <= nb.length ? na : nb;
-  const longer = na.length > nb.length ? na : nb;
-  // мін 4 символи щоб не було хибних збігів
-  return shorter.length >= 4 && longer.includes(shorter);
+  const tokens = (s) => new Set((norm(s).match(/[a-zа-я0-9]{3,}/g) || []));
+  const ta = tokens(a);
+  const tb = tokens(b);
+  if (ta.size === 0 || tb.size === 0) return false;
+  const intersection = [...ta].filter((t) => tb.has(t)).length;
+  const union = new Set([...ta, ...tb]).size;
+  return intersection / union >= TEAM_MATCH_THRESHOLD;
 }
 
 /**
@@ -38,19 +37,18 @@ async function findMatchOnLivePage(page, home, away) {
     return null;
   }
 
-  return await page.evaluate((home, away) => {
-    function n(s) {
+  return await page.evaluate((home, away, threshold) => {
+    function norm(s) {
       return String(s || '').toLowerCase()
-        .replace(/і/g, 'i').replace(/ї/g, 'i').replace(/є/g, 'e').replace(/ґ/g, 'g')
-        .replace(/[^a-zа-я0-9]/gi, '').trim();
+        .replace(/і/g, 'i').replace(/ї/g, 'i').replace(/є/g, 'e').replace(/ґ/g, 'g');
     }
     function similar(a, b) {
-      const na = n(a), nb = n(b);
-      if (!na || !nb) return false;
-      if (na === nb) return true;
-      const s = na.length <= nb.length ? na : nb;
-      const l = na.length > nb.length ? na : nb;
-      return s.length >= 4 && l.includes(s);
+      const tokens = (s) => new Set((norm(s).match(/[a-zа-я0-9]{3,}/g) || []));
+      const ta = tokens(a), tb = tokens(b);
+      if (!ta.size || !tb.size) return false;
+      const inter = [...ta].filter(t => tb.has(t)).length;
+      const union = new Set([...ta, ...tb]).size;
+      return inter / union >= threshold;
     }
 
     const links = document.querySelectorAll('a[href*="/uk-ua/sports/match/"]');
@@ -65,7 +63,7 @@ async function findMatchOnLivePage(page, home, away) {
       }
     }
     return null;
-  }, home, away);
+  }, home, away, TEAM_MATCH_THRESHOLD);
 }
 
 /**
