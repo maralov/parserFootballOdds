@@ -5,6 +5,8 @@ const { sessionDateKey, dateKeyLocal, toISO } = require('../helpers/date');
 const DATA_DIR = path.join(__dirname, '..', '..', 'data', 'logs');
 
 function getDateString(date) {
+  // Якщо вже рядок YYYY-MM-DD — вже розрахований ключ, не застосовуємо логіку повторно
+  if (typeof date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(date)) return date;
   return sessionDateKey(date);
 }
 
