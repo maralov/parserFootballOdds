@@ -1,0 +1,1405 @@
+[
+  {
+    "matchId": "xtv2Zswg",
+    "league": "КАМЕРУН: Еліт 2",
+    "home": "КАМЕРУН: Еліт 2 Таблиця78'Юніон Дуала",
+    "away": "Сабле",
+    "minute": 78,
+    "minuteBucket": "76-80",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/xtv2Zswg/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/sable-xbqcqbki/union-douala-jTsPWvKd/?mid=xtv2Zswg",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "unavailable",
+    "stats": {
+      "overall": null,
+      "secondHalf": null
+    },
+    "liveTrajectory": null,
+    "indices": null,
+    "modelV2": null,
+    "snapshotHistoryV2": null,
+    "prediction": null,
+    "pipeline": "no_decision_data",
+    "skipReason": "no_stats",
+    "timestamp": "2026-04-22T14:03:42.070Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": []
+  },
+  {
+    "matchId": "0OkNn5QF",
+    "league": "УГАНДА: Прем'єр-ліга",
+    "home": "УГАНДА: Прем'єр-ліга Таблиця88'Кітара",
+    "away": "Келварі",
+    "minute": 88,
+    "minuteBucket": "85+",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/0OkNn5QF/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/calvary-SzQhQsLe/kitara-W0aMZOUR/?mid=0OkNn5QF",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "unavailable",
+    "stats": {
+      "overall": null,
+      "secondHalf": null
+    },
+    "liveTrajectory": null,
+    "indices": null,
+    "modelV2": null,
+    "snapshotHistoryV2": null,
+    "prediction": null,
+    "pipeline": "no_decision_data",
+    "skipReason": "no_stats",
+    "timestamp": "2026-04-22T14:49:19.188Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": []
+  },
+  {
+    "matchId": "ltJJudjC",
+    "league": "ГРУЗІЯ: Ліга Еровнулі 2",
+    "home": "ГРУЗІЯ: Ліга Еровнулі 2 Таблиця63'Телаві",
+    "away": "Штурмі",
+    "minute": 63,
+    "minuteBucket": "60-69",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/ltJJudjC/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/shturmi-Od6DV2Cm/telavi-hUtF5X6H/?mid=ltJJudjC",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "unavailable",
+    "stats": {
+      "overall": null,
+      "secondHalf": null
+    },
+    "liveTrajectory": null,
+    "indices": null,
+    "modelV2": null,
+    "snapshotHistoryV2": null,
+    "prediction": null,
+    "pipeline": "no_decision_data",
+    "skipReason": "no_stats",
+    "timestamp": "2026-04-22T16:25:08.830Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": []
+  },
+  {
+    "matchId": "p26m2st2",
+    "league": "СЕРБІЯ: Суперліга - Чемпіонська група",
+    "home": "СЕРБІЯ: Суперліга",
+    "away": "Чемпіонська група Таблиця63'Войводіна - Партизан",
+    "minute": 63,
+    "minuteBucket": "60-69",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/p26m2st2/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/partizan-8OLvlKz0/vojvodina-8pVJab5C/?mid=p26m2st2",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "overall_only",
+    "stats": {
+      "overall": {
+        "shotsOnTarget": 1,
+        "shotsInsideTheBox": 5,
+        "bigChances": 0,
+        "touchesInOppositionBox": 28,
+        "cornerKicks": 3,
+        "goalkeeperSaves": 1,
+        "expectedGoalsXg": 0.54,
+        "xgOnTargetXgot": 0.07,
+        "passesInFinalThird": 124,
+        "expectedAssistsXa": 0.86,
+        "totalShots": 12,
+        "shotsOffTarget": 9,
+        "shotsOutsideTheBox": 7,
+        "blockedShots": 2,
+        "hitTheWoodwork": 1,
+        "crosses": 60,
+        "longPasses": 94,
+        "accurateThroughPasses": 0,
+        "fouls": 20,
+        "tackles": 138,
+        "duelsWon": 64,
+        "clearances": 25,
+        "interceptions": 10,
+        "errorsLeadingToShot": 0,
+        "errorsLeadingToGoal": 0,
+        "ballPossession": 100,
+        "yellowCards": 5,
+        "redCards": null,
+        "throwIns": 26,
+        "passes": 152,
+        "offsides": 4,
+        "freeKicks": 20,
+        "xgotFaced": 0.07,
+        "goalsPrevented": 0.07
+      },
+      "secondHalf": null
+    },
+    "liveTrajectory": null,
+    "indices": {
+      "modelVersion": "v3",
+      "pGoal": 0.333,
+      "pDry": 0.667,
+      "signalQuality": 0.74,
+      "currentState": "dry",
+      "snapshotEvidenceWeight": 0,
+      "preMatchDeltaPGoal": -0.018
+    },
+    "modelV2": {
+      "modelVersion": "3.0.0",
+      "minute": 63,
+      "timeWindow": "60-70",
+      "score": "0:0",
+      "scoreContext": {
+        "score": "0:0",
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "totalGoals": 0,
+        "isZeroZero": true,
+        "isLevelScore": false,
+        "isOneGoalGame": false,
+        "isMultiGoalGame": false,
+        "leadingSide": null,
+        "trailingSide": null,
+        "scoreStateType": "0-0"
+      },
+      "bet": "SKIP",
+      "confidence": "medium",
+      "signalQuality": 0.74,
+      "reason": "60–70 v3 очікування: зрізів=0/2 burst=false pD=0.667 pG=0.333 SQ=0.74(мін 0.77) стан=dry | 1 уд. в площ., 0 мом., xG 0.54 [форма:h2h_low_totals Δp=-0.018]",
+      "currentState": "dry",
+      "previousState": null,
+      "stateChanged": false,
+      "dominanceSide": "balanced",
+      "dominanceStrength": 0.5,
+      "homePressureShare": 0.5,
+      "awayPressureShare": 0.5,
+      "balancedMatch": true,
+      "oneSidedPressure": false,
+      "accumulatedPressureWithoutGoal": false,
+      "segmentFeatures": null,
+      "trendFeatures": {
+        "trendDirection": "flat",
+        "snapshotEvidenceWeight": 0,
+        "burstLastInterval": false
+      },
+      "secondHalfComparison": null,
+      "marketContext": {
+        "favoriteSide": "home",
+        "favoriteStrength": 0.42,
+        "drawResistance": 0.272,
+        "marketPressureBias": 0.0108
+      },
+      "redCardContext": {
+        "redCardState": "none",
+        "redCardSide": null,
+        "redCardMinute": null,
+        "redCardTeamIsLeading": null,
+        "redCardTeamIsTrailing": null,
+        "homeRedCards": 0,
+        "awayRedCards": 0,
+        "unknownRedCards": 0
+      },
+      "substitutionContext": {
+        "known": false,
+        "substitutionsDelta": null,
+        "substitutionsBySide": null,
+        "substitutionProfile": null,
+        "tripleSubstitutionFlag": null
+      },
+      "stoppageTimeAnnounced": null,
+      "stoppageTimeRemaining": null,
+      "leagueBaseline": null,
+      "leagueAdjustedPressure": null,
+      "leagueAdjustedDryness": null,
+      "snapshotHistoryUsed": 0,
+      "pGoal": 0.333,
+      "pDry": 0.667,
+      "basePGoalCore": 0.3508,
+      "basePGoalPreOdds": 0.3328,
+      "preMatchFormBias": {
+        "deltaPGoal": -0.018,
+        "note": "h2h_low_totals"
+      }
+    },
+    "snapshotHistoryV2": [],
+    "prediction": {
+      "bet": "SKIP",
+      "confidence": "medium",
+      "pGoal": 0.333,
+      "pDry": 0.667,
+      "edge": null,
+      "reason": "60–70 v3 очікування: зрізів=0/2 burst=false pD=0.667 pG=0.333 SQ=0.74(мін 0.77) стан=dry | 1 уд. в площ., 0 мом., xG 0.54 [форма:h2h_low_totals Δp=-0.018]",
+      "timeWindow": "60-70",
+      "signalEligible": false,
+      "impliedProb": {
+        "home": 0.42,
+        "draw": 0.272,
+        "away": 0.308
+      },
+      "odds1X2": {
+        "home": 2.23,
+        "draw": 3.44,
+        "away": 3.04
+      },
+      "signalQuality": 0.74,
+      "snapshotCount": 0,
+      "minute": 63,
+      "timestamp": "2026-04-22T16:24:52.318Z"
+    },
+    "pipeline": "decision_made",
+    "skipReason": "v2_wait_or_skip",
+    "timestamp": "2026-04-22T16:24:52.318Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": [],
+    "preMatchV3": {
+      "parseOk": true,
+      "error": null,
+      "fetchedAt": "2026-04-22T16:24:52.308Z",
+      "aggregates": {
+        "home": null,
+        "away": {
+          "n": 5,
+          "avgTotalGoals": 2.6,
+          "shareUnder15": 0.2,
+          "shareUnder05": 0.2
+        },
+        "mutual": {
+          "n": 5,
+          "avgTotalGoals": 1.8,
+          "shareUnder15": 0.6,
+          "shareUnder05": 0.4,
+          "newestDateIso": "2026-03-07",
+          "staleYears": 0.13
+        }
+      },
+      "counts": {
+        "formHome": 0,
+        "formAway": 5,
+        "h2h": 5
+      }
+    }
+  },
+  {
+    "matchId": "AL3mGQ4b",
+    "league": "СЛОВЕНІЯ: Кубок Словенії",
+    "home": "СЛОВЕНІЯ: Кубок Словенії78'Радомлє",
+    "away": "Гросуплє",
+    "minute": 78,
+    "minuteBucket": "76-80",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/AL3mGQ4b/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/grosuplje-Kb6aUTS7/radomlje-Mq8RBeI3/?mid=AL3mGQ4b",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "both",
+    "stats": {
+      "overall": {
+        "shotsOnTarget": 2,
+        "shotsInsideTheBox": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "cornerKicks": 3,
+        "goalkeeperSaves": null,
+        "expectedGoalsXg": null,
+        "xgOnTargetXgot": null,
+        "passesInFinalThird": null,
+        "expectedAssistsXa": null,
+        "totalShots": 6,
+        "shotsOffTarget": 4,
+        "shotsOutsideTheBox": null,
+        "blockedShots": null,
+        "hitTheWoodwork": null,
+        "crosses": null,
+        "longPasses": null,
+        "accurateThroughPasses": null,
+        "fouls": null,
+        "tackles": null,
+        "duelsWon": null,
+        "clearances": null,
+        "interceptions": null,
+        "errorsLeadingToShot": null,
+        "errorsLeadingToGoal": null,
+        "ballPossession": 100,
+        "yellowCards": 3,
+        "redCards": null,
+        "throwIns": null,
+        "passes": null,
+        "offsides": null,
+        "freeKicks": null,
+        "xgotFaced": null,
+        "goalsPrevented": null
+      },
+      "secondHalf": {
+        "shotsOnTarget": 1,
+        "shotsInsideTheBox": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "cornerKicks": 1,
+        "goalkeeperSaves": null,
+        "expectedGoalsXg": null,
+        "xgOnTargetXgot": null,
+        "passesInFinalThird": null,
+        "expectedAssistsXa": null,
+        "totalShots": 5,
+        "shotsOffTarget": 4,
+        "shotsOutsideTheBox": null,
+        "blockedShots": null,
+        "hitTheWoodwork": null,
+        "crosses": null,
+        "longPasses": null,
+        "accurateThroughPasses": null,
+        "fouls": null,
+        "tackles": null,
+        "duelsWon": null,
+        "clearances": null,
+        "interceptions": null,
+        "errorsLeadingToShot": null,
+        "errorsLeadingToGoal": null,
+        "ballPossession": 101,
+        "yellowCards": 2,
+        "redCards": null,
+        "throwIns": null,
+        "passes": null,
+        "offsides": null,
+        "freeKicks": null,
+        "xgotFaced": null,
+        "goalsPrevented": null
+      }
+    },
+    "liveTrajectory": {
+      "deltas": null,
+      "deltaMatchMinutes": null,
+      "snapshotCount": 1,
+      "prevMinute": null
+    },
+    "indices": {
+      "modelVersion": "v3",
+      "pGoal": 0.348,
+      "pDry": 0.652,
+      "signalQuality": 0.5247,
+      "currentState": "dry",
+      "snapshotEvidenceWeight": 0.25,
+      "preMatchDeltaPGoal": 0
+    },
+    "modelV2": {
+      "modelVersion": "3.0.0",
+      "minute": 78,
+      "timeWindow": "70-80",
+      "score": "0:0",
+      "scoreContext": {
+        "score": "0:0",
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "totalGoals": 0,
+        "isZeroZero": true,
+        "isLevelScore": false,
+        "isOneGoalGame": false,
+        "isMultiGoalGame": false,
+        "leadingSide": null,
+        "trailingSide": null,
+        "scoreStateType": "0-0"
+      },
+      "bet": "SKIP",
+      "confidence": "low",
+      "signalQuality": 0.5247,
+      "reason": "70–80 v3: немає порогів pG=0.348 pD=0.652 | 1 уд. в площ.",
+      "currentState": "dry",
+      "previousState": null,
+      "stateChanged": false,
+      "dominanceSide": "home",
+      "dominanceStrength": 1,
+      "homePressureShare": 1,
+      "awayPressureShare": 0,
+      "balancedMatch": false,
+      "oneSidedPressure": true,
+      "accumulatedPressureWithoutGoal": false,
+      "segmentFeatures": {
+        "currentMinute": 78,
+        "minutesIntoSecondHalf": 33,
+        "segmentDeltaMinutes": null,
+        "cumulativePerMinute2H": 0.030303030303030304,
+        "segmentPerMinute": null,
+        "normalizedSegmentIntensity": null,
+        "vsSecondHalfRatio": null,
+        "comparisonLabel": "unknown",
+        "trendDirection": "flat",
+        "rawDeltaLastInterval": null
+      },
+      "trendFeatures": {
+        "trendDirection": "flat",
+        "snapshotEvidenceWeight": 0.25,
+        "burstLastInterval": false
+      },
+      "secondHalfComparison": {
+        "vsSecondHalfRatio": null,
+        "comparisonLabel": "unknown",
+        "cumulativePerMinute2H": 0.030303030303030304,
+        "segmentPerMinute": null
+      },
+      "marketContext": {
+        "favoriteSide": "home",
+        "favoriteStrength": 0.4,
+        "drawResistance": 0.266,
+        "marketPressureBias": 0.0084
+      },
+      "redCardContext": {
+        "redCardState": "none",
+        "redCardSide": null,
+        "redCardMinute": null,
+        "redCardTeamIsLeading": null,
+        "redCardTeamIsTrailing": null,
+        "homeRedCards": 0,
+        "awayRedCards": 0,
+        "unknownRedCards": 0
+      },
+      "substitutionContext": {
+        "known": false,
+        "substitutionsDelta": null,
+        "substitutionsBySide": null,
+        "substitutionProfile": null,
+        "tripleSubstitutionFlag": null
+      },
+      "stoppageTimeAnnounced": null,
+      "stoppageTimeRemaining": null,
+      "leagueBaseline": null,
+      "leagueAdjustedPressure": null,
+      "leagueAdjustedDryness": null,
+      "snapshotHistoryUsed": 1,
+      "pGoal": 0.348,
+      "pDry": 0.652,
+      "basePGoalCore": 0.3484,
+      "basePGoalPreOdds": 0.3484,
+      "preMatchFormBias": {
+        "deltaPGoal": 0,
+        "note": ""
+      }
+    },
+    "snapshotHistoryV2": [
+      {
+        "matchMinute": 78,
+        "score": {
+          "home": "0",
+          "away": "0"
+        },
+        "raw2H": {
+          "shotsOnTarget": 1,
+          "expectedGoalsXg": null,
+          "touchesInOppositionBox": null,
+          "bigChances": null,
+          "cornerKicks": 1,
+          "goalkeeperSaves": null,
+          "shotsInsideTheBox": null,
+          "xgOnTargetXgot": null,
+          "passesInFinalThird": null,
+          "expectedAssistsXa": null,
+          "totalShots": 5,
+          "crosses": null,
+          "fouls": null,
+          "freeKicks": null
+        },
+        "homeRedCards": 0,
+        "awayRedCards": 0
+      }
+    ],
+    "prediction": {
+      "bet": "SKIP",
+      "confidence": "low",
+      "pGoal": 0.348,
+      "pDry": 0.652,
+      "edge": null,
+      "reason": "70–80 v3: немає порогів pG=0.348 pD=0.652 | 1 уд. в площ.",
+      "timeWindow": "70-80",
+      "signalEligible": false,
+      "impliedProb": {
+        "home": 0.4,
+        "draw": 0.266,
+        "away": 0.334
+      },
+      "odds1X2": {
+        "home": 2.34,
+        "draw": 3.52,
+        "away": 2.8
+      },
+      "signalQuality": 0.5247,
+      "snapshotCount": 1,
+      "minute": 78,
+      "timestamp": "2026-04-22T16:25:27.903Z"
+    },
+    "pipeline": "decision_made",
+    "skipReason": "v2_wait_or_skip",
+    "timestamp": "2026-04-22T16:25:27.903Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": [],
+    "preMatchV3": {
+      "parseOk": true,
+      "error": null,
+      "fetchedAt": "2026-04-22T16:25:27.900Z",
+      "aggregates": {
+        "home": {
+          "n": 5,
+          "avgTotalGoals": 3,
+          "shareUnder15": 0,
+          "shareUnder05": 0
+        },
+        "away": {
+          "n": 5,
+          "avgTotalGoals": 2.2,
+          "shareUnder15": 0.4,
+          "shareUnder05": 0.2
+        },
+        "mutual": {
+          "n": 1,
+          "avgTotalGoals": 6,
+          "shareUnder15": 0,
+          "shareUnder05": 0,
+          "newestDateIso": "2023-01-24",
+          "staleYears": 3.24
+        }
+      },
+      "counts": {
+        "formHome": 5,
+        "formAway": 5,
+        "h2h": 1
+      }
+    }
+  },
+  {
+    "matchId": "0jM0rLf5",
+    "league": "ІРАК: Ліга зірок",
+    "home": "Аль-Карх",
+    "away": "Аль-Карма",
+    "minute": 83,
+    "minuteBucket": "81-84",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/0jM0rLf5/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/al-karkh-YNmI8NfH/al-karma-hIVZ0V7r/?mid=0jM0rLf5",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "unavailable",
+    "stats": {
+      "overall": null,
+      "secondHalf": null
+    },
+    "liveTrajectory": null,
+    "indices": null,
+    "modelV2": null,
+    "snapshotHistoryV2": null,
+    "prediction": null,
+    "pipeline": "no_decision_data",
+    "skipReason": "no_stats",
+    "timestamp": "2026-04-22T18:13:08.317Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": []
+  },
+  {
+    "matchId": "rwudw0N8",
+    "league": "РОСІЯ: Прем'єр-ліга",
+    "home": "Локомотив Москва",
+    "away": "Зеніт",
+    "minute": 64,
+    "minuteBucket": "60-69",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/rwudw0N8/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/lokomotiv-moscow-Sjs63WfK/zenit-st-petersburg-vsXou9m7/?mid=rwudw0N8",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "overall_only",
+    "stats": {
+      "overall": {
+        "shotsOnTarget": 4,
+        "shotsInsideTheBox": 8,
+        "bigChances": 0,
+        "touchesInOppositionBox": 32,
+        "cornerKicks": 5,
+        "goalkeeperSaves": 4,
+        "expectedGoalsXg": 0.73,
+        "xgOnTargetXgot": 0.1,
+        "passesInFinalThird": 130,
+        "expectedAssistsXa": 1.14,
+        "totalShots": 18,
+        "shotsOffTarget": 8,
+        "shotsOutsideTheBox": 8,
+        "blockedShots": 6,
+        "hitTheWoodwork": 0,
+        "crosses": 46,
+        "longPasses": 93,
+        "accurateThroughPasses": 0,
+        "fouls": 17,
+        "tackles": 144,
+        "duelsWon": 71,
+        "clearances": 27,
+        "interceptions": 12,
+        "errorsLeadingToShot": 0,
+        "errorsLeadingToGoal": 0,
+        "ballPossession": 100,
+        "yellowCards": 4,
+        "redCards": null,
+        "throwIns": 25,
+        "passes": 158,
+        "offsides": 2,
+        "freeKicks": 16,
+        "xgotFaced": 0.1,
+        "goalsPrevented": 0.1
+      },
+      "secondHalf": null
+    },
+    "liveTrajectory": null,
+    "indices": {
+      "modelVersion": "v3",
+      "pGoal": 0.377,
+      "pDry": 0.623,
+      "signalQuality": 0.74,
+      "currentState": "dry",
+      "snapshotEvidenceWeight": 0,
+      "preMatchDeltaPGoal": 0.024
+    },
+    "modelV2": {
+      "modelVersion": "3.0.0",
+      "minute": 64,
+      "timeWindow": "60-70",
+      "score": "0:0",
+      "scoreContext": {
+        "score": "0:0",
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "totalGoals": 0,
+        "isZeroZero": true,
+        "isLevelScore": false,
+        "isOneGoalGame": false,
+        "isMultiGoalGame": false,
+        "leadingSide": null,
+        "trailingSide": null,
+        "scoreStateType": "0-0"
+      },
+      "bet": "SKIP",
+      "confidence": "medium",
+      "signalQuality": 0.74,
+      "reason": "60–70 v3 очікування: зрізів=0/2 burst=false pD=0.623 pG=0.377 SQ=0.74(мін 0.77) стан=dry | 4 уд. в площ., 0 мом., xG 0.73 [форма:form_high_totals Δp=0.024]",
+      "currentState": "dry",
+      "previousState": null,
+      "stateChanged": false,
+      "dominanceSide": "balanced",
+      "dominanceStrength": 0.5,
+      "homePressureShare": 0.5,
+      "awayPressureShare": 0.5,
+      "balancedMatch": true,
+      "oneSidedPressure": false,
+      "accumulatedPressureWithoutGoal": false,
+      "segmentFeatures": null,
+      "trendFeatures": {
+        "trendDirection": "flat",
+        "snapshotEvidenceWeight": 0,
+        "burstLastInterval": false
+      },
+      "secondHalfComparison": null,
+      "marketContext": {
+        "favoriteSide": "away",
+        "favoriteStrength": 0.441,
+        "drawResistance": 0.273,
+        "marketPressureBias": 0.0133
+      },
+      "redCardContext": {
+        "redCardState": "none",
+        "redCardSide": null,
+        "redCardMinute": null,
+        "redCardTeamIsLeading": null,
+        "redCardTeamIsTrailing": null,
+        "homeRedCards": 0,
+        "awayRedCards": 0,
+        "unknownRedCards": 0
+      },
+      "substitutionContext": {
+        "known": false,
+        "substitutionsDelta": null,
+        "substitutionsBySide": null,
+        "substitutionProfile": null,
+        "tripleSubstitutionFlag": null
+      },
+      "stoppageTimeAnnounced": null,
+      "stoppageTimeRemaining": null,
+      "leagueBaseline": null,
+      "leagueAdjustedPressure": null,
+      "leagueAdjustedDryness": null,
+      "snapshotHistoryUsed": 0,
+      "pGoal": 0.377,
+      "pDry": 0.623,
+      "basePGoalCore": 0.3533,
+      "basePGoalPreOdds": 0.3773,
+      "preMatchFormBias": {
+        "deltaPGoal": 0.024,
+        "note": "form_high_totals"
+      }
+    },
+    "snapshotHistoryV2": [],
+    "prediction": {
+      "bet": "SKIP",
+      "confidence": "medium",
+      "pGoal": 0.377,
+      "pDry": 0.623,
+      "edge": null,
+      "reason": "60–70 v3 очікування: зрізів=0/2 burst=false pD=0.623 pG=0.377 SQ=0.74(мін 0.77) стан=dry | 4 уд. в площ., 0 мом., xG 0.73 [форма:form_high_totals Δp=0.024]",
+      "timeWindow": "60-70",
+      "signalEligible": false,
+      "impliedProb": {
+        "home": 0.285,
+        "draw": 0.273,
+        "away": 0.441
+      },
+      "odds1X2": {
+        "home": 3.4,
+        "draw": 3.55,
+        "away": 2.2
+      },
+      "signalQuality": 0.74,
+      "snapshotCount": 0,
+      "minute": 64,
+      "timestamp": "2026-04-22T18:12:42.110Z"
+    },
+    "pipeline": "decision_made",
+    "skipReason": "v2_wait_or_skip",
+    "timestamp": "2026-04-22T18:12:42.110Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": [],
+    "preMatchV3": {
+      "parseOk": true,
+      "error": null,
+      "fetchedAt": "2026-04-22T18:12:42.099Z",
+      "aggregates": {
+        "home": {
+          "n": 5,
+          "avgTotalGoals": 3.4,
+          "shareUnder15": 0.2,
+          "shareUnder05": 0
+        },
+        "away": {
+          "n": 5,
+          "avgTotalGoals": 1.8,
+          "shareUnder15": 0.4,
+          "shareUnder05": 0
+        },
+        "mutual": {
+          "n": 5,
+          "avgTotalGoals": 2.6,
+          "shareUnder15": 0,
+          "shareUnder05": 0,
+          "newestDateIso": "2025-10-31",
+          "staleYears": 0.47
+        }
+      },
+      "counts": {
+        "formHome": 5,
+        "formAway": 5,
+        "h2h": 5
+      }
+    }
+  },
+  {
+    "matchId": "xdgZPpY8",
+    "league": "СЕРБІЯ: Суперліга - Чемпіонська група",
+    "home": "СЕРБІЯ: Суперліга",
+    "away": "Чемпіонська група Таблиця81'ОФК Белград - Чукарічкі",
+    "minute": 81,
+    "minuteBucket": "81-84",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/xdgZPpY8/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/cukaricki-tEBfcZh3/ofk-beograd-mozzart-bet-Imdxh57l/?mid=xdgZPpY8",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "both",
+    "stats": {
+      "overall": {
+        "shotsOnTarget": 6,
+        "shotsInsideTheBox": 10,
+        "bigChances": 1,
+        "touchesInOppositionBox": 33,
+        "cornerKicks": 6,
+        "goalkeeperSaves": 6,
+        "expectedGoalsXg": 1.29,
+        "xgOnTargetXgot": 1.63,
+        "passesInFinalThird": 115,
+        "expectedAssistsXa": 0.98,
+        "totalShots": 18,
+        "shotsOffTarget": 7,
+        "shotsOutsideTheBox": 8,
+        "blockedShots": 5,
+        "hitTheWoodwork": 1,
+        "crosses": 75,
+        "longPasses": 88,
+        "accurateThroughPasses": 0,
+        "fouls": 27,
+        "tackles": 157,
+        "duelsWon": 94,
+        "clearances": 36,
+        "interceptions": 15,
+        "errorsLeadingToShot": 0,
+        "errorsLeadingToGoal": 0,
+        "ballPossession": 100,
+        "yellowCards": 4,
+        "redCards": null,
+        "throwIns": 40,
+        "passes": 158,
+        "offsides": 4,
+        "freeKicks": 29,
+        "xgotFaced": 1.63,
+        "goalsPrevented": 1.63
+      },
+      "secondHalf": {
+        "shotsOnTarget": 1,
+        "shotsInsideTheBox": 3,
+        "bigChances": 0,
+        "touchesInOppositionBox": 12,
+        "cornerKicks": 1,
+        "goalkeeperSaves": 1,
+        "expectedGoalsXg": 0.22,
+        "xgOnTargetXgot": 0.6,
+        "passesInFinalThird": 116,
+        "expectedAssistsXa": 0.48,
+        "totalShots": 5,
+        "shotsOffTarget": 2,
+        "shotsOutsideTheBox": 2,
+        "blockedShots": 2,
+        "hitTheWoodwork": 0,
+        "crosses": 88,
+        "longPasses": 102,
+        "accurateThroughPasses": 0,
+        "fouls": 14,
+        "tackles": 175,
+        "duelsWon": 52,
+        "clearances": 15,
+        "interceptions": 7,
+        "errorsLeadingToShot": 0,
+        "errorsLeadingToGoal": 0,
+        "ballPossession": 100,
+        "yellowCards": 4,
+        "redCards": null,
+        "throwIns": 15,
+        "passes": 153,
+        "offsides": 1,
+        "freeKicks": 16,
+        "xgotFaced": 0.6,
+        "goalsPrevented": 0.6
+      }
+    },
+    "liveTrajectory": {
+      "deltas": null,
+      "deltaMatchMinutes": null,
+      "snapshotCount": 1,
+      "prevMinute": null
+    },
+    "indices": {
+      "modelVersion": "v3",
+      "pGoal": 0.445,
+      "pDry": 0.555,
+      "signalQuality": 0.6757,
+      "currentState": "dry",
+      "snapshotEvidenceWeight": 0.25,
+      "preMatchDeltaPGoal": 0
+    },
+    "modelV2": {
+      "modelVersion": "3.0.0",
+      "minute": 81,
+      "timeWindow": "80-90+",
+      "score": "0:0",
+      "scoreContext": {
+        "score": "0:0",
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "totalGoals": 0,
+        "isZeroZero": true,
+        "isLevelScore": false,
+        "isOneGoalGame": false,
+        "isMultiGoalGame": false,
+        "leadingSide": null,
+        "trailingSide": null,
+        "scoreStateType": "0-0"
+      },
+      "bet": "SKIP",
+      "confidence": "high",
+      "signalQuality": 0.6757,
+      "reason": "80+ v3: слабкий ТБ pG_dec=0.445 | 1 уд. в площ., 0 мом., xG 0.22 [ринок ΔpG +0.055]",
+      "currentState": "dry",
+      "previousState": null,
+      "stateChanged": false,
+      "dominanceSide": "away",
+      "dominanceStrength": 0.7017,
+      "homePressureShare": 0.2983,
+      "awayPressureShare": 0.7017,
+      "balancedMatch": false,
+      "oneSidedPressure": true,
+      "accumulatedPressureWithoutGoal": false,
+      "segmentFeatures": {
+        "currentMinute": 81,
+        "minutesIntoSecondHalf": 36,
+        "segmentDeltaMinutes": null,
+        "cumulativePerMinute2H": 0.07437222222222221,
+        "segmentPerMinute": null,
+        "normalizedSegmentIntensity": null,
+        "vsSecondHalfRatio": null,
+        "comparisonLabel": "unknown",
+        "trendDirection": "flat",
+        "rawDeltaLastInterval": null
+      },
+      "trendFeatures": {
+        "trendDirection": "flat",
+        "snapshotEvidenceWeight": 0.25,
+        "burstLastInterval": false
+      },
+      "secondHalfComparison": {
+        "vsSecondHalfRatio": null,
+        "comparisonLabel": "unknown",
+        "cumulativePerMinute2H": 0.07437222222222221,
+        "segmentPerMinute": null
+      },
+      "marketContext": {
+        "favoriteSide": "home",
+        "favoriteStrength": 0.493,
+        "drawResistance": 0.254,
+        "marketPressureBias": 0.0496
+      },
+      "redCardContext": {
+        "redCardState": "none",
+        "redCardSide": null,
+        "redCardMinute": null,
+        "redCardTeamIsLeading": null,
+        "redCardTeamIsTrailing": null,
+        "homeRedCards": 0,
+        "awayRedCards": 0,
+        "unknownRedCards": 0
+      },
+      "substitutionContext": {
+        "known": false,
+        "substitutionsDelta": null,
+        "substitutionsBySide": null,
+        "substitutionProfile": null,
+        "tripleSubstitutionFlag": null
+      },
+      "stoppageTimeAnnounced": null,
+      "stoppageTimeRemaining": null,
+      "leagueBaseline": null,
+      "leagueAdjustedPressure": null,
+      "leagueAdjustedDryness": null,
+      "snapshotHistoryUsed": 1,
+      "pGoal": 0.445,
+      "pDry": 0.555,
+      "basePGoalCore": 0.3896,
+      "basePGoalPreOdds": 0.3896,
+      "preMatchFormBias": {
+        "deltaPGoal": 0,
+        "note": ""
+      }
+    },
+    "snapshotHistoryV2": [
+      {
+        "matchMinute": 81,
+        "score": {
+          "home": "0",
+          "away": "0"
+        },
+        "raw2H": {
+          "shotsOnTarget": 1,
+          "expectedGoalsXg": 0.22,
+          "touchesInOppositionBox": 12,
+          "bigChances": 0,
+          "cornerKicks": 1,
+          "goalkeeperSaves": 1,
+          "shotsInsideTheBox": 3,
+          "xgOnTargetXgot": 0.6,
+          "passesInFinalThird": 116,
+          "expectedAssistsXa": 0.48,
+          "totalShots": 5,
+          "crosses": 88,
+          "fouls": 14,
+          "freeKicks": 16
+        },
+        "homeRedCards": 0,
+        "awayRedCards": 0
+      }
+    ],
+    "prediction": {
+      "bet": "SKIP",
+      "confidence": "high",
+      "pGoal": 0.445,
+      "pDry": 0.555,
+      "edge": null,
+      "reason": "80+ v3: слабкий ТБ pG_dec=0.445 | 1 уд. в площ., 0 мом., xG 0.22 [ринок ΔpG +0.055]",
+      "timeWindow": "80-90+",
+      "signalEligible": false,
+      "impliedProb": {
+        "home": 0.493,
+        "draw": 0.254,
+        "away": 0.254
+      },
+      "odds1X2": {
+        "home": 1.9,
+        "draw": 3.69,
+        "away": 3.69
+      },
+      "signalQuality": 0.6757,
+      "snapshotCount": 1,
+      "minute": 81,
+      "timestamp": "2026-04-22T18:13:22.083Z"
+    },
+    "pipeline": "decision_made",
+    "skipReason": "v2_wait_or_skip",
+    "timestamp": "2026-04-22T18:13:22.083Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": [],
+    "preMatchV3": {
+      "parseOk": true,
+      "error": null,
+      "fetchedAt": "2026-04-22T18:13:22.077Z",
+      "aggregates": {
+        "home": null,
+        "away": {
+          "n": 5,
+          "avgTotalGoals": 2.2,
+          "shareUnder15": 0.4,
+          "shareUnder05": 0.4
+        },
+        "mutual": {
+          "n": 5,
+          "avgTotalGoals": 2.6,
+          "shareUnder15": 0.2,
+          "shareUnder05": 0,
+          "newestDateIso": "2026-02-08",
+          "staleYears": 0.2
+        }
+      },
+      "counts": {
+        "formHome": 0,
+        "formAway": 5,
+        "h2h": 5
+      }
+    }
+  },
+  {
+    "matchId": "jFtacnQ6",
+    "league": "ФРАНЦІЯ: Перша ліга (Жінки)",
+    "home": "ФРАНЦІЯ: Перша ліга (Жінки) Таблиця65'Гавр Ж",
+    "away": "Ланс Ж",
+    "minute": 65,
+    "minuteBucket": "60-69",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/jFtacnQ6/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/le-havre-0AE7nlMc/lens-8GdYByFr/?mid=jFtacnQ6",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "both",
+    "stats": {
+      "overall": {
+        "shotsOnTarget": 3,
+        "shotsInsideTheBox": 13,
+        "bigChances": 0,
+        "touchesInOppositionBox": 29,
+        "cornerKicks": 5,
+        "goalkeeperSaves": 3,
+        "expectedGoalsXg": 1.8,
+        "xgOnTargetXgot": 0.51,
+        "passesInFinalThird": 99,
+        "expectedAssistsXa": 0.95,
+        "totalShots": 18,
+        "shotsOffTarget": 9,
+        "shotsOutsideTheBox": 5,
+        "blockedShots": 6,
+        "hitTheWoodwork": 1,
+        "crosses": 80,
+        "longPasses": 66,
+        "accurateThroughPasses": 0,
+        "fouls": 12,
+        "tackles": 183,
+        "duelsWon": 48,
+        "clearances": 27,
+        "interceptions": 18,
+        "errorsLeadingToShot": 0,
+        "errorsLeadingToGoal": 0,
+        "ballPossession": 100,
+        "yellowCards": 1,
+        "redCards": null,
+        "throwIns": 33,
+        "passes": 139,
+        "offsides": 1,
+        "freeKicks": 12,
+        "xgotFaced": 0.51,
+        "goalsPrevented": 0.51
+      },
+      "secondHalf": {
+        "shotsOnTarget": 2,
+        "shotsInsideTheBox": 6,
+        "bigChances": 0,
+        "touchesInOppositionBox": 7,
+        "cornerKicks": 1,
+        "goalkeeperSaves": 2,
+        "expectedGoalsXg": 1.06,
+        "xgOnTargetXgot": 0.37,
+        "passesInFinalThird": 112,
+        "expectedAssistsXa": 0.32,
+        "totalShots": 7,
+        "shotsOffTarget": 2,
+        "shotsOutsideTheBox": 1,
+        "blockedShots": 3,
+        "hitTheWoodwork": 0,
+        "crosses": 58,
+        "longPasses": 84,
+        "accurateThroughPasses": 0,
+        "fouls": 2,
+        "tackles": 150,
+        "duelsWon": 6,
+        "clearances": 9,
+        "interceptions": 2,
+        "errorsLeadingToShot": 0,
+        "errorsLeadingToGoal": 0,
+        "ballPossession": 100,
+        "yellowCards": null,
+        "redCards": null,
+        "throwIns": 7,
+        "passes": 152,
+        "offsides": 1,
+        "freeKicks": 2,
+        "xgotFaced": 0.37,
+        "goalsPrevented": 0.37
+      }
+    },
+    "liveTrajectory": {
+      "deltas": null,
+      "deltaMatchMinutes": null,
+      "snapshotCount": 1,
+      "prevMinute": null
+    },
+    "indices": {
+      "modelVersion": "v3",
+      "pGoal": 0.43,
+      "pDry": 0.57,
+      "signalQuality": 0.6157,
+      "currentState": "neutral",
+      "snapshotEvidenceWeight": 0.25,
+      "preMatchDeltaPGoal": 0.024
+    },
+    "modelV2": {
+      "modelVersion": "3.0.0",
+      "minute": 65,
+      "timeWindow": "60-70",
+      "score": "0:0",
+      "scoreContext": {
+        "score": "0:0",
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "totalGoals": 0,
+        "isZeroZero": true,
+        "isLevelScore": false,
+        "isOneGoalGame": false,
+        "isMultiGoalGame": false,
+        "leadingSide": null,
+        "trailingSide": null,
+        "scoreStateType": "0-0"
+      },
+      "bet": "SKIP",
+      "confidence": "high",
+      "signalQuality": 0.6157,
+      "reason": "60–70 v3 очікування: зрізів=1/2 burst=false pD=0.57 pG=0.43 SQ=0.6157(мін 0.77) стан=neutral | 2 уд. в площ., 0 мом., xG 1.06 [форма:form_high_totals Δp=0.024]",
+      "currentState": "neutral",
+      "previousState": null,
+      "stateChanged": false,
+      "dominanceSide": "home",
+      "dominanceStrength": 0.7991,
+      "homePressureShare": 0.7991,
+      "awayPressureShare": 0.2009,
+      "balancedMatch": false,
+      "oneSidedPressure": true,
+      "accumulatedPressureWithoutGoal": false,
+      "segmentFeatures": {
+        "currentMinute": 65,
+        "minutesIntoSecondHalf": 20,
+        "segmentDeltaMinutes": null,
+        "cumulativePerMinute2H": 0.14151,
+        "segmentPerMinute": null,
+        "normalizedSegmentIntensity": null,
+        "vsSecondHalfRatio": null,
+        "comparisonLabel": "unknown",
+        "trendDirection": "flat",
+        "rawDeltaLastInterval": null
+      },
+      "trendFeatures": {
+        "trendDirection": "flat",
+        "snapshotEvidenceWeight": 0.25,
+        "burstLastInterval": false
+      },
+      "secondHalfComparison": {
+        "vsSecondHalfRatio": null,
+        "comparisonLabel": "unknown",
+        "cumulativePerMinute2H": 0.14151,
+        "segmentPerMinute": null
+      },
+      "marketContext": {
+        "favoriteSide": "away",
+        "favoriteStrength": 0.377,
+        "drawResistance": 0.278,
+        "marketPressureBias": 0.0056
+      },
+      "redCardContext": {
+        "redCardState": "none",
+        "redCardSide": null,
+        "redCardMinute": null,
+        "redCardTeamIsLeading": null,
+        "redCardTeamIsTrailing": null,
+        "homeRedCards": 0,
+        "awayRedCards": 0,
+        "unknownRedCards": 0
+      },
+      "substitutionContext": {
+        "known": false,
+        "substitutionsDelta": null,
+        "substitutionsBySide": null,
+        "substitutionProfile": null,
+        "tripleSubstitutionFlag": null
+      },
+      "stoppageTimeAnnounced": null,
+      "stoppageTimeRemaining": null,
+      "leagueBaseline": null,
+      "leagueAdjustedPressure": null,
+      "leagueAdjustedDryness": null,
+      "snapshotHistoryUsed": 1,
+      "pGoal": 0.43,
+      "pDry": 0.57,
+      "basePGoalCore": 0.4056,
+      "basePGoalPreOdds": 0.4296,
+      "preMatchFormBias": {
+        "deltaPGoal": 0.024,
+        "note": "form_high_totals"
+      }
+    },
+    "snapshotHistoryV2": [
+      {
+        "matchMinute": 65,
+        "score": {
+          "home": "0",
+          "away": "0"
+        },
+        "raw2H": {
+          "shotsOnTarget": 2,
+          "expectedGoalsXg": 1.06,
+          "touchesInOppositionBox": 7,
+          "bigChances": 0,
+          "cornerKicks": 1,
+          "goalkeeperSaves": 2,
+          "shotsInsideTheBox": 6,
+          "xgOnTargetXgot": 0.37,
+          "passesInFinalThird": 112,
+          "expectedAssistsXa": 0.32,
+          "totalShots": 7,
+          "crosses": 58,
+          "fouls": 2,
+          "freeKicks": 2
+        },
+        "homeRedCards": 0,
+        "awayRedCards": 0
+      }
+    ],
+    "prediction": {
+      "bet": "SKIP",
+      "confidence": "high",
+      "pGoal": 0.43,
+      "pDry": 0.57,
+      "edge": null,
+      "reason": "60–70 v3 очікування: зрізів=1/2 burst=false pD=0.57 pG=0.43 SQ=0.6157(мін 0.77) стан=neutral | 2 уд. в площ., 0 мом., xG 1.06 [форма:form_high_totals Δp=0.024]",
+      "timeWindow": "60-70",
+      "signalEligible": false,
+      "impliedProb": {
+        "home": 0.345,
+        "draw": 0.278,
+        "away": 0.377
+      },
+      "odds1X2": {
+        "home": 2.71,
+        "draw": 3.36,
+        "away": 2.48
+      },
+      "signalQuality": 0.6157,
+      "snapshotCount": 1,
+      "minute": 65,
+      "timestamp": "2026-04-22T18:13:46.469Z"
+    },
+    "pipeline": "decision_made",
+    "skipReason": "v2_wait_or_skip",
+    "timestamp": "2026-04-22T18:13:46.469Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": [],
+    "preMatchV3": {
+      "parseOk": true,
+      "error": null,
+      "fetchedAt": "2026-04-22T18:13:46.467Z",
+      "aggregates": {
+        "home": {
+          "n": 5,
+          "avgTotalGoals": 4.2,
+          "shareUnder15": 0,
+          "shareUnder05": 0
+        },
+        "away": {
+          "n": 5,
+          "avgTotalGoals": 2.4,
+          "shareUnder15": 0.2,
+          "shareUnder05": 0
+        },
+        "mutual": {
+          "n": 5,
+          "avgTotalGoals": 4.8,
+          "shareUnder15": 0,
+          "shareUnder05": 0,
+          "newestDateIso": "2025-12-20",
+          "staleYears": 0.34
+        }
+      },
+      "counts": {
+        "formHome": 5,
+        "formAway": 5,
+        "h2h": 5
+      }
+    }
+  }
+]

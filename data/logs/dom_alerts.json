@@ -1468,5 +1468,47 @@
     "alertType": "PAGE_ERROR",
     "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
     "timestamp": "2026-04-22T02:42:13.628Z"
+  },
+  {
+    "matchId": "0OkNn5QF",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-22T14:49:07.064Z"
+  },
+  {
+    "matchId": "p26m2st2",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-22T16:24:49.610Z"
+  },
+  {
+    "matchId": "ltJJudjC",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-22T16:24:56.690Z"
+  },
+  {
+    "matchId": "AL3mGQ4b",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-22T16:25:18.981Z"
+  },
+  {
+    "matchId": "0jM0rLf5",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-22T18:12:56.035Z"
+  },
+  {
+    "matchId": "xdgZPpY8",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-22T18:13:09.883Z"
+  },
+  {
+    "matchId": "jFtacnQ6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-22T18:13:37.381Z"
   }
 ]
