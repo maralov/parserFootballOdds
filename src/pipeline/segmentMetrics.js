@@ -132,8 +132,38 @@ function computeSegmentFeatures(history, segmentStepMinutes = 5) {
   };
 }
 
+/**
+ * Аналізує всі зрізи з warmup-фази (52+) і класифікує послідовність активності.
+ * Кожен інтервал між сусідніми зрізами вважається QUIET (dxg<=0.08 і dsot<=0)
+ * або ACTIVE (хоча б один із показників зріс).
+ *
+ * @param {Array<{ matchMinute: number, raw2H: Record<string,number|null> }>} history
+ * @returns {{ label: 'consistently_dry'|'mixed'|'heating_up', dryRatio: number,
+ *             totalIntervals: number, quietIntervals: number, activeIntervals: number }|null}
+ */
+function computeActivityConsistency(history) {
+  if (!history || history.length < 3) return null;
+  let quiet = 0;
+  let active = 0;
+  for (let i = 1; i < history.length; i++) {
+    const prev = history[i - 1];
+    const cur  = history[i];
+    const dxg  = (cur.raw2H?.expectedGoalsXg  ?? 0) - (prev.raw2H?.expectedGoalsXg  ?? 0);
+    const dsot = (cur.raw2H?.shotsOnTarget ?? 0) - (prev.raw2H?.shotsOnTarget ?? 0);
+    const score = (dxg > 0.08 ? 1 : 0) + (dsot > 0 ? 1 : 0);
+    if (score === 0) quiet++; else active++;
+  }
+  const total    = quiet + active;
+  const dryRatio = Number((quiet / total).toFixed(3));
+  const label    = dryRatio >= 0.67 ? 'consistently_dry'
+                 : dryRatio <= 0.33 ? 'heating_up'
+                 : 'mixed';
+  return { label, dryRatio, totalIntervals: total, quietIntervals: quiet, activeIntervals: active };
+}
+
 module.exports = {
   computeSegmentFeatures,
+  computeActivityConsistency,
   minutesIntoSecondHalf,
   weightedSegmentIntensity,
   weightedCumulativePerMinute,

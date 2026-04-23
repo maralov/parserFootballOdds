@@ -167,6 +167,17 @@ const LIVE_V3_SQ_MIN_70_80   = Math.max(0,    Math.min(1,    envFloat(process.en
 /** Мін. кількість зрізів (snapshot) для дозволу ставки. Env: LIVE_V3_MIN_SNAPSHOTS */
 const LIVE_V3_MIN_SNAPSHOTS  = Math.max(1,    Math.min(8,    envInt(process.env.LIVE_V3_MIN_SNAPSHOTS,    2)));
 
+/** Adaptive SQ threshold для 60-70 вікна (v3.1).
+ *  FALLING: знижка на SQ якщо активність послідовно спадає (consistently_dry).
+ *  SLOW:    знижка якщо темп нижчий за середній 2H (vsRatio <= 0.85).
+ *  FLOOR:   мінімально допустимий адаптивний поріг SQ.
+ *  HEATING: надбавка якщо гра розігрується (heating_up) — захист від хибного ТМ.
+ */
+const LIVE_V3_SQ_ADAPTIVE_FALLING_DISCOUNT = Math.max(0, Math.min(0.15, envFloat(process.env.LIVE_V3_SQ_ADAPTIVE_FALLING_DISCOUNT, 0.05)));
+const LIVE_V3_SQ_ADAPTIVE_SLOW_DISCOUNT    = Math.max(0, Math.min(0.10, envFloat(process.env.LIVE_V3_SQ_ADAPTIVE_SLOW_DISCOUNT,    0.02)));
+const LIVE_V3_SQ_ADAPTIVE_FLOOR            = Math.max(0.50, Math.min(0.80, envFloat(process.env.LIVE_V3_SQ_ADAPTIVE_FLOOR,         0.69)));
+const LIVE_V3_SQ_ADAPTIVE_HEATING_PREMIUM  = Math.max(0, Math.min(0.10, envFloat(process.env.LIVE_V3_SQ_ADAPTIVE_HEATING_PREMIUM,  0.04)));
+
 /** Kelly Criterion: частка від full Kelly. Env: LIVE_V3_KELLY_FRACTION */
 const LIVE_V3_KELLY_FRACTION  = Math.max(0.05, Math.min(1, envFloat(process.env.LIVE_V3_KELLY_FRACTION, 0.25)));
 /** Максимальна ставка як частка від банку (0.10 = 10%). Env: LIVE_V3_MAX_STAKE_PCT */
@@ -187,8 +198,8 @@ const LIVE_FORM_H2H_MAX_FORM_ROWS = Math.max(3, Math.min(15, envInt(process.env.
 const LIVE_FORM_H2H_MAX_H2H_ROWS = Math.max(2, Math.min(15, envInt(process.env.LIVE_FORM_H2H_MAX_H2H_ROWS, 8)));
 /** Макс. |Δ basePGoal| від форми/H2H перед applyOddsContext. Env: LIVE_PREMATCH_BIAS_CAP */
 const LIVE_PREMATCH_BIAS_CAP = Math.max(0, Math.min(0.12, envFloat(process.env.LIVE_PREMATCH_BIAS_CAP, 0.045)));
-/** Тег у Telegram (напр. v3) для паралельних серверів. Env: TELEGRAM_MODEL_TAG */
-const TELEGRAM_MODEL_TAG = String(process.env.TELEGRAM_MODEL_TAG || '').trim();
+/** Тег у Telegram для паралельних серверів / версій. Env: TELEGRAM_MODEL_TAG */
+const TELEGRAM_MODEL_TAG = String(process.env.TELEGRAM_MODEL_TAG || 'v3.1').trim();
 
 /** Яку оцінку викликати в worker: v2 | v3. Env: LIVE_EVAL_MODEL */
 const LIVE_EVAL_MODEL = String(process.env.LIVE_EVAL_MODEL || 'v2').toLowerCase() === 'v3' ? 'v3' : 'v2';
@@ -226,6 +237,10 @@ module.exports = {
   LIVE_V3_SQ_MIN_60_70,
   LIVE_V3_SQ_MIN_70_80,
   LIVE_V3_MIN_SNAPSHOTS,
+  LIVE_V3_SQ_ADAPTIVE_FALLING_DISCOUNT,
+  LIVE_V3_SQ_ADAPTIVE_SLOW_DISCOUNT,
+  LIVE_V3_SQ_ADAPTIVE_FLOOR,
+  LIVE_V3_SQ_ADAPTIVE_HEATING_PREMIUM,
   LIVE_V3_KELLY_FRACTION,
   LIVE_V3_MAX_STAKE_PCT,
   LIVE_V3_BANK_SIZE,

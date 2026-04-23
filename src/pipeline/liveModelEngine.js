@@ -2,7 +2,7 @@ const { applyOddsContext } = require('./oddsContext');
 const { buildScoreContext } = require('./scoreContext');
 const { buildDominanceMetrics } = require('./dominanceMetrics');
 const { buildMarketContext } = require('./marketContextV2');
-const { computeSegmentFeatures } = require('./segmentMetrics');
+const { computeSegmentFeatures, computeActivityConsistency } = require('./segmentMetrics');
 const {
   LIVE_SEGMENT_STEP_MINUTES,
   LIVE_DECISION_WINDOW_START_MINUTE,
@@ -23,6 +23,10 @@ const {
   LIVE_V3_SQ_MIN_60_70,
   LIVE_V3_SQ_MIN_70_80,
   LIVE_V3_MIN_SNAPSHOTS,
+  LIVE_V3_SQ_ADAPTIVE_FALLING_DISCOUNT,
+  LIVE_V3_SQ_ADAPTIVE_SLOW_DISCOUNT,
+  LIVE_V3_SQ_ADAPTIVE_FLOOR,
+  LIVE_V3_SQ_ADAPTIVE_HEATING_PREMIUM,
   LIVE_V3_KELLY_FRACTION,
   LIVE_V3_MAX_STAKE_PCT,
   LIVE_V3_BANK_SIZE,
@@ -191,6 +195,34 @@ function buildStatsReasonLine(features) {
 }
 
 /**
+ * Обчислює адаптивний мінімальний SQ-поріг для 60-70 вікна (v3.1).
+ * Знижує поріг якщо активність послідовно спадає, підвищує якщо розігрується.
+ */
+function computeAdaptiveSQMin60(baseSQ, { activityConsistency, vsSecondHalfRatio, pDry }) {
+  if (!baseSQ) return baseSQ;
+  const label  = activityConsistency?.label;
+  const isSlow = vsSecondHalfRatio != null && vsSecondHalfRatio <= 0.85;
+  let discount = 0;
+
+  if (label === 'consistently_dry' && (pDry ?? 0) >= 0.65) {
+    discount += LIVE_V3_SQ_ADAPTIVE_FALLING_DISCOUNT;
+  }
+  if (isSlow && label !== 'heating_up') {
+    discount += LIVE_V3_SQ_ADAPTIVE_SLOW_DISCOUNT;
+  }
+  if (label === 'consistently_dry' && isSlow) {
+    discount += 0.01;
+  }
+  if (label === 'heating_up') {
+    discount -= LIVE_V3_SQ_ADAPTIVE_HEATING_PREMIUM;
+  }
+
+  return Number(
+    Math.max(LIVE_V3_SQ_ADAPTIVE_FLOOR, Math.min(0.85, baseSQ - discount)).toFixed(4)
+  );
+}
+
+/**
  * Спільна оцінка live-моделі (вікна 60–70 / 70–80 / 80+).
  * @param {object} input — той самий контракт, що evaluateLiveModelV2/V3
  * @param {{ applyPreMatchFormBias?: boolean, modelArtifactVersion?: string, scoredVersion?: string }} [options]
@@ -261,6 +293,13 @@ function evaluateLiveModel(input, options = {}) {
     Math.min(1, historyLen / Math.max(3, LIVE_V2_UNDER_CONFIRM_SNAPSHOTS + 2)).toFixed(3)
   );
 
+  const activityConsistency = computeActivityConsistency(history || []);
+  const adaptiveSQMin60 = computeAdaptiveSQMin60(LIVE_V3_SQ_MIN_60_70, {
+    activityConsistency,
+    vsSecondHalfRatio: segmentFeatures?.vsSecondHalfRatio,
+    pDry,
+  });
+
   const lt = liveTrajectory;
   let burst = false;
   if (lt && lt.deltas && historyLen >= 2) {
@@ -314,7 +353,11 @@ function evaluateLiveModel(input, options = {}) {
         currentState === 'falseDry' ||
         currentState === 'dry' ||
         currentState === 'accumulatedPressure';
-      const sqOk60 = signalQuality >= LIVE_V3_SQ_MIN_60_70;
+
+      const sqOk60 = signalQuality >= adaptiveSQMin60;
+      const sqAdaptTag = adaptiveSQMin60 !== LIVE_V3_SQ_MIN_60_70
+        ? `↓адапт(${activityConsistency?.label})` : '';
+
       if (
         confirmOk &&
         !burst &&
@@ -324,11 +367,14 @@ function evaluateLiveModel(input, options = {}) {
         !badState
       ) {
         bet = 'UNDER_0_5';
-        reason = `ТМ 60–70 ${reasonTag} | ${statsLine} ${src} | стан=${currentState} | зрізів=${historyLen} | SQ=${signalQuality}`;
+        reason = `ТМ 60–70 ${reasonTag} | ${statsLine} ${src} | стан=${currentState} | зрізів=${historyLen} | SQ=${signalQuality}${sqAdaptTag ? ` | sqMin=${adaptiveSQMin60}${sqAdaptTag}` : ''}`;
       } else {
+        const sqNote = sqAdaptTag
+          ? `SQ=${signalQuality}(мін ${adaptiveSQMin60}${sqAdaptTag})`
+          : `SQ=${signalQuality}(мін ${LIVE_V3_SQ_MIN_60_70})`;
         reason =
           `60–70 ${reasonTag} очікування: зрізів=${historyLen}/${LIVE_V3_MIN_SNAPSHOTS} burst=${burst} ` +
-          `pD=${pDry} pG=${pGoal} SQ=${signalQuality}(мін ${LIVE_V3_SQ_MIN_60_70}) стан=${currentState} | ${statsLine}`;
+          `pD=${pDry} pG=${pGoal} ${sqNote} стан=${currentState} act=${activityConsistency?.label ?? '?'} | ${statsLine}`;
       }
     }
   } else if (tw === '70-80') {
@@ -410,7 +456,9 @@ function evaluateLiveModel(input, options = {}) {
   // Опис активних фільтрів для Telegram-повідомлень
   let filtersApplied = '';
   if (bet === 'UNDER_0_5' && tw === '60-70') {
-    filtersApplied = `pDry≥${LIVE_V3_PDRY_MIN_60_70}, SQ≥${LIVE_V3_SQ_MIN_60_70}`;
+    const sqMinDisplay = (typeof adaptiveSQMin60 !== 'undefined' && adaptiveSQMin60 !== LIVE_V3_SQ_MIN_60_70)
+      ? `${adaptiveSQMin60}✓` : LIVE_V3_SQ_MIN_60_70;
+    filtersApplied = `pDry≥${LIVE_V3_PDRY_MIN_60_70}, SQ≥${sqMinDisplay}`;
   } else if (bet === 'OVER_0_5' && tw === '60-70') {
     filtersApplied = `стан: ${currentState}`;
   } else if (bet === 'OVER_0_5' && tw === '70-80' && dryAlertActive) {
@@ -458,6 +506,7 @@ function evaluateLiveModel(input, options = {}) {
     trendDirection: segmentFeatures?.trendDirection ?? 'flat',
     snapshotEvidenceWeight,
     burstLastInterval: burst,
+    activityConsistency: tw === '60-70' ? (activityConsistency ?? null) : null,
   };
 
   const secondHalfComparison = segmentFeatures
