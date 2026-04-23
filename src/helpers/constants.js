@@ -199,7 +199,7 @@ const LIVE_FORM_H2H_MAX_H2H_ROWS = Math.max(2, Math.min(15, envInt(process.env.L
 /** Макс. |Δ basePGoal| від форми/H2H перед applyOddsContext. Env: LIVE_PREMATCH_BIAS_CAP */
 const LIVE_PREMATCH_BIAS_CAP = Math.max(0, Math.min(0.12, envFloat(process.env.LIVE_PREMATCH_BIAS_CAP, 0.045)));
 /** Тег у Telegram для паралельних серверів / версій. Env: TELEGRAM_MODEL_TAG */
-const TELEGRAM_MODEL_TAG = String(process.env.TELEGRAM_MODEL_TAG || 'v3.1').trim();
+const TELEGRAM_MODEL_TAG = String(process.env.TELEGRAM_MODEL_TAG || 'v3.2').trim();
 
 /** Яку оцінку викликати в worker: v2 | v3. Env: LIVE_EVAL_MODEL */
 const LIVE_EVAL_MODEL = String(process.env.LIVE_EVAL_MODEL || 'v2').toLowerCase() === 'v3' ? 'v3' : 'v2';
