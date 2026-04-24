@@ -293,6 +293,9 @@ function evaluateLiveModel(input, options = {}) {
   if (tw === 'before' || tw === 'after') {
     bet = 'SKIP';
     reason = `Поза вікном ${LIVE_DECISION_WINDOW_START_MINUTE}–90+ (${minute}')`;
+  } else if (historyLen === 0) {
+    bet = 'SKIP';
+    reason = `Немає знімків (snapshots=0) — прогноз заблоковано`;
   } else if (!features.allowDecision) {
     bet = 'SKIP';
     reason = `Недостатньо метрик: ${statsLine} ${src}`;
