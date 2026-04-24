@@ -167,6 +167,13 @@ const LIVE_V3_SQ_MIN_70_80   = Math.max(0,    Math.min(1,    envFloat(process.en
 /** Мін. кількість зрізів (snapshot) для дозволу ставки. Env: LIVE_V3_MIN_SNAPSHOTS */
 const LIVE_V3_MIN_SNAPSHOTS  = Math.max(1,    Math.min(8,    envInt(process.env.LIVE_V3_MIN_SNAPSHOTS,    2)));
 
+/** Діапазон SQ та мін. зрізів для відправки сигналу в Telegram.
+ *  Тільки ставки з SQ в [SIGNAL_MIN, SIGNAL_MAX] та кількістю зрізів ≥ MIN_SIGNAL_SNAPSHOTS.
+ *  Env: LIVE_V3_SQ_SIGNAL_MIN, LIVE_V3_SQ_SIGNAL_MAX, LIVE_V3_MIN_SIGNAL_SNAPSHOTS */
+const LIVE_V3_SQ_SIGNAL_MIN       = Math.max(0, Math.min(1, envFloat(process.env.LIVE_V3_SQ_SIGNAL_MIN,       0.65)));
+const LIVE_V3_SQ_SIGNAL_MAX       = Math.max(0, Math.min(1, envFloat(process.env.LIVE_V3_SQ_SIGNAL_MAX,       0.75)));
+const LIVE_V3_MIN_SIGNAL_SNAPSHOTS = Math.max(1, Math.min(20, envInt(process.env.LIVE_V3_MIN_SIGNAL_SNAPSHOTS, 7)));
+
 /** Adaptive SQ threshold для 60-70 вікна (v3.1).
  *  FALLING: знижка на SQ якщо активність послідовно спадає (consistently_dry).
  *  SLOW:    знижка якщо темп нижчий за середній 2H (vsRatio <= 0.85).
@@ -237,6 +244,9 @@ module.exports = {
   LIVE_V3_SQ_MIN_60_70,
   LIVE_V3_SQ_MIN_70_80,
   LIVE_V3_MIN_SNAPSHOTS,
+  LIVE_V3_SQ_SIGNAL_MIN,
+  LIVE_V3_SQ_SIGNAL_MAX,
+  LIVE_V3_MIN_SIGNAL_SNAPSHOTS,
   LIVE_V3_SQ_ADAPTIVE_FALLING_DISCOUNT,
   LIVE_V3_SQ_ADAPTIVE_SLOW_DISCOUNT,
   LIVE_V3_SQ_ADAPTIVE_FLOOR,

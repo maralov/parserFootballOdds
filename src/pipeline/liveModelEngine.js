@@ -23,6 +23,9 @@ const {
   LIVE_V3_SQ_MIN_60_70,
   LIVE_V3_SQ_MIN_70_80,
   LIVE_V3_MIN_SNAPSHOTS,
+  LIVE_V3_SQ_SIGNAL_MIN,
+  LIVE_V3_SQ_SIGNAL_MAX,
+  LIVE_V3_MIN_SIGNAL_SNAPSHOTS,
   LIVE_V3_SQ_ADAPTIVE_FALLING_DISCOUNT,
   LIVE_V3_SQ_ADAPTIVE_SLOW_DISCOUNT,
   LIVE_V3_SQ_ADAPTIVE_FLOOR,
@@ -474,7 +477,10 @@ function evaluateLiveModel(input, options = {}) {
   const signalEligible =
     bet !== 'SKIP' &&
     (highStats || mediumStats) &&
-    signalQuality >= LIVE_V2_MIN_SIGNAL_QUALITY_TELEGRAM;
+    signalQuality >= LIVE_V2_MIN_SIGNAL_QUALITY_TELEGRAM &&
+    signalQuality >= LIVE_V3_SQ_SIGNAL_MIN &&
+    signalQuality <= LIVE_V3_SQ_SIGNAL_MAX &&
+    historyLen >= LIVE_V3_MIN_SIGNAL_SNAPSHOTS;
 
   if (oc.oddsNote) {
     reason += ` [ринок ΔpG ${oc.oddsAdjust >= 0 ? '+' : ''}${oc.oddsAdjust}]`;

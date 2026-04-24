@@ -142,4 +142,33 @@ function formatDailySummary(summary) {
   return msg;
 }
 
-module.exports = { formatTelegramMessage, formatDailySummary };
+function formatPredictionTable(predictionData) {
+  if (!predictionData || !predictionData.matches || predictionData.matches.length === 0) return null;
+  const date = predictionData.date || '?';
+  const lines = [`📋 *Ставки ${date}*\n`];
+
+  for (const m of predictionData.matches) {
+    const teams = `${m.home} — ${m.away}`;
+    for (const p of (m.periods || [])) {
+      const hitEmoji = p.hit === true ? '✅' : p.hit === false ? '❌' : '⏳';
+      const sq = p.signalQuality != null ? p.signalQuality.toFixed(3) : '?';
+      const snap = p.snapshots != null ? p.snapshots : '?';
+      const pG = p.pGoal != null ? p.pGoal.toFixed(2) : '?';
+      const pD = p.pDry != null ? p.pDry.toFixed(2) : '?';
+      lines.push(
+        `${hitEmoji} *${p.bet}* [${p.period}] ${teams}\n` +
+        `  pG=${pG} pD=${pD} SQ=${sq} зрізів=${snap}`
+      );
+    }
+  }
+
+  const t = predictionData.totals;
+  if (t) {
+    const hr = t.hitRate != null ? (t.hitRate * 100).toFixed(1) + '%' : '—';
+    lines.push(`\n📊 Разом: ${t.wins ?? 0}/${t.stakesResolved ?? 0} (${hr}) з ${t.matches ?? 0} матчів`);
+  }
+
+  return lines.join('\n');
+}
+
+module.exports = { formatTelegramMessage, formatDailySummary, formatPredictionTable };

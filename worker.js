@@ -1,4 +1,6 @@
 require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
 
 const { parentPort, workerData } = require('worker_threads');
 const { launchBrowser } = require('./src/browser');
@@ -11,11 +13,10 @@ const { applyLiveModelGates } = require('./src/pipeline/liveModelGates');
 const { fetchOdds1X2 } = require('./src/scrapeLiveOdds');
 const { scrapeMatchIncidents } = require('./src/scrapeMatchIncidents');
 const { createRunContext } = require('./src/pipeline/contracts');
-const { appendMatchEntry, createMatchLogEntry, updateMatchResult, markTelegramInitialSent } = require('./src/pipeline/dailyLogger');
+const { appendMatchEntry, createMatchLogEntry, updateMatchResult, markTelegramInitialSent, loadDayMatches, getDayDir } = require('./src/pipeline/dailyLogger');
 const { checkYesterdayResults } = require('./src/pipeline/resultChecker');
-const { loadDayMatches } = require('./src/pipeline/dailyLogger');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
-const { formatTelegramMessage } = require('./src/helpers/utils/formatTelegramMessage');
+const { formatTelegramMessage, formatPredictionTable } = require('./src/helpers/utils/formatTelegramMessage');
 const { sanitizeLeagueName, sanitizeTeams, formatBetLabel } = require('./src/helpers/utils/normalizeMatchText');
 const {
   USER_AGENT,
@@ -174,7 +175,17 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
       if (summary) {
         const r = summary.resolved ?? (summary.hits + summary.misses);
         console.log(`  Yesterday: ${summary.hits}/${r} hits (${summary.actionable} з прогнозом)`);
-        console.log(`  Daily summary Telegram disabled (date=${summary.date})`);
+        const yesterdayKey = summary.date;
+        try {
+          const predPath = path.join(getDayDir(yesterdayKey), 'prediction.json');
+          if (fs.existsSync(predPath)) {
+            const predictionData = JSON.parse(fs.readFileSync(predPath, 'utf8'));
+            const tableMsg = formatPredictionTable(predictionData);
+            if (tableMsg) await sendTelegramMessage(tableMsg);
+          }
+        } catch (predErr) {
+          console.log(`  Prediction table send err: ${predErr.message}`);
+        }
       }
       lastResultCheckHour = hr;
     } catch (e) { console.log(`  Result check err: ${e.message}`); }
