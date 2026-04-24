@@ -284,12 +284,9 @@
     "pipeline": "decision_made",
     "skipReason": "v2_wait_or_skip",
     "timestamp": "2026-04-23T15:30:00.459Z",
-    "resultChecked": true,
-    "actualResult": {
-      "home": 0,
-      "away": 1
-    },
-    "hit": false,
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
     "betHistory": [],
     "preMatchV3": {
       "parseOk": true,
@@ -322,9 +319,7 @@
         "formAway": 0,
         "h2h": 0
       }
-    },
-    "hitLegs": [],
-    "resultTimestamp": "2026-04-23T15:33:10.491Z"
+    }
   },
   {
     "matchId": "W8NMeIZR",
@@ -496,12 +491,9 @@
     "pipeline": "decision_made",
     "skipReason": "v2_wait_or_skip",
     "timestamp": "2026-04-23T16:54:40.384Z",
-    "resultChecked": true,
-    "actualResult": {
-      "home": 0,
-      "away": 0
-    },
-    "hit": true,
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
     "betHistory": [
       {
         "bet": "UNDER_0_5",
@@ -542,15 +534,7 @@
         "h2h": 0
       }
     },
-    "telegramInitialSent": true,
-    "hitLegs": [
-      {
-        "bet": "UNDER_0_5",
-        "timeWindow": "70-80",
-        "hit": true
-      }
-    ],
-    "resultTimestamp": "2026-04-23T17:04:20.110Z"
+    "telegramInitialSent": true
   },
   {
     "matchId": "AHmM9Ymo",
@@ -1006,12 +990,9 @@
     "pipeline": "decision_made",
     "skipReason": "v2_wait_or_skip",
     "timestamp": "2026-04-23T17:34:20.785Z",
-    "resultChecked": true,
-    "actualResult": {
-      "home": 0,
-      "away": 1
-    },
-    "hit": false,
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
     "betHistory": [
       {
         "bet": "UNDER_0_5",
@@ -1052,15 +1033,7 @@
         "h2h": 0
       }
     },
-    "telegramInitialSent": true,
-    "hitLegs": [
-      {
-        "bet": "UNDER_0_5",
-        "timeWindow": "70-80",
-        "hit": false
-      }
-    ],
-    "resultTimestamp": "2026-04-23T18:38:24.904Z"
+    "telegramInitialSent": true
   },
   {
     "matchId": "QDrGbrDr",
@@ -1265,12 +1238,9 @@
     "pipeline": "decision_made",
     "skipReason": "v2_wait_or_skip",
     "timestamp": "2026-04-23T17:41:21.985Z",
-    "resultChecked": true,
-    "actualResult": {
-      "home": 0,
-      "away": 1
-    },
-    "hit": true,
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
     "betHistory": [
       {
         "bet": "OVER_0_5",
@@ -1311,15 +1281,7 @@
         "h2h": 0
       }
     },
-    "telegramInitialSent": true,
-    "hitLegs": [
-      {
-        "bet": "OVER_0_5",
-        "timeWindow": "80-90+",
-        "hit": true
-      }
-    ],
-    "resultTimestamp": "2026-04-23T17:44:35.115Z"
+    "telegramInitialSent": true
   },
   {
     "matchId": "ANY8kr6j",
@@ -2401,12 +2363,9 @@
     "pipeline": "decision_made",
     "skipReason": "v2_wait_or_skip",
     "timestamp": "2026-04-23T18:51:56.269Z",
-    "resultChecked": true,
-    "actualResult": {
-      "home": 0,
-      "away": 0
-    },
-    "hit": true,
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
     "betHistory": [
       {
         "bet": "UNDER_0_5",
@@ -2452,15 +2411,7 @@
         "h2h": 0
       }
     },
-    "telegramInitialSent": true,
-    "hitLegs": [
-      {
-        "bet": "UNDER_0_5",
-        "timeWindow": "70-80",
-        "hit": true
-      }
-    ],
-    "resultTimestamp": "2026-04-23T18:59:28.449Z"
+    "telegramInitialSent": true
   },
   {
     "matchId": "zH9dLkPp",
@@ -2834,12 +2785,9 @@
     "pipeline": "decision_made",
     "skipReason": "v2_wait_or_skip",
     "timestamp": "2026-04-23T19:24:27.117Z",
-    "resultChecked": true,
-    "actualResult": {
-      "home": 1,
-      "away": 0
-    },
-    "hit": false,
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
     "betHistory": [],
     "preMatchV3": {
       "parseOk": true,
@@ -2867,9 +2815,7 @@
         "formAway": 0,
         "h2h": 0
       }
-    },
-    "hitLegs": [],
-    "resultTimestamp": "2026-04-23T19:48:12.383Z"
+    }
   },
   {
     "matchId": "fi8Pcs76",
@@ -3270,12 +3216,9 @@
     "pipeline": "decision_made",
     "skipReason": null,
     "timestamp": "2026-04-23T19:44:32.436Z",
-    "resultChecked": true,
-    "actualResult": {
-      "home": 0,
-      "away": 0
-    },
-    "hit": false,
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
     "betHistory": [
       {
         "bet": "OVER_0_5",
@@ -3327,15 +3270,7 @@
         "h2h": 0
       }
     },
-    "telegramInitialSent": true,
-    "hitLegs": [
-      {
-        "bet": "OVER_0_5",
-        "timeWindow": "70-80",
-        "hit": false
-      }
-    ],
-    "resultTimestamp": "2026-04-23T19:51:33.934Z"
+    "telegramInitialSent": true
   },
   {
     "matchId": "WAcxG5rR",
@@ -3589,12 +3524,9 @@
     "pipeline": "decision_made",
     "skipReason": "v2_wait_or_skip",
     "timestamp": "2026-04-23T19:51:32.180Z",
-    "resultChecked": true,
-    "actualResult": {
-      "home": 1,
-      "away": 0
-    },
-    "hit": false,
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
     "betHistory": [
       {
         "bet": "UNDER_0_5",
@@ -3640,15 +3572,7 @@
         "h2h": 0
       }
     },
-    "telegramInitialSent": true,
-    "hitLegs": [
-      {
-        "bet": "UNDER_0_5",
-        "timeWindow": "70-80",
-        "hit": false
-      }
-    ],
-    "resultTimestamp": "2026-04-23T19:54:45.349Z"
+    "telegramInitialSent": true
   },
   {
     "matchId": "bkdGkAll",
@@ -3820,12 +3744,9 @@
     "pipeline": "decision_made",
     "skipReason": "v2_wait_or_skip",
     "timestamp": "2026-04-23T19:48:10.664Z",
-    "resultChecked": true,
-    "actualResult": {
-      "home": 1,
-      "away": 0
-    },
-    "hit": false,
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
     "betHistory": [
       {
         "bet": "UNDER_0_5",
@@ -3866,14 +3787,6 @@
         "h2h": 0
       }
     },
-    "telegramInitialSent": true,
-    "hitLegs": [
-      {
-        "bet": "UNDER_0_5",
-        "timeWindow": "70-80",
-        "hit": false
-      }
-    ],
-    "resultTimestamp": "2026-04-23T19:51:35.516Z"
+    "telegramInitialSent": true
   }
 ]

@@ -13,7 +13,13 @@
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
       "Bash(git merge *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\({k: d[k] for k in ['overall','byPeriod','byBetType','matches']}, ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d['matches'], ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(node --check src/pipeline/liveModelEngine.js)",
+      "Bash(node --check scripts/recheckDay.js)",
+      "Bash(node scripts/recheckDay.js 2026-04-23)"
     ]
   }
 }
