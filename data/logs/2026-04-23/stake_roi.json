@@ -1,0 +1,270 @@
+{
+  "date": "2026-04-23",
+  "generatedAt": "2026-04-24T07:01:53.675Z",
+  "rules": {
+    "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
+    "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
+  },
+  "model": {
+    "bankStart": 10000,
+    "stakePct": 0.05,
+    "stakePerBet": 500,
+    "oddsByPeriod": {
+      "tm_60_70": 2.5,
+      "tm_or_tb_70_80": 1.8,
+      "tb_80_90": 2.5
+    }
+  },
+  "overall": {
+    "bets": 7,
+    "checked": 7,
+    "wins": 3,
+    "losses": 4,
+    "pending": 0,
+    "turnover": 3500,
+    "profit": -450,
+    "roi": -0.129,
+    "hitRate": 0.429,
+    "bankStart": 10000,
+    "bankEnd": 9550
+  },
+  "byPeriod": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "70-80": {
+      "total": 6,
+      "checked": 6,
+      "wins": 2,
+      "losses": 4,
+      "pending": 0,
+      "turnover": 3000,
+      "profit": -1200,
+      "roi": -0.4,
+      "hitRate": 0.333
+    },
+    "80-90+": {
+      "total": 1,
+      "checked": 1,
+      "wins": 1,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 500,
+      "profit": 750,
+      "roi": 1.5,
+      "hitRate": 1
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "byBetType": {
+    "UNDER_0_5": {
+      "total": 5,
+      "checked": 5,
+      "wins": 2,
+      "losses": 3,
+      "pending": 0,
+      "turnover": 2500,
+      "profit": -700,
+      "roi": -0.28,
+      "hitRate": 0.4
+    },
+    "OVER_0_5": {
+      "total": 2,
+      "checked": 2,
+      "wins": 1,
+      "losses": 1,
+      "pending": 0,
+      "turnover": 1000,
+      "profit": 250,
+      "roi": 0.25,
+      "hitRate": 0.5
+    }
+  },
+  "noFlipsScenario": {
+    "bets": 7,
+    "checked": 7,
+    "wins": 3,
+    "losses": 4,
+    "pending": 0,
+    "turnover": 3500,
+    "profit": -450,
+    "roi": -0.129,
+    "hitRate": 0.429,
+    "bankStart": 10000,
+    "bankEnd": 9550
+  },
+  "matches": [
+    {
+      "matchId": "W8NMeIZR",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+      "home": "Араб Контракторс",
+      "away": "Аль-Іттіхад",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "IZArHTu1",
+      "league": "ТУРЕЧЧИНА: Кубок Туреччини - Плей-оф",
+      "home": "Самсунспор",
+      "away": "Трабзонспор",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "EaiA1P7s",
+      "league": "СЕРБІЯ: Суперліга - Група вибування",
+      "home": "Напредак",
+      "away": "Нови-Београд",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "80-90+",
+          "bet": "ТБ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "2DUUklFt",
+      "league": "ШВЕЦІЯ: Аллсвенскан",
+      "home": "ГАІС",
+      "away": "М'єльбю",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "fi8Pcs76",
+      "league": "СЕРБІЯ: Суперліга - Група вибування",
+      "home": "Младост Лучани",
+      "away": "Раднічки 1923",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТБ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "WAcxG5rR",
+      "league": "ІСПАНІЯ: Ла Ліга",
+      "home": "Райо Вальєкано",
+      "away": "Еспаньйол",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "bkdGkAll",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Чемпіонська група",
+      "home": "Замалек",
+      "away": "Пайрамідс",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "date": "2026-04-23",
+  "generatedAt": "2026-04-24T07:01:53.658Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 7,
+    "stakes": 7,
+    "stakesResolved": 7,
+    "wins": 3,
+    "losses": 4,
+    "hitRate": 0.429
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "70-80": {
+      "total": 6,
+      "checked": 6,
+      "hits": 2,
+      "misses": 4,
+      "hitRate": 0.333
+    },
+    "80-90+": {
+      "total": 1,
+      "checked": 1,
+      "hits": 1,
+      "misses": 0,
+      "hitRate": 1
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "matches": [
+    {
+      "matchId": "W8NMeIZR",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+      "home": "Араб Контракторс",
+      "away": "Аль-Іттіхад",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 73,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.205,
+          "pDry": 0.795,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-23T16:37:10.753Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "overall_only",
+        "currentState": "dry",
+        "dominanceStrength": 0.5,
+        "latestSignalQuality": 0.74
+      }
+    },
+    {
+      "matchId": "IZArHTu1",
+      "league": "ТУРЕЧЧИНА: Кубок Туреччини - Плей-оф",
+      "home": "Самсунспор",
+      "away": "Трабзонспор",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 72,
+          "snapshots": 1,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.347,
+          "pDry": 0.653,
+          "signalQuality": 0.7557,
+          "timestamp": "2026-04-23T17:18:21.109Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "overall_only",
+        "currentState": "dry",
+        "dominanceStrength": 0.5,
+        "latestSignalQuality": 0.7557
+      }
+    },
+    {
+      "matchId": "EaiA1P7s",
+      "league": "СЕРБІЯ: Суперліга - Група вибування",
+      "home": "Напредак",
+      "away": "Нови-Београд",
+      "periods": [
+        {
+          "period": "80-90+",
+          "minute": 80,
+          "snapshots": 1,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.558,
+          "pDry": 0.442,
+          "signalQuality": 0.6157,
+          "timestamp": "2026-04-23T17:37:39.361Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "overall_only",
+        "currentState": "dry",
+        "dominanceStrength": 0.5,
+        "latestSignalQuality": 0.6157
+      }
+    },
+    {
+      "matchId": "2DUUklFt",
+      "league": "ШВЕЦІЯ: Аллсвенскан",
+      "home": "ГАІС",
+      "away": "М'єльбю",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 77,
+          "snapshots": 5,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.435,
+          "pDry": 0.565,
+          "signalQuality": 0.7386,
+          "timestamp": "2026-04-23T18:38:18.605Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "neutral",
+        "dominanceStrength": 0.672,
+        "latestSignalQuality": 0.7386
+      }
+    },
+    {
+      "matchId": "fi8Pcs76",
+      "league": "СЕРБІЯ: Суперліга - Група вибування",
+      "home": "Младост Лучани",
+      "away": "Раднічки 1923",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 76,
+          "snapshots": 3,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.677,
+          "pDry": 0.323,
+          "signalQuality": 0.7871,
+          "timestamp": "2026-04-23T19:32:24.893Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "pressureGrowth",
+        "dominanceStrength": 0.7356,
+        "latestSignalQuality": 0.8343
+      }
+    },
+    {
+      "matchId": "WAcxG5rR",
+      "league": "ІСПАНІЯ: Ла Ліга",
+      "home": "Райо Вальєкано",
+      "away": "Еспаньйол",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 70,
+          "snapshots": 0,
+          "bet": "ТМ 0,5",
+          "confidence": "medium",
+          "pGoal": 0.353,
+          "pDry": 0.647,
+          "signalQuality": 0.74,
+          "timestamp": "2026-04-23T19:36:08.092Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "neutral",
+        "dominanceStrength": 0.5385,
+        "latestSignalQuality": 0.74
+      }
+    },
+    {
+      "matchId": "bkdGkAll",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Чемпіонська група",
+      "home": "Замалек",
+      "away": "Пайрамідс",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 74,
+          "snapshots": 0,
+          "bet": "ТМ 0,5",
+          "confidence": "medium",
+          "pGoal": 0.346,
+          "pDry": 0.654,
+          "signalQuality": 0.74,
+          "timestamp": "2026-04-23T19:39:56.069Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "overall_only",
+        "currentState": "dry",
+        "dominanceStrength": 0.5,
+        "latestSignalQuality": 0.74
+      }
+    }
+  ]
+}
