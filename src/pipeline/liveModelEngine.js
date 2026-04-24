@@ -25,6 +25,7 @@ const {
   LIVE_V3_MIN_SNAPSHOTS,
   LIVE_V3_KELLY_FRACTION,
   LIVE_V3_MAX_STAKE_PCT,
+  LIVE_V3_MIN_STAKE_PCT,
   LIVE_V3_BANK_SIZE,
 } = require('../helpers/constants');
 
@@ -37,7 +38,7 @@ function computeKellyStake(pWin, odds) {
   const q = 1 - pWin;
   const fullKelly = (pWin * b - q) / b;
   if (fullKelly <= 0) return { pct: 0, amount: 0 };
-  const pct = Math.min(fullKelly * LIVE_V3_KELLY_FRACTION, LIVE_V3_MAX_STAKE_PCT);
+  const pct = Math.max(LIVE_V3_MIN_STAKE_PCT, Math.min(fullKelly * LIVE_V3_KELLY_FRACTION, LIVE_V3_MAX_STAKE_PCT));
   return {
     pct: Number(pct.toFixed(4)),
     amount: Math.round(pct * LIVE_V3_BANK_SIZE),

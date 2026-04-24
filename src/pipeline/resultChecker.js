@@ -103,6 +103,8 @@ function signalHistoryFromEntry(entry) {
         pDry: h.pDry ?? null,
         signalQuality: h.signalQuality ?? null,
         snapshotCount: h.snapshotCount ?? null,
+        kellyStakePct: h.kellyStakePct ?? null,
+        kellyStakeAmount: h.kellyStakeAmount ?? null,
         edge: h.edge ?? null,
         reason: h.reason ?? null,
         impliedProb: h.impliedProb ?? null,
@@ -120,6 +122,8 @@ function signalHistoryFromEntry(entry) {
       pDry: entry.prediction.pDry ?? null,
       signalQuality: entry.prediction.signalQuality ?? null,
       snapshotCount: entry.prediction.snapshotCount ?? null,
+      kellyStakePct: entry.prediction.kellyStakePct ?? null,
+      kellyStakeAmount: entry.prediction.kellyStakeAmount ?? null,
       edge: entry.prediction.edge ?? null,
       reason: entry.prediction.reason ?? null,
       impliedProb: entry.prediction.impliedProb ?? null,
@@ -436,7 +440,7 @@ function buildStakeRoiReport(matches, dateRef) {
       const odds = getStakeOdds(signal);
       const resolved = totalGoals !== null;
       const hit = resolved ? (totalGoals > 0) === (signal.bet === 'OVER_0_5') : null;
-      const stake = STAKE_ROI_MODEL.stakePerBet;
+      const stake = signal.kellyStakeAmount || STAKE_ROI_MODEL.stakePerBet;
       const profit = resolved && odds != null ? (hit ? stake * (odds - 1) : -stake) : 0;
       return {
         matchId: m.matchId,
@@ -456,7 +460,7 @@ function buildStakeRoiReport(matches, dateRef) {
       const odds = getStakeOdds(signal);
       const resolved = totalGoals !== null;
       const hit = resolved ? (totalGoals > 0) === (signal.bet === 'OVER_0_5') : null;
-      const stake = STAKE_ROI_MODEL.stakePerBet;
+      const stake = signal.kellyStakeAmount || STAKE_ROI_MODEL.stakePerBet;
       const profit = resolved && odds != null ? (hit ? stake * (odds - 1) : -stake) : 0;
       return {
         matchId: m.matchId,

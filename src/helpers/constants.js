@@ -171,6 +171,8 @@ const LIVE_V3_MIN_SNAPSHOTS  = Math.max(1,    Math.min(8,    envInt(process.env.
 const LIVE_V3_KELLY_FRACTION  = Math.max(0.05, Math.min(1, envFloat(process.env.LIVE_V3_KELLY_FRACTION, 0.25)));
 /** Максимальна ставка як частка від банку (0.10 = 10%). Env: LIVE_V3_MAX_STAKE_PCT */
 const LIVE_V3_MAX_STAKE_PCT   = Math.max(0.01, Math.min(0.5, envFloat(process.env.LIVE_V3_MAX_STAKE_PCT, 0.10)));
+/** Мінімальна ставка як частка від банку (0.05 = 5%). Env: LIVE_V3_MIN_STAKE_PCT */
+const LIVE_V3_MIN_STAKE_PCT   = Math.max(0.01, Math.min(0.5, envFloat(process.env.LIVE_V3_MIN_STAKE_PCT, 0.05)));
 /** Розмір банку для відображення рекомендованої ставки у грн. Env: LIVE_V3_BANK_SIZE */
 const LIVE_V3_BANK_SIZE       = Math.max(100,  envFloat(process.env.LIVE_V3_BANK_SIZE, 10000));
 
@@ -228,6 +230,7 @@ module.exports = {
   LIVE_V3_MIN_SNAPSHOTS,
   LIVE_V3_KELLY_FRACTION,
   LIVE_V3_MAX_STAKE_PCT,
+  LIVE_V3_MIN_STAKE_PCT,
   LIVE_V3_BANK_SIZE,
   LIVE_V2_BURST_MIN_SOT,
   LIVE_V2_BURST_MIN_XG,

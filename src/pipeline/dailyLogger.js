@@ -92,6 +92,8 @@ function _applyPrediction(stored, entry) {
         pDry: entry.prediction.pDry,
         signalQuality: entry.prediction.signalQuality,
         snapshotCount: entry.prediction.snapshotCount ?? null,
+        kellyStakePct: entry.prediction.kellyStakePct ?? null,
+        kellyStakeAmount: entry.prediction.kellyStakeAmount ?? null,
         timestamp: entry.prediction.timestamp || entry.timestamp,
       });
     }
@@ -138,6 +140,8 @@ function createMatchLogEntry(match, features, scored, decision, extras = {}) {
       odds1X2: decision.odds1X2,
       signalQuality: decision.signalQuality,
       snapshotCount: extras.modelV2?.snapshotHistoryUsed ?? null,
+      kellyStakePct: decision.kellyStakePct ?? null,
+      kellyStakeAmount: decision.kellyStakeAmount ?? null,
       minute: match.minute,
       timestamp: ts,
     } : null,
