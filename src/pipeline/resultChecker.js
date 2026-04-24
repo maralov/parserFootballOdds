@@ -154,7 +154,7 @@ function firstSignalOnly(signalHistory) {
 }
 
 async function checkSingleResult(page, entry) {
-  const url = entry.mobileUrl || entry.desktopUrl;
+  const url = entry.desktopUrl || entry.mobileUrl;
   if (!url) return null;
 
   try {
@@ -164,7 +164,7 @@ async function checkSingleResult(page, entry) {
     return await page.evaluate(() => {
       const bodyText = (document.body && document.body.innerText) || '';
       // AET = After Extra Time, AP = After Penalties (ua: після дод. часу / після пен.)
-      const hadExtraTime = /\bAET\b|\bAP\b|після дод\.?\s*час|after extra time/i.test(bodyText);
+      const hadExtraTime = /\bAET\b|\bAP\b|після дод\.?\s*час|after extra time|після пен|п\.п\.|по пен|пен\.\s*\d|pen\.\s*\d|penalty|додатков|\bET\b|\bP\.?K\.?\b/i.test(bodyText);
 
       // Sum goals from section headers (wclHeaderSection--summary) by section index.
       // FlashScore shows sections in order: 1-й тайм, 2-й тайм, [ET 1-й тайм, ET 2-й тайм].
