@@ -16,6 +16,7 @@ const { checkYesterdayResults } = require('./src/pipeline/resultChecker');
 const { loadDayMatches } = require('./src/pipeline/dailyLogger');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
 const { formatTelegramMessage } = require('./src/helpers/utils/formatTelegramMessage');
+const { formatDailySummaryTelegram } = require('./src/helpers/utils/formatDailySummary');
 const { sanitizeLeagueName, sanitizeTeams, formatBetLabel } = require('./src/helpers/utils/normalizeMatchText');
 const {
   USER_AGENT,
@@ -174,7 +175,15 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
       if (summary) {
         const r = summary.resolved ?? (summary.hits + summary.misses);
         console.log(`  Yesterday: ${summary.hits}/${r} hits (${summary.actionable} з прогнозом)`);
-        console.log(`  Daily summary Telegram disabled (date=${summary.date})`);
+        if (summary.actionable > 0 && summary.date) {
+          try {
+            const summaryMsg = formatDailySummaryTelegram(summary.date);
+            if (summaryMsg) {
+              await sendTelegramMessage(summaryMsg);
+              console.log(`  Daily summary sent to Telegram (${summary.date})`);
+            }
+          } catch (e) { console.log(`  Daily summary Telegram err: ${e.message}`); }
+        }
       }
       lastResultCheckHour = hr;
     } catch (e) { console.log(`  Result check err: ${e.message}`); }
