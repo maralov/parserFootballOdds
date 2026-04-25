@@ -23,6 +23,7 @@ const {
   LIVE_V3_SQ_MIN_60_70,
   LIVE_V3_SQ_MIN_70_80,
   LIVE_V3_MIN_SNAPSHOTS,
+  LIVE_V3_DISABLE_OVER,
   LIVE_V3_KELLY_FRACTION,
   LIVE_V3_MAX_STAKE_PCT,
   LIVE_V3_MIN_STAKE_PCT,
@@ -384,6 +385,11 @@ function evaluateLiveModel(input, options = {}) {
     } else {
       reason = `80+ ${reasonTag}: слабкий ТБ pG_dec=${pGoalDec} | ${statsLine}`;
     }
+  }
+
+  if (LIVE_V3_DISABLE_OVER && bet === 'OVER_0_5') {
+    bet = 'SKIP';
+    reason = `[ТБ вимкнено] ${reason}`;
   }
 
   const edge =

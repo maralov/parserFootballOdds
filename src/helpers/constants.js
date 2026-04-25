@@ -166,6 +166,8 @@ const LIVE_V3_SQ_MIN_60_70   = Math.max(0,    Math.min(1,    envFloat(process.en
 const LIVE_V3_SQ_MIN_70_80   = Math.max(0,    Math.min(1,    envFloat(process.env.LIVE_V3_SQ_MIN_70_80,   0.71)));
 /** Мін. кількість зрізів (snapshot) для дозволу ставки. Env: LIVE_V3_MIN_SNAPSHOTS */
 const LIVE_V3_MIN_SNAPSHOTS  = Math.max(1,    Math.min(8,    envInt(process.env.LIVE_V3_MIN_SNAPSHOTS,    2)));
+/** Глобально вимикає ТБ (OVER_0_5) — модель не дає жодних ТБ-сигналів. Env: LIVE_V3_DISABLE_OVER */
+const LIVE_V3_DISABLE_OVER   = String(process.env.LIVE_V3_DISABLE_OVER ?? 'true').toLowerCase() !== 'false';
 
 /** Kelly Criterion: частка від full Kelly. Env: LIVE_V3_KELLY_FRACTION */
 const LIVE_V3_KELLY_FRACTION  = Math.max(0.05, Math.min(1, envFloat(process.env.LIVE_V3_KELLY_FRACTION, 0.25)));
@@ -228,6 +230,7 @@ module.exports = {
   LIVE_V3_SQ_MIN_60_70,
   LIVE_V3_SQ_MIN_70_80,
   LIVE_V3_MIN_SNAPSHOTS,
+  LIVE_V3_DISABLE_OVER,
   LIVE_V3_KELLY_FRACTION,
   LIVE_V3_MAX_STAKE_PCT,
   LIVE_V3_MIN_STAKE_PCT,
