@@ -1,0 +1,435 @@
+[
+  {
+    "matchId": "Q1Za22Or",
+    "league": "АВСТРАЛІЯ: НПЛ Західна Австралія",
+    "home": "Олімпік Кінгсвей",
+    "away": "Вестерн Найтс",
+    "minute": 64,
+    "minuteBucket": "60-69",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/Q1Za22Or/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/olympic-kingsway-Yexigd0T/western-knights-SrjyqobH/?mid=Q1Za22Or",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "overall_only",
+    "stats": {
+      "overall": {
+        "shotsOnTarget": 0,
+        "shotsInsideTheBox": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "cornerKicks": 10,
+        "goalkeeperSaves": null,
+        "expectedGoalsXg": null,
+        "xgOnTargetXgot": null,
+        "passesInFinalThird": null,
+        "expectedAssistsXa": null,
+        "totalShots": 5,
+        "shotsOffTarget": 5,
+        "shotsOutsideTheBox": null,
+        "blockedShots": null,
+        "hitTheWoodwork": null,
+        "crosses": null,
+        "longPasses": null,
+        "accurateThroughPasses": null,
+        "fouls": null,
+        "tackles": null,
+        "duelsWon": null,
+        "clearances": null,
+        "interceptions": null,
+        "errorsLeadingToShot": null,
+        "errorsLeadingToGoal": null,
+        "ballPossession": 100,
+        "yellowCards": null,
+        "redCards": null,
+        "throwIns": null,
+        "passes": null,
+        "offsides": null,
+        "freeKicks": null,
+        "xgotFaced": null,
+        "goalsPrevented": null
+      },
+      "secondHalf": null
+    },
+    "liveTrajectory": null,
+    "indices": {
+      "modelVersion": "v3",
+      "pGoal": 0.443,
+      "pDry": 0.557,
+      "signalQuality": 0.429,
+      "currentState": "dry",
+      "snapshotEvidenceWeight": 0,
+      "preMatchDeltaPGoal": 0.024
+    },
+    "modelV2": {
+      "modelVersion": "3.0.0",
+      "minute": 64,
+      "timeWindow": "60-70",
+      "score": "0:0",
+      "scoreContext": {
+        "score": "0:0",
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "totalGoals": 0,
+        "isZeroZero": true,
+        "isLevelScore": false,
+        "isOneGoalGame": false,
+        "isMultiGoalGame": false,
+        "leadingSide": null,
+        "trailingSide": null,
+        "scoreStateType": "0-0"
+      },
+      "bet": "SKIP",
+      "confidence": "low",
+      "signalQuality": 0.429,
+      "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.025] [форма:form_high_totals Δp=0.024]",
+      "currentState": "dry",
+      "previousState": "dry",
+      "stateChanged": false,
+      "dominanceSide": "balanced",
+      "dominanceStrength": 0.5,
+      "homePressureShare": 0.5,
+      "awayPressureShare": 0.5,
+      "balancedMatch": true,
+      "oneSidedPressure": false,
+      "accumulatedPressureWithoutGoal": false,
+      "segmentFeatures": null,
+      "trendFeatures": {
+        "trendDirection": "flat",
+        "snapshotEvidenceWeight": 0,
+        "burstLastInterval": false
+      },
+      "secondHalfComparison": null,
+      "marketContext": {
+        "favoriteSide": "home",
+        "favoriteStrength": 0.526,
+        "drawResistance": 0.236,
+        "marketPressureBias": 0.0535
+      },
+      "redCardContext": {
+        "redCardState": "none",
+        "redCardSide": null,
+        "redCardMinute": null,
+        "redCardTeamIsLeading": null,
+        "redCardTeamIsTrailing": null,
+        "homeRedCards": 0,
+        "awayRedCards": 0,
+        "unknownRedCards": 0
+      },
+      "substitutionContext": {
+        "known": false,
+        "substitutionsDelta": null,
+        "substitutionsBySide": null,
+        "substitutionProfile": null,
+        "tripleSubstitutionFlag": null
+      },
+      "stoppageTimeAnnounced": null,
+      "stoppageTimeRemaining": null,
+      "leagueBaseline": null,
+      "leagueAdjustedPressure": null,
+      "leagueAdjustedDryness": null,
+      "snapshotHistoryUsed": 0,
+      "pGoal": 0.443,
+      "pDry": 0.557,
+      "basePGoalCore": 0.3935,
+      "basePGoalPreOdds": 0.4175,
+      "preMatchFormBias": {
+        "deltaPGoal": 0.024,
+        "note": "form_high_totals"
+      }
+    },
+    "snapshotHistoryV2": [],
+    "prediction": {
+      "bet": "SKIP",
+      "confidence": "low",
+      "pGoal": 0.443,
+      "pDry": 0.557,
+      "edge": null,
+      "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.025] [форма:form_high_totals Δp=0.024]",
+      "timeWindow": "60-70",
+      "signalEligible": false,
+      "impliedProb": {
+        "home": 0.526,
+        "draw": 0.236,
+        "away": 0.239
+      },
+      "odds1X2": {
+        "home": 1.78,
+        "draw": 3.97,
+        "away": 3.92
+      },
+      "signalQuality": 0.429,
+      "snapshotCount": 0,
+      "kellyStakePct": 0,
+      "kellyStakeAmount": 0,
+      "minute": 64,
+      "timestamp": "2026-04-25T08:25:38.831Z"
+    },
+    "pipeline": "decision_made",
+    "skipReason": "v2_wait_or_skip",
+    "timestamp": "2026-04-25T08:25:38.831Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": [],
+    "preMatchV3": {
+      "parseOk": true,
+      "error": null,
+      "fetchedAt": "2026-04-25T08:22:01.900Z",
+      "aggregates": {
+        "home": {
+          "n": 5,
+          "avgTotalGoals": 2.6,
+          "shareUnder15": 0.4,
+          "shareUnder05": 0.2
+        },
+        "away": {
+          "n": 5,
+          "avgTotalGoals": 3.6,
+          "shareUnder15": 0.4,
+          "shareUnder05": 0.2
+        },
+        "mutual": {
+          "n": 5,
+          "avgTotalGoals": 3.4,
+          "shareUnder15": 0.2,
+          "shareUnder05": 0,
+          "newestDateIso": "2025-07-11",
+          "staleYears": 0.79
+        }
+      },
+      "counts": {
+        "formHome": 0,
+        "formAway": 0,
+        "h2h": 0
+      }
+    }
+  },
+  {
+    "matchId": "Q5VfkzeS",
+    "league": "КИТАЙ: League One",
+    "home": "КИТАЙ: League One Таблиця61'Яньбянь Лондін",
+    "away": "Шаансі Юніон",
+    "minute": 75,
+    "minuteBucket": "70-75",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/Q5VfkzeS/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/shaanxi-union-QqH544iE/yanbian-longding-lC3AGHHm/?mid=Q5VfkzeS",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "overall_only",
+    "stats": {
+      "overall": {
+        "shotsOnTarget": 1,
+        "shotsInsideTheBox": 5,
+        "bigChances": 0,
+        "touchesInOppositionBox": 15,
+        "cornerKicks": 4,
+        "goalkeeperSaves": 1,
+        "expectedGoalsXg": 0.28,
+        "xgOnTargetXgot": 0.73,
+        "passesInFinalThird": 106,
+        "expectedAssistsXa": 0.72,
+        "totalShots": 5,
+        "shotsOffTarget": 3,
+        "shotsOutsideTheBox": 0,
+        "blockedShots": 1,
+        "hitTheWoodwork": 0,
+        "crosses": 45,
+        "longPasses": 72,
+        "accurateThroughPasses": 0,
+        "fouls": 29,
+        "tackles": 189,
+        "duelsWon": 48,
+        "clearances": 25,
+        "interceptions": 4,
+        "errorsLeadingToShot": 0,
+        "errorsLeadingToGoal": 0,
+        "ballPossession": 100,
+        "yellowCards": 6,
+        "redCards": 1,
+        "throwIns": 43,
+        "passes": 141,
+        "offsides": 6,
+        "freeKicks": 29,
+        "xgotFaced": 0.73,
+        "goalsPrevented": 0.73
+      },
+      "secondHalf": null
+    },
+    "liveTrajectory": null,
+    "indices": {
+      "modelVersion": "v3",
+      "pGoal": 0.344,
+      "pDry": 0.656,
+      "signalQuality": 0.74,
+      "currentState": "dry",
+      "snapshotEvidenceWeight": 0,
+      "preMatchDeltaPGoal": 0
+    },
+    "modelV2": {
+      "modelVersion": "3.0.0",
+      "minute": 75,
+      "timeWindow": "70-80",
+      "score": "0:0",
+      "scoreContext": {
+        "score": "0:0",
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "totalGoals": 0,
+        "isZeroZero": true,
+        "isLevelScore": false,
+        "isOneGoalGame": false,
+        "isMultiGoalGame": false,
+        "leadingSide": null,
+        "trailingSide": null,
+        "scoreStateType": "0-0"
+      },
+      "bet": "SKIP",
+      "confidence": "medium",
+      "signalQuality": 0.74,
+      "reason": "Немає знімків (snapshots=0) — прогноз заблоковано",
+      "currentState": "dry",
+      "previousState": "dry",
+      "stateChanged": false,
+      "dominanceSide": "balanced",
+      "dominanceStrength": 0.5,
+      "homePressureShare": 0.5,
+      "awayPressureShare": 0.5,
+      "balancedMatch": true,
+      "oneSidedPressure": false,
+      "accumulatedPressureWithoutGoal": false,
+      "segmentFeatures": null,
+      "trendFeatures": {
+        "trendDirection": "flat",
+        "snapshotEvidenceWeight": 0,
+        "burstLastInterval": false
+      },
+      "secondHalfComparison": null,
+      "marketContext": {
+        "favoriteSide": "home",
+        "favoriteStrength": 0.364,
+        "drawResistance": 0.297,
+        "marketPressureBias": 0.0041
+      },
+      "redCardContext": {
+        "redCardState": "none",
+        "redCardSide": null,
+        "redCardMinute": null,
+        "redCardTeamIsLeading": null,
+        "redCardTeamIsTrailing": null,
+        "homeRedCards": 0,
+        "awayRedCards": 0,
+        "unknownRedCards": 0
+      },
+      "substitutionContext": {
+        "known": false,
+        "substitutionsDelta": null,
+        "substitutionsBySide": null,
+        "substitutionProfile": null,
+        "tripleSubstitutionFlag": null
+      },
+      "stoppageTimeAnnounced": null,
+      "stoppageTimeRemaining": null,
+      "leagueBaseline": null,
+      "leagueAdjustedPressure": null,
+      "leagueAdjustedDryness": null,
+      "snapshotHistoryUsed": 0,
+      "pGoal": 0.344,
+      "pDry": 0.656,
+      "basePGoalCore": 0.3441,
+      "basePGoalPreOdds": 0.3441,
+      "preMatchFormBias": {
+        "deltaPGoal": 0,
+        "note": ""
+      }
+    },
+    "snapshotHistoryV2": [],
+    "prediction": {
+      "bet": "UNDER_0_5",
+      "confidence": "high",
+      "pGoal": 0.344,
+      "pDry": 0.656,
+      "edge": 0.156,
+      "reason": "ТМ 70–80 v3 | 1 уд. в площ., 0 мом., xG 0.16 (2H+O) | SQ=0.7557",
+      "timeWindow": "70-80",
+      "signalEligible": true,
+      "impliedProb": {
+        "home": 0.364,
+        "draw": 0.297,
+        "away": 0.339
+      },
+      "odds1X2": {
+        "home": 2.57,
+        "draw": 3.15,
+        "away": 2.76
+      },
+      "signalQuality": 0.7557,
+      "snapshotCount": 1,
+      "kellyStakePct": 0.0565,
+      "kellyStakeAmount": 565,
+      "minute": 72,
+      "timestamp": "2026-04-25T08:32:33.705Z"
+    },
+    "pipeline": "decision_made",
+    "skipReason": "v2_wait_or_skip",
+    "timestamp": "2026-04-25T08:36:15.017Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": [
+      {
+        "bet": "UNDER_0_5",
+        "timeWindow": "70-80",
+        "minute": 72,
+        "confidence": "high",
+        "pGoal": 0.344,
+        "pDry": 0.656,
+        "signalQuality": 0.7557,
+        "snapshotCount": 1,
+        "kellyStakePct": 0.0565,
+        "kellyStakeAmount": 565,
+        "timestamp": "2026-04-25T08:32:33.705Z"
+      }
+    ],
+    "preMatchV3": {
+      "parseOk": true,
+      "error": null,
+      "fetchedAt": "2026-04-25T08:22:02.712Z",
+      "aggregates": {
+        "home": {
+          "n": 5,
+          "avgTotalGoals": 1.4,
+          "shareUnder15": 0.6,
+          "shareUnder05": 0.4
+        },
+        "away": {
+          "n": 5,
+          "avgTotalGoals": 2.2,
+          "shareUnder15": 0.6,
+          "shareUnder05": 0.2
+        },
+        "mutual": {
+          "n": 2,
+          "avgTotalGoals": 1.5,
+          "shareUnder15": 0.5,
+          "shareUnder05": 0,
+          "newestDateIso": "2025-09-19",
+          "staleYears": 0.6
+        }
+      },
+      "counts": {
+        "formHome": 0,
+        "formAway": 0,
+        "h2h": 0
+      }
+    },
+    "telegramInitialSent": true
+  }
+]

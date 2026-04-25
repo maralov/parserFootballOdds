@@ -1,6 +1,6 @@
 {
-  "date": "2026-04-23",
-  "generatedAt": "2026-04-24T21:00:22.120Z",
+  "date": "2026-04-24",
+  "generatedAt": "2026-04-25T07:02:35.602Z",
   "rules": {
     "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
     "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
@@ -21,12 +21,12 @@
     "wins": 4,
     "losses": 3,
     "pending": 0,
-    "turnover": 3500,
-    "profit": 450,
-    "roi": 0.129,
+    "turnover": 4551,
+    "profit": -200.39999999999998,
+    "roi": -0.044,
     "hitRate": 0.571,
     "bankStart": 10000,
-    "bankEnd": 10450
+    "bankEnd": 9799.6
   },
   "byPeriod": {
     "60-70": {
@@ -41,26 +41,26 @@
       "hitRate": null
     },
     "70-80": {
-      "total": 6,
-      "checked": 6,
-      "wins": 3,
+      "total": 7,
+      "checked": 7,
+      "wins": 4,
       "losses": 3,
       "pending": 0,
-      "turnover": 3000,
-      "profit": -300,
-      "roi": -0.1,
-      "hitRate": 0.5
+      "turnover": 4551,
+      "profit": -200.39999999999998,
+      "roi": -0.044,
+      "hitRate": 0.571
     },
     "80-90+": {
-      "total": 1,
-      "checked": 1,
-      "wins": 1,
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
       "losses": 0,
       "pending": 0,
-      "turnover": 500,
-      "profit": 750,
-      "roi": 1.5,
-      "hitRate": 1
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
     },
     "other": {
       "total": 0,
@@ -78,24 +78,24 @@
     "UNDER_0_5": {
       "total": 5,
       "checked": 5,
-      "wins": 3,
-      "losses": 2,
+      "wins": 4,
+      "losses": 1,
       "pending": 0,
-      "turnover": 2500,
-      "profit": 200,
-      "roi": 0.08,
-      "hitRate": 0.6
+      "turnover": 2943,
+      "profit": 1407.6000000000001,
+      "roi": 0.478,
+      "hitRate": 0.8
     },
     "OVER_0_5": {
       "total": 2,
       "checked": 2,
-      "wins": 1,
-      "losses": 1,
+      "wins": 0,
+      "losses": 2,
       "pending": 0,
-      "turnover": 1000,
-      "profit": 250,
-      "roi": 0.25,
-      "hitRate": 0.5
+      "turnover": 1608,
+      "profit": -1608,
+      "roi": -1,
+      "hitRate": 0
     }
   },
   "noFlipsScenario": {
@@ -104,20 +104,23 @@
     "wins": 4,
     "losses": 3,
     "pending": 0,
-    "turnover": 3500,
-    "profit": 450,
-    "roi": 0.129,
+    "turnover": 4551,
+    "profit": -200.39999999999998,
+    "roi": -0.044,
     "hitRate": 0.571,
     "bankStart": 10000,
-    "bankEnd": 10450
+    "bankEnd": 9799.6
   },
   "matches": [
     {
-      "matchId": "W8NMeIZR",
-      "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
-      "home": "Араб Контракторс",
-      "away": "Аль-Іттіхад",
-      "finalResult": "0:0",
+      "matchId": "xzrEaxHF",
+      "league": "КИТАЙ: League Two",
+      "home": "Ченду Рончен B",
+      "away": "Ганьчжоу Руїші",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
       "totalGoals": 0,
       "uniqueSignals": [
         {
@@ -132,68 +135,36 @@
       "pending": 0
     },
     {
-      "matchId": "IZArHTu1",
-      "league": "ТУРЕЧЧИНА: Кубок Туреччини - Плей-оф",
-      "home": "Самсунспор",
-      "away": "Трабзонспор",
-      "finalResult": "0:1",
-      "totalGoals": 0,
-      "uniqueSignals": [
-        {
-          "order": 1,
-          "period": "70-80",
-          "bet": "ТМ 0,5",
-          "hit": true
-        }
-      ],
-      "wins": 1,
-      "losses": 0,
-      "pending": 0
-    },
-    {
-      "matchId": "EaiA1P7s",
-      "league": "СЕРБІЯ: Суперліга - Група вибування",
-      "home": "Напредак",
-      "away": "Нови-Београд",
-      "finalResult": "0:1",
+      "matchId": "vXNwVzn1",
+      "league": "ОБ’ЄДНАНІ АРАБСЬКІ ЕМІРАТИ: Ліга ОАЕ",
+      "home": "Аль-Дафра",
+      "away": "Аджман",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
       "totalGoals": 1,
       "uniqueSignals": [
         {
           "order": 1,
-          "period": "80-90+",
-          "bet": "ТБ 0,5",
-          "hit": true
-        }
-      ],
-      "wins": 1,
-      "losses": 0,
-      "pending": 0
-    },
-    {
-      "matchId": "2DUUklFt",
-      "league": "ШВЕЦІЯ: Аллсвенскан",
-      "home": "ГАІС",
-      "away": "М'єльбю",
-      "finalResult": "0:0",
-      "totalGoals": 0,
-      "uniqueSignals": [
-        {
-          "order": 1,
           "period": "70-80",
           "bet": "ТМ 0,5",
-          "hit": true
+          "hit": false
         }
       ],
-      "wins": 1,
-      "losses": 0,
+      "wins": 0,
+      "losses": 1,
       "pending": 0
     },
     {
-      "matchId": "fi8Pcs76",
-      "league": "СЕРБІЯ: Суперліга - Група вибування",
-      "home": "Младост Лучани",
-      "away": "Раднічки 1923",
-      "finalResult": "0:0",
+      "matchId": "KvX1cpbe",
+      "league": "РУМУНІЯ: Суперліга - Група вибування",
+      "home": "ФК Германнштадт",
+      "away": "Меркуря-Чук",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
       "totalGoals": 0,
       "uniqueSignals": [
         {
@@ -208,17 +179,42 @@
       "pending": 0
     },
     {
-      "matchId": "WAcxG5rR",
-      "league": "ІСПАНІЯ: Ла Ліга",
-      "home": "Райо Вальєкано",
-      "away": "Еспаньйол",
-      "finalResult": "1:0",
-      "totalGoals": 1,
+      "matchId": "tvvz1pJ6",
+      "league": "ПІВДЕННА АФРИКА: Прем'єр-ліга",
+      "home": "Голден Ерроуз",
+      "away": "Сівелеле",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
       "uniqueSignals": [
         {
           "order": 1,
           "period": "70-80",
           "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "IgxLpLeC",
+      "league": "УГОРЩИНА: NB I.",
+      "home": "Казінцбарцика",
+      "away": "МТК Будапешт",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТБ 0,5",
           "hit": false
         }
       ],
@@ -227,22 +223,47 @@
       "pending": 0
     },
     {
-      "matchId": "bkdGkAll",
-      "league": "ЄГИПЕТ: Прем'єр-ліга - Чемпіонська група",
-      "home": "Замалек",
-      "away": "Пайрамідс",
-      "finalResult": "1:0",
-      "totalGoals": 1,
+      "matchId": "CCk35Qet",
+      "league": "ФРАНЦІЯ: Ліга 2",
+      "home": "Лаваль",
+      "away": "Родез",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
       "uniqueSignals": [
         {
           "order": 1,
           "period": "70-80",
           "bet": "ТМ 0,5",
-          "hit": false
+          "hit": true
         }
       ],
-      "wins": 0,
-      "losses": 1,
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "8lzUHvPj",
+      "league": "АРГЕНТИНА: Прімера - Апертура",
+      "home": "Ланус",
+      "away": "Сентраль Кордоба",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
       "pending": 0
     }
   ]

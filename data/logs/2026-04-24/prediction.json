@@ -1,0 +1,332 @@
+{
+  "date": "2026-04-24",
+  "generatedAt": "2026-04-25T07:02:35.601Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 7,
+    "stakes": 7,
+    "stakesResolved": 7,
+    "wins": 4,
+    "losses": 3,
+    "hitRate": 0.571
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "70-80": {
+      "total": 7,
+      "checked": 7,
+      "hits": 4,
+      "misses": 3,
+      "hitRate": 0.571
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "matches": [
+    {
+      "matchId": "xzrEaxHF",
+      "league": "КИТАЙ: League Two",
+      "home": "Ченду Рончен B",
+      "away": "Ганьчжоу Руїші",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 75,
+          "snapshots": 1,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.399,
+          "pDry": 0.601,
+          "signalQuality": 0.7557,
+          "timestamp": "2026-04-24T13:06:54.048Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "neutral",
+        "dominanceStrength": 0.8039,
+        "latestSignalQuality": 0.7557
+      }
+    },
+    {
+      "matchId": "vXNwVzn1",
+      "league": "ОБ’ЄДНАНІ АРАБСЬКІ ЕМІРАТИ: Ліга ОАЕ",
+      "home": "Аль-Дафра",
+      "away": "Аджман",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 70,
+          "snapshots": 1,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.351,
+          "pDry": 0.649,
+          "signalQuality": 0.7557,
+          "timestamp": "2026-04-24T15:29:20.942Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "overall_only",
+        "currentState": "dry",
+        "dominanceStrength": 0.5,
+        "latestSignalQuality": 0.7871
+      }
+    },
+    {
+      "matchId": "KvX1cpbe",
+      "league": "РУМУНІЯ: Суперліга - Група вибування",
+      "home": "ФК Германнштадт",
+      "away": "Меркуря-Чук",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 75,
+          "snapshots": 2,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.704,
+          "pDry": 0.296,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-24T16:06:25.374Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "neutral",
+        "dominanceStrength": 0.5189,
+        "latestSignalQuality": 0.7714
+      }
+    },
+    {
+      "matchId": "tvvz1pJ6",
+      "league": "ПІВДЕННА АФРИКА: Прем'єр-ліга",
+      "home": "Голден Ерроуз",
+      "away": "Сівелеле",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 77,
+          "snapshots": 1,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.351,
+          "pDry": 0.649,
+          "signalQuality": 0.7557,
+          "timestamp": "2026-04-24T19:06:03.256Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "overall_only",
+        "currentState": "dry",
+        "dominanceStrength": 0.5,
+        "latestSignalQuality": 0.7557
+      }
+    },
+    {
+      "matchId": "IgxLpLeC",
+      "league": "УГОРЩИНА: NB I.",
+      "home": "Казінцбарцика",
+      "away": "МТК Будапешт",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 78,
+          "snapshots": 3,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.693,
+          "pDry": 0.307,
+          "signalQuality": 0.7871,
+          "timestamp": "2026-04-24T19:36:16.645Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "neutral",
+        "dominanceStrength": 0.8195,
+        "latestSignalQuality": 0.6157
+      }
+    },
+    {
+      "matchId": "CCk35Qet",
+      "league": "ФРАНЦІЯ: Ліга 2",
+      "home": "Лаваль",
+      "away": "Родез",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 76,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.286,
+          "pDry": 0.714,
+          "signalQuality": 0.7871,
+          "timestamp": "2026-04-24T19:36:34.731Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.8487,
+        "latestSignalQuality": 0.7871
+      }
+    },
+    {
+      "matchId": "8lzUHvPj",
+      "league": "АРГЕНТИНА: Прімера - Апертура",
+      "home": "Ланус",
+      "away": "Сентраль Кордоба",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 76,
+          "snapshots": 5,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.404,
+          "pDry": 0.596,
+          "signalQuality": 0.7386,
+          "timestamp": "2026-04-24T23:48:17.352Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "overall_only",
+        "currentState": "dry",
+        "dominanceStrength": 0.5,
+        "latestSignalQuality": 0.7386
+      }
+    }
+  ]
+}

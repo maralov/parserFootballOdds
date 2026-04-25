@@ -1,14 +1,14 @@
 {
   "date": "2026-04-23",
-  "generatedAt": "2026-04-24T07:01:53.658Z",
+  "generatedAt": "2026-04-24T21:00:22.099Z",
   "source": "telegram_signal_predictions_compact",
   "totals": {
     "matches": 7,
     "stakes": 7,
     "stakesResolved": 7,
-    "wins": 3,
-    "losses": 4,
-    "hitRate": 0.429
+    "wins": 4,
+    "losses": 3,
+    "hitRate": 0.571
   },
   "periodSummary": {
     "60-70": {
@@ -21,9 +21,9 @@
     "70-80": {
       "total": 6,
       "checked": 6,
-      "hits": 2,
-      "misses": 4,
-      "hitRate": 0.333
+      "hits": 3,
+      "misses": 3,
+      "hitRate": 0.5
     },
     "80-90+": {
       "total": 1,
@@ -62,10 +62,7 @@
       ],
       "finalResult": {
         "resultChecked": true,
-        "actualResult": {
-          "home": 0,
-          "away": 0
-        },
+        "actualResult": "0:0",
         "totalGoals": 0
       },
       "predictionOutcome": {
@@ -98,23 +95,20 @@
           "pDry": 0.653,
           "signalQuality": 0.7557,
           "timestamp": "2026-04-23T17:18:21.109Z",
-          "hit": false
+          "hit": true
         }
       ],
       "finalResult": {
         "resultChecked": true,
-        "actualResult": {
-          "home": 0,
-          "away": 1
-        },
-        "totalGoals": 1
+        "actualResult": "0:1",
+        "totalGoals": 0
       },
       "predictionOutcome": {
         "stakesTotal": 1,
         "stakesResolved": 1,
-        "wins": 0,
-        "losses": 1,
-        "hitRate": 0
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
       },
       "keyMetrics": {
         "statsStatus": "overall_only",
@@ -144,10 +138,7 @@
       ],
       "finalResult": {
         "resultChecked": true,
-        "actualResult": {
-          "home": 0,
-          "away": 1
-        },
+        "actualResult": "0:1",
         "totalGoals": 1
       },
       "predictionOutcome": {
@@ -185,10 +176,7 @@
       ],
       "finalResult": {
         "resultChecked": true,
-        "actualResult": {
-          "home": 0,
-          "away": 0
-        },
+        "actualResult": "0:0",
         "totalGoals": 0
       },
       "predictionOutcome": {
@@ -226,10 +214,7 @@
       ],
       "finalResult": {
         "resultChecked": true,
-        "actualResult": {
-          "home": 0,
-          "away": 0
-        },
+        "actualResult": "0:0",
         "totalGoals": 0
       },
       "predictionOutcome": {
@@ -267,10 +252,7 @@
       ],
       "finalResult": {
         "resultChecked": true,
-        "actualResult": {
-          "home": 1,
-          "away": 0
-        },
+        "actualResult": "1:0",
         "totalGoals": 1
       },
       "predictionOutcome": {
@@ -308,10 +290,7 @@
       ],
       "finalResult": {
         "resultChecked": true,
-        "actualResult": {
-          "home": 1,
-          "away": 0
-        },
+        "actualResult": "1:0",
         "totalGoals": 1
       },
       "predictionOutcome": {

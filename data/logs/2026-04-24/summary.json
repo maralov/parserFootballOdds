@@ -1,7 +1,7 @@
 {
-  "date": "2026-04-23",
-  "totalRowsInLog": 17,
-  "uniqueMatches": 17,
+  "date": "2026-04-24",
+  "totalRowsInLog": 62,
+  "uniqueMatches": 62,
   "actionable": 7,
   "stakeLegsPlanned": 7,
   "checkedThisRun": 0,
@@ -17,18 +17,18 @@
   "legHitRate": 0.571,
   "byConfidence": {
     "high": {
-      "total": 4,
-      "checked": 4,
-      "hits": 3,
-      "misses": 1,
-      "hitRate": 0.75
+      "total": 7,
+      "checked": 7,
+      "hits": 4,
+      "misses": 3,
+      "hitRate": 0.571
     },
     "medium": {
-      "total": 3,
-      "checked": 3,
-      "hits": 1,
-      "misses": 2,
-      "hitRate": 0.333
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
     },
     "low": {
       "total": 0,
@@ -42,18 +42,18 @@
     "UNDER_0_5": {
       "total": 5,
       "checked": 5,
-      "hits": 3,
-      "misses": 2,
-      "hitRate": 0.6
+      "hits": 4,
+      "misses": 1,
+      "hitRate": 0.8
     },
     "OVER_0_5": {
       "total": 2,
       "checked": 2,
-      "hits": 1,
-      "misses": 1,
-      "hitRate": 0.5
+      "hits": 0,
+      "misses": 2,
+      "hitRate": 0
     }
   },
   "flips": 0,
-  "generatedAt": "2026-04-24T21:00:22.096Z"
+  "generatedAt": "2026-04-25T07:02:35.581Z"
 }
