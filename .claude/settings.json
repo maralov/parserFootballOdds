@@ -19,7 +19,9 @@
       "Bash(node -e ' *)",
       "Bash(node --check src/pipeline/liveModelEngine.js)",
       "Bash(node --check scripts/recheckDay.js)",
-      "Bash(node scripts/recheckDay.js 2026-04-23)"
+      "Bash(node scripts/recheckDay.js 2026-04-23)",
+      "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/worker.js)",
+      "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/src/helpers/constants.js)"
     ]
   }
 }

@@ -1,0 +1,373 @@
+{
+  "date": "2026-04-25",
+  "generatedAt": "2026-04-26T07:00:18.767Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 8,
+    "stakes": 8,
+    "stakesResolved": 8,
+    "wins": 5,
+    "losses": 3,
+    "hitRate": 0.625
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "70-80": {
+      "total": 8,
+      "checked": 8,
+      "hits": 5,
+      "misses": 3,
+      "hitRate": 0.625
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "matches": [
+    {
+      "matchId": "Q5VfkzeS",
+      "league": "КИТАЙ: League One",
+      "home": "Яньбянь Лондін",
+      "away": "Шаансі Юніон",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 72,
+          "snapshots": 1,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.344,
+          "pDry": 0.656,
+          "signalQuality": 0.7557,
+          "timestamp": "2026-04-25T08:32:33.705Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "overall_only",
+        "currentState": "dry",
+        "dominanceStrength": 0.5,
+        "latestSignalQuality": 0.7557
+      }
+    },
+    {
+      "matchId": "Ox7zGzGD",
+      "league": "ІНДІЯ: ІСЛ",
+      "home": "Бангалор",
+      "away": "Мумбай Сіті",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 72,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.291,
+          "pDry": 0.709,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-25T13:02:11.850Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.5508,
+        "latestSignalQuality": 0.7714
+      }
+    },
+    {
+      "matchId": "2w0zlXz0",
+      "league": "ІТАЛІЯ: Серія А (Жінки)",
+      "home": "Мілан Ж",
+      "away": "Наполі Ж",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 71,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.356,
+          "pDry": 0.644,
+          "signalQuality": 0.7271,
+          "timestamp": "2026-04-25T14:32:30.573Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "falseDry",
+        "dominanceStrength": 0.5117,
+        "latestSignalQuality": 0.7271
+      }
+    },
+    {
+      "matchId": "jeiY2Zte",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+      "home": "Харас Ель-Ходуд",
+      "away": "Ваді Дегла",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 71,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.335,
+          "pDry": 0.665,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-25T15:38:02.875Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.6422,
+        "latestSignalQuality": 0.7714
+      }
+    },
+    {
+      "matchId": "A755uXLj",
+      "league": "ХОРВАТІЯ: ХФЛ",
+      "home": "Осієк",
+      "away": "Локомотива Загреб",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 75,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.287,
+          "pDry": 0.713,
+          "signalQuality": 0.7871,
+          "timestamp": "2026-04-25T17:47:08.423Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.9221,
+        "latestSignalQuality": 0.7871
+      }
+    },
+    {
+      "matchId": "QXfsAP9C",
+      "league": "ФРАНЦІЯ: Перша ліга (Жінки)",
+      "home": "Флері 91 Ж",
+      "away": "ПСЖ Ж",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 78,
+          "snapshots": 4,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.406,
+          "pDry": 0.594,
+          "signalQuality": 0.7229,
+          "timestamp": "2026-04-25T20:37:09.418Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 2
+        },
+        "totalGoals": 2
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.5695,
+        "latestSignalQuality": 0.7229
+      }
+    },
+    {
+      "matchId": "ALlHqK36",
+      "league": "США: USL Cup",
+      "home": "Хартфорд Атлетік",
+      "away": "Род-Айленд",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 79,
+          "snapshots": 1,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.345,
+          "pDry": 0.655,
+          "signalQuality": 0.7557,
+          "timestamp": "2026-04-26T00:45:04.940Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.8101,
+        "latestSignalQuality": 0.7557
+      }
+    },
+    {
+      "matchId": "fThTUfb2",
+      "league": "США: USL Суперліга (Жінки)",
+      "home": "Бруклін Ж",
+      "away": "Даллас Трініті Ж",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 78,
+          "snapshots": 5,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.456,
+          "pDry": 0.544,
+          "signalQuality": 0.7386,
+          "timestamp": "2026-04-26T00:41:40.730Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "pressureGrowth",
+        "dominanceStrength": 0.8885,
+        "latestSignalQuality": 0.7386
+      }
+    }
+  ]
+}
