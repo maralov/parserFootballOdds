@@ -178,6 +178,12 @@ const LIVE_V3_MIN_STAKE_PCT   = Math.max(0.01, Math.min(0.5, envFloat(process.en
 /** Розмір банку для відображення рекомендованої ставки у грн. Env: LIVE_V3_BANK_SIZE */
 const LIVE_V3_BANK_SIZE       = Math.max(100,  envFloat(process.env.LIVE_V3_BANK_SIZE, 10000));
 
+/** Мінімальний cooldown (мс) після прогнозу до повторного аналізу матчу. Env: LIVE_PREDICTED_COOLDOWN_MIN_MS */
+const LIVE_PREDICTED_COOLDOWN_MIN_MS = Math.max(
+  5 * 60_000,
+  Math.min(30 * 60_000, envInt(process.env.LIVE_PREDICTED_COOLDOWN_MIN_MS, 10 * 60_000))
+);
+
 /** Сплеск 2H для блокування ТМ 60–70 (як раніше burst gate). Env: LIVE_V2_BURST_* */
 const LIVE_V2_BURST_MIN_SOT = Math.max(0, envFloat(process.env.LIVE_V2_BURST_MIN_SOT, LIVE_SNAPSHOT_BURST_MIN_SOT));
 const LIVE_V2_BURST_MIN_XG = Math.max(0, envFloat(process.env.LIVE_V2_BURST_MIN_XG, LIVE_SNAPSHOT_BURST_MIN_XG));
@@ -235,6 +241,7 @@ module.exports = {
   LIVE_V3_MAX_STAKE_PCT,
   LIVE_V3_MIN_STAKE_PCT,
   LIVE_V3_BANK_SIZE,
+  LIVE_PREDICTED_COOLDOWN_MIN_MS,
   LIVE_V2_BURST_MIN_SOT,
   LIVE_V2_BURST_MIN_XG,
   LIVE_V2_LATE_SURGE_RATIO,

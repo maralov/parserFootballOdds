@@ -29,6 +29,7 @@ const {
   LIVE_V2_UNDER_CONFIRM_SNAPSHOTS,
   LIVE_FORM_H2H_ENABLED,
   LIVE_EVAL_MODEL,
+  LIVE_PREDICTED_COOLDOWN_MIN_MS,
 } = require('./src/helpers/constants');
 const { scrapeMatchFormAndH2h } = require('./src/scrapeMatchFormAndH2h');
 const { scrapeGGBetOdds } = require('./src/scrapeGGBetOdds');
@@ -91,6 +92,9 @@ if (sentTelegramIds.size === 0 && processedMatchIds.size === 0) {
         sentTelegramIds.add(m.matchId);
       }
       if (m.prediction?.bet && m.prediction.bet !== 'SKIP' && !m.resultChecked) {
+        const _predMin = m.prediction.minute || 75;
+        const _predAt = m.prediction.timestamp ? new Date(m.prediction.timestamp).getTime() : Date.now();
+        const _cooldownMs = Math.max(LIVE_PREDICTED_COOLDOWN_MIN_MS, (90 - _predMin + 2) * 60_000);
         activePredictions.set(m.matchId, {
           bet: m.prediction.bet,
           confidence: m.prediction.confidence,
@@ -102,6 +106,8 @@ if (sentTelegramIds.size === 0 && processedMatchIds.size === 0) {
           betHistory: Array.isArray(m.betHistory) && m.betHistory.length > 0
             ? m.betHistory.map((h) => ({ bet: h.bet, timeWindow: h.timeWindow, minute: h.minute, filtersApplied: h.filtersApplied || '' }))
             : [{ bet: m.prediction.bet, timeWindow: m.prediction.timeWindow, minute: m.minute, filtersApplied: '' }],
+          nextAnalysisAt: _predAt + _cooldownMs,
+          predictedAtMinute: _predMin,
         });
       }
     }
@@ -204,11 +210,23 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
   const allMatches = await scrapeLiveMatches(page);
   const newMatches = allMatches.filter((m) => !processedMatchIds.has(m.id));
 
-  console.log(`  Found: ${allMatches.length} candidates, ${newMatches.length} new, ${processedMatchIds.size} permanently skipped`);
+  const nowMs = Date.now();
+  const matchesToAnalyze = newMatches.filter((m) => {
+    const a = activePredictions.get(m.id);
+    if (a?.nextAnalysisAt && nowMs < a.nextAnalysisAt) {
+      const minLeft = Math.ceil((a.nextAnalysisAt - nowMs) / 60_000);
+      console.log(`  ⏭ ${m.home} - ${m.away} (${m.minute}') — cooldown ще ${minLeft}хв`);
+      return false;
+    }
+    return true;
+  });
+  const cooldownCount = newMatches.length - matchesToAnalyze.length;
+
+  console.log(`  Found: ${allMatches.length} candidates, ${matchesToAnalyze.length} new, ${processedMatchIds.size} permanently skipped${cooldownCount > 0 ? `, ${cooldownCount} cooldown` : ''}`);
 
   const results = [];
 
-  await mapWithConcurrency(newMatches, STATS_CONCURRENCY, async (match) => {
+  await mapWithConcurrency(matchesToAnalyze, STATS_CONCURRENCY, async (match) => {
     const tag = `${match.home} - ${match.away} (${match.minute}')`;
     console.log(`\n→ ${tag} [${match.league}]`);
 
@@ -408,6 +426,11 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
           }
         }
 
+        const existingPred = activePredictions.get(match.id);
+        const cooldownMs = Math.max(LIVE_PREDICTED_COOLDOWN_MIN_MS, (90 - match.minute + 2) * 60_000);
+        const nextAnalysisAt = (!existingPred?.nextAnalysisAt || existingPred.bet !== decision.bet)
+          ? Date.now() + cooldownMs
+          : existingPred.nextAnalysisAt;
         activePredictions.set(match.id, {
           bet: decision.bet,
           confidence: decision.confidence,
@@ -417,6 +440,8 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
           away: match.away,
           league: match.league,
           betHistory,
+          nextAnalysisAt,
+          predictedAtMinute: match.minute,
         });
 
         const matchUrl = desktopUrl || `https://m.flashscore.ua/match/${match.id}/`;
