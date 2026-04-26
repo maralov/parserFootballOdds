@@ -35,6 +35,7 @@ const { scrapeMatchFormAndH2h } = require('./src/scrapeMatchFormAndH2h');
 const { scrapeGGBetOdds } = require('./src/scrapeGGBetOdds');
 const { computeKellyStake } = require('./src/pipeline/liveModelEngine');
 const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
+const { getLeagueLocalHour } = require('./src/helpers/utils/leagueTimezone');
 
 const evaluateLiveModel = LIVE_EVAL_MODEL === 'v3' ? evaluateLiveModelV3 : evaluateLiveModelV2;
 const { appendSnapshot, pruneSnapshotStore, seedSnapshots } = require('./src/pipeline/matchSnapshotStore');
@@ -448,9 +449,12 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
 
         const alreadySentTg = sentTelegramIds.has(match.id);
         const canPush = decision.signalEligible && match.minute <= MAX_TELEGRAM_MINUTE;
-        const isNewSignal = !alreadySentTg && canPush;
+        const matchLocalHour = getLeagueLocalHour(match.league);
+        // блокуємо 23:xx і нічний час 00:xx–05:xx (реальних матчів там немає)
+        const withinLocalHours = matchLocalHour >= 6 && matchLocalHour < 23;
+        const isNewSignal = !alreadySentTg && canPush && withinLocalHours;
         const isFlipToOver = betChanged && prev?.bet === 'UNDER_0_5' && decision.bet === 'OVER_0_5';
-        const isUpdate = alreadySentTg && canPush && (betChanged);
+        const isUpdate = alreadySentTg && canPush && betChanged && withinLocalHours;
 
         if (isNewSignal) {
           // Фоновий скрапінг GGBet: відкриваємо окрему вкладку з таймаутом 15с
@@ -507,6 +511,8 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
           } catch (e) { console.log(`  Telegram update err: ${e.message}`); }
         } else if (alreadySentTg) {
           console.log(`  ↻ Re-analysis done (no change)`);
+        } else if (!withinLocalHours) {
+          console.log(`  🌙 Сигнал готовий, але місцевий час країни ${matchLocalHour}:xx ≥ 23:00 — Telegram не надсилається`);
         } else if (!decision.signalEligible) {
           console.log(`  ⏸ сигнал не пройшов (вікно ${decision.timeWindow}, впевненість: ${features.confidence}, bet: ${decision.bet})`);
         }

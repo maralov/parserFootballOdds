@@ -2686,5 +2686,11 @@
     "alertType": "PAGE_ERROR",
     "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
     "timestamp": "2026-04-26T06:50:59.817Z"
+  },
+  {
+    "matchId": "rHgnUzUN",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-04-26T08:07:21.311Z"
   }
 ]

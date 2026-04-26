@@ -1,0 +1,211 @@
+[
+  {
+    "matchId": "rHgnUzUN",
+    "league": "АВСТРАЛІЯ: НПЛ НПУ",
+    "home": "АВСТРАЛІЯ: НПЛ НПУ Таблиця61'АПІА Лейххардт",
+    "away": "Сент-Джордж Сейнтс",
+    "minute": 64,
+    "minuteBucket": "60-69",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/rHgnUzUN/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/apia-leichhardt-84SKUunL/st-george-saints-hrmFrjOc/?mid=rHgnUzUN",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "overall_only",
+    "stats": {
+      "overall": {
+        "shotsOnTarget": 1,
+        "shotsInsideTheBox": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "cornerKicks": 4,
+        "goalkeeperSaves": null,
+        "expectedGoalsXg": null,
+        "xgOnTargetXgot": null,
+        "passesInFinalThird": null,
+        "expectedAssistsXa": null,
+        "totalShots": 13,
+        "shotsOffTarget": 12,
+        "shotsOutsideTheBox": null,
+        "blockedShots": null,
+        "hitTheWoodwork": null,
+        "crosses": null,
+        "longPasses": null,
+        "accurateThroughPasses": null,
+        "fouls": null,
+        "tackles": null,
+        "duelsWon": null,
+        "clearances": null,
+        "interceptions": null,
+        "errorsLeadingToShot": null,
+        "errorsLeadingToGoal": null,
+        "ballPossession": 100,
+        "yellowCards": null,
+        "redCards": null,
+        "throwIns": null,
+        "passes": null,
+        "offsides": null,
+        "freeKicks": null,
+        "xgotFaced": null,
+        "goalsPrevented": null
+      },
+      "secondHalf": null
+    },
+    "liveTrajectory": null,
+    "indices": {
+      "modelVersion": "v3",
+      "pGoal": 0.454,
+      "pDry": 0.546,
+      "signalQuality": 0.429,
+      "currentState": "dry",
+      "snapshotEvidenceWeight": 0,
+      "preMatchDeltaPGoal": 0.024
+    },
+    "modelV2": {
+      "modelVersion": "3.0.0",
+      "minute": 64,
+      "timeWindow": "60-70",
+      "score": "0:0",
+      "scoreContext": {
+        "score": "0:0",
+        "homeGoals": 0,
+        "awayGoals": 0,
+        "totalGoals": 0,
+        "isZeroZero": true,
+        "isLevelScore": false,
+        "isOneGoalGame": false,
+        "isMultiGoalGame": false,
+        "leadingSide": null,
+        "trailingSide": null,
+        "scoreStateType": "0-0"
+      },
+      "bet": "SKIP",
+      "confidence": "low",
+      "signalQuality": 0.429,
+      "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.025] [форма:form_high_totals Δp=0.024]",
+      "currentState": "dry",
+      "previousState": "dry",
+      "stateChanged": false,
+      "dominanceSide": "balanced",
+      "dominanceStrength": 0.5,
+      "homePressureShare": 0.5,
+      "awayPressureShare": 0.5,
+      "balancedMatch": true,
+      "oneSidedPressure": false,
+      "accumulatedPressureWithoutGoal": false,
+      "segmentFeatures": null,
+      "trendFeatures": {
+        "trendDirection": "flat",
+        "snapshotEvidenceWeight": 0,
+        "burstLastInterval": false
+      },
+      "secondHalfComparison": null,
+      "marketContext": {
+        "favoriteSide": "home",
+        "favoriteStrength": 0.625,
+        "drawResistance": 0.206,
+        "marketPressureBias": 0.0654
+      },
+      "redCardContext": {
+        "redCardState": "none",
+        "redCardSide": null,
+        "redCardMinute": null,
+        "redCardTeamIsLeading": null,
+        "redCardTeamIsTrailing": null,
+        "homeRedCards": 0,
+        "awayRedCards": 0,
+        "unknownRedCards": 0
+      },
+      "substitutionContext": {
+        "known": false,
+        "substitutionsDelta": null,
+        "substitutionsBySide": null,
+        "substitutionProfile": null,
+        "tripleSubstitutionFlag": null
+      },
+      "stoppageTimeAnnounced": null,
+      "stoppageTimeRemaining": null,
+      "leagueBaseline": null,
+      "leagueAdjustedPressure": null,
+      "leagueAdjustedDryness": null,
+      "snapshotHistoryUsed": 0,
+      "pGoal": 0.454,
+      "pDry": 0.546,
+      "basePGoalCore": 0.4054,
+      "basePGoalPreOdds": 0.4294,
+      "preMatchFormBias": {
+        "deltaPGoal": 0.024,
+        "note": "form_high_totals"
+      }
+    },
+    "snapshotHistoryV2": [],
+    "prediction": {
+      "bet": "SKIP",
+      "confidence": "low",
+      "pGoal": 0.454,
+      "pDry": 0.546,
+      "edge": null,
+      "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.025] [форма:form_high_totals Δp=0.024]",
+      "timeWindow": "60-70",
+      "signalEligible": false,
+      "impliedProb": {
+        "home": 0.625,
+        "draw": 0.206,
+        "away": 0.17
+      },
+      "odds1X2": {
+        "home": 1.5,
+        "draw": 4.56,
+        "away": 5.52
+      },
+      "signalQuality": 0.429,
+      "snapshotCount": 0,
+      "kellyStakePct": 0,
+      "kellyStakeAmount": 0,
+      "minute": 64,
+      "timestamp": "2026-04-26T08:07:22.592Z"
+    },
+    "pipeline": "decision_made",
+    "skipReason": "v2_wait_or_skip",
+    "timestamp": "2026-04-26T08:07:22.592Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": [],
+    "preMatchV3": {
+      "parseOk": true,
+      "error": null,
+      "fetchedAt": "2026-04-26T08:03:46.015Z",
+      "aggregates": {
+        "home": {
+          "n": 5,
+          "avgTotalGoals": 3.4,
+          "shareUnder15": 0,
+          "shareUnder05": 0
+        },
+        "away": {
+          "n": 5,
+          "avgTotalGoals": 3.2,
+          "shareUnder15": 0.2,
+          "shareUnder05": 0
+        },
+        "mutual": {
+          "n": 5,
+          "avgTotalGoals": 4.8,
+          "shareUnder15": 0,
+          "shareUnder05": 0,
+          "newestDateIso": "2025-06-27",
+          "staleYears": 0.83
+        }
+      },
+      "counts": {
+        "formHome": 0,
+        "formAway": 0,
+        "h2h": 0
+      }
+    }
+  }
+]
