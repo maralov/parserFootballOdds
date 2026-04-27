@@ -8,6 +8,34 @@ const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
 const { dateKeyLocal, timeHHmm } = require('./src/helpers/date');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
 
+/**
+ * Динамічно обчислює паузу до наступного скану.
+ * - Є кандидати → штатний інтервал (3 хв)
+ * - Є активні прогнози → max 5 хв (не пропустити FT)
+ * - Немає матчів взагалі → 15 хв
+ * - Найближчий матч на N' → чекаємо поки він досягне ~57' (за 3 хв до вікна)
+ */
+function computeNextWaitMs({ hasCandidates, nearestSkippedMinute, hasActivePredictions, defaultMs }) {
+  const ACTIVE_CAP_MS  = 5  * 60_000;   // якщо є active predictions — не спати довше 5 хв
+  const NO_MATCH_MS    = 15 * 60_000;   // взагалі немає матчів live
+  const MAX_SLEEP_MS   = 30 * 60_000;   // абсолютний максимум
+
+  if (hasCandidates) return defaultMs;
+
+  let waitMs;
+  if (nearestSkippedMinute == null) {
+    waitMs = NO_MATCH_MS;
+  } else {
+    // Прийти коли матч буде на 57' (2 хв до snapshot_warmup + 1 хв буфер)
+    const minUntil = Math.max(1, 57 - nearestSkippedMinute);
+    waitMs = minUntil * 60_000;
+  }
+
+  waitMs = Math.min(waitMs, MAX_SLEEP_MS);
+  if (hasActivePredictions) waitMs = Math.min(waitMs, ACTIVE_CAP_MS);
+  return waitMs;
+}
+
 let processedMatchIds = [];
 let sentTelegramIds = [];
 let activePredictions = [];
@@ -61,9 +89,10 @@ async function sendHeartbeat(runCount) {
       lastDayKey = todayKey;
     }
 
+    let result = null;
     try {
       runCount++;
-      const result = await runLiveWorker();
+      result = await runLiveWorker();
       console.log(`\n🔥 RUN #${runCount}: analyzed=${result.matchesAnalyzed}, signals=${result.signalsSent}`);
 
       if (result.processedMatchIds) processedMatchIds = result.processedMatchIds;
@@ -78,8 +107,14 @@ async function sendHeartbeat(runCount) {
 
     await sendHeartbeat(runCount);
 
-    const waitMin = Math.round(LIVE_POLL_INTERVAL_MS / 60000);
+    const waitMs = computeNextWaitMs({
+      hasCandidates:         (result?.matchesAnalyzed ?? 0) > 0 || (result?.signalsSent ?? 0) > 0,
+      nearestSkippedMinute:  result?.nearestSkippedMinute ?? null,
+      hasActivePredictions:  (result?.activeCount ?? activePredictions.length) > 0,
+      defaultMs:             LIVE_POLL_INTERVAL_MS,
+    });
+    const waitMin = Math.round(waitMs / 60000);
     console.log(`⏳ Next scan in ${waitMin}m...`);
-    await new Promise((resolve) => setTimeout(resolve, LIVE_POLL_INTERVAL_MS));
+    await new Promise((resolve) => setTimeout(resolve, waitMs));
   } while (true);
 })();

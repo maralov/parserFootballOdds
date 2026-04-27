@@ -5,6 +5,7 @@ async function scrapeLiveMatches(page) {
   try {
     const feeds = [LIVE_BASE_URL, LIVE_BASE_URL_ALT].filter(Boolean);
     const allMatches = [];
+    const allSkipped = [];
 
     for (const url of feeds) {
       console.log('Opening:', url, `(minute >= ${LIVE_MIN_CANDIDATE_MINUTE}, 0:0 only)`);
@@ -30,6 +31,7 @@ async function scrapeLiveMatches(page) {
       }
 
       allMatches.push(...matches);
+      allSkipped.push(...skippedByMinute);
     }
 
     const seen = new Set();
@@ -40,10 +42,15 @@ async function scrapeLiveMatches(page) {
       merged.push(m);
     }
 
-    return merged;
+    // Найближча хвилина до вікна 60' серед пропущених матчів (для динамічного sleep)
+    const nearestSkippedMinute = allSkipped.length > 0
+      ? Math.max(...allSkipped.map((s) => s.minute))
+      : null;
+
+    return { matches: merged, nearestSkippedMinute };
   } catch (e) {
     console.log('LIVE MATCHES ERROR:', e.message);
-    return [];
+    return { matches: [], nearestSkippedMinute: null };
   }
 }
 

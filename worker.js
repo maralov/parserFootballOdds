@@ -35,7 +35,10 @@ const { scrapeMatchFormAndH2h } = require('./src/scrapeMatchFormAndH2h');
 const { scrapeGGBetOdds } = require('./src/scrapeGGBetOdds');
 const { computeKellyStake } = require('./src/pipeline/liveModelEngine');
 const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
-const { getLeagueLocalHour } = require('./src/helpers/utils/leagueTimezone');
+// leagueTimezone зберігається для аналізу, але для Telegram-гейту використовуємо київський час
+function kyivHour() {
+  return (new Date().getUTCHours() + 3) % 24;
+}
 
 const evaluateLiveModel = LIVE_EVAL_MODEL === 'v3' ? evaluateLiveModelV3 : evaluateLiveModelV2;
 const { appendSnapshot, pruneSnapshotStore, seedSnapshots } = require('./src/pipeline/matchSnapshotStore');
@@ -208,7 +211,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
   const page = await browser.newPage();
   await page.setUserAgent(USER_AGENT);
 
-  const allMatches = await scrapeLiveMatches(page);
+  const { matches: allMatches, nearestSkippedMinute } = await scrapeLiveMatches(page);
   const newMatches = allMatches.filter((m) => !processedMatchIds.has(m.id));
 
   const nowMs = Date.now();
@@ -449,8 +452,8 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
 
         const alreadySentTg = sentTelegramIds.has(match.id);
         const canPush = decision.signalEligible && match.minute <= MAX_TELEGRAM_MINUTE;
-        const matchLocalHour = getLeagueLocalHour(match.league);
-        // блокуємо 23:xx і нічний час 00:xx–05:xx (реальних матчів там немає)
+        const matchLocalHour = kyivHour();
+        // блокуємо після 23:00 і нічні години 00:xx–05:xx за київським часом
         const withinLocalHours = matchLocalHour >= 6 && matchLocalHour < 23;
         const isNewSignal = !alreadySentTg && canPush && withinLocalHours;
         const isFlipToOver = betChanged && prev?.bet === 'UNDER_0_5' && decision.bet === 'OVER_0_5';
@@ -512,7 +515,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
         } else if (alreadySentTg) {
           console.log(`  ↻ Re-analysis done (no change)`);
         } else if (!withinLocalHours) {
-          console.log(`  🌙 Сигнал готовий, але місцевий час країни ${matchLocalHour}:xx ≥ 23:00 — Telegram не надсилається`);
+          console.log(`  🌙 Сигнал готовий, але київський час ${matchLocalHour}:xx — Telegram не надсилається (поза 06:00–23:00)`);
         } else if (!decision.signalEligible) {
           console.log(`  ⏸ сигнал не пройшов (вікно ${decision.timeWindow}, впевненість: ${features.confidence}, bet: ${decision.bet})`);
         }
@@ -628,5 +631,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
     sentTelegramIds: Array.from(sentTelegramIds),
     activePredictions: Array.from(activePredictions.entries()),
     lastResultCheckHour,
+    nearestSkippedMinute,
+    activeCount: activePredictions.size,
   });
 })();
