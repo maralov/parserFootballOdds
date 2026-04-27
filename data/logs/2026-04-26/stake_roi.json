@@ -1,6 +1,6 @@
 {
-  "date": "2026-04-25",
-  "generatedAt": "2026-04-26T21:00:41.081Z",
+  "date": "2026-04-26",
+  "generatedAt": "2026-04-27T07:03:09.418Z",
   "rules": {
     "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
     "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
@@ -16,17 +16,17 @@
     }
   },
   "overall": {
-    "bets": 8,
-    "checked": 8,
-    "wins": 5,
+    "bets": 5,
+    "checked": 5,
+    "wins": 2,
     "losses": 3,
     "pending": 0,
-    "turnover": 4989,
-    "profit": 1082.4000000000003,
-    "roi": 0.217,
-    "hitRate": 0.625,
+    "turnover": 3026,
+    "profit": -415.9999999999999,
+    "roi": -0.137,
+    "hitRate": 0.4,
     "bankStart": 10000,
-    "bankEnd": 11082.4
+    "bankEnd": 9584
   },
   "byPeriod": {
     "60-70": {
@@ -41,15 +41,15 @@
       "hitRate": null
     },
     "70-80": {
-      "total": 8,
-      "checked": 8,
-      "wins": 5,
+      "total": 5,
+      "checked": 5,
+      "wins": 2,
       "losses": 3,
       "pending": 0,
-      "turnover": 4989,
-      "profit": 1082.4000000000003,
-      "roi": 0.217,
-      "hitRate": 0.625
+      "turnover": 3026,
+      "profit": -415.9999999999999,
+      "roi": -0.137,
+      "hitRate": 0.4
     },
     "80-90+": {
       "total": 0,
@@ -76,15 +76,15 @@
   },
   "byBetType": {
     "UNDER_0_5": {
-      "total": 8,
-      "checked": 8,
-      "wins": 5,
+      "total": 5,
+      "checked": 5,
+      "wins": 2,
       "losses": 3,
       "pending": 0,
-      "turnover": 4989,
-      "profit": 1082.4000000000003,
-      "roi": 0.217,
-      "hitRate": 0.625
+      "turnover": 3026,
+      "profit": -415.9999999999999,
+      "roi": -0.137,
+      "hitRate": 0.4
     },
     "OVER_0_5": {
       "total": 0,
@@ -99,93 +99,27 @@
     }
   },
   "noFlipsScenario": {
-    "bets": 8,
-    "checked": 8,
-    "wins": 5,
+    "bets": 5,
+    "checked": 5,
+    "wins": 2,
     "losses": 3,
     "pending": 0,
-    "turnover": 4989,
-    "profit": 1082.4000000000003,
-    "roi": 0.217,
-    "hitRate": 0.625,
+    "turnover": 3026,
+    "profit": -415.9999999999999,
+    "roi": -0.137,
+    "hitRate": 0.4,
     "bankStart": 10000,
-    "bankEnd": 11082.4
+    "bankEnd": 9584
   },
   "matches": [
     {
-      "matchId": "Q5VfkzeS",
-      "league": "КИТАЙ: League One",
-      "home": "Яньбянь Лондін",
-      "away": "Шаансі Юніон",
+      "matchId": "jmw5Sh7r",
+      "league": "АВСТРІЯ: Бундесліга - Чемпіонська група",
+      "home": "СК Рапід",
+      "away": "Зальцбург",
       "finalResult": {
-        "home": 0,
+        "home": 1,
         "away": 0
-      },
-      "totalGoals": 0,
-      "uniqueSignals": [
-        {
-          "order": 1,
-          "period": "70-80",
-          "bet": "ТМ 0,5",
-          "hit": true
-        }
-      ],
-      "wins": 1,
-      "losses": 0,
-      "pending": 0
-    },
-    {
-      "matchId": "Ox7zGzGD",
-      "league": "ІНДІЯ: ІСЛ",
-      "home": "Бангалор",
-      "away": "Мумбай Сіті",
-      "finalResult": {
-        "home": 0,
-        "away": 0
-      },
-      "totalGoals": 0,
-      "uniqueSignals": [
-        {
-          "order": 1,
-          "period": "70-80",
-          "bet": "ТМ 0,5",
-          "hit": true
-        }
-      ],
-      "wins": 1,
-      "losses": 0,
-      "pending": 0
-    },
-    {
-      "matchId": "2w0zlXz0",
-      "league": "ІТАЛІЯ: Серія А (Жінки)",
-      "home": "Мілан Ж",
-      "away": "Наполі Ж",
-      "finalResult": {
-        "home": 0,
-        "away": 0
-      },
-      "totalGoals": 0,
-      "uniqueSignals": [
-        {
-          "order": 1,
-          "period": "70-80",
-          "bet": "ТМ 0,5",
-          "hit": true
-        }
-      ],
-      "wins": 1,
-      "losses": 0,
-      "pending": 0
-    },
-    {
-      "matchId": "jeiY2Zte",
-      "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
-      "home": "Харас Ель-Ходуд",
-      "away": "Ваді Дегла",
-      "finalResult": {
-        "home": 0,
-        "away": 1
       },
       "totalGoals": 1,
       "uniqueSignals": [
@@ -201,37 +135,15 @@
       "pending": 0
     },
     {
-      "matchId": "A755uXLj",
-      "league": "ХОРВАТІЯ: ХФЛ",
-      "home": "Осієк",
-      "away": "Локомотива Загреб",
+      "matchId": "SzMzW4It",
+      "league": "ПІВДЕННА АФРИКА: Прем'єр-ліга",
+      "home": "Полокване Сіті",
+      "away": "Стелленбош",
       "finalResult": {
-        "home": 0,
+        "home": 1,
         "away": 0
       },
-      "totalGoals": 0,
-      "uniqueSignals": [
-        {
-          "order": 1,
-          "period": "70-80",
-          "bet": "ТМ 0,5",
-          "hit": true
-        }
-      ],
-      "wins": 1,
-      "losses": 0,
-      "pending": 0
-    },
-    {
-      "matchId": "QXfsAP9C",
-      "league": "ФРАНЦІЯ: Перша ліга (Жінки)",
-      "home": "Флері 91 Ж",
-      "away": "ПСЖ Ж",
-      "finalResult": {
-        "home": 0,
-        "away": 2
-      },
-      "totalGoals": 2,
+      "totalGoals": 1,
       "uniqueSignals": [
         {
           "order": 1,
@@ -245,10 +157,10 @@
       "pending": 0
     },
     {
-      "matchId": "ALlHqK36",
-      "league": "США: USL Cup",
-      "home": "Хартфорд Атлетік",
-      "away": "Род-Айленд",
+      "matchId": "EyKZpgbT",
+      "league": "ХОРВАТІЯ: ХФЛ",
+      "home": "Рієка",
+      "away": "Хайдук Спліт",
       "finalResult": {
         "home": 0,
         "away": 0
@@ -267,13 +179,35 @@
       "pending": 0
     },
     {
-      "matchId": "fThTUfb2",
-      "league": "США: USL Суперліга (Жінки)",
-      "home": "Бруклін Ж",
-      "away": "Даллас Трініті Ж",
+      "matchId": "0M2tw3UG",
+      "league": "ІЗРАЇЛЬ: Прем'єр-ліга - Група вибування",
+      "home": "Хапоель Єрусалим",
+      "away": "Хапоель Хайфа",
       "finalResult": {
-        "home": 1,
+        "home": 0,
         "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "UBbOQygg",
+      "league": "ПАРАГВАЙ: Прімера - Апертура",
+      "home": "Сан-Лоренсо",
+      "away": "Рубіо Нью",
+      "finalResult": {
+        "home": 0,
+        "away": 1
       },
       "totalGoals": 1,
       "uniqueSignals": [

@@ -22,7 +22,10 @@
       "Bash(node scripts/recheckDay.js 2026-04-23)",
       "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/worker.js)",
       "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/src/helpers/constants.js)",
-      "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/src/helpers/utils/leagueTimezone.js)"
+      "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/src/helpers/utils/leagueTimezone.js)",
+      "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/index.js)",
+      "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/src/scrapeLiveMatches.js)",
+      "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/src/scrapeDesktopStats.js)"
     ]
   }
 }
