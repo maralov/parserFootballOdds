@@ -3,31 +3,32 @@ if (process.argv.includes('--ignore-hours')) {
   process.env.LIVE_IGNORE_HOURS = '1';
 }
 const { Worker } = require('worker_threads');
-const { LIVE_POLL_INTERVAL_MS } = require('./src/helpers/constants');
+const { LIVE_POLL_INTERVAL_MS, LIVE_MIN_CANDIDATE_MINUTE } = require('./src/helpers/constants');
 const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
 const { dateKeyLocal, timeHHmm } = require('./src/helpers/date');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
 
 /**
  * Динамічно обчислює паузу до наступного скану.
- * - Є кандидати → штатний інтервал (3 хв)
+ * - Є кандидати (≥60') або warmup (52-59') → штатний інтервал (3 хв)
  * - Є активні прогнози → max 5 хв (не пропустити FT)
  * - Немає матчів взагалі → 15 хв
- * - Найближчий матч на N' → чекаємо поки він досягне ~57' (за 3 хв до вікна)
+ * - Найближчий матч на N' → чекаємо поки він досягне LIVE_MIN_CANDIDATE_MINUTE (52')
  */
-function computeNextWaitMs({ hasCandidates, nearestSkippedMinute, hasActivePredictions, defaultMs }) {
+function computeNextWaitMs({ hasCandidates, hasWarmupMatches, nearestSkippedMinute, hasActivePredictions, defaultMs }) {
   const ACTIVE_CAP_MS  = 5  * 60_000;   // якщо є active predictions — не спати довше 5 хв
   const NO_MATCH_MS    = 15 * 60_000;   // взагалі немає матчів live
   const MAX_SLEEP_MS   = 30 * 60_000;   // абсолютний максимум
 
-  if (hasCandidates) return defaultMs;
+  // warmup матчі (52-59') потребують частого опитування для накопичення знімків
+  if (hasCandidates || hasWarmupMatches) return defaultMs;
 
   let waitMs;
   if (nearestSkippedMinute == null) {
     waitMs = NO_MATCH_MS;
   } else {
-    // Прийти коли матч буде на 57' (2 хв до snapshot_warmup + 1 хв буфер)
-    const minUntil = Math.max(1, 57 - nearestSkippedMinute);
+    // Прийти коли матч досягне LIVE_MIN_CANDIDATE_MINUTE (52') — перший знімок
+    const minUntil = Math.max(1, LIVE_MIN_CANDIDATE_MINUTE - nearestSkippedMinute);
     waitMs = minUntil * 60_000;
   }
 
@@ -109,6 +110,7 @@ async function sendHeartbeat(runCount) {
 
     const waitMs = computeNextWaitMs({
       hasCandidates:         (result?.matchesAnalyzed ?? 0) > 0 || (result?.signalsSent ?? 0) > 0,
+      hasWarmupMatches:      (result?.warmupCount ?? 0) > 0,
       nearestSkippedMinute:  result?.nearestSkippedMinute ?? null,
       hasActivePredictions:  (result?.activeCount ?? activePredictions.length) > 0,
       defaultMs:             LIVE_POLL_INTERVAL_MS,

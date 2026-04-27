@@ -212,6 +212,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
   await page.setUserAgent(USER_AGENT);
 
   const { matches: allMatches, nearestSkippedMinute } = await scrapeLiveMatches(page);
+  const warmupCount = allMatches.filter((m) => m.minute < LIVE_DECISION_WINDOW_START_MINUTE).length;
   const newMatches = allMatches.filter((m) => !processedMatchIds.has(m.id));
 
   const nowMs = Date.now();
@@ -633,5 +634,6 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
     lastResultCheckHour,
     nearestSkippedMinute,
     activeCount: activePredictions.size,
+    warmupCount,
   });
 })();
