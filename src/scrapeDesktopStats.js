@@ -139,7 +139,7 @@ function logDomAlert(matchId, alertType, details) {
 async function resolveDesktopUrl(page, matchId) {
   const shortUrl = `${DESKTOP_BASE}/${matchId}/`;
   try {
-    await page.goto(shortUrl, { waitUntil: 'networkidle2', timeout: TIMEOUT });
+    await page.goto(shortUrl, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
     const finalUrl = page.url();
     if (finalUrl.includes('/match/') && finalUrl !== shortUrl) {
       return { desktopUrl: finalUrl, resolved: true };
@@ -227,7 +227,8 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
   for (const ep of endpoints) {
     const url = `${basePath}${ep.suffix}?mid=${matchId}`;
     try {
-      await page.goto(url, { waitUntil: 'networkidle2', timeout: TIMEOUT });
+      // domcontentloaded значно швидше ніж networkidle2 — мінімізує ризик PAGE_ERROR timeout
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
 
       let hasStats = false;
       try {
