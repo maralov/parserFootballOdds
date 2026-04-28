@@ -14,6 +14,7 @@ async function launchBrowser() {
         headless: 'new',
         args: ["--no-sandbox", "--disable-setuid-sandbox"],
         executablePath,
+        protocolTimeout: 45000,
     });
 }
 
