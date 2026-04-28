@@ -132,6 +132,19 @@ async function mapWithConcurrency(items, limit, fn) {
   return result;
 }
 
+/**
+ * Hard timeout для page-операцій. Якщо renderer мертвий після Runtime.callFunctionOn,
+ * наступні goto/evaluate/content висять "тихо" — без цього wrapper-а worker блокується назавжди.
+ * При таймауті кидаємо Error → catch у обробнику матчу → finally закриває "мертву" page.
+ */
+function withTimeout(promise, ms, label) {
+  let timer;
+  const t = new Promise((_, reject) => {
+    timer = setTimeout(() => reject(new Error(`[timeout ${ms}ms] ${label}`)), ms);
+  });
+  return Promise.race([promise, t]).finally(() => clearTimeout(timer));
+}
+
 function slimPreMatchForLog(ctx) {
   if (!ctx) return null;
   return {
@@ -245,14 +258,14 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
     await statPage.setUserAgent(pickUserAgent());
 
     try {
-      const { odds1X2 } = await fetchOdds1X2(statPage, match.matchDetailsUrl);
+      const { odds1X2 } = await withTimeout(fetchOdds1X2(statPage, match.matchDetailsUrl), 30_000, `fetchOdds1X2(${match.id})`);
       if (odds1X2) {
         console.log(`  Кф 1X2: ${odds1X2.home} / ${odds1X2.draw} / ${odds1X2.away}`);
       } else {
         console.log(`  Кф 1X2: немає на сторінці огляду`);
       }
 
-      const { desktopUrl, resolved } = await resolveDesktopUrl(statPage, match.id);
+      const { desktopUrl, resolved } = await withTimeout(resolveDesktopUrl(statPage, match.id), 30_000, `resolveDesktopUrl(${match.id})`);
       if (!resolved || !desktopUrl) {
         console.log(`  ✗ Desktop URL resolve failed → permanent skip`);
         appendMatchEntry({ ...logCandidate, pipeline: 'resolve_failed' });
@@ -261,18 +274,18 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
       }
       console.log(`  Desktop: ${desktopUrl}`);
 
-      const statsResult = await scrapeDesktopStats(statPage, desktopUrl, match.id);
-      let incidents = await scrapeMatchIncidents(statPage, match.id);
+      const statsResult = await withTimeout(scrapeDesktopStats(statPage, desktopUrl, match.id), 90_000, `scrapeDesktopStats(${match.id})`);
+      let incidents = await withTimeout(scrapeMatchIncidents(statPage, match.id), 30_000, `scrapeMatchIncidents(${match.id})`);
 
       let preMatchContext = null;
       if (LIVE_FORM_H2H_ENABLED && LIVE_EVAL_MODEL === 'v3') {
         if (formH2hCache.has(match.id)) {
           preMatchContext = formH2hCache.get(match.id);
         } else if (match.minute >= LIVE_DECISION_WINDOW_START_MINUTE) {
-          preMatchContext = await scrapeMatchFormAndH2h(statPage, match.id, {
+          preMatchContext = await withTimeout(scrapeMatchFormAndH2h(statPage, match.id, {
             home: match.home,
             away: match.away,
-          });
+          }), 30_000, `scrapeMatchFormAndH2h(${match.id})`);
           formH2hCache.set(match.id, preMatchContext);
         }
       }
@@ -305,8 +318,8 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
             `  ⏳ Другий зріз у циклі: пауза ${secondPassMs / 1000}s (зараз зрізів ${history.length}/${LIVE_V2_UNDER_CONFIRM_SNAPSHOTS})…`
           );
           await new Promise((r) => setTimeout(r, secondPassMs));
-          const statsResult2 = await scrapeDesktopStats(statPage, desktopUrl, match.id);
-          incidents = await scrapeMatchIncidents(statPage, match.id);
+          const statsResult2 = await withTimeout(scrapeDesktopStats(statPage, desktopUrl, match.id), 90_000, `scrapeDesktopStats(${match.id})#2`);
+          incidents = await withTimeout(scrapeMatchIncidents(statPage, match.id), 30_000, `scrapeMatchIncidents(${match.id})#2`);
           features = {
             ...buildFeatures(match, statsResult2),
             odds1X2: odds1X2 || null,
