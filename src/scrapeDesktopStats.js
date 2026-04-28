@@ -10,6 +10,32 @@ const TIMEOUT = 35000;
 const DESKTOP_BASE = 'https://www.flashscore.ua/match';
 const DOM_ALERT_FILE = path.join(__dirname, '..', 'data', 'logs', 'dom_alerts.json');
 
+const BLOCK_DOMAINS_RE = /google-analytics|googletagmanager|googlesyndication|doubleclick|facebook\.(net|com)|adservice|hotjar|segment\.io|amplitude|criteo|adsrvr|taboola|outbrain|adnxs|pubmatic|rubiconproject|openx|smartadserver|yandex\.ru\/metrika|mc\.yandex|mail\.ru\/counter|gemius|optad360/i;
+
+/**
+ * Блокує важкі ресурси (images/media/fonts) та рекламно-аналітичні домени,
+ * щоб уникнути зависання Runtime.callFunctionOn у важкому JS event loop flashscore.
+ * Викликається один раз на page; повторно — no-op.
+ */
+async function applyResourceBlocking(page) {
+  if (page.__resourceBlockingApplied) return;
+  page.__resourceBlockingApplied = true;
+  try {
+    await page.setRequestInterception(true);
+    page.on('request', (req) => {
+      try {
+        const type = req.resourceType();
+        if (type === 'image' || type === 'media' || type === 'font') return req.abort();
+        const url = req.url();
+        if (BLOCK_DOMAINS_RE.test(url)) return req.abort();
+        return req.continue();
+      } catch { try { req.continue(); } catch {} }
+    });
+  } catch {
+    page.__resourceBlockingApplied = false;
+  }
+}
+
 const STAT_LABEL_MAP = {
   'очікувані голи (xg)': 'expectedGoalsXg',
   'expected goals (xg)': 'expectedGoalsXg',
@@ -212,6 +238,7 @@ async function parseStatsFromPage(page, labelMapJSON) {
 }
 
 async function scrapeDesktopStats(page, desktopUrl, matchId) {
+  await applyResourceBlocking(page);
   const labelMapJSON = JSON.stringify(STAT_LABEL_MAP);
   const results = { matchId, overall: null, secondHalf: null, statsStatus: 'unavailable', diagnostics: {} };
 
@@ -383,4 +410,4 @@ async function checkMatchResult(page, matchId) {
   }
 }
 
-module.exports = { scrapeDesktopStats, resolveDesktopUrl, checkMatchResult, logDomAlert, STAT_LABEL_MAP };
+module.exports = { scrapeDesktopStats, resolveDesktopUrl, checkMatchResult, logDomAlert, STAT_LABEL_MAP, applyResourceBlocking };
