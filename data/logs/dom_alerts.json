@@ -2278,5 +2278,137 @@
     "alertType": "PAGE_ERROR",
     "details": "secondHalf: Navigation timeout of 20000 ms exceeded",
     "timestamp": "2026-04-27T03:17:51.594Z"
+  },
+  {
+    "matchId": "xWjqZDDc",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T08:15:12.594Z"
+  },
+  {
+    "matchId": "dUb1gXFi",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T08:18:32.163Z"
+  },
+  {
+    "matchId": "GEsfM3nC",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T08:22:02.811Z"
+  },
+  {
+    "matchId": "UyUVy0GM",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T08:25:49.543Z"
+  },
+  {
+    "matchId": "tpDOCKG5",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T08:29:03.863Z"
+  },
+  {
+    "matchId": "C2CYHPAF",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T08:32:21.348Z"
+  },
+  {
+    "matchId": "EHgFG2Ht",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T08:35:39.262Z"
+  },
+  {
+    "matchId": "b5J5daWO",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T08:38:56.933Z"
+  },
+  {
+    "matchId": "MoXwXMZr",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T08:42:48.969Z"
+  },
+  {
+    "matchId": "vRTExqCL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-04-27T08:44:08.251Z"
+  },
+  {
+    "matchId": "vRTExqCL",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-04-27T08:44:08.253Z"
+  },
+  {
+    "matchId": "vRTExqCL",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-04-27T08:44:08.254Z"
+  },
+  {
+    "matchId": "MoXwXMZr",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T13:44:41.262Z"
+  },
+  {
+    "matchId": "C2CYHPAF",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T13:48:01.045Z"
+  },
+  {
+    "matchId": "tITQGHW0",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T13:51:50.603Z"
+  },
+  {
+    "matchId": "lfH9NYDb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T14:24:26.001Z"
+  },
+  {
+    "matchId": "lfH9NYDb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T14:30:52.274Z"
+  },
+  {
+    "matchId": "tQOGptOO",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T14:30:52.501Z"
+  },
+  {
+    "matchId": "tQOGptOO",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T14:37:18.928Z"
+  },
+  {
+    "matchId": "lfH9NYDb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T14:37:19.160Z"
+  },
+  {
+    "matchId": "tQOGptOO",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-27T14:43:44.500Z"
+  },
+  {
+    "matchId": "OjLuBPh3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "timestamp": "2026-04-28T10:06:12.691Z"
   }
 ]

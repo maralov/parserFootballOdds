@@ -25,7 +25,25 @@
       "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/src/helpers/utils/leagueTimezone.js)",
       "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/index.js)",
       "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/src/scrapeLiveMatches.js)",
-      "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/src/scrapeDesktopStats.js)"
+      "Bash(node --check /Users/m.aralov/projects/parserFootballOdds/src/scrapeDesktopStats.js)",
+      "Bash(node -c scripts/scrapeHistorical.js)",
+      "Bash(node -e \"const {scrapeMatchFormAndH2h} = require\\('./src/scrapeMatchFormAndH2h'\\); console.log\\(typeof scrapeMatchFormAndH2h\\)\")",
+      "Bash(npm run *)",
+      "Bash(kill 5808)",
+      "Bash(node scripts/scrapeHistorical.js --days 1 --sample 20)",
+      "Bash(tee /tmp/hist_test.log)",
+      "Read(//private/tmp/**)",
+      "Bash(kill 9426 9423)",
+      "Bash(node scripts/scrapeHistorical.js --days 7 --sample 50)",
+      "Bash(kill 35960)",
+      "Bash(pkill -f \"scrapeHistorical\")",
+      "Bash(launchctl list *)",
+      "Bash(ps -p 34110 -o pid,etime,stat,command)",
+      "Bash(xargs -I{} ps -p {} -o pid,etime,stat,command)",
+      "Bash(npm install *)",
+      "Bash(npm ls *)",
+      "Bash(node -c worker.js)",
+      "Bash(node -c src/browser.js)"
     ]
   }
 }

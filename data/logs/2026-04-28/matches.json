@@ -1,0 +1,170 @@
+[
+  {
+    "matchId": "OjLuBPh3",
+    "league": "БАНГЛАДЕШ: Кубок Федерації",
+    "home": "БАНГЛАДЕШ: Кубок Федерації Таблиця61'Абахані Лімітед",
+    "away": "PWD Sports Club",
+    "minute": 65,
+    "minuteBucket": "60-69",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/OjLuBPh3/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/abahani-limited-dhaka-fVCqgPH3/pwd-sports-club-WMZvNPvn/?mid=OjLuBPh3",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "both",
+    "stats": {
+      "overall": {
+        "shotsOnTarget": 5,
+        "shotsInsideTheBox": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "cornerKicks": 11,
+        "goalkeeperSaves": null,
+        "expectedGoalsXg": null,
+        "xgOnTargetXgot": null,
+        "passesInFinalThird": null,
+        "expectedAssistsXa": null,
+        "totalShots": 12,
+        "shotsOffTarget": 7,
+        "shotsOutsideTheBox": null,
+        "blockedShots": null,
+        "hitTheWoodwork": null,
+        "crosses": null,
+        "longPasses": null,
+        "accurateThroughPasses": null,
+        "fouls": null,
+        "tackles": null,
+        "duelsWon": null,
+        "clearances": null,
+        "interceptions": null,
+        "errorsLeadingToShot": null,
+        "errorsLeadingToGoal": null,
+        "ballPossession": 100,
+        "yellowCards": null,
+        "redCards": null,
+        "throwIns": null,
+        "passes": null,
+        "offsides": null,
+        "freeKicks": null,
+        "xgotFaced": null,
+        "goalsPrevented": null
+      },
+      "secondHalf": {
+        "shotsOnTarget": 2,
+        "shotsInsideTheBox": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "cornerKicks": 2,
+        "goalkeeperSaves": null,
+        "expectedGoalsXg": null,
+        "xgOnTargetXgot": null,
+        "passesInFinalThird": null,
+        "expectedAssistsXa": null,
+        "totalShots": 4,
+        "shotsOffTarget": 2,
+        "shotsOutsideTheBox": null,
+        "blockedShots": null,
+        "hitTheWoodwork": null,
+        "crosses": null,
+        "longPasses": null,
+        "accurateThroughPasses": null,
+        "fouls": null,
+        "tackles": null,
+        "duelsWon": null,
+        "clearances": null,
+        "interceptions": null,
+        "errorsLeadingToShot": null,
+        "errorsLeadingToGoal": null,
+        "ballPossession": 100,
+        "yellowCards": null,
+        "redCards": null,
+        "throwIns": null,
+        "passes": null,
+        "offsides": null,
+        "freeKicks": null,
+        "xgotFaced": null,
+        "goalsPrevented": null
+      }
+    },
+    "liveTrajectory": null,
+    "indices": {
+      "modelVersion": "v3",
+      "pGoal": 0.428,
+      "pDry": 0.572,
+      "signalQuality": 0.4447,
+      "currentState": "dry",
+      "snapshotEvidenceWeight": 0.25,
+      "preMatchDeltaPGoal": 0
+    },
+    "modelV2": null,
+    "snapshotHistoryV2": null,
+    "prediction": {
+      "bet": "SKIP",
+      "confidence": "low",
+      "pGoal": 0.428,
+      "pDry": 0.572,
+      "edge": null,
+      "reason": "60–70 v3 очікування: зрізів=1/2 burst=false pD=0.572 pG=0.428 SQ=0.4447(мін 0.77) стан=dry | 2 уд. в площ. [ринок ΔpG +0.025]",
+      "timeWindow": "60-70",
+      "signalEligible": false,
+      "impliedProb": {
+        "home": 0.605,
+        "draw": 0.224,
+        "away": 0.17
+      },
+      "odds1X2": {
+        "home": 1.5,
+        "draw": 4.05,
+        "away": 5.33
+      },
+      "signalQuality": 0.4447,
+      "snapshotCount": 1,
+      "kellyStakePct": 0,
+      "kellyStakeAmount": 0,
+      "minute": 61,
+      "timestamp": "2026-04-28T10:06:18.302Z"
+    },
+    "pipeline": "candidate_found",
+    "skipReason": null,
+    "timestamp": "2026-04-28T10:09:26.840Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": [],
+    "preMatchV3": {
+      "parseOk": true,
+      "error": null,
+      "fetchedAt": "2026-04-28T10:06:18.298Z",
+      "aggregates": {
+        "home": {
+          "n": 5,
+          "avgTotalGoals": 2.6,
+          "shareUnder15": 0.2,
+          "shareUnder05": 0
+        },
+        "away": {
+          "n": 5,
+          "avgTotalGoals": 2.8,
+          "shareUnder15": 0,
+          "shareUnder05": 0
+        },
+        "mutual": {
+          "n": 1,
+          "avgTotalGoals": 4,
+          "shareUnder15": 0,
+          "shareUnder05": 0,
+          "newestDateIso": "2025-12-18",
+          "staleYears": 0.36
+        }
+      },
+      "counts": {
+        "formHome": 5,
+        "formAway": 5,
+        "h2h": 1
+      }
+    }
+  }
+]

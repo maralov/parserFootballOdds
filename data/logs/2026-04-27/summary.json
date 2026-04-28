@@ -1,27 +1,27 @@
 {
-  "date": "2026-04-26",
-  "totalRowsInLog": 224,
-  "uniqueMatches": 224,
-  "actionable": 5,
-  "stakeLegsPlanned": 5,
+  "date": "2026-04-27",
+  "totalRowsInLog": 2,
+  "uniqueMatches": 2,
+  "actionable": 0,
+  "stakeLegsPlanned": 0,
   "checkedThisRun": 0,
   "hitsThisRun": 0,
   "missesThisRun": 0,
-  "resolved": 5,
-  "hits": 2,
-  "misses": 3,
-  "hitRate": 0.4,
-  "legsResolved": 5,
-  "legHits": 2,
-  "legMisses": 3,
-  "legHitRate": 0.4,
+  "resolved": 0,
+  "hits": 0,
+  "misses": 0,
+  "hitRate": null,
+  "legsResolved": 0,
+  "legHits": 0,
+  "legMisses": 0,
+  "legHitRate": null,
   "byConfidence": {
     "high": {
-      "total": 5,
-      "checked": 5,
-      "hits": 2,
-      "misses": 3,
-      "hitRate": 0.4
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
     },
     "medium": {
       "total": 0,
@@ -40,11 +40,11 @@
   },
   "byBetType": {
     "UNDER_0_5": {
-      "total": 5,
-      "checked": 5,
-      "hits": 2,
-      "misses": 3,
-      "hitRate": 0.4
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
     },
     "OVER_0_5": {
       "total": 0,
@@ -55,5 +55,5 @@
     }
   },
   "flips": 0,
-  "generatedAt": "2026-04-27T09:36:51.151Z"
+  "generatedAt": "2026-04-28T13:45:24.680Z"
 }
