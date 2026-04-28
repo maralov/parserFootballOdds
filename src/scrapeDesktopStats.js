@@ -6,7 +6,7 @@ const {
   parseMobileFlashscoreStatsFromDocument,
 } = require('./parsers/mobileFlashscoreStats');
 
-const TIMEOUT = 35000;
+const TIMEOUT = 20000;
 const DESKTOP_BASE = 'https://www.flashscore.ua/match';
 const DOM_ALERT_FILE = path.join(__dirname, '..', 'data', 'logs', 'dom_alerts.json');
 

@@ -3,7 +3,7 @@ require('dotenv').config();
 const { parentPort, workerData } = require('worker_threads');
 const { launchBrowser, pickUserAgent } = require('./src/browser');
 const scrapeLiveMatches = require('./src/scrapeLiveMatches');
-const { resolveDesktopUrl, scrapeDesktopStats, checkMatchResult } = require('./src/scrapeDesktopStats');
+const { resolveDesktopUrl, scrapeDesktopStats, checkMatchResult, applyResourceBlocking } = require('./src/scrapeDesktopStats');
 const { buildFeatures } = require('./src/pipeline/featureBuilder');
 const { evaluateLiveModelV2 } = require('./src/pipeline/liveModelV2');
 const { evaluateLiveModelV3 } = require('./src/pipeline/liveModelV3');
@@ -34,9 +34,15 @@ const { scrapeMatchFormAndH2h } = require('./src/scrapeMatchFormAndH2h');
 const { scrapeGGBetOdds } = require('./src/scrapeGGBetOdds');
 const { computeKellyStake } = require('./src/pipeline/liveModelEngine');
 const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
-// leagueTimezone зберігається для аналізу, але для Telegram-гейту використовуємо київський час
+// DST-safe: бере фактичний київський час (EET зимою / EEST влітку) через Intl.
+// hourCycle: 'h23' гарантує діапазон 0-23 (інакше деякі локалі повертають "24" опівночі).
+const KYIV_HOUR_FMT = new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Europe/Kyiv',
+  hour: '2-digit',
+  hourCycle: 'h23',
+});
 function kyivHour() {
-  return (new Date().getUTCHours() + 3) % 24;
+  return parseInt(KYIV_HOUR_FMT.format(new Date()), 10);
 }
 
 const evaluateLiveModel = LIVE_EVAL_MODEL === 'v3' ? evaluateLiveModelV3 : evaluateLiveModelV2;
@@ -226,6 +232,8 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
   const { matches: allMatches, nearestSkippedMinute } = await scrapeLiveMatches(page);
   const warmupCount = allMatches.filter((m) => m.minute < LIVE_DECISION_WINDOW_START_MINUTE).length;
   const newMatches = allMatches.filter((m) => !processedMatchIds.has(m.id));
+  const liveDecisionCount = newMatches.filter((m) => m.minute >= LIVE_DECISION_WINDOW_START_MINUTE).length;
+  const liveWarmupCount = newMatches.filter((m) => m.minute < LIVE_DECISION_WINDOW_START_MINUTE).length;
 
   const nowMs = Date.now();
   const matchesToAnalyze = newMatches.filter((m) => {
@@ -256,6 +264,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
 
     const statPage = await browser.newPage();
     await statPage.setUserAgent(pickUserAgent());
+    await applyResourceBlocking(statPage);
 
     try {
       const { odds1X2 } = await withTimeout(fetchOdds1X2(statPage, match.matchDetailsUrl), 30_000, `fetchOdds1X2(${match.id})`);
@@ -274,7 +283,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
       }
       console.log(`  Desktop: ${desktopUrl}`);
 
-      const statsResult = await withTimeout(scrapeDesktopStats(statPage, desktopUrl, match.id), 90_000, `scrapeDesktopStats(${match.id})`);
+      const statsResult = await withTimeout(scrapeDesktopStats(statPage, desktopUrl, match.id), 120_000, `scrapeDesktopStats(${match.id})`);
       let incidents = await withTimeout(scrapeMatchIncidents(statPage, match.id), 30_000, `scrapeMatchIncidents(${match.id})`);
 
       let preMatchContext = null;
@@ -318,7 +327,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
             `  ⏳ Другий зріз у циклі: пауза ${secondPassMs / 1000}s (зараз зрізів ${history.length}/${LIVE_V2_UNDER_CONFIRM_SNAPSHOTS})…`
           );
           await new Promise((r) => setTimeout(r, secondPassMs));
-          const statsResult2 = await withTimeout(scrapeDesktopStats(statPage, desktopUrl, match.id), 90_000, `scrapeDesktopStats(${match.id})#2`);
+          const statsResult2 = await withTimeout(scrapeDesktopStats(statPage, desktopUrl, match.id), 120_000, `scrapeDesktopStats(${match.id})#2`);
           incidents = await withTimeout(scrapeMatchIncidents(statPage, match.id), 30_000, `scrapeMatchIncidents(${match.id})#2`);
           features = {
             ...buildFeatures(match, statsResult2),
@@ -647,5 +656,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
     nearestSkippedMinute,
     activeCount: activePredictions.size,
     warmupCount,
+    liveDecisionCount,
+    liveWarmupCount,
   });
 })();

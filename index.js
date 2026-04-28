@@ -15,13 +15,16 @@ const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
  * - Немає матчів взагалі → 15 хв
  * - Найближчий матч на N' → чекаємо поки він досягне LIVE_MIN_CANDIDATE_MINUTE (52')
  */
-function computeNextWaitMs({ hasCandidates, hasWarmupMatches, nearestSkippedMinute, hasActivePredictions, defaultMs }) {
-  const ACTIVE_CAP_MS  = 5  * 60_000;   // якщо є active predictions — не спати довше 5 хв
-  const NO_MATCH_MS    = 15 * 60_000;   // взагалі немає матчів live
-  const MAX_SLEEP_MS   = 30 * 60_000;   // абсолютний максимум
+function computeNextWaitMs({ liveDecisionCount, liveWarmupCount, nearestSkippedMinute, hasActivePredictions, defaultMs }) {
+  const DECISION_POLL_MS = 2  * 60_000;   // активні кандидати ≥60' — частіше
+  const ACTIVE_CAP_MS    = 5  * 60_000;   // якщо є active predictions — не спати довше 5 хв
+  const NO_MATCH_MS      = 15 * 60_000;   // взагалі немає матчів live
+  const MAX_SLEEP_MS     = 30 * 60_000;   // абсолютний максимум
 
-  // warmup матчі (52-59') потребують частого опитування для накопичення знімків
-  if (hasCandidates || hasWarmupMatches) return defaultMs;
+  // активні (не permanent-skip) кандидати ≥60' — найвищий пріоритет
+  if (liveDecisionCount > 0) return DECISION_POLL_MS;
+  // warmup матчі (52-59') потребують опитування для накопичення знімків
+  if (liveWarmupCount > 0) return defaultMs;
 
   let waitMs;
   if (nearestSkippedMinute == null) {
@@ -109,8 +112,8 @@ async function sendHeartbeat(runCount) {
     await sendHeartbeat(runCount);
 
     const waitMs = computeNextWaitMs({
-      hasCandidates:         (result?.matchesAnalyzed ?? 0) > 0 || (result?.signalsSent ?? 0) > 0,
-      hasWarmupMatches:      (result?.warmupCount ?? 0) > 0,
+      liveDecisionCount:     result?.liveDecisionCount ?? 0,
+      liveWarmupCount:       result?.liveWarmupCount ?? 0,
       nearestSkippedMinute:  result?.nearestSkippedMinute ?? null,
       hasActivePredictions:  (result?.activeCount ?? activePredictions.length) > 0,
       defaultMs:             LIVE_POLL_INTERVAL_MS,
