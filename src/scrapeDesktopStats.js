@@ -17,6 +17,50 @@ const BLOCK_DOMAINS_RE = /google-analytics|googletagmanager|googlesyndication|do
  * щоб уникнути зависання Runtime.callFunctionOn у важкому JS event loop flashscore.
  * Викликається один раз на page; повторно — no-op.
  */
+/**
+ * Зберігає HTML-дамп сторінки + метадані (URL, title, маркери антибота)
+ * у data/logs/dom_dumps/ для post-mortem діагностики PAGE_ERROR.
+ * Корисно для перевірки чи flashscore віддає captcha/challenge замість статистики.
+ */
+async function dumpPageHtml(page, matchId, endpointKey, errorMessage) {
+  try {
+    const dumpDir = path.join(__dirname, '..', 'data', 'logs', 'dom_dumps');
+    if (!fs.existsSync(dumpDir)) fs.mkdirSync(dumpDir, { recursive: true });
+    const ts = new Date().toISOString().replace(/[:.]/g, '-');
+    const safeKey = String(endpointKey).replace(/[^a-z0-9]/gi, '_');
+    const baseFile = `${ts}_${matchId}_${safeKey}`;
+
+    let html = null;
+    let url = null;
+    let title = null;
+    try { url = page.url(); } catch {}
+    try { title = await Promise.race([page.title(), new Promise((_, r) => setTimeout(() => r(new Error('title-timeout')), 3000))]); } catch {}
+    try { html = await Promise.race([page.content(), new Promise((_, r) => setTimeout(() => r(new Error('content-timeout')), 5000))]); } catch (e) { html = `<!-- content() failed: ${e.message} -->`; }
+
+    const indicators = {
+      hasCaptcha: /captcha|recaptcha|hcaptcha|cf-challenge|cloudflare|just a moment|imperva|_pxCaptcha|perimeterx/i.test(html || ''),
+      isShort: (html || '').length < 5000,
+      lengthBytes: (html || '').length,
+    };
+
+    const meta = { matchId, endpointKey, errorMessage, url, title, indicators, timestamp: new Date().toISOString() };
+    fs.writeFileSync(path.join(dumpDir, `${baseFile}.meta.json`), JSON.stringify(meta, null, 2), 'utf8');
+    fs.writeFileSync(path.join(dumpDir, `${baseFile}.html`), html || '', 'utf8');
+
+    // Чистимо старі дампи (тримаємо останні 30)
+    const files = fs.readdirSync(dumpDir).filter((f) => f.endsWith('.html')).sort();
+    if (files.length > 30) {
+      for (const f of files.slice(0, files.length - 30)) {
+        try { fs.unlinkSync(path.join(dumpDir, f)); } catch {}
+        try { fs.unlinkSync(path.join(dumpDir, f.replace('.html', '.meta.json'))); } catch {}
+      }
+    }
+    if (indicators.hasCaptcha) {
+      console.log(`  ⚠ ANTIBOT detected on ${matchId} ${endpointKey} → dump: ${baseFile}.html`);
+    }
+  } catch {}
+}
+
 async function applyResourceBlocking(page) {
   if (page.__resourceBlockingApplied) return;
   page.__resourceBlockingApplied = true;
@@ -296,6 +340,7 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
       }
     } catch (e) {
       logDomAlert(matchId, 'PAGE_ERROR', `${ep.key}: ${e.message}`);
+      try { await dumpPageHtml(page, matchId, ep.key, e.message); } catch {}
     }
   }
 
