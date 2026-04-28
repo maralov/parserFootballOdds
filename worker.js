@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const { parentPort, workerData } = require('worker_threads');
-const { launchBrowser } = require('./src/browser');
+const { launchBrowser, pickUserAgent } = require('./src/browser');
 const scrapeLiveMatches = require('./src/scrapeLiveMatches');
 const { resolveDesktopUrl, scrapeDesktopStats, checkMatchResult } = require('./src/scrapeDesktopStats');
 const { buildFeatures } = require('./src/pipeline/featureBuilder');
@@ -19,7 +19,6 @@ const { formatTelegramMessage } = require('./src/helpers/utils/formatTelegramMes
 const { formatDailySummaryTelegram } = require('./src/helpers/utils/formatDailySummary');
 const { sanitizeLeagueName, sanitizeTeams, formatBetLabel } = require('./src/helpers/utils/normalizeMatchText');
 const {
-  USER_AGENT,
   STATS_CONCURRENCY,
   MAX_TELEGRAM_MINUTE,
   isWithinWorkingHours,
@@ -179,7 +178,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
     console.log(`  ${isFirstRun ? 'First run' : '10:00'} — checking yesterday results`);
     const browser = await launchBrowser();
     const page = await browser.newPage();
-    await page.setUserAgent(USER_AGENT);
+    await page.setUserAgent(pickUserAgent());
     try {
       const summary = await checkYesterdayResults(page);
       if (summary) {
@@ -209,7 +208,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
   console.log('  Запуск live-скрапера (після ранкових Telegram, якщо були).');
   const browser = await launchBrowser();
   const page = await browser.newPage();
-  await page.setUserAgent(USER_AGENT);
+  await page.setUserAgent(pickUserAgent());
 
   const { matches: allMatches, nearestSkippedMinute } = await scrapeLiveMatches(page);
   const warmupCount = allMatches.filter((m) => m.minute < LIVE_DECISION_WINDOW_START_MINUTE).length;
@@ -243,7 +242,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
     appendMatchEntry(logCandidate);
 
     const statPage = await browser.newPage();
-    await statPage.setUserAgent(USER_AGENT);
+    await statPage.setUserAgent(pickUserAgent());
 
     try {
       const { odds1X2 } = await fetchOdds1X2(statPage, match.matchDetailsUrl);
@@ -466,7 +465,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
           let ggbetKelly = null;
           try {
             const ggbetPage = await browser.newPage();
-            await ggbetPage.setUserAgent(USER_AGENT);
+            await ggbetPage.setUserAgent(pickUserAgent());
             const ggbetPromise = scrapeGGBetOdds(ggbetPage, match.home, match.away)
               .finally(() => ggbetPage.close().catch(() => {}));
             ggbet = await Promise.race([
@@ -553,7 +552,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
     console.log(`\n🔍 Checking ${maybeFinished.length} possibly finished match(es)...`);
     for (const [matchId, pred] of maybeFinished) {
       const rPage = await browser.newPage();
-      await rPage.setUserAgent(USER_AGENT);
+      await rPage.setUserAgent(pickUserAgent());
       try {
         const res = await checkMatchResult(rPage, matchId);
         const isResolved = res.finished || res.resolvedByGoal;

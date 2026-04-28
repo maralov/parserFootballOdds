@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const fs = require('fs');
 const path = require('path');
-const { launchBrowser } = require('../src/browser');
+const { launchBrowser, pickUserAgent } = require('../src/browser');
 const { collectFinishedMatches } = require('../src/providers/flashscoreMobileUa/historicalSource');
 const { parseMatchDetail, checkStatsAvailability, analyzeGoalTimeline, computeImpliedProbabilities } = require('../src/providers/flashscoreMobileUa/matchDetailSource');
 const { resolveDesktopUrl, scrapeDesktopStats } = require('../src/scrapeDesktopStats');
@@ -12,7 +12,6 @@ const { scrapeMatchFormAndH2h } = require('../src/scrapeMatchFormAndH2h');
 const { classifyStats } = require('../src/historical/statsClassifier');
 const { exportToExcel } = require('../src/historical/excelExporter');
 const {
-  USER_AGENT,
   LIVE_DECISION_WINDOW_START_MINUTE,
   LIVE_WINDOW_END_60_70,
   LIVE_WINDOW_END_70_80,
@@ -255,7 +254,7 @@ async function processDay(browser, dayOffset, dateStr, opts = {}) {
   console.log('='.repeat(60));
 
   const page = await browser.newPage();
-  await page.setUserAgent(USER_AGENT);
+  await page.setUserAgent(pickUserAgent());
 
   let allMatches = [];
   let filteredByScore = [];
@@ -328,7 +327,7 @@ async function processDay(browser, dayOffset, dateStr, opts = {}) {
       }
 
       const statPage = await browser.newPage();
-      await statPage.setUserAgent(USER_AGENT);
+      await statPage.setUserAgent(pickUserAgent());
 
       try {
         const { desktopUrl, resolved } = await resolveDesktopUrl(statPage, m.id);
