@@ -385,7 +385,10 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
       const ov = results.overall.sum[key];
       const sh = results.secondHalf.sum[key];
       if (typeof ov === 'number' && typeof sh === 'number') {
-        fh.sum[key] = Number((ov - sh).toFixed(2));
+        const v = Number((ov - sh).toFixed(2));
+        // null при від'ємних значеннях (аномалія парсера) — щоб n01() пропустила метрику
+        // замість 0, яке дає хибно-сухий dry_1H сигнал
+        fh.sum[key] = v < 0 ? null : v;
       }
     }
     for (const side of ['home', 'away']) {
@@ -396,7 +399,8 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
         const ov = src[key];
         const s = shSide[key];
         if (typeof ov === 'number' && typeof s === 'number') {
-          fh[side][key] = Number((ov - s).toFixed(2));
+          const v = Number((ov - s).toFixed(2));
+          fh[side][key] = v < 0 ? null : v;
         }
       }
     }

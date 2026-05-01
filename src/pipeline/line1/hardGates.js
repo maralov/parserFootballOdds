@@ -1,8 +1,9 @@
 'use strict';
 
-const { LINE1_INTENSITY_RATIO_MAX } = require('../../helpers/constants');
+const { LINE1_INTENSITY_RATIO_MAX, LINE1_BC_DELTA_MAX } = require('../../helpers/constants');
 
 const XG_BURST_RATIO = LINE1_INTENSITY_RATIO_MAX;
+const BC_DELTA_THRESHOLD = LINE1_BC_DELTA_MAX;
 
 /**
  * Hard SKIP gates for Line 1. Override consensus decision.
@@ -22,8 +23,8 @@ function applyHardGates({ incidents, intensityRatioLast, bcDeltaLast, scoreChang
   if (Number.isFinite(xgRatio) && xgRatio >= XG_BURST_RATIO) {
     return { skip: true, reason: `xG burst ratio=${xgRatio} >= ${XG_BURST_RATIO}` };
   }
-  if (Number.isFinite(bcDeltaLast) && bcDeltaLast >= 1) {
-    return { skip: true, reason: `BC delta=${bcDeltaLast} >= 1` };
+  if (Number.isFinite(bcDeltaLast) && bcDeltaLast >= BC_DELTA_THRESHOLD) {
+    return { skip: true, reason: `BC delta=${bcDeltaLast} >= ${BC_DELTA_THRESHOLD}` };
   }
   return { skip: false, reason: null };
 }

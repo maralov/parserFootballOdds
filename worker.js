@@ -50,7 +50,7 @@ function kyivHour() {
 
 const evaluateLiveModel = LIVE_EVAL_MODEL === 'v3' ? evaluateLiveModelV3 : evaluateLiveModelV2;
 const { appendSnapshot, pruneSnapshotStore, seedSnapshots } = require('./src/pipeline/matchSnapshotStore');
-const { dayjs } = require('./src/helpers/date');
+const { dayjs, sessionDateKey } = require('./src/helpers/date');
 
 const processedMatchIds = workerData?.processedMatchIds
   ? new Set(workerData.processedMatchIds)
@@ -574,7 +574,6 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
 
           // Завжди пишемо shadow лог (для калібрування)
           {
-            const { sessionDateKey } = require('./src/helpers/date');
             appendShadowEntry(sessionDateKey(), {
               matchId: match.id,
               league: match.league,
@@ -597,7 +596,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
             const l1Hour = kyivHour();
             if (l1Hour >= 6 && l1Hour < 23) {
               try {
-                const { sanitizeLeagueName, sanitizeTeams } = require('./src/helpers/utils/normalizeMatchText');
+
                 const { home: h, away: a } = sanitizeTeams(match.home, match.away);
                 const league = sanitizeLeagueName(match.league);
                 const c = line1Result.components || {};
@@ -614,7 +613,14 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
                   oddsLine;
                 await sendTelegramMessage(l1msg);
                 sentTelegramIds.add(match.id);
-                tgSent++;
+                // Зберігаємо Line1 bet в activePredictions для коректного result tracking
+                activePredictions.set(match.id, {
+                  ...(activePredictions.get(match.id) || {}),
+                  bet: 'UNDER_0_5',
+                  line1: true,
+                  pDry: line1Result.pDry,
+                  predictedAtMinute: features.minute,
+                });
                 console.log(`  ✓ [${LINE1_TG_TAG}] Telegram надіслано`);
               } catch (e) {
                 console.log(`  [${LINE1_TG_TAG}] TG error: ${e.message}`);
