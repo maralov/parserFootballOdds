@@ -192,12 +192,11 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
   console.log(`[${now.format('HH:mm:ss')}] Live scan`);
 
   const hr = now.hour();
-  const isFirstRun = lastResultCheckHour === -1;
-  const needResultCheck = (hr === 10 && lastResultCheckHour !== 10) || isFirstRun;
+  const needResultCheck = hr === 10 && lastResultCheckHour !== 10;
 
-  // Фаза A: перевірка «вчора» + усі ранкові Telegram (підсумок + аналіз ніг/P&L). Live-скрапінг — лише після цього.
+  // Фаза A: перевірка «вчора» + усі ранкові Telegram о 10:00. Live-скрапінг — лише після цього.
   if (needResultCheck) {
-    console.log(`  ${isFirstRun ? 'First run' : '10:00'} — checking yesterday results`);
+    console.log(`  10:00 — checking yesterday results`);
     const browser = await launchBrowser();
     const page = await browser.newPage();
     await page.setUserAgent(pickUserAgent());

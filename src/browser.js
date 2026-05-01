@@ -52,7 +52,7 @@ async function launchBrowser() {
           `--window-size=${viewport.width},${viewport.height}`,
         ],
         executablePath,
-        protocolTimeout: 45000,
+        protocolTimeout: 120000,
         defaultViewport: viewport,
     });
 }
