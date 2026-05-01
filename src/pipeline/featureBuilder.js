@@ -101,7 +101,7 @@ function computeTrend(rawOverall, raw2H) {
 }
 
 function buildFeatures(match, statsResult) {
-  const { overall, secondHalf, statsStatus } = statsResult;
+  const { overall, firstHalf, secondHalf, statsStatus } = statsResult;
   const primary = secondHalf || overall;
   const context = overall;
 
@@ -110,7 +110,7 @@ function buildFeatures(match, statsResult) {
       matchId: match.id, league: match.league, minute: match.minute,
       minuteBucket: getMinuteBucket(match.minute),
       statsStatus: statsStatus || 'unavailable',
-      raw2H: null, rawOverall: null, normalized: {}, imbalance: {},
+      raw2H: null, raw1H: null, rawOverall: null, normalized: {}, imbalance: {},
       ratios: {}, trend: {}, dominanceRatio: 0.5,
       dataQualityScore: 0, availablePrimary: 0,
       confidence: 'none', allowDecision: false,
@@ -118,6 +118,7 @@ function buildFeatures(match, statsResult) {
   }
 
   const raw2H = secondHalf ? extractRaw(secondHalf) : null;
+  const raw1H = firstHalf ? extractRaw(firstHalf) : null;
   const rawOverall = context ? extractRaw(context) : null;
   const activeRaw = raw2H || rawOverall;
   const norm = computeNormalized(activeRaw);
@@ -148,7 +149,7 @@ function buildFeatures(match, statsResult) {
     matchId: match.id, league: match.league, minute: match.minute,
     minuteBucket: getMinuteBucket(match.minute),
     statsStatus,
-    raw2H, rawOverall, normalized: norm, imbalance,
+    raw2H, raw1H, rawOverall, normalized: norm, imbalance,
     ratios, trend, dominanceRatio,
     dataQualityScore: dq, availablePrimary: availPrimary,
     confidence,
