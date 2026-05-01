@@ -43,7 +43,7 @@ async function launchBrowser() {
     const viewport = pickViewport();
 
     return await puppeteer.launch({
-        headless: 'new',
+        headless: true,
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
