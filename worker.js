@@ -34,6 +34,9 @@ const { scrapeMatchFormAndH2h } = require('./src/scrapeMatchFormAndH2h');
 const { scrapeGGBetOdds } = require('./src/scrapeGGBetOdds');
 const { computeKellyStake } = require('./src/pipeline/liveModelEngine');
 const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
+const { evaluateLine1Dry } = require('./src/pipeline/line1/dryEngine');
+const { appendShadowEntry } = require('./src/pipeline/line1/shadowLogger');
+const { LINE1_ENABLED, LINE1_SHADOW_MODE, LINE1_TG_TAG } = require('./src/helpers/constants');
 // DST-safe: бере фактичний київський час (EET зимою / EEST влітку) через Intl.
 // hourCycle: 'h23' гарантує діапазон 0-23 (інакше деякі локалі повертають "24" опівночі).
 const KYIV_HOUR_FMT = new Intl.DateTimeFormat('en-GB', {
@@ -550,6 +553,43 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
         console.log(`  🔔 dryAlert встановлено (стан dry@${match.minute}')`);
       } else if (activePredictions.get(match.id)?.dryAlert) {
         activePredictions.set(match.id, { ...activePredictions.get(match.id), dryAlert: false });
+      }
+
+      // === Лінія 1 (паралельно з v3, shadow-mode за замовчуванням) ===
+      if (LINE1_ENABLED) {
+        try {
+          const line1Result = evaluateLine1Dry({
+            match,
+            features,
+            snapshots: history,
+            incidents,
+            preMatchAggregates: preMatchContext?.aggregates || null,
+          });
+
+          console.log(`  [${LINE1_TG_TAG}] ${match.home}-${match.away} ${features.minute}': bet=${line1Result.bet} pDry=${line1Result.pDry ?? 'n/a'} (${line1Result.reason})`);
+
+          if (LINE1_SHADOW_MODE) {
+            const { sessionDateKey } = require('./src/helpers/date');
+            const shadowDate = sessionDateKey();
+            appendShadowEntry(shadowDate, {
+              matchId: match.id,
+              league: match.league,
+              home: match.home,
+              away: match.away,
+              minute: features.minute,
+              bet: line1Result.bet,
+              signalEligible: line1Result.signalEligible,
+              pDry: line1Result.pDry,
+              consensusCount: line1Result.consensusCount,
+              components: line1Result.components,
+              reason: line1Result.reason,
+              intensityRatio: line1Result.intensityRatio,
+              timestamp: new Date().toISOString(),
+            });
+          }
+        } catch (e) {
+          console.log(`  [${LINE1_TG_TAG}] error: ${e.message}`);
+        }
       }
 
       results.push({ match, decision, logEntry, telegramSent });
