@@ -33,22 +33,24 @@ function pickViewport() {
 }
 
 async function launchBrowser() {
+    // На Linux — системний Chrome. На macOS — Puppeteer's Chrome for Testing
     let executablePath;
     if (os.platform() === 'linux') {
         executablePath = '/usr/bin/google-chrome';
     } else if (os.platform() === 'darwin') {
-        executablePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+        executablePath = '/Users/m.aralov/.cache/puppeteer/chrome/mac-119.0.6045.105/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing';
     }
 
     const viewport = pickViewport();
 
     return await puppeteer.launch({
-        headless: true,
+        headless: 'new',
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
           '--disable-blink-features=AutomationControlled',
           '--disable-dev-shm-usage',
+          '--disable-gpu',
           `--window-size=${viewport.width},${viewport.height}`,
         ],
         executablePath,
