@@ -203,6 +203,10 @@ const TELEGRAM_MODEL_TAG = String(process.env.TELEGRAM_MODEL_TAG || '').trim();
 /** Яку оцінку викликати в worker: v2 | v3. Env: LIVE_EVAL_MODEL */
 const LIVE_EVAL_MODEL = String(process.env.LIVE_EVAL_MODEL || 'v2').toLowerCase() === 'v3' ? 'v3' : 'v2';
 
+/** Line 1: вікно рішень (хвилини матчу). Env: LINE1_DECISION_MIN / LINE1_DECISION_MAX */
+const LINE1_DECISION_MIN = envInt(process.env.LINE1_DECISION_MIN, 60);
+const LINE1_DECISION_MAX = envInt(process.env.LINE1_DECISION_MAX, 75);
+
 module.exports = {
   USER_AGENTS, USER_AGENT, BASE_URL,
   LIVE_BASE_URL, LIVE_BASE_URL_ALT, LIVE_POLL_INTERVAL_MS, STATS_CONCURRENCY,
@@ -251,4 +255,6 @@ module.exports = {
   LIVE_PREMATCH_BIAS_CAP,
   TELEGRAM_MODEL_TAG,
   LIVE_EVAL_MODEL,
+  LINE1_DECISION_MIN,
+  LINE1_DECISION_MAX,
 };
