@@ -46,8 +46,16 @@ function aggregatePDry({ components, leagueBaseline, snapshotsCount }) {
     signalEligible = false;
     skipReason = `trajectory=${c.trajectory} < ${TRAJECTORY_HARD_GATE}`;
   } else if (consensusCount < CONSENSUS_REQUIRED) {
-    signalEligible = false;
-    skipReason = `consensus=${consensusCount} < ${CONSENSUS_REQUIRED}`;
+    // Виняток: trajectory=1.0 + дуже сильний P_dry → знижуємо поріг до 3/5
+    // (один слабкий компонент типу prematch/odds не блокує очевидно сухий матч)
+    const strongTrajectory = (c.trajectory ?? 0) >= 1.0;
+    const highPDry = pDry >= 0.88;
+    if (strongTrajectory && highPDry && consensusCount >= 3) {
+      skipReason = null; // пропускаємо
+    } else {
+      signalEligible = false;
+      skipReason = `consensus=${consensusCount} < ${CONSENSUS_REQUIRED}`;
+    }
   } else if (pDry < PDRY_THRESHOLD) {
     signalEligible = false;
     skipReason = `P_dry=${pDry} < ${PDRY_THRESHOLD}`;
