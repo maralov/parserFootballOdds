@@ -1,6 +1,8 @@
 'use strict';
 
-const XG_BURST_RATIO = 1.5;
+const { LINE1_INTENSITY_RATIO_MAX } = require('../../helpers/constants');
+
+const XG_BURST_RATIO = LINE1_INTENSITY_RATIO_MAX;
 
 /**
  * Hard SKIP gates for Line 1. Override consensus decision.

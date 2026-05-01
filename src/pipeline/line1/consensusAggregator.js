@@ -1,5 +1,11 @@
 'use strict';
 
+const {
+  LINE1_PDRY_THRESHOLD,
+  LINE1_CONSENSUS_REQUIRED,
+  LINE1_TRAJECTORY_MIN,
+} = require('../../helpers/constants');
+
 const WEIGHTS = {
   dry_1H:     0.12,
   dry_2H:     0.15,
@@ -8,10 +14,10 @@ const WEIGHTS = {
   prematch:   0.07,
 };
 
-const PDRY_THRESHOLD          = 0.62;
-const CONSENSUS_REQUIRED      = 4;
+const PDRY_THRESHOLD          = LINE1_PDRY_THRESHOLD;
+const CONSENSUS_REQUIRED      = LINE1_CONSENSUS_REQUIRED;
 const CONSENSUS_MIN_PER_SCORE = 0.5;
-const TRAJECTORY_HARD_GATE    = 0.4;
+const TRAJECTORY_HARD_GATE    = LINE1_TRAJECTORY_MIN;
 const MIN_SNAPSHOTS           = 2;
 
 /**

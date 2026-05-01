@@ -36,7 +36,7 @@ const { computeKellyStake } = require('./src/pipeline/liveModelEngine');
 const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
 const { evaluateLine1Dry } = require('./src/pipeline/line1/dryEngine');
 const { appendShadowEntry } = require('./src/pipeline/line1/shadowLogger');
-const { LINE1_ENABLED, LINE1_SHADOW_MODE, LINE1_TG_TAG, LIVE_MIN_CANDIDATE_MINUTE } = require('./src/helpers/constants');
+const { LINE1_ENABLED, LINE1_SHADOW_MODE, LINE1_TG_TAG, LINE1_MIN_CANDIDATE_MINUTE, LIVE_MIN_CANDIDATE_MINUTE } = require('./src/helpers/constants');
 // DST-safe: бере фактичний київський час (EET зимою / EEST влітку) через Intl.
 // hourCycle: 'h23' гарантує діапазон 0-23 (інакше деякі локалі повертають "24" опівночі).
 const KYIV_HOUR_FMT = new Intl.DateTimeFormat('en-GB', {
@@ -233,7 +233,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
   await page.setUserAgent(pickUserAgent());
 
   const effectiveMinMinute = LINE1_ENABLED
-    ? Math.min(45, LIVE_MIN_CANDIDATE_MINUTE)
+    ? Math.min(LINE1_MIN_CANDIDATE_MINUTE, LIVE_MIN_CANDIDATE_MINUTE)
     : LIVE_MIN_CANDIDATE_MINUTE;
   const { matches: allMatches, nearestSkippedMinute } = await scrapeLiveMatches(page, { minMinute: effectiveMinMinute });
   const warmupCount = allMatches.filter((m) => m.minute < LIVE_DECISION_WINDOW_START_MINUTE).length;
