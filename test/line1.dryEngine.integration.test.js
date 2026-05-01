@@ -118,3 +118,31 @@ test('evaluateLine1Dry: result contains components object', () => {
   assert.ok(Number.isFinite(result.components.odds));
   assert.ok(Number.isFinite(result.components.prematch));
 });
+
+test('evaluateLine1Dry: Dry→Burst → OVER_0_5', () => {
+  // Перші 2 snapshot: тихий матч (низький xG). Останній: різкий burst
+  // raw1H xG=0.4 → pace1H=0.00889/min
+  // raw2H xG=0.12 at 68' (23 хв) → overall ratio=0.587 < 0.85 (матч тихий загалом)
+  // last 3min delta xG=0.07 → ratio=2.6x burst
+  const burstFeatures = {
+    ...baseFeatures,
+    minute: 68,
+    raw1H: { shotsOnTarget: 2, expectedGoalsXg: 0.4, bigChances: 0, touchesInOppositionBox: 12, totalShots: 5 },
+    raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.12, bigChances: 0, touchesInOppositionBox: 5, totalShots: 3 },
+  };
+  const burstSnapshots = [
+    { matchMinute: 60, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 0, expectedGoalsXg: 0.03, bigChances: 0, touchesInOppositionBox: 2, totalShots: 1 } },
+    { matchMinute: 65, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 0, expectedGoalsXg: 0.05, bigChances: 0, touchesInOppositionBox: 3, totalShots: 2 } },
+    { matchMinute: 68, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.12, bigChances: 0, touchesInOppositionBox: 5, totalShots: 3 } },
+  ];
+  const result = evaluateLine1Dry({
+    match: { score: { home: '0', away: '0' } },
+    features: burstFeatures,
+    snapshots: burstSnapshots,
+    incidents: { homeRedCards: 0, awayRedCards: 0 },
+    preMatchAggregates: null,
+  });
+  assert.equal(result.bet, 'OVER_0_5', `expected OVER_0_5, got ${result.bet}: ${result.reason}`);
+  assert.equal(result.signalEligible, true);
+  assert.ok(result.reason.includes('Dry→Burst'));
+});

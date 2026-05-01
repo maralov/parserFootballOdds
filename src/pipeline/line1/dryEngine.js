@@ -5,7 +5,7 @@ const { dryFromIntensity, trajectoryDry, oddsDry, prematchDry } = require('./dry
 const { aggregatePDry } = require('./consensusAggregator');
 const { applyHardGates } = require('./hardGates');
 const { getLeagueBaseline } = require('../../helpers/leagueBaselines');
-const { LINE1_DECISION_MIN, LINE1_DECISION_MAX } = require('../../helpers/constants');
+const { LINE1_DECISION_MIN, LINE1_DECISION_MAX, LINE1_INTENSITY_RATIO_MAX, LINE1_DRY_BURST_OVERALL_MAX } = require('../../helpers/constants');
 
 /**
  * Compute delta between last two snapshots' raw2H and build a pace from it.
@@ -99,6 +99,21 @@ function evaluateLine1Dry({ match, features, snapshots, incidents, preMatchAggre
 
   const gate = applyHardGates({ incidents, intensityRatioLast, bcDeltaLast, scoreChanged });
   if (gate.skip) {
+    // Dry→Burst OVER: матч був тихим (загальний ratio < поріг), потім різкий xG burst
+    // → ймовірний гол, ставимо ТБ 0.5 замість блокуємо
+    if (gate.reason?.includes('xG burst')) {
+      const overallXgRatio = intensityRatio?.expectedGoalsXg;
+      const lastXgRatio = intensityRatioLast?.expectedGoalsXg;
+      const wasDry = Number.isFinite(overallXgRatio) && overallXgRatio < LINE1_DRY_BURST_OVERALL_MAX;
+      const isBurst = Number.isFinite(lastXgRatio) && lastXgRatio >= LINE1_INTENSITY_RATIO_MAX;
+      if (wasDry && isBurst && isZeroZero) {
+        return {
+          bet: 'OVER_0_5', signalEligible: true,
+          reason: `Dry→Burst ТБ 0.5: загальний xG ratio=${overallXgRatio.toFixed(2)} < ${LINE1_DRY_BURST_OVERALL_MAX}, burst=${lastXgRatio.toFixed(2)}`,
+          pDry: null, components, intensityRatio, intensityRatioLast, minute,
+        };
+      }
+    }
     return {
       bet: 'SKIP', signalEligible: false,
       reason: `hard gate: ${gate.reason}`,

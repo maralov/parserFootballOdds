@@ -217,6 +217,8 @@ const LINE1_TRAJECTORY_MIN       = envFloat(process.env.LINE1_TRAJECTORY_MIN, 0.
 const LINE1_INTENSITY_RATIO_MAX  = envFloat(process.env.LINE1_INTENSITY_RATIO_MAX, 1.5);
 const LINE1_BC_DELTA_MAX         = envInt(process.env.LINE1_BC_DELTA_MAX, 1);
 const LINE1_TG_TAG               = process.env.LINE1_TG_TAG || 'Lin1';
+// Dry→Burst OVER сигнал: поріг загального 2H темпу (нижче = матч був тихим до burst)
+const LINE1_DRY_BURST_OVERALL_MAX = envFloat(process.env.LINE1_DRY_BURST_OVERALL_MAX, 0.85);
 
 module.exports = {
   USER_AGENTS, USER_AGENT, BASE_URL,
@@ -277,4 +279,5 @@ module.exports = {
   LINE1_INTENSITY_RATIO_MAX,
   LINE1_BC_DELTA_MAX,
   LINE1_TG_TAG,
+  LINE1_DRY_BURST_OVERALL_MAX,
 };

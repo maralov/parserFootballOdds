@@ -616,13 +616,19 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
                 const traj = c.trajectory != null ? c.trajectory.toFixed(2) : '—';
                 const odds1 = features.odds1X2;
                 const oddsLine = odds1 ? `\n📐 Кф 1X2: ${odds1.home}/${odds1.draw}/${odds1.away}` : '';
+                const isOver = line1Result.bet === 'OVER_0_5';
+                const betEmoji = isOver ? '📈' : '📉';
+                const betLabel = isOver ? 'ТБ 0.5 \\(Dry→Burst\\)' : 'ТМ 0.5';
+                const statsLine = isOver
+                  ? `🔥 *Dry→Burst:* ${line1Result.reason?.split(':')[1]?.trim() || ''}`
+                  : `🎯 *P\\_dry:* ${line1Result.pDry} | *Consensus:* ${line1Result.consensusCount}/5\n` +
+                    `📉 *Trajectory:* ${traj} | *dry\\_1H:* ${c.dry_1H != null ? c.dry_1H.toFixed(2) : '—'}`;
                 const l1msg =
-                  `${getTelegramMarkdownPrefix()}📉 *ТМ 0.5 (Lin1)*\n\n` +
+                  `${getTelegramMarkdownPrefix()}${betEmoji} *${betLabel} (Lin1)*\n\n` +
                   `🏆 ${h} - ${a}\n` +
                   `📊 ${league}\n` +
                   `⚽ Рахунок: 0:0 (${features.minute}')\n\n` +
-                  `🎯 *P\\_dry:* ${line1Result.pDry} | *Consensus:* ${line1Result.consensusCount}/5\n` +
-                  `📉 *Trajectory:* ${traj} | *dry\\_1H:* ${c.dry_1H != null ? c.dry_1H.toFixed(2) : '—'}` +
+                  statsLine +
                   oddsLine;
                 await sendTelegramMessage(l1msg);
                 sentTelegramIds.add(match.id);
