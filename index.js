@@ -3,7 +3,10 @@ if (process.argv.includes('--ignore-hours')) {
   process.env.LIVE_IGNORE_HOURS = '1';
 }
 const { Worker } = require('worker_threads');
-const { LIVE_POLL_INTERVAL_MS, LIVE_MIN_CANDIDATE_MINUTE } = require('./src/helpers/constants');
+const { LIVE_POLL_INTERVAL_MS, LIVE_MIN_CANDIDATE_MINUTE, LINE1_ENABLED, LINE1_MIN_CANDIDATE_MINUTE } = require('./src/helpers/constants');
+const EFFECTIVE_MIN_CANDIDATE_MINUTE = LINE1_ENABLED
+  ? Math.min(LINE1_MIN_CANDIDATE_MINUTE, LIVE_MIN_CANDIDATE_MINUTE)
+  : LIVE_MIN_CANDIDATE_MINUTE;
 const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
 const { dateKeyLocal, timeHHmm } = require('./src/helpers/date');
 const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
@@ -30,8 +33,8 @@ function computeNextWaitMs({ liveDecisionCount, liveWarmupCount, nearestSkippedM
   if (nearestSkippedMinute == null) {
     waitMs = NO_MATCH_MS;
   } else {
-    // Прийти коли матч досягне LIVE_MIN_CANDIDATE_MINUTE (52') — перший знімок
-    const minUntil = Math.max(1, LIVE_MIN_CANDIDATE_MINUTE - nearestSkippedMinute);
+    // Прийти коли матч досягне порогу кандидата — перший знімок
+    const minUntil = Math.max(1, EFFECTIVE_MIN_CANDIDATE_MINUTE - nearestSkippedMinute);
     waitMs = minUntil * 60_000;
   }
 
@@ -105,6 +108,11 @@ async function sendHeartbeat(runCount) {
       if (result.lastResultCheckHour != null) lastResultCheckHour = result.lastResultCheckHour;
     } catch (e) {
       console.log(`\n❌ RUN #${runCount} FAILED: ${e.message}`);
+      // Вбиваємо зомбі Chrome процеси після краша воркера
+      try {
+        const { execSync } = require('child_process');
+        execSync('pkill -9 -f puppeteer_dev_profile 2>/dev/null || true', { stdio: 'ignore' });
+      } catch {}
     }
 
     if (!isContinuous) break;
