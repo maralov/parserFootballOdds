@@ -572,31 +572,44 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
 
           console.log(`  [${LINE1_TG_TAG}] ${match.home}-${match.away} ${features.minute}': bet=${line1Result.bet} pDry=${line1Result.pDry ?? 'n/a'} (${line1Result.reason})`);
 
-          // Завжди пишемо shadow лог (для калібрування)
-          {
-            appendShadowEntry(sessionDateKey(), {
-              matchId: match.id,
-              league: match.league,
-              home: match.home,
-              away: match.away,
-              minute: features.minute,
+          // Завжди логуємо Line 1 результат у matches.json (поле line1 + modelTag)
+          appendMatchEntry({
+            matchId: match.id,
+            modelTag: LINE1_TG_TAG,
+            line1: {
               bet: line1Result.bet,
               signalEligible: line1Result.signalEligible,
               pDry: line1Result.pDry,
               consensusCount: line1Result.consensusCount,
               components: line1Result.components,
               reason: line1Result.reason,
-              intensityRatio: line1Result.intensityRatio,
+              minute: features.minute,
               timestamp: new Date().toISOString(),
-            });
-          }
+            },
+          });
+
+          // Завжди пишемо shadow лог (для калібрування)
+          appendShadowEntry(sessionDateKey(), {
+            matchId: match.id,
+            league: match.league,
+            home: match.home,
+            away: match.away,
+            minute: features.minute,
+            bet: line1Result.bet,
+            signalEligible: line1Result.signalEligible,
+            pDry: line1Result.pDry,
+            consensusCount: line1Result.consensusCount,
+            components: line1Result.components,
+            reason: line1Result.reason,
+            intensityRatio: line1Result.intensityRatio,
+            timestamp: new Date().toISOString(),
+          });
 
           // Відправка Telegram (тільки якщо не shadow-mode і сигнал пройшов)
           if (!LINE1_SHADOW_MODE && line1Result.signalEligible && !sentTelegramIds.has(match.id)) {
             const l1Hour = kyivHour();
             if (l1Hour >= 6 && l1Hour < 23) {
               try {
-
                 const { home: h, away: a } = sanitizeTeams(match.home, match.away);
                 const league = sanitizeLeagueName(match.league);
                 const c = line1Result.components || {};
@@ -613,7 +626,24 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
                   oddsLine;
                 await sendTelegramMessage(l1msg);
                 sentTelegramIds.add(match.id);
-                // Зберігаємо Line1 bet в activePredictions для коректного result tracking
+                // Оновлюємо matches.json: prediction + telegramInitialSent для result tracking
+                appendMatchEntry({
+                  matchId: match.id,
+                  telegramInitialSent: true,
+                  prediction: {
+                    bet: 'UNDER_0_5',
+                    confidence: 'high',
+                    pDry: line1Result.pDry,
+                    pGoal: null,
+                    edge: line1Result.pDry != null ? Number((line1Result.pDry - 0.5).toFixed(3)) : null,
+                    reason: line1Result.reason,
+                    signalEligible: true,
+                    timeWindow: '60-78',
+                    minute: features.minute,
+                    timestamp: new Date().toISOString(),
+                    model: LINE1_TG_TAG,
+                  },
+                });
                 activePredictions.set(match.id, {
                   ...(activePredictions.get(match.id) || {}),
                   bet: 'UNDER_0_5',

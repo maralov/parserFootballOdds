@@ -57,6 +57,8 @@ function appendMatchEntry(entry, date) {
     if (entry.pipeline) ex.pipeline = entry.pipeline;
     if (entry.skipReason !== undefined) ex.skipReason = entry.skipReason;
     if (entry.telegramInitialSent === true) ex.telegramInitialSent = true;
+    if (entry.line1 !== undefined) ex.line1 = entry.line1;
+    if (entry.modelTag !== undefined) ex.modelTag = entry.modelTag;
     ex.timestamp = entry.timestamp;
     _applyPrediction(ex, entry);
   }
