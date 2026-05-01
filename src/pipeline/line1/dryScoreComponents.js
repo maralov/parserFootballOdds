@@ -38,7 +38,7 @@ function dryFromIntensity(raw) {
  *   ratio=0.5 → dry=1.0, ratio=1.0 → dry=0.5, ratio=1.5 → dry=0.0
  */
 function trajectoryDry(intensityRatio) {
-  if (!intensityRatio) return 0.3;
+  if (!intensityRatio) return 0.5;
   const parts = [];
   if (Number.isFinite(intensityRatio.expectedGoalsXg))
     parts.push({ v: intensityRatio.expectedGoalsXg, w: 0.40 });
@@ -46,7 +46,12 @@ function trajectoryDry(intensityRatio) {
     parts.push({ v: intensityRatio.shotsOnTarget, w: 0.35 });
   if (Number.isFinite(intensityRatio.touchesInOppositionBox))
     parts.push({ v: intensityRatio.touchesInOppositionBox, w: 0.25 });
-  if (parts.length === 0) return 0.3;
+  // Fallback: якщо основні метрики відсутні (ліга без xG/SOT/touches) — використовуємо totalShots
+  if (parts.length === 0 && Number.isFinite(intensityRatio.totalShots)) {
+    parts.push({ v: intensityRatio.totalShots, w: 1.0 });
+  }
+  // Справді немає даних → нейтрально (не блокуємо прогноз)
+  if (parts.length === 0) return 0.5;
   const totalW = parts.reduce((s, p) => s + p.w, 0);
   const weightedRatio = parts.reduce((s, p) => s + p.v * p.w, 0) / totalW;
   return Number(Math.max(0, Math.min(1, 1.5 - weightedRatio)).toFixed(4));

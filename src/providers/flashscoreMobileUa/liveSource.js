@@ -192,6 +192,15 @@ function parseLiveMatchesFromDocument(minMinute, feedLabel, feedUrl) {
       /^2\s*[-–—]\s*\S{1,6}\s+тайм\s*-\s*(\d{1,3})(?:\+(\d{1,2}))?['\u2019′]\s*/i,
       ''
     ).trim();
+    // Стрип назви ліги якщо DOM мішає ліговий блок із матчем
+    if (currentLeague && currentLeague !== 'unknown') {
+      const lp = currentLeague.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      chunk = chunk.replace(new RegExp(`^${lp}\\s*[-–—]?\\s*`, 'i'), '').trim();
+    }
+    // Стрип "Таблиця...", "Група X" та хвилини що можуть залишитись після ліги
+    chunk = chunk.replace(/Таблиця\S*\s*/gi, '').trim();
+    chunk = chunk.replace(/^Група\s+\S+\s*/i, '').trim();
+    chunk = chunk.replace(/^(\d{1,3})(?:\+(\d{1,2}))?['’′]\s*/, '').trim();
 
     let teamParts = chunk.split(/\s+-\s+/);
     if (teamParts.length < 2) {

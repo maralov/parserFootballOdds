@@ -51,8 +51,8 @@ test('trajectoryDry: 2H розкривається (ratio=1.5) → ≤0.1', () =
   assert.ok(trajectoryDry(ratios) <= 0.1);
 });
 
-test('trajectoryDry: null → 0.3 (defensive default)', () => {
-  assert.equal(trajectoryDry(null), 0.3);
+test('trajectoryDry: null → 0.5 (neutral, не блокує)', () => {
+  assert.equal(trajectoryDry(null), 0.5);
 });
 
 test('trajectoryDry: частково null поля → використовує наявні', () => {
