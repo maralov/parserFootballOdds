@@ -40,11 +40,11 @@ function dryFromIntensity(raw) {
 function trajectoryDry(intensityRatio) {
   if (!intensityRatio) return 0.3;
   const parts = [];
-  if (intensityRatio.expectedGoalsXg !== null && intensityRatio.expectedGoalsXg !== undefined)
+  if (Number.isFinite(intensityRatio.expectedGoalsXg))
     parts.push({ v: intensityRatio.expectedGoalsXg, w: 0.40 });
-  if (intensityRatio.shotsOnTarget !== null && intensityRatio.shotsOnTarget !== undefined)
+  if (Number.isFinite(intensityRatio.shotsOnTarget))
     parts.push({ v: intensityRatio.shotsOnTarget, w: 0.35 });
-  if (intensityRatio.touchesInOppositionBox !== null && intensityRatio.touchesInOppositionBox !== undefined)
+  if (Number.isFinite(intensityRatio.touchesInOppositionBox))
     parts.push({ v: intensityRatio.touchesInOppositionBox, w: 0.25 });
   if (parts.length === 0) return 0.3;
   const totalW = parts.reduce((s, p) => s + p.w, 0);

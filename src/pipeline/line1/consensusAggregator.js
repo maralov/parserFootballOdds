@@ -33,7 +33,7 @@ function aggregatePDry({ components, leagueBaseline, snapshotsCount }) {
   let signalEligible = true;
   let skipReason = null;
 
-  if (snapshotsCount < MIN_SNAPSHOTS) {
+  if (!Number.isFinite(snapshotsCount) || snapshotsCount < MIN_SNAPSHOTS) {
     signalEligible = false;
     skipReason = `snapshots=${snapshotsCount} < ${MIN_SNAPSHOTS}`;
   } else if ((c.trajectory ?? 0) < TRAJECTORY_HARD_GATE) {
