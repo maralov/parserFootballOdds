@@ -483,9 +483,10 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
         const matchLocalHour = kyivHour();
         // блокуємо після 23:00 і нічні години 00:xx–05:xx за київським часом
         const withinLocalHours = matchLocalHour >= 6 && matchLocalHour < 23;
-        const isNewSignal = !alreadySentTg && canPush && withinLocalHours;
-        const isFlipToOver = betChanged && prev?.bet === 'UNDER_0_5' && decision.bet === 'OVER_0_5';
-        const isUpdate = alreadySentTg && canPush && betChanged && withinLocalHours;
+        // Коли активна Line 1 — v3 не надсилає TG, тільки аналізує дані
+        const isNewSignal = !LINE1_ENABLED && !alreadySentTg && canPush && withinLocalHours;
+        const isFlipToOver = !LINE1_ENABLED && betChanged && prev?.bet === 'UNDER_0_5' && decision.bet === 'OVER_0_5';
+        const isUpdate = !LINE1_ENABLED && alreadySentTg && canPush && betChanged && withinLocalHours;
 
         if (isNewSignal) {
           // Фоновий скрапінг GGBet: відкриваємо окрему вкладку з таймаутом 15с
