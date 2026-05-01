@@ -38,6 +38,8 @@
     "report:day": "node scripts/sendYesterdayStakeReport.js",
     "model:replay-compare": "node scripts/replayModelCompare.js",
     "model:replay-compare:strict": "node scripts/replayModelCompare.js --strict-tuned",
+    "line1:shadow-report": "node scripts/shadowReportLine1.js",
+    "line1:calibrate": "node scripts/calibrateLine1.js",
     "test": "node --test 'test/*.test.js'"
   },
   "author": "",
