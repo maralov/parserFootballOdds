@@ -1,21 +1,22 @@
 const { LIVE_BASE_URL, LIVE_BASE_URL_ALT, LIVE_MIN_CANDIDATE_MINUTE } = require('./helpers/constants');
 const { collectLiveMatches } = require('./providers/flashscoreMobileUa/liveSource');
 
-async function scrapeLiveMatches(page) {
+async function scrapeLiveMatches(page, options = {}) {
+  const minMinute = Number.isFinite(options.minMinute) ? options.minMinute : LIVE_MIN_CANDIDATE_MINUTE;
   try {
     const feeds = [LIVE_BASE_URL, LIVE_BASE_URL_ALT].filter(Boolean);
     const allMatches = [];
     const allSkipped = [];
 
     for (const url of feeds) {
-      console.log('Opening:', url, `(minute >= ${LIVE_MIN_CANDIDATE_MINUTE}, 0:0 only)`);
-      const { matches, skippedByMinute, health } = await collectLiveMatches(page, url);
+      console.log('Opening:', url, `(minute >= ${minMinute}, 0:0 only)`);
+      const { matches, skippedByMinute, health } = await collectLiveMatches(page, url, {}, minMinute);
       console.log(
         `Provider health [${url}]: rows=${health.totalRows}, 0:0 total=${health.totalZeroZero}, candidates=${matches.length}`
       );
 
       if (skippedByMinute.length > 0) {
-        console.log(`  ⏸ 0:0 ще рано (< ${LIVE_MIN_CANDIDATE_MINUTE}'):`);
+        console.log(`  ⏸ 0:0 ще рано (< ${minMinute}'):`);
         for (const s of skippedByMinute) {
           console.log(`    ${s.minute}' ${s.home} - ${s.away} [${s.league}]`);
         }

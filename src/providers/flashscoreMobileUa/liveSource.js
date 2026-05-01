@@ -235,7 +235,7 @@ function parseLiveMatchesFromDocument(minMinute, feedLabel, feedUrl) {
   return { matches, skippedByMinute, health };
 }
 
-async function collectLiveMatches(page, liveUrl, opts = {}) {
+async function collectLiveMatches(page, liveUrl, opts = {}, minMinute = LIVE_MIN_CANDIDATE_MINUTE) {
   if (!opts.skipNavigation) {
     await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 2, isMobile: true });
     await page.goto(liveUrl, {
@@ -274,7 +274,7 @@ async function collectLiveMatches(page, liveUrl, opts = {}) {
   }
   const { matches, skippedByMinute, health } = await page.evaluate(
     parseLiveMatchesFromDocument,
-    LIVE_MIN_CANDIDATE_MINUTE,
+    minMinute,
     liveUrl.includes('s=1') ? 's=1' : 's=2',
     liveUrl
   );
