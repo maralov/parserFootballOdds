@@ -373,11 +373,15 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
     }
   }
 
-  // Compute 1H stats as: firstHalf = overall - secondHalf (sum fields only)
-  // Valid only when both overall and secondHalf are available
+  // Compute 1H stats as: firstHalf = overall - secondHalf (sum/count fields only).
+  // Percentage metrics (e.g. ballPossession) are excluded — subtraction is semantically invalid
+  // (e.g. 55% overall - 60% 2H = -5% which has no football meaning).
+  // Key sets in sum / home / away are expected to be identical per parser invariant.
+  const PERCENT_KEYS = new Set(['ballPossession']);
   if (results.overall && results.secondHalf) {
     const fh = { home: {}, away: {}, sum: {} };
     for (const key of Object.keys(results.overall.sum)) {
+      if (PERCENT_KEYS.has(key)) continue;
       const ov = results.overall.sum[key];
       const sh = results.secondHalf.sum[key];
       if (typeof ov === 'number' && typeof sh === 'number') {
@@ -386,10 +390,11 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
     }
     for (const side of ['home', 'away']) {
       const src = results.overall[side] || {};
-      const sh = results.secondHalf[side] || {};
+      const shSide = results.secondHalf[side] || {};
       for (const key of Object.keys(src)) {
+        if (PERCENT_KEYS.has(key)) continue;
         const ov = src[key];
-        const s = sh[key];
+        const s = shSide[key];
         if (typeof ov === 'number' && typeof s === 'number') {
           fh[side][key] = Number((ov - s).toFixed(2));
         }
