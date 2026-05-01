@@ -424,7 +424,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
           ? ` | Δ2H SOT=${lt.deltas.shotsOnTarget ?? '—'} xG=${lt.deltas.expectedGoalsXg ?? '—'} (Δ${lt.deltaMatchMinutes ?? '—'}′ матчу)`
           : '';
       console.log(
-        `  Model v2: pGoal=${decision.pGoal}, pDry=${decision.pDry} sq=${decision.signalQuality ?? '—'} state=${modelV2.currentState} | ${decision.timeWindow} → ${decision.bet}` +
+        `  Model ${LIVE_EVAL_MODEL}: pGoal=${decision.pGoal}, pDry=${decision.pDry} sq=${decision.signalQuality ?? '—'} state=${modelV2.currentState} | ${decision.timeWindow} → ${decision.bet}` +
         deltaLine +
         (decision.signalEligible ? ' [TG]' : '')
       );
