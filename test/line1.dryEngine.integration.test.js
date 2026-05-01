@@ -8,16 +8,16 @@ const baseFeatures = {
   league: 'Італія: Серія А',
   minute: 65,
   raw1H: { shotsOnTarget: 2, expectedGoalsXg: 0.4, bigChances: 0, touchesInOppositionBox: 12, totalShots: 5 },
-  raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.2, bigChances: 0, touchesInOppositionBox: 6, totalShots: 3 },
-  rawOverall: { shotsOnTarget: 3, expectedGoalsXg: 0.6, bigChances: 0, touchesInOppositionBox: 18, totalShots: 8 },
+  raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.12, bigChances: 0, touchesInOppositionBox: 5, totalShots: 2 },
+  rawOverall: { shotsOnTarget: 3, expectedGoalsXg: 0.52, bigChances: 0, touchesInOppositionBox: 17, totalShots: 7 },
   odds1X2: { home: 2.6, draw: 3.0, away: 2.7 },
   statsStatus: 'both',
 };
 
 const drySnapshots = [
-  { matchMinute: 55, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 0, expectedGoalsXg: 0.05, bigChances: 0, touchesInOppositionBox: 2, totalShots: 1 } },
-  { matchMinute: 60, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.10, bigChances: 0, touchesInOppositionBox: 4, totalShots: 2 } },
-  { matchMinute: 65, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.20, bigChances: 0, touchesInOppositionBox: 6, totalShots: 3 } },
+  { matchMinute: 55, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 0, expectedGoalsXg: 0.04, bigChances: 0, touchesInOppositionBox: 2, totalShots: 1 } },
+  { matchMinute: 60, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.08, bigChances: 0, touchesInOppositionBox: 3, totalShots: 2 } },
+  { matchMinute: 65, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.12, bigChances: 0, touchesInOppositionBox: 5, totalShots: 2 } },
 ];
 
 const lowAggregates = {
