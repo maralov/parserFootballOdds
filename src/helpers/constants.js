@@ -207,6 +207,17 @@ const LIVE_EVAL_MODEL = String(process.env.LIVE_EVAL_MODEL || 'v2').toLowerCase(
 const LINE1_DECISION_MIN = envInt(process.env.LINE1_DECISION_MIN, 60);
 const LINE1_DECISION_MAX = envInt(process.env.LINE1_DECISION_MAX, 75);
 
+// === Лінія 1: P_dry Consensus + Trajectory ===
+const LINE1_ENABLED              = envBool(process.env.LINE1_ENABLED, false);
+const LINE1_SHADOW_MODE          = envBool(process.env.LINE1_SHADOW_MODE, true);
+const LINE1_MIN_CANDIDATE_MINUTE = envInt(process.env.LINE1_MIN_CANDIDATE_MINUTE, 45);
+const LINE1_PDRY_THRESHOLD       = envFloat(process.env.LINE1_PDRY_THRESHOLD, 0.62);
+const LINE1_CONSENSUS_REQUIRED   = envInt(process.env.LINE1_CONSENSUS_REQUIRED, 4);
+const LINE1_TRAJECTORY_MIN       = envFloat(process.env.LINE1_TRAJECTORY_MIN, 0.4);
+const LINE1_INTENSITY_RATIO_MAX  = envFloat(process.env.LINE1_INTENSITY_RATIO_MAX, 1.5);
+const LINE1_BC_DELTA_MAX         = envInt(process.env.LINE1_BC_DELTA_MAX, 1);
+const LINE1_TG_TAG               = process.env.LINE1_TG_TAG || 'Lin1';
+
 module.exports = {
   USER_AGENTS, USER_AGENT, BASE_URL,
   LIVE_BASE_URL, LIVE_BASE_URL_ALT, LIVE_POLL_INTERVAL_MS, STATS_CONCURRENCY,
@@ -257,4 +268,13 @@ module.exports = {
   LIVE_EVAL_MODEL,
   LINE1_DECISION_MIN,
   LINE1_DECISION_MAX,
+  LINE1_ENABLED,
+  LINE1_SHADOW_MODE,
+  LINE1_MIN_CANDIDATE_MINUTE,
+  LINE1_PDRY_THRESHOLD,
+  LINE1_CONSENSUS_REQUIRED,
+  LINE1_TRAJECTORY_MIN,
+  LINE1_INTENSITY_RATIO_MAX,
+  LINE1_BC_DELTA_MAX,
+  LINE1_TG_TAG,
 };
