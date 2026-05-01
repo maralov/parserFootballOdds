@@ -284,7 +284,7 @@ async function parseStatsFromPage(page, labelMapJSON) {
 async function scrapeDesktopStats(page, desktopUrl, matchId) {
   await applyResourceBlocking(page);
   const labelMapJSON = JSON.stringify(STAT_LABEL_MAP);
-  const results = { matchId, overall: null, secondHalf: null, statsStatus: 'unavailable', diagnostics: {} };
+  const results = { matchId, overall: null, firstHalf: null, secondHalf: null, statsStatus: 'unavailable', diagnostics: {} };
 
   const urlObj = new URL(desktopUrl);
   const cleanPath = urlObj.pathname.replace(/\/$/, '').replace(/\/?(summary.*)?$/, '');
@@ -371,6 +371,31 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
     } catch (e) {
       logDomAlert(matchId, 'MOBILE_STATS_FALLBACK', e.message);
     }
+  }
+
+  // Compute 1H stats as: firstHalf = overall - secondHalf (sum fields only)
+  // Valid only when both overall and secondHalf are available
+  if (results.overall && results.secondHalf) {
+    const fh = { home: {}, away: {}, sum: {} };
+    for (const key of Object.keys(results.overall.sum)) {
+      const ov = results.overall.sum[key];
+      const sh = results.secondHalf.sum[key];
+      if (typeof ov === 'number' && typeof sh === 'number') {
+        fh.sum[key] = Number((ov - sh).toFixed(2));
+      }
+    }
+    for (const side of ['home', 'away']) {
+      const src = results.overall[side] || {};
+      const sh = results.secondHalf[side] || {};
+      for (const key of Object.keys(src)) {
+        const ov = src[key];
+        const s = sh[key];
+        if (typeof ov === 'number' && typeof s === 'number') {
+          fh[side][key] = Number((ov - s).toFixed(2));
+        }
+      }
+    }
+    results.firstHalf = fh;
   }
 
   if (results.overall && results.secondHalf) results.statsStatus = 'both';
