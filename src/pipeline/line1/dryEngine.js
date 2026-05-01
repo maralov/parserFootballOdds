@@ -23,7 +23,7 @@ function computeLast5MinDelta(snapshots) {
     else delta[k] = null;
   }
   const minutesSpan = Math.max(1, (cur.matchMinute || 0) - (prev.matchMinute || 0));
-  return { delta, minutesSpan };
+  return { delta, minutesSpan, prevSnap: prev };
 }
 
 /**
@@ -102,14 +102,19 @@ function evaluateLine1Dry({ match, features, snapshots, incidents, preMatchAggre
     // Dry→Burst OVER: матч був тихим (загальний ratio < поріг), потім різкий xG burst
     // → ймовірний гол, ставимо ТБ 0.5 замість блокуємо
     if (gate.reason?.includes('xG burst')) {
-      const overallXgRatio = intensityRatio?.expectedGoalsXg;
+      // Перевіряємо ratio ПОПЕРЕДНЬОГО snapshot (до burst) — поточний вже спотворений burst-ом
+      const prevSnap = last5?.prevSnap;
+      const prevMinutes2H = prevSnap ? Math.max(1, prevSnap.matchMinute - 45) : null;
+      const pace2HPrev = prevSnap ? computePace(prevSnap.raw2H, prevMinutes2H) : null;
+      const prevOverallRatio = computeIntensityRatio(pace2HPrev, pace1H);
+      const prevXgRatio = prevOverallRatio?.expectedGoalsXg;
       const lastXgRatio = intensityRatioLast?.expectedGoalsXg;
-      const wasDry = Number.isFinite(overallXgRatio) && overallXgRatio < LINE1_DRY_BURST_OVERALL_MAX;
+      const wasDry = Number.isFinite(prevXgRatio) && prevXgRatio < LINE1_DRY_BURST_OVERALL_MAX;
       const isBurst = Number.isFinite(lastXgRatio) && lastXgRatio >= LINE1_INTENSITY_RATIO_MAX;
       if (wasDry && isBurst && isZeroZero) {
         return {
           bet: 'OVER_0_5', signalEligible: true,
-          reason: `Dry→Burst ТБ 0.5: загальний xG ratio=${overallXgRatio.toFixed(2)} < ${LINE1_DRY_BURST_OVERALL_MAX}, burst=${lastXgRatio.toFixed(2)}`,
+          reason: `Dry→Burst ТБ 0.5: pre-burst xG ratio=${prevXgRatio.toFixed(2)} < ${LINE1_DRY_BURST_OVERALL_MAX}, burst=${lastXgRatio.toFixed(2)}`,
           pDry: null, components, intensityRatio, intensityRatioLast, minute,
         };
       }
