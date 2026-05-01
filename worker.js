@@ -571,10 +571,10 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
 
           console.log(`  [${LINE1_TG_TAG}] ${match.home}-${match.away} ${features.minute}': bet=${line1Result.bet} pDry=${line1Result.pDry ?? 'n/a'} (${line1Result.reason})`);
 
-          if (LINE1_SHADOW_MODE) {
+          // Завжди пишемо shadow лог (для калібрування)
+          {
             const { sessionDateKey } = require('./src/helpers/date');
-            const shadowDate = sessionDateKey();
-            appendShadowEntry(shadowDate, {
+            appendShadowEntry(sessionDateKey(), {
               matchId: match.id,
               league: match.league,
               home: match.home,
@@ -589,6 +589,38 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
               intensityRatio: line1Result.intensityRatio,
               timestamp: new Date().toISOString(),
             });
+          }
+
+          // Відправка Telegram (тільки якщо не shadow-mode і сигнал пройшов)
+          if (!LINE1_SHADOW_MODE && line1Result.signalEligible && !sentTelegramIds.has(match.id)) {
+            const l1Hour = kyivHour();
+            if (l1Hour >= 6 && l1Hour < 23) {
+              try {
+                const { sanitizeLeagueName, sanitizeTeams } = require('./src/helpers/utils/normalizeMatchText');
+                const { home: h, away: a } = sanitizeTeams(match.home, match.away);
+                const league = sanitizeLeagueName(match.league);
+                const c = line1Result.components || {};
+                const traj = c.trajectory != null ? c.trajectory.toFixed(2) : '—';
+                const odds1 = features.odds1X2;
+                const oddsLine = odds1 ? `\n📐 Кф 1X2: ${odds1.home}/${odds1.draw}/${odds1.away}` : '';
+                const l1msg =
+                  `${getTelegramMarkdownPrefix()}📉 *ТМ 0.5 (Lin1)*\n\n` +
+                  `🏆 ${h} - ${a}\n` +
+                  `📊 ${league}\n` +
+                  `⚽ Рахунок: 0:0 (${features.minute}')\n\n` +
+                  `🎯 *P\\_dry:* ${line1Result.pDry} | *Consensus:* ${line1Result.consensusCount}/5\n` +
+                  `📉 *Trajectory:* ${traj} | *dry\\_1H:* ${c.dry_1H != null ? c.dry_1H.toFixed(2) : '—'}` +
+                  oddsLine;
+                await sendTelegramMessage(l1msg);
+                sentTelegramIds.add(match.id);
+                tgSent++;
+                console.log(`  ✓ [${LINE1_TG_TAG}] Telegram надіслано`);
+              } catch (e) {
+                console.log(`  [${LINE1_TG_TAG}] TG error: ${e.message}`);
+              }
+            } else {
+              console.log(`  🌙 [${LINE1_TG_TAG}] Сигнал готовий, але ${l1Hour}:xx Kyiv — не надсилаємо`);
+            }
           }
         } catch (e) {
           console.log(`  [${LINE1_TG_TAG}] error: ${e.message}`);
