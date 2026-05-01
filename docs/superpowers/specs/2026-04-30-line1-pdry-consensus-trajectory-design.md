@@ -344,4 +344,9 @@ LINE1_BC_DELTA_MAX         = 1     // BC burst gate
 
 ---
 
-**Status:** дизайн затверджено в брейнсторм-сесії 2026-04-30. Очікує ревью спека перед переходом до writing-plans.
+**Status:** реалізовано (shadow-mode) у v3.3. Дата імплементації: 2026-05-01. План: `docs/superpowers/plans/2026-04-30-line1-pdry-consensus-trajectory.md`.
+
+**Outstanding (для наступних ітерацій):**
+- Повне калібрування: re-scrape 1H stats + logistic regression
+- Інтеграція реальних кф ТМ 0.5 з GGBet
+- Активація TG після shadow HR ≥55% за 14 днів

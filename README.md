@@ -69,3 +69,28 @@ Live-пайплайн: мобільний Flashscore (кандидати 0:0) �
    - Запуск: `npm run live:start`.
    - Статус: `npm run live:status`.
    - Зупинка: `npm run live:stop`.
+
+---
+
+## Лінія 1 (v3.3) — P_dry Consensus + Trajectory
+
+Нова паралельна стратегія ТМ 0.5 з раннім моніторингом 1H→2H. Працює поряд з v3, не замінює її.
+
+**За замовчуванням вимкнено.** Для запуску:
+```
+LINE1_ENABLED=1 LINE1_SHADOW_MODE=1 npm run live:watch:v3
+```
+
+**Команди:**
+```bash
+# Денний звіт shadow-режиму
+npm run line1:shadow-report -- 2026-05-01
+
+# Preliminary backtest на існуючих логах
+npm run line1:calibrate -- --validate-only
+```
+
+**Документація:**
+- Спек: `docs/superpowers/specs/2026-04-30-line1-pdry-consensus-trajectory-design.md`
+- План: `docs/superpowers/plans/2026-04-30-line1-pdry-consensus-trajectory.md`
+- Наступні кроки: `docs/superpowers/plans/line1-next-steps.md`
