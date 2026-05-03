@@ -7,9 +7,7 @@ const { LIVE_POLL_INTERVAL_MS, LIVE_MIN_CANDIDATE_MINUTE, LINE1_ENABLED, LINE1_M
 const EFFECTIVE_MIN_CANDIDATE_MINUTE = LINE1_ENABLED
   ? Math.min(LINE1_MIN_CANDIDATE_MINUTE, LIVE_MIN_CANDIDATE_MINUTE)
   : LIVE_MIN_CANDIDATE_MINUTE;
-const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
-const { dateKeyLocal, timeHHmm } = require('./src/helpers/date');
-const sendTelegramMessage = require('./src/helpers/utils/sendTelegramMessage');
+const { dateKeyLocal } = require('./src/helpers/date');
 
 /**
  * Динамічно обчислює паузу до наступного скану.
@@ -48,9 +46,7 @@ let sentTelegramIds = [];
 let activePredictions = [];
 let noStatsAttempts = [];
 let lastResultCheckHour = -1;
-let lastHeartbeat = Date.now();
 let lastDayKey = dateKeyLocal();
-const HEARTBEAT_INTERVAL_MS = 60 * 60 * 1000;
 
 function runLiveWorker() {
   return new Promise((resolve, reject) => {
@@ -64,20 +60,6 @@ function runLiveWorker() {
       if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`));
     });
   });
-}
-
-async function sendHeartbeat(runCount) {
-  const now = Date.now();
-  if (now - lastHeartbeat < HEARTBEAT_INTERVAL_MS) return;
-  lastHeartbeat = now;
-
-  const time = timeHHmm();
-  const msg = `${getTelegramMarkdownPrefix()}🟢 Парсер активний (${time})\nЦиклів: ${runCount} | Skipped: ${processedMatchIds.length} | TG: ${sentTelegramIds.length} | Active: ${activePredictions.length}`;
-  try {
-    await sendTelegramMessage(msg);
-  } catch (e) {
-    console.log(`Heartbeat error: ${e.message}`);
-  }
 }
 
 (async () => {
@@ -119,8 +101,6 @@ async function sendHeartbeat(runCount) {
     }
 
     if (!isContinuous) break;
-
-    await sendHeartbeat(runCount);
 
     const waitMs = computeNextWaitMs({
       liveDecisionCount:     result?.liveDecisionCount ?? 0,
