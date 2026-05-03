@@ -1,0 +1,56 @@
+[
+  {
+    "matchId": "bFUPZdSr",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 2",
+    "home": "Паджу Фронтір",
+    "away": "Чхонджу",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8196,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.7039,
+      "trajectory": 0.3158,
+      "odds": 0.4894,
+      "prematch": 0.4
+    },
+    "reason": "snapshots=1 < 2",
+    "intensityRatio": {
+      "shotsOnTarget": 1.1842,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.8947
+    },
+    "timestamp": "2026-05-03T08:50:59.469Z"
+  },
+  {
+    "matchId": "bFUPZdSr",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 2",
+    "home": "Паджу Фронтір",
+    "away": "Чхонджу",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8325,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.7188,
+      "trajectory": 0.375,
+      "odds": 0.4894,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0.375 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.125,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.8
+    },
+    "timestamp": "2026-05-03T08:53:15.826Z"
+  }
+]

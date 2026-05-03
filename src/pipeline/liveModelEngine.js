@@ -24,6 +24,8 @@ const {
   LIVE_V3_SQ_MIN_70_80,
   LIVE_V3_MIN_SNAPSHOTS,
   LIVE_V3_DISABLE_OVER,
+  LIVE_V3_PDRY_MIN_80,
+  LIVE_V3_SQ_MIN_80,
   LIVE_V3_KELLY_FRACTION,
   LIVE_V3_MAX_STAKE_PCT,
   LIVE_V3_MIN_STAKE_PCT,
@@ -380,10 +382,15 @@ function evaluateLiveModel(input, options = {}) {
       bet = 'OVER_0_5';
       const tag = late ? 'late surge' : `pGoal≥${LIVE_V2_PGOAL_MIN_80}`;
       reason = `ТБ 80+ ${reasonTag} (${tag}${favBonus ? ', фав+' : ''}) | ${statsLine} ${src}`;
+    } else if (pDry >= LIVE_V3_PDRY_MIN_80 && signalQuality >= LIVE_V3_SQ_MIN_80 && prevBet !== 'OVER_0_5') {
+      // Послаблений UNDER 80+: сильний dry (pDry≥0.70) при відсутності ТБ-сигналу.
+      // Контрфакт 02-05: 5/5 hits при pDry≥0.65; конс. поріг 0.70.
+      bet = 'UNDER_0_5';
+      reason = `ТМ 80+ ${reasonTag} (strong dry pDry=${pDry}) | ${statsLine} ${src} | SQ=${signalQuality}`;
     } else if (prevBet === 'UNDER_0_5') {
       reason = `80+ ${reasonTag} після ТМ: моніторинг (pG_dec=${pGoalDec}) | ${statsLine}`;
     } else {
-      reason = `80+ ${reasonTag}: слабкий ТБ pG_dec=${pGoalDec} | ${statsLine}`;
+      reason = `80+ ${reasonTag}: слабкий ТБ pG_dec=${pGoalDec} pDry=${pDry} | ${statsLine}`;
     }
   }
 

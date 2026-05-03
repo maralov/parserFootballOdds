@@ -1,0 +1,204 @@
+{
+  "date": "2026-04-29",
+  "generatedAt": "2026-04-30T08:05:26.492Z",
+  "rules": {
+    "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
+    "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
+  },
+  "model": {
+    "bankStart": 10000,
+    "stakePct": 0.05,
+    "stakePerBet": 500,
+    "oddsByPeriod": {
+      "tm_60_70": 2.5,
+      "tm_or_tb_70_80": 1.8,
+      "tb_80_90": 2.5
+    }
+  },
+  "overall": {
+    "bets": 4,
+    "checked": 4,
+    "wins": 1,
+    "losses": 3,
+    "pending": 0,
+    "turnover": 3285,
+    "profit": -1485,
+    "roi": -0.452,
+    "hitRate": 0.25,
+    "bankStart": 10000,
+    "bankEnd": 8515
+  },
+  "byPeriod": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "70-80": {
+      "total": 4,
+      "checked": 4,
+      "wins": 1,
+      "losses": 3,
+      "pending": 0,
+      "turnover": 3285,
+      "profit": -1485,
+      "roi": -0.452,
+      "hitRate": 0.25
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "byBetType": {
+    "UNDER_0_5": {
+      "total": 4,
+      "checked": 4,
+      "wins": 1,
+      "losses": 3,
+      "pending": 0,
+      "turnover": 3285,
+      "profit": -1485,
+      "roi": -0.452,
+      "hitRate": 0.25
+    },
+    "OVER_0_5": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "noFlipsScenario": {
+    "bets": 4,
+    "checked": 4,
+    "wins": 1,
+    "losses": 3,
+    "pending": 0,
+    "turnover": 3285,
+    "profit": -1485,
+    "roi": -0.452,
+    "hitRate": 0.25,
+    "bankStart": 10000,
+    "bankEnd": 8515
+  },
+  "matches": [
+    {
+      "matchId": "8nnipKyp",
+      "league": "ІЗРАЇЛЬ: Прем'єр-ліга - Група вибування",
+      "home": "Маккабі Бней-Райна",
+      "away": "Хапоель Єрусалим",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "Sdz7yfmK",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+      "home": "Модерн Спорт",
+      "away": "Ель-Гаїш",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "EoQ1YbxQ",
+      "league": "ПІВДЕННА АМЕРИКА: Чемпіонат Південної Америки U17 (Жінки)",
+      "home": "Венесуела U17 W",
+      "away": "Уругвай U17 W",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "pGFqKv16",
+      "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+      "home": "Палестіно (Chi)",
+      "away": "Греміу (Bra)",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    }
+  ]
+}

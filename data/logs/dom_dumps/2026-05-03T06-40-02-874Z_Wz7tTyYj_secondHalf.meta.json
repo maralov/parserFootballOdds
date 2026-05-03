@@ -1,0 +1,13 @@
+{
+  "matchId": "Wz7tTyYj",
+  "endpointKey": "secondHalf",
+  "errorMessage": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+  "url": "https://www.flashscore.ua/match/soccer/kashiwa-reysol-hEbtKvnM/verdy-ppNYGTQb/summary/stats/overall/?mid=Wz7tTyYj",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 121
+  },
+  "timestamp": "2026-05-03T06:40:02.874Z"
+}

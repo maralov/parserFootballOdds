@@ -46,6 +46,7 @@ function computeNextWaitMs({ liveDecisionCount, liveWarmupCount, nearestSkippedM
 let processedMatchIds = [];
 let sentTelegramIds = [];
 let activePredictions = [];
+let noStatsAttempts = [];
 let lastResultCheckHour = -1;
 let lastHeartbeat = Date.now();
 let lastDayKey = dateKeyLocal();
@@ -54,7 +55,7 @@ const HEARTBEAT_INTERVAL_MS = 60 * 60 * 1000;
 function runLiveWorker() {
   return new Promise((resolve, reject) => {
     const worker = new Worker('./worker.js', {
-      workerData: { processedMatchIds, sentTelegramIds, activePredictions, lastResultCheckHour },
+      workerData: { processedMatchIds, sentTelegramIds, activePredictions, noStatsAttempts, lastResultCheckHour },
     });
 
     worker.on('message', resolve);
@@ -92,6 +93,7 @@ async function sendHeartbeat(runCount) {
       processedMatchIds = [];
       sentTelegramIds = [];
       activePredictions = [];
+      noStatsAttempts = [];
       lastResultCheckHour = -1;
       lastDayKey = todayKey;
     }
@@ -105,6 +107,7 @@ async function sendHeartbeat(runCount) {
       if (result.processedMatchIds) processedMatchIds = result.processedMatchIds;
       if (result.sentTelegramIds) sentTelegramIds = result.sentTelegramIds;
       if (result.activePredictions) activePredictions = result.activePredictions;
+      if (result.noStatsAttempts) noStatsAttempts = result.noStatsAttempts;
       if (result.lastResultCheckHour != null) lastResultCheckHour = result.lastResultCheckHour;
     } catch (e) {
       console.log(`\n❌ RUN #${runCount} FAILED: ${e.message}`);

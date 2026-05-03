@@ -1,5 +1,5 @@
 const { sanitizeLeagueName, sanitizeTeams, formatBetLabel } = require('./normalizeMatchText');
-const { getTelegramMarkdownPrefix } = require('../telegramModelTag');
+const { getTelegramModelFooter } = require('../telegramModelTag');
 
 function getTimingLabel(minute) {
   if (minute <= 65) return '🟢 Раннє вікно';
@@ -8,75 +8,77 @@ function getTimingLabel(minute) {
   return '🔴 Занадто пізно';
 }
 
+/**
+ * Будує блок «Параметри», які враховувались при прийнятті рішення.
+ * Кожен параметр — окремий рядок «  • назва: значення».
+ */
+function buildParamsBlock(lines) {
+  const filtered = lines.filter((l) => l != null && l !== false && l !== '');
+  if (filtered.length === 0) return '';
+  return `\n\n📐 *Параметри:*\n${filtered.map((l) => `  • ${l}`).join('\n')}`;
+}
+
 function formatTelegramMessage(match, decision, desktopUrl, opts = {}) {
   const { home, away } = sanitizeTeams(match.home, match.away);
   const league = sanitizeLeagueName(match.league);
   const { score, minute } = match;
-  const { bet, confidence, pGoal, pDry, edge, reason, odds1X2, impliedProb, timeWindow, signalQuality, filtersApplied, kellyStakePct, kellyStakeAmount, assumedOdds } = decision;
+  const {
+    bet, confidence, pGoal, pDry, edge, reason,
+    odds1X2, impliedProb, timeWindow, signalQuality, filtersApplied,
+    kellyStakePct, kellyStakeAmount, assumedOdds,
+  } = decision;
   const { redCards, modelV2, ggbet, ggbetKelly } = opts;
 
   const betLabel = formatBetLabel(bet);
   const emoji = bet === 'OVER_0_5' ? '📈' : bet === 'UNDER_0_5' ? '📉' : '⏸️';
-
   const confMap = { high: '🔥 Висока', medium: '⚠️ Середня', low: '🔅 Низька' };
   const confText = confMap[confidence] || confidence;
   const timing = getTimingLabel(minute);
   const windowLabel = timeWindow ? ` [${timeWindow}]` : '';
 
-  let msg = `${getTelegramMarkdownPrefix()}${emoji} *${betLabel}*${windowLabel}
+  const params = [];
+  params.push(`P(гол): ${pGoal ?? 'N/A'}  /  P(сухий): ${pDry ?? 'N/A'}`);
+  if (edge != null) params.push(`Edge: ${edge}`);
+  if (signalQuality != null) params.push(`Signal quality: ${signalQuality}`);
+  if (modelV2?.currentState) params.push(`Стан матчу: ${modelV2.currentState}`);
+  if (confText) params.push(`Впевненість: ${confText}`);
+  params.push(`Вікно: ${timeWindow || '—'}  /  ${timing}`);
+  if (filtersApplied) params.push(`Фільтри: ${filtersApplied}`);
 
-🏆 ${home} - ${away}
-📊 ${league}
-⚽ Рахунок: ${score.home}:${score.away} (${minute}')
-⏱ ${timing}
-
-🎯 *P(гол):* ${pGoal ?? 'N/A'} | *P(сухий):* ${pDry ?? 'N/A'}
-💪 *Впевненість:* ${confText}
-🧮 *Edge:* ${edge ?? '-'}`;
-
-  if (signalQuality != null && signalQuality !== undefined) {
-    msg += `\n⭐ *Signal quality:* ${signalQuality}`;
-  }
-  if (filtersApplied) {
-    msg += `\n🔍 *Фільтри:* ${filtersApplied}`;
+  if (odds1X2) {
+    const drawImpl = impliedProb?.draw != null ? ` (нічия ${(impliedProb.draw * 100).toFixed(1)}%)` : '';
+    params.push(`Кф 1X2: ${odds1X2.home} / ${odds1X2.draw} / ${odds1X2.away}${drawImpl}`);
   }
   if (kellyStakePct > 0 && kellyStakeAmount > 0) {
     const pctDisplay = (kellyStakePct * 100).toFixed(1);
     const oddsNote = assumedOdds ? ` (кф ~${assumedOdds})` : '';
-    msg += `\n💸 *Ставка (Kelly):* ${pctDisplay}% банку = ~${kellyStakeAmount} грн${oddsNote}`;
+    params.push(`Ставка (Kelly): ${pctDisplay}% банку ≈ ${kellyStakeAmount} грн${oddsNote}`);
   }
-  // GGBet: реальний коеф і перерахований Kelly
-  const ggbetOdds = ggbet ? (bet === 'UNDER_0_5' ? ggbet.underOdds : ggbet.overOdds) : null;
-  if (ggbet?.url || ggbetOdds) {
+  if (ggbet?.url || (ggbet && (bet === 'UNDER_0_5' ? ggbet.underOdds : ggbet.overOdds))) {
+    const ggbetOdds = bet === 'UNDER_0_5' ? ggbet.underOdds : ggbet.overOdds;
     if (ggbetOdds && ggbetKelly && ggbetKelly.amount > 0) {
       const pctReal = (ggbetKelly.pct * 100).toFixed(1);
-      msg += `\n🎰 *GGBet кф:* ${ggbetOdds} → Ставка ${pctReal}% = ~${ggbetKelly.amount} грн`;
+      params.push(`GGBet кф: ${ggbetOdds} → ${pctReal}% ≈ ${ggbetKelly.amount} грн`);
     } else if (ggbetOdds) {
-      msg += `\n🎰 *GGBet кф:* ${ggbetOdds}`;
-    }
-    if (ggbet?.url) {
-      msg += `\n🔗 [GGBet Live](${ggbet.url})`;
+      params.push(`GGBet кф: ${ggbetOdds}`);
     }
   }
-  if (modelV2?.currentState) {
-    msg += `\n🔬 *Стан матчу:* ${modelV2.currentState}`;
-  }
-
-  if (odds1X2) {
-    const drawImpl = impliedProb?.draw != null ? ` (нічия ${(impliedProb.draw * 100).toFixed(1)}%)` : '';
-    msg += `\n💰 *Кф:* ${odds1X2.home} / ${odds1X2.draw} / ${odds1X2.away}${drawImpl}`;
-  }
-
   if (redCards && (redCards.homeRedCards > 0 || redCards.awayRedCards > 0 || redCards.unknownRedCards > 0)) {
     const unknown = redCards.unknownRedCards > 0 ? ` / невизн. ×${redCards.unknownRedCards}` : '';
-    msg += `\n🟥 Червона картка: ${home} ×${redCards.homeRedCards} / ${away} ×${redCards.awayRedCards}${unknown}`;
+    params.push(`🟥 Червоні: ${home} ×${redCards.homeRedCards} / ${away} ×${redCards.awayRedCards}${unknown}`);
   }
 
-  msg += `\n\n📝 ${reason}`;
+  let msg = `🏆 ${home} - ${away}\n` +
+            `📊 ${league}\n` +
+            `⚽ Рахунок: ${score.home}:${score.away} (${minute}')\n\n` +
+            `${emoji} *${betLabel}*${windowLabel}`;
 
-  if (desktopUrl) {
-    msg += `\n\n🔗 [Flashscore](${desktopUrl})`;
-  }
+  msg += buildParamsBlock(params);
+
+  if (reason) msg += `\n\n📝 ${reason}`;
+  if (ggbet?.url) msg += `\n🔗 [GGBet Live](${ggbet.url})`;
+  if (desktopUrl) msg += `\n🔗 [Flashscore](${desktopUrl})`;
+  msg += getTelegramModelFooter();
 
   return msg;
 }
@@ -113,7 +115,6 @@ function formatDailySummary(summary) {
 🧩 Ніг з результатом: ${legsResolved} → ✅ ${summary.legHits ?? 0} | ❌ ${summary.legMisses ?? 0}
 📊 *Hit-rate по ногах: ${legHitStr}*`;
 
-  // Розбивка по типу ставки (окремі ноги ТМ / ТБ)
   if (summary.byBetType) {
     const tmLine = formatStatLine('📉 ТМ 0,5 (ніги)', summary.byBetType.UNDER_0_5);
     const tbLine = formatStatLine('📈 ТБ 0,5 (ніги)', summary.byBetType.OVER_0_5);
@@ -123,7 +124,6 @@ function formatDailySummary(summary) {
     }
   }
 
-  // Розбивка по впевненості (останній прогноз)
   if (summary.byConfidence) {
     const lines = [
       formatStatLine('🔥 High', summary.byConfidence.high),

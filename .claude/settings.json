@@ -43,7 +43,38 @@
       "Bash(npm install *)",
       "Bash(npm ls *)",
       "Bash(node -c worker.js)",
-      "Bash(node -c src/browser.js)"
+      "Bash(node -c src/browser.js)",
+      "WebFetch(domain:www.api-football.com)",
+      "WebFetch(domain:www.statsperform.com)",
+      "WebFetch(domain:www.goalserve.com)",
+      "WebFetch(domain:www.thesportsdb.com)",
+      "WebFetch(domain:rapidapi.com)",
+      "Bash(mkdir -p /tmp/parser-stash)",
+      "Bash(cp src/browser.js /tmp/parser-stash/browser.final.js)",
+      "Bash(cp src/scrapeDesktopStats.js /tmp/parser-stash/scrapeDesktopStats.final.js)",
+      "Bash(cp worker.js /tmp/parser-stash/worker.final.js)",
+      "Bash(cp scripts/scrapeHistorical.js /tmp/parser-stash/scrapeHistorical.final.js)",
+      "WebFetch(domain:dashboard.api-football.com)",
+      "Bash(git checkout *)",
+      "Bash(cp /tmp/parser-stash/browser.final.js src/browser.js)",
+      "Bash(cp /tmp/parser-stash/worker.final.js worker.js)",
+      "Bash(cp /tmp/parser-stash/scrapeHistorical.final.js scripts/scrapeHistorical.js)",
+      "Bash(cp /tmp/parser-stash/package.final.json package.json)",
+      "Bash(cp /tmp/parser-stash/package-lock.final.json package-lock.json)",
+      "WebSearch",
+      "Bash(node -c src/scrapeDesktopStats.js)",
+      "Bash(ps -p 74612 -o pid,etime,stat,command)",
+      "Bash(ps -p 74612 -o pid,etime,stat)",
+      "Bash(kill 74612)",
+      "Bash(pkill -f \"node index\")",
+      "Bash(echo \"started PID $!\")",
+      "Bash(ps -p 79977 -o pid,etime,stat)",
+      "Bash(ps -p 84457 -o pid,etime,stat,pcpu)",
+      "Bash(kill 84457)",
+      "Bash(ps -p 84457 -o pid,stat)"
+    ],
+    "additionalDirectories": [
+      "/private/tmp/parser-stash"
     ]
   }
 }

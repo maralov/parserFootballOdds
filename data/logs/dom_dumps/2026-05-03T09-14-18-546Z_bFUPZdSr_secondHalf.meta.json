@@ -1,0 +1,13 @@
+{
+  "matchId": "bFUPZdSr",
+  "endpointKey": "secondHalf",
+  "errorMessage": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+  "url": "https://www.flashscore.ua/match/soccer/cheongju-2TvjJVf3/paju-frontier-IiA85488/summary/stats/overall/?mid=bFUPZdSr",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 121
+  },
+  "timestamp": "2026-05-03T09:14:18.547Z"
+}

@@ -169,6 +169,14 @@ const LIVE_V3_MIN_SNAPSHOTS  = Math.max(1,    Math.min(8,    envInt(process.env.
 /** Глобально вимикає ТБ (OVER_0_5) — модель не дає жодних ТБ-сигналів. Env: LIVE_V3_DISABLE_OVER */
 const LIVE_V3_DISABLE_OVER   = String(process.env.LIVE_V3_DISABLE_OVER ?? 'true').toLowerCase() !== 'false';
 
+/**
+ * Послаблений шлях UNDER_0_5 у вікні 80+ (раніше відсутній — лише ТБ або SKIP).
+ * Контрфакт 02-05: pDry≥0.70 у 80+ дав 5W/0L (+2 нові ставки до існуючих 3).
+ * Env: LIVE_V3_PDRY_MIN_80, LIVE_V3_SQ_MIN_80
+ */
+const LIVE_V3_PDRY_MIN_80    = Math.max(0.5, Math.min(0.95, envFloat(process.env.LIVE_V3_PDRY_MIN_80, 0.70)));
+const LIVE_V3_SQ_MIN_80      = Math.max(0,   Math.min(1,    envFloat(process.env.LIVE_V3_SQ_MIN_80,    0.50)));
+
 /** Kelly Criterion: частка від full Kelly. Env: LIVE_V3_KELLY_FRACTION */
 const LIVE_V3_KELLY_FRACTION  = Math.max(0.05, Math.min(1, envFloat(process.env.LIVE_V3_KELLY_FRACTION, 0.25)));
 /** Максимальна ставка як частка від банку (0.10 = 10%). Env: LIVE_V3_MAX_STAKE_PCT */
@@ -209,7 +217,6 @@ const LINE1_DECISION_MAX = envInt(process.env.LINE1_DECISION_MAX, 75);
 
 // === Лінія 1: P_dry Consensus + Trajectory ===
 const LINE1_ENABLED              = envBool(process.env.LINE1_ENABLED, false);
-const LINE1_SHADOW_MODE          = envBool(process.env.LINE1_SHADOW_MODE, true);
 const LINE1_MIN_CANDIDATE_MINUTE = envInt(process.env.LINE1_MIN_CANDIDATE_MINUTE, 45);
 const LINE1_PDRY_THRESHOLD       = envFloat(process.env.LINE1_PDRY_THRESHOLD, 0.62);
 const LINE1_CONSENSUS_REQUIRED   = envInt(process.env.LINE1_CONSENSUS_REQUIRED, 4);
@@ -219,6 +226,19 @@ const LINE1_BC_DELTA_MAX         = envInt(process.env.LINE1_BC_DELTA_MAX, 1);
 const LINE1_TG_TAG               = process.env.LINE1_TG_TAG || 'Lin1';
 // Dry→Burst OVER сигнал: поріг загального 2H темпу (нижче = матч був тихим до burst)
 const LINE1_DRY_BURST_OVERALL_MAX = envFloat(process.env.LINE1_DRY_BURST_OVERALL_MAX, 0.85);
+
+// === Лінія 2: Late Surge OVER (ТБ 0.5 на пізній push фаворита) ===
+const LINE2_ENABLED                 = envBool(process.env.LINE2_ENABLED, false);
+const LINE2_TG_TAG                  = process.env.LINE2_TG_TAG || 'Lin2';
+const LINE2_MIN_DECISION_MINUTE     = envInt(process.env.LINE2_MIN_DECISION_MINUTE, 75);
+const LINE2_MAX_DECISION_MINUTE     = envInt(process.env.LINE2_MAX_DECISION_MINUTE, 90);
+const LINE2_FAVORITE_ODDS_MAX       = envFloat(process.env.LINE2_FAVORITE_ODDS_MAX, 1.8);
+const LINE2_PRESSURE_THRESHOLD      = envFloat(process.env.LINE2_PRESSURE_THRESHOLD, 0.6);
+const LINE2_MIN_SURGE_METRICS       = envInt(process.env.LINE2_MIN_SURGE_METRICS, 2);
+const LINE2_REQUIRE_MONOTONIC       = envBool(process.env.LINE2_REQUIRE_MONOTONIC, true);
+const LINE2_MIN_SNAPSHOTS_IN_WINDOW = envInt(process.env.LINE2_MIN_SNAPSHOTS_IN_WINDOW, 2);
+const LINE2_SURGE_RATIO             = envFloat(process.env.LINE2_SURGE_RATIO, 1.3);
+const LINE2_MIN_CANDIDATE_MINUTE    = envInt(process.env.LINE2_MIN_CANDIDATE_MINUTE, 46);
 
 module.exports = {
   USER_AGENTS, USER_AGENT, BASE_URL,
@@ -254,6 +274,8 @@ module.exports = {
   LIVE_V3_SQ_MIN_70_80,
   LIVE_V3_MIN_SNAPSHOTS,
   LIVE_V3_DISABLE_OVER,
+  LIVE_V3_PDRY_MIN_80,
+  LIVE_V3_SQ_MIN_80,
   LIVE_V3_KELLY_FRACTION,
   LIVE_V3_MAX_STAKE_PCT,
   LIVE_V3_MIN_STAKE_PCT,
@@ -271,7 +293,6 @@ module.exports = {
   LINE1_DECISION_MIN,
   LINE1_DECISION_MAX,
   LINE1_ENABLED,
-  LINE1_SHADOW_MODE,
   LINE1_MIN_CANDIDATE_MINUTE,
   LINE1_PDRY_THRESHOLD,
   LINE1_CONSENSUS_REQUIRED,
@@ -280,4 +301,15 @@ module.exports = {
   LINE1_BC_DELTA_MAX,
   LINE1_TG_TAG,
   LINE1_DRY_BURST_OVERALL_MAX,
+  LINE2_ENABLED,
+  LINE2_TG_TAG,
+  LINE2_MIN_DECISION_MINUTE,
+  LINE2_MAX_DECISION_MINUTE,
+  LINE2_FAVORITE_ODDS_MAX,
+  LINE2_PRESSURE_THRESHOLD,
+  LINE2_MIN_SURGE_METRICS,
+  LINE2_REQUIRE_MONOTONIC,
+  LINE2_MIN_SNAPSHOTS_IN_WINDOW,
+  LINE2_SURGE_RATIO,
+  LINE2_MIN_CANDIDATE_MINUTE,
 };

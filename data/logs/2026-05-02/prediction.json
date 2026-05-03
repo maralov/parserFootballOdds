@@ -1,0 +1,168 @@
+{
+  "date": "2026-05-02",
+  "generatedAt": "2026-05-03T07:07:57.450Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 3,
+    "stakes": 3,
+    "stakesResolved": 3,
+    "wins": 3,
+    "losses": 0,
+    "hitRate": 1
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "70-80": {
+      "total": 2,
+      "checked": 2,
+      "hits": 2,
+      "misses": 0,
+      "hitRate": 1
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "other": {
+      "total": 1,
+      "checked": 1,
+      "hits": 1,
+      "misses": 0,
+      "hitRate": 1
+    }
+  },
+  "matches": [
+    {
+      "matchId": "I1CKpaOE",
+      "league": "ПОРТУГАЛІЯ: Ліга БПІ (Жінки)",
+      "home": "Гімарайнш Ж",
+      "away": "Торреенсе Ж",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 1,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": null,
+          "pDry": 0.9099,
+          "signalQuality": null,
+          "timestamp": "2026-05-02T11:22:33.576Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.5161,
+        "latestSignalQuality": null
+      }
+    },
+    {
+      "matchId": "G8Y2fyvB",
+      "league": "США: МЛС",
+      "home": "Філадельфія Юніон",
+      "away": "Нешвілл СК",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 74,
+          "snapshots": 1,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.353,
+          "pDry": 0.647,
+          "signalQuality": 0.7557,
+          "timestamp": "2026-05-03T01:13:53.342Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.5169,
+        "latestSignalQuality": 0.7557
+      }
+    },
+    {
+      "matchId": "29YbsGcE",
+      "league": "США: USL Суперліга (Жінки)",
+      "home": "Зефір Ж",
+      "away": "Лексінгтон Ж",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 72,
+          "snapshots": 8,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.386,
+          "pDry": 0.614,
+          "signalQuality": 0.8657,
+          "timestamp": "2026-05-03T02:37:07.431Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.7404,
+        "latestSignalQuality": 0.8657
+      }
+    }
+  ]
+}

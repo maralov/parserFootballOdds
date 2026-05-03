@@ -1,0 +1,59 @@
+{
+  "date": "2026-04-28",
+  "totalRowsInLog": 26,
+  "uniqueMatches": 26,
+  "actionable": 3,
+  "stakeLegsPlanned": 3,
+  "checkedThisRun": 0,
+  "hitsThisRun": 0,
+  "missesThisRun": 0,
+  "resolved": 3,
+  "hits": 1,
+  "misses": 2,
+  "hitRate": 0.333,
+  "legsResolved": 3,
+  "legHits": 1,
+  "legMisses": 2,
+  "legHitRate": 0.333,
+  "byConfidence": {
+    "high": {
+      "total": 3,
+      "checked": 3,
+      "hits": 1,
+      "misses": 2,
+      "hitRate": 0.333
+    },
+    "medium": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "low": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "byBetType": {
+    "UNDER_0_5": {
+      "total": 3,
+      "checked": 3,
+      "hits": 1,
+      "misses": 2,
+      "hitRate": 0.333
+    },
+    "OVER_0_5": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "flips": 0,
+  "generatedAt": "2026-04-29T21:06:49.663Z"
+}

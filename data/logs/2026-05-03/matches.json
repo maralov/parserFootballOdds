@@ -1,0 +1,220 @@
+[
+  {
+    "matchId": "bFUPZdSr",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 2",
+    "home": "Паджу Фронтір",
+    "away": "Чхонджу",
+    "minute": 85,
+    "minuteBucket": "60-69",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/bFUPZdSr/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/cheongju-2TvjJVf3/paju-frontier-IiA85488/?mid=bFUPZdSr",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "both",
+    "stats": {
+      "overall": {
+        "shotsOnTarget": 3,
+        "shotsInsideTheBox": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "cornerKicks": 5,
+        "goalkeeperSaves": null,
+        "expectedGoalsXg": null,
+        "xgOnTargetXgot": null,
+        "passesInFinalThird": null,
+        "expectedAssistsXa": null,
+        "totalShots": 9,
+        "shotsOffTarget": 6,
+        "shotsOutsideTheBox": null,
+        "blockedShots": null,
+        "hitTheWoodwork": null,
+        "crosses": null,
+        "longPasses": null,
+        "accurateThroughPasses": null,
+        "fouls": 17,
+        "tackles": null,
+        "duelsWon": null,
+        "clearances": null,
+        "interceptions": null,
+        "errorsLeadingToShot": null,
+        "errorsLeadingToGoal": null,
+        "ballPossession": 100,
+        "yellowCards": 2,
+        "redCards": null,
+        "throwIns": null,
+        "passes": null,
+        "offsides": 4,
+        "freeKicks": 21,
+        "xgotFaced": null,
+        "goalsPrevented": null
+      },
+      "secondHalf": {
+        "shotsOnTarget": 1,
+        "shotsInsideTheBox": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "cornerKicks": 1,
+        "goalkeeperSaves": null,
+        "expectedGoalsXg": null,
+        "xgOnTargetXgot": null,
+        "passesInFinalThird": null,
+        "expectedAssistsXa": null,
+        "totalShots": 4,
+        "shotsOffTarget": 3,
+        "shotsOutsideTheBox": null,
+        "blockedShots": null,
+        "hitTheWoodwork": null,
+        "crosses": null,
+        "longPasses": null,
+        "accurateThroughPasses": null,
+        "fouls": 4,
+        "tackles": null,
+        "duelsWon": null,
+        "clearances": null,
+        "interceptions": null,
+        "errorsLeadingToShot": null,
+        "errorsLeadingToGoal": null,
+        "ballPossession": 100,
+        "yellowCards": 1,
+        "redCards": null,
+        "throwIns": null,
+        "passes": null,
+        "offsides": 3,
+        "freeKicks": 7,
+        "xgotFaced": null,
+        "goalsPrevented": null
+      }
+    },
+    "liveTrajectory": null,
+    "indices": {
+      "modelVersion": "v3",
+      "pGoal": 0.309,
+      "pDry": 0.691,
+      "signalQuality": 0.5404,
+      "currentState": "dry",
+      "snapshotEvidenceWeight": 0.5,
+      "preMatchDeltaPGoal": 0.024
+    },
+    "modelV2": null,
+    "snapshotHistoryV2": null,
+    "prediction": {
+      "bet": "SKIP",
+      "confidence": "low",
+      "pGoal": 0.309,
+      "pDry": 0.691,
+      "edge": null,
+      "reason": "60–70 v3 очікування: зрізів=2/2 burst=false pD=0.691 pG=0.309 SQ=0.5404(мін 0.77) стан=dry | 1 уд. в площ. [форма:form_high_totals Δp=0.024]",
+      "timeWindow": "60-70",
+      "signalEligible": false,
+      "impliedProb": {
+        "home": 0.368,
+        "draw": 0.297,
+        "away": 0.335
+      },
+      "odds1X2": {
+        "home": 2.54,
+        "draw": 3.15,
+        "away": 2.79
+      },
+      "signalQuality": 0.5404,
+      "snapshotCount": 2,
+      "kellyStakePct": 0,
+      "kellyStakeAmount": 0,
+      "minute": 65,
+      "timestamp": "2026-05-03T08:53:15.823Z"
+    },
+    "pipeline": "candidate_found",
+    "skipReason": null,
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": [],
+    "preMatchV3": {
+      "parseOk": true,
+      "error": null,
+      "fetchedAt": "2026-05-03T08:50:59.461Z",
+      "aggregates": {
+        "home": {
+          "n": 5,
+          "avgTotalGoals": 3.4,
+          "shareUnder15": 0.2,
+          "shareUnder05": 0
+        },
+        "away": {
+          "n": 5,
+          "avgTotalGoals": 1.8,
+          "shareUnder15": 0.4,
+          "shareUnder05": 0.4
+        },
+        "mutual": {
+          "n": 4,
+          "avgTotalGoals": 2.5,
+          "shareUnder15": 0.25,
+          "shareUnder05": 0.25,
+          "newestDateIso": "2022-09-03",
+          "staleYears": 3.66
+        }
+      },
+      "counts": {
+        "formHome": 0,
+        "formAway": 0,
+        "h2h": 0
+      }
+    },
+    "line1": {
+      "bet": "SKIP",
+      "signalEligible": false,
+      "pDry": 0.8325,
+      "consensusCount": 2,
+      "components": {
+        "dry_1H": 0.75,
+        "dry_2H": 0.7188,
+        "trajectory": 0.375,
+        "odds": 0.4894,
+        "prematch": 0.4
+      },
+      "reason": "trajectory=0.375 < 0.4",
+      "minute": 65,
+      "timestamp": "2026-05-03T08:53:15.826Z"
+    },
+    "modelTag": "Lin1-v3.4",
+    "timestamp": "2026-05-03T09:12:14.970Z"
+  },
+  {
+    "matchId": "xKtT7936",
+    "league": "ТАЙВАНЬ: Прем'єр-ліга",
+    "home": "Rock",
+    "away": "Tatung",
+    "minute": 53,
+    "minuteBucket": "60-69",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "mobileUrl": "https://m.flashscore.ua/match/xKtT7936/",
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/taichung-rock-SAQffwOP/tatung-ryWPlHom/?mid=xKtT7936",
+    "feed": "s=2",
+    "feedUrl": "https://m.flashscore.ua/?s=2",
+    "statsStatus": "unavailable",
+    "stats": {
+      "overall": null,
+      "secondHalf": null
+    },
+    "liveTrajectory": null,
+    "indices": null,
+    "modelV2": null,
+    "snapshotHistoryV2": null,
+    "prediction": null,
+    "pipeline": "no_decision_data",
+    "skipReason": "no_stats",
+    "timestamp": "2026-05-03T09:12:48.182Z",
+    "resultChecked": false,
+    "actualResult": null,
+    "hit": null,
+    "betHistory": []
+  }
+]

@@ -1,0 +1,360 @@
+
+> parseodds@1.0.0 live:watch:v3:anytime
+> LIVE_EVAL_MODEL=v3 LIVE_FORM_H2H_ENABLED=1 TELEGRAM_MODEL_TAG=v3.1 LIVE_IGNORE_HOURS=1 node index.js --watch
+
+🚀 Starting live scraping (watch mode)...
+  [restore] Відновлено з лога: 2 оброблених, 0 надісланих TG, 0 активних ставок
+[18:21:06] Live scan
+  First run — checking yesterday results
+  [result] No unchecked predictions for 2026-04-27
+  Yesterday: 0/0 hits (0 з прогнозом)
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=27, 0:0 total=10, candidates=3
+  ⏸ 0:0 ще рано (< 52'):
+    22' ЕСТОНІЯ: Есілііга В Таблиця22'Калев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В]
+    22' ЛАТВІЯ: Virsliga Таблиця22'ФК Лієпая - Гробіня [ЛАТВІЯ: Virsliga]
+    22' ЛИТВА: Кубок Литви22'Мінія - Судува [ЛИТВА: Кубок Литви]
+    22' Пахтакор - Насаф Карші [УЗБЕКИСТАН: Суперліга]
+    22' ОЛС Оулу - СІК Акатемія [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    22' СалПа - ТПС [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 60' Петроджет - Ель-Ісмаїлі [ЄГИПЕТ: Прем'єр-ліга - Група вибування] id=jFsSOG3E
+  ✔ 55' ІРАК: Ліга зірок Таблиця55'Al Gharraf - Аль-Мінаа [ІРАК: Ліга зірок] id=63kqsjz8
+  ✔ 62' Лейрія U23 - Ріу Аве U23 [ПОРТУГАЛІЯ: Ліга Відкриття U23 - Етап невдах] id=dxy7yn4C
+  Found: 3 candidates, 3 new, 2 permanently skipped
+
+→ Петроджет - Ель-Ісмаїлі (60') [ЄГИПЕТ: Прем'єр-ліга - Група вибування]
+
+→ ІРАК: Ліга зірок Таблиця55'Al Gharraf - Аль-Мінаа (55') [ІРАК: Ліга зірок]
+
+→ Лейрія U23 - Ріу Аве U23 (62') [ПОРТУГАЛІЯ: Ліга Відкриття U23 - Етап невдах]
+  Кф 1X2: 2.28 / 3.11 / 3.11
+  Кф 1X2: 2.6 / 3.64 / 2.44
+  Кф 1X2: 2.05 / 3.04 / 3.98
+  Desktop: https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/petrojet-0ImETQmG/?mid=jFsSOG3E
+  Desktop: https://www.flashscore.ua/match/soccer/leiria-EoJ6gNl3/rio-ave-6uq311Lm/?mid=dxy7yn4C
+  Desktop: https://www.flashscore.ua/match/soccer/al-gharraf-6ijwNYFs/al-minaa-ETw16Txa/?mid=63kqsjz8
+  ⚠ DOM ALERT [dxy7yn4C]: PAGE_ERROR — overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+  ⚠ DOM ALERT [63kqsjz8]: PAGE_ERROR — overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+  [stats] dxy7yn4C secondHalf: no data-testid (old=0, any=0, body=149805)
+  [stats] 63kqsjz8 secondHalf: no data-testid (old=0, any=0, body=149713)
+  [stats] dxy7yn4C → unavailable, 0 metrics
+  [stats] 63kqsjz8 → unavailable, 0 metrics
+  Features: quality=0, primary=0, status=unavailable
+  ✗ No stats at all → permanent skip
+  [form-h2h] dxy7yn4C: home n=5 away n=5 h2h n=1
+  Features: quality=0, primary=0, status=unavailable
+  ✗ No stats at all → permanent skip
+  ✗ Error: [timeout 90000ms] scrapeDesktopStats(jFsSOG3E)
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #1: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[18:25:51] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=27, 0:0 total=9, candidates=3
+  ⏸ 0:0 ще рано (< 52'):
+    26' ЕСТОНІЯ: Есілііга В Таблиця26'Калев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В]
+    26' ЛАТВІЯ: Virsliga Таблиця26'ФК Лієпая - Гробіня [ЛАТВІЯ: Virsliga]
+    45' Гафса - Джендуба Спорт [ТУНІС: Ліга 2]
+    26' Пахтакор - Насаф Карші [УЗБЕКИСТАН: Суперліга]
+    26' ОЛС Оулу - СІК Акатемія [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    26' СалПа - ТПС [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 64' Петроджет - Ель-Ісмаїлі [ЄГИПЕТ: Прем'єр-ліга - Група вибування] id=jFsSOG3E
+  ✔ 60' ІРАК: Ліга зірок Таблиця60'Al Gharraf - Аль-Мінаа [ІРАК: Ліга зірок] id=63kqsjz8
+  ✔ 67' Лейрія U23 - Ріу Аве U23 [ПОРТУГАЛІЯ: Ліга Відкриття U23 - Етап невдах] id=dxy7yn4C
+  Found: 3 candidates, 1 new, 4 permanently skipped
+
+→ Петроджет - Ель-Ісмаїлі (64') [ЄГИПЕТ: Прем'єр-ліга - Група вибування]
+  Кф 1X2: 2.05 / 3.04 / 3.98
+  Desktop: https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/petrojet-0ImETQmG/?mid=jFsSOG3E
+  ⚠ DOM ALERT [jFsSOG3E]: PAGE_ERROR — overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+  [stats] jFsSOG3E mobile fallback overall: 33 metrics
+  [stats] jFsSOG3E → both, 33 metrics
+  [form-h2h] jFsSOG3E: home n=5 away n=5 h2h n=5
+  Features: quality=1, primary=6, status=both
+  Model v2: pGoal=0.37, pDry=0.63 sq=0.6957 state=neutral | 60-70 → SKIP
+
+Done: 1 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #2: analyzed=1, signals=0
+⏳ Next scan in 3m...
+[18:30:17] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=27, 0:0 total=8, candidates=2
+  ⏸ 0:0 ще рано (< 52'):
+    30' ЕСТОНІЯ: Есілііга В Таблиця30'Калев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В]
+    30' ЛАТВІЯ: Virsliga Таблиця30'ФК Лієпая - Гробіня [ЛАТВІЯ: Virsliga]
+    45' Гафса - Джендуба Спорт [ТУНІС: Ліга 2]
+    30' Пахтакор - Насаф Карші [УЗБЕКИСТАН: Суперліга]
+    30' ОЛС Оулу - СІК Акатемія [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    30' СалПа - ТПС [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 68' Петроджет - Ель-Ісмаїлі [ЄГИПЕТ: Прем'єр-ліга - Група вибування] id=jFsSOG3E
+  ✔ 70' Лейрія U23 - Ріу Аве U23 [ПОРТУГАЛІЯ: Ліга Відкриття U23 - Етап невдах] id=dxy7yn4C
+  Found: 2 candidates, 1 new, 4 permanently skipped
+
+→ Петроджет - Ель-Ісмаїлі (68') [ЄГИПЕТ: Прем'єр-ліга - Група вибування]
+  Кф 1X2: 2.05 / 3.04 / 3.98
+  Desktop: https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/petrojet-0ImETQmG/?mid=jFsSOG3E
+  ⚠ DOM ALERT [jFsSOG3E]: PAGE_ERROR — overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+  [stats] jFsSOG3E mobile fallback overall: 33 metrics
+  [stats] jFsSOG3E → both, 33 metrics
+  Features: quality=1, primary=6, status=both
+  Model v2: pGoal=0.25, pDry=0.75 sq=0.7714 state=dry | 60-70 → SKIP | Δ2H SOT=0 xG=0.07 (Δ4′ матчу)
+  🔔 dryAlert встановлено (стан dry@68')
+
+Done: 1 analyzed, 0 actionable, 0 TG sent
+📌 Tracking 1 active prediction(s)
+
+🔥 RUN #3: analyzed=1, signals=0
+⏳ Next scan in 3m...
+[18:34:35] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=32, 0:0 total=12, candidates=1
+  ⏸ 0:0 ще рано (< 52'):
+    35' ЕСТОНІЯ: Есілііга В Таблиця35'Калев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В]
+    35' ЛАТВІЯ: Virsliga Таблиця35'ФК Лієпая - Гробіня [ЛАТВІЯ: Virsliga]
+    45' Гафса - Джендуба Спорт [ТУНІС: Ліга 2]
+    35' Пахтакор - Насаф Карші [УЗБЕКИСТАН: Суперліга]
+    35' ОЛС Оулу - СІК Акатемія [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    35' СалПа - ТПС [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    5' ГБК Коккола - Яро [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    5' Гуйма/Урхо - КуПС Акатемія [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    5' ПЕПО - Ювяскюля [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    5' Уніон Плаані - Лахті [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    5' ХПС - Марієгамн [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 73' Петроджет - Ель-Ісмаїлі [ЄГИПЕТ: Прем'єр-ліга - Група вибування] id=jFsSOG3E
+  Found: 1 candidates, 1 new, 4 permanently skipped
+
+→ Петроджет - Ель-Ісмаїлі (73') [ЄГИПЕТ: Прем'єр-ліга - Група вибування]
+  Кф 1X2: 2.05 / 3.04 / 3.98
+  Desktop: https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/petrojet-0ImETQmG/?mid=jFsSOG3E
+  ⚠ DOM ALERT [jFsSOG3E]: PAGE_ERROR — overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+  [stats] jFsSOG3E mobile fallback overall: 33 metrics
+  [stats] jFsSOG3E → both, 33 metrics
+  Features: quality=1, primary=6, status=both
+  Model v2: pGoal=0.325, pDry=0.675 sq=0.7871 state=dry | 70-80 → SKIP | Δ2H SOT=0 xG=0.01 (Δ5′ матчу)
+
+Done: 1 analyzed, 0 actionable, 0 TG sent
+📌 Tracking 1 active prediction(s)
+
+🔥 RUN #4: analyzed=1, signals=0
+⏳ Next scan in 3m...
+[18:38:53] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=32, 0:0 total=11, candidates=1
+  ⏸ 0:0 ще рано (< 52'):
+    39' ЕСТОНІЯ: Есілііга В Таблиця39'Калев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В]
+    45' Гафса - Джендуба Спорт [ТУНІС: Ліга 2]
+    39' Пахтакор - Насаф Карші [УЗБЕКИСТАН: Суперліга]
+    39' ОЛС Оулу - СІК Акатемія [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    39' СалПа - ТПС [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    9' ГБК Коккола - Яро [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    9' Гуйма/Урхо - КуПС Акатемія [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    9' ПЕПО - Ювяскюля [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    9' Уніон Плаані - Лахті [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    9' ХПС - Марієгамн [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 77' Петроджет - Ель-Ісмаїлі [ЄГИПЕТ: Прем'єр-ліга - Група вибування] id=jFsSOG3E
+  Found: 1 candidates, 1 new, 4 permanently skipped
+
+→ Петроджет - Ель-Ісмаїлі (77') [ЄГИПЕТ: Прем'єр-ліга - Група вибування]
+  Кф 1X2: 2.05 / 3.04 / 3.98
+  Desktop: https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/petrojet-0ImETQmG/?mid=jFsSOG3E
+  ⚠ DOM ALERT [jFsSOG3E]: PAGE_ERROR — overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+  [stats] jFsSOG3E mobile fallback overall: 33 metrics
+  [stats] jFsSOG3E → both, 33 metrics
+  Features: quality=1, primary=6, status=both
+  Model v2: pGoal=0.325, pDry=0.675 sq=0.8029 state=dry | 70-80 → UNDER_0_5 | Δ2H SOT=0 xG=0 (Δ4′ матчу) [TG]
+  [ggbet] Found: Петроджет - Ель-Ісмаїлі
+  [ggbet] 0.5 odds not found on match page
+Message sent to Telegram
+  ✓ Telegram sent [+GGBet]
+
+Done: 1 analyzed, 1 actionable, 1 TG sent
+📌 Tracking 1 active prediction(s)
+
+🔥 RUN #5: analyzed=1, signals=1
+⏳ Next scan in 3m...
+[18:43:22] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=32, 0:0 total=9, candidates=1
+  ⏸ 0:0 ще рано (< 52'):
+    43' ЕСТОНІЯ: Есілііга В Таблиця43'Калев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В]
+    45' Гафса - Джендуба Спорт [ТУНІС: Ліга 2]
+    43' ОЛС Оулу - СІК Акатемія [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    43' СалПа - ТПС [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    13' ГБК Коккола - Яро [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    13' Гуйма/Урхо - КуПС Акатемія [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    13' ПЕПО - Ювяскюля [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    13' ХПС - Марієгамн [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 81' Петроджет - Ель-Ісмаїлі [ЄГИПЕТ: Прем'єр-ліга - Група вибування] id=jFsSOG3E
+  ⏭ Петроджет - Ель-Ісмаїлі (81') — cooldown ще 12хв
+  Found: 1 candidates, 0 new, 4 permanently skipped, 1 cooldown
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+📌 Tracking 1 active prediction(s)
+
+🔥 RUN #6: analyzed=0, signals=0
+⏳ Next scan in 5m...
+[18:48:30] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=32, 0:0 total=6, candidates=1
+  ⏸ 0:0 ще рано (< 52'):
+    45' ЕСТОНІЯ: Есілііга В ТаблицяПерерваКалев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В]
+    45' Гафса - Джендуба Спорт [ТУНІС: Ліга 2]
+    19' Гуйма/Урхо - КуПС Акатемія [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    19' ПЕПО - Ювяскюля [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 87' Петроджет - Ель-Ісмаїлі [ЄГИПЕТ: Прем'єр-ліга - Група вибування] id=jFsSOG3E
+  ⏭ Петроджет - Ель-Ісмаїлі (87') — cooldown ще 7хв
+  Found: 1 candidates, 0 new, 4 permanently skipped, 1 cooldown
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+📌 Tracking 1 active prediction(s)
+
+🔥 RUN #7: analyzed=0, signals=0
+⏳ Next scan in 5m...
+[18:53:39] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=32, 0:0 total=5, candidates=0
+  ⏸ 0:0 ще рано (< 52'):
+    45' ЕСТОНІЯ: Есілііга В ТаблицяПерерваКалев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В]
+    45' Гафса - Джендуба Спорт [ТУНІС: Ліга 2]
+    45' СалПа - ТПС [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    24' ПЕПО - Ювяскюля [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  Found: 0 candidates, 0 new, 4 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔍 Checking 1 possibly finished match(es)...
+  ⏳ Петроджет - Ель-Ісмаїлі: still live 0:0
+📌 Tracking 1 active prediction(s)
+
+🔥 RUN #8: analyzed=0, signals=0
+⏳ Next scan in 5m...
+[18:58:49] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=27, 0:0 total=3, candidates=1
+  ⏸ 0:0 ще рано (< 52'):
+    45' ЕСТОНІЯ: Есілііга В ТаблицяПерерваКалев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В]
+    45' СалПа - ТПС [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 52' Гафса - Джендуба Спорт [ТУНІС: Ліга 2] id=vDabXhbe
+  Found: 1 candidates, 1 new, 4 permanently skipped
+
+→ Гафса - Джендуба Спорт (52') [ТУНІС: Ліга 2]
+  Кф 1X2: немає на сторінці огляду
+  Desktop: https://www.flashscore.ua/match/soccer/gafsa-pz9NlZbR/jendouba-sport-xMHRqXye/?mid=vDabXhbe
+  ⚠ DOM ALERT [vDabXhbe]: PAGE_ERROR — overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+  [stats] vDabXhbe secondHalf: no data-testid (old=0, any=0, body=149565)
+  [stats] vDabXhbe → unavailable, 0 metrics
+  Features: quality=0, primary=0, status=unavailable
+  ✗ No stats at all → permanent skip
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔍 Checking 1 possibly finished match(es)...
+  ⚽ Петроджет - Ель-Ісмаїлі: 0:1 [FT] → ТМ:❌
+Message sent to Telegram
+  ✓ Telegram result sent (FT)
+
+🔥 RUN #9: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[19:03:24] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+🚀 Starting live scraping (watch mode)...
+  [restore] Відновлено з лога: 5 оброблених, 1 надісланих TG, 0 активних ставок
+[19:03:29] Live scan
+  First run — checking yesterday results
+  [result] No unchecked predictions for 2026-04-27
+  Yesterday: 0/0 hits (0 з прогнозом)
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=25, 0:0 total=5, candidates=1
+  ⏸ 0:0 ще рано (< 52'):
+    4' БАХРЕЙН: Прем'єр-ліга Таблиця4'Аль-Шаббаб - СК Бахрейн [БАХРЕЙН: Прем'єр-ліга]
+    49' ЕСТОНІЯ: Есілііга В Таблиця49'Калев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В]
+    45' СалПа - ТПС [ФІНЛЯНДІЯ: Кубок Фінляндії]
+    4' ЮПС Ювяскюля - Міккелі [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 57' Гафса - Джендуба Спорт [ТУНІС: Ліга 2] id=vDabXhbe
+  Found: 1 candidates, 0 new, 5 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #1: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[19:06:40] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=29, 0:0 total=7, candidates=2
+  ⏸ 0:0 ще рано (< 52'):
+    7' БАХРЕЙН: Прем'єр-ліга Таблиця7'Аль-Шаббаб - СК Бахрейн [БАХРЕЙН: Прем'єр-ліга]
+    7' Малкія - Аль-Нажма [БАХРЕЙН: Прем'єр-ліга]
+    7' ІЗРАЇЛЬ: Прем'єр-ліга - Група вибування Таблиця7'Сахнін - МС Ашдод [ІЗРАЇЛЬ: Прем'єр-ліга - Група вибування]
+    7' САУДІВСЬКА АРАВІЯ: Професійна ліга Таблиця7'Аль-Шабаб - Аль-Фатех [САУДІВСЬКА АРАВІЯ: Професійна ліга]
+    7' ЮПС Ювяскюля - Міккелі [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 52' ЕСТОНІЯ: Есілііга В Таблиця52'Калев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В] id=ddSm9zpg
+  ✔ 60' Гафса - Джендуба Спорт [ТУНІС: Ліга 2] id=vDabXhbe
+  Found: 2 candidates, 1 new, 5 permanently skipped
+
+→ ЕСТОНІЯ: Есілііга В Таблиця52'Калев Таллінн U21 - Вапрус Пярну U21 (52') [ЕСТОНІЯ: Есілііга В]
+  Кф 1X2: 2.32 / 4.22 / 2.42
+  Desktop: https://www.flashscore.ua/match/soccer/parnu-jk-vaprus-IZus1VoB/tallinna-kalev-I5BFeY63/?mid=ddSm9zpg
+  ⚠ DOM ALERT [ddSm9zpg]: PAGE_ERROR — overall: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+  [stats] ddSm9zpg secondHalf: no data-testid (old=0, any=0, body=149800)
+  [stats] ddSm9zpg → unavailable, 0 metrics
+  Features: quality=0, primary=0, status=unavailable
+  ✗ No stats at all → permanent skip
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #2: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[19:11:16] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=30, 0:0 total=9, candidates=2
+  ⏸ 0:0 ще рано (< 52'):
+    12' БАХРЕЙН: Прем'єр-ліга Таблиця12'Аль-Шаббаб - СК Бахрейн [БАХРЕЙН: Прем'єр-ліга]
+    12' Малкія - Аль-Нажма [БАХРЕЙН: Прем'єр-ліга]
+    12' ІЗРАЇЛЬ: Прем'єр-ліга - Група вибування Таблиця12'Сахнін - МС Ашдод [ІЗРАЇЛЬ: Прем'єр-ліга - Група вибування]
+    12' НОРВЕГІЯ: Національний чемпіонат U19 - Плей-оф12'Волеренга U19 - Конгсвінгер U19 [НОРВЕГІЯ: Національний чемпіонат U19 - Плей-оф]
+    12' САУДІВСЬКА АРАВІЯ: Професійна ліга Таблиця12'Аль-Шабаб - Аль-Фатех [САУДІВСЬКА АРАВІЯ: Професійна ліга]
+    2' САУДІВСЬКА АРАВІЯ: Дивізіон 1 Таблиця2'Аль-Зульфі - Аль-Таі [САУДІВСЬКА АРАВІЯ: Дивізіон 1]
+    12' ЮПС Ювяскюля - Міккелі [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 56' ЕСТОНІЯ: Есілііга В Таблиця56'Калев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В] id=ddSm9zpg
+  ✔ 65' Гафса - Джендуба Спорт [ТУНІС: Ліга 2] id=vDabXhbe
+  Found: 2 candidates, 0 new, 6 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #3: analyzed=0, signals=0
+⏳ Next scan in 3m...
+[19:14:25] Live scan
+  Запуск live-скрапера (після ранкових Telegram, якщо були).
+Opening: https://m.flashscore.ua/?s=2 (minute >= 52, 0:0 only)
+Provider health [https://m.flashscore.ua/?s=2]: rows=30, 0:0 total=9, candidates=2
+  ⏸ 0:0 ще рано (< 52'):
+    15' БАХРЕЙН: Прем'єр-ліга Таблиця15'Аль-Шаббаб - СК Бахрейн [БАХРЕЙН: Прем'єр-ліга]
+    15' Малкія - Аль-Нажма [БАХРЕЙН: Прем'єр-ліга]
+    15' ІЗРАЇЛЬ: Прем'єр-ліга - Група вибування Таблиця15'Сахнін - МС Ашдод [ІЗРАЇЛЬ: Прем'єр-ліга - Група вибування]
+    15' НОРВЕГІЯ: Національний чемпіонат U19 - Плей-оф15'Волеренга U19 - Конгсвінгер U19 [НОРВЕГІЯ: Національний чемпіонат U19 - Плей-оф]
+    15' САУДІВСЬКА АРАВІЯ: Професійна ліга Таблиця15'Аль-Шабаб - Аль-Фатех [САУДІВСЬКА АРАВІЯ: Професійна ліга]
+    5' САУДІВСЬКА АРАВІЯ: Дивізіон 1 Таблиця5'Аль-Зульфі - Аль-Таі [САУДІВСЬКА АРАВІЯ: Дивізіон 1]
+    15' ЮПС Ювяскюля - Міккелі [ФІНЛЯНДІЯ: Кубок Фінляндії]
+  ✔ 59' ЕСТОНІЯ: Есілііга В Таблиця59'Калев Таллінн U21 - Вапрус Пярну U21 [ЕСТОНІЯ: Есілііга В] id=ddSm9zpg
+  ✔ 68' Гафса - Джендуба Спорт [ТУНІС: Ліга 2] id=vDabXhbe
+  Found: 2 candidates, 0 new, 6 permanently skipped
+
+Done: 0 analyzed, 0 actionable, 0 TG sent
+
+🔥 RUN #4: analyzed=0, signals=0
+⏳ Next scan in 3m...

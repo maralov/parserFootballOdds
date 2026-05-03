@@ -7,4 +7,14 @@ function getTelegramMarkdownPrefix() {
   return `*[${t}]*\n\n`;
 }
 
-module.exports = { getTelegramMarkdownPrefix };
+/**
+ * Футер з тегом моделі та лінії.
+ * line: undefined | 'L1' | 'L2' → `v3.4` / `v3.4_L1` / `v3.4_L2` (моноширинний, щоб underscore не ламав markdown).
+ */
+function getTelegramModelFooter(line) {
+  const t = String(TELEGRAM_MODEL_TAG || '').trim() || 'v3.4';
+  const tag = line ? `${t}_${line}` : t;
+  return `\n\n\`${tag}\``;
+}
+
+module.exports = { getTelegramMarkdownPrefix, getTelegramModelFooter };

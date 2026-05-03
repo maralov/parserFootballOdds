@@ -1,0 +1,209 @@
+{
+  "date": "2026-04-29",
+  "generatedAt": "2026-04-30T08:05:26.490Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 4,
+    "stakes": 4,
+    "stakesResolved": 4,
+    "wins": 1,
+    "losses": 3,
+    "hitRate": 0.25
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "70-80": {
+      "total": 4,
+      "checked": 4,
+      "hits": 1,
+      "misses": 3,
+      "hitRate": 0.25
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "matches": [
+    {
+      "matchId": "8nnipKyp",
+      "league": "ІЗРАЇЛЬ: Прем'єр-ліга - Група вибування",
+      "home": "Маккабі Бней-Райна",
+      "away": "Хапоель Єрусалим",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 71,
+          "snapshots": 5,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.355,
+          "pDry": 0.645,
+          "signalQuality": 0.7586,
+          "timestamp": "2026-04-29T17:26:52.355Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "falseDry",
+        "dominanceStrength": 0.5063,
+        "latestSignalQuality": 0.7586
+      }
+    },
+    {
+      "matchId": "Sdz7yfmK",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+      "home": "Модерн Спорт",
+      "away": "Ель-Гаїш",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 73,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.203,
+          "pDry": 0.797,
+          "signalQuality": 0.7714,
+          "timestamp": "2026-04-29T18:36:12.937Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.5506,
+        "latestSignalQuality": 0.7557
+      }
+    },
+    {
+      "matchId": "EoQ1YbxQ",
+      "league": "ПІВДЕННА АМЕРИКА: Чемпіонат Південної Америки U17 (Жінки)",
+      "home": "Венесуела U17 W",
+      "away": "Уругвай U17 W",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 74,
+          "snapshots": 9,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.28,
+          "pDry": 0.72,
+          "signalQuality": 0.8814,
+          "timestamp": "2026-04-29T21:33:14.852Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.9035,
+        "latestSignalQuality": 0.8814
+      }
+    },
+    {
+      "matchId": "pGFqKv16",
+      "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+      "home": "Палестіно (Chi)",
+      "away": "Греміу (Bra)",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 72,
+          "snapshots": 8,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.292,
+          "pDry": 0.708,
+          "signalQuality": 0.8657,
+          "timestamp": "2026-04-30T02:07:16.813Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.5289,
+        "latestSignalQuality": 0.8657
+      }
+    }
+  ]
+}

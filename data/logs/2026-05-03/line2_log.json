@@ -1,0 +1,50 @@
+[
+  {
+    "matchId": "bFUPZdSr",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 2",
+    "home": "Паджу Фронтір",
+    "away": "Чхонджу",
+    "minute": 64,
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pressureScore": null,
+    "favoriteSide": null,
+    "favoriteOdds": null,
+    "favoriteLocked": false,
+    "underdogRedCard": false,
+    "surgeMetrics": null,
+    "surgingCount": 0,
+    "monotonic": false,
+    "snapshotsInWindow": 0,
+    "reason": "minute=64 before window (>=75)",
+    "timestamp": "2026-05-03T08:50:59.470Z"
+  },
+  {
+    "matchId": "bFUPZdSr",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 2",
+    "home": "Паджу Фронтір",
+    "away": "Чхонджу",
+    "minute": 65,
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pressureScore": null,
+    "favoriteSide": null,
+    "favoriteOdds": null,
+    "favoriteLocked": false,
+    "underdogRedCard": false,
+    "surgeMetrics": null,
+    "surgingCount": 0,
+    "monotonic": false,
+    "snapshotsInWindow": 0,
+    "reason": "minute=65 before window (>=75)",
+    "timestamp": "2026-05-03T08:53:15.828Z"
+  }
+]

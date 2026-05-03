@@ -1,0 +1,13 @@
+{
+  "matchId": "SfOKsfac",
+  "endpointKey": "overall",
+  "errorMessage": "Protocol error (Runtime.callFunctionOn): Target closed",
+  "url": "https://www.flashscore.ua/match/soccer/fukushima-united-KSReC3sk/omiya-ardija-OErJ0IVR/summary/stats/overall/?mid=SfOKsfac",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 121
+  },
+  "timestamp": "2026-05-03T06:35:51.962Z"
+}

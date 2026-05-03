@@ -33,10 +33,15 @@ const {
 const { scrapeMatchFormAndH2h } = require('./src/scrapeMatchFormAndH2h');
 const { scrapeGGBetOdds } = require('./src/scrapeGGBetOdds');
 const { computeKellyStake } = require('./src/pipeline/liveModelEngine');
-const { getTelegramMarkdownPrefix } = require('./src/helpers/telegramModelTag');
+const { getTelegramMarkdownPrefix, getTelegramModelFooter } = require('./src/helpers/telegramModelTag');
 const { evaluateLine1Dry } = require('./src/pipeline/line1/dryEngine');
 const { appendShadowEntry } = require('./src/pipeline/line1/shadowLogger');
-const { LINE1_ENABLED, LINE1_SHADOW_MODE, LINE1_TG_TAG, LINE1_MIN_CANDIDATE_MINUTE, LIVE_MIN_CANDIDATE_MINUTE } = require('./src/helpers/constants');
+const { evaluateLine2LateSurge } = require('./src/pipeline/line2/lateSurgeEngine');
+const { appendLine2Entry } = require('./src/pipeline/line2/shadowLogger');
+const {
+  LINE1_ENABLED, LINE1_TG_TAG, LINE1_MIN_CANDIDATE_MINUTE, LIVE_MIN_CANDIDATE_MINUTE,
+  LINE2_ENABLED, LINE2_TG_TAG, LINE2_MIN_CANDIDATE_MINUTE,
+} = require('./src/helpers/constants');
 // DST-safe: бере фактичний київський час (EET зимою / EEST влітку) через Intl.
 // hourCycle: 'h23' гарантує діапазон 0-23 (інакше деякі локалі повертають "24" опівночі).
 const KYIV_HOUR_FMT = new Intl.DateTimeFormat('en-GB', {
@@ -62,6 +67,12 @@ const sentTelegramIds = workerData?.sentTelegramIds
 
 const activePredictions = workerData?.activePredictions
   ? new Map(workerData.activePredictions)
+  : new Map();
+
+/** Лічильник підряд no_stats / page-error по матчу. Permanent skip лише після MAX_NO_STATS_ATTEMPTS. */
+const MAX_NO_STATS_ATTEMPTS = 3;
+const noStatsAttempts = workerData?.noStatsAttempts
+  ? new Map(workerData.noStatsAttempts)
   : new Map();
 
 /** Історія зрізів raw2H на матч (відновлюється з snapshotHistoryV2 у лозі кожного циклу воркера). */
@@ -94,7 +105,11 @@ if (sentTelegramIds.size === 0 && processedMatchIds.size === 0) {
     const todayEntries = loadDayMatches();
     for (const m of todayEntries) {
       // Відновлюємо матчі що вже були оброблені (без статистики або перманентний скіп)
-      if (m.pipeline === 'no_decision_data' || m.pipeline === 'resolve_failed') {
+      // resolve_failed → permanent skip. no_decision_data з no_stats → НЕ permanent
+      // (Chrome PAGE_ERROR / Session closed теж потрапляють у no_stats — даємо до MAX_NO_STATS_ATTEMPTS).
+      if (m.pipeline === 'resolve_failed') {
+        processedMatchIds.add(m.matchId);
+      } else if (m.pipeline === 'no_decision_data' && m.skipReason !== 'no_stats') {
         processedMatchIds.add(m.matchId);
       }
       if (
@@ -222,7 +237,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
 
   if (!isWithinWorkingHours()) {
     console.log(`  Outside working hours → skip`);
-    parentPort.postMessage({ runId: runCtx.runId, matchesAnalyzed: 0, signalsSent: 0, processedMatchIds: Array.from(processedMatchIds), sentTelegramIds: Array.from(sentTelegramIds), activePredictions: Array.from(activePredictions.entries()), lastResultCheckHour, skipped: 'outside_hours' });
+    parentPort.postMessage({ runId: runCtx.runId, matchesAnalyzed: 0, signalsSent: 0, processedMatchIds: Array.from(processedMatchIds), sentTelegramIds: Array.from(sentTelegramIds), activePredictions: Array.from(activePredictions.entries()), noStatsAttempts: Array.from(noStatsAttempts.entries()), lastResultCheckHour, skipped: 'outside_hours' });
     return;
   }
 
@@ -231,9 +246,10 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
   const page = await browser.newPage();
   await page.setUserAgent(pickUserAgent());
 
-  const effectiveMinMinute = LINE1_ENABLED
-    ? Math.min(LINE1_MIN_CANDIDATE_MINUTE, LIVE_MIN_CANDIDATE_MINUTE)
-    : LIVE_MIN_CANDIDATE_MINUTE;
+  const lineMinCandidates = [LIVE_MIN_CANDIDATE_MINUTE];
+  if (LINE1_ENABLED) lineMinCandidates.push(LINE1_MIN_CANDIDATE_MINUTE);
+  if (LINE2_ENABLED) lineMinCandidates.push(LINE2_MIN_CANDIDATE_MINUTE);
+  const effectiveMinMinute = Math.min(...lineMinCandidates);
   const { matches: allMatches, nearestSkippedMinute } = await scrapeLiveMatches(page, { minMinute: effectiveMinMinute });
   const warmupCount = allMatches.filter((m) => m.minute < LIVE_DECISION_WINDOW_START_MINUTE).length;
   const newMatches = allMatches.filter((m) => !processedMatchIds.has(m.id));
@@ -369,8 +385,14 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
           skipReason,
         }));
         if (isNoStats) {
-          processedMatchIds.add(match.id);
-          console.log(`  ✗ No stats at all → permanent skip`);
+          const attempts = (noStatsAttempts.get(match.id) || 0) + 1;
+          noStatsAttempts.set(match.id, attempts);
+          if (attempts >= MAX_NO_STATS_ATTEMPTS) {
+            processedMatchIds.add(match.id);
+            console.log(`  ✗ No stats (спроба ${attempts}/${MAX_NO_STATS_ATTEMPTS}) → permanent skip`);
+          } else {
+            console.log(`  ⚠ No stats (спроба ${attempts}/${MAX_NO_STATS_ATTEMPTS}) — retry на наступному циклі`);
+          }
         } else {
           console.log(`  ✗ Insufficient metrics (primary=${features.availablePrimary}) — will retry`);
         }
@@ -604,8 +626,8 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
             timestamp: new Date().toISOString(),
           });
 
-          // Відправка Telegram (тільки якщо не shadow-mode і сигнал пройшов)
-          if (!LINE1_SHADOW_MODE && line1Result.signalEligible && !sentTelegramIds.has(match.id)) {
+          // Відправка Telegram (production: при сигналі завжди шлемо)
+          if (line1Result.signalEligible && !sentTelegramIds.has(match.id)) {
             const l1Hour = kyivHour();
             if (l1Hour >= 6 && l1Hour < 23) {
               try {
@@ -614,21 +636,29 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
                 const c = line1Result.components || {};
                 const traj = c.trajectory != null ? c.trajectory.toFixed(2) : '—';
                 const odds1 = features.odds1X2;
-                const oddsLine = odds1 ? `\n📐 Кф 1X2: ${odds1.home}/${odds1.draw}/${odds1.away}` : '';
                 const isOver = line1Result.bet === 'OVER_0_5';
                 const betEmoji = isOver ? '📈' : '📉';
-                const betLabel = isOver ? 'ТБ 0.5 \\(Dry→Burst\\)' : 'ТМ 0.5';
-                const statsLine = isOver
-                  ? `🔥 *Dry→Burst:* ${line1Result.reason?.split(':')[1]?.trim() || ''}`
-                  : `🎯 *P\\_dry:* ${line1Result.pDry} | *Consensus:* ${line1Result.consensusCount}/5\n` +
-                    `📉 *Trajectory:* ${traj} | *dry\\_1H:* ${c.dry_1H != null ? c.dry_1H.toFixed(2) : '—'}`;
+                const betLabel = isOver ? 'ТБ 0,5' : 'ТМ 0,5';
+                const params = [];
+                if (isOver) {
+                  params.push(`Dry→Burst: ${line1Result.reason?.split(':')[1]?.trim() || ''}`);
+                } else {
+                  params.push(`P_dry: ${line1Result.pDry}`);
+                  params.push(`Consensus: ${line1Result.consensusCount}/5`);
+                  params.push(`Trajectory: ${traj}`);
+                  if (c.dry_1H != null) params.push(`dry_1H: ${c.dry_1H.toFixed(2)}`);
+                }
+                if (odds1) params.push(`Кф 1X2: ${odds1.home}/${odds1.draw}/${odds1.away}`);
+                const desktopUrlL1 = activePredictions.get(match.id)?.desktopUrl
+                  || `https://www.flashscore.ua/match/soccer/?mid=${match.id}`;
                 const l1msg =
-                  `${getTelegramMarkdownPrefix()}${betEmoji} *${betLabel} (Lin1)*\n\n` +
                   `🏆 ${h} - ${a}\n` +
                   `📊 ${league}\n` +
                   `⚽ Рахунок: 0:0 (${features.minute}')\n\n` +
-                  statsLine +
-                  oddsLine;
+                  `${betEmoji} *${betLabel}*\n\n` +
+                  `📐 *Параметри:*\n` + params.map((p) => `  • ${p}`).join('\n') +
+                  `\n\n🔗 [Flashscore](${desktopUrlL1})` +
+                  getTelegramModelFooter('L1');
                 await sendTelegramMessage(l1msg);
                 sentTelegramIds.add(match.id);
                 // Оновлюємо matches.json: prediction + telegramInitialSent для result tracking
@@ -655,6 +685,12 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
                   line1: true,
                   pDry: line1Result.pDry,
                   predictedAtMinute: features.minute,
+                  home: match.home,
+                  away: match.away,
+                  league: match.league,
+                  desktopUrl: activePredictions.get(match.id)?.desktopUrl || desktopUrlL1,
+                  mobileUrl: match.matchDetailsUrl,
+                  modelLine: 'L1',
                 });
                 console.log(`  ✓ [${LINE1_TG_TAG}] Telegram надіслано`);
               } catch (e) {
@@ -666,6 +702,149 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
           }
         } catch (e) {
           console.log(`  [${LINE1_TG_TAG}] error: ${e.message}`);
+        }
+      }
+
+      // === Лінія 2: Late Surge OVER (ТБ 0.5 на пізній push фаворита) ===
+      if (LINE2_ENABLED) {
+        try {
+          // Фаворит фіксується ОДИН раз при першому циклі з валідними коеф;
+          // далі live odds не перепровіряємо.
+          const lockedFavorite = activePredictions.get(match.id)?.line2FavoriteLock || null;
+
+          const line2Result = evaluateLine2LateSurge({
+            match,
+            features,
+            snapshots: history,
+            incidents,
+            lockedFavorite,
+          });
+
+          // Якщо фаворит щойно визначений (раніше lock не було і engine виявив валідного фаворита) —
+          // зберігаємо у activePredictions для наступних циклів.
+          if (!lockedFavorite && line2Result.favoriteSide && Number.isFinite(line2Result.favoriteOdds)) {
+            const cur = activePredictions.get(match.id) || {};
+            activePredictions.set(match.id, {
+              ...cur,
+              line2FavoriteLock: {
+                favoriteSide: line2Result.favoriteSide,
+                favoriteOdds: line2Result.favoriteOdds,
+                lockedAtMinute: features.minute,
+              },
+            });
+          }
+
+          console.log(`  [${LINE2_TG_TAG}] ${match.home}-${match.away} ${features.minute}': bet=${line2Result.bet} pressure=${line2Result.pressureScore ?? 'n/a'} (${line2Result.reason})`);
+
+          appendMatchEntry({
+            matchId: match.id,
+            line2: {
+              bet: line2Result.bet,
+              signalEligible: line2Result.signalEligible,
+              pressureScore: line2Result.pressureScore,
+              favoriteSide: line2Result.favoriteSide,
+              favoriteOdds: line2Result.favoriteOdds,
+              favoriteLocked: line2Result.favoriteLocked || false,
+              underdogRedCard: line2Result.underdogRedCard || false,
+              reason: line2Result.reason,
+              minute: features.minute,
+              timestamp: new Date().toISOString(),
+            },
+          });
+
+          appendLine2Entry(sessionDateKey(), {
+            matchId: match.id,
+            league: match.league,
+            home: match.home,
+            away: match.away,
+            minute: features.minute,
+            score: match.score,
+            bet: line2Result.bet,
+            signalEligible: line2Result.signalEligible,
+            pressureScore: line2Result.pressureScore,
+            favoriteSide: line2Result.favoriteSide,
+            favoriteOdds: line2Result.favoriteOdds,
+            favoriteLocked: line2Result.favoriteLocked || false,
+            underdogRedCard: line2Result.underdogRedCard || false,
+            surgeMetrics: line2Result.components?.surgeMetrics || null,
+            surgingCount: line2Result.components?.surgingCount || 0,
+            monotonic: line2Result.components?.monotonic || false,
+            snapshotsInWindow: line2Result.components?.snapshotsInWindow || 0,
+            reason: line2Result.reason,
+            timestamp: new Date().toISOString(),
+          });
+
+          // Active mode — Telegram + prediction запис у matches.json
+          if (line2Result.signalEligible && !sentTelegramIds.has(match.id)) {
+            const l2Hour = kyivHour();
+            if (l2Hour >= 6 && l2Hour < 23) {
+              try {
+                const { home: h, away: a } = sanitizeTeams(match.home, match.away);
+                const league = sanitizeLeagueName(match.league);
+                const odds1 = features.odds1X2;
+                const favLabel = line2Result.favoriteSide === 'home' ? h : a;
+                const surge = line2Result.components?.surgingCount || 0;
+                const press = line2Result.pressureScore;
+                const params = [
+                  `Тиск: ${press}`,
+                  `Surge: ${surge}/5`,
+                  `Фаворит: ${favLabel} (кф ${line2Result.favoriteOdds})`,
+                ];
+                if (line2Result.underdogRedCard) params.push('🟥 Червона андердогу — підсилення');
+                if (odds1) params.push(`Кф 1X2: ${odds1.home}/${odds1.draw}/${odds1.away}`);
+                const desktopUrlL2 = activePredictions.get(match.id)?.desktopUrl
+                  || `https://www.flashscore.ua/match/soccer/?mid=${match.id}`;
+                const l2msg =
+                  `🏆 ${h} - ${a}\n` +
+                  `📊 ${league}\n` +
+                  `⚽ Рахунок: 0:0 (${features.minute}')\n\n` +
+                  `📈 *ТБ 0,5*\n\n` +
+                  `📐 *Параметри:*\n` + params.map((p) => `  • ${p}`).join('\n') +
+                  `\n\n🔗 [Flashscore](${desktopUrlL2})` +
+                  getTelegramModelFooter('L2');
+                await sendTelegramMessage(l2msg);
+                sentTelegramIds.add(match.id);
+                appendMatchEntry({
+                  matchId: match.id,
+                  modelTag: LINE2_TG_TAG,
+                  telegramInitialSent: true,
+                  prediction: {
+                    bet: 'OVER_0_5',
+                    confidence: 'high',
+                    pDry: null,
+                    pGoal: line2Result.pressureScore,
+                    edge: null,
+                    reason: line2Result.reason,
+                    signalEligible: true,
+                    timeWindow: '75-90',
+                    minute: features.minute,
+                    timestamp: new Date().toISOString(),
+                    model: LINE2_TG_TAG,
+                  },
+                });
+                activePredictions.set(match.id, {
+                  ...(activePredictions.get(match.id) || {}),
+                  bet: 'OVER_0_5',
+                  line2: true,
+                  pressureScore: line2Result.pressureScore,
+                  predictedAtMinute: features.minute,
+                  home: match.home,
+                  away: match.away,
+                  league: match.league,
+                  desktopUrl: activePredictions.get(match.id)?.desktopUrl || desktopUrlL2,
+                  mobileUrl: match.matchDetailsUrl,
+                  modelLine: 'L2',
+                });
+                console.log(`  ✓ [${LINE2_TG_TAG}] Telegram надіслано`);
+              } catch (e) {
+                console.log(`  [${LINE2_TG_TAG}] TG error: ${e.message}`);
+              }
+            } else {
+              console.log(`  🌙 [${LINE2_TG_TAG}] Сигнал готовий, але ${l2Hour}:xx Kyiv — не надсилаємо`);
+            }
+          }
+        } catch (e) {
+          console.log(`  [${LINE2_TG_TAG}] error: ${e.message}`);
         }
       }
 
@@ -728,15 +907,17 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
             const filtersLine = lastSig?.filtersApplied
               ? `\n🔍 *Фільтри:* ${lastSig.filtersApplied} [${lastSig.timeWindow || ''}]`
               : '';
-            const resultUrl = pred.desktopUrl || pred.mobileUrl || `https://m.flashscore.ua/match/${matchId}/`;
+            // Desktop-посилання обов'язкове. Якщо resolveDesktopUrl не зберігся в pred —
+            // будуємо fallback на www.flashscore.ua (mid-redirect), а не m.* версію.
+            const resultUrl = pred.desktopUrl || `https://www.flashscore.ua/match/${matchId}/`;
             try {
               await sendTelegramMessage(
-                `${getTelegramMarkdownPrefix()}` +
-                `🏆 ${league}\n` +
-                `⚽ ${home} - ${away}\n` +
+                `🏆 ${home} - ${away}\n` +
+                `📊 ${league}\n` +
                 `${suffix}\n\n` +
                 `📊 *Підсумок прогнозу:* ${resultEmoji}${filtersLine}\n\n` +
-                `🔗 [Flashscore](${resultUrl})`
+                `🔗 [Flashscore](${resultUrl})` +
+                getTelegramModelFooter(pred.modelLine || null)
               );
               console.log(`  ✓ Telegram result sent (${statusLabel})`);
             } catch (e) { console.log(`  Telegram result err: ${e.message}`); }
@@ -769,6 +950,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
     processedMatchIds: Array.from(processedMatchIds),
     sentTelegramIds: Array.from(sentTelegramIds),
     activePredictions: Array.from(activePredictions.entries()),
+    noStatsAttempts: Array.from(noStatsAttempts.entries()),
     lastResultCheckHour,
     nearestSkippedMinute,
     activeCount: activePredictions.size,
