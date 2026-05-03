@@ -36,6 +36,7 @@ const { computeKellyStake } = require('./src/pipeline/liveModelEngine');
 const { getTelegramMarkdownPrefix, getTelegramModelFooter } = require('./src/helpers/telegramModelTag');
 const { evaluateLine1Dry } = require('./src/pipeline/line1/dryEngine');
 const { appendShadowEntry } = require('./src/pipeline/line1/shadowLogger');
+const { appendPredictionEvent } = require('./src/pipeline/predictionEvents');
 const { evaluateLine2LateSurge } = require('./src/pipeline/line2/lateSurgeEngine');
 const { appendLine2Entry } = require('./src/pipeline/line2/shadowLogger');
 const {
@@ -462,6 +463,31 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
       });
       appendMatchEntry(logEntry);
 
+      // Уніфікований лог події прогнозу від v3 main engine
+      appendPredictionEvent(sessionDateKey(), {
+        matchId: match.id,
+        model: 'v3_main',
+        minute: match.minute,
+        bet: decision.bet,
+        signalEligible: decision.signalEligible,
+        pDry: decision.pDry,
+        pGoal: decision.pGoal,
+        signalQuality: decision.signalQuality ?? null,
+        edge: decision.edge ?? null,
+        timeWindow: decision.timeWindow,
+        reason: decision.reason,
+        components: {
+          currentState: modelV2?.currentState,
+          dominanceStrength: modelV2?.dominanceStrength ?? null,
+          confidence: decision.confidence,
+        },
+        league: match.league,
+        home: match.home,
+        away: match.away,
+        score: match.score,
+        desktopUrl,
+      });
+
       let telegramSent = false;
 
       if (decision.bet !== 'SKIP') {
@@ -626,6 +652,31 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
             timestamp: new Date().toISOString(),
           });
 
+          // Уніфікований лог події прогнозу від Line 1
+          appendPredictionEvent(sessionDateKey(), {
+            matchId: match.id,
+            model: 'L1',
+            minute: features.minute,
+            bet: line1Result.bet,
+            signalEligible: line1Result.signalEligible,
+            pDry: line1Result.pDry,
+            pGoal: null,
+            signalQuality: null,
+            edge: line1Result.pDry != null ? Number((line1Result.pDry - 0.5).toFixed(3)) : null,
+            timeWindow: '60-78',
+            reason: line1Result.reason,
+            components: {
+              consensusCount: line1Result.consensusCount,
+              ...line1Result.components,
+              intensityRatio: line1Result.intensityRatio,
+            },
+            league: match.league,
+            home: match.home,
+            away: match.away,
+            score: match.score,
+            desktopUrl,
+          });
+
           // Відправка Telegram (production: при сигналі завжди шлемо)
           if (line1Result.signalEligible && !sentTelegramIds.has(match.id)) {
             const l1Hour = kyivHour();
@@ -772,6 +823,35 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
             snapshotsInWindow: line2Result.components?.snapshotsInWindow || 0,
             reason: line2Result.reason,
             timestamp: new Date().toISOString(),
+          });
+
+          // Уніфікований лог події прогнозу від Line 2
+          appendPredictionEvent(sessionDateKey(), {
+            matchId: match.id,
+            model: 'L2',
+            minute: features.minute,
+            bet: line2Result.bet,
+            signalEligible: line2Result.signalEligible,
+            pDry: null,
+            pGoal: line2Result.pressureScore,
+            signalQuality: null,
+            edge: null,
+            timeWindow: '75-90',
+            reason: line2Result.reason,
+            components: {
+              pressureScore: line2Result.pressureScore,
+              favoriteSide: line2Result.favoriteSide,
+              favoriteOdds: line2Result.favoriteOdds,
+              underdogRedCard: line2Result.underdogRedCard || false,
+              surgingCount: line2Result.components?.surgingCount || 0,
+              monotonic: line2Result.components?.monotonic || false,
+              snapshotsInWindow: line2Result.components?.snapshotsInWindow || 0,
+            },
+            league: match.league,
+            home: match.home,
+            away: match.away,
+            score: match.score,
+            desktopUrl,
           });
 
           // Active mode — Telegram + prediction запис у matches.json

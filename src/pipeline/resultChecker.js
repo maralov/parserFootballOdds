@@ -1,4 +1,5 @@
 const { loadDayMatches, saveDayMatches, saveDaySummary, saveDayPredictions, saveDayStakeRoi } = require('./dailyLogger');
+const { enrichWithResults: enrichPredictionEvents, loadEvents: loadPredictionEvents } = require('./predictionEvents');
 const { yesterday, sessionDateKey, dateKeyLocal, toISO } = require('../helpers/date');
 const { sanitizeLeagueName, sanitizeTeams, formatBetLabel } = require('../helpers/utils/normalizeMatchText');
 
@@ -780,11 +781,45 @@ function buildSummary(matches, dateRef, checked, hits, misses, options = {}) {
   };
 
   if (persist) {
+    // Збагачуємо prediction_events.json фінальними результатами та рахуємо byModel розбивку.
+    const resultsByMatchId = {};
+    for (const m of matches) {
+      if (m.resultChecked && m.actualResult) {
+        resultsByMatchId[m.matchId] = { score: m.actualResult, ts: m.resultTimestamp };
+      }
+    }
+    enrichPredictionEvents(dateRef, resultsByMatchId);
+    summary.byModel = buildByModelSummary(dateRef);
+
     saveDaySummary(dateRef, summary);
     saveDayPredictions(dateRef, buildPredictionsFile(matches, dateRef));
     saveDayStakeRoi(dateRef, buildStakeRoiReport(matches, dateRef));
   }
   return summary;
+}
+
+/**
+ * Розбивка статистики по моделях/лініях з prediction_events.json.
+ * Окремо рахуємо: всього евалів, actionable (signalEligible + bet ≠ SKIP), hits/misses.
+ */
+function buildByModelSummary(dateRef) {
+  const events = loadPredictionEvents(dateRef);
+  const byModel = {};
+  for (const e of events) {
+    const m = e.model || 'unknown';
+    if (!byModel[m]) byModel[m] = { evals: 0, actionable: 0, resolved: 0, hits: 0, misses: 0, hitRate: null };
+    byModel[m].evals++;
+    if (e.signalEligible && e.bet && e.bet !== 'SKIP') {
+      byModel[m].actionable++;
+      if (e.hit === true) { byModel[m].hits++; byModel[m].resolved++; }
+      else if (e.hit === false) { byModel[m].misses++; byModel[m].resolved++; }
+    }
+  }
+  for (const m of Object.keys(byModel)) {
+    const b = byModel[m];
+    b.hitRate = b.resolved > 0 ? Number((b.hits / b.resolved).toFixed(3)) : null;
+  }
+  return byModel;
 }
 
 async function checkYesterdayResults(page) {

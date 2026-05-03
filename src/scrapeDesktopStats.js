@@ -8,7 +8,15 @@ const {
 
 const TIMEOUT = 20000;
 const DESKTOP_BASE = 'https://www.flashscore.ua/match';
-const DOM_ALERT_FILE = path.join(__dirname, '..', 'data', 'logs', 'dom_alerts.json');
+const DOM_ALERT_BASE = path.join(__dirname, '..', 'data', 'logs');
+
+/** Per-day файл алертів: data/logs/<YYYY-MM-DD>/dom_alerts.json. */
+function getDomAlertFile() {
+  const today = new Date().toISOString().slice(0, 10);
+  const dir = path.join(DOM_ALERT_BASE, today);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  return path.join(dir, 'dom_alerts.json');
+}
 
 const BLOCK_DOMAINS_RE = /google-analytics|googletagmanager|googlesyndication|doubleclick|facebook\.(net|com)|adservice|hotjar|segment\.io|amplitude|criteo|adsrvr|taboola|outbrain|adnxs|pubmatic|rubiconproject|openx|smartadserver|yandex\.ru\/metrika|mc\.yandex|mail\.ru\/counter|gemius|optad360/i;
 
@@ -194,15 +202,15 @@ function logDomAlert(matchId, alertType, details) {
   const entry = { matchId, alertType, details, timestamp: toISO() };
   console.log(`  ⚠ DOM ALERT [${matchId}]: ${alertType} — ${details}`);
   try {
-    const dir = path.dirname(DOM_ALERT_FILE);
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    const file = getDomAlertFile();
     let alerts = [];
-    if (fs.existsSync(DOM_ALERT_FILE)) {
-      try { alerts = JSON.parse(fs.readFileSync(DOM_ALERT_FILE, 'utf8')); } catch {}
+    if (fs.existsSync(file)) {
+      try { alerts = JSON.parse(fs.readFileSync(file, 'utf8')); } catch {}
     }
     alerts.push(entry);
-    if (alerts.length > 500) alerts = alerts.slice(-200);
-    fs.writeFileSync(DOM_ALERT_FILE, JSON.stringify(alerts, null, 2), 'utf8');
+    // На один день лімітуємо менш агресивно — для post-mortem у поточному дні.
+    if (alerts.length > 1000) alerts = alerts.slice(-500);
+    fs.writeFileSync(file, JSON.stringify(alerts, null, 2), 'utf8');
   } catch {}
 }
 
