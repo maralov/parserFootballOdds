@@ -52,5 +52,4846 @@
       "totalShots": 1.8
     },
     "timestamp": "2026-05-03T08:53:15.826Z"
+  },
+  {
+    "matchId": "tKKo022C",
+    "league": "КАМБОДЖА: КПЛ - Чемпіонська група",
+    "home": "Бенг Кет",
+    "away": "Пномпень Краун",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8621,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.7039,
+      "trajectory": 0.7105,
+      "odds": 0.4073,
+      "prematch": 0.3
+    },
+    "reason": "snapshots=1 < 2",
+    "intensityRatio": {
+      "shotsOnTarget": 0.7895,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.9109
+    },
+    "timestamp": "2026-05-03T12:28:03.638Z"
+  },
+  {
+    "matchId": "hpn4xsP8",
+    "league": "ТАЇЛАНД: Ліга Тайланду 1",
+    "home": "Ворріор",
+    "away": "Чанграй Юнайтед",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8562,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.4635,
+      "dry_2H": 0.6374,
+      "trajectory": 0.8445,
+      "odds": 0.3997,
+      "prematch": 0.3
+    },
+    "reason": "snapshots=1 < 2",
+    "intensityRatio": {
+      "shotsOnTarget": 0.5769,
+      "expectedGoalsXg": 0.5931,
+      "bigChances": 0.8654,
+      "touchesInOppositionBox": 0.8654,
+      "totalShots": 0.5769
+    },
+    "timestamp": "2026-05-03T13:30:32.697Z"
+  },
+  {
+    "matchId": "zBSEmsso",
+    "league": "РОСІЯ: Прем'єр-ліга",
+    "home": "Тольятті",
+    "away": "Краснодар",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-03T15:23:40.227Z"
+  },
+  {
+    "matchId": "zBSEmsso",
+    "league": "РОСІЯ: Прем'єр-ліга",
+    "home": "Тольятті",
+    "away": "Краснодар",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-03T15:28:22.041Z"
+  },
+  {
+    "matchId": "lMeHjq4d",
+    "league": "КАЗАХСТАН: Прем'єр-ліга",
+    "home": "Актау",
+    "away": "ФК Астана",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 0.8242,
+      "trajectory": 1,
+      "odds": 0.4293,
+      "prematch": 0.3
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 0.3516,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.5409
+    },
+    "timestamp": "2026-05-03T15:34:22.062Z"
+  },
+  {
+    "matchId": "zBSEmsso",
+    "league": "РОСІЯ: Прем'єр-ліга",
+    "home": "Тольятті",
+    "away": "Краснодар",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-03T15:34:35.621Z"
+  },
+  {
+    "matchId": "lMeHjq4d",
+    "league": "КАЗАХСТАН: Прем'єр-ліга",
+    "home": "Актау",
+    "away": "ФК Астана",
+    "minute": 89,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=89 outside window 60-78",
+    "timestamp": "2026-05-03T15:45:38.398Z"
+  },
+  {
+    "matchId": "QZmKjfGk",
+    "league": "КАМЕРУН: Елітний дивізіон",
+    "home": "Ренар",
+    "away": "Коломб",
+    "minute": 89,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=89 outside window 60-78",
+    "timestamp": "2026-05-03T16:26:59.069Z"
+  },
+  {
+    "matchId": "Uwlg2sbT",
+    "league": "РОСІЯ: ФНЛ",
+    "home": "Воронеж",
+    "away": "Єнісей",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-03T16:31:18.577Z"
+  },
+  {
+    "matchId": "rgiQs1J8",
+    "league": "НОРВЕГІЯ: Елітсеріен",
+    "home": "Саннефйорд",
+    "away": "Олесунн",
+    "minute": 76,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8052,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.396,
+      "dry_2H": 0.601,
+      "trajectory": 0.6855,
+      "odds": 0.2888,
+      "prematch": 0.3
+    },
+    "reason": "snapshots=1 < 2",
+    "intensityRatio": {
+      "shotsOnTarget": 0.2903,
+      "expectedGoalsXg": 1.1101,
+      "bigChances": 0,
+      "touchesInOppositionBox": 1.0753,
+      "totalShots": 1.1101
+    },
+    "timestamp": "2026-05-03T16:38:50.497Z"
+  },
+  {
+    "matchId": "GjCPQl16",
+    "league": "КАНАДА: NSL Women",
+    "home": "Торонто Ж",
+    "away": "Галіфакс Тайдс Ж",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=88 outside window 60-78",
+    "timestamp": "2026-05-03T17:55:09.570Z"
+  },
+  {
+    "matchId": "CjKJQFzJ",
+    "league": "ІСПАНІЯ: Ла Ліга 2",
+    "home": "Сосьєдад B",
+    "away": "Бургос",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=81 outside window 60-78",
+    "timestamp": "2026-05-03T18:09:57.893Z"
+  },
+  {
+    "matchId": "CjKJQFzJ",
+    "league": "ІСПАНІЯ: Ла Ліга 2",
+    "home": "Сосьєдад B",
+    "away": "Бургос",
+    "minute": 84,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=84 outside window 60-78",
+    "timestamp": "2026-05-03T18:13:13.342Z"
+  },
+  {
+    "matchId": "CjKJQFzJ",
+    "league": "ІСПАНІЯ: Ла Ліга 2",
+    "home": "Сосьєдад B",
+    "away": "Бургос",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=88 outside window 60-78",
+    "timestamp": "2026-05-03T18:16:56.341Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "Ель-Махалла",
+    "away": "Ель-Ісмаїлі",
+    "minute": 62,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.4765,
+      "dry_2H": 0.9047,
+      "trajectory": 1,
+      "odds": 0.7015,
+      "prematch": 1
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.3886,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.5294,
+      "totalShots": 1.4706
+    },
+    "timestamp": "2026-05-03T18:27:48.450Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "Ель-Махалла",
+    "away": "Ель-Ісмаїлі",
+    "minute": 65,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.4765,
+      "dry_2H": 0.9123,
+      "trajectory": 1,
+      "odds": 0.7015,
+      "prematch": 1
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.3716,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.45,
+      "totalShots": 1.5
+    },
+    "timestamp": "2026-05-03T18:30:04.610Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "Ель-Махалла",
+    "away": "Ель-Ісмаїлі",
+    "minute": 66,
+    "bet": "OVER_0_5",
+    "signalEligible": true,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.4765,
+      "dry_2H": 0.8821,
+      "trajectory": 1,
+      "odds": 0.7015,
+      "prematch": 1
+    },
+    "reason": "Dry→Burst ТБ 0.5: pre-burst xG ratio=0.37 < 0.85, burst=3.30",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.5111,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.5714,
+      "totalShots": 1.6667
+    },
+    "timestamp": "2026-05-03T18:32:52.507Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "Ель-Махалла",
+    "away": "Ель-Ісмаїлі",
+    "minute": 69,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.4765,
+      "dry_2H": 0.8969,
+      "trajectory": 1,
+      "odds": 0.7015,
+      "prematch": 1
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.4472,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.5,
+      "totalShots": 1.6667
+    },
+    "timestamp": "2026-05-03T18:35:39.988Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "Ель-Махалла",
+    "away": "Ель-Ісмаїлі",
+    "minute": 73,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.4765,
+      "dry_2H": 0.9092,
+      "trajectory": 1,
+      "odds": 0.7015,
+      "prematch": 1
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.3981,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.4286,
+      "totalShots": 1.4286
+    },
+    "timestamp": "2026-05-03T18:38:29.744Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "Ель-Махалла",
+    "away": "Ель-Ісмаїлі",
+    "minute": 75,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.4765,
+      "dry_2H": 0.9093,
+      "trajectory": 1,
+      "odds": 0.7015,
+      "prematch": 1
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.3716,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.5,
+      "totalShots": 1.3333
+    },
+    "timestamp": "2026-05-03T18:41:19.321Z"
+  },
+  {
+    "matchId": "CUgD8bLO",
+    "league": "СЕРБІЯ: Суперліга - Група вибування",
+    "home": "Явор",
+    "away": "Нови-Београд",
+    "minute": 62,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.924,
+      "dry_2H": 0.8524,
+      "trajectory": 0,
+      "odds": 0.4505,
+      "prematch": 0.6
+    },
+    "reason": "hard gate: xG burst ratio=30 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 7.9412,
+      "bigChances": null,
+      "touchesInOppositionBox": 5.2941,
+      "totalShots": 3.5294
+    },
+    "timestamp": "2026-05-03T18:49:17.088Z"
+  },
+  {
+    "matchId": "CUgD8bLO",
+    "league": "СЕРБІЯ: Суперліга - Група вибування",
+    "home": "Явор",
+    "away": "Нови-Београд",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8193,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.924,
+      "dry_2H": 0.8695,
+      "trajectory": 0,
+      "odds": 0.4505,
+      "prematch": 0.6
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 6.75,
+      "bigChances": null,
+      "touchesInOppositionBox": 4.5,
+      "totalShots": 3.75
+    },
+    "timestamp": "2026-05-03T18:52:03.689Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Санта-Фе Ж",
+    "away": "Мільйонаріос Ж",
+    "minute": 60,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4827,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.2
+    },
+    "timestamp": "2026-05-03T18:52:37.330Z"
+  },
+  {
+    "matchId": "CUgD8bLO",
+    "league": "СЕРБІЯ: Суперліга - Група вибування",
+    "home": "Явор",
+    "away": "Нови-Београд",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.924,
+      "dry_2H": 0.5617,
+      "trajectory": 0,
+      "odds": 0.4505,
+      "prematch": 0.6
+    },
+    "reason": "hard gate: xG burst ratio=30 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": 3.913,
+      "expectedGoalsXg": 9.7826,
+      "bigChances": null,
+      "touchesInOppositionBox": 4.3043,
+      "totalShots": 4.5652
+    },
+    "timestamp": "2026-05-03T18:54:53.211Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Санта-Фе Ж",
+    "away": "Мільйонаріос Ж",
+    "minute": 63,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4827,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1
+    },
+    "timestamp": "2026-05-03T18:55:25.715Z"
+  },
+  {
+    "matchId": "MNVxPJ55",
+    "league": "СЕРБІЯ: Суперліга - Група вибування",
+    "home": "Напредак",
+    "away": "Раднічки Ниш",
+    "minute": 60,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.8985,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.5655,
+      "dry_2H": 0.955,
+      "trajectory": 1,
+      "odds": 0.0926,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.8985, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.08,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.5,
+      "totalShots": 0.5
+    },
+    "timestamp": "2026-05-03T18:55:26.765Z"
+  },
+  {
+    "matchId": "CUgD8bLO",
+    "league": "СЕРБІЯ: Суперліга - Група вибування",
+    "home": "Явор",
+    "away": "Нови-Београд",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.924,
+      "dry_2H": 0.5689,
+      "trajectory": 0,
+      "odds": 0.4505,
+      "prematch": 0.6
+    },
+    "reason": "hard gate: xG burst ratio=28.125 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": 3.6,
+      "expectedGoalsXg": 11.25,
+      "bigChances": null,
+      "touchesInOppositionBox": 4.68,
+      "totalShots": 4.8
+    },
+    "timestamp": "2026-05-03T18:57:43.379Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Санта-Фе Ж",
+    "away": "Мільйонаріос Ж",
+    "minute": 65,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4827,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.9
+    },
+    "timestamp": "2026-05-03T18:58:15.568Z"
+  },
+  {
+    "matchId": "MNVxPJ55",
+    "league": "СЕРБІЯ: Суперліга - Група вибування",
+    "home": "Напредак",
+    "away": "Раднічки Ниш",
+    "minute": 63,
+    "bet": "OVER_0_5",
+    "signalEligible": true,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.5655,
+      "dry_2H": 0.7675,
+      "trajectory": 0.9023,
+      "odds": 0.0926,
+      "prematch": 0
+    },
+    "reason": "Dry→Burst ТБ 0.5: pre-burst xG ratio=0.08 < 0.85, burst=3.20",
+    "intensityRatio": {
+      "shotsOnTarget": 0.625,
+      "expectedGoalsXg": 0.6,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.5556,
+      "totalShots": 0.625
+    },
+    "timestamp": "2026-05-03T18:58:15.901Z"
+  },
+  {
+    "matchId": "MNVxPJ55",
+    "league": "СЕРБІЯ: Суперліга - Група вибування",
+    "home": "Напредак",
+    "away": "Раднічки Ниш",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.5655,
+      "dry_2H": 0.5693,
+      "trajectory": 0.7407,
+      "odds": 0.0926,
+      "prematch": 0
+    },
+    "reason": "hard gate: BC delta=1 >= 1",
+    "intensityRatio": {
+      "shotsOnTarget": 1.0714,
+      "expectedGoalsXg": 0.5143,
+      "bigChances": 2.1429,
+      "touchesInOppositionBox": 0.7143,
+      "totalShots": 0.7143
+    },
+    "timestamp": "2026-05-03T19:01:06.946Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Санта-Фе Ж",
+    "away": "Мільйонаріос Ж",
+    "minute": 69,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4827,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.75
+    },
+    "timestamp": "2026-05-03T19:01:07.075Z"
+  },
+  {
+    "matchId": "CUgD8bLO",
+    "league": "СЕРБІЯ: Суперліга - Група вибування",
+    "home": "Явор",
+    "away": "Нови-Београд",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.924,
+      "dry_2H": 0.6237,
+      "trajectory": 0,
+      "odds": 0.4505,
+      "prematch": 0.6
+    },
+    "reason": "hard gate: xG burst ratio=5.625 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": 3.1034,
+      "expectedGoalsXg": 10.4741,
+      "bigChances": null,
+      "touchesInOppositionBox": 4.0345,
+      "totalShots": 4.1379
+    },
+    "timestamp": "2026-05-03T19:01:07.486Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Санта-Фе Ж",
+    "away": "Мільйонаріос Ж",
+    "minute": 71,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4827,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.6923
+    },
+    "timestamp": "2026-05-03T19:03:57.125Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Санта-Фе Ж",
+    "away": "Мільйонаріос Ж",
+    "minute": 74,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4827,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.6207
+    },
+    "timestamp": "2026-05-03T19:06:17.149Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Санта-Фе Ж",
+    "away": "Мільйонаріос Ж",
+    "minute": 77,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4827,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.5625
+    },
+    "timestamp": "2026-05-03T19:10:36.036Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Санта-Фе Ж",
+    "away": "Мільйонаріос Ж",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=81 outside window 60-78",
+    "timestamp": "2026-05-03T19:15:24.294Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Санта-Фе Ж",
+    "away": "Мільйонаріос Ж",
+    "minute": 86,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=86 outside window 60-78",
+    "timestamp": "2026-05-03T19:20:09.097Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "league": "БРАЗИЛІЯ: Катаріненсе 2",
+    "home": "Метрополітано",
+    "away": "Ерсіліу Луж",
+    "minute": 62,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.6691,
+      "trajectory": 0,
+      "odds": 0.3739,
+      "prematch": 0.4
+    },
+    "reason": "hard gate: red card (h=1, a=0)",
+    "intensityRatio": {
+      "shotsOnTarget": 2.6471,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.5882
+    },
+    "timestamp": "2026-05-03T19:22:28.412Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Касертана",
+    "away": "Аталанта U23",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6627,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.25,
+      "trajectory": 0,
+      "odds": 0.4521,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.6
+    },
+    "timestamp": "2026-05-03T19:23:08.235Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Лумеццане",
+    "away": "Альчоне Мілано",
+    "minute": 62,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4415,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.5294
+    },
+    "timestamp": "2026-05-03T19:23:47.451Z"
+  },
+  {
+    "matchId": "G60TDmwB",
+    "league": "СЕРБІЯ: Перша ліга - Чемпіонська група",
+    "home": "Шабац",
+    "away": "ФК Вождовац",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.908,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.7321,
+      "trajectory": 0.7857,
+      "odds": 0.4973,
+      "prematch": 0.6
+    },
+    "reason": "snapshots=1 < 2",
+    "intensityRatio": {
+      "shotsOnTarget": 0.7143,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.3571
+    },
+    "timestamp": "2026-05-03T19:23:54.514Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Касертана",
+    "away": "Аталанта U23",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6864,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.4079,
+      "trajectory": 0,
+      "odds": 0.4521,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.5789,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.4737
+    },
+    "timestamp": "2026-05-03T19:26:13.971Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "league": "БРАЗИЛІЯ: Катаріненсе 2",
+    "home": "Метрополітано",
+    "away": "Ерсіліу Луж",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.4643,
+      "trajectory": 0,
+      "odds": 0.3739,
+      "prematch": 0.4
+    },
+    "reason": "hard gate: red card (h=1, a=0)",
+    "intensityRatio": {
+      "shotsOnTarget": 4.2857,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 2.1429
+    },
+    "timestamp": "2026-05-03T19:26:45.732Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Лумеццане",
+    "away": "Альчоне Мілано",
+    "minute": 65,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4415,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.45
+    },
+    "timestamp": "2026-05-03T19:26:52.162Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Лумеццане",
+    "away": "Альчоне Мілано",
+    "minute": 68,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4415,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.7826
+    },
+    "timestamp": "2026-05-03T19:29:20.473Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "league": "БРАЗИЛІЯ: Катаріненсе 2",
+    "home": "Метрополітано",
+    "away": "Ерсіліу Луж",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.5109,
+      "trajectory": 0,
+      "odds": 0.3739,
+      "prematch": 0.4
+    },
+    "reason": "hard gate: red card (h=1, a=0)",
+    "intensityRatio": {
+      "shotsOnTarget": 3.913,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.9565
+    },
+    "timestamp": "2026-05-03T19:29:52.642Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Касертана",
+    "away": "Аталанта U23",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7077,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.4643,
+      "trajectory": 0.0714,
+      "odds": 0.4521,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0.0714 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.4286,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.5714
+    },
+    "timestamp": "2026-05-03T19:29:52.862Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Лумеццане",
+    "away": "Альчоне Мілано",
+    "minute": 71,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4415,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.6923
+    },
+    "timestamp": "2026-05-03T19:32:10.438Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "league": "БРАЗИЛІЯ: Катаріненсе 2",
+    "home": "Метрополітано",
+    "away": "Ерсіліу Луж",
+    "minute": 72,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.375,
+      "trajectory": 0,
+      "odds": 0.3739,
+      "prematch": 0.4
+    },
+    "reason": "hard gate: red card (h=1, a=0)",
+    "intensityRatio": {
+      "shotsOnTarget": 5,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 2
+    },
+    "timestamp": "2026-05-03T19:32:42.781Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Касертана",
+    "away": "Аталанта U23",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7617,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.55,
+      "trajectory": 0.3,
+      "odds": 0.4521,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0.3 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.2,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.48
+    },
+    "timestamp": "2026-05-03T19:32:42.989Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Касертана",
+    "away": "Аталанта U23",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.792,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.5982,
+      "trajectory": 0.4286,
+      "odds": 0.4521,
+      "prematch": 0.2
+    },
+    "reason": "consensus=2 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.0714,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.5357
+    },
+    "timestamp": "2026-05-03T19:35:32.384Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "league": "БРАЗИЛІЯ: Катаріненсе 2",
+    "home": "Метрополітано",
+    "away": "Ерсіліу Луж",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.4181,
+      "trajectory": 0,
+      "odds": 0.3739,
+      "prematch": 0.4
+    },
+    "reason": "hard gate: red card (h=1, a=0)",
+    "intensityRatio": {
+      "shotsOnTarget": 4.6552,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.8621
+    },
+    "timestamp": "2026-05-03T19:35:32.433Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Лумеццане",
+    "away": "Альчоне Мілано",
+    "minute": 74,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4415,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.6207
+    },
+    "timestamp": "2026-05-03T19:35:32.485Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "league": "БРАЗИЛІЯ: Катаріненсе 2",
+    "home": "Метрополітано",
+    "away": "Ерсіліу Луж",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.4727,
+      "trajectory": 0,
+      "odds": 0.3739,
+      "prematch": 0.4
+    },
+    "reason": "hard gate: red card (h=1, a=0)",
+    "intensityRatio": {
+      "shotsOnTarget": 4.2188,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.9688
+    },
+    "timestamp": "2026-05-03T19:38:21.488Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Лумеццане",
+    "away": "Альчоне Мілано",
+    "minute": 77,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4415,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.5625
+    },
+    "timestamp": "2026-05-03T19:38:21.620Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Касертана",
+    "away": "Аталанта U23",
+    "minute": 75,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6908,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.4375,
+      "trajectory": 0,
+      "odds": 0.4521,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.5,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.6
+    },
+    "timestamp": "2026-05-03T19:38:21.755Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Лумеццане",
+    "away": "Альчоне Мілано",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=79 outside window 60-78",
+    "timestamp": "2026-05-03T19:40:38.894Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "league": "БРАЗИЛІЯ: Катаріненсе 2",
+    "home": "Метрополітано",
+    "away": "Ерсіліу Луж",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=79 outside window 60-78",
+    "timestamp": "2026-05-03T19:41:10.411Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Касертана",
+    "away": "Аталанта U23",
+    "minute": 78,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6729,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.3182,
+      "trajectory": 0,
+      "odds": 0.4521,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.8182,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.6364
+    },
+    "timestamp": "2026-05-03T19:41:10.633Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "league": "БРАЗИЛІЯ: Катаріненсе 2",
+    "home": "Метрополітано",
+    "away": "Ерсіліу Луж",
+    "minute": 83,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=83 outside window 60-78",
+    "timestamp": "2026-05-03T19:43:59.673Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Лумеццане",
+    "away": "Альчоне Мілано",
+    "minute": 83,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=83 outside window 60-78",
+    "timestamp": "2026-05-03T19:44:00.332Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "league": "БРАЗИЛІЯ: Катаріненсе 2",
+    "home": "Метрополітано",
+    "away": "Ерсіліу Луж",
+    "minute": 85,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=85 outside window 60-78",
+    "timestamp": "2026-05-03T19:46:50.652Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Лумеццане",
+    "away": "Альчоне Мілано",
+    "minute": 85,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=85 outside window 60-78",
+    "timestamp": "2026-05-03T19:47:29.657Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "league": "БРАЗИЛІЯ: Катаріненсе 2",
+    "home": "Метрополітано",
+    "away": "Ерсіліу Луж",
+    "minute": 89,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=89 outside window 60-78",
+    "timestamp": "2026-05-03T19:49:45.538Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+    "home": "Лумеццане",
+    "away": "Альчоне Мілано",
+    "minute": 89,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=89 outside window 60-78",
+    "timestamp": "2026-05-03T19:50:23.954Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "league": "АРГЕНТИНА: Прімера Насьйональ",
+    "home": "Альміранте Браун",
+    "away": "Чако Фор Евер",
+    "minute": 61,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 5,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.6515,
+      "prematch": 1
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=5/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0
+    },
+    "timestamp": "2026-05-03T19:56:32.194Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "league": "АРГЕНТИНА: Прімера Насьйональ",
+    "home": "Браун",
+    "away": "Чако Фор Евер",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8327,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.7039,
+      "trajectory": 0,
+      "odds": 0.6515,
+      "prematch": 1
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.3684,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 2.3684
+    },
+    "timestamp": "2026-05-03T19:58:51.554Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "league": "АРГЕНТИНА: Прімера Насьйональ",
+    "home": "Браун",
+    "away": "Чако Фор Евер",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8369,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.7321,
+      "trajectory": 0,
+      "odds": 0.6515,
+      "prematch": 1
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.1429,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 2.1429
+    },
+    "timestamp": "2026-05-03T20:01:08.905Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "league": "АРГЕНТИНА: Прімера Насьйональ",
+    "home": "Браун",
+    "away": "Чако Фор Евер",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8404,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.7554,
+      "trajectory": 0,
+      "odds": 0.6515,
+      "prematch": 1
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.9565,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.9565
+    },
+    "timestamp": "2026-05-03T20:03:57.120Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "league": "АРГЕНТИНА: Прімера Насьйональ",
+    "home": "Браун",
+    "away": "Чако Фор Евер",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8447,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.7837,
+      "trajectory": 0,
+      "odds": 0.6515,
+      "prematch": 1
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.7308,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.7308
+    },
+    "timestamp": "2026-05-03T20:07:01.822Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "league": "АРГЕНТИНА: Прімера Насьйональ",
+    "home": "Браун",
+    "away": "Чако Фор Евер",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.847,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.7991,
+      "trajectory": 0,
+      "odds": 0.6515,
+      "prematch": 1
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.6071,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.6071
+    },
+    "timestamp": "2026-05-03T20:10:05.454Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "league": "АРГЕНТИНА: Прімера Насьйональ",
+    "home": "Браун",
+    "away": "Чако Фор Евер",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8676,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.8242,
+      "trajectory": 0.0937,
+      "odds": 0.6515,
+      "prematch": 1
+    },
+    "reason": "trajectory=0.0937 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.4063,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.4063
+    },
+    "timestamp": "2026-05-03T20:13:11.219Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "league": "АРГЕНТИНА: Прімера Насьйональ",
+    "home": "Браун",
+    "away": "Чако Фор Евер",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=81 outside window 60-78",
+    "timestamp": "2026-05-03T20:17:17.297Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сан-Луїс",
+    "away": "Сіанорті",
+    "minute": 60,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.9043,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.25,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.5542,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.9043, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.7059
+    },
+    "timestamp": "2026-05-03T20:20:19.092Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Нова-Ігуасу",
+    "away": "Велу Клубі",
+    "minute": 62,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.9143,
+    "consensusCount": 5,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 0.6691,
+      "trajectory": 0.8382,
+      "odds": 0.5885,
+      "prematch": 0.8
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.9143, consensus=5/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0.6618,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.4439
+    },
+    "timestamp": "2026-05-03T20:23:17.173Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Америка Натал",
+    "away": "Магуарі",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8461,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.125,
+      "dry_2H": 0.625,
+      "trajectory": 1,
+      "odds": 0.3673,
+      "prematch": 0.4
+    },
+    "reason": "consensus=2 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 0.4286,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.75
+    },
+    "timestamp": "2026-05-03T20:23:48.993Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сан-Луїс",
+    "away": "Сіанорті",
+    "minute": 63,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.9043,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.25,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.5542,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.9043, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.5882
+    },
+    "timestamp": "2026-05-03T20:23:55.221Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Америка Натал",
+    "away": "Магуарі",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8555,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.125,
+      "dry_2H": 0.6875,
+      "trajectory": 1,
+      "odds": 0.3673,
+      "prematch": 0.4
+    },
+    "reason": "consensus=2 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 0.3571,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.625
+    },
+    "timestamp": "2026-05-03T20:27:14.848Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Нова-Ігуасу",
+    "away": "Велу Клубі",
+    "minute": 66,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 5,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 0.7321,
+      "trajectory": 0.9643,
+      "odds": 0.5885,
+      "prematch": 0.8
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=5/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0.5357,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.3636
+    },
+    "timestamp": "2026-05-03T20:27:14.914Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "league": "АРГЕНТИНА: Прімера - Апертура",
+    "home": "Расінг",
+    "away": "Уракан",
+    "minute": 63,
+    "bet": "OVER_0_5",
+    "signalEligible": true,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.8325,
+      "dry_2H": 0.7787,
+      "trajectory": 0.1418,
+      "odds": 0.5833,
+      "prematch": 0
+    },
+    "reason": "Dry→Burst ТБ 0.5: pre-burst xG ratio=0.00 < 0.85, burst=1.92",
+    "intensityRatio": {
+      "shotsOnTarget": 2.5,
+      "expectedGoalsXg": 0.4268,
+      "bigChances": null,
+      "touchesInOppositionBox": 1.25,
+      "totalShots": 0.7143
+    },
+    "timestamp": "2026-05-03T20:27:16.147Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сан-Луїс",
+    "away": "Сіанорті",
+    "minute": 67,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.9043,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.25,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.5542,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.9043, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.4813
+    },
+    "timestamp": "2026-05-03T20:27:53.467Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "league": "АРГЕНТИНА: Прімера - Апертура",
+    "home": "Расінг",
+    "away": "Уракан",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8286,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.8325,
+      "dry_2H": 0.8104,
+      "trajectory": 0.3358,
+      "odds": 0.5833,
+      "prematch": 0
+    },
+    "reason": "trajectory=0.3358 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.1429,
+      "expectedGoalsXg": 0.3659,
+      "bigChances": null,
+      "touchesInOppositionBox": 1.0714,
+      "totalShots": 0.6122
+    },
+    "timestamp": "2026-05-03T20:30:41.740Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Америка Натал",
+    "away": "Магуарі",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8622,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.125,
+      "dry_2H": 0.7321,
+      "trajectory": 1,
+      "odds": 0.3673,
+      "prematch": 0.4
+    },
+    "reason": "consensus=2 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 0.3061,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.6696
+    },
+    "timestamp": "2026-05-03T20:30:41.810Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Нова-Ігуасу",
+    "away": "Велу Клубі",
+    "minute": 69,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 0.7656,
+      "trajectory": 1,
+      "odds": 0.5885,
+      "prematch": 0.8
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 0.4687,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.1932
+    },
+    "timestamp": "2026-05-03T20:30:42.087Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сан-Луїс",
+    "away": "Сіанорті",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.25,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.5542,
+      "prematch": 0
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.5294
+    },
+    "timestamp": "2026-05-03T20:31:20.490Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Америка Натал",
+    "away": "Магуарі",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8686,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.125,
+      "dry_2H": 0.775,
+      "trajectory": 1,
+      "odds": 0.3673,
+      "prematch": 0.4
+    },
+    "reason": "consensus=2 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 0.2571,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.5625
+    },
+    "timestamp": "2026-05-03T20:34:09.280Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Нова-Ігуасу",
+    "away": "Велу Клубі",
+    "minute": 72,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 0.7917,
+      "trajectory": 1,
+      "odds": 0.5885,
+      "prematch": 0.8
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 0.4167,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.0606
+    },
+    "timestamp": "2026-05-03T20:34:09.351Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "league": "АРГЕНТИНА: Прімера - Апертура",
+    "home": "Расінг",
+    "away": "Уракан",
+    "minute": 70,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.8666,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.8325,
+      "dry_2H": 0.8407,
+      "trajectory": 0.5221,
+      "odds": 0.5833,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.8666, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 1.8,
+      "expectedGoalsXg": 0.3073,
+      "bigChances": null,
+      "touchesInOppositionBox": 0.9,
+      "totalShots": 0.5143
+    },
+    "timestamp": "2026-05-03T20:34:09.421Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сан-Луїс",
+    "away": "Сіанорті",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.25,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.5542,
+      "prematch": 0
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.4564
+    },
+    "timestamp": "2026-05-03T20:34:48.992Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "league": "КАНАДА: Прем'єр-ліга Канади",
+    "home": "du Quebec",
+    "away": "Кевалрі",
+    "minute": 62,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.8165,
+      "dry_2H": 0.9299,
+      "trajectory": 0.7644,
+      "odds": 0.1386,
+      "prematch": 0
+    },
+    "reason": "hard gate: xG burst ratio=1.7308 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 1.4253,
+      "bigChances": null,
+      "touchesInOppositionBox": 0.6618,
+      "totalShots": 0.8824
+    },
+    "timestamp": "2026-05-03T20:34:50.719Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Америка Натал",
+    "away": "Магуарі",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8722,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.125,
+      "dry_2H": 0.7991,
+      "trajectory": 1,
+      "odds": 0.3673,
+      "prematch": 0.4
+    },
+    "reason": "consensus=2 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 0.2296,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.7031
+    },
+    "timestamp": "2026-05-03T20:37:53.241Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "league": "АРГЕНТИНА: Прімера - Апертура",
+    "home": "Расінг",
+    "away": "Уракан",
+    "minute": 73,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.8881,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.8325,
+      "dry_2H": 0.8578,
+      "trajectory": 0.6269,
+      "odds": 0.5833,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.8881, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 1.6071,
+      "expectedGoalsXg": 0.2744,
+      "bigChances": null,
+      "touchesInOppositionBox": 0.8036,
+      "totalShots": 0.4592
+    },
+    "timestamp": "2026-05-03T20:37:53.364Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Нова-Ігуасу",
+    "away": "Велу Клубі",
+    "minute": 76,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 0.8185,
+      "trajectory": 1,
+      "odds": 0.5885,
+      "prematch": 0.8
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 0.3629,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.9238
+    },
+    "timestamp": "2026-05-03T20:37:53.529Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сан-Луїс",
+    "away": "Сіанорті",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.25,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.5542,
+      "prematch": 0
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.4136
+    },
+    "timestamp": "2026-05-03T20:38:32.858Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "league": "КАНАДА: Прем'єр-ліга Канади",
+    "home": "du Quebec",
+    "away": "Кевалрі",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.8165,
+      "dry_2H": 0.8965,
+      "trajectory": 0.4231,
+      "odds": 0.1386,
+      "prematch": 0
+    },
+    "reason": "hard gate: xG burst ratio=5.7692 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 2.0769,
+      "bigChances": null,
+      "touchesInOppositionBox": 0.9844,
+      "totalShots": 1.125
+    },
+    "timestamp": "2026-05-03T20:38:33.176Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сан-Луїс",
+    "away": "Сіанорті",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=81 outside window 60-78",
+    "timestamp": "2026-05-03T20:41:27.148Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Нова-Ігуасу",
+    "away": "Велу Клубі",
+    "minute": 80,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=80 outside window 60-78",
+    "timestamp": "2026-05-03T20:41:58.724Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Америка Натал",
+    "away": "Магуарі",
+    "minute": 78,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8768,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.125,
+      "dry_2H": 0.8295,
+      "trajectory": 1,
+      "odds": 0.3673,
+      "prematch": 0.4
+    },
+    "reason": "consensus=2 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 0.1948,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.767
+    },
+    "timestamp": "2026-05-03T20:41:58.786Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "league": "КАНАДА: Прем'єр-ліга Канади",
+    "home": "du Quebec",
+    "away": "Кевалрі",
+    "minute": 69,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.8165,
+      "dry_2H": 0.7937,
+      "trajectory": 0,
+      "odds": 0.1386,
+      "prematch": 0
+    },
+    "reason": "hard gate: xG burst ratio=3.4615 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": 0.9375,
+      "expectedGoalsXg": 2.3077,
+      "bigChances": null,
+      "touchesInOppositionBox": 1.0547,
+      "totalShots": 1.5625
+    },
+    "timestamp": "2026-05-03T20:42:37.313Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Нова-Ігуасу",
+    "away": "Велу Клубі",
+    "minute": 84,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=84 outside window 60-78",
+    "timestamp": "2026-05-03T20:45:25.894Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сан-Луїс",
+    "away": "Сіанорті",
+    "minute": 85,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=85 outside window 60-78",
+    "timestamp": "2026-05-03T20:45:26.139Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Америка Натал",
+    "away": "Магуарі",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=81 outside window 60-78",
+    "timestamp": "2026-05-03T20:45:26.183Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "league": "КАНАДА: Прем'єр-ліга Канади",
+    "home": "du Quebec",
+    "away": "Кевалрі",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.8165,
+      "dry_2H": 0.7726,
+      "trajectory": 0,
+      "odds": 0.1386,
+      "prematch": 0
+    },
+    "reason": "hard gate: xG burst ratio=11.25 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": 0.8036,
+      "expectedGoalsXg": 3.5852,
+      "bigChances": null,
+      "touchesInOppositionBox": 1.2054,
+      "totalShots": 2.1429
+    },
+    "timestamp": "2026-05-03T20:46:05.090Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сан-Луїс",
+    "away": "Сіанорті",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=88 outside window 60-78",
+    "timestamp": "2026-05-03T20:48:20.404Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Нова-Ігуасу",
+    "away": "Велу Клубі",
+    "minute": 87,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=87 outside window 60-78",
+    "timestamp": "2026-05-03T20:48:52.551Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Америка Натал",
+    "away": "Магуарі",
+    "minute": 85,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=85 outside window 60-78",
+    "timestamp": "2026-05-03T20:48:52.599Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "league": "КАНАДА: Прем'єр-ліга Канади",
+    "home": "du Quebec",
+    "away": "Кевалрі",
+    "minute": 76,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7274,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.8165,
+      "dry_2H": 0.7888,
+      "trajectory": 0,
+      "odds": 0.1386,
+      "prematch": 0
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 0.7258,
+      "expectedGoalsXg": 3.2382,
+      "bigChances": null,
+      "touchesInOppositionBox": 1.1794,
+      "totalShots": 1.9355
+    },
+    "timestamp": "2026-05-03T20:48:58.557Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+    "home": "Аве",
+    "away": "Жил Вісенте",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.784,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.458,
+      "dry_2H": 0.6915,
+      "trajectory": 0.525,
+      "odds": 0.3849,
+      "prematch": 0
+    },
+    "reason": "consensus=2 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.5,
+      "expectedGoalsXg": 0.3047,
+      "bigChances": 0,
+      "touchesInOppositionBox": 1.3125,
+      "totalShots": 0.6667
+    },
+    "timestamp": "2026-05-03T20:49:31.984Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+    "home": "Аве",
+    "away": "Жил Вісенте",
+    "minute": 63,
+    "bet": "OVER_0_5",
+    "signalEligible": true,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.508,
+      "dry_2H": 0.5112,
+      "trajectory": 0.4609,
+      "odds": 0.3849,
+      "prematch": 0
+    },
+    "reason": "Dry→Burst ТБ 0.5: pre-burst xG ratio=0.30 < 0.85, burst=2.81",
+    "intensityRatio": {
+      "shotsOnTarget": 1.25,
+      "expectedGoalsXg": 0.7227,
+      "bigChances": 1.25,
+      "touchesInOppositionBox": 1.25,
+      "totalShots": 0.6944
+    },
+    "timestamp": "2026-05-03T20:51:47.149Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Америка Натал",
+    "away": "Магуарі",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=88 outside window 60-78",
+    "timestamp": "2026-05-03T20:52:19.424Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+    "home": "Аве",
+    "away": "Жил Вісенте",
+    "minute": 66,
+    "bet": "OVER_0_5",
+    "signalEligible": true,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.508,
+      "dry_2H": 0.3986,
+      "trajectory": 0.1071,
+      "odds": 0.3849,
+      "prematch": 0
+    },
+    "reason": "Dry→Burst ТБ 0.5: pre-burst xG ratio=0.72 < 0.85, burst=2.23",
+    "intensityRatio": {
+      "shotsOnTarget": 2.1429,
+      "expectedGoalsXg": 0.9375,
+      "bigChances": 1.0714,
+      "touchesInOppositionBox": 1.0714,
+      "totalShots": 0.5952
+    },
+    "timestamp": "2026-05-03T20:54:38.625Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+    "home": "Аве",
+    "away": "Жил Вісенте",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6992,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.508,
+      "dry_2H": 0.4422,
+      "trajectory": 0.2283,
+      "odds": 0.3849,
+      "prematch": 0
+    },
+    "reason": "trajectory=0.2283 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.9565,
+      "expectedGoalsXg": 0.856,
+      "bigChances": 0.9783,
+      "touchesInOppositionBox": 0.9783,
+      "totalShots": 0.5435
+    },
+    "timestamp": "2026-05-03T20:57:31.831Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+    "home": "Аве",
+    "away": "Жил Вісенте",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7335,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.508,
+      "dry_2H": 0.495,
+      "trajectory": 0.375,
+      "odds": 0.3849,
+      "prematch": 0
+    },
+    "reason": "trajectory=0.375 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.7308,
+      "expectedGoalsXg": 0.7572,
+      "bigChances": 0.8654,
+      "touchesInOppositionBox": 0.8654,
+      "totalShots": 0.4808
+    },
+    "timestamp": "2026-05-03T20:59:52.483Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+    "home": "Аве",
+    "away": "Жил Вісенте",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7608,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.508,
+      "dry_2H": 0.5376,
+      "trajectory": 0.4914,
+      "odds": 0.3849,
+      "prematch": 0
+    },
+    "reason": "consensus=2 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.5517,
+      "expectedGoalsXg": 0.6789,
+      "bigChances": 0.7759,
+      "touchesInOppositionBox": 0.7759,
+      "totalShots": 0.431
+    },
+    "timestamp": "2026-05-03T21:02:45.308Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+    "home": "Аве",
+    "away": "Жил Вісенте",
+    "minute": 76,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.777,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.508,
+      "dry_2H": 0.5674,
+      "trajectory": 0.5565,
+      "odds": 0.3849,
+      "prematch": 0
+    },
+    "reason": "consensus=3 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.4516,
+      "expectedGoalsXg": 0.6351,
+      "bigChances": 0.7258,
+      "touchesInOppositionBox": 0.7258,
+      "totalShots": 0.4032
+    },
+    "timestamp": "2026-05-03T21:05:52.441Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+    "home": "Аве",
+    "away": "Жил Вісенте",
+    "minute": 80,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=80 outside window 60-78",
+    "timestamp": "2026-05-03T21:10:26.877Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+    "home": "Аве",
+    "away": "Жил Вісенте",
+    "minute": 84,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=84 outside window 60-78",
+    "timestamp": "2026-05-03T21:15:11.670Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "league": "ПОРТУГАЛІЯ: Ліга Португалії",
+    "home": "Аве",
+    "away": "Жил Вісенте",
+    "minute": 89,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=89 outside window 60-78",
+    "timestamp": "2026-05-03T21:19:32.912Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "АМ",
+    "away": "Сан-Раймундо РР",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6623,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0,
+      "trajectory": 0,
+      "odds": 0.366,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 9,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.5
+    },
+    "timestamp": "2026-05-03T21:22:21.920Z"
+  },
+  {
+    "matchId": "KbchhRx1",
+    "league": "БРАЗИЛІЯ: Серія С - Перший етап",
+    "home": "Ферровіарія",
+    "away": "Анаполіс",
+    "minute": 62,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.803,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.6691,
+      "trajectory": 0.1765,
+      "odds": 0.4857,
+      "prematch": 0.6
+    },
+    "reason": "trajectory=0.1765 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.3235,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.8824
+    },
+    "timestamp": "2026-05-03T21:22:22.026Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Операріу ВГ",
+    "away": "Сейландія",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6906,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.2969,
+      "trajectory": 0,
+      "odds": 0.3511,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.8125,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.875
+    },
+    "timestamp": "2026-05-03T21:22:22.177Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Калі Ж",
+    "away": "Деп. Калі Ж",
+    "minute": 62,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.561,
+      "prematch": 0.2
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.4412
+    },
+    "timestamp": "2026-05-03T21:23:02.598Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Орсомарсо Ж",
+    "away": "Кортулуа Ж",
+    "minute": 62,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4542,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.0588
+    },
+    "timestamp": "2026-05-03T21:23:02.960Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "league": "МАРОККО: Ботола Про",
+    "home": "Танжер",
+    "away": "ФАР Рабат",
+    "minute": 62,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-03T21:23:38.623Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Операріу ВГ",
+    "away": "Сейландія",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7117,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.4375,
+      "trajectory": 0,
+      "odds": 0.3511,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.25,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.75
+    },
+    "timestamp": "2026-05-03T21:25:56.037Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "АМ",
+    "away": "Сан-Раймундо РР",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.679,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.1118,
+      "trajectory": 0,
+      "odds": 0.366,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 7.1053,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.5789
+    },
+    "timestamp": "2026-05-03T21:26:28.049Z"
+  },
+  {
+    "matchId": "KbchhRx1",
+    "league": "БРАЗИЛІЯ: Серія С - Перший етап",
+    "home": "Ферровіарія",
+    "away": "Анаполіс",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8578,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.7321,
+      "trajectory": 0.4286,
+      "odds": 0.4857,
+      "prematch": 0.6
+    },
+    "reason": "consensus=3 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.0714,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.7143
+    },
+    "timestamp": "2026-05-03T21:26:28.123Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сампайо Корреа",
+    "away": "Маракана",
+    "minute": 60,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 5,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.557,
+      "prematch": 1
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=5/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.3
+    },
+    "timestamp": "2026-05-03T21:26:35.546Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Орсомарсо Ж",
+    "away": "Кортулуа Ж",
+    "minute": 66,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4542,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.2857
+    },
+    "timestamp": "2026-05-03T21:27:06.761Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Калі Ж",
+    "away": "Деп. Калі Ж",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8358,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.7321,
+      "trajectory": 0.4286,
+      "odds": 0.561,
+      "prematch": 0.2
+    },
+    "reason": "consensus=3 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.0714,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.7143
+    },
+    "timestamp": "2026-05-03T21:27:06.882Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "league": "МАРОККО: Ботола Про",
+    "home": "Танжер",
+    "away": "ФАР Рабат",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7646,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.4643,
+      "trajectory": 0,
+      "odds": 0.4249,
+      "prematch": 0.8
+    },
+    "reason": "snapshots=1 < 2",
+    "intensityRatio": {
+      "shotsOnTarget": 4.2857,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 2.1429
+    },
+    "timestamp": "2026-05-03T21:27:13.191Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Операріу ВГ",
+    "away": "Сейландія",
+    "minute": 69,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7258,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.5313,
+      "trajectory": 0,
+      "odds": 0.3511,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.875,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.4583
+    },
+    "timestamp": "2026-05-03T21:30:01.359Z"
+  },
+  {
+    "matchId": "KbchhRx1",
+    "league": "БРАЗИЛІЯ: Серія С - Перший етап",
+    "home": "Ферровіарія",
+    "away": "Анаполіс",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-03T21:30:31.995Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "АМ",
+    "away": "Сан-Раймундо РР",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6655,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.0217,
+      "trajectory": 0,
+      "odds": 0.366,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 7.8261,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.6304
+    },
+    "timestamp": "2026-05-03T21:30:33.256Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сампайо Корреа",
+    "away": "Маракана",
+    "minute": 64,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 5,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.557,
+      "prematch": 1
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=5/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.2368
+    },
+    "timestamp": "2026-05-03T21:30:39.604Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Калі Ж",
+    "away": "Деп. Калі Ж",
+    "minute": 70,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.8731,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.775,
+      "trajectory": 0.6,
+      "odds": 0.561,
+      "prematch": 0.2
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.8731, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0.9,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.6
+    },
+    "timestamp": "2026-05-03T21:31:10.046Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Орсомарсо Ж",
+    "away": "Кортулуа Ж",
+    "minute": 70,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4542,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.08
+    },
+    "timestamp": "2026-05-03T21:31:11.152Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "league": "МАРОККО: Ботола Про",
+    "home": "Танжер",
+    "away": "ФАР Рабат",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7775,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.55,
+      "trajectory": 0,
+      "odds": 0.4249,
+      "prematch": 0.8
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 3.6,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.8
+    },
+    "timestamp": "2026-05-03T21:31:17.448Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Операріу ВГ",
+    "away": "Сейландія",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7358,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.5982,
+      "trajectory": 0,
+      "odds": 0.3511,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.6071,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.25
+    },
+    "timestamp": "2026-05-03T21:34:04.416Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "АМ",
+    "away": "Сан-Раймундо РР",
+    "minute": 72,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6873,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.1667,
+      "trajectory": 0,
+      "odds": 0.366,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 6.6667,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.3889
+    },
+    "timestamp": "2026-05-03T21:34:36.414Z"
+  },
+  {
+    "matchId": "KbchhRx1",
+    "league": "БРАЗИЛІЯ: Серія С - Перший етап",
+    "home": "Ферровіарія",
+    "away": "Анаполіс",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7336,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.4181,
+      "trajectory": 0,
+      "odds": 0.4857,
+      "prematch": 0.6
+    },
+    "reason": "snapshots=1 < 2",
+    "intensityRatio": {
+      "shotsOnTarget": 2.3276,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.0345
+    },
+    "timestamp": "2026-05-03T21:34:36.473Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сампайо Корреа",
+    "away": "Маракана",
+    "minute": 68,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 5,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.557,
+      "prematch": 1
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=5/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.1957
+    },
+    "timestamp": "2026-05-03T21:34:42.848Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Калі Ж",
+    "away": "Деп. Калі Ж",
+    "minute": 74,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.9001,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.806,
+      "trajectory": 0.7241,
+      "odds": 0.561,
+      "prematch": 0.2
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.9001, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0.7759,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.5172
+    },
+    "timestamp": "2026-05-03T21:35:15.039Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Орсомарсо Ж",
+    "away": "Кортулуа Ж",
+    "minute": 74,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4542,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.931
+    },
+    "timestamp": "2026-05-03T21:35:15.371Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "league": "МАРОККО: Ботола Про",
+    "home": "Танжер",
+    "away": "ФАР Рабат",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7868,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.6121,
+      "trajectory": 0,
+      "odds": 0.4249,
+      "prematch": 0.8
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 3.1034,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.8103
+    },
+    "timestamp": "2026-05-03T21:35:21.670Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Операріу ВГ",
+    "away": "Сейландія",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.717,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.4727,
+      "trajectory": 0,
+      "odds": 0.3511,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.1094,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.4063
+    },
+    "timestamp": "2026-05-03T21:38:42.242Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "АМ",
+    "away": "Сан-Раймундо РР",
+    "minute": 76,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7034,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.2742,
+      "trajectory": 0,
+      "odds": 0.366,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 5.8065,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.2097
+    },
+    "timestamp": "2026-05-03T21:38:42.301Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сампайо Корреа",
+    "away": "Маракана",
+    "minute": 72,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 5,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.557,
+      "prematch": 1
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=5/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.1667
+    },
+    "timestamp": "2026-05-03T21:38:42.416Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Орсомарсо Ж",
+    "away": "Кортулуа Ж",
+    "minute": 78,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4542,
+      "prematch": 0.6
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.8182
+    },
+    "timestamp": "2026-05-03T21:39:21.695Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Калі Ж",
+    "away": "Деп. Калі Ж",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=79 outside window 60-78",
+    "timestamp": "2026-05-03T21:39:21.754Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "league": "МАРОККО: Ботола Про",
+    "home": "Танжер",
+    "away": "ФАР Рабат",
+    "minute": 78,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7939,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.875,
+      "dry_2H": 0.6591,
+      "trajectory": 0,
+      "odds": 0.4249,
+      "prematch": 0.8
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.7273,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.5909
+    },
+    "timestamp": "2026-05-03T21:39:21.836Z"
+  },
+  {
+    "matchId": "OKa8MJy8",
+    "league": "ПЕРУ: Ліга 2",
+    "home": "Комерсіантес",
+    "away": "Естудіантіль КНІ",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.2085,
+      "prematch": 0
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.875
+    },
+    "timestamp": "2026-05-03T21:40:02.667Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Операріу ВГ",
+    "away": "Сейландія",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=81 outside window 60-78",
+    "timestamp": "2026-05-03T21:42:53.971Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "АМ",
+    "away": "Сан-Раймундо РР",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=81 outside window 60-78",
+    "timestamp": "2026-05-03T21:42:54.037Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сампайо Корреа",
+    "away": "Маракана",
+    "minute": 76,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 5,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.557,
+      "prematch": 1
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=5/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.1452
+    },
+    "timestamp": "2026-05-03T21:42:54.151Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Калі Ж",
+    "away": "Деп. Калі Ж",
+    "minute": 83,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=83 outside window 60-78",
+    "timestamp": "2026-05-03T21:43:33.894Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "league": "МАРОККО: Ботола Про",
+    "home": "Танжер",
+    "away": "ФАР Рабат",
+    "minute": 82,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=82 outside window 60-78",
+    "timestamp": "2026-05-03T21:43:33.964Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Орсомарсо Ж",
+    "away": "Кортулуа Ж",
+    "minute": 82,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=82 outside window 60-78",
+    "timestamp": "2026-05-03T21:43:34.036Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сампайо Корреа",
+    "away": "Маракана",
+    "minute": 80,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=80 outside window 60-78",
+    "timestamp": "2026-05-03T21:46:29.602Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Операріу ВГ",
+    "away": "Сейландія",
+    "minute": 85,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=85 outside window 60-78",
+    "timestamp": "2026-05-03T21:47:01.422Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "АМ",
+    "away": "Сан-Раймундо РР",
+    "minute": 85,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=85 outside window 60-78",
+    "timestamp": "2026-05-03T21:47:01.484Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Калі Ж",
+    "away": "Деп. Калі Ж",
+    "minute": 87,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=87 outside window 60-78",
+    "timestamp": "2026-05-03T21:47:38.141Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Орсомарсо Ж",
+    "away": "Кортулуа Ж",
+    "minute": 86,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=86 outside window 60-78",
+    "timestamp": "2026-05-03T21:47:40.136Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "league": "МАРОККО: Ботола Про",
+    "home": "Танжер",
+    "away": "ФАР Рабат",
+    "minute": 86,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=86 outside window 60-78",
+    "timestamp": "2026-05-03T21:47:46.007Z"
+  },
+  {
+    "matchId": "dCdIcRwR",
+    "league": "ЯМАЙКА: Прем'єр-ліга",
+    "home": "Молайнс",
+    "away": "Харбор В'ю",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6338,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 0.25,
+      "trajectory": 0,
+      "odds": 0.2784,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.5,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.2
+    },
+    "timestamp": "2026-05-03T21:48:17.094Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "АМ",
+    "away": "Сан-Раймундо РР",
+    "minute": 89,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=89 outside window 60-78",
+    "timestamp": "2026-05-03T21:51:05.697Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Операріу ВГ",
+    "away": "Сейландія",
+    "minute": 89,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=89 outside window 60-78",
+    "timestamp": "2026-05-03T21:51:05.765Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сампайо Корреа",
+    "away": "Маракана",
+    "minute": 84,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=84 outside window 60-78",
+    "timestamp": "2026-05-03T21:51:05.855Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "league": "МАРОККО: Ботола Про",
+    "home": "Танжер",
+    "away": "ФАР Рабат",
+    "minute": 90,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=90 outside window 60-78",
+    "timestamp": "2026-05-03T21:51:46.697Z"
+  },
+  {
+    "matchId": "dCdIcRwR",
+    "league": "ЯМАЙКА: Прем'єр-ліга",
+    "home": "Молайнс",
+    "away": "Харбор В'ю",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7143,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 0.4079,
+      "trajectory": 0.3158,
+      "odds": 0.2784,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0.3158 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.1842,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.9474
+    },
+    "timestamp": "2026-05-03T21:51:46.753Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "league": "КОЛУМБІЯ: Ліга (Жінки)",
+    "home": "Орсомарсо Ж",
+    "away": "Кортулуа Ж",
+    "minute": 90,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=90 outside window 60-78",
+    "timestamp": "2026-05-03T21:51:46.826Z"
+  },
+  {
+    "matchId": "dCdIcRwR",
+    "league": "ЯМАЙКА: Прем'єр-ліга",
+    "home": "Молайнс",
+    "away": "Харбор В'ю",
+    "minute": 67,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7555,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 0.4886,
+      "trajectory": 0.4773,
+      "odds": 0.2784,
+      "prematch": 0.2
+    },
+    "reason": "consensus=1 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.0227,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.8182
+    },
+    "timestamp": "2026-05-03T21:54:03.589Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Сампайо Корреа",
+    "away": "Маракана",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=88 outside window 60-78",
+    "timestamp": "2026-05-03T21:54:35.762Z"
+  },
+  {
+    "matchId": "QoCPpLen",
+    "league": "БРАЗИЛІЯ: Чемпіонат Бразилії (Жінки)",
+    "home": "Ж",
+    "away": "Брагантіну Ж",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6005,
+    "consensusCount": 0,
+    "components": {
+      "dry_1H": 0.125,
+      "dry_2H": 0,
+      "trajectory": 0.2946,
+      "odds": 0.4056,
+      "prematch": 0
+    },
+    "reason": "trajectory=0.2946 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.2054,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.0362
+    },
+    "timestamp": "2026-05-03T22:22:50.828Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6789,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.25,
+      "trajectory": 0,
+      "odds": 0.4681,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 3,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.3636
+    },
+    "timestamp": "2026-05-03T22:23:22.664Z"
+  },
+  {
+    "matchId": "QoCPpLen",
+    "league": "БРАЗИЛІЯ: Чемпіонат Бразилії (Жінки)",
+    "home": "Ж",
+    "away": "Брагантіну Ж",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.5738,
+    "consensusCount": 0,
+    "components": {
+      "dry_1H": 0.125,
+      "dry_2H": 0,
+      "trajectory": 0.1466,
+      "odds": 0.4056,
+      "prematch": 0
+    },
+    "reason": "trajectory=0.1466 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.3534,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.9972
+    },
+    "timestamp": "2026-05-03T22:25:38.434Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6977,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.375,
+      "trajectory": 0,
+      "odds": 0.4681,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.5,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.5909
+    },
+    "timestamp": "2026-05-03T22:26:10.455Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7111,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.4643,
+      "trajectory": 0,
+      "odds": 0.4681,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.1429,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.5584
+    },
+    "timestamp": "2026-05-03T22:28:57.956Z"
+  },
+  {
+    "matchId": "QoCPpLen",
+    "league": "БРАЗИЛІЯ: Чемпіонат Бразилії (Жінки)",
+    "home": "Ж",
+    "away": "Брагантіну Ж",
+    "minute": 67,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6071,
+    "consensusCount": 0,
+    "components": {
+      "dry_1H": 0.125,
+      "dry_2H": 0,
+      "trajectory": 0.3312,
+      "odds": 0.4056,
+      "prematch": 0
+    },
+    "reason": "trajectory=0.3312 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.1688,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.8612
+    },
+    "timestamp": "2026-05-03T22:28:58.056Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 69,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7211,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.5313,
+      "trajectory": 0,
+      "odds": 0.4681,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.875,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.3636
+    },
+    "timestamp": "2026-05-03T22:31:45.495Z"
+  },
+  {
+    "matchId": "QoCPpLen",
+    "league": "БРАЗИЛІЯ: Чемпіонат Бразилії (Жінки)",
+    "home": "Ж",
+    "away": "Брагантіну Ж",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6473,
+    "consensusCount": 0,
+    "components": {
+      "dry_1H": 0.125,
+      "dry_2H": 0.1,
+      "trajectory": 0.4714,
+      "odds": 0.4056,
+      "prematch": 0
+    },
+    "reason": "consensus=0 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.0286,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.1368
+    },
+    "timestamp": "2026-05-03T22:31:45.837Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 72,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7289,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.5833,
+      "trajectory": 0,
+      "odds": 0.4681,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.6667,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.3636
+    },
+    "timestamp": "2026-05-03T22:34:00.831Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7042,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.4181,
+      "trajectory": 0,
+      "odds": 0.4681,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.3276,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.5517
+    },
+    "timestamp": "2026-05-03T22:36:18.106Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 76,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6826,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.2742,
+      "trajectory": 0,
+      "odds": 0.4681,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.9032,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.5836
+    },
+    "timestamp": "2026-05-03T22:38:33.179Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 78,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6892,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.3182,
+      "trajectory": 0,
+      "odds": 0.4681,
+      "prematch": 0.2
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.7273,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.4876
+    },
+    "timestamp": "2026-05-03T22:40:48.406Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=81 outside window 60-78",
+    "timestamp": "2026-05-03T22:43:35.990Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 84,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=84 outside window 60-78",
+    "timestamp": "2026-05-03T22:46:23.468Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 87,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=87 outside window 60-78",
+    "timestamp": "2026-05-03T22:49:11.134Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "league": "БРАЗИЛІЯ: Серія D",
+    "home": "Томбенсе",
+    "away": "Ріу-Бранку ЕС",
+    "minute": 90,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=90 outside window 60-78",
+    "timestamp": "2026-05-03T22:52:30.605Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "league": "БРАЗИЛІЯ: Серія Б",
+    "home": "Атлетіку Гояніенсе",
+    "away": "Жувентуде",
+    "minute": 61,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.171,
+      "dry_2H": 0.9916,
+      "trajectory": 1,
+      "odds": 0.5573,
+      "prematch": 0.8
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.0302,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0,
+      "totalShots": 0.2009
+    },
+    "timestamp": "2026-05-03T22:52:31.774Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "league": "БРАЗИЛІЯ: Серія Б",
+    "home": "Атлетіку Гояніенсе",
+    "away": "Жувентуде",
+    "minute": 64,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.171,
+      "dry_2H": 0.9645,
+      "trajectory": 1,
+      "odds": 0.5573,
+      "prematch": 0.8
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.0255,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.2632,
+      "totalShots": 0.6767
+    },
+    "timestamp": "2026-05-03T22:54:47.700Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "league": "БРАЗИЛІЯ: Серія Б",
+    "home": "Атлетіку Гояніенсе",
+    "away": "Жувентуде",
+    "minute": 66,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.171,
+      "dry_2H": 0.9293,
+      "trajectory": 1,
+      "odds": 0.5573,
+      "prematch": 0.8
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.1613,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.2381,
+      "totalShots": 0.6122
+    },
+    "timestamp": "2026-05-03T22:57:04.259Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "league": "БРАЗИЛІЯ: Серія Б",
+    "home": "Гояніенсе",
+    "away": "Жувентуде",
+    "minute": 68,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.171,
+      "dry_2H": 0.9276,
+      "trajectory": 1,
+      "odds": 0.5573,
+      "prematch": 0.8
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.1473,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.2899,
+      "totalShots": 0.559
+    },
+    "timestamp": "2026-05-03T22:59:54.036Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "league": "БРАЗИЛІЯ: Серія Б",
+    "home": "Гояніенсе",
+    "away": "Жувентуде",
+    "minute": 71,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.171,
+      "dry_2H": 0.936,
+      "trajectory": 1,
+      "odds": 0.5573,
+      "prematch": 0.8
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.1303,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.2564,
+      "totalShots": 0.4945
+    },
+    "timestamp": "2026-05-03T23:02:10.668Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "league": "БРАЗИЛІЯ: Серія Б",
+    "home": "Гояніенсе",
+    "away": "Жувентуде",
+    "minute": 73,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 4,
+    "components": {
+      "dry_1H": 0.171,
+      "dry_2H": 0.9405,
+      "trajectory": 1,
+      "odds": 0.5573,
+      "prematch": 0.8
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=4/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.121,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.2381,
+      "totalShots": 0.4592
+    },
+    "timestamp": "2026-05-03T23:04:25.461Z"
+  },
+  {
+    "matchId": "Uoi8lkg4",
+    "league": "США: МЛС Next Pro",
+    "home": "Connecticut FC",
+    "away": "Нью-Інгленд Революшн II",
+    "minute": 60,
+    "bet": "OVER_0_5",
+    "signalEligible": true,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.7025,
+      "dry_2H": 0.757,
+      "trajectory": 1,
+      "odds": 0.3338,
+      "prematch": 0
+    },
+    "reason": "Dry→Burst ТБ 0.5: pre-burst xG ratio=0.00 < 0.85, burst=6.64",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.8852,
+      "bigChances": 3,
+      "touchesInOppositionBox": 0.2143,
+      "totalShots": 0.8571
+    },
+    "timestamp": "2026-05-03T23:23:19.825Z"
+  },
+  {
+    "matchId": "Uoi8lkg4",
+    "league": "США: МЛС Next Pro",
+    "home": "Connecticut FC",
+    "away": "Нью-Інгленд Революшн II",
+    "minute": 63,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.9106,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.7025,
+      "dry_2H": 0.7975,
+      "trajectory": 1,
+      "odds": 0.3338,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.9106, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.7377,
+      "bigChances": 2.5,
+      "touchesInOppositionBox": 0.1786,
+      "totalShots": 0.7143
+    },
+    "timestamp": "2026-05-03T23:25:36.607Z"
+  },
+  {
+    "matchId": "Uoi8lkg4",
+    "league": "США: МЛС Next Pro",
+    "home": "Connecticut FC",
+    "away": "Нью-Інгленд Революшн II",
+    "minute": 65,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.9137,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.7025,
+      "dry_2H": 0.8177,
+      "trajectory": 1,
+      "odds": 0.3338,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.9137, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.6639,
+      "bigChances": 2.25,
+      "touchesInOppositionBox": 0.1607,
+      "totalShots": 0.6429
+    },
+    "timestamp": "2026-05-03T23:27:54.452Z"
+  },
+  {
+    "matchId": "Uoi8lkg4",
+    "league": "США: МЛС Next Pro",
+    "home": "Connecticut FC",
+    "away": "Нью-Інгленд Революшн II",
+    "minute": 67,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.9161,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.7025,
+      "dry_2H": 0.8343,
+      "trajectory": 1,
+      "odds": 0.3338,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.9161, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.6036,
+      "bigChances": 2.0455,
+      "touchesInOppositionBox": 0.1461,
+      "totalShots": 0.5844
+    },
+    "timestamp": "2026-05-03T23:30:11.198Z"
+  },
+  {
+    "matchId": "Uoi8lkg4",
+    "league": "США: МЛС Next Pro",
+    "home": "Connecticut FC",
+    "away": "Нью-Інгленд Революшн II",
+    "minute": 70,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.9168,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.7025,
+      "dry_2H": 0.8389,
+      "trajectory": 1,
+      "odds": 0.3338,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.9168, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.6197,
+      "bigChances": 1.8,
+      "touchesInOppositionBox": 0.2571,
+      "totalShots": 0.7714
+    },
+    "timestamp": "2026-05-03T23:32:26.224Z"
+  },
+  {
+    "matchId": "Uoi8lkg4",
+    "league": "США: МЛС Next Pro",
+    "home": "FC",
+    "away": "Нью-Інгленд Революшн II",
+    "minute": 72,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.9186,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.7025,
+      "dry_2H": 0.8508,
+      "trajectory": 1,
+      "odds": 0.3338,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.9186, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 0.5738,
+      "bigChances": 1.6667,
+      "touchesInOppositionBox": 0.2381,
+      "totalShots": 0.7143
+    },
+    "timestamp": "2026-05-03T23:34:41.904Z"
+  },
+  {
+    "matchId": "EPgbPDBs",
+    "league": "ПЕРУ: Ліга 1 - Апертура",
+    "home": "Мельгар",
+    "away": "Кахамарка",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.8305,
+      "dry_2H": 0.3555,
+      "trajectory": 0,
+      "odds": 0.1707,
+      "prematch": 0
+    },
+    "reason": "hard gate: xG burst ratio=13.8 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": 4.5,
+      "expectedGoalsXg": 3.96,
+      "bigChances": null,
+      "touchesInOppositionBox": 3,
+      "totalShots": 1.8
+    },
+    "timestamp": "2026-05-04T00:21:09.731Z"
+  },
+  {
+    "matchId": "EPgbPDBs",
+    "league": "ПЕРУ: Ліга 1 - Апертура",
+    "home": "Мельгар",
+    "away": "Кахамарка",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6697,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.8305,
+      "dry_2H": 0.3762,
+      "trajectory": 0,
+      "odds": 0.1707,
+      "prematch": 0
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 5,
+      "expectedGoalsXg": 3.3,
+      "bigChances": null,
+      "touchesInOppositionBox": 3.125,
+      "totalShots": 1.75
+    },
+    "timestamp": "2026-05-04T00:23:24.596Z"
+  },
+  {
+    "matchId": "EPgbPDBs",
+    "league": "ПЕРУ: Ліга 1 - Апертура",
+    "home": "Мельгар",
+    "away": "Кахамарка",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.8305,
+      "dry_2H": 0.3885,
+      "trajectory": 0,
+      "odds": 0.1707,
+      "prematch": 0
+    },
+    "reason": "hard gate: xG burst ratio=2.7 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": 4.5,
+      "expectedGoalsXg": 3.24,
+      "bigChances": null,
+      "touchesInOppositionBox": 2.8125,
+      "totalShots": 1.575
+    },
+    "timestamp": "2026-05-04T00:25:39.347Z"
+  },
+  {
+    "matchId": "EPgbPDBs",
+    "league": "ПЕРУ: Ліга 1 - Апертура",
+    "home": "Мельгар",
+    "away": "Кахамарка",
+    "minute": 67,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6745,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.8305,
+      "dry_2H": 0.4077,
+      "trajectory": 0,
+      "odds": 0.1707,
+      "prematch": 0
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 4.0909,
+      "expectedGoalsXg": 2.9455,
+      "bigChances": null,
+      "touchesInOppositionBox": 2.5568,
+      "totalShots": 1.4318
+    },
+    "timestamp": "2026-05-04T00:28:26.968Z"
+  },
+  {
+    "matchId": "EPgbPDBs",
+    "league": "ПЕРУ: Ліга 1 - Апертура",
+    "home": "Мельгар",
+    "away": "Кахамарка",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.682,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.8305,
+      "dry_2H": 0.4582,
+      "trajectory": 0,
+      "odds": 0.1707,
+      "prematch": 0
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 3.6,
+      "expectedGoalsXg": 2.736,
+      "bigChances": null,
+      "touchesInOppositionBox": 2.475,
+      "totalShots": 1.44
+    },
+    "timestamp": "2026-05-04T00:30:42.562Z"
+  },
+  {
+    "matchId": "EPgbPDBs",
+    "league": "ПЕРУ: Ліга 1 - Апертура",
+    "home": "Мельгар",
+    "away": "Кахамарка",
+    "minute": 72,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6871,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.8305,
+      "dry_2H": 0.4917,
+      "trajectory": 0,
+      "odds": 0.1707,
+      "prematch": 0
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 3.3333,
+      "expectedGoalsXg": 2.5333,
+      "bigChances": null,
+      "touchesInOppositionBox": 2.5,
+      "totalShots": 1.3333
+    },
+    "timestamp": "2026-05-04T00:32:57.571Z"
+  },
+  {
+    "matchId": "pjCv5E0D",
+    "league": "МЕКСИКА: Ліга де Еспансьйон МХ - Клаусура - плей-оф",
+    "home": "Тепатітлан де Морелос",
+    "away": "Мінерос де Сакатекас",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6735,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.25,
+      "trajectory": 0,
+      "odds": 0.4129,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.8182
+    },
+    "timestamp": "2026-05-04T02:25:20.859Z"
+  },
+  {
+    "matchId": "pjCv5E0D",
+    "league": "МЕКСИКА: Ліга де Еспансьйон МХ - Клаусура - плей-оф",
+    "home": "Тепатітлан де Морелос",
+    "away": "Мінерос де Сакатекас",
+    "minute": 62,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6868,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.3382,
+      "trajectory": 0,
+      "odds": 0.4129,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.7647,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.9626
+    },
+    "timestamp": "2026-05-04T02:27:35.308Z"
+  },
+  {
+    "matchId": "pjCv5E0D",
+    "league": "МЕКСИКА: Ліга де Еспансьйон МХ - Клаусура - плей-оф",
+    "home": "Тепатітлан де Морелос",
+    "away": "Мінерос де Сакатекас",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.6528,
+    "consensusCount": 1,
+    "components": {
+      "dry_1H": 0.625,
+      "dry_2H": 0.1118,
+      "trajectory": 0,
+      "odds": 0.4129,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 2.3684,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.0766
+    },
+    "timestamp": "2026-05-04T02:29:50.284Z"
   }
 ]

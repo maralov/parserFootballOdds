@@ -1,0 +1,380 @@
+{
+  "date": "2026-05-04",
+  "generatedAt": "2026-05-05T07:06:57.853Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 8,
+    "stakes": 8,
+    "stakesResolved": 8,
+    "wins": 4,
+    "losses": 4,
+    "hitRate": 0.5
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "60-78": {
+      "total": 8,
+      "checked": 8,
+      "hits": 4,
+      "misses": 4,
+      "hitRate": 0.5
+    },
+    "70-80": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "matches": [
+    {
+      "matchId": "Cxjo6r96",
+      "league": "АНГЛІЯ: Ліга професійного розвитку - Плей-оф",
+      "home": "Пітерборо U21",
+      "away": "Ноттінгем U21",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 11,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": null,
+          "pDry": 0.896,
+          "signalQuality": null,
+          "timestamp": "2026-05-04T13:34:51.005Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.5439,
+        "latestSignalQuality": null
+      }
+    },
+    {
+      "matchId": "zZLpSLbc",
+      "league": "УЗБЕКИСТАН: Суперліга",
+      "home": "Ташкент",
+      "away": "Кизилкум",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": null,
+          "pDry": 0.92,
+          "signalQuality": null,
+          "timestamp": "2026-05-04T15:22:46.348Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 1,
+        "latestSignalQuality": null
+      }
+    },
+    {
+      "matchId": "EmgbVg3F",
+      "league": "ІЗРАЇЛЬ: Ліга Леуміт - Група вибування",
+      "home": "Хапоель Афула",
+      "away": "Хапоель Раанана",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 13,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": null,
+          "pDry": 0.8962,
+          "signalQuality": null,
+          "timestamp": "2026-05-04T17:29:19.365Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.6571,
+        "latestSignalQuality": null
+      }
+    },
+    {
+      "matchId": "MRYzdovC",
+      "league": "ІРЛАНДІЯ: Перший дивізіон",
+      "home": "Тріті Юнайтед",
+      "away": "Вексфорд",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 13,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": null,
+          "pDry": 0.8795,
+          "signalQuality": null,
+          "timestamp": "2026-05-04T17:25:59.849Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 1,
+        "latestSignalQuality": null
+      }
+    },
+    {
+      "matchId": "WUqZ3sPq",
+      "league": "ФАРЕРСЬКІ ОСТРОВИ: Прем'єр-ліга",
+      "home": "Вікінгур",
+      "away": "07 Вестур Сорвагур",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 12,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": null,
+          "pDry": 0.92,
+          "signalQuality": null,
+          "timestamp": "2026-05-04T18:48:21.241Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 1,
+        "latestSignalQuality": null
+      }
+    },
+    {
+      "matchId": "CUtf9Mpo",
+      "league": "САУДІВСЬКА АРАВІЯ: Професійна ліга",
+      "home": "ФК Аль-Іттіхад",
+      "away": "Аль-Холуд",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 14,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": null,
+          "pDry": null,
+          "signalQuality": null,
+          "timestamp": "2026-05-04T19:34:40.998Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "accumulatedPressure",
+        "dominanceStrength": 0.695,
+        "latestSignalQuality": null
+      }
+    },
+    {
+      "matchId": "zNrQxgYN",
+      "league": "АРГЕНТИНА: Прімера С",
+      "home": "Еспаньйол",
+      "away": "Спортіво Барракас",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 13,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": null,
+          "pDry": 0.92,
+          "signalQuality": null,
+          "timestamp": "2026-05-04T19:56:34.611Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 1,
+        "latestSignalQuality": null
+      }
+    },
+    {
+      "matchId": "8r1AlSNM",
+      "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+      "home": "ФК 1995",
+      "away": "Чеджу СК",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 9,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": null,
+          "pDry": 0.8635,
+          "signalQuality": null,
+          "timestamp": "2026-05-05T06:20:02.896Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.5946,
+        "latestSignalQuality": null
+      }
+    }
+  ]
+}

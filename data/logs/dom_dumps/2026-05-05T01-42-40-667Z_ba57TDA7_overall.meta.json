@@ -1,0 +1,13 @@
+{
+  "matchId": "ba57TDA7",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/d-concepcion-GKJrZE7I/huachipato-SlhZpIaP/summary/stats/overall/?mid=ba57TDA7",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-05T01:42:48.672Z"
+}

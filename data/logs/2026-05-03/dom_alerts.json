@@ -1,0 +1,2414 @@
+[
+  {
+    "matchId": "E9PLOA2M",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T10:57:14.628Z"
+  },
+  {
+    "matchId": "E9PLOA2M",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T10:57:14.633Z"
+  },
+  {
+    "matchId": "E9PLOA2M",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T10:57:14.635Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:02:26.026Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:02:26.030Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:02:26.033Z"
+  },
+  {
+    "matchId": "hWbNWNng",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:02:26.043Z"
+  },
+  {
+    "matchId": "hWbNWNng",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:02:26.045Z"
+  },
+  {
+    "matchId": "hWbNWNng",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:02:26.047Z"
+  },
+  {
+    "matchId": "pSUguWv3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:04:28.432Z"
+  },
+  {
+    "matchId": "pSUguWv3",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:04:28.435Z"
+  },
+  {
+    "matchId": "pSUguWv3",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:04:28.436Z"
+  },
+  {
+    "matchId": "ULHHexc4",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:09:39.756Z"
+  },
+  {
+    "matchId": "ULHHexc4",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:09:39.766Z"
+  },
+  {
+    "matchId": "ULHHexc4",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:09:39.769Z"
+  },
+  {
+    "matchId": "MeE9cbSi",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:09:40.024Z"
+  },
+  {
+    "matchId": "MeE9cbSi",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:09:40.027Z"
+  },
+  {
+    "matchId": "MeE9cbSi",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:09:40.028Z"
+  },
+  {
+    "matchId": "xMPa3zto",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-05-03T11:10:02.694Z"
+  },
+  {
+    "matchId": "URvSRcBd",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:11:42.519Z"
+  },
+  {
+    "matchId": "URvSRcBd",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:11:42.523Z"
+  },
+  {
+    "matchId": "URvSRcBd",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:11:42.530Z"
+  },
+  {
+    "matchId": "KUWUkAcn",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:12:32.552Z"
+  },
+  {
+    "matchId": "KUWUkAcn",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:12:32.555Z"
+  },
+  {
+    "matchId": "KUWUkAcn",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:12:32.557Z"
+  },
+  {
+    "matchId": "GdQwllSb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:13:45.174Z"
+  },
+  {
+    "matchId": "GdQwllSb",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:13:45.177Z"
+  },
+  {
+    "matchId": "GdQwllSb",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:13:45.178Z"
+  },
+  {
+    "matchId": "vZJKRABG",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:14:34.878Z"
+  },
+  {
+    "matchId": "vZJKRABG",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:14:34.881Z"
+  },
+  {
+    "matchId": "vZJKRABG",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:14:34.883Z"
+  },
+  {
+    "matchId": "dAjorWec",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:15:47.755Z"
+  },
+  {
+    "matchId": "dAjorWec",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:15:47.758Z"
+  },
+  {
+    "matchId": "dAjorWec",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:15:47.765Z"
+  },
+  {
+    "matchId": "E9PLOA2M",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:17:07.754Z"
+  },
+  {
+    "matchId": "E9PLOA2M",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:17:07.757Z"
+  },
+  {
+    "matchId": "E9PLOA2M",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:17:07.759Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:17:50.219Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:17:50.223Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:17:50.225Z"
+  },
+  {
+    "matchId": "02TpNcRH",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:17:50.292Z"
+  },
+  {
+    "matchId": "02TpNcRH",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:17:50.294Z"
+  },
+  {
+    "matchId": "02TpNcRH",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:17:50.296Z"
+  },
+  {
+    "matchId": "Ob1CShec",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:19:53.095Z"
+  },
+  {
+    "matchId": "Ob1CShec",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:19:53.100Z"
+  },
+  {
+    "matchId": "Ob1CShec",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:19:53.102Z"
+  },
+  {
+    "matchId": "4Oq5msSG",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:19:53.247Z"
+  },
+  {
+    "matchId": "4Oq5msSG",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:19:53.250Z"
+  },
+  {
+    "matchId": "4Oq5msSG",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:19:53.251Z"
+  },
+  {
+    "matchId": "KCgDbbjI",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:20:50.007Z"
+  },
+  {
+    "matchId": "KCgDbbjI",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:20:50.009Z"
+  },
+  {
+    "matchId": "KCgDbbjI",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:20:50.011Z"
+  },
+  {
+    "matchId": "xMPa3zto",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:26:03.998Z"
+  },
+  {
+    "matchId": "xMPa3zto",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:26:04.002Z"
+  },
+  {
+    "matchId": "xMPa3zto",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:26:04.004Z"
+  },
+  {
+    "matchId": "ULHHexc4",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:26:04.098Z"
+  },
+  {
+    "matchId": "ULHHexc4",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:26:04.102Z"
+  },
+  {
+    "matchId": "ULHHexc4",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:26:04.117Z"
+  },
+  {
+    "matchId": "bkRyLpMO",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:26:04.219Z"
+  },
+  {
+    "matchId": "bkRyLpMO",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:26:04.224Z"
+  },
+  {
+    "matchId": "bkRyLpMO",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:26:04.228Z"
+  },
+  {
+    "matchId": "URvSRcBd",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:28:08.674Z"
+  },
+  {
+    "matchId": "URvSRcBd",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:28:08.678Z"
+  },
+  {
+    "matchId": "URvSRcBd",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:28:08.681Z"
+  },
+  {
+    "matchId": "GdQwllSb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:28:08.721Z"
+  },
+  {
+    "matchId": "GdQwllSb",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:28:08.728Z"
+  },
+  {
+    "matchId": "GdQwllSb",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:28:08.731Z"
+  },
+  {
+    "matchId": "KUWUkAcn",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:28:08.782Z"
+  },
+  {
+    "matchId": "KUWUkAcn",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:28:08.784Z"
+  },
+  {
+    "matchId": "KUWUkAcn",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:28:08.785Z"
+  },
+  {
+    "matchId": "dAjorWec",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:30:12.175Z"
+  },
+  {
+    "matchId": "dAjorWec",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:30:12.183Z"
+  },
+  {
+    "matchId": "dAjorWec",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:30:12.185Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:32:15.870Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:32:15.873Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:32:15.876Z"
+  },
+  {
+    "matchId": "GlYliPSi",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:32:49.244Z"
+  },
+  {
+    "matchId": "GlYliPSi",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:32:49.248Z"
+  },
+  {
+    "matchId": "GlYliPSi",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:32:49.252Z"
+  },
+  {
+    "matchId": "pSUguWv3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:34:51.298Z"
+  },
+  {
+    "matchId": "pSUguWv3",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:34:51.300Z"
+  },
+  {
+    "matchId": "pSUguWv3",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:34:51.302Z"
+  },
+  {
+    "matchId": "KCgDbbjI",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:34:52.452Z"
+  },
+  {
+    "matchId": "KCgDbbjI",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:34:52.457Z"
+  },
+  {
+    "matchId": "KCgDbbjI",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:34:52.459Z"
+  },
+  {
+    "matchId": "xMPa3zto",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:39:05.006Z"
+  },
+  {
+    "matchId": "xMPa3zto",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:39:05.014Z"
+  },
+  {
+    "matchId": "xMPa3zto",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:39:05.016Z"
+  },
+  {
+    "matchId": "URvSRcBd",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:39:05.026Z"
+  },
+  {
+    "matchId": "URvSRcBd",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:39:05.029Z"
+  },
+  {
+    "matchId": "URvSRcBd",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:39:05.032Z"
+  },
+  {
+    "matchId": "bkRyLpMO",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:39:05.109Z"
+  },
+  {
+    "matchId": "bkRyLpMO",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:39:05.112Z"
+  },
+  {
+    "matchId": "bkRyLpMO",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:39:05.113Z"
+  },
+  {
+    "matchId": "dAjorWec",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:41:08.174Z"
+  },
+  {
+    "matchId": "dAjorWec",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:41:08.180Z"
+  },
+  {
+    "matchId": "dAjorWec",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:41:08.182Z"
+  },
+  {
+    "matchId": "KUWUkAcn",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:41:08.328Z"
+  },
+  {
+    "matchId": "KUWUkAcn",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:41:08.331Z"
+  },
+  {
+    "matchId": "KUWUkAcn",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:41:08.333Z"
+  },
+  {
+    "matchId": "hWbNWNng",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:43:11.469Z"
+  },
+  {
+    "matchId": "hWbNWNng",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:43:11.472Z"
+  },
+  {
+    "matchId": "hWbNWNng",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:43:11.475Z"
+  },
+  {
+    "matchId": "jiUH8W4E",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:43:11.675Z"
+  },
+  {
+    "matchId": "jiUH8W4E",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:43:11.678Z"
+  },
+  {
+    "matchId": "jiUH8W4E",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:43:11.679Z"
+  },
+  {
+    "matchId": "E9PLOA2M",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:43:11.715Z"
+  },
+  {
+    "matchId": "E9PLOA2M",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:43:11.721Z"
+  },
+  {
+    "matchId": "E9PLOA2M",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:43:11.724Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:45:14.974Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:45:14.978Z"
+  },
+  {
+    "matchId": "tdRDQWX9",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:45:14.980Z"
+  },
+  {
+    "matchId": "Ob1CShec",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:45:14.988Z"
+  },
+  {
+    "matchId": "Ob1CShec",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:45:14.991Z"
+  },
+  {
+    "matchId": "Ob1CShec",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:45:14.994Z"
+  },
+  {
+    "matchId": "pSUguWv3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Protocol error (Runtime.callFunctionOn): Target closed",
+    "timestamp": "2026-05-03T11:45:48.651Z"
+  },
+  {
+    "matchId": "pSUguWv3",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:45:48.654Z"
+  },
+  {
+    "matchId": "pSUguWv3",
+    "alertType": "MOBILE_STATS_FALLBACK",
+    "details": "Protocol error (Page.navigate): Session closed. Most likely the page has been closed.",
+    "timestamp": "2026-05-03T11:45:48.657Z"
+  },
+  {
+    "matchId": "tKKo022C",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-05-03T12:27:51.059Z"
+  },
+  {
+    "matchId": "fRe0RXnn",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-05-03T17:01:24.108Z"
+  },
+  {
+    "matchId": "hCQpghfd",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-05-03T17:07:20.953Z"
+  },
+  {
+    "matchId": "zNpGjuj2",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-05-03T17:11:25.477Z"
+  },
+  {
+    "matchId": "YNozuzHc",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: Navigation timeout of 20000 ms exceeded",
+    "timestamp": "2026-05-03T17:21:27.101Z"
+  },
+  {
+    "matchId": "CjKJQFzJ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:09:43.663Z"
+  },
+  {
+    "matchId": "zg5qTg7m",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:09:43.957Z"
+  },
+  {
+    "matchId": "d00InBME",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:09:56.458Z"
+  },
+  {
+    "matchId": "CjKJQFzJ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:13:00.153Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:13:00.481Z"
+  },
+  {
+    "matchId": "d00InBME",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:13:25.469Z"
+  },
+  {
+    "matchId": "z7jGmIxA",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:13:39.155Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:16:42.500Z"
+  },
+  {
+    "matchId": "CjKJQFzJ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:16:42.712Z"
+  },
+  {
+    "matchId": "zg5qTg7m",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:16:42.932Z"
+  },
+  {
+    "matchId": "K0GpYB7L",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:17:22.101Z"
+  },
+  {
+    "matchId": "d00InBME",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:17:22.305Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:20:26.030Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:24:16.151Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:32:39.293Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:35:27.172Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:38:15.371Z"
+  },
+  {
+    "matchId": "CUgD8bLO",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:38:15.577Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:38:15.767Z"
+  },
+  {
+    "matchId": "WnzzFfht",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:41:05.545Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:41:05.732Z"
+  },
+  {
+    "matchId": "CUgD8bLO",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:41:05.939Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:43:54.934Z"
+  },
+  {
+    "matchId": "MNVxPJ55",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:43:55.131Z"
+  },
+  {
+    "matchId": "CUgD8bLO",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:43:55.551Z"
+  },
+  {
+    "matchId": "CUgD8bLO",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:46:44.520Z"
+  },
+  {
+    "matchId": "MNVxPJ55",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:46:44.712Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:46:44.911Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:49:34.398Z"
+  },
+  {
+    "matchId": "MNVxPJ55",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:49:34.917Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:52:23.048Z"
+  },
+  {
+    "matchId": "MNVxPJ55",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:52:23.304Z"
+  },
+  {
+    "matchId": "MNVxPJ55",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:55:12.606Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:55:12.859Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:58:02.615Z"
+  },
+  {
+    "matchId": "MNVxPJ55",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T18:58:02.896Z"
+  },
+  {
+    "matchId": "MNVxPJ55",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:00:52.981Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:00:53.236Z"
+  },
+  {
+    "matchId": "CUgD8bLO",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:00:53.455Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:03:44.137Z"
+  },
+  {
+    "matchId": "K4ER4DAL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:06:36.359Z"
+  },
+  {
+    "matchId": "bqF4R6p9",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:06:36.605Z"
+  },
+  {
+    "matchId": "G60TDmwB",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:06:44.735Z"
+  },
+  {
+    "matchId": "6TKVyxzQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:09:29.571Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:09:29.830Z"
+  },
+  {
+    "matchId": "AwHnhzRF",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:09:37.457Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:10:08.157Z"
+  },
+  {
+    "matchId": "K4ER4DAL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:10:12.541Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:10:23.502Z"
+  },
+  {
+    "matchId": "AHNZQh1B",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:10:46.549Z"
+  },
+  {
+    "matchId": "G60TDmwB",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:10:50.628Z"
+  },
+  {
+    "matchId": "6TKVyxzQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:13:38.457Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:13:38.663Z"
+  },
+  {
+    "matchId": "YmvsZTBd",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:13:38.855Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:14:18.120Z"
+  },
+  {
+    "matchId": "AwHnhzRF",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:14:32.653Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:14:33.323Z"
+  },
+  {
+    "matchId": "K4ER4DAL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:14:56.371Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:15:11.328Z"
+  },
+  {
+    "matchId": "AHNZQh1B",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:15:11.969Z"
+  },
+  {
+    "matchId": "G60TDmwB",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:15:36.757Z"
+  },
+  {
+    "matchId": "YmvsZTBd",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:18:21.398Z"
+  },
+  {
+    "matchId": "I5srWbzR",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:18:21.592Z"
+  },
+  {
+    "matchId": "6TKVyxzQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:18:21.798Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:19:16.154Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:19:16.353Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:19:16.550Z"
+  },
+  {
+    "matchId": "6iy37JR6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:19:56.076Z"
+  },
+  {
+    "matchId": "AHNZQh1B",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:19:56.314Z"
+  },
+  {
+    "matchId": "YmvsZTBd",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:22:46.720Z"
+  },
+  {
+    "matchId": "I5srWbzR",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:22:46.969Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:22:54.285Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:23:33.979Z"
+  },
+  {
+    "matchId": "G60TDmwB",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:23:40.457Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:26:33.236Z"
+  },
+  {
+    "matchId": "I5srWbzR",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:26:33.494Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:26:39.608Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:29:39.666Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:29:39.907Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:32:29.818Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:32:30.067Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:35:18.749Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:35:18.935Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:35:19.127Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:38:07.666Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:38:07.863Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:38:08.082Z"
+  },
+  {
+    "matchId": "AJQhWh4d",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:40:57.378Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:40:57.637Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:43:45.910Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:43:46.176Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:43:46.385Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:46:37.166Z"
+  },
+  {
+    "matchId": "OCJA5PNk",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:46:37.367Z"
+  },
+  {
+    "matchId": "SAKeIqM6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:46:37.559Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:47:16.728Z"
+  },
+  {
+    "matchId": "SAKeIqM6",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:50:04.690Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:50:04.928Z"
+  },
+  {
+    "matchId": "Gz0caiYr",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:50:11.191Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T19:52:59.680Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:03:43.507Z"
+  },
+  {
+    "matchId": "xhuXaK9L",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:03:43.728Z"
+  },
+  {
+    "matchId": "xhuXaK9L",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:06:48.515Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:06:48.753Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:06:48.992Z"
+  },
+  {
+    "matchId": "xhuXaK9L",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:09:52.153Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:09:52.458Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:12:57.403Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:12:57.608Z"
+  },
+  {
+    "matchId": "I5JCfg8M",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:12:57.818Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:13:37.468Z"
+  },
+  {
+    "matchId": "l86iDtkQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:13:37.661Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:13:58.667Z"
+  },
+  {
+    "matchId": "byTB035K",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:14:15.978Z"
+  },
+  {
+    "matchId": "O8UtYT8N",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:14:16.307Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:17:04.512Z"
+  },
+  {
+    "matchId": "WtjeLbH7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:17:04.742Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:17:11.324Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:17:43.145Z"
+  },
+  {
+    "matchId": "byTB035K",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:17:43.421Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:20:31.439Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:20:31.658Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:20:44.705Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:23:35.292Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:23:35.542Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:23:42.983Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:24:13.750Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:27:01.348Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:27:01.576Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:27:01.779Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:27:40.651Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:27:40.837Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:30:28.854Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:30:29.046Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:30:29.253Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:31:07.706Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:31:07.913Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:33:55.824Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:33:56.017Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:33:56.218Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:34:35.651Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:34:35.865Z"
+  },
+  {
+    "matchId": "v93JQkAb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:34:36.050Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:37:39.881Z"
+  },
+  {
+    "matchId": "bPi31k4T",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:37:40.076Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:37:40.289Z"
+  },
+  {
+    "matchId": "v93JQkAb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:38:19.439Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:38:19.644Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:38:19.832Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:38:58.426Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:41:46.054Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:41:46.366Z"
+  },
+  {
+    "matchId": "v93JQkAb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:41:52.833Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:42:24.912Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:42:25.173Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:45:12.711Z"
+  },
+  {
+    "matchId": "ED0XloIq",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:45:12.920Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:45:13.115Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:45:51.900Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:45:52.094Z"
+  },
+  {
+    "matchId": "xEGazn3j",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:48:40.041Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:48:40.292Z"
+  },
+  {
+    "matchId": "tp2uyRb3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:48:46.052Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:49:18.292Z"
+  },
+  {
+    "matchId": "MHYjWZ6t",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:52:06.639Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T20:57:18.881Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:02:32.239Z"
+  },
+  {
+    "matchId": "v93JQkAb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:02:32.425Z"
+  },
+  {
+    "matchId": "v93JQkAb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:05:38.675Z"
+  },
+  {
+    "matchId": "x4LIP3Qc",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:05:38.876Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:05:39.098Z"
+  },
+  {
+    "matchId": "v93JQkAb",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:08:45.588Z"
+  },
+  {
+    "matchId": "KbchhRx1",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:08:45.806Z"
+  },
+  {
+    "matchId": "x4LIP3Qc",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:08:46.022Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:09:39.246Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:09:39.882Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:09:40.602Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:10:14.222Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:13:02.390Z"
+  },
+  {
+    "matchId": "KbchhRx1",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:13:02.586Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:13:02.795Z"
+  },
+  {
+    "matchId": "x4LIP3Qc",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:13:42.182Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:13:42.383Z"
+  },
+  {
+    "matchId": "OdedMky3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:13:42.604Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:14:21.257Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:14:36.295Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:14:36.504Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:14:59.109Z"
+  },
+  {
+    "matchId": "KbchhRx1",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:17:46.899Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:17:47.116Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:17:47.337Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:18:26.316Z"
+  },
+  {
+    "matchId": "OdedMky3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:18:26.550Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:18:26.763Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:19:05.949Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:19:06.183Z"
+  },
+  {
+    "matchId": "OKCVHXDL",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:19:20.270Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:22:07.714Z"
+  },
+  {
+    "matchId": "KbchhRx1",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:22:07.903Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:22:08.112Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:22:48.031Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:22:48.224Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:22:48.441Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:23:28.174Z"
+  },
+  {
+    "matchId": "KbchhRx1",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:26:15.475Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:26:15.702Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:26:21.676Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:26:54.336Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:26:54.590Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:27:01.064Z"
+  },
+  {
+    "matchId": "OKa8MJy8",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:27:32.703Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:30:20.784Z"
+  },
+  {
+    "matchId": "KbchhRx1",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:30:22.756Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:30:27.005Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:30:57.698Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:30:58.985Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:31:05.205Z"
+  },
+  {
+    "matchId": "OKa8MJy8",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:31:35.781Z"
+  },
+  {
+    "matchId": "KbchhRx1",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:34:23.773Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:34:24.065Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:34:30.098Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:35:02.594Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:35:03.015Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:35:08.443Z"
+  },
+  {
+    "matchId": "OKa8MJy8",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:35:41.722Z"
+  },
+  {
+    "matchId": "dCdIcRwR",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:35:42.756Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:38:29.169Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:38:29.358Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:38:29.576Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:39:08.515Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:39:08.699Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:39:08.893Z"
+  },
+  {
+    "matchId": "dCdIcRwR",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:39:47.929Z"
+  },
+  {
+    "matchId": "lngAam9E",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:39:48.128Z"
+  },
+  {
+    "matchId": "OKa8MJy8",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:39:48.306Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:42:40.444Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:42:40.638Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:42:40.861Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:43:20.397Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:43:20.586Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:43:20.798Z"
+  },
+  {
+    "matchId": "dCdIcRwR",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:43:59.604Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:46:48.895Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:46:49.148Z"
+  },
+  {
+    "matchId": "zwwYiK8E",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:46:55.521Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:47:27.691Z"
+  },
+  {
+    "matchId": "rZTsKdBC",
+    "alertType": "PAGE_ERROR",
+    "details": "secondHalf: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:47:28.868Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:47:33.993Z"
+  },
+  {
+    "matchId": "dCdIcRwR",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:48:03.516Z"
+  },
+  {
+    "matchId": "nqf58c25",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:50:52.202Z"
+  },
+  {
+    "matchId": "YwVPXDVG",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:50:52.417Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:50:52.620Z"
+  },
+  {
+    "matchId": "dCdIcRwR",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:51:32.025Z"
+  },
+  {
+    "matchId": "WCydT0lQ",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:51:32.216Z"
+  },
+  {
+    "matchId": "dEmZphi3",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:51:32.409Z"
+  },
+  {
+    "matchId": "z7woQMT7",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T21:54:23.217Z"
+  },
+  {
+    "matchId": "GAQkTI26",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:07:56.187Z"
+  },
+  {
+    "matchId": "QoCPpLen",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:07:56.390Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:11:44.795Z"
+  },
+  {
+    "matchId": "GAQkTI26",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:11:45.048Z"
+  },
+  {
+    "matchId": "GAQkTI26",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:15:32.814Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:15:32.997Z"
+  },
+  {
+    "matchId": "QoCPpLen",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:15:33.214Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:19:21.872Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:23:09.130Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:25:57.998Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:28:45.059Z"
+  },
+  {
+    "matchId": "QoCPpLen",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:28:45.361Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:31:32.499Z"
+  },
+  {
+    "matchId": "QoCPpLen",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:31:32.702Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:41:07.893Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:43:55.568Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:46:43.108Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:49:30.520Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:52:17.680Z"
+  },
+  {
+    "matchId": "UsxaUDyg",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:52:17.891Z"
+  },
+  {
+    "matchId": "zXOZW03s",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T22:59:41.389Z"
+  },
+  {
+    "matchId": "Uoi8lkg4",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T23:18:02.582Z"
+  },
+  {
+    "matchId": "Uoi8lkg4",
+    "alertType": "PAGE_ERROR",
+    "details": "overall: page.evaluate timeout 15000ms",
+    "timestamp": "2026-05-03T23:20:49.819Z"
+  }
+]

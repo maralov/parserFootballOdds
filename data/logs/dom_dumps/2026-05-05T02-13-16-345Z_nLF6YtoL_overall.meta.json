@@ -1,0 +1,13 @@
+{
+  "matchId": "nLF6YtoL",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/escorpiones-W0AKkjrb/inter-san-carlos-rTyUsWlH/summary/stats/overall/?mid=nLF6YtoL",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-05T02:13:24.351Z"
+}

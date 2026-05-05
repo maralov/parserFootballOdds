@@ -1,0 +1,304 @@
+{
+  "date": "2026-05-04",
+  "generatedAt": "2026-05-05T07:06:57.855Z",
+  "rules": {
+    "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
+    "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
+  },
+  "model": {
+    "bankStart": 10000,
+    "stakePct": 0.05,
+    "stakePerBet": 500,
+    "oddsByPeriod": {
+      "tm_60_70": 2.5,
+      "tm_60_78": 1.7,
+      "tm_or_tb_70_80": 1.8,
+      "tb_80_90": 2.5
+    }
+  },
+  "overall": {
+    "bets": 8,
+    "checked": 8,
+    "wins": 4,
+    "losses": 4,
+    "pending": 0,
+    "turnover": 4000,
+    "profit": -600,
+    "roi": -0.15,
+    "hitRate": 0.5,
+    "bankStart": 10000,
+    "bankEnd": 9400
+  },
+  "byPeriod": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "60-78": {
+      "total": 8,
+      "checked": 8,
+      "wins": 4,
+      "losses": 4,
+      "pending": 0,
+      "turnover": 4000,
+      "profit": -600,
+      "roi": -0.15,
+      "hitRate": 0.5
+    },
+    "70-80": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "byBetType": {
+    "UNDER_0_5": {
+      "total": 8,
+      "checked": 8,
+      "wins": 4,
+      "losses": 4,
+      "pending": 0,
+      "turnover": 4000,
+      "profit": -600,
+      "roi": -0.15,
+      "hitRate": 0.5
+    },
+    "OVER_0_5": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "noFlipsScenario": {
+    "bets": 8,
+    "checked": 8,
+    "wins": 4,
+    "losses": 4,
+    "pending": 0,
+    "turnover": 4000,
+    "profit": -600,
+    "roi": -0.15,
+    "hitRate": 0.5,
+    "bankStart": 10000,
+    "bankEnd": 9400
+  },
+  "matches": [
+    {
+      "matchId": "Cxjo6r96",
+      "league": "АНГЛІЯ: Ліга професійного розвитку - Плей-оф",
+      "home": "Пітерборо U21",
+      "away": "Ноттінгем U21",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "zZLpSLbc",
+      "league": "УЗБЕКИСТАН: Суперліга",
+      "home": "Ташкент",
+      "away": "Кизилкум",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "EmgbVg3F",
+      "league": "ІЗРАЇЛЬ: Ліга Леуміт - Група вибування",
+      "home": "Хапоель Афула",
+      "away": "Хапоель Раанана",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "MRYzdovC",
+      "league": "ІРЛАНДІЯ: Перший дивізіон",
+      "home": "Тріті Юнайтед",
+      "away": "Вексфорд",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "WUqZ3sPq",
+      "league": "ФАРЕРСЬКІ ОСТРОВИ: Прем'єр-ліга",
+      "home": "Вікінгур",
+      "away": "07 Вестур Сорвагур",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "CUtf9Mpo",
+      "league": "САУДІВСЬКА АРАВІЯ: Професійна ліга",
+      "home": "ФК Аль-Іттіхад",
+      "away": "Аль-Холуд",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "zNrQxgYN",
+      "league": "АРГЕНТИНА: Прімера С",
+      "home": "Еспаньйол",
+      "away": "Спортіво Барракас",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "8r1AlSNM",
+      "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+      "home": "ФК 1995",
+      "away": "Чеджу СК",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "matchId": "69wf5X44",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/newells-old-boys-6gMiRHVj/velez-sarsfield-UsCR8gFd/summary/stats/overall/?mid=69wf5X44",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-04T23:29:35.426Z"
+}

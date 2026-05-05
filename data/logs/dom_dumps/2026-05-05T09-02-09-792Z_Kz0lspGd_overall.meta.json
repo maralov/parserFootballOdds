@@ -1,0 +1,13 @@
+{
+  "matchId": "Kz0lspGd",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/summary/stats/overall/?mid=Kz0lspGd",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-05T09:02:17.793Z"
+}

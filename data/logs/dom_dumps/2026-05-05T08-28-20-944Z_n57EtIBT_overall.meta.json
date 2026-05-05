@@ -1,0 +1,13 @@
+{
+  "matchId": "n57EtIBT",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/summary/stats/overall/?mid=n57EtIBT",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-05T08:28:28.948Z"
+}

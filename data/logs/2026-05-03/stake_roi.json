@@ -1,0 +1,358 @@
+{
+  "date": "2026-05-03",
+  "generatedAt": "2026-05-04T07:12:23.143Z",
+  "rules": {
+    "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
+    "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
+  },
+  "model": {
+    "bankStart": 10000,
+    "stakePct": 0.05,
+    "stakePerBet": 500,
+    "oddsByPeriod": {
+      "tm_60_70": 2.5,
+      "tm_or_tb_70_80": 1.8,
+      "tb_80_90": 2.5
+    }
+  },
+  "overall": {
+    "bets": 11,
+    "checked": 11,
+    "wins": 6,
+    "losses": 5,
+    "pending": 0,
+    "turnover": 5689,
+    "profit": -215.39999999999986,
+    "roi": -0.038,
+    "hitRate": 0.545,
+    "bankStart": 10000,
+    "bankEnd": 9784.6
+  },
+  "byPeriod": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "70-80": {
+      "total": 6,
+      "checked": 6,
+      "wins": 3,
+      "losses": 3,
+      "pending": 0,
+      "turnover": 3189,
+      "profit": -215.39999999999986,
+      "roi": -0.068,
+      "hitRate": 0.5
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "other": {
+      "total": 5,
+      "checked": 5,
+      "wins": 3,
+      "losses": 2,
+      "pending": 0,
+      "turnover": 2500,
+      "profit": 0,
+      "roi": 0,
+      "hitRate": 0.6
+    }
+  },
+  "byBetType": {
+    "UNDER_0_5": {
+      "total": 11,
+      "checked": 11,
+      "wins": 6,
+      "losses": 5,
+      "pending": 0,
+      "turnover": 5689,
+      "profit": -215.39999999999986,
+      "roi": -0.038,
+      "hitRate": 0.545
+    },
+    "OVER_0_5": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "noFlipsScenario": {
+    "bets": 11,
+    "checked": 11,
+    "wins": 6,
+    "losses": 5,
+    "pending": 0,
+    "turnover": 5689,
+    "profit": -215.39999999999986,
+    "roi": -0.038,
+    "hitRate": 0.545,
+    "bankStart": 10000,
+    "bankEnd": 9784.6
+  },
+  "matches": [
+    {
+      "matchId": "WnzzFfht",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+      "home": "Ель-Махалла",
+      "away": "Ель-Ісмаїлі",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "other",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "CUgD8bLO",
+      "league": "СЕРБІЯ: Суперліга - Група вибування",
+      "home": "Явор",
+      "away": "Нови-Београд",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "6iy37JR6",
+      "league": "КОЛУМБІЯ: Ліга (Жінки)",
+      "home": "Санта-Фе Ж",
+      "away": "Мільйонаріос Ж",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "other",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "MNVxPJ55",
+      "league": "СЕРБІЯ: Суперліга - Група вибування",
+      "home": "Напредак",
+      "away": "Раднічки Ниш",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "other",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "Gz0caiYr",
+      "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+      "home": "Лумеццане",
+      "away": "Альчоне Мілано",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "other",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "WtjeLbH7",
+      "league": "АРГЕНТИНА: Прімера Насьйональ",
+      "home": "Альміранте Браун",
+      "away": "Чако Фор Евер",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "other",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "bPi31k4T",
+      "league": "АРГЕНТИНА: Прімера - Апертура",
+      "home": "Расінг",
+      "away": "Уракан",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "tp2uyRb3",
+      "league": "КАНАДА: Прем'єр-ліга Канади",
+      "home": "du Quebec",
+      "away": "Кевалрі",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "zXOZW03s",
+      "league": "БРАЗИЛІЯ: Серія Б",
+      "home": "Атлетіку Гояніенсе",
+      "away": "Жувентуде",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "Uoi8lkg4",
+      "league": "США: МЛС Next Pro",
+      "home": "Connecticut FC",
+      "away": "Нью-Інгленд Революшн II",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "EPgbPDBs",
+      "league": "ПЕРУ: Ліга 1 - Апертура",
+      "home": "Мельгар",
+      "away": "Кахамарка",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    }
+  ]
+}

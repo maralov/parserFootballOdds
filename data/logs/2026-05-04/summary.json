@@ -1,0 +1,85 @@
+{
+  "date": "2026-05-04",
+  "totalRowsInLog": 35,
+  "uniqueMatches": 35,
+  "actionable": 10,
+  "stakeLegsPlanned": 10,
+  "checkedThisRun": 0,
+  "hitsThisRun": 0,
+  "missesThisRun": 0,
+  "resolved": 10,
+  "hits": 5,
+  "misses": 5,
+  "hitRate": 0.5,
+  "legsResolved": 10,
+  "legHits": 5,
+  "legMisses": 5,
+  "legHitRate": 0.5,
+  "byConfidence": {
+    "high": {
+      "total": 10,
+      "checked": 10,
+      "hits": 5,
+      "misses": 5,
+      "hitRate": 0.5
+    },
+    "medium": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "low": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "byBetType": {
+    "UNDER_0_5": {
+      "total": 10,
+      "checked": 10,
+      "hits": 5,
+      "misses": 5,
+      "hitRate": 0.5
+    },
+    "OVER_0_5": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "flips": 0,
+  "generatedAt": "2026-05-05T07:06:57.822Z",
+  "byModel": {
+    "v3_main": {
+      "evals": 124,
+      "actionable": 2,
+      "resolved": 2,
+      "hits": 1,
+      "misses": 1,
+      "hitRate": 0.5
+    },
+    "L1": {
+      "evals": 124,
+      "actionable": 34,
+      "resolved": 34,
+      "hits": 21,
+      "misses": 13,
+      "hitRate": 0.618
+    },
+    "L2": {
+      "evals": 124,
+      "actionable": 5,
+      "resolved": 5,
+      "hits": 0,
+      "misses": 5,
+      "hitRate": 0
+    }
+  }
+}

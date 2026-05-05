@@ -1,0 +1,418 @@
+[
+  {
+    "matchId": "n57EtIBT",
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7754,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.835,
+      "dry_2H": 0.6948,
+      "trajectory": 0,
+      "odds": 0.537,
+      "prematch": 0.4
+    },
+    "reason": "trajectory=0 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 2.9403,
+      "bigChances": 2.8125,
+      "touchesInOppositionBox": 2.1094,
+      "totalShots": 2.8125
+    },
+    "timestamp": "2026-05-05T08:18:57.845Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7805,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.835,
+      "dry_2H": 0.7288,
+      "trajectory": 0,
+      "odds": 0.537,
+      "prematch": 0.4
+    },
+    "reason": "snapshots=3 < 12",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 2.6136,
+      "bigChances": 2.5,
+      "touchesInOppositionBox": 1.875,
+      "totalShots": 2.5
+    },
+    "timestamp": "2026-05-05T08:21:14.962Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8093,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.835,
+      "dry_2H": 0.7589,
+      "trajectory": 0.1351,
+      "odds": 0.537,
+      "prematch": 0.4
+    },
+    "reason": "snapshots=4 < 12",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 2.2403,
+      "bigChances": 2.1429,
+      "touchesInOppositionBox": 1.875,
+      "totalShots": 2.1429
+    },
+    "timestamp": "2026-05-05T08:23:30.583Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8095,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.835,
+      "dry_2H": 0.7642,
+      "trajectory": 0.1315,
+      "odds": 0.537,
+      "prematch": 0.4
+    },
+    "reason": "snapshots=5 < 12",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 2.0455,
+      "bigChances": 1.9565,
+      "touchesInOppositionBox": 2.2011,
+      "totalShots": 1.9565
+    },
+    "timestamp": "2026-05-05T08:25:46.189Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8257,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.835,
+      "dry_2H": 0.7804,
+      "trajectory": 0.2083,
+      "odds": 0.537,
+      "prematch": 0.4
+    },
+    "reason": "snapshots=6 < 12",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 1.9636,
+      "bigChances": 1.8,
+      "touchesInOppositionBox": 2.025,
+      "totalShots": 2.4
+    },
+    "timestamp": "2026-05-05T08:28:34.271Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8542,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.835,
+      "dry_2H": 0.8039,
+      "trajectory": 0.3467,
+      "odds": 0.537,
+      "prematch": 0.4
+    },
+    "reason": "snapshots=7 < 12",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": 1.7532,
+      "bigChances": 1.6071,
+      "touchesInOppositionBox": 1.808,
+      "totalShots": 2.1429
+    },
+    "timestamp": "2026-05-05T08:30:49.243Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 61,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4352,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.0547
+    },
+    "timestamp": "2026-05-05T08:48:40.870Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 63,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4352,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.25
+    },
+    "timestamp": "2026-05-05T08:51:32.941Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 66,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4352,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.0714
+    },
+    "timestamp": "2026-05-05T08:53:52.775Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 68,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4352,
+      "prematch": 0
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.2228
+    },
+    "timestamp": "2026-05-05T08:56:43.238Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8566,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.7837,
+      "trajectory": 0.6346,
+      "odds": 0.4352,
+      "prematch": 0
+    },
+    "reason": "consensus=3 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 0.8654,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.5144
+    },
+    "timestamp": "2026-05-05T08:59:33.353Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.87,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.7991,
+      "trajectory": 0.6964,
+      "odds": 0.4352,
+      "prematch": 0
+    },
+    "reason": "consensus=3 < 4",
+    "intensityRatio": {
+      "shotsOnTarget": 0.8036,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.6071
+    },
+    "timestamp": "2026-05-05T09:02:23.793Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7389,
+    "consensusCount": 2,
+    "components": {
+      "dry_1H": 0.75,
+      "dry_2H": 0.6484,
+      "trajectory": 0.0937,
+      "odds": 0.4352,
+      "prematch": 0
+    },
+    "reason": "trajectory=0.0937 < 0.4",
+    "intensityRatio": {
+      "shotsOnTarget": 1.4063,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 1.582
+    },
+    "timestamp": "2026-05-05T09:04:38.800Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=79 outside window 60-78",
+    "timestamp": "2026-05-05T09:06:54.950Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=81 outside window 60-78",
+    "timestamp": "2026-05-05T09:09:43.337Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 84,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=84 outside window 60-78",
+    "timestamp": "2026-05-05T09:12:31.980Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 87,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=87 outside window 60-78",
+    "timestamp": "2026-05-05T09:14:47.290Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=88 outside window 60-78",
+    "timestamp": "2026-05-05T09:17:36.139Z"
+  }
+]

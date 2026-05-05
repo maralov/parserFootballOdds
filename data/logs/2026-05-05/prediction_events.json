@@ -1,0 +1,1681 @@
+[
+  {
+    "matchId": "n57EtIBT",
+    "model": "v3_main",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.71,
+    "pGoal": 0.29,
+    "signalQuality": 0.7714,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=2/2 burst=false pD=0.71 pG=0.29 SQ=0.7714(мін 0.77) стан=dry | 0 уд. в площ., 1 мом., xG 0.23",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.907,
+      "confidence": "high"
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:18:57.843Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L1",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7754,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": 0.275,
+    "timeWindow": "60-78",
+    "reason": "trajectory=0 < 0.4",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.835,
+      "dry_2H": 0.6948,
+      "trajectory": 0,
+      "odds": 0.537,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": 2.9403,
+        "bigChances": 2.8125,
+        "touchesInOppositionBox": 2.1094,
+        "totalShots": 2.8125
+      }
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:18:57.845Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L2",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=61 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:18:57.847Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "v3_main",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.71,
+    "pGoal": 0.29,
+    "signalQuality": 0.7871,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=3/2 burst=false pD=0.71 pG=0.29 SQ=0.7871(мін 0.77) стан=dry | 0 уд. в площ., 1 мом., xG 0.23",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.8671,
+      "confidence": "high"
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:21:14.959Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L1",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7805,
+    "pGoal": 0.29,
+    "signalQuality": 0.7871,
+    "edge": 0.28,
+    "timeWindow": "60-78",
+    "reason": "snapshots=3 < 12",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.835,
+      "dry_2H": 0.7288,
+      "trajectory": 0,
+      "odds": 0.537,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": 2.6136,
+        "bigChances": 2.5,
+        "touchesInOppositionBox": 1.875,
+        "totalShots": 2.5
+      },
+      "currentState": "dry",
+      "snapshotCount": 3
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:21:14.963Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L2",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=63 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:21:14.965Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "v3_main",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.71,
+    "pGoal": 0.29,
+    "signalQuality": 0.8029,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=4/2 burst=false pD=0.71 pG=0.29 SQ=0.8029(мін 0.77) стан=dry | 0 уд. в площ., 1 мом., xG 0.23",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.8011,
+      "confidence": "high"
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:23:30.580Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L1",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8093,
+    "pGoal": 0.29,
+    "signalQuality": 0.8029,
+    "edge": 0.309,
+    "timeWindow": "60-78",
+    "reason": "snapshots=4 < 12",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.835,
+      "dry_2H": 0.7589,
+      "trajectory": 0.1351,
+      "odds": 0.537,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": 2.2403,
+        "bigChances": 2.1429,
+        "touchesInOppositionBox": 1.875,
+        "totalShots": 2.1429
+      },
+      "currentState": "dry",
+      "snapshotCount": 4
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:23:30.584Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L2",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=66 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:23:30.586Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "v3_main",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.58,
+    "pGoal": 0.42,
+    "signalQuality": 0.7386,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=5/2 burst=false pD=0.58 pG=0.42 SQ=0.7386(мін 0.77) стан=dry | 0 уд. в площ., 1 мом., xG 0.23",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.8333,
+      "confidence": "high"
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:25:46.187Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L1",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8095,
+    "pGoal": 0.42,
+    "signalQuality": 0.7386,
+    "edge": 0.309,
+    "timeWindow": "60-78",
+    "reason": "snapshots=5 < 12",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.835,
+      "dry_2H": 0.7642,
+      "trajectory": 0.1315,
+      "odds": 0.537,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": 2.0455,
+        "bigChances": 1.9565,
+        "touchesInOppositionBox": 2.2011,
+        "totalShots": 1.9565
+      },
+      "currentState": "dry",
+      "snapshotCount": 5
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:25:46.190Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L2",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=68 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:25:46.192Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "v3_main",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.71,
+    "pGoal": 0.29,
+    "signalQuality": 0.8343,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "[ТБ вимкнено] ТБ 70-80 v3 (dry alert) | рахунок 0:0 після dry@60-70 | 0 уд. в площ., 1 мом., xG 0.24 (2H+O)",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.8389,
+      "confidence": "high"
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:28:34.268Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L1",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8257,
+    "pGoal": 0.29,
+    "signalQuality": 0.8343,
+    "edge": 0.326,
+    "timeWindow": "60-78",
+    "reason": "snapshots=6 < 12",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.835,
+      "dry_2H": 0.7804,
+      "trajectory": 0.2083,
+      "odds": 0.537,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": 1.9636,
+        "bigChances": 1.8,
+        "touchesInOppositionBox": 2.025,
+        "totalShots": 2.4
+      },
+      "currentState": "dry",
+      "snapshotCount": 6
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:28:34.272Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L2",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=70 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:28:34.275Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "v3_main",
+    "minute": 73,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.71,
+    "pGoal": 0.29,
+    "signalQuality": 0.85,
+    "edge": 0.21,
+    "timeWindow": "70-80",
+    "reason": "ТМ 70–80 v3 | 0 уд. в площ., 1 мом., xG 0.24 (2H+O) | SQ=0.85",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.844,
+      "confidence": "high"
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:30:49.240Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L1",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8542,
+    "pGoal": 0.29,
+    "signalQuality": 0.85,
+    "edge": 0.354,
+    "timeWindow": "60-78",
+    "reason": "snapshots=7 < 12",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.835,
+      "dry_2H": 0.8039,
+      "trajectory": 0.3467,
+      "odds": 0.537,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": 1.7532,
+        "bigChances": 1.6071,
+        "touchesInOppositionBox": 1.808,
+        "totalShots": 2.1429
+      },
+      "currentState": "dry",
+      "snapshotCount": 7
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:30:49.244Z"
+  },
+  {
+    "matchId": "n57EtIBT",
+    "model": "L2",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=73 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "КИТАЙ: League Two",
+    "home": "Їнбо B",
+    "away": "Dalian Kewei",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dalian-kewei-4A6R5qSr/dalian-yingbo-pQPfB54L/?mid=n57EtIBT",
+    "ts": "2026-05-05T08:30:49.247Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.701,
+    "pGoal": 0.299,
+    "signalQuality": 0.5719,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=4/2 burst=false pD=0.701 pG=0.299 SQ=0.5719(мін 0.77) стан=dry | 0 уд. в площ.",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.6667,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:48:40.867Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 61,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "pGoal": 0.299,
+    "signalQuality": 0.5719,
+    "edge": 0.42,
+    "timeWindow": "60-78",
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4352,
+      "prematch": 0,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 1.0547
+      },
+      "currentState": "dry",
+      "snapshotCount": 4
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:48:40.871Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=61 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:48:41.100Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.701,
+    "pGoal": 0.299,
+    "signalQuality": 0.5876,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=5/2 burst=false pD=0.701 pG=0.299 SQ=0.5876(мін 0.77) стан=dry | 0 уд. в площ.",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.6667,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:51:32.937Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 63,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "pGoal": 0.299,
+    "signalQuality": 0.5876,
+    "edge": 0.42,
+    "timeWindow": "60-78",
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4352,
+      "prematch": 0,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 1.25
+      },
+      "currentState": "dry",
+      "snapshotCount": 5
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:51:32.943Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=63 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:51:32.947Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.571,
+    "pGoal": 0.429,
+    "signalQuality": 0.5233,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=6/2 burst=false pD=0.571 pG=0.429 SQ=0.5233(мін 0.77) стан=dry | 0 уд. в площ.",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.75,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:53:52.771Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 66,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "pGoal": 0.429,
+    "signalQuality": 0.5233,
+    "edge": 0.42,
+    "timeWindow": "60-78",
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4352,
+      "prematch": 0,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 1.0714
+      },
+      "currentState": "dry",
+      "snapshotCount": 6
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:53:52.777Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=66 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:53:52.780Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.701,
+    "pGoal": 0.299,
+    "signalQuality": 0.619,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=7/2 burst=false pD=0.701 pG=0.299 SQ=0.619(мін 0.77) стан=dry | 0 уд. в площ.",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.75,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:56:43.235Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 68,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "pGoal": 0.299,
+    "signalQuality": 0.619,
+    "edge": 0.42,
+    "timeWindow": "60-78",
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.75,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4352,
+      "prematch": 0,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 1.2228
+      },
+      "currentState": "dry",
+      "snapshotCount": 7
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:56:43.239Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=68 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:56:43.243Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.541,
+    "pGoal": 0.459,
+    "signalQuality": 0.5547,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "[ТБ вимкнено] ТБ 70-80 v3 (dry alert) | рахунок 0:0 після dry@60-70 | 1 уд. в площ. (2H+O) [ринок ΔpG +0.03]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5556,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:59:33.348Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.8566,
+    "pGoal": 0.459,
+    "signalQuality": 0.5547,
+    "edge": 0.357,
+    "timeWindow": "60-78",
+    "reason": "consensus=3 < 4",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.75,
+      "dry_2H": 0.7837,
+      "trajectory": 0.6346,
+      "odds": 0.4352,
+      "prematch": 0,
+      "intensityRatio": {
+        "shotsOnTarget": 0.8654,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 1.5144
+      },
+      "currentState": "dry",
+      "snapshotCount": 8
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:59:33.355Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=71 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T08:59:33.362Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.541,
+    "pGoal": 0.459,
+    "signalQuality": 0.5704,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "70–80 v3: немає порогів pG=0.459 pD=0.541 | 1 уд. в площ. [ринок ΔpG +0.03]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5161,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:02:23.789Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.87,
+    "pGoal": 0.459,
+    "signalQuality": 0.5704,
+    "edge": 0.37,
+    "timeWindow": "60-78",
+    "reason": "consensus=3 < 4",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.75,
+      "dry_2H": 0.7991,
+      "trajectory": 0.6964,
+      "odds": 0.4352,
+      "prematch": 0,
+      "intensityRatio": {
+        "shotsOnTarget": 0.8036,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 1.6071
+      },
+      "currentState": "dry",
+      "snapshotCount": 9
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:02:23.795Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=73 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:02:23.800Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.421,
+    "pGoal": 0.579,
+    "signalQuality": 0.5861,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "70–80 v3: немає порогів pG=0.579 pD=0.421 | 2 уд. в площ. [ринок ΔpG +0.03]",
+    "components": {
+      "currentState": "lateSurge",
+      "dominanceStrength": 0.6522,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:04:38.797Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.7389,
+    "pGoal": 0.579,
+    "signalQuality": 0.5861,
+    "edge": 0.239,
+    "timeWindow": "60-78",
+    "reason": "trajectory=0.0937 < 0.4",
+    "components": {
+      "consensusCount": 2,
+      "dry_1H": 0.75,
+      "dry_2H": 0.6484,
+      "trajectory": 0.0937,
+      "odds": 0.4352,
+      "prematch": 0,
+      "intensityRatio": {
+        "shotsOnTarget": 1.4063,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 1.582
+      },
+      "currentState": "lateSurge",
+      "snapshotCount": 10
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:04:38.801Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "favorite odds=1.95 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 1.95,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:04:38.804Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.671,
+    "pGoal": 0.329,
+    "signalQuality": 0.6819,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "70–80 v3: немає порогів pG=0.329 pD=0.671 | 2 уд. в площ. [ринок ΔpG +0.03]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.6522,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:06:54.947Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.329,
+    "signalQuality": 0.6819,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=79 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 11
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:06:54.951Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=1.95 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 1.95,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:06:54.955Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.671,
+    "pGoal": 0.329,
+    "signalQuality": 0.6976,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "80+ v3 після ТМ: моніторинг (pG_dec=0.329) | 2 уд. в площ. [ринок ΔpG +0.03]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.6522,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:09:43.334Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.329,
+    "signalQuality": 0.6976,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=81 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 12
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:09:43.338Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=1.95 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 1.95,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:09:43.342Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 84,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.671,
+    "pGoal": 0.329,
+    "signalQuality": 0.7133,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "80+ v3 після ТМ: моніторинг (pG_dec=0.329) | 2 уд. в площ. [ринок ΔpG +0.03]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.6522,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:12:31.976Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 84,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.329,
+    "signalQuality": 0.7133,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=84 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 13
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:12:31.981Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 84,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=1.95 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 1.95,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:12:31.983Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 87,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.671,
+    "pGoal": 0.329,
+    "signalQuality": 0.729,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "80+ v3 після ТМ: моніторинг (pG_dec=0.329) | 2 уд. в площ. [ринок ΔpG +0.03]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.6522,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:14:47.288Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 87,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.329,
+    "signalQuality": 0.729,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=87 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 14
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:14:47.292Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 87,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=1.95 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 1.95,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:14:47.296Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "v3_main",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.671,
+    "pGoal": 0.329,
+    "signalQuality": 0.729,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "80+ v3 після ТМ: моніторинг (pG_dec=0.329) | 2 уд. в площ. [ринок ΔpG +0.03]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.6522,
+      "confidence": "low"
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:17:36.137Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L1",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.329,
+    "signalQuality": 0.729,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=88 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 15
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:17:36.141Z"
+  },
+  {
+    "matchId": "Kz0lspGd",
+    "model": "L2",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=1.95 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 1.95,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+    "home": "Теджон",
+    "away": "Інчхон",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/daejeon-2NTiQXjI/incheon-prJ1QuXA/?mid=Kz0lspGd",
+    "ts": "2026-05-05T09:17:36.208Z"
+  }
+]
