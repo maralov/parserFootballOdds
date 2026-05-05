@@ -723,7 +723,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
                   matchId: match.id,
                   telegramInitialSent: true,
                   prediction: {
-                    bet: 'UNDER_0_5',
+                    bet: line1Result.bet,
                     confidence: 'high',
                     pDry: line1Result.pDry,
                     pGoal: decision?.pGoal ?? null,
@@ -741,7 +741,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
                 });
                 activePredictions.set(match.id, {
                   ...(activePredictions.get(match.id) || {}),
-                  bet: 'UNDER_0_5',
+                  bet: line1Result.bet,
                   line1: true,
                   pDry: line1Result.pDry,
                   predictedAtMinute: features.minute,
