@@ -20,6 +20,42 @@ function getDomAlertFile() {
 
 const BLOCK_DOMAINS_RE = /google-analytics|googletagmanager|googlesyndication|doubleclick|facebook\.(net|com)|adservice|hotjar|segment\.io|amplitude|criteo|adsrvr|taboola|outbrain|adnxs|pubmatic|rubiconproject|openx|smartadserver|yandex\.ru\/metrika|mc\.yandex|mail\.ru\/counter|gemius|optad360/i;
 
+// Помилки коли сторінку/таргет вже закрив зовнішній withTimeout — це не DOM проблема,
+// тому такі винятки пропускаємо без алерту/дампу (щоб не засмічувати dom_alerts).
+const PAGE_CLOSED_RE = /target closed|session closed|protocol error.*\b(page\.navigate|runtime\.callfunctionon|page has been closed)|most likely the page has been closed|browser has disconnected/i;
+function isPageClosed(page, err) {
+  try { if (page && typeof page.isClosed === 'function' && page.isClosed()) return true; } catch {}
+  if (err && err.message && PAGE_CLOSED_RE.test(err.message)) return true;
+  return false;
+}
+
+// page.evaluate не має власного таймауту і тримається protocolTimeout=120s.
+// Якщо рендерер flashscore завис на важкому JS — один evaluate з'їсть весь зовнішній
+// withTimeout(120s). Тому обгортаємо кожен evaluate своїм коротким race-таймаутом.
+const EVALUATE_TIMEOUT_MS = 15000;
+function evalWithTimeout(page, fnOrStr, ...args) {
+  return Promise.race([
+    page.evaluate(fnOrStr, ...args),
+    new Promise((_, reject) => setTimeout(
+      () => reject(new Error(`page.evaluate timeout ${EVALUATE_TIMEOUT_MS}ms`)),
+      EVALUATE_TIMEOUT_MS
+    )),
+  ]);
+}
+
+// goto з одним retry при Navigation timeout — перший хіт на flashscore інколи флапає,
+// другий зазвичай проходить. Без цього втрачаємо весь матч.
+async function gotoWithRetry(page, url, opts) {
+  try {
+    return await page.goto(url, opts);
+  } catch (e) {
+    if (/navigation timeout|net::err_/i.test(e.message) && !isPageClosed(page, e)) {
+      return await page.goto(url, opts);
+    }
+    throw e;
+  }
+}
+
 /**
  * Блокує важкі ресурси (images/media/fonts) та рекламно-аналітичні домени,
  * щоб уникнути зависання Runtime.callFunctionOn у важкому JS event loop flashscore.
@@ -229,7 +265,7 @@ async function resolveDesktopUrl(page, matchId) {
 }
 
 async function parseStatsFromPage(page, labelMapJSON) {
-  return page.evaluate((mapJson) => {
+  return evalWithTimeout(page, (mapJson) => {
     const LABEL_MAP = JSON.parse(mapJson);
     const rows = document.querySelectorAll('[data-testid="wcl-statistics"]');
 
@@ -303,31 +339,55 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
     { key: 'secondHalf', suffix: '/summary/stats/2nd-half/' },
   ];
 
+  // Прапор «у цій лізі статистики не існує»: overall повернув повністю гідровану,
+  // але порожню по статистиці сторінку (нижчі ліги — Tercera KIFF, U19 тощо).
+  // Тоді нема сенсу пробувати 2nd-half і mobile fallback цього циклу.
+  let noStatsLeague = false;
+
   for (const ep of endpoints) {
+    // Якщо зовнішній withTimeout уже закрив сторінку — далі не йдемо: всі page.* кинуть
+    // "Target closed" і ми б згенерували купу помилкових PAGE_ERROR алертів.
+    if (isPageClosed(page, null)) break;
+    if (noStatsLeague) break;
     const url = `${basePath}${ep.suffix}?mid=${matchId}`;
     try {
       // domcontentloaded значно швидше ніж networkidle2 — мінімізує ризик PAGE_ERROR timeout
-      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
+      await gotoWithRetry(page, url, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
 
       let hasStats = false;
       try {
         await page.waitForSelector('[data-testid="wcl-statistics"]', { timeout: 8000 });
         hasStats = true;
       } catch {
-        hasStats = await page.evaluate(() =>
+        hasStats = await evalWithTimeout(page, () =>
           document.querySelectorAll('[data-testid="wcl-statistics"]').length > 0
         );
       }
 
       if (!hasStats) {
-        const fallbackInfo = await page.evaluate(() => {
+        const fallbackInfo = await evalWithTimeout(page, () => {
           const old = document.querySelectorAll('[class*="statisticsMobi"], .stat__row').length;
           const any = document.querySelectorAll('[class*="statistic"], [class*="wcl-row"]').length;
-          return { old, any, bodyLen: (document.body?.textContent || '').length };
+          const anyTestid = document.querySelectorAll('[data-testid]').length;
+          const anyWcl = document.querySelectorAll('[class*="wcl-"]').length;
+          return { old, any, anyTestid, anyWcl, bodyLen: (document.body?.textContent || '').length };
         });
         console.log(`  [stats] ${matchId} ${ep.key}: no data-testid (old=${fallbackInfo.old}, any=${fallbackInfo.any}, body=${fallbackInfo.bodyLen})`);
         if (fallbackInfo.old > 0) {
           logDomAlert(matchId, 'SELECTOR_CHANGED', `${ep.key}: data-testid not found but old selectors present`);
+        }
+        // Швидкий bail-out: сторінка повністю гідрована (testid/wcl класи присутні)
+        // та довга, але stats-блоків нема → у flashscore просто немає статистики
+        // для цієї ліги. Не марнуємо час на 2H і mobile fallback цього циклу.
+        if (
+          ep.key === 'overall' &&
+          fallbackInfo.old === 0 &&
+          fallbackInfo.anyTestid > 30 &&
+          fallbackInfo.anyWcl > 30 &&
+          fallbackInfo.bodyLen > 50000
+        ) {
+          noStatsLeague = true;
+          console.log(`  [stats] ${matchId} → no_stats_league (skip 2H + mobile fallback)`);
         }
         continue;
       }
@@ -347,22 +407,25 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
         results[ep.key] = stats;
       }
     } catch (e) {
+      // Page закрилась через зовнішній withTimeout — це не DOM-проблема, не логуємо.
+      if (isPageClosed(page, e)) break;
       logDomAlert(matchId, 'PAGE_ERROR', `${ep.key}: ${e.message}`);
       try { await dumpPageHtml(page, matchId, ep.key, e.message); } catch {}
     }
   }
 
-  if (!results.overall) {
+  if (!results.overall && !isPageClosed(page, null) && !noStatsLeague) {
     const statsUrl = `https://m.flashscore.ua/match/${matchId}/?t=stats`;
     try {
-      await page.goto(statsUrl, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
+      await gotoWithRetry(page, statsUrl, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
       await page.waitForTimeout(1200);
       try {
         await page.waitForSelector('#statistics-mobi, [class*="statisticsMobi"]', { timeout: 8000 });
       } catch {
         /* інколи блок уже в DOM без очікуваного селектора */
       }
-      const stats = await page.evaluate(
+      const stats = await evalWithTimeout(
+        page,
         parseMobileFlashscoreStatsFromDocument,
         JSON.stringify(MOBILE_STAT_LABEL_MAP)
       );
@@ -377,7 +440,9 @@ async function scrapeDesktopStats(page, desktopUrl, matchId) {
         );
       }
     } catch (e) {
-      logDomAlert(matchId, 'MOBILE_STATS_FALLBACK', e.message);
+      if (!isPageClosed(page, e)) {
+        logDomAlert(matchId, 'MOBILE_STATS_FALLBACK', e.message);
+      }
     }
   }
 

@@ -9,6 +9,7 @@ const STAKE_ROI_MODEL = {
   stakePerBet: 500,
   oddsByPeriod: {
     tm_60_70: 2.5,
+    tm_60_78: 1.7,        // Line 1 high-pDry catches 60-78' з реальними кефами 1.45-1.85, середнє ~1.7
     tm_or_tb_70_80: 1.8,
     tb_80_90: 2.5,
   },
@@ -360,13 +361,19 @@ function parseActualGoals(actualResult) {
 }
 
 function normalizePeriod(timeWindow) {
-  if (timeWindow === '60-70' || timeWindow === '70-80' || timeWindow === '80-90+') return timeWindow;
+  if (
+    timeWindow === '60-70' ||
+    timeWindow === '60-78' ||
+    timeWindow === '70-80' ||
+    timeWindow === '80-90+'
+  ) return timeWindow;
   return 'other';
 }
 
 function getStakeOdds(signal) {
   const period = normalizePeriod(signal?.timeWindow);
   if (period === '60-70' && signal?.bet === 'UNDER_0_5') return STAKE_ROI_MODEL.oddsByPeriod.tm_60_70;
+  if (period === '60-78' && signal?.bet === 'UNDER_0_5') return STAKE_ROI_MODEL.oddsByPeriod.tm_60_78;
   if (period === '70-80' && (signal?.bet === 'UNDER_0_5' || signal?.bet === 'OVER_0_5')) {
     return STAKE_ROI_MODEL.oddsByPeriod.tm_or_tb_70_80;
   }
@@ -416,6 +423,7 @@ function buildStakeRoiReport(matches, dateRef) {
   const predictionMatches = unique.filter(isTelegramPrediction);
   const byPeriod = {
     '60-70': emptyBucket(),
+    '60-78': emptyBucket(),
     '70-80': emptyBucket(),
     '80-90+': emptyBucket(),
     other: emptyBucket(),
@@ -558,19 +566,22 @@ function buildStakeRoiReport(matches, dateRef) {
 }
 
 function isTelegramPrediction(entry) {
+  // Включаємо лише прогнози, для яких реально відправлено TG-повідомлення.
+  // signalEligible сам по собі недостатній — v3 під LINE1_ENABLED пише prediction
+  // у matches.json, але TG не надсилає; такі записи не мають фігурувати у stake_roi/звіті.
   return Boolean(
     entry &&
     entry.pipeline === 'decision_made' &&
     entry.prediction?.bet &&
     entry.prediction.bet !== 'SKIP' &&
-    (entry.telegramInitialSent === true || entry.prediction?.signalEligible === true)
+    entry.telegramInitialSent === true
   );
 }
 
 function buildPredictionsFile(matches, dateRef) {
   const unique = dedupeByMatchId(matches);
   const predictionMatches = unique.filter(isTelegramPrediction);
-  const windowKeys = ['60-70', '70-80', '80-90+', 'other'];
+  const windowKeys = ['60-70', '60-78', '70-80', '80-90+', 'other'];
   const byWindow = Object.fromEntries(
     windowKeys.map((w) => [w, { total: 0, checked: 0, hits: 0, misses: 0, hitRate: null }])
   );
@@ -835,4 +846,8 @@ module.exports = {
   resolvedLegsForMatch,
   buildSummary,
   getEffectiveGoals,
+  buildStakeRoiReport,
+  buildPredictionsFile,
+  isTelegramPrediction,
+  STAKE_ROI_MODEL,
 };

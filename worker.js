@@ -627,6 +627,10 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
               bet: line1Result.bet,
               signalEligible: line1Result.signalEligible,
               pDry: line1Result.pDry,
+              pGoal: decision?.pGoal ?? null,
+              signalQuality: decision?.signalQuality ?? null,
+              currentState: modelV2?.currentState ?? null,
+              snapshotCount: Array.isArray(history) ? history.length : null,
               consensusCount: line1Result.consensusCount,
               components: line1Result.components,
               reason: line1Result.reason,
@@ -660,8 +664,8 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
             bet: line1Result.bet,
             signalEligible: line1Result.signalEligible,
             pDry: line1Result.pDry,
-            pGoal: null,
-            signalQuality: null,
+            pGoal: decision?.pGoal ?? null,
+            signalQuality: decision?.signalQuality ?? null,
             edge: line1Result.pDry != null ? Number((line1Result.pDry - 0.5).toFixed(3)) : null,
             timeWindow: '60-78',
             reason: line1Result.reason,
@@ -669,6 +673,8 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
               consensusCount: line1Result.consensusCount,
               ...line1Result.components,
               intensityRatio: line1Result.intensityRatio,
+              currentState: modelV2?.currentState ?? null,
+              snapshotCount: Array.isArray(history) ? history.length : null,
             },
             league: match.league,
             home: match.home,
@@ -701,7 +707,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
                 }
                 if (odds1) params.push(`Кф 1X2: ${odds1.home}/${odds1.draw}/${odds1.away}`);
                 const desktopUrlL1 = activePredictions.get(match.id)?.desktopUrl
-                  || `https://www.flashscore.ua/match/soccer/?mid=${match.id}`;
+                  || `https://www.flashscore.ua/match/soccer/${match.id}`;
                 const l1msg =
                   `🏆 ${h} - ${a}\n` +
                   `📊 ${league}\n` +
@@ -720,7 +726,10 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
                     bet: 'UNDER_0_5',
                     confidence: 'high',
                     pDry: line1Result.pDry,
-                    pGoal: null,
+                    pGoal: decision?.pGoal ?? null,
+                    signalQuality: decision?.signalQuality ?? null,
+                    currentState: modelV2?.currentState ?? null,
+                    snapshotCount: Array.isArray(history) ? history.length : null,
                     edge: line1Result.pDry != null ? Number((line1Result.pDry - 0.5).toFixed(3)) : null,
                     reason: line1Result.reason,
                     signalEligible: true,
@@ -873,7 +882,7 @@ function collapseBetHistoryForResult(betHistory = [], fallbackBet = null) {
                 if (line2Result.underdogRedCard) params.push('🟥 Червона андердогу — підсилення');
                 if (odds1) params.push(`Кф 1X2: ${odds1.home}/${odds1.draw}/${odds1.away}`);
                 const desktopUrlL2 = activePredictions.get(match.id)?.desktopUrl
-                  || `https://www.flashscore.ua/match/soccer/?mid=${match.id}`;
+                  || `https://www.flashscore.ua/match/${match.id}`;
                 const l2msg =
                   `🏆 ${h} - ${a}\n` +
                   `📊 ${league}\n` +

@@ -14,9 +14,20 @@ const baseFeatures = {
   statsStatus: 'both',
 };
 
+// 13 знімків (>11) для проходження LINE1_MIN_SNAPSHOTS gate.
 const drySnapshots = [
+  { matchMinute: 53, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 0, expectedGoalsXg: 0.02, bigChances: 0, touchesInOppositionBox: 1, totalShots: 1 } },
+  { matchMinute: 54, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 0, expectedGoalsXg: 0.03, bigChances: 0, touchesInOppositionBox: 2, totalShots: 1 } },
   { matchMinute: 55, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 0, expectedGoalsXg: 0.04, bigChances: 0, touchesInOppositionBox: 2, totalShots: 1 } },
+  { matchMinute: 56, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 0, expectedGoalsXg: 0.05, bigChances: 0, touchesInOppositionBox: 2, totalShots: 1 } },
+  { matchMinute: 57, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 0, expectedGoalsXg: 0.06, bigChances: 0, touchesInOppositionBox: 2, totalShots: 1 } },
+  { matchMinute: 58, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.07, bigChances: 0, touchesInOppositionBox: 3, totalShots: 2 } },
+  { matchMinute: 59, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.07, bigChances: 0, touchesInOppositionBox: 3, totalShots: 2 } },
   { matchMinute: 60, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.08, bigChances: 0, touchesInOppositionBox: 3, totalShots: 2 } },
+  { matchMinute: 61, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.09, bigChances: 0, touchesInOppositionBox: 4, totalShots: 2 } },
+  { matchMinute: 62, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.10, bigChances: 0, touchesInOppositionBox: 4, totalShots: 2 } },
+  { matchMinute: 63, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.11, bigChances: 0, touchesInOppositionBox: 4, totalShots: 2 } },
+  { matchMinute: 64, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.11, bigChances: 0, touchesInOppositionBox: 5, totalShots: 2 } },
   { matchMinute: 65, score: { home: '0', away: '0' }, raw2H: { shotsOnTarget: 1, expectedGoalsXg: 0.12, bigChances: 0, touchesInOppositionBox: 5, totalShots: 2 } },
 ];
 
