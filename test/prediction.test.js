@@ -16,6 +16,9 @@ const {
   calculateRealPressureScore,
   calculateFakePressureScore,
   calculateDryStateScore,
+  calculateLateActivationRisk,
+  calculateFullTimeNilNilScore,
+  dataQualityScore,
 } = require('../src/computed/modelScoresRaw');
 const fs = require('fs');
 const os = require('os');
@@ -453,4 +456,89 @@ test('classifyTrend6075 flat (small diff)', () => {
   };
   const result = classifyTrend6075(windows, { statsLevel: 'detailed' });
   assert.equal(result, 'flat');
+});
+
+test('calculateLateActivationRisk base 20', () => {
+  assert.equal(calculateLateActivationRisk({}), 20);
+});
+
+test('calculateLateActivationRisk hot1h + strong fav', () => {
+  assert.equal(
+    calculateLateActivationRisk({
+      firstHalfProfile: { isHotButNoGoal: true },
+      favoriteContext: { strongLabel: true },
+    }),
+    50,
+  );
+});
+
+test('calculateLateActivationRisk red card', () => {
+  assert.equal(
+    calculateLateActivationRisk({
+      hasRedCard: true,
+    }),
+    50,
+  );
+});
+
+test('calculateLateActivationRisk explosive trend', () => {
+  assert.equal(
+    calculateLateActivationRisk({
+      tempoTrend: 'explosive',
+    }),
+    45,
+  );
+});
+
+test('calculateLateActivationRisk dry-1h bonus', () => {
+  assert.equal(
+    calculateLateActivationRisk({
+      isDryFirstHalf: true,
+      dryStateScore: 85,
+      realPressureScore: 20,
+    }),
+    10,
+  );
+});
+
+test('calculateFullTimeNilNilScore dry detailed', () => {
+  const score = calculateFullTimeNilNilScore({
+    dryStateScore: 90,
+    realPressureScore: 10,
+    lateActivationRisk: 15,
+    isDryFirstHalf: true,
+    isHotButNoGoal: false,
+    fakePressureScore: 50,
+    dataQualityScore: 90,
+  });
+  assert.equal(score, 87.5);
+});
+
+test('calculateFullTimeNilNilScore hot1h kill', () => {
+  const dry = calculateFullTimeNilNilScore({
+    dryStateScore: 90,
+    realPressureScore: 10,
+    lateActivationRisk: 15,
+    isDryFirstHalf: true,
+    isHotButNoGoal: false,
+    fakePressureScore: 50,
+    dataQualityScore: 90,
+  });
+  const hot = calculateFullTimeNilNilScore({
+    dryStateScore: 90,
+    realPressureScore: 10,
+    lateActivationRisk: 15,
+    isDryFirstHalf: false,
+    isHotButNoGoal: true,
+    fakePressureScore: 50,
+    dataQualityScore: 90,
+  });
+  assert.ok(hot < dry);
+});
+
+test('dataQualityScore tiers', () => {
+  assert.equal(dataQualityScore({ statsLevel: 'detailed', hasXg: true, hasXgot: true }), 90);
+  assert.equal(dataQualityScore({ statsLevel: 'detailed', hasXg: true, hasXgot: false }), 80);
+  assert.equal(dataQualityScore({ statsLevel: 'basic', hasXg: false, hasXgot: false }), 60);
+  assert.equal(dataQualityScore({ statsLevel: 'detailed', hasXg: false, hasXgot: true }), 45);
 });

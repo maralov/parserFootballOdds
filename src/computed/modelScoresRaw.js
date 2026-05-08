@@ -169,10 +169,86 @@ function calculateLateGoalScore80(totals, ctx = {}) {
   return clamp(score, 0, 100);
 }
 
+function calculateLateActivationRisk({
+  firstHalfProfile,
+  favoriteContext,
+  tournamentImportance,
+  realPressureScore50_60,
+  realPressureScore60_70,
+  tempoTrend,
+  yellowCardsTotal,
+  hasRedCard,
+  isDryFirstHalf,
+  dryStateScore,
+  fakePressureScore,
+  realPressureScore,
+}) {
+  let risk = 20;
+
+  if (firstHalfProfile?.isHotButNoGoal === true) risk += 18;
+  if (favoriteContext?.strongLabel) risk += 12;
+  if (Math.abs(favoriteContext?.marketSignal || 0) > 0.4) risk += 8;
+  if (Math.abs(favoriteContext?.tableSignal || 0) > 0.45) risk += 8;
+  if ((tournamentImportance || 0) >= 3) risk += 10;
+  if ((realPressureScore50_60 || 0) >= 35) risk += 10;
+  if ((realPressureScore60_70 || 0) >= 35) risk += 12;
+  if (tempoTrend === 'growing') risk += 12;
+  if (tempoTrend === 'explosive') risk += 25;
+  if ((yellowCardsTotal || 0) >= 4) risk += 8;
+  if (hasRedCard) risk += 30;
+
+  if (isDryFirstHalf === true && (dryStateScore || 0) >= 78 && (realPressureScore || 0) < 30) {
+    risk -= 10;
+  }
+  if ((fakePressureScore || 0) >= 60 && (realPressureScore || 0) < 30) {
+    risk -= 5;
+  }
+
+  return clamp(risk, 0, 100);
+}
+
+function dataQualityScore({ statsLevel, hasXg, hasXgot }) {
+  if (statsLevel === 'detailed' && hasXg && hasXgot) return 90;
+  if (statsLevel === 'detailed' && hasXg) return 80;
+  if (statsLevel === 'basic') return 60;
+  return 45;
+}
+
+function calculateFullTimeNilNilScore({
+  dryStateScore,
+  realPressureScore,
+  lateActivationRisk,
+  isDryFirstHalf,
+  isHotButNoGoal,
+  fakePressureScore,
+  dataQualityScore: dqIn,
+}) {
+  const noRealPressure = 100 - (realPressureScore || 0);
+  const noLateActivation = 100 - (lateActivationRisk || 0);
+  const firstHalfDryness = isDryFirstHalf === true ? 85
+    : isHotButNoGoal === true ? 25
+      : 55;
+  const sterilePressure = ((fakePressureScore || 0) >= 45 && (realPressureScore || 0) < 35) ? 75 : 50;
+  const dq = dqIn || 50;
+
+  const score =
+    (dryStateScore || 0) * 0.30 +
+    noRealPressure * 0.25 +
+    noLateActivation * 0.25 +
+    firstHalfDryness * 0.10 +
+    sterilePressure * 0.05 +
+    dq * 0.05;
+
+  return clamp(score, 0, 100);
+}
+
 module.exports = {
   calculateDrynessScoreForWindow,
   calculateDryStateScore,
   calculateFakePressureScore,
   calculateRealPressureScore,
   calculateLateGoalScore80,
+  calculateLateActivationRisk,
+  calculateFullTimeNilNilScore,
+  dataQualityScore,
 };

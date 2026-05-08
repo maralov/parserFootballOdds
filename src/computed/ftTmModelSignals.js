@@ -4,6 +4,10 @@ const { bundleWindowTotals } = require('./helpers');
 const {
   calculateDryStateScore,
   calculateRealPressureScore,
+  calculateFakePressureScore,
+  calculateLateActivationRisk,
+  calculateFullTimeNilNilScore,
+  dataQualityScore,
 } = require('./modelScoresRaw');
 
 function nn(v) {
@@ -193,18 +197,58 @@ function buildFtTmModelSignals(match, computed) {
   const hot1h = hotHalfNoGoal1H(fh, match.statsLevel);
   const favCtx = strongFavoriteContext(match);
 
-  let lateActivationRisk = 10;
-  if (trend6075 === 'growing') lateActivationRisk += 28;
-  if (trend6075 === 'explosive') lateActivationRisk += 42;
-  if (favCtx.isStrongContext) lateActivationRisk += 22;
-  if (hot1h) lateActivationRisk += 26;
-  if ((real6570 ?? 0) >= 42
-    || calculateRealPressureScore(windows.window70_75?.totals ?? null, { mode }) >= 40) {
-    lateActivationRisk += 18;
-  }
-  if ((sinceHt?.shotsOnTarget ?? 0) >= 4) lateActivationRisk += 12;
+  const fakePressureScore =
+    computed.modelScoresRaw?.fakePressureScore60 ??
+    calculateFakePressureScore(
+      windows.window50_60?.totals ?? windows.window45_60?.totals ?? null,
+      { mode },
+    );
 
-  lateActivationRisk = Math.min(100, lateActivationRisk);
+  const realPressureScore = Math.max(real45_60 || 0, real60_70 || 0);
+
+  const tournamentImportanceHome =
+    match.aiAnalysis?.halftime?.output?.match_context?.tournament_importance_home ?? 0;
+  const tournamentImportanceAway =
+    match.aiAnalysis?.halftime?.output?.match_context?.tournament_importance_away ?? 0;
+  const tournamentImportance = Math.max(
+    Number(tournamentImportanceHome) || 0,
+    Number(tournamentImportanceAway) || 0,
+  );
+
+  const yellowCardsTotal =
+    computed.pressure?.yellowCardsTotal ?? liveTotals?.yellowCardsTotal ?? 0;
+  const hasRedCard = Boolean(computed.pressure?.redCards?.anyRed);
+
+  const lateActivationRisk = calculateLateActivationRisk({
+    firstHalfProfile: fh,
+    favoriteContext: favCtx,
+    tournamentImportance,
+    realPressureScore50_60: real45_60,
+    realPressureScore60_70: real60_70,
+    tempoTrend: trend6075,
+    yellowCardsTotal,
+    hasRedCard,
+    isDryFirstHalf: fh?.isDryFirstHalf,
+    dryStateScore,
+    fakePressureScore,
+    realPressureScore,
+  });
+
+  const dq = dataQualityScore({
+    statsLevel: mode === 'detailed' ? 'detailed' : 'basic',
+    hasXg: sinceHt?.xg != null,
+    hasXgot: sinceHt?.xgot != null,
+  });
+
+  const fullTimeNilNilScore = calculateFullTimeNilNilScore({
+    dryStateScore,
+    realPressureScore,
+    lateActivationRisk,
+    isDryFirstHalf: fh?.isDryFirstHalf,
+    isHotButNoGoal: fh?.isHotButNoGoal,
+    fakePressureScore,
+    dataQualityScore: dq,
+  });
 
   let chaosRisk = 0;
   if (computed.pressure?.redCards?.anyRed) chaosRisk += 90;
@@ -224,28 +268,10 @@ function buildFtTmModelSignals(match, computed) {
 
   confidencePenalty += Math.min(0.35, lateActivationRisk / 220);
 
-  const rpMax = Math.max(
-    real45_60 || 0,
-    real60_70 || 0,
-    real6570 || 0,
-    Number.isFinite(real6075Combined) ? real6075Combined : 0,
-  );
-
-  const fullTimeNilNilScore = Math.max(
-    0,
-    Math.min(
-      100,
-      dryStateScore * 0.45 +
-        (80 - rpMax) * 0.35 +
-        (100 - lateActivationRisk) * 0.35 -
-        chaosRisk * 0.08 -
-        favoriteDesperationRisk * 0.05,
-    ),
-  );
-
   return {
     fullTimeNilNilScore: Math.round(fullTimeNilNilScore),
     dryStateScore: Math.round(dryStateScore),
+    dataQualityScore: dq,
     realPressureScores: {
       window45_60: real45_60,
       window60_70: real60_70,
