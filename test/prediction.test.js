@@ -430,3 +430,27 @@ test('classifyTrend6075 falling when last window quieter than prev', () => {
   };
   assert.equal(classifyTrend6075(windows, { statsLevel: 'basic' }), 'falling');
 });
+
+test('classifyTrend6075 growing', () => {
+  // prev = activityScore(window65_70 { totalShots: 4 }) = 4 (detailed totals match basic here)
+  // last = activityScore(window70_75 { totalShots: 3, sot: 1 }) = 6 — above 4*1.3 but NOT > 4*2 (avoids explosive)
+  const windows = {
+    window45_60: { totals: { totalShots: 2, shotsOnTarget: 0 } },
+    window60_65: { totals: { totalShots: 1, shotsOnTarget: 0 } },
+    window65_70: { totals: { totalShots: 4, shotsOnTarget: 0 } },
+    window70_75: { totals: { totalShots: 3, shotsOnTarget: 1 } },
+  };
+  const result = classifyTrend6075(windows, { statsLevel: 'detailed' });
+  assert.equal(result, 'growing');
+});
+
+test('classifyTrend6075 flat (small diff)', () => {
+  // last = prev = activityScore({ totalShots: 2 }) = 2 → |0| <= 1.5 → flat
+  const windows = {
+    window45_60: { totals: { totalShots: 2, shotsOnTarget: 0 } },
+    window65_70: { totals: { totalShots: 2, shotsOnTarget: 0 } },
+    window70_75: { totals: { totalShots: 2, shotsOnTarget: 0 } },
+  };
+  const result = classifyTrend6075(windows, { statsLevel: 'detailed' });
+  assert.equal(result, 'flat');
+});
