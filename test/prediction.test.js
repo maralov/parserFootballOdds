@@ -306,13 +306,13 @@ test('calculateFakePressureScore detailed includes blocked-shots component', () 
     corners: 0,
     shotsOnTarget: 0,
     blockedShots: 3,
-    xgot: 5,
+    xgot: 1,
     bigChances: 5,
     shotsInsideBox: 5,
     touchesInBox: 10,
   };
   const score = calculateFakePressureScore(totals, { mode: 'detailed' });
-  assert.ok(score >= 10);
+  assert.equal(score, 10);
 });
 
 test('calculateFakePressureScore basic', () => {
