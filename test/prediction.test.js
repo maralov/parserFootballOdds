@@ -22,6 +22,7 @@ const {
   calculateLateGoalScore80,
   dataQualityScore,
 } = require('../src/computed/modelScoresRaw');
+const { applyAiOverlay, isPremiumAiSignal } = require('../src/prediction/aiOverlay');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -743,4 +744,164 @@ test('dataQualityScore tiers', () => {
   assert.equal(dataQualityScore({ statsLevel: 'detailed', hasXg: true, hasXgot: false }), 80);
   assert.equal(dataQualityScore({ statsLevel: 'basic', hasXg: false, hasXgot: false }), 60);
   assert.equal(dataQualityScore({ statsLevel: 'detailed', hasXg: false, hasXgot: true }), 45);
+});
+
+test('applyAiOverlay no AI returns ruleScore unchanged', () => {
+  const r = applyAiOverlay({ ruleScore: 78, aiOutput: null, aiConfidence: null, predictionType: 'FT_TM05_FROM_60_75' });
+  assert.equal(r.applied, false);
+  assert.equal(r.finalScore, 78);
+});
+
+test('applyAiOverlay strong agree boosts finalScore', () => {
+  const aiOutput = {
+    match_state: 'dead',
+    favorite_pressure: 'none',
+    tempo_state: 'flat',
+    recommendation: { action: 'under_candidate', confidence: 'high' },
+  };
+  const r = applyAiOverlay({ ruleScore: 78, aiOutput, aiConfidence: 0.85, predictionType: 'FT_TM05_FROM_60_75' });
+  assert.ok(r.finalScore > 85);
+  assert.equal(r.agreementAdjustment, 8);
+});
+
+test('applyAiOverlay strong disagree drops finalScore', () => {
+  const aiOutput = {
+    match_state: 'high_pressure',
+    favorite_pressure: 'strong',
+    tempo_state: 'explosive',
+    recommendation: { action: 'goal_candidate', confidence: 'high' },
+  };
+  const r = applyAiOverlay({ ruleScore: 78, aiOutput, aiConfidence: 0.85, predictionType: 'FT_TM05_FROM_60_75' });
+  assert.ok(r.finalScore < 60);
+});
+
+test('isPremiumAiSignal pass', () => {
+  const aiOutput = {
+    match_state: 'dead',
+    favorite_pressure: 'none',
+    tempo_state: 'flat',
+    recommendation: { action: 'under_candidate', confidence: 'high' },
+  };
+  const r = isPremiumAiSignal({ finalScore: 88, ruleScore: 80, aiOutput, aiConfidence: 0.75, riskFlags: [] });
+  assert.equal(r, true);
+});
+
+test('isPremiumAiSignal fail on red_card riskFlag', () => {
+  const r = isPremiumAiSignal({
+    finalScore: 88,
+    ruleScore: 80,
+    aiOutput: { match_state: 'dead', favorite_pressure: 'none', tempo_state: 'flat' },
+    aiConfidence: 0.8,
+    riskFlags: ['red_card'],
+  });
+  assert.equal(r, false);
+});
+
+test('isPremiumAiSignal fail on chaotic match_state', () => {
+  const r = isPremiumAiSignal({
+    finalScore: 88,
+    ruleScore: 80,
+    aiOutput: { match_state: 'chaotic', favorite_pressure: 'none', tempo_state: 'flat' },
+    aiConfidence: 0.8,
+    riskFlags: [],
+  });
+  assert.equal(r, false);
+});
+
+test('evaluateDecision60 mode=detailed_ai when aiUseInModel=true', () => {
+  const match = {
+    matchId: 'mAi',
+    statsLevel: 'detailed',
+    snapshots: [],
+    aiAnalysis: {
+      decision60: {
+        useInModel: true,
+        output: {
+          match_state: 'dead',
+          favorite_pressure: 'none',
+          tempo_state: 'flat',
+          recommendation: { action: 'under_candidate', confidence: 'high' },
+          confidence: 0.85,
+        },
+      },
+    },
+  };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 25,
+      realPressureScores: { window45_60: 20, window60_70: 20 },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'flat',
+      confidencePenalty: 0,
+      favoriteContext: { isStrongContext: false },
+      hotFirstHalfDanger: false,
+      dryStateScore: 88,
+      chaosRisk: 10,
+      favoriteDesperationRisk: 10,
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: {
+      isHotButNoGoal: false,
+      totalXg: 0.4,
+      totalXgot: 0.2,
+      totalBigChances: 0,
+      totalShotsOnTarget: 2,
+    },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  assert.equal(pred.modelMode, 'detailed_ai');
+  assert.equal(pred.components.aiUseInModel, true);
+});
+
+test('evaluateDecision60 mode=detailed when aiUseInModel=false', () => {
+  const match = {
+    matchId: 'mAi2',
+    statsLevel: 'detailed',
+    snapshots: [],
+    aiAnalysis: {
+      decision60: {
+        useInModel: false,
+        output: {
+          match_state: 'dead',
+          favorite_pressure: 'none',
+          tempo_state: 'flat',
+          recommendation: { action: 'under_candidate', confidence: 'high' },
+          confidence: 0.85,
+        },
+      },
+    },
+  };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 25,
+      realPressureScores: { window45_60: 20, window60_70: 20 },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'flat',
+      confidencePenalty: 0,
+      favoriteContext: { isStrongContext: false },
+      hotFirstHalfDanger: false,
+      dryStateScore: 88,
+      chaosRisk: 10,
+      favoriteDesperationRisk: 10,
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: {
+      isHotButNoGoal: false,
+      totalXg: 0.4,
+      totalXgot: 0.2,
+      totalBigChances: 0,
+      totalShotsOnTarget: 2,
+    },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  assert.equal(pred.modelMode, 'detailed');
+  assert.equal(pred.components.aiUseInModel, false);
 });

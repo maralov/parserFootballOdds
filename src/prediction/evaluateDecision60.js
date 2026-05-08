@@ -2,6 +2,7 @@
 
 const { CHECKPOINTS, TARGET_MARKET, PRED_TYPES_60 } = require('./constants');
 const { buildConfidence, dataQualityTier } = require('./confidence');
+const { applyAiOverlay, isPremiumAiSignal } = require('./aiOverlay');
 
 const LATE_ACTIVATION_HARD_CAP = 60;
 const REAL_PRESSURE_HARD_CAP = 60;
@@ -257,6 +258,49 @@ function evaluateDecision60(match, computed) {
     reasons.push('downgrade_hot_first_half');
   }
 
+  // AI overlay (тільки якщо AI useInModel)
+  const aiAnalysis = match.aiAnalysis?.decision60;
+  const aiUse = aiAnalysis?.useInModel === true && aiAnalysis?.output != null;
+  const aiOutput = aiUse ? aiAnalysis.output : null;
+  const aiConfidence = aiUse ? aiOutput?.confidence : null;
+
+  const ruleScoreSnapshot = ftScore;
+  const overlay = applyAiOverlay({
+    ruleScore: ruleScoreSnapshot,
+    aiOutput,
+    aiConfidence,
+    predictionType,
+  });
+
+  const finalScore = overlay.applied ? overlay.finalScore : ftScore;
+  const mode = aiUse && statsLevel === 'detailed' ? 'detailed_ai' : (statsLevel === 'detailed' ? 'detailed' : 'basic');
+
+  // Premium upgrade/downgrade based on AI signal
+  const premium = aiUse ? isPremiumAiSignal({
+    finalScore,
+    ruleScore: ruleScoreSnapshot,
+    aiOutput,
+    aiConfidence,
+    riskFlags,
+  }) : false;
+
+  // Upgrade LEAN/RISK → FT_TM05_FROM_60_75 if premium
+  if (premium && (predictionType === PRED_TYPES_60.LEAN_FT_TM05_FROM_60_75 || predictionType === PRED_TYPES_60.FT_TM05_RISK)) {
+    predictionType = PRED_TYPES_60.FT_TM05_FROM_60_75;
+    tier = 'ai_premium_upgrade';
+    reasons.push('ai_premium_signal_upgrade');
+  }
+
+  // Downgrade FT_TM05_FROM_60_75 → LEAN if AI strong_disagree
+  if (predictionType === PRED_TYPES_60.FT_TM05_FROM_60_75 && aiUse) {
+    const strongDisagree = aiOutput?.recommendation?.action === 'goal_candidate';
+    if (strongDisagree) {
+      predictionType = PRED_TYPES_60.LEAN_FT_TM05_FROM_60_75;
+      tier = 'ai_disagree_downgrade';
+      reasons.push('ai_strong_disagree_downgrade');
+    }
+  }
+
   const dqBase = dataQualityTier({
     statsLevel,
     hasNg: hasNgDetailed,
@@ -275,7 +319,7 @@ function evaluateDecision60(match, computed) {
   let confidence = buildConfidence({
     finalScore: predictionType === PRED_TYPES_60.NO_BET
       ? 50
-      : Math.max(ftScore, activationGate * 0.98),
+      : Math.max(finalScore, activationGate * 0.98),
     activationThreshold:
       predictionType === PRED_TYPES_60.NO_BET ? 50 : activationGate,
     dataQuality: dq,
@@ -303,6 +347,12 @@ function evaluateDecision60(match, computed) {
     actionablePrimary,
     confidence,
     ftScore,
+    finalScore,
+    modelMode: mode,
+    overlay,
+    ruleScoreSnapshot,
+    aiUse,
+    premium,
     reasons,
     riskFlags,
     ms,
@@ -324,6 +374,12 @@ function finalizeReturn(p) {
     actionablePrimary,
     confidence,
     ftScore,
+    finalScore,
+    modelMode,
+    overlay,
+    ruleScoreSnapshot,
+    aiUse,
+    premium,
     reasons,
     riskFlags,
     ms,
@@ -342,9 +398,9 @@ function finalizeReturn(p) {
     predictionType,
     actionable,
     actionablePrimary,
-    finalScore: ftScore,
+    finalScore,
     confidence,
-    modelMode: statsLevel === 'detailed' ? 'detailed' : 'basic',
+    modelMode,
     components: {
       fullTimeNilNilScore: ftScore,
       dryStateScore: ms?.dryStateScore,
@@ -353,6 +409,12 @@ function finalizeReturn(p) {
       chaosRisk: ms?.chaosRisk,
       tempoTrend6075: ms?.tempoTrend6075,
       favoriteDesperationRisk: ms?.favoriteDesperationRisk,
+      ruleScore: ruleScoreSnapshot,
+      aiScenarioScore: overlay.aiScenarioScore,
+      aiAgreementAdjustment: overlay.agreementAdjustment,
+      aiWeight: overlay.aiWeight,
+      aiUseInModel: aiUse,
+      isPremiumAiSignal: premium,
     },
     reasons,
     riskFlags: [...new Set(riskFlags)],
@@ -360,7 +422,7 @@ function finalizeReturn(p) {
       matchId: match.matchId,
       checkpoint: CHECKPOINTS.DECISION_60,
       predictionType,
-      score: ftScore,
+      score: finalScore,
       confidence,
       components: {},
       featuresSnapshot: {
