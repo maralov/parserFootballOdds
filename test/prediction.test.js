@@ -285,6 +285,12 @@ test('calculateRealPressureScore basic', () => {
   assert.equal(calculateRealPressureScore(totals, { mode: 'basic' }), 58);
 });
 
+test('calculateRealPressureScore basic dry', () => {
+  const totals = { totalShots: 1, shotsOnTarget: 0, corners: 1 };
+  const score = calculateRealPressureScore(totals, { mode: 'basic' });
+  assert.equal(score, 1 * 6 + 0 * 22 + 1 * 4);
+});
+
 test('calculateFakePressureScore detailed all triggers', () => {
   const totals = {
     corners: 3,
@@ -313,6 +319,35 @@ test('calculateFakePressureScore detailed includes blocked-shots component', () 
   };
   const score = calculateFakePressureScore(totals, { mode: 'detailed' });
   assert.equal(score, 10);
+});
+
+test('calculateFakePressureScore detailed missing xgot does NOT bump +15', () => {
+  const totals = {
+    corners: 0,
+    shotsOnTarget: 0,
+    bigChances: 5,
+    shotsInsideBox: 5,
+    touchesInBox: 10,
+  };
+  const score = calculateFakePressureScore(totals, { mode: 'detailed' });
+  assert.equal(score, 0);
+});
+
+test('calculateFakePressureScore detailed explicit xgot===0 bumps +15', () => {
+  const totals = {
+    corners: 0,
+    shotsOnTarget: 0,
+    xgot: 0,
+    bigChances: 5,
+    shotsInsideBox: 5,
+    touchesInBox: 10,
+  };
+  const score = calculateFakePressureScore(totals, { mode: 'detailed' });
+  assert.equal(score, 15);
+});
+
+test('calculateFakePressureScore null totals returns 0', () => {
+  assert.equal(calculateFakePressureScore(null), 0);
 });
 
 test('calculateFakePressureScore basic', () => {

@@ -2,6 +2,10 @@
 
 const { clamp } = require('./helpers');
 
+function nv(x) {
+  return typeof x === 'number' && Number.isFinite(x) ? x : null;
+}
+
 /** Dry score for TM-style “dead” window (≈ dryness in 45–60). */
 function calculateDrynessScoreForWindow(totals) {
   if (!totals) return 50;
@@ -43,22 +47,23 @@ function calculateFakePressureScore(totals, opts = {}) {
   const sot = totals.shotsOnTarget ?? 0;
   const crossesAttempted = totals.crossesAttempted ?? 0;
   const crossesMade = totals.crossesMade ?? 0;
-  const blockedShots = totals.blockedShots ?? 0;
-  const xg = typeof totals.xg === 'number' ? totals.xg : null;
-  const xgot = totals.xgot ?? 0;
-  const sib = totals.shotsInsideBox ?? 0;
-  const bc = totals.bigChances ?? 0;
-  const tbox = totals.touchesInBox ?? 0;
+
+  const xg = nv(totals.xg);
+  const xgot = nv(totals.xgot);
+  const blockedShots = nv(totals.blockedShots);
+  const sib = nv(totals.shotsInsideBox);
+  const bc = nv(totals.bigChances);
+  const tbox = nv(totals.touchesInBox);
 
   let s = 0;
   if (corners >= 2 && sot === 0) s += 18;
   if (crossesAttempted >= 8 && crossesMade <= 2) s += 14;
-  if (blockedShots >= 2 && sot === 0) s += 10;
+  if (blockedShots != null && blockedShots >= 2 && sot === 0) s += 10;
   if (xg != null && xg < 0.08 && corners >= 2) s += 18;
-  if (xgot === 0) s += 15;
-  if (sib <= 1) s += 10;
-  if (bc === 0) s += 10;
-  if (tbox <= 4) s += 10;
+  if (xgot != null && xgot === 0) s += 15;
+  if (sib != null && sib <= 1) s += 10;
+  if (bc != null && bc === 0) s += 10;
+  if (tbox != null && tbox <= 4) s += 10;
   return clamp(s, 0, 100);
 }
 
