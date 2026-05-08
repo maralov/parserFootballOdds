@@ -157,6 +157,7 @@ function strongFavoriteContext(match) {
  * Ключові сигнали для FT 0–0 із вікном прийняття рішення 60–75.
  */
 function buildFtTmModelSignals(match, computed) {
+  const mode = match.statsLevel === 'detailed' ? 'detailed' : 'basic';
   const windows = computed.windows || {};
   const fh = computed.firstHalfProfile || buildFirstHalfProfileLite(match.statistics);
 
@@ -169,15 +170,16 @@ function buildFtTmModelSignals(match, computed) {
     [1.1, 1, 1.15, 1.05, 0.9],
   );
 
-  const real45_60 = calculateRealPressureScore(windows.window45_60?.totals ?? null);
-  const real60_70 = calculateRealPressureScore(windows.window60_70?.totals ?? null);
-  const real6570 = calculateRealPressureScore(windows.window65_70?.totals ?? null);
-  const real70_75 = calculateRealPressureScore(windows.window70_75?.totals ?? null);
+  const real45_60 = calculateRealPressureScore(windows.window45_60?.totals ?? null, { mode });
+  const real60_70 = calculateRealPressureScore(windows.window60_70?.totals ?? null, { mode });
+  const real6570 = calculateRealPressureScore(windows.window65_70?.totals ?? null, { mode });
+  const real70_75 = calculateRealPressureScore(windows.window70_75?.totals ?? null, { mode });
   const tracked6075Totals = windows.window60_toTracked75?.totals ?? null;
-  const realTracked6075 = calculateRealPressureScore(tracked6075Totals ?? null);
+  const realTracked6075 = calculateRealPressureScore(tracked6075Totals ?? null, { mode });
   const real6075Combined = calculateRealPressureScore(
     tracked6075Totals ??
       aggregateWindowBundles(windows.window60_65, windows.window65_70, windows.window70_75),
+    { mode },
   );
 
   const trend6075 = classifyTrend6075(windows);
@@ -189,7 +191,8 @@ function buildFtTmModelSignals(match, computed) {
   if (trend6075 === 'explosive') lateActivationRisk += 42;
   if (favCtx.isStrongContext) lateActivationRisk += 22;
   if (hot1h) lateActivationRisk += 26;
-  if ((real6570 ?? 0) >= 42 || calculateRealPressureScore(windows.window70_75?.totals ?? null) >= 40) {
+  if ((real6570 ?? 0) >= 42
+    || calculateRealPressureScore(windows.window70_75?.totals ?? null, { mode }) >= 40) {
     lateActivationRisk += 18;
   }
   if ((sinceHt?.shotsOnTarget ?? 0) >= 4) lateActivationRisk += 12;

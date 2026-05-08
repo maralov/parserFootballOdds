@@ -12,6 +12,10 @@ const { buildFirstHalfProfile } = require('../src/computed/firstHalfProfile');
 const matchStore = require('../src/store/matchStore');
 const { maybeRunPredictionPipeline } = require('../src/prediction/runLivePrediction');
 const { hotHalfNoGoal1H } = require('../src/computed/ftTmModelSignals');
+const {
+  calculateRealPressureScore,
+  calculateFakePressureScore,
+} = require('../src/computed/modelScoresRaw');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -246,4 +250,76 @@ test('evaluateDecision80 accepts minute 90 via prediction pipeline', () => {
   } finally {
     matchStore.writeStore({}, isoDate);
   }
+});
+
+test('calculateRealPressureScore detailed linear formula', () => {
+  const totals = {
+    totalShots: 5,
+    shotsOnTarget: 2,
+    xg: 0.4,
+    xgot: 0.3,
+    bigChances: 1,
+    shotsInsideBox: 3,
+    touchesInBox: 8,
+    goalkeeperSaves: 0,
+  };
+  assert.equal(calculateRealPressureScore(totals, { mode: 'detailed' }), 100);
+});
+
+test('calculateRealPressureScore detailed dry window', () => {
+  const totals = {
+    totalShots: 1,
+    shotsOnTarget: 0,
+    xg: 0.05,
+    xgot: 0,
+    bigChances: 0,
+    shotsInsideBox: 0,
+    touchesInBox: 2,
+  };
+  const score = calculateRealPressureScore(totals, { mode: 'detailed' });
+  assert.ok(score >= 9 && score <= 10);
+});
+
+test('calculateRealPressureScore basic', () => {
+  const totals = { totalShots: 4, shotsOnTarget: 1, corners: 3 };
+  assert.equal(calculateRealPressureScore(totals, { mode: 'basic' }), 58);
+});
+
+test('calculateFakePressureScore detailed all triggers', () => {
+  const totals = {
+    corners: 3,
+    shotsOnTarget: 0,
+    crossesAttempted: 10,
+    crossesMade: 1,
+    blockedShots: 3,
+    xg: 0.05,
+    xgot: 0,
+    shotsInsideBox: 0,
+    bigChances: 0,
+    touchesInBox: 2,
+  };
+  assert.equal(calculateFakePressureScore(totals, { mode: 'detailed' }), 100);
+});
+
+test('calculateFakePressureScore detailed includes blocked-shots component', () => {
+  const totals = {
+    corners: 0,
+    shotsOnTarget: 0,
+    blockedShots: 3,
+    xgot: 5,
+    bigChances: 5,
+    shotsInsideBox: 5,
+    touchesInBox: 10,
+  };
+  const score = calculateFakePressureScore(totals, { mode: 'detailed' });
+  assert.ok(score >= 10);
+});
+
+test('calculateFakePressureScore basic', () => {
+  const totals = { totalShots: 1, shotsOnTarget: 0, corners: 3 };
+  assert.equal(calculateFakePressureScore(totals, { mode: 'basic' }), 55);
+});
+
+test('calculateRealPressureScore returns 0 for null totals', () => {
+  assert.equal(calculateRealPressureScore(null), 0);
 });
