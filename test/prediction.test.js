@@ -1072,6 +1072,41 @@ test('evaluateDecision60 includes mode and useInTelegram flags', () => {
   assert.equal(typeof pred.useInBacktest, 'boolean');
 });
 
+test('evaluateDecision60 useInTelegram true for RISK when confidence >= 0.70 (not actionable)', () => {
+  const match = { matchId: 'mRiskTg', statsLevel: 'detailed', snapshots: [] };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 57,
+      lateActivationRisk: 40,
+      realPressureScores: { window45_60: 25, window60_70: 25 },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'flat',
+      confidencePenalty: 0,
+      favoriteContext: { isStrongContext: false },
+      hotFirstHalfDanger: true,
+      dryStateScore: 60,
+      chaosRisk: 10,
+      favoriteDesperationRisk: 10,
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: {
+      isHotButNoGoal: false,
+      totalXg: 0.6,
+      totalXgot: 0.4,
+      totalBigChances: 0,
+      totalShotsOnTarget: 3,
+    },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  assert.equal(pred.predictionType, 'FT_TM05_RISK');
+  assert.equal(pred.actionable, false);
+  assert.ok(pred.confidence >= 0.70);
+  assert.equal(pred.useInTelegram, true);
+});
+
 test('evaluateDecision80 includes mode and useInBacktest on NO_BET', () => {
   const match = { matchId: 'm80nb', statsLevel: 'detailed', snapshots: [] };
   const computed = {

@@ -38,17 +38,19 @@ function evaluateDecision80(match, computed) {
     riskFlags.push('locked_after_tm60_signal');
     const modelMode = match.statsLevel === 'detailed' ? 'detailed' : 'basic';
     const confidence = 0.35;
+    const predictionType = PRED_TYPES_80.NO_BET;
+    const actionablePrimary = false;
     return {
       checkpoint: CHECKPOINTS.DECISION_80,
       target: TARGET_MARKET.decision80,
-      predictionType: PRED_TYPES_80.NO_BET,
+      predictionType,
       actionable: false,
-      actionablePrimary: false,
+      actionablePrimary,
       finalScore: 0,
       confidence,
       modelMode,
       mode: modelMode,
-      useInTelegram: false,
+      useInTelegram: actionablePrimary || (predictionType !== PRED_TYPES_80.NO_BET && confidence >= 0.70),
       useInBacktest: false,
       components: {
         lateGoalScore80: 0,
@@ -178,7 +180,7 @@ function evaluateDecision80(match, computed) {
     confidence,
     modelMode,
     mode: modelMode,
-    useInTelegram: actionablePrimary || (actionable && confidence >= 0.70),
+    useInTelegram: actionablePrimary || (predictionType !== PRED_TYPES_80.NO_BET && confidence >= 0.70),
     useInBacktest: predictionType !== PRED_TYPES_80.NO_BET,
     components: {
       lateGoalScore80: late,

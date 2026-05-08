@@ -408,7 +408,7 @@ function finalizeReturn(p) {
     confidence,
     modelMode,
     mode: modelMode,
-    useInTelegram: actionablePrimary || (actionable && confidence >= 0.70),
+    useInTelegram: actionablePrimary || (predictionType !== PRED_TYPES_60.NO_BET && confidence >= 0.70),
     useInBacktest: predictionType !== PRED_TYPES_60.NO_BET,
     components: {
       fullTimeNilNilScore: ftScore,
