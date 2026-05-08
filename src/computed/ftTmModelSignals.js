@@ -141,8 +141,8 @@ function classifyTrend6075(windows, opts = {}) {
 /** Activity-based темп 70–80′ (останнє 5′ vs попереднє 5′ у межах інтервалу). */
 function classifyTrend7080(windows, opts = {}) {
   const statsLevel = opts.statsLevel || 'detailed';
-  const lastWin = windows.window75_80 || windows.window70_75 || windows.window60_75;
-  const prevWin = windows.window70_75 || windows.window65_70 || windows.window60_75;
+  const lastWin = windows.window75_80 || windows.window70_75 || windows.window45_60;
+  const prevWin = windows.window70_75 || windows.window65_70 || windows.window45_60;
 
   const last = activityScore(lastWin?.totals, statsLevel);
   const prev = activityScore(prevWin?.totals, statsLevel);

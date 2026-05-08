@@ -153,10 +153,10 @@ function calculateLateGoalScore80(totals, ctx = {}) {
   const tempoTrend7080 = ctx.tempoTrend70_80;
 
   const sot = totals.shotsOnTarget ?? 0;
-  const xg = typeof totals.xg === 'number' ? totals.xg : null;
-  const xgot = typeof totals.xgot === 'number' ? totals.xgot : null;
-  const bc = typeof totals.bigChances === 'number' ? totals.bigChances : null;
-  const sib = typeof totals.shotsInsideBox === 'number' ? totals.shotsInsideBox : null;
+  const xg = nv(totals.xg);
+  const xgot = nv(totals.xgot);
+  const bc = nv(totals.bigChances);
+  const sib = nv(totals.shotsInsideBox);
   const corners = totals.corners ?? 0;
 
   let score = 30;
