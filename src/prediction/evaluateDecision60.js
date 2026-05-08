@@ -3,6 +3,9 @@
 const { CHECKPOINTS, TARGET_MARKET, PRED_TYPES_60 } = require('./constants');
 const { buildConfidence, dataQualityTier } = require('./confidence');
 
+const LATE_ACTIVATION_HARD_CAP = 60;
+const REAL_PRESSURE_HARD_CAP = 60;
+
 /** Жорсткі ознаки «реального тиску» в агрегаті між 60' і межею decision-віку. */
 function hardRealPressureTotals(totals) {
   if (!totals) return false;
@@ -120,6 +123,13 @@ function evaluateDecision60(match, computed) {
 
   const ftScore = ms?.fullTimeNilNilScore ?? 0;
   const lateAct = ms?.lateActivationRisk ?? 0;
+  const rpHardMax = Math.max(
+    ms?.realPressureScores?.window45_60 ?? 0,
+    ms?.realPressureScores?.window60_70 ?? 0,
+    ms?.realPressureScores?.window65_70 ?? 0,
+    ms?.realPressureScores?.window70_75 ?? 0,
+    ms?.realPressureScores?.windowTracked6075 ?? 0,
+  );
 
   const hasNgDetailed = !!(sinceHt?.xg != null || tracked6075Totals?.xg != null);
   const missingXgotFlag = statsLevel === 'detailed' && sinceHt?.xgot == null;
@@ -145,18 +155,13 @@ function evaluateDecision60(match, computed) {
     riskFlags.push('data_inconsistent');
   }
 
-  else if (lateAct >= 60) {
+  else if (lateAct >= LATE_ACTIVATION_HARD_CAP) {
     predictionType = PRED_TYPES_60.NO_BET;
     reasons.push('late_activation_risk_too_high');
     riskFlags.push('late_activation_signs');
   }
 
-  else if (
-    Math.max(
-      ms?.realPressureScores?.window45_60 ?? 0,
-      ms?.realPressureScores?.window60_70 ?? 0,
-    ) >= 60
-  ) {
+  else if (rpHardMax >= REAL_PRESSURE_HARD_CAP) {
     predictionType = PRED_TYPES_60.NO_BET;
     reasons.push('real_pressure_too_high');
     riskFlags.push('late_activation_signs');

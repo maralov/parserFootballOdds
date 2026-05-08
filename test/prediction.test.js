@@ -102,6 +102,7 @@ test('evaluateDecision60 NO_BET on lateActivationRisk >= 60', () => {
   const pred = evaluateDecision60(match, computed);
   assert.equal(pred.predictionType, 'NO_BET');
   assert.ok(pred.reasons.includes('late_activation_risk_too_high'));
+  assert.ok(pred.riskFlags.includes('late_activation_signs'));
 });
 
 test('evaluateDecision60 NO_BET on realPressureScore >= 60', () => {
@@ -127,6 +128,57 @@ test('evaluateDecision60 NO_BET on realPressureScore >= 60', () => {
   const pred = evaluateDecision60(match, computed);
   assert.equal(pred.predictionType, 'NO_BET');
   assert.ok(pred.reasons.includes('real_pressure_too_high'));
+  assert.ok(pred.riskFlags.includes('late_activation_signs'));
+});
+
+test('evaluateDecision60 NO_BET on window70_75 real pressure >= 60', () => {
+  const match = {
+    matchId: 'm1',
+    statsLevel: 'detailed',
+    snapshots: [],
+  };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 25,
+      realPressureScores: { window45_60: 20, window60_70: 20, window65_70: 20, window70_75: 65 },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'flat',
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: false },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  assert.equal(pred.predictionType, 'NO_BET');
+  assert.ok(pred.reasons.includes('real_pressure_too_high'));
+});
+
+test('evaluateDecision60 NO_BET on lateActivationRisk equality (=60)', () => {
+  const match = {
+    matchId: 'm1',
+    statsLevel: 'detailed',
+    snapshots: [],
+  };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 60,
+      realPressureScores: { window45_60: 20, window60_70: 20 },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'flat',
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: false },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  assert.equal(pred.predictionType, 'NO_BET');
+  assert.ok(pred.reasons.includes('late_activation_risk_too_high'));
 });
 
 test('evaluateDecision60 does not trigger hard filters on moderate values', () => {
