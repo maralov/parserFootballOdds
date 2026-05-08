@@ -23,6 +23,7 @@ const {
   dataQualityScore,
 } = require('../src/computed/modelScoresRaw');
 const { applyAiOverlay, isPremiumAiSignal } = require('../src/prediction/aiOverlay');
+const { buildConfidence } = require('../src/prediction/confidence');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -78,6 +79,10 @@ test('prediction lock forces decision80 NO_BET', () => {
   const pred = evaluateDecision80(match, computed);
   assert.equal(pred.predictionType, 'NO_BET');
   assert(pred.riskFlags.includes('locked_after_tm60_signal'));
+  assert.equal(pred.mode, 'detailed');
+  assert.equal(pred.modelMode, pred.mode);
+  assert.equal(pred.useInBacktest, false);
+  assert.equal(typeof pred.useInTelegram, 'boolean');
 });
 
 test('evaluateDecision60 NO_BET on lateActivationRisk >= 60', () => {
@@ -955,4 +960,158 @@ test('evaluateDecision60 AI premium upgrade sets actionablePrimary=true', () => 
   assert.equal(pred.tier, 'ai_premium_upgrade');
   assert.equal(pred.predictionType, 'FT_TM05_FROM_60_75');
   assert.equal(pred.actionablePrimary, true);
+});
+
+test('buildConfidence detailed_ai cap 0.86', () => {
+  const c = buildConfidence({
+    finalScore: 95,
+    activationThreshold: 75,
+    dataQuality: 1,
+    reasonsCount: 5,
+    modelMode: 'detailed_ai',
+  });
+  assert.ok(c <= 0.86 && c >= 0.85);
+});
+
+test('buildConfidence detailed cap 0.82', () => {
+  const c = buildConfidence({
+    finalScore: 95,
+    activationThreshold: 75,
+    dataQuality: 1,
+    reasonsCount: 5,
+    modelMode: 'detailed',
+  });
+  assert.ok(c <= 0.82);
+});
+
+test('buildConfidence basic cap 0.68', () => {
+  const c = buildConfidence({
+    finalScore: 95,
+    activationThreshold: 75,
+    dataQuality: 0.6,
+    reasonsCount: 5,
+    modelMode: 'basic',
+  });
+  assert.ok(c <= 0.68);
+});
+
+test('buildConfidence redCard penalty about -0.20', () => {
+  const common = {
+    finalScore: 80,
+    activationThreshold: 75,
+    dataQuality: 1,
+    reasonsCount: 0,
+    modelMode: 'detailed',
+  };
+  const cWith = buildConfidence({ ...common, hasRedCard: true });
+  const cWithout = buildConfidence({ ...common, hasRedCard: false });
+  assert.ok(cWithout - cWith >= 0.18);
+});
+
+test('buildConfidence basic stats penalty about -0.06', () => {
+  const common = {
+    finalScore: 80,
+    activationThreshold: 75,
+    dataQuality: 1,
+    reasonsCount: 0,
+    modelMode: 'detailed',
+  };
+  const cDetailed = buildConfidence({ ...common, statsLevel: 'detailed' });
+  const cBasic = buildConfidence({ ...common, statsLevel: 'basic' });
+  assert.ok(cDetailed - cBasic >= 0.055 && cDetailed - cBasic <= 0.065);
+});
+
+test('evaluateDecision60 includes mode and useInTelegram flags', () => {
+  const match = {
+    matchId: 'mAiShape',
+    statsLevel: 'detailed',
+    snapshots: [],
+    aiAnalysis: {
+      decision60: {
+        useInModel: true,
+        output: {
+          match_state: 'dead',
+          favorite_pressure: 'none',
+          tempo_state: 'flat',
+          recommendation: { action: 'under_candidate', confidence: 'high' },
+          confidence: 0.85,
+        },
+      },
+    },
+  };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 25,
+      realPressureScores: { window45_60: 20, window60_70: 20 },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'flat',
+      confidencePenalty: 0,
+      favoriteContext: { isStrongContext: false },
+      hotFirstHalfDanger: false,
+      dryStateScore: 88,
+      chaosRisk: 10,
+      favoriteDesperationRisk: 10,
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: {
+      isHotButNoGoal: false,
+      totalXg: 0.4,
+      totalXgot: 0.2,
+      totalBigChances: 0,
+      totalShotsOnTarget: 2,
+    },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  assert.equal(pred.mode, 'detailed_ai');
+  assert.equal(pred.modelMode, pred.mode);
+  assert.equal(typeof pred.useInTelegram, 'boolean');
+  assert.equal(typeof pred.useInBacktest, 'boolean');
+});
+
+test('evaluateDecision80 includes mode and useInBacktest on NO_BET', () => {
+  const match = { matchId: 'm80nb', statsLevel: 'detailed', snapshots: [] };
+  const computed = {
+    windows: {
+      window70_80: {
+        totals: {
+          xg: 0.2,
+          xgot: 0.1,
+          totalShots: 5,
+          shotsOnTarget: 1,
+          corners: 2,
+        },
+      },
+    },
+    modelScoresRaw: { lateGoalScore80: 10, realPressureScore80: 10, fakePressureScore80: 10 },
+    snapshotCount: 5,
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: false },
+  };
+  const pred = evaluateDecision80(match, computed);
+  assert.equal(pred.predictionType, 'NO_BET');
+  assert.equal(pred.mode, 'detailed');
+  assert.equal(pred.modelMode, pred.mode);
+  assert.equal(pred.useInBacktest, false);
+});
+
+test('predictionLocks NO_BET decision80 has mode detailed and useInBacktest false', () => {
+  const match = {
+    matchId: 'x',
+    predictionLocks: { blockTb80Plus: true },
+    statsLevel: 'detailed',
+    snapshots: [],
+  };
+  const pred = evaluateDecision80(match, {
+    windows: {},
+    modelScoresRaw: {},
+    snapshotCount: 0,
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: {},
+  });
+  assert.equal(pred.mode, 'detailed');
+  assert.equal(pred.useInBacktest, false);
 });

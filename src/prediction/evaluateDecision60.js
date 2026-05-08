@@ -306,8 +306,7 @@ function evaluateDecision60(match, computed) {
     hasNg: hasNgDetailed,
     hasNxgot: (sinceHt && sinceHt.xgot != null) || statsLevel !== 'detailed',
   });
-  const dqAdj = dqBase - (ms.confidencePenalty || 0);
-  let dq = Math.max(0.36, Math.min(1, dqAdj));
+  const dq = Math.max(0.36, Math.min(1, dqBase));
 
   const activationGate =
     predictionType === PRED_TYPES_60.FT_TM05_FROM_60_75
@@ -316,7 +315,9 @@ function evaluateDecision60(match, computed) {
         : predictionType === PRED_TYPES_60.FT_TM05_RISK ? 48
           : 50;
 
-  let confidence = buildConfidence({
+  const lowSnapshotCount = snapN < 4;
+
+  const confidence = buildConfidence({
     finalScore: predictionType === PRED_TYPES_60.NO_BET
       ? 50
       : Math.max(finalScore, activationGate * 0.98),
@@ -324,13 +325,18 @@ function evaluateDecision60(match, computed) {
       predictionType === PRED_TYPES_60.NO_BET ? 50 : activationGate,
     dataQuality: dq,
     reasonsCount: reasons.length,
+    lateActivationRisk: ms?.lateActivationRisk ?? 0,
+    realPressureScore: Math.max(
+      ms?.realPressureScores?.window45_60 ?? 0,
+      ms?.realPressureScores?.window60_70 ?? 0,
+    ),
+    isHotButNoGoal: fh?.isHotButNoGoal === true,
+    hasRedCard: redBlocked,
+    statsLevel,
+    lowSnapshotCount,
+    modelMode: mode,
+    extraPenalty: ms.confidencePenalty || 0,
   });
-  confidence = Math.max(
-    predictionType === PRED_TYPES_60.NO_BET ? 0.35 : 0.38,
-    confidence - (ms.confidencePenalty || 0),
-  );
-
-  if (tier === 'basic_ft') confidence = Math.min(confidence, 0.68);
 
   const actionablePrimary =
     predictionType === PRED_TYPES_60.FT_TM05_FROM_60_75 &&
@@ -401,6 +407,9 @@ function finalizeReturn(p) {
     finalScore,
     confidence,
     modelMode,
+    mode: modelMode,
+    useInTelegram: actionablePrimary || (actionable && confidence >= 0.70),
+    useInBacktest: predictionType !== PRED_TYPES_60.NO_BET,
     components: {
       fullTimeNilNilScore: ftScore,
       dryStateScore: ms?.dryStateScore,
