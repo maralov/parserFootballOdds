@@ -85,20 +85,21 @@ function sinceHtTotals(match) {
 }
 
 function hotHalfNoGoal1H(profile, statsLevel) {
-  if (profile && typeof profile.isHotButNoGoal === 'boolean') return profile.isHotButNoGoal;
-  if (!profile || statsLevel !== 'detailed') return false;
+  if (statsLevel !== 'detailed' || !profile) return false;
+  if (typeof profile.isHotButNoGoal === 'boolean') return profile.isHotButNoGoal;
+
   const xg = profile.totalXg;
   const xgot = profile.totalXgot;
-  const bc = profile.totalBigChances ?? 0;
-  const sot = profile.totalShotsOnTarget ?? 0;
+  const bc = profile.totalBigChances;
+  const sot = profile.totalShotsOnTarget;
   const saves = profile.totalGoalkeeperSaves;
 
-  let hit = false;
-  if (xg != null && xg >= 1.0 && xgot != null && xgot >= 0.8) hit = true;
-  if (bc >= 1) hit = true;
-  if (sot >= 4) hit = true;
-  if (saves != null && saves >= 3) hit = true;
-  return hit;
+  if (xg != null && xg >= 1.0) return true;
+  if (xgot != null && xgot >= 0.8) return true;
+  if (bc != null && bc >= 1) return true;
+  if (sot != null && sot >= 4) return true;
+  if (saves != null && saves >= 3) return true;
+  return false;
 }
 
 /** Темп між сегментами 2H навколо вікна дослідження. */
@@ -260,4 +261,5 @@ module.exports = {
   cumulativeLiveTotals,
   sinceHtTotals,
   classifyTrend6075,
+  hotHalfNoGoal1H,
 };

@@ -11,6 +11,7 @@ const predictionSignals = require('../src/store/predictionSignals');
 const { buildFirstHalfProfile } = require('../src/computed/firstHalfProfile');
 const matchStore = require('../src/store/matchStore');
 const { maybeRunPredictionPipeline } = require('../src/prediction/runLivePrediction');
+const { hotHalfNoGoal1H } = require('../src/computed/ftTmModelSignals');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -171,6 +172,28 @@ test('buildFirstHalfProfile detailed not-dry overrides basic dry-fallback', () =
     },
   });
   assert.equal(p.isDryFirstHalf, false);
+});
+
+test('hotHalfNoGoal1H fallback uses OR (xgot alone triggers)', () => {
+  const profile = {
+    totalXg: 0.4,
+    totalXgot: 0.9,
+    totalBigChances: 0,
+    totalShotsOnTarget: 2,
+    totalGoalkeeperSaves: 1,
+  };
+  assert.equal(hotHalfNoGoal1H(profile, 'detailed'), true);
+});
+
+test('hotHalfNoGoal1H fallback false on quiet half', () => {
+  const profile = {
+    totalXg: 0.3,
+    totalXgot: 0.1,
+    totalBigChances: 0,
+    totalShotsOnTarget: 1,
+    totalGoalkeeperSaves: 0,
+  };
+  assert.equal(hotHalfNoGoal1H(profile, 'detailed'), false);
 });
 
 test('buildAllWindows includes new windows', () => {
