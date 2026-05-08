@@ -157,6 +157,22 @@ test('buildFirstHalfProfile basic dry fallback', () => {
   assert.equal(p.isHighQualityNoGoal, null);
 });
 
+test('buildFirstHalfProfile detailed not-dry overrides basic dry-fallback', () => {
+  const p = buildFirstHalfProfile({
+    '1half': {
+      overall: {
+        expectedGoalsXg: 1.2,
+        shotsOnTarget: 1,
+        bigChances: 0,
+        xgOnTargetXgot: 0.1,
+        totalShots: 5,
+        cornerKicks: 3,
+      },
+    },
+  });
+  assert.equal(p.isDryFirstHalf, false);
+});
+
 test('buildAllWindows includes new windows', () => {
   const c55 = buildStatsMap({ totalShots: 50 }, { totalShots: 0 });
   const c60 = buildStatsMap({ totalShots: 56 }, { totalShots: 0 });

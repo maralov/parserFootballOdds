@@ -34,8 +34,7 @@ function buildFirstHalfProfile(statistics) {
     && totalShotsOnTarget != null && nn(totalShotsOnTarget)
     && totalBigChances != null && Number.isFinite(Number(totalBigChances));
 
-  const detailedDry =
-    detailedDryInputsOk &&
+  const detailedDryFormula =
     totalXg <= 0.55 &&
     totalShotsOnTarget <= 2 &&
     Number(totalBigChances) === 0 &&
@@ -54,7 +53,7 @@ function buildFirstHalfProfile(statistics) {
 
   let isDryFirstHalf = null;
   if (detailedDryInputsOk) {
-    isDryFirstHalf = detailedDry || (basicInputsOk && basicDry);
+    isDryFirstHalf = detailedDryFormula;
   } else if (basicInputsOk) {
     isDryFirstHalf = basicDry;
   }
