@@ -334,7 +334,7 @@ function evaluateDecision60(match, computed) {
 
   const actionablePrimary =
     predictionType === PRED_TYPES_60.FT_TM05_FROM_60_75 &&
-    (tier === 'extended_ft' || tier === 'basic_ft');
+    (tier === 'extended_ft' || tier === 'basic_ft' || tier === 'ai_premium_upgrade');
   const actionable =
     actionablePrimary ||
     predictionType === PRED_TYPES_60.LEAN_FT_TM05_FROM_60_75;

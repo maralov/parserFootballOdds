@@ -905,3 +905,57 @@ test('evaluateDecision60 mode=detailed when aiUseInModel=false', () => {
   assert.equal(pred.modelMode, 'detailed');
   assert.equal(pred.components.aiUseInModel, false);
 });
+
+test('evaluateDecision60 AI premium upgrade sets actionablePrimary=true', () => {
+  const match = {
+    matchId: 'mAiUp',
+    statsLevel: 'detailed',
+    snapshots: [],
+    aiAnalysis: {
+      decision60: {
+        useInModel: true,
+        output: {
+          match_state: 'dead',
+          favorite_pressure: 'none',
+          tempo_state: 'flat',
+          recommendation: { action: 'under_candidate', confidence: 'high' },
+          confidence: 0.85,
+        },
+      },
+    },
+  };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 78,
+      lateActivationRisk: 35,
+      realPressureScores: { window45_60: 28, window60_70: 25 },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 1, xg: 0.10, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'flat',
+      confidencePenalty: 0,
+      favoriteContext: { isStrongContext: false },
+      hotFirstHalfDanger: false,
+      dryStateScore: 80,
+      chaosRisk: 10,
+      favoriteDesperationRisk: 10,
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: {
+      isHotButNoGoal: false,
+      totalXg: 0.5,
+      totalXgot: 0.3,
+      totalBigChances: 0,
+      totalShotsOnTarget: 4,
+      totalShotsInsideBox: 4,
+    },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  if (pred.tier === 'ai_premium_upgrade') {
+    assert.equal(pred.predictionType, 'FT_TM05_FROM_60_75');
+    assert.equal(pred.actionablePrimary, true);
+  } else {
+    assert.equal(pred.actionablePrimary, true);
+  }
+});
