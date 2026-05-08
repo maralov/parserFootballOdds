@@ -145,27 +145,35 @@ function calculateRealPressureScore(totals, opts = {}) {
   return clamp(score, 0, 100);
 }
 
-/** Late goal score TB context (primarily window 70–80). */
+/** Late goal score TB80+ (window 70–80 + pressure/tempo context per RFC). */
 function calculateLateGoalScore80(totals, ctx = {}) {
   if (!totals) return 0;
-  const { fakePressureScore = 0, pressureTeamAligned = false, favoriteStrengthLabel = null } = ctx;
+  const realPressure7080 = ctx.realPressureScore70_80;
+  const fakePressure7080 = ctx.fakePressureScore70_80;
+  const tempoTrend7080 = ctx.tempoTrend70_80;
 
-  const shots = totals.totalShots ?? 0;
-  const shotsOnTarget = totals.shotsOnTarget ?? 0;
+  const sot = totals.shotsOnTarget ?? 0;
+  const xg = typeof totals.xg === 'number' ? totals.xg : null;
+  const xgot = typeof totals.xgot === 'number' ? totals.xgot : null;
+  const bc = typeof totals.bigChances === 'number' ? totals.bigChances : null;
+  const sib = typeof totals.shotsInsideBox === 'number' ? totals.shotsInsideBox : null;
   const corners = totals.corners ?? 0;
-  const xg = totals.xg;
 
-  let score = 35;
-  if (shots >= 2) score += 10;
-  if (shots >= 4) score += 10;
-  if (shotsOnTarget >= 1) score += 20;
-  if (corners >= 2) score += 8;
-  if (xg != null && xg >= 0.15) score += 20;
-  if (xg != null && xg >= 0.25) score += 10;
-  if (pressureTeamAligned) score += 10;
-  if (favoriteStrengthLabel === 'strong') score += 5;
-  if (fakePressureScore >= 60) score -= 20;
-  if (shotsOnTarget === 0 && xg != null && xg < 0.08) score -= 20;
+  let score = 30;
+  if ((realPressure7080 || 0) >= 45) score += 20;
+  if (sot >= 1) score += 18;
+  if (xg != null && xg >= 0.15) score += 15;
+  if (xgot != null && xgot > 0) score += 15;
+  if (bc != null && bc >= 1) score += 18;
+  if (sib != null && sib >= 2) score += 8;
+  if (corners >= 2 && sot >= 1) score += 6;
+  if (tempoTrend7080 === 'growing') score += 10;
+  if (tempoTrend7080 === 'explosive') score += 20;
+
+  if ((fakePressure7080 || 0) >= 65) score -= 18;
+  if ((realPressure7080 || 0) < 30) score -= 15;
+  if (sot === 0 && (xgot == null || xgot === 0)) score -= 20;
+
   return clamp(score, 0, 100);
 }
 

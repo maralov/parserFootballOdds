@@ -15,7 +15,7 @@ const {
   classifyDirectionTrend,
   directionNearKick60,
 } = require('./pressureEngine');
-const { buildFtTmModelSignals } = require('./ftTmModelSignals');
+const { buildFtTmModelSignals, classifyTrend7080 } = require('./ftTmModelSignals');
 
 function lastSnapshotTotals(match) {
   const snaps = match.snapshots || [];
@@ -77,10 +77,15 @@ function updateComputed(match) {
     pressureTeamAligned = true;
   }
 
+  const w7080TotalsForPressure = windows.window70_80?.totals ?? totals7080;
+  const realPressureScore70_80 = calculateRealPressureScore(w7080TotalsForPressure, { mode });
+  const fakePressureScore70_80 = calculateFakePressureScore(w7080TotalsForPressure, { mode });
+  const tempoTrend70_80 = classifyTrend7080(windows, { statsLevel: mode });
+
   const lateGoalScore80 = calculateLateGoalScore80(totals7080, {
-    fakePressureScore: fakePressureScore80,
-    pressureTeamAligned,
-    favoriteStrengthLabel: match.standings?.favoriteStrength?.label ?? null,
+    realPressureScore70_80,
+    fakePressureScore70_80,
+    tempoTrend70_80,
   });
 
   const pq80base = finalizePressureQuality(dir80, fakePressureScore80, realPressureScore80);

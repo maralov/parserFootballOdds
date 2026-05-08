@@ -138,6 +138,23 @@ function classifyTrend6075(windows, opts = {}) {
   return 'flat';
 }
 
+/** Activity-based темп 70–80′ (останнє 5′ vs попереднє 5′ у межах інтервалу). */
+function classifyTrend7080(windows, opts = {}) {
+  const statsLevel = opts.statsLevel || 'detailed';
+  const lastWin = windows.window75_80 || windows.window70_75 || windows.window60_75;
+  const prevWin = windows.window70_75 || windows.window65_70 || windows.window60_75;
+
+  const last = activityScore(lastWin?.totals, statsLevel);
+  const prev = activityScore(prevWin?.totals, statsLevel);
+
+  if (prev <= 0.5 && last > 6) return 'explosive';
+  if (last > prev * 2 && last >= 3) return 'explosive';
+  if (last > prev * 1.3 && last >= 2) return 'growing';
+  if (last <= prev * 0.75 && prev >= 2) return 'falling';
+  if (Math.abs(last - prev) <= 1.5) return 'flat';
+  return 'flat';
+}
+
 /** Сильний сигнал на фаворита з коэфами + турнірним контекстом. */
 function strongFavoriteContext(match) {
   const favLab = match.standings?.favoriteStrength?.label;
@@ -175,6 +192,7 @@ function buildFtTmModelSignals(match, computed) {
 
   const statsLevelForTrend = mode === 'detailed' ? 'detailed' : 'basic';
   const trend6075 = classifyTrend6075(windows, { statsLevel: statsLevelForTrend });
+  const trend7080 = classifyTrend7080(windows, { statsLevel: statsLevelForTrend });
 
   const dryStateScore = calculateDryStateScore({
     sinceHt,
@@ -285,6 +303,7 @@ function buildFtTmModelSignals(match, computed) {
     chaosRisk: Math.round(chaosRisk),
     confidencePenalty,
     tempoTrend6075: trend6075,
+    tempoTrend70_80: trend7080,
     hotFirstHalfDanger: hot1h,
     favoriteContext: favCtx,
     sinceHtTotalsSnapshot: sinceHt,
@@ -297,5 +316,6 @@ module.exports = {
   cumulativeLiveTotals,
   sinceHtTotals,
   classifyTrend6075,
+  classifyTrend7080,
   hotHalfNoGoal1H,
 };

@@ -11,13 +11,14 @@ const predictionSignals = require('../src/store/predictionSignals');
 const { buildFirstHalfProfile } = require('../src/computed/firstHalfProfile');
 const matchStore = require('../src/store/matchStore');
 const { maybeRunPredictionPipeline } = require('../src/prediction/runLivePrediction');
-const { hotHalfNoGoal1H, classifyTrend6075 } = require('../src/computed/ftTmModelSignals');
+const { hotHalfNoGoal1H, classifyTrend6075, classifyTrend7080 } = require('../src/computed/ftTmModelSignals');
 const {
   calculateRealPressureScore,
   calculateFakePressureScore,
   calculateDryStateScore,
   calculateLateActivationRisk,
   calculateFullTimeNilNilScore,
+  calculateLateGoalScore80,
   dataQualityScore,
 } = require('../src/computed/modelScoresRaw');
 const fs = require('fs');
@@ -456,6 +457,79 @@ test('classifyTrend6075 flat (small diff)', () => {
   };
   const result = classifyTrend6075(windows, { statsLevel: 'detailed' });
   assert.equal(result, 'flat');
+});
+
+test('calculateLateGoalScore80 strong real7080 + sot + bc', () => {
+  const score = calculateLateGoalScore80(
+    {
+      shotsOnTarget: 2,
+      xg: 0.3,
+      xgot: 0.2,
+      bigChances: 1,
+      shotsInsideBox: 3,
+      corners: 2,
+    },
+    { realPressureScore70_80: 50, tempoTrend70_80: 'growing' },
+  );
+  assert.equal(score, 100);
+});
+
+test('calculateLateGoalScore80 dry no goal threat', () => {
+  const score = calculateLateGoalScore80(
+    {
+      shotsOnTarget: 0,
+      xg: 0.05,
+      xgot: 0,
+      bigChances: 0,
+      shotsInsideBox: 0,
+      corners: 1,
+    },
+    { realPressureScore70_80: 10, tempoTrend70_80: 'flat' },
+  );
+  assert.equal(score, 0);
+});
+
+test('calculateLateGoalScore80 explosive bumps +20', () => {
+  const score = calculateLateGoalScore80(
+    {
+      shotsOnTarget: 1,
+      xg: 0.1,
+      xgot: 0,
+      bigChances: 0,
+      shotsInsideBox: 0,
+      corners: 0,
+    },
+    { realPressureScore70_80: 30, tempoTrend70_80: 'explosive' },
+  );
+  assert.equal(score, 68);
+});
+
+test('calculateLateGoalScore80 fake pressure penalty', () => {
+  const score = calculateLateGoalScore80(
+    { shotsOnTarget: 0, xgot: 0 },
+    { realPressureScore70_80: 0, fakePressureScore70_80: 70, tempoTrend70_80: 'flat' },
+  );
+  assert.equal(score, 0);
+});
+
+test('calculateLateGoalScore80 null totals → 0', () => {
+  assert.equal(calculateLateGoalScore80(null), 0);
+});
+
+test('classifyTrend7080 explosive', () => {
+  const windows = {
+    window70_75: { totals: { totalShots: 0, shotsOnTarget: 0, corners: 0, xg: 0 } },
+    window75_80: { totals: { totalShots: 8, shotsOnTarget: 0, corners: 0, xg: 0 } },
+  };
+  assert.equal(classifyTrend7080(windows, { statsLevel: 'basic' }), 'explosive');
+});
+
+test('classifyTrend7080 falling', () => {
+  const windows = {
+    window70_75: { totals: { totalShots: 10, shotsOnTarget: 0, corners: 0, xg: 0 } },
+    window75_80: { totals: { totalShots: 1, shotsOnTarget: 0, corners: 0, xg: 0 } },
+  };
+  assert.equal(classifyTrend7080(windows, { statsLevel: 'basic' }), 'falling');
 });
 
 test('calculateLateActivationRisk base 20', () => {
