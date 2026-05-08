@@ -11,10 +11,11 @@ const predictionSignals = require('../src/store/predictionSignals');
 const { buildFirstHalfProfile } = require('../src/computed/firstHalfProfile');
 const matchStore = require('../src/store/matchStore');
 const { maybeRunPredictionPipeline } = require('../src/prediction/runLivePrediction');
-const { hotHalfNoGoal1H } = require('../src/computed/ftTmModelSignals');
+const { hotHalfNoGoal1H, classifyTrend6075 } = require('../src/computed/ftTmModelSignals');
 const {
   calculateRealPressureScore,
   calculateFakePressureScore,
+  calculateDryStateScore,
 } = require('../src/computed/modelScoresRaw');
 const fs = require('fs');
 const os = require('os');
@@ -357,4 +358,75 @@ test('calculateFakePressureScore basic', () => {
 
 test('calculateRealPressureScore returns 0 for null totals', () => {
   assert.equal(calculateRealPressureScore(null), 0);
+});
+
+test('calculateDryStateScore detailed sterile match clamps to 100', () => {
+  const score = calculateDryStateScore({
+    sinceHt: {
+      shotsOnTarget: 0,
+      xg: 0.05,
+      xgot: 0,
+      bigChances: 0,
+      shotsInsideBox: 0,
+      touchesInBox: 3,
+    },
+    tempoTrend: 'flat',
+    statsLevel: 'detailed',
+  });
+  assert.ok(score === 100);
+});
+
+test('calculateDryStateScore detailed hot match is very low', () => {
+  const score = calculateDryStateScore({
+    sinceHt: {
+      shotsOnTarget: 2,
+      xg: 0.4,
+      xgot: 0.2,
+      bigChances: 1,
+      shotsInsideBox: 3,
+      touchesInBox: 8,
+    },
+    tempoTrend: 'growing',
+    statsLevel: 'detailed',
+  });
+  assert.ok(score < 25);
+});
+
+test('calculateDryStateScore returns 50 when sinceHt missing', () => {
+  assert.equal(calculateDryStateScore({ sinceHt: null, tempoTrend: 'flat', statsLevel: 'detailed' }), 50);
+});
+
+test('calculateDryStateScore basic sterile', () => {
+  const score = calculateDryStateScore({
+    sinceHt: { shotsOnTarget: 0, totalShots: 1, corners: 1 },
+    tempoTrend: 'flat',
+    statsLevel: 'basic',
+  });
+  assert.equal(score, 97);
+});
+
+test('classifyTrend6075 detailed explosive from quiet prev burst last', () => {
+  const windows = {
+    window45_60: { totals: { totalShots: 0 } },
+    window70_75: {
+      totals: {
+        totalShots: 6,
+        shotsOnTarget: 2,
+        xg: 0.3,
+        xgot: 0.2,
+        bigChances: 1,
+        shotsInsideBox: 2,
+        touchesInBox: 5,
+      },
+    },
+  };
+  assert.equal(classifyTrend6075(windows, { statsLevel: 'detailed' }), 'explosive');
+});
+
+test('classifyTrend6075 falling when last window quieter than prev', () => {
+  const windows = {
+    window45_60: { totals: { totalShots: 8 } },
+    window70_75: { totals: { totalShots: 1 } },
+  };
+  assert.equal(classifyTrend6075(windows, { statsLevel: 'basic' }), 'falling');
 });

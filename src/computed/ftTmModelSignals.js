@@ -2,7 +2,7 @@
 
 const { bundleWindowTotals } = require('./helpers');
 const {
-  calculateDrynessScoreForWindow,
+  calculateDryStateScore,
   calculateRealPressureScore,
 } = require('./modelScoresRaw');
 
@@ -102,31 +102,36 @@ function hotHalfNoGoal1H(profile, statsLevel) {
   return false;
 }
 
-/** Темп між сегментами 2H навколо вікна дослідження. */
-function classifyTrend6075(windows) {
-  const a = windows?.window45_60?.totals?.totalShots ?? 0;
-  const b = windows?.window60_65?.totals?.totalShots ?? 0;
-  const c = windows?.window65_70?.totals?.totalShots ?? 0;
-  const d = windows?.window70_75?.totals?.totalShots ?? 0;
-
-  if (d >= 6 || (d >= c + 4 && d >= 3)) return 'explosive';
-  if ((c > b + 2 && c >= 3) || (d > c + 2 && d >= 3)) return 'growing';
-  if (a > 6 && (b + c + d) < a * 0.45) return 'falling';
-  return 'flat';
+function activityScore(t, statsLevel) {
+  if (!t) return 0;
+  let s = (t.totalShots ?? 0) * 1
+    + (t.shotsOnTarget ?? 0) * 3
+    + (t.corners ?? 0) * 0.8
+    + (typeof t.xg === 'number' ? t.xg : 0) * 8;
+  if (statsLevel === 'detailed') {
+    s += (t.xgot ?? 0) * 8
+      + (t.bigChances ?? 0) * 5
+      + (t.shotsInsideBox ?? 0) * 1.5
+      + (t.touchesInBox ?? 0) * 0.3;
+  }
+  return s;
 }
 
-function droughtScoreAcrossWindows(windowKeys, windows, weights = null) {
-  const keys = windowKeys.filter((k) => windows[k]?.totals);
-  if (!keys.length) return 50;
+/** Activity-based темп між останнім і попереднім вікном 60–75. */
+function classifyTrend6075(windows, opts = {}) {
+  const statsLevel = opts.statsLevel || 'detailed';
+  const lastWin = windows.window70_75 || windows.window65_70 || windows.window60_65 || windows.window45_60;
+  const prevWin = windows.window65_70 || windows.window60_65 || windows.window50_60 || windows.window45_60;
 
-  let acc = 0;
-  keys.forEach((k, idx) => {
-    const ds = calculateDrynessScoreForWindow(windows[k].totals);
-    const w = weights?.[idx] ?? 1;
-    acc += ds * w;
-  });
-  const wsum = weights ? weights.reduce((s, x) => s + x, 0) : keys.length;
-  return acc / Math.max(wsum, 1e-6);
+  const last = activityScore(lastWin?.totals, statsLevel);
+  const prev = activityScore(prevWin?.totals, statsLevel);
+
+  if (prev <= 0.5 && last > 6) return 'explosive';
+  if (last > prev * 2 && last >= 3) return 'explosive';
+  if (last > prev * 1.3 && last >= 2) return 'growing';
+  if (last <= prev * 0.75 && prev >= 2) return 'falling';
+  if (Math.abs(last - prev) <= 1.5) return 'flat';
+  return 'flat';
 }
 
 /** Сильний сигнал на фаворита з коэфами + турнірним контекстом. */
@@ -164,11 +169,14 @@ function buildFtTmModelSignals(match, computed) {
   const sinceHt = sinceHtTotals(match);
   const liveTotals = cumulativeLiveTotals(match);
 
-  const dryStateScore = droughtScoreAcrossWindows(
-    ['window45_60', 'window50_60', 'window60_65', 'window65_70', 'window70_75'],
-    windows,
-    [1.1, 1, 1.15, 1.05, 0.9],
-  );
+  const statsLevelForTrend = mode === 'detailed' ? 'detailed' : 'basic';
+  const trend6075 = classifyTrend6075(windows, { statsLevel: statsLevelForTrend });
+
+  const dryStateScore = calculateDryStateScore({
+    sinceHt,
+    tempoTrend: trend6075,
+    statsLevel: statsLevelForTrend,
+  });
 
   const real45_60 = calculateRealPressureScore(windows.window45_60?.totals ?? null, { mode });
   const real60_70 = calculateRealPressureScore(windows.window60_70?.totals ?? null, { mode });
@@ -182,7 +190,6 @@ function buildFtTmModelSignals(match, computed) {
     { mode },
   );
 
-  const trend6075 = classifyTrend6075(windows);
   const hot1h = hotHalfNoGoal1H(fh, match.statsLevel);
   const favCtx = strongFavoriteContext(match);
 
