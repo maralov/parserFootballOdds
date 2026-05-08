@@ -1,0 +1,73 @@
+'use strict';
+
+require('dotenv').config();
+const { FLASHSCORE_LIVE_URL } = require('./constants');
+
+function envBool(key, def) {
+  const v = process.env[key];
+  if (v === undefined || v === null || v.trim() === '') return def;
+  return /^(1|true|yes|on)$/i.test(v);
+}
+
+function envInt(key, def) {
+  const n = Number(process.env[key]);
+  return Number.isFinite(n) && n >= 0 ? n : def;
+}
+
+const env = {
+  LIVE_BASE_URL: process.env.LIVE_BASE_URL || FLASHSCORE_LIVE_URL,
+  LIVE_IGNORE_HOURS: envBool('LIVE_IGNORE_HOURS', false),
+  LIVE_WORKING_HOURS_START: envInt('LIVE_WORKING_HOURS_START', 16),
+  LIVE_WORKING_HOURS_END: envInt('LIVE_WORKING_HOURS_END', 23),
+  LIVE_MIN_SLEEP_MS: envInt('LIVE_MIN_SLEEP_MS', 60_000),
+  LIVE_MAX_SLEEP_MS: envInt('LIVE_MAX_SLEEP_MS', 480_000),
+  LIVE_FALLBACK_SLEEP_MS: envInt('LIVE_FALLBACK_SLEEP_MS', 300_000),
+  LIVE_TARGET_MINUTE: envInt('LIVE_TARGET_MINUTE', 44),
+  LIVE_HTTP_MAX_RETRIES: envInt('LIVE_HTTP_MAX_RETRIES', 3),
+  LIVE_HTTP_BASE_DELAY_MS: envInt('LIVE_HTTP_BASE_DELAY_MS', 1_000),
+  LIVE_BROWSER_TIMEOUT_MS: envInt('LIVE_BROWSER_TIMEOUT_MS', 30_000),
+  LIVE_BROWSER_MAX_LIFETIME_MS: envInt('LIVE_BROWSER_MAX_LIFETIME_MS', 600_000),
+  LOG_LEVEL: process.env.LOG_LEVEL || 'info',
+  TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN || '',
+  TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID || '',
+
+  // Stage 2 — enrichment
+  LIVE_ENRICHMENT_ENABLED: envBool('LIVE_ENRICHMENT_ENABLED', true),
+  LIVE_ENRICHMENT_CONCURRENCY: envInt('LIVE_ENRICHMENT_CONCURRENCY', 3),
+  LIVE_ENRICHMENT_TIMEOUT_MS: envInt('LIVE_ENRICHMENT_TIMEOUT_MS', 15_000),
+  LIVE_ENRICHMENT_DELAY_MIN_MS: envInt('LIVE_ENRICHMENT_DELAY_MIN_MS', 500),
+  LIVE_ENRICHMENT_DELAY_MAX_MS: envInt('LIVE_ENRICHMENT_DELAY_MAX_MS', 1_500),
+  LIVE_ODDS_FAVORITE_THRESHOLD: Number(process.env.LIVE_ODDS_FAVORITE_THRESHOLD) || 1.8,
+
+  // Stage 3 — snapshot tracker
+  LIVE_TRACKER_ENABLED: envBool('LIVE_TRACKER_ENABLED', true),
+  LIVE_TRACKER_CONCURRENCY: envInt('LIVE_TRACKER_CONCURRENCY', 2),
+  // First snapshot delay after discoveredAt (18 min = 1 080 000 ms)
+  LIVE_TRACKER_FIRST_SNAPSHOT_OFFSET_MS: envInt('LIVE_TRACKER_FIRST_SNAPSHOT_OFFSET_MS', 18 * 60_000),
+  // Interval between regular snapshots (5 min)
+  LIVE_TRACKER_INTERVAL_MS: envInt('LIVE_TRACKER_INTERVAL_MS', 5 * 60_000),
+  // Random ±jitter added to each scheduled time (15 s)
+  LIVE_TRACKER_JITTER_MS: envInt('LIVE_TRACKER_JITTER_MS', 15_000),
+  // Retry delay when match is still in halftime (2 min)
+  LIVE_TRACKER_HALFTIME_RETRY_MS: envInt('LIVE_TRACKER_HALFTIME_RETRY_MS', 2 * 60_000),
+  // Hard timeout from discoveredAt after which match is marked stale (120 min)
+  LIVE_TRACKER_HARD_TIMEOUT_MS: envInt('LIVE_TRACKER_HARD_TIMEOUT_MS', 120 * 60_000),
+  // Consecutive fetch failures before marking stale
+  LIVE_TRACKER_MAX_FAILURES: envInt('LIVE_TRACKER_MAX_FAILURES', 3),
+  // Goals before this minute → discard
+  LIVE_TRACKER_DISCARD_BEFORE_MINUTE: envInt('LIVE_TRACKER_DISCARD_BEFORE_MINUTE', 60),
+  // validForPrediction is set when we reach this minute with 0:0
+  LIVE_TRACKER_VALID_FROM_MINUTE: envInt('LIVE_TRACKER_VALID_FROM_MINUTE', 60),
+
+  // Stage 4 — AI enrichment
+  LIVE_AI_ENABLED: envBool('LIVE_AI_ENABLED', false),
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY || '',
+  LIVE_AI_MODEL: process.env.LIVE_AI_MODEL || 'gpt-4o',
+  LIVE_AI_MAX_RETRIES: envInt('LIVE_AI_MAX_RETRIES', 2),
+  LIVE_AI_TIMEOUT_MS: envInt('LIVE_AI_TIMEOUT_MS', 15_000),
+  LIVE_AI_TEMPERATURE: Number(process.env.LIVE_AI_TEMPERATURE) || 0.2,
+  LIVE_AI_MAX_TOKENS: envInt('LIVE_AI_MAX_TOKENS', 500),
+  LIVE_AI_HT_XG_THRESHOLD: Number(process.env.LIVE_AI_HT_XG_THRESHOLD) || 1.5,
+};
+
+module.exports = env;
