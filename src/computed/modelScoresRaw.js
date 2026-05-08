@@ -186,7 +186,7 @@ function calculateLateActivationRisk({
   let risk = 20;
 
   if (firstHalfProfile?.isHotButNoGoal === true) risk += 18;
-  if (favoriteContext?.strongLabel) risk += 12;
+  if (favoriteContext?.strongLabel === true) risk += 12;
   if (Math.abs(favoriteContext?.marketSignal || 0) > 0.4) risk += 8;
   if (Math.abs(favoriteContext?.tableSignal || 0) > 0.45) risk += 8;
   if ((tournamentImportance || 0) >= 3) risk += 10;
