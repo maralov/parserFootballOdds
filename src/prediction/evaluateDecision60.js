@@ -291,8 +291,8 @@ function evaluateDecision60(match, computed) {
     reasons.push('ai_premium_signal_upgrade');
   }
 
-  // Downgrade FT_TM05_FROM_60_75 → LEAN if AI strong_disagree
-  if (predictionType === PRED_TYPES_60.FT_TM05_FROM_60_75 && aiUse) {
+  // Downgrade FT_TM05_FROM_60_75 → LEAN if AI strong_disagree (never when premium AI signal)
+  if (predictionType === PRED_TYPES_60.FT_TM05_FROM_60_75 && aiUse && !premium) {
     const strongDisagree = aiOutput?.recommendation?.action === 'goal_candidate';
     if (strongDisagree) {
       predictionType = PRED_TYPES_60.LEAN_FT_TM05_FROM_60_75;

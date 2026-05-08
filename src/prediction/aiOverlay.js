@@ -62,7 +62,8 @@ function computeAgreementAdjustment(aiOutput, predictionType) {
   if (!aiOutput?.recommendation?.action) return 0;
   const klass = ruleClassFromType(predictionType);
   const map = AGREEMENT_MAP[klass];
-  return map?.[aiOutput.recommendation.action] ?? 0;
+  const raw = map?.[aiOutput.recommendation.action] ?? 0;
+  return clamp(raw, -10, 10);
 }
 
 function computeAiWeight(aiConfidence) {

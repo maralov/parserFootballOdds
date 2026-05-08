@@ -947,15 +947,12 @@ test('evaluateDecision60 AI premium upgrade sets actionablePrimary=true', () => 
       totalXgot: 0.3,
       totalBigChances: 0,
       totalShotsOnTarget: 4,
-      totalShotsInsideBox: 4,
+      totalShotsInsideBox: 7,
     },
     snapshotCount: 5,
   };
   const pred = evaluateDecision60(match, computed);
-  if (pred.tier === 'ai_premium_upgrade') {
-    assert.equal(pred.predictionType, 'FT_TM05_FROM_60_75');
-    assert.equal(pred.actionablePrimary, true);
-  } else {
-    assert.equal(pred.actionablePrimary, true);
-  }
+  assert.equal(pred.tier, 'ai_premium_upgrade');
+  assert.equal(pred.predictionType, 'FT_TM05_FROM_60_75');
+  assert.equal(pred.actionablePrimary, true);
 });
