@@ -6,6 +6,8 @@ const { evaluateDecision80 } = require('./evaluateDecision80');
 const { PRED_TYPES_60, PRED_TYPES_80 } = require('./constants');
 const matchStore = require('../store/matchStore');
 const predictionSignals = require('../store/predictionSignals');
+const tgDispatcher = require('../integrations/telegram/dispatcher');
+const logger = require('../observability/logger');
 
 function minuteFrom(header) {
   const m = header?.observedMinute ?? header?.minute;
@@ -100,23 +102,46 @@ function appendSignalsIfEligible(matchId, evaluated, header, minute, date) {
   if (!actionable) return;
 
   const score = `${Number(header.scoreHome)}:${Number(header.scoreAway)}`;
-  predictionSignals.appendPredictionSignals(
-    matchStore.dayLogsAbsolute(date),
-    {
-      matchId,
-      recordedAt: new Date().toISOString(),
-      checkpoint: evaluated.checkpoint,
-      signal: predictionSignals.deriveSignal(evaluated),
+  const dayDir = matchStore.dayLogsAbsolute(date);
+  predictionSignals.appendPredictionSignals(dayDir, {
+    matchId,
+    recordedAt: new Date().toISOString(),
+    checkpoint: evaluated.checkpoint,
+    signal: predictionSignals.deriveSignal(evaluated),
+    minute,
+    score,
+    predictionType: evaluated.predictionType,
+    confidence: evaluated.confidence,
+    modelMode: evaluated.modelMode,
+    components: evaluated.components,
+    reasons: evaluated.reasons,
+    riskFlags: evaluated.riskFlags,
+  });
+
+  const decisionKey = evaluated.checkpoint
+    || (evaluated.predictionType === PRED_TYPES_60.FT_TM05_FROM_60_75 ? 'decision60' : null)
+    || (evaluated.predictionType === PRED_TYPES_80.TB05_80_PLUS ? 'decision80' : null);
+  if (!decisionKey) return;
+
+  const match = matchStore.getMatch(matchId, date);
+  if (!match) return;
+
+  setImmediate(() => {
+    tgDispatcher.enqueueEntry({
+      match,
+      prediction: evaluated,
+      decisionKey,
       minute,
       score,
-      predictionType: evaluated.predictionType,
-      confidence: evaluated.confidence,
-      modelMode: evaluated.modelMode,
-      components: evaluated.components,
-      reasons: evaluated.reasons,
-      riskFlags: evaluated.riskFlags,
-    },
-  );
+      date,
+    }).catch((err) => {
+      logger.warn('tg.entry.enqueue_unhandled', {
+        matchId,
+        decisionKey,
+        err: err?.message || String(err),
+      });
+    });
+  });
 }
 
 module.exports = {
