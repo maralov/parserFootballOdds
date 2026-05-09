@@ -1442,3 +1442,279 @@ test('matchStore.finalize schedules Telegram result dispatch after persisting fi
   );
   cleanupFutureDay(date);
 });
+
+
+test('flushPending disabled returns empty arrays', async () => {
+  const date = new Date('2099-04-01T00:00:00Z');
+  cleanupFutureDay(date);
+  await withEnv(
+    {
+      LIVE_TG_ENABLED: '0',
+      LIVE_TG_DRY_RUN: '1',
+      TELEGRAM_TOKEN: 'fake',
+      TELEGRAM_CHAT_ID: '123',
+    },
+    async () => {
+      const { flushPending } = reloadTelegramDispatcher();
+      const matchStore = reloadModule('../src/store/matchStore');
+      const tgOutbox = reloadModule('../src/store/tgOutbox');
+      const dayDir = matchStore.dayLogsAbsolute(date);
+
+      const result = await flushPending({ date });
+
+      assert.deepEqual(result, { entries: [], results: [] });
+      assert.equal(tgOutbox.readOutbox(dayDir).length, 0);
+    },
+  );
+  cleanupFutureDay(date);
+});
+
+test('flushPending recovers queued entry', async () => {
+  const date = new Date('2099-04-02T00:00:00Z');
+  cleanupFutureDay(date);
+  await withEnv(
+    {
+      LIVE_TG_ENABLED: '1',
+      LIVE_TG_DRY_RUN: '1',
+      TELEGRAM_TOKEN: 'fake',
+      TELEGRAM_CHAT_ID: '123',
+    },
+    async () => {
+      const { flushPending } = reloadTelegramDispatcher();
+      const matchStore = reloadModule('../src/store/matchStore');
+      const tgOutbox = reloadModule('../src/store/tgOutbox');
+      const dayDir = matchStore.dayLogsAbsolute(date);
+      const matchId = 'M-T6-1';
+
+      matchStore.upsertFromEnrichment({
+        matchId,
+        homeTeam: 'Home FC',
+        awayTeam: 'Away FC',
+        league: 'Test League',
+        matchUrl: '/match/t6entry/',
+        statistics: null,
+      }, date);
+      tgOutbox.enqueue(dayDir, {
+        matchId,
+        decisionKey: 'decision60',
+        predictionType: 'FT_TM05_FROM_60_75',
+        tier: 'tierA',
+        modelMode: 'basic',
+        snapshot: {
+          minute: 65,
+          score: '0:0',
+          confidence: 0.72,
+          components: {},
+          riskFlags: [],
+          reasons: [],
+          aiVerdict: null,
+        },
+      });
+
+      const result = await flushPending({ date });
+
+      assert.equal(result.entries.length, 1);
+      const row = tgOutbox.findByKey(dayDir, matchId, 'decision60');
+      assert.equal(row.status, 'pending_result');
+      assert.equal(row.entry.messageId, -1);
+    },
+  );
+  cleanupFutureDay(date);
+});
+
+test('flushPending recovers pending_result for finished match', async () => {
+  const date = new Date('2099-04-03T00:00:00Z');
+  cleanupFutureDay(date);
+  await withEnv(
+    {
+      LIVE_TG_ENABLED: '1',
+      LIVE_TG_DRY_RUN: '1',
+      TELEGRAM_TOKEN: 'fake',
+      TELEGRAM_CHAT_ID: '123',
+    },
+    async () => {
+      const { flushPending } = reloadTelegramDispatcher();
+      const matchStore = reloadModule('../src/store/matchStore');
+      const tgOutbox = reloadModule('../src/store/tgOutbox');
+      const dayDir = matchStore.dayLogsAbsolute(date);
+      const matchId = 'M-T6-2';
+
+      matchStore.upsertFromEnrichment({
+        matchId,
+        homeTeam: 'Home FC',
+        awayTeam: 'Away FC',
+        league: 'Test League',
+        matchUrl: '/match/t6result/',
+        statistics: null,
+      }, date);
+      matchStore.setPrediction(matchId, 'decision60', {
+        predictionType: 'FT_TM05_FROM_60_75',
+        predictionAudit: { hit: true, finalResult: null },
+      }, date);
+      const store = matchStore.readStore(date);
+      store[matchId].final = { score: '0:0', goals: [] };
+      store[matchId].tracking.status = 'finished';
+      store[matchId].predictions.decision60.predictionAudit.hit = true;
+      matchStore.writeStore(store, date);
+      tgOutbox.enqueue(dayDir, {
+        matchId,
+        decisionKey: 'decision60',
+        predictionType: 'FT_TM05_FROM_60_75',
+        tier: null,
+        modelMode: 'basic',
+        snapshot: { score: '0:0' },
+      });
+      tgOutbox.markEntrySent(dayDir, matchId, 'decision60', {
+        messageId: 12345,
+        sentAt: '2099-04-03T10:00:00.000Z',
+      });
+
+      const result = await flushPending({ date });
+
+      assert.equal(result.results.length, 1);
+      const row = tgOutbox.findByKey(dayDir, matchId, 'decision60');
+      assert.equal(row.status, 'resolved');
+      assert.equal(row.result.messageId, -1);
+    },
+  );
+  cleanupFutureDay(date);
+});
+
+test('flushPending skips queued without match', async () => {
+  const date = new Date('2099-04-04T00:00:00Z');
+  cleanupFutureDay(date);
+  await withEnv(
+    {
+      LIVE_TG_ENABLED: '1',
+      LIVE_TG_DRY_RUN: '1',
+      TELEGRAM_TOKEN: 'fake',
+      TELEGRAM_CHAT_ID: '123',
+    },
+    async () => {
+      const { flushPending } = reloadTelegramDispatcher();
+      const matchStore = reloadModule('../src/store/matchStore');
+      const tgOutbox = reloadModule('../src/store/tgOutbox');
+      const dayDir = matchStore.dayLogsAbsolute(date);
+
+      tgOutbox.enqueue(dayDir, {
+        matchId: 'GHOST',
+        decisionKey: 'decision60',
+        predictionType: 'FT_TM05_FROM_60_75',
+        tier: null,
+        modelMode: 'basic',
+        snapshot: { score: '0:0' },
+      });
+
+      const result = await flushPending({ date });
+
+      assert.equal(result.entries.length, 0);
+      const row = tgOutbox.findByKey(dayDir, 'GHOST', 'decision60');
+      assert.equal(row.status, 'queued');
+    },
+  );
+  cleanupFutureDay(date);
+});
+
+test('flushPending skips pending_result without finished match', async () => {
+  const date = new Date('2099-04-05T00:00:00Z');
+  cleanupFutureDay(date);
+  await withEnv(
+    {
+      LIVE_TG_ENABLED: '1',
+      LIVE_TG_DRY_RUN: '1',
+      TELEGRAM_TOKEN: 'fake',
+      TELEGRAM_CHAT_ID: '123',
+    },
+    async () => {
+      const { flushPending } = reloadTelegramDispatcher();
+      const matchStore = reloadModule('../src/store/matchStore');
+      const tgOutbox = reloadModule('../src/store/tgOutbox');
+      const dayDir = matchStore.dayLogsAbsolute(date);
+      const matchId = 'M-T6-3';
+
+      matchStore.upsertFromEnrichment({
+        matchId,
+        homeTeam: 'Home FC',
+        awayTeam: 'Away FC',
+        league: 'Test League',
+        matchUrl: '/match/t6unfinished/',
+        statistics: null,
+      }, date);
+      tgOutbox.enqueue(dayDir, {
+        matchId,
+        decisionKey: 'decision60',
+        predictionType: 'FT_TM05_FROM_60_75',
+        tier: null,
+        modelMode: 'basic',
+        snapshot: { score: '0:0' },
+      });
+      tgOutbox.markEntrySent(dayDir, matchId, 'decision60', {
+        messageId: 12345,
+        sentAt: '2099-04-05T10:00:00.000Z',
+      });
+
+      const result = await flushPending({ date });
+
+      assert.equal(result.results.length, 0);
+      const row = tgOutbox.findByKey(dayDir, matchId, 'decision60');
+      assert.equal(row.status, 'pending_result');
+    },
+  );
+  cleanupFutureDay(date);
+});
+
+
+test('flushPending skips pending_result with final but tracking not finished', async () => {
+  const date = new Date('2099-04-06T00:00:00Z');
+  cleanupFutureDay(date);
+  await withEnv(
+    {
+      LIVE_TG_ENABLED: '1',
+      LIVE_TG_DRY_RUN: '1',
+      TELEGRAM_TOKEN: 'fake',
+      TELEGRAM_CHAT_ID: '123',
+    },
+    async () => {
+      const { flushPending } = reloadTelegramDispatcher();
+      const matchStore = reloadModule('../src/store/matchStore');
+      const tgOutbox = reloadModule('../src/store/tgOutbox');
+      const dayDir = matchStore.dayLogsAbsolute(date);
+      const matchId = 'M-T6-4';
+
+      matchStore.upsertFromEnrichment({
+        matchId,
+        homeTeam: 'Home FC',
+        awayTeam: 'Away FC',
+        league: 'Test League',
+        matchUrl: '/match/t6notfinished/',
+        statistics: null,
+      }, date);
+      const store = matchStore.readStore(date);
+      store[matchId].final = { score: '0:0', goals: [] };
+      store[matchId].tracking.status = 'active';
+      store[matchId].predictions = {
+        decision60: { predictionAudit: { hit: true } },
+      };
+      matchStore.writeStore(store, date);
+      tgOutbox.enqueue(dayDir, {
+        matchId,
+        decisionKey: 'decision60',
+        predictionType: 'FT_TM05_FROM_60_75',
+        tier: null,
+        modelMode: 'basic',
+        snapshot: { score: '0:0' },
+      });
+      tgOutbox.markEntrySent(dayDir, matchId, 'decision60', {
+        messageId: 12345,
+        sentAt: '2099-04-06T10:00:00.000Z',
+      });
+
+      const result = await flushPending({ date });
+
+      assert.equal(result.results.length, 0);
+      const row = tgOutbox.findByKey(dayDir, matchId, 'decision60');
+      assert.equal(row.status, 'pending_result');
+    },
+  );
+  cleanupFutureDay(date);
+});

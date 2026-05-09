@@ -205,11 +205,79 @@ async function dispatchResults({ match, date = new Date() }) {
   return updates;
 }
 
+
+async function flushPending({ date = new Date() } = {}) {
+  if (!LIVE_TG_ENABLED) return { entries: [], results: [] };
+
+  const entries = [];
+  const results = [];
+
+  try {
+    const dayDir = matchStore.dayLogsAbsolute(date);
+    const queued = tgOutbox.findByStatus(dayDir, 'queued');
+
+    for (const record of queued) {
+      const match = matchStore.getMatch(record.matchId, date);
+      if (!match) {
+        logger.warn('tg.flush.entry.skipped', {
+          matchId: record.matchId,
+          decisionKey: record.decisionKey,
+          reason: 'match_not_found',
+        });
+        continue;
+      }
+
+      const updated = await enqueueEntry({
+        match,
+        prediction: {
+          predictionType: record.predictionType,
+          tier: record.tier,
+          modelMode: record.modelMode,
+          confidence: record.snapshot?.confidence ?? null,
+          components: record.snapshot?.components || {},
+          riskFlags: record.snapshot?.riskFlags || [],
+          reasons: record.snapshot?.reasons || [],
+          aiOverlay: record.snapshot?.aiVerdict
+            ? { scenario: record.snapshot.aiVerdict }
+            : undefined,
+        },
+        decisionKey: record.decisionKey,
+        minute: record.snapshot?.minute,
+        score: record.snapshot?.score,
+        date,
+      });
+      entries.push(updated);
+    }
+
+    const pending = tgOutbox.findByStatus(dayDir, 'pending_result');
+    const matchIds = [...new Set(pending.map((record) => record.matchId))];
+
+    for (const matchId of matchIds) {
+      const match = matchStore.getMatch(matchId, date);
+      if (!match || !match.final || match.tracking?.status !== 'finished') {
+        if (match) {
+          logger.warn('tg.flush.result.skipped', { matchId, reason: 'not_finished' });
+        }
+        continue;
+      }
+
+      const updated = await dispatchResults({ match, date });
+      results.push(...updated);
+    }
+
+    return { entries, results };
+  } catch (err) {
+    logger.warn('tg.flush.error', { err: err?.message || String(err) });
+    return { entries, results };
+  }
+}
+
 module.exports = {
   enqueueEntry,
   isPrimaryPrediction,
   buildOutboxPayload,
   dispatchResults,
+  flushPending,
   pendingResultRecords,
   resultHitForRecord,
 };
