@@ -10,20 +10,12 @@ const {
   TELEGRAM_CHAT_ID,
 } = require('../../config/env');
 const logger = require('../../observability/logger');
+const { escapeMarkdownV2 } = require('./formatters/markdown');
 
 let hasLoggedMissingCredentials = false;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function escapeMarkdownV2(text) {
-  if (text === null || text === undefined) return '';
-  if (typeof text !== 'string') {
-    if (typeof text !== 'number') return '';
-    text = String(text);
-  }
-  return text.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
 }
 
 async function sendMessage({
@@ -53,9 +45,12 @@ async function sendMessage({
     return { ok: true, messageId: -1, error: null, attempts: 0, dryRun: true };
   }
 
+  const maxRetries = Math.max(1, LIVE_TG_MAX_RETRIES);
   let lastError = 'unknown_error';
+  let attempts = 0;
 
-  for (let attempts = 1; attempts <= LIVE_TG_MAX_RETRIES; attempts += 1) {
+  while (attempts < maxRetries) {
+    attempts += 1;
     const payload = {
       chat_id: resolvedChatId,
       text: String(text ?? ''),
@@ -90,7 +85,7 @@ async function sendMessage({
       }
 
       if (status >= 500 && status <= 599) {
-        if (attempts < LIVE_TG_MAX_RETRIES) {
+        if (attempts < maxRetries) {
           const backoffMs = LIVE_TG_RETRY_BASE_MS * (2 ** (attempts - 1));
           await sleep(backoffMs);
           continue;
@@ -101,9 +96,8 @@ async function sendMessage({
       logger.warn('telegram.send.failed', { error: lastError, attempts });
       return { ok: false, messageId: null, error: lastError, attempts, dryRun: false };
     } catch (error) {
-      const isNetworkError = error?.code === 'ECONNRESET' || error?.code === 'ECONNABORTED';
       lastError = error?.message || 'network_error';
-      if (isNetworkError && attempts < LIVE_TG_MAX_RETRIES) {
+      if (attempts < maxRetries) {
         const backoffMs = LIVE_TG_RETRY_BASE_MS * (2 ** (attempts - 1));
         await sleep(backoffMs);
         continue;
@@ -112,7 +106,6 @@ async function sendMessage({
     }
   }
 
-  const attempts = LIVE_TG_MAX_RETRIES;
   const error = `max_retries_exhausted: ${lastError}`;
   logger.warn('telegram.send.failed', { error, attempts });
   return { ok: false, messageId: null, error, attempts, dryRun: false };

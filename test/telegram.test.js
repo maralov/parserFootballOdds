@@ -48,6 +48,17 @@ test('escapeMarkdownV2 escapes period in version-like strings', () => {
   assert.equal(escapeMarkdownV2(1.23), '1\\.23');
 });
 
+test('escapeMarkdownV2LinkUrl escapes only URL-breaking chars', () => {
+  const { escapeMarkdownV2LinkUrl } = reloadModule('../src/integrations/telegram/formatters/markdown');
+  const input = 'https://www.flashscore.com/match/A)b\\c/#match-summary';
+  const escaped = escapeMarkdownV2LinkUrl(input);
+  assert.match(escaped, /A\\\)b\\\\c/);
+  assert.match(escaped, /www\.flashscore\.com/);
+  assert.match(escaped, /match-summary/);
+  assert.doesNotMatch(escaped, /www\\\.flashscore\\\.com/);
+  assert.doesNotMatch(escaped, /match\\\-summary/);
+});
+
 test('sendMessage returns disabled when LIVE_TG_ENABLED=false', async () => {
   await withEnv(
     {
@@ -616,4 +627,164 @@ test('tgOutbox readOutbox handles corrupt JSON gracefully', () => {
 
   fs.writeFileSync(outboxFilePath(dir), '{not json', 'utf8');
   assert.deepEqual(readOutbox(dir), []);
+});
+
+test('modelModeLabel maps known modes and unknown fallback', () => {
+  const { modelModeLabel } = reloadModule('../src/integrations/telegram/formatters/modeLabels');
+  assert.equal(modelModeLabel('basic'), 'Базовий');
+  assert.equal(modelModeLabel('detailed'), 'Повний');
+  assert.equal(modelModeLabel('detailed_ai'), 'Повний АІ');
+  assert.equal(modelModeLabel('unknown'), 'Невідомий режим');
+  assert.equal(modelModeLabel(''), 'Невідомий режим');
+});
+
+test('buildFlashscoreDesktopUrl converts mobi and relative URLs to desktop summary URL', () => {
+  const { buildFlashscoreDesktopUrl } = reloadModule('../src/integrations/telegram/formatters/flashscoreUrl');
+  assert.equal(
+    buildFlashscoreDesktopUrl('/match/KvzyKxD4/?s=2'),
+    'https://www.flashscore.com/match/KvzyKxD4/#match-summary',
+  );
+  assert.equal(
+    buildFlashscoreDesktopUrl('https://www.flashscore.mobi/match/WIgtbejo/'),
+    'https://www.flashscore.com/match/WIgtbejo/#match-summary',
+  );
+  assert.equal(buildFlashscoreDesktopUrl('https://example.com/nope'), null);
+});
+
+test('formatEntryMessage renders FT primary with teams league components odds and desktop link', () => {
+  const { formatEntryMessage } = reloadModule('../src/integrations/telegram/formatters/entryMessage');
+  const text = formatEntryMessage({
+    match: {
+      homeTeam: 'Home FC',
+      awayTeam: 'Away United',
+      league: 'Bundesliga',
+      matchUrl: '/match/KvzyKxD4/?s=2',
+      odds: {
+        home: 1.2,
+        draw: 7.52,
+        away: 9.67,
+        isOddsFavorite: { favorite: 'home', margin: 0.6 },
+      },
+    },
+    prediction: {
+      predictionType: 'FT_TM05_FROM_60_75',
+      modelMode: 'detailed_ai',
+      confidence: 0.8123,
+      tier: 'ai_premium_upgrade',
+      components: {
+        fullTimeNilNilScore: 78.123,
+        dryStateScore: 82,
+        realPressureScore60_75: 18,
+        fakePressureScore60_75: 35,
+        lateActivationRisk: 22,
+        aiScenarioScore: 90,
+        notWhitelistedMetric: 999,
+      },
+      riskFlags: ['HIGH_FAKE_PRESSURE'],
+      aiOverlay: { scenario: 'dead_match' },
+    },
+    decisionKey: 'decision60',
+    minute: 67,
+    score: '0:0',
+  });
+
+  assert.match(text, /Home FC/);
+  assert.match(text, /Away United/);
+  assert.match(text, /Повний АІ/);
+  assert.match(text, /Confidence: 0\\\.81/);
+  assert.match(text, /1\\\.20/);
+  assert.match(text, /Flashscore desktop/);
+  assert.match(text, /https:\/\/www\.flashscore\.com\/match\/KvzyKxD4\/#match-summary/);
+  assert.match(text, /HIGH\\_FAKE\\_PRESSURE/);
+  assert.match(text, /dead\\_match/);
+  assert.doesNotMatch(text, /notWhitelistedMetric/);
+  assert.doesNotMatch(text, /999/);
+});
+
+test('formatEntryMessage returns null when teams missing', () => {
+  const { formatEntryMessage } = reloadModule('../src/integrations/telegram/formatters/entryMessage');
+  const result = formatEntryMessage({
+    match: { league: 'Bundesliga', matchUrl: '/match/KvzyKxD4/' },
+    prediction: { predictionType: 'FT_TM05_FROM_60_75', modelMode: 'basic' },
+    decisionKey: 'decision60',
+    minute: 65,
+    score: '0:0',
+  });
+  assert.equal(result, null);
+});
+
+test('formatEntryMessage omits odds block when odds incomplete', () => {
+  const { formatEntryMessage } = reloadModule('../src/integrations/telegram/formatters/entryMessage');
+  const text = formatEntryMessage({
+    match: {
+      homeTeam: 'Home FC',
+      awayTeam: 'Away United',
+      league: 'Bundesliga',
+      matchUrl: '/match/KvzyKxD4/',
+      odds: { home: 1.2, draw: 7.52 },
+    },
+    prediction: { predictionType: 'FT_TM05_FROM_60_75', modelMode: 'basic', components: {} },
+    decisionKey: 'decision60',
+    minute: 66,
+    score: '0:0',
+  });
+  assert.doesNotMatch(text, /Pre-match odds/);
+});
+
+test('formatResultMessage renders FT hit and miss', () => {
+  const { formatResultMessage } = reloadModule('../src/integrations/telegram/formatters/resultMessage');
+
+  const hitText = formatResultMessage({
+    outboxRecord: { predictionType: 'FT_TM05_FROM_60_75', decisionKey: 'decision60', result: { hit: true } },
+    match: { final: { score: '0:0', goals: [] } },
+  });
+  assert.match(hitText, /✅/);
+  assert.match(hitText, /HIT/);
+  assert.match(hitText, /FT TM0\\\.5/);
+  assert.match(hitText, /Фінал: 0:0/);
+
+  const missText = formatResultMessage({
+    outboxRecord: { predictionType: 'FT_TM05_FROM_60_75', decisionKey: 'decision60', result: { hit: false } },
+    match: { final: { score: '1:0', goals: [{ minute: 78 }] } },
+  });
+  assert.match(missText, /❌/);
+  assert.match(missText, /MISS/);
+  assert.match(missText, /Перший гол: 78'/);
+});
+
+test('formatResultMessage renders TB80 hit and miss', () => {
+  const { formatResultMessage } = reloadModule('../src/integrations/telegram/formatters/resultMessage');
+
+  const hitText = formatResultMessage({
+    outboxRecord: { predictionType: 'TB05_80_PLUS', decisionKey: 'decision80' },
+    match: { final: { goals: [{ minute: 87, scoreAfter: '1:0' }] } },
+  });
+  assert.match(hitText, /Гол після 80'/);
+  assert.match(hitText, /87'/);
+  assert.match(hitText, /1:0/);
+
+  const missText = formatResultMessage({
+    outboxRecord: { predictionType: 'TB05_80_PLUS', decisionKey: 'decision80' },
+    match: { final: { score: '0:0', goals: [] } },
+  });
+  assert.match(missText, /голу після 80' не було/);
+});
+
+test('regularGoals filters extra-time goals', () => {
+  const { regularGoals } = reloadModule('../src/integrations/telegram/formatters/resultMessage');
+  const goals = regularGoals({
+    final: {
+      goals: [
+        { minute: 78, isExtraTime: false },
+        { minute: 92, isExtraTime: true },
+      ],
+    },
+  });
+  assert.equal(goals.length, 1);
+  assert.equal(goals[0].minute, 78);
+});
+
+test('finalScore returns unknown when goals lack valid team', () => {
+  const { finalScore } = reloadModule('../src/integrations/telegram/formatters/resultMessage');
+  assert.equal(finalScore({ final: { goals: [{ minute: 78 }] } }), '?:?');
 });
