@@ -410,7 +410,7 @@ T1, T2, T3 — **паралельні** (немає залежностей мі�
 
 ---
 
-## ✅ Implementation summary (after T1–T6)
+## ✅ Implementation summary (after T1–T9)
 
 - T1 ✅ — `src/integrations/telegram/client.js` (axios + MarkdownV2 escape + retry/dry-run, 10 tests)
 - T2 ✅ — `src/store/tgOutbox.js` (FSM + atomic writes, 13 tests)
@@ -419,5 +419,36 @@ T1, T2, T3 — **паралельні** (немає залежностей мі�
 - T5 ✅ — result side dispatch + `matchStore.finalize` hook + concurrency lock + persisted-write gate (9 tests)
 - T6 ✅ — `flushPending()` startup recovery + `runWatch.js` hook (6 tests, finished-status gate)
 - T7 ✅ — `.env.example` updated, legacy `sendTelegramMessage.js` removed
+- T8 ⏭️ — `scripts/tgReplay.js` deferred (optional backfill tool, not required for MVP)
+- T9 ✅ — End-to-end smoke tests for FT and TB80 entry→result thread (2 tests)
 
-Total: telegram tests 56/56, prediction regression 71/71.
+**Total:** telegram tests 58/58, prediction regression 71/71.
+
+---
+
+## 12. Operational requirements (production checklist)
+
+Before enabling `LIVE_TG_ENABLED=1` in production:
+
+1. **Bot setup**
+   - Create bot via [@BotFather](https://t.me/BotFather) → save token to `TELEGRAM_TOKEN`.
+   - Get chat/channel ID (use `@userinfobot` or `getUpdates` after sending a test message) → save to `TELEGRAM_CHAT_ID`.
+2. **Channel/group permissions** (CRITICAL for `reply_to_message_id` to work):
+   - Bot must be added as **Admin** to the target channel/group.
+   - Required admin permissions: `Post Messages`, `Edit Messages` (for future use).
+   - For supergroups with topics: bot must have `Manage Topics` if you switch to `message_thread_id` later.
+3. **Validation flow**
+   - Set `LIVE_TG_DRY_RUN=1`, run `npm run watch`, watch logs for `tg.entry.sent` / `tg.result.sent` with `dryRun: true`.
+   - Switch `LIVE_TG_DRY_RUN=0`, send one test prediction, verify message appears + reply chain works.
+4. **Operational notes**
+   - `missing_credentials` outbox records remain `queued`/`pending_result` indefinitely until env is fixed (intentional — allows recovery without manual cleanup).
+   - For multi-process deployments: in-memory concurrency locks are per-process. Deploy single-instance OR add cross-process lock (Redis SETNX or filesystem lockfile) before scaling.
+
+## 13. Known follow-ups (not blocking MVP)
+
+- **Refactor:** split `dispatcher.js` (~280 lines) into `entryDispatcher.js` / `resultDispatcher.js` / `recovery.js` if it grows further.
+- **Backfill tool (T8):** `scripts/tgReplay.js --from YYYY-MM-DD --to YYYY-MM-DD [--dry-run]` for catch-up/disaster recovery.
+- **Telegram Topics:** add `message_thread_id` parameter to `client.sendMessage` for forum-style channels.
+- **Channel splitting:** add `LIVE_TG_EXPERIMENTAL_CHAT_ID` for routing LEAN/RISK predictions to a separate channel.
+- **Hard-fail policy for missing credentials:** bump `attempts` to MAX immediately or use distinct `failed_config` status if operational noise becomes a problem.
+- **Pipeline-trigger E2E test:** drive full path via `maybeRunPredictionPipeline()` instead of direct `enqueueEntry` call.
