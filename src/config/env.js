@@ -42,7 +42,7 @@ const env = {
   // Stage 3 — snapshot tracker
   LIVE_TRACKER_ENABLED: envBool('LIVE_TRACKER_ENABLED', true),
   LIVE_TRACKER_CONCURRENCY: envInt('LIVE_TRACKER_CONCURRENCY', 2),
-  // First snapshot delay after discoveredAt (18 min = 1 080 000 ms)
+  // Deprecated: cadence now starts from halftime buckets, not discoveredAt offset.
   LIVE_TRACKER_FIRST_SNAPSHOT_OFFSET_MS: envInt('LIVE_TRACKER_FIRST_SNAPSHOT_OFFSET_MS', 18 * 60_000),
   // Interval between regular snapshots (5 min)
   LIVE_TRACKER_INTERVAL_MS: envInt('LIVE_TRACKER_INTERVAL_MS', 5 * 60_000),
@@ -63,11 +63,22 @@ const env = {
   LIVE_AI_ENABLED: envBool('LIVE_AI_ENABLED', false),
   OPENAI_API_KEY: process.env.OPENAI_API_KEY || '',
   LIVE_AI_MODEL: process.env.LIVE_AI_MODEL || 'gpt-4o',
+  LIVE_AI_HT_MODEL: process.env.LIVE_AI_HT_MODEL || 'gpt-4o-mini',
   LIVE_AI_MAX_RETRIES: envInt('LIVE_AI_MAX_RETRIES', 2),
   LIVE_AI_TIMEOUT_MS: envInt('LIVE_AI_TIMEOUT_MS', 15_000),
+  LIVE_AI_HT_RESPONSES_TIMEOUT_MS: envInt('LIVE_AI_HT_RESPONSES_TIMEOUT_MS', 90_000),
   LIVE_AI_TEMPERATURE: Number(process.env.LIVE_AI_TEMPERATURE) || 0.2,
+  LIVE_AI_HT_TEMPERATURE: Number(process.env.LIVE_AI_HT_TEMPERATURE) || 0.3,
   LIVE_AI_MAX_TOKENS: envInt('LIVE_AI_MAX_TOKENS', 500),
   LIVE_AI_HT_XG_THRESHOLD: Number(process.env.LIVE_AI_HT_XG_THRESHOLD) || 1.5,
+  LIVE_AI_HT_MAX_TOKENS: envInt('LIVE_AI_HT_MAX_TOKENS', 2500),
+  LIVE_AI_MATCH_TIMEZONE: process.env.LIVE_AI_MATCH_TIMEZONE || 'UTC',
+
+  // Stage 5 — Telegram notifications
+  LIVE_TG_ENABLED: envBool('LIVE_TG_ENABLED', true),
+  LIVE_TG_DRY_RUN: envBool('LIVE_TG_DRY_RUN', false),
+  LIVE_TG_MAX_RETRIES: envInt('LIVE_TG_MAX_RETRIES', 3),
+  LIVE_TG_RETRY_BASE_MS: envInt('LIVE_TG_RETRY_BASE_MS', 1_000),
 };
 
 module.exports = env;
