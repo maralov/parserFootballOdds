@@ -760,7 +760,7 @@ test('formatResultMessage renders FT hit and miss', () => {
   });
   assert.match(hitText, /✅/);
   assert.match(hitText, /HIT/);
-  assert.match(hitText, /FT TM0\\\.5/);
+  assert.match(hitText, /ТМ 0,5/);
   assert.match(hitText, /Фінал: 0:0/);
 
   const missText = formatResultMessage({
@@ -1334,6 +1334,71 @@ test('dispatchResults sends TB80 result with replyToMessageId', async () => {
   cleanupFutureDay(date);
 });
 
+test('dispatchResults prevents duplicate result send for concurrent same key', async () => {
+  const date = new Date('2099-03-06T00:00:00Z');
+  cleanupFutureDay(date);
+  await withEnv(
+    {
+      LIVE_TG_ENABLED: '1',
+      LIVE_TG_DRY_RUN: '0',
+      TELEGRAM_TOKEN: 'fake',
+      TELEGRAM_CHAT_ID: '123',
+    },
+    async () => {
+      const { dispatchResults } = reloadTelegramDispatcher();
+      const tgClient = require('../src/integrations/telegram/client');
+      const matchStore = reloadModule('../src/store/matchStore');
+      const tgOutbox = reloadModule('../src/store/tgOutbox');
+      const dayDir = matchStore.dayLogsAbsolute(date);
+      const originalSendMessage = tgClient.sendMessage;
+      let calls = 0;
+
+      try {
+        tgClient.sendMessage = async () => {
+          calls += 1;
+          await new Promise((resolve) => setTimeout(resolve, 25));
+          return { ok: true, messageId: 70001, error: null, attempts: 1, dryRun: false };
+        };
+        tgOutbox.enqueue(dayDir, {
+          matchId: 'M-T5-4C',
+          decisionKey: 'decision60',
+          predictionType: 'FT_TM05_FROM_60_75',
+          tier: null,
+          modelMode: 'basic',
+          snapshot: { score: '0:0' },
+        });
+        tgOutbox.markEntrySent(dayDir, 'M-T5-4C', 'decision60', {
+          messageId: 54321,
+          sentAt: '2099-03-06T10:00:00.000Z',
+        });
+        const match = {
+          matchId: 'M-T5-4C',
+          final: { score: '0:0', goals: [] },
+          predictions: { decision60: { predictionAudit: { hit: true } } },
+        };
+
+        const [first, second] = await Promise.all([
+          dispatchResults({ match, date }),
+          dispatchResults({ match, date }),
+        ]);
+        assert.equal(calls, 1);
+        assert.equal(first.length + second.length, 1);
+
+        const rows = tgOutbox.readOutbox(dayDir);
+        assert.equal(rows.length, 1);
+        assert.equal(rows[0].status, 'resolved');
+        assert.equal(rows[0].result.messageId, 70001);
+
+        const third = await dispatchResults({ match, date });
+        assert.equal(third.length, 0);
+      } finally {
+        tgClient.sendMessage = originalSendMessage;
+      }
+    },
+  );
+  cleanupFutureDay(date);
+});
+
 test('dispatchResults marks result failure but keeps pending_result below max retries', async () => {
   const date = new Date('2099-03-05T00:00:00Z');
   cleanupFutureDay(date);
@@ -1443,6 +1508,76 @@ test('matchStore.finalize schedules Telegram result dispatch after persisting fi
   cleanupFutureDay(date);
 });
 
+test('matchStore.finalize skips Telegram dispatch if writeStore fails', async () => {
+  const date = new Date('2099-03-08T00:00:00Z');
+  cleanupFutureDay(date);
+  await withEnv(
+    {
+      LIVE_TG_ENABLED: '1',
+      LIVE_TG_DRY_RUN: '1',
+      TELEGRAM_TOKEN: 'fake',
+      TELEGRAM_CHAT_ID: '123',
+    },
+    async () => {
+      reloadTelegramDispatcher();
+      const matchStore = reloadModule('../src/store/matchStore');
+      const tgOutbox = reloadModule('../src/store/tgOutbox');
+      const dayDir = matchStore.dayLogsAbsolute(date);
+      const realWrite = fs.writeFileSync;
+
+      const matchId = 'M-T5-7';
+      matchStore.upsertFromEnrichment({
+        matchId,
+        homeTeam: 'A',
+        awayTeam: 'B',
+        league: 'L',
+        matchUrl: '/match/t5f2/',
+        statistics: null,
+      }, date);
+      matchStore.setPrediction(matchId, 'decision60', {
+        predictionType: 'FT_TM05_FROM_60_75',
+        predictionAudit: { hit: null, finalResult: null },
+      }, date);
+
+      tgOutbox.enqueue(dayDir, {
+        matchId,
+        decisionKey: 'decision60',
+        predictionType: 'FT_TM05_FROM_60_75',
+        tier: null,
+        modelMode: 'basic',
+        snapshot: { score: '0:0' },
+      });
+      tgOutbox.markEntrySent(dayDir, matchId, 'decision60', {
+        messageId: 12345,
+        sentAt: '2099-03-08T10:00:00.000Z',
+      });
+
+      try {
+        fs.writeFileSync = (p, ...rest) => {
+          if (typeof p === 'string' && p.endsWith('matches.json')) {
+            throw new Error('disk full');
+          }
+          return realWrite.call(fs, p, ...rest);
+        };
+
+        const final = { score: '0:0', goals: [], firstGoalMinute: null };
+        const derived = { totalGoals: 0 };
+        const finalized = matchStore.finalize(matchId, final, derived, date);
+        assert.equal(finalized.matchId, matchId);
+
+        await new Promise((resolve) => setImmediate(resolve));
+
+        const rows = tgOutbox.readOutbox(dayDir);
+        assert.equal(rows.length, 1);
+        assert.equal(rows[0].status, 'pending_result');
+        assert.equal(rows[0].result.messageId, null);
+      } finally {
+        fs.writeFileSync = realWrite;
+      }
+    },
+  );
+  cleanupFutureDay(date);
+});
 
 test('flushPending disabled returns empty arrays', async () => {
   const date = new Date('2099-04-01T00:00:00Z');
@@ -1663,7 +1798,6 @@ test('flushPending skips pending_result without finished match', async () => {
   cleanupFutureDay(date);
 });
 
-
 test('flushPending skips pending_result with final but tracking not finished', async () => {
   const date = new Date('2099-04-06T00:00:00Z');
   cleanupFutureDay(date);
@@ -1714,6 +1848,231 @@ test('flushPending skips pending_result with final but tracking not finished', a
       assert.equal(result.results.length, 0);
       const row = tgOutbox.findByKey(dayDir, matchId, 'decision60');
       assert.equal(row.status, 'pending_result');
+    },
+  );
+  cleanupFutureDay(date);
+});
+
+test('E2E FT: enqueue entry then finalize resolves outbox thread (dry-run)', async () => {
+  const date = new Date('2099-04-10T20:00:00Z');
+  cleanupFutureDay(date);
+  await withEnv(
+    {
+      LIVE_TG_ENABLED: '1',
+      LIVE_TG_DRY_RUN: '1',
+      TELEGRAM_TOKEN: 'fake',
+      TELEGRAM_CHAT_ID: '123',
+    },
+    async () => {
+      const modules = [
+        '../src/config/env',
+        '../src/integrations/telegram/client',
+        '../src/integrations/telegram/dispatcher',
+        '../src/store/matchStore',
+        '../src/store/tgOutbox',
+        '../src/store/predictionAuditResolver',
+        '../src/store/predictionSignals',
+      ];
+      for (const modulePath of modules) {
+        delete require.cache[require.resolve(modulePath)];
+      }
+
+      const matchStore = require('../src/store/matchStore');
+      const tgOutbox = require('../src/store/tgOutbox');
+      const predictionSignals = require('../src/store/predictionSignals');
+      const tgDispatcher = require('../src/integrations/telegram/dispatcher');
+
+      const dayDir = matchStore.dayLogsAbsolute(date);
+      const match = {
+        matchId: 'E2E1',
+        homeTeam: 'Home FC',
+        awayTeam: 'Away United',
+        league: 'Test League',
+        matchUrl: '/match/E2E1/?s=2',
+        odds: { home: 1.5, draw: 4.0, away: 6.0 },
+        tracking: { status: 'active', validForPrediction: true },
+        snapshots: [],
+        predictions: {
+          decision60: {
+            predictionType: 'FT_TM05_FROM_60_75',
+            actionablePrimary: true,
+            actionable: true,
+            modelMode: 'detailed',
+            confidence: 0.78,
+            components: { fullTimeNilNilScore: 70 },
+            reasons: [],
+            riskFlags: [],
+            checkpoint: 'decision60',
+            predictionAudit: { components: {}, hit: null, finalResult: null },
+          },
+        },
+      };
+      matchStore.writeStore({ E2E1: match }, date);
+
+      predictionSignals.appendPredictionSignals(dayDir, {
+        matchId: 'E2E1',
+        homeTeam: match.homeTeam,
+        awayTeam: match.awayTeam,
+        league: match.league,
+        recordedAt: new Date().toISOString(),
+        checkpoint: 'decision60',
+        signal: predictionSignals.deriveSignal(match.predictions.decision60),
+        minute: 65,
+        score: '0:0',
+        predictionType: 'FT_TM05_FROM_60_75',
+        confidence: 0.78,
+        modelMode: 'detailed',
+        components: { fullTimeNilNilScore: 70 },
+        reasons: [],
+        riskFlags: [],
+      });
+
+      const entryRecord = await tgDispatcher.enqueueEntry({
+        match,
+        prediction: match.predictions.decision60,
+        decisionKey: 'decision60',
+        minute: 65,
+        score: '0:0',
+        date,
+      });
+      assert.ok(entryRecord);
+      assert.equal(entryRecord.status, 'pending_result');
+      assert.equal(entryRecord.entry.messageId, -1);
+
+      matchStore.finalize('E2E1', { scoreHome: 0, scoreAway: 0, score: '0:0', goals: [] }, { totalGoals: 0 }, date);
+      await new Promise((resolve) => setImmediate(resolve));
+      await new Promise((resolve) => setImmediate(resolve));
+
+      const outbox = tgOutbox.readOutbox(dayDir);
+      assert.equal(outbox.length, 1);
+      const final = outbox[0];
+      assert.equal(final.status, 'resolved');
+      assert.equal(final.entry.messageId, -1);
+      assert.equal(final.result.messageId, -1);
+      assert.equal(final.result.hit, true);
+
+      const signals = predictionSignals.readSignalsArray(dayDir);
+      assert.equal(signals.length, 1);
+      assert.equal(signals[0].matchId, 'E2E1');
+      assert.equal(signals[0].checkpoint, 'decision60');
+      assert.equal(signals[0].signal, 'FT_TM60_75');
+      assert.equal(signals[0].predictionType, 'FT_TM05_FROM_60_75');
+      assert.equal(signals[0].predictionOutcome, 'HIT');
+    },
+  );
+  cleanupFutureDay(date);
+});
+
+test('E2E TB80: enqueue entry then finalize resolves outbox thread (dry-run)', async () => {
+  const date = new Date('2099-04-11T20:00:00Z');
+  cleanupFutureDay(date);
+  await withEnv(
+    {
+      LIVE_TG_ENABLED: '1',
+      LIVE_TG_DRY_RUN: '1',
+      TELEGRAM_TOKEN: 'fake',
+      TELEGRAM_CHAT_ID: '123',
+    },
+    async () => {
+      const modules = [
+        '../src/config/env',
+        '../src/integrations/telegram/client',
+        '../src/integrations/telegram/dispatcher',
+        '../src/store/matchStore',
+        '../src/store/tgOutbox',
+        '../src/store/predictionAuditResolver',
+        '../src/store/predictionSignals',
+      ];
+      for (const modulePath of modules) {
+        delete require.cache[require.resolve(modulePath)];
+      }
+
+      const matchStore = require('../src/store/matchStore');
+      const tgOutbox = require('../src/store/tgOutbox');
+      const predictionSignals = require('../src/store/predictionSignals');
+      const tgDispatcher = require('../src/integrations/telegram/dispatcher');
+
+      const dayDir = matchStore.dayLogsAbsolute(date);
+      const match = {
+        matchId: 'E2E2',
+        homeTeam: 'Goal FC',
+        awayTeam: 'Late Goal United',
+        league: 'Test League',
+        matchUrl: '/match/E2E2/?s=2',
+        odds: { home: 2.2, draw: 3.1, away: 3.3 },
+        tracking: { status: 'active', validForPrediction: true },
+        snapshots: [],
+        predictions: {
+          decision80: {
+            predictionType: 'TB05_80_PLUS',
+            actionablePrimary: true,
+            actionable: true,
+            modelMode: 'detailed',
+            confidence: 0.81,
+            components: { lateGoalScore80: 72 },
+            reasons: [],
+            riskFlags: [],
+            checkpoint: 'decision80',
+            predictionAudit: { components: {}, hit: null, finalResult: null },
+          },
+        },
+      };
+      matchStore.writeStore({ E2E2: match }, date);
+
+      predictionSignals.appendPredictionSignals(dayDir, {
+        matchId: 'E2E2',
+        homeTeam: match.homeTeam,
+        awayTeam: match.awayTeam,
+        league: match.league,
+        recordedAt: new Date().toISOString(),
+        checkpoint: 'decision80',
+        signal: predictionSignals.deriveSignal(match.predictions.decision80),
+        minute: 82,
+        score: '0:0',
+        predictionType: 'TB05_80_PLUS',
+        confidence: 0.81,
+        modelMode: 'detailed',
+        components: { lateGoalScore80: 72 },
+        reasons: [],
+        riskFlags: [],
+      });
+
+      const entryRecord = await tgDispatcher.enqueueEntry({
+        match,
+        prediction: match.predictions.decision80,
+        decisionKey: 'decision80',
+        minute: 82,
+        score: '0:0',
+        date,
+      });
+      assert.ok(entryRecord);
+      assert.equal(entryRecord.status, 'pending_result');
+      assert.equal(entryRecord.entry.messageId, -1);
+
+      matchStore.finalize(
+        'E2E2',
+        { scoreHome: 1, scoreAway: 0, score: '1:0', goals: [{ minute: 87, team: 'home', scoreAfter: '1:0' }] },
+        { totalGoals: 1 },
+        date,
+      );
+      await new Promise((resolve) => setImmediate(resolve));
+      await new Promise((resolve) => setImmediate(resolve));
+
+      const outbox = tgOutbox.readOutbox(dayDir);
+      assert.equal(outbox.length, 1);
+      const final = outbox[0];
+      assert.equal(final.status, 'resolved');
+      assert.equal(final.entry.messageId, -1);
+      assert.equal(final.result.messageId, -1);
+      assert.equal(final.result.hit, true);
+
+      const signals = predictionSignals.readSignalsArray(dayDir);
+      assert.equal(signals.length, 1);
+      assert.equal(signals[0].matchId, 'E2E2');
+      assert.equal(signals[0].checkpoint, 'decision80');
+      assert.equal(signals[0].signal, 'TB80_PLUS');
+      assert.equal(signals[0].predictionType, 'TB05_80_PLUS');
+      assert.equal(signals[0].predictionOutcome, 'HIT');
     },
   );
   cleanupFutureDay(date);
