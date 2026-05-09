@@ -4,7 +4,10 @@ const fs   = require('fs');
 const path = require('path');
 const { dateKeyLocal, toISO } = require('../helpers/date');
 const { computeDerived } = require('../tracker/derivedFields');
+const { CUMULATIVE_STAT_FIELDS } = require('../tracker/deltaCalculator');
+const { applyPredictionHits } = require('./predictionAuditResolver');
 const logger = require('../observability/logger');
+let tgDispatcher = null;
 
 const DATA_ROOT = path.resolve(__dirname, '../../data/logs');
 
@@ -23,6 +26,11 @@ function dayDir(date) {
 
 function matchesFile(date) {
   return path.join(dayDir(date), 'matches.json');
+}
+
+/** Absolute folder for dated logs (`data/logs/YYYY-MM-DD`). */
+function dayLogsAbsolute(date = new Date()) {
+  return dayDir(date);
 }
 
 // ─── Read / Write ─────────────────────────────────────────────────────────────
@@ -64,16 +72,17 @@ function buildBaseline1H(statistics) {
   if (!statistics || !statistics['1half']) return null;
   const { home = {}, away = {} } = statistics['1half'];
 
-  const fields = [
-    'totalShots', 'shotsOnTarget', 'cornerKicks',
-    'expectedGoalsXg', 'ballPossession', 'yellowCards', 'redCards',
-  ];
-
   const result = {};
-  for (const f of fields) {
+  for (const f of CUMULATIVE_STAT_FIELDS) {
     result[f] = {
       home: home[f] != null ? home[f] : null,
       away: away[f] != null ? away[f] : null,
+    };
+  }
+  if (home.ballPossession != null || away.ballPossession != null) {
+    result.ballPossession = {
+      home: home.ballPossession != null ? home.ballPossession : null,
+      away: away.ballPossession != null ? away.ballPossession : null,
     };
   }
   return result;
@@ -114,6 +123,9 @@ function upsertFromEnrichment(enrichedItem, date = new Date()) {
     odds:       enrichedItem.odds      || null,
     statsLevel: enrichedItem.statsLevel || null,
 
+    statistics:      enrichedItem.statistics || null,
+    enrichmentTabs: enrichedItem.tabs       || null,
+
     baseline1H: buildBaseline1H(enrichedItem.statistics),
 
     standings: enrichedItem.standings || null,
@@ -130,9 +142,12 @@ function upsertFromEnrichment(enrichedItem, date = new Date()) {
     },
 
     snapshots: [],
-    final:     null,
-    derived:   null,
+    final: null,
+    derived: null,
     aiAnalysis: null,
+    computed: null,
+    predictions: null,
+    predictionLocks: null,
   };
 
   record.derived = computeDerived(record);
@@ -164,7 +179,7 @@ function appendSnapshot(matchId, snapshot, nextSnapshotAt = null, date = new Dat
     match.tracking.firstGoalMinute === null &&
     (snapshot.scoreHome + snapshot.scoreAway) > 0
   ) {
-    match.tracking.firstGoalMinute = snapshot.minute;
+    match.tracking.firstGoalMinute = snapshot.observedMinute ?? snapshot.minute;
   }
 
   // validForPrediction: once we reach 60' with 0:0
@@ -184,6 +199,19 @@ function appendSnapshot(matchId, snapshot, nextSnapshotAt = null, date = new Dat
 
   writeStore(store, date);
   return match;
+}
+
+function setNextSnapshotAt(matchId, nextSnapshotAt, date = new Date()) {
+  const store = readStore(date);
+  const match = store[matchId];
+  if (!match) {
+    logger.warn('matchStore.setNextSnapshotAt: match not found', { matchId, nextSnapshotAt });
+    return null;
+  }
+
+  match.tracking.nextSnapshotAt = nextSnapshotAt;
+  writeStore(store, date);
+  return match.tracking.nextSnapshotAt;
 }
 
 /**
@@ -280,6 +308,7 @@ function finalize(matchId, final, derived, date = new Date()) {
 
   match.final   = final;
   match.derived = derived;
+  applyPredictionHits(match);
   match.tracking.status         = 'finished';
   match.tracking.nextSnapshotAt = null;
 
@@ -288,6 +317,26 @@ function finalize(matchId, final, derived, date = new Date()) {
   }
 
   writeStore(store, date);
+
+  setImmediate(() => {
+    try {
+      if (!tgDispatcher) {
+        tgDispatcher = require('../integrations/telegram/dispatcher');
+      }
+      tgDispatcher.dispatchResults({ match, date }).catch((err) => {
+        logger.warn('tg.result.enqueue_unhandled', {
+          matchId,
+          err: err?.message || String(err),
+        });
+      });
+    } catch (err) {
+      logger.warn('tg.result.enqueue_unhandled', {
+        matchId,
+        err: err?.message || String(err),
+      });
+    }
+  });
+
   return match;
 }
 
@@ -368,8 +417,62 @@ function hasAiCheckpoint(matchId, checkpoint, date = new Date()) {
     && match.aiAnalysis[checkpoint] !== undefined);
 }
 
+function ensurePredictionShell(matchId, date = new Date()) {
+  const store = readStore(date);
+  const match = store[matchId];
+  if (!match) return;
+  match.predictions = match.predictions || {
+    decision60: null,
+    decision80: null,
+  };
+  if (!Object.prototype.hasOwnProperty.call(match, 'predictionLocks')) {
+    match.predictionLocks = null;
+  }
+  if (!Object.prototype.hasOwnProperty.call(match, 'computed')) {
+    match.computed = null;
+  }
+  writeStore(store, date);
+}
+
+/** @param {'decision60'|'decision80'} checkpoint */
+function setPrediction(matchId, checkpoint, payload, date = new Date()) {
+  const store = readStore(date);
+  const match = store[matchId];
+  if (!match) {
+    logger.warn('matchStore.setPrediction: match missing', { matchId, checkpoint });
+    return null;
+  }
+  ensurePredictionShell(matchId, date);
+  if (!match.predictions) match.predictions = { decision60: null, decision80: null };
+  match.predictions[checkpoint] = payload;
+  writeStore(store, date);
+  return payload;
+}
+
+function setComputed(matchId, computedSnapshot, date = new Date()) {
+  const store = readStore(date);
+  const match = store[matchId];
+  if (!match) return null;
+  match.computed = computedSnapshot;
+  writeStore(store, date);
+  return computedSnapshot;
+}
+
+function ensurePredictionLocks(matchId, date = new Date(), blockTb = true) {
+  const store = readStore(date);
+  const match = store[matchId];
+  if (!match) return;
+  if (!blockTb) return;
+  match.predictionLocks = match.predictionLocks || {};
+  match.predictionLocks.blockTb80Plus = true;
+  match.predictionLocks.reason = match.predictionLocks.reason || 'ft_tm05_from_6075_signal_was_issued';
+  match.predictionLocks.createdAt = match.predictionLocks.createdAt || new Date().toISOString();
+  writeStore(store, date);
+}
+
 module.exports = {
   readStore,
+  writeStore,
   upsertFromEnrichment,
   appendSnapshot,
   markDiscarded,
@@ -380,6 +483,12 @@ module.exports = {
   getMatch,
   getActiveMatches,
   getLastSnapshot,
+  setNextSnapshotAt,
   setAiAnalysis,
   hasAiCheckpoint,
+  dayLogsAbsolute,
+  setPrediction,
+  setComputed,
+  ensurePredictionShell,
+  ensurePredictionLocks,
 };

@@ -6,6 +6,7 @@ const matchStore = require('../../store/matchStore');
 const tgOutbox = require('../../store/tgOutbox');
 const client = require('./client');
 const { formatEntryMessage } = require('./formatters/entryMessage');
+const { formatResultMessage } = require('./formatters/resultMessage');
 const { PRED_TYPES_60, PRED_TYPES_80 } = require('../../prediction/constants');
 const inFlightEntries = new Set();
 
@@ -116,8 +117,99 @@ async function enqueueEntry({ match, prediction, decisionKey, minute, score, dat
   }
 }
 
+function pendingResultRecords(dayDir, matchId) {
+  return tgOutbox
+    .findByMatchId(dayDir, matchId)
+    .filter((record) => (
+      record?.status === 'pending_result'
+      && record?.entry?.messageId != null
+      && record?.result?.messageId == null
+    ));
+}
+
+function resultHitForRecord(record, match) {
+  if (typeof record?.result?.hit === 'boolean') return record.result.hit;
+  const auditHit = match?.predictions?.[record?.decisionKey]?.predictionAudit?.hit;
+  if (typeof auditHit === 'boolean') return auditHit;
+  return null;
+}
+
+async function dispatchResults({ match, date = new Date() }) {
+  if (!LIVE_TG_ENABLED) return [];
+  if (!match?.matchId || !match?.final) return [];
+
+  const matchId = match.matchId;
+  const dayDir = matchStore.dayLogsAbsolute(date);
+  const records = pendingResultRecords(dayDir, matchId);
+  const updates = [];
+
+  for (const record of records) {
+    try {
+      const message = formatResultMessage({ outboxRecord: record, match });
+      if (message == null) {
+        logger.warn('tg.result.skipped', {
+          matchId,
+          decisionKey: record.decisionKey,
+          reason: 'format_null',
+        });
+        continue;
+      }
+
+      const result = await client.sendMessage({
+        text: message,
+        replyToMessageId: record.entry.messageId,
+      });
+      if (result.ok) {
+        const hit = resultHitForRecord(record, match);
+        const updated = tgOutbox.markResultSent(dayDir, matchId, record.decisionKey, {
+          messageId: result.messageId,
+          sentAt: new Date().toISOString(),
+          hit,
+        });
+        logger.info('tg.result.sent', {
+          matchId,
+          decisionKey: record.decisionKey,
+          messageId: result.messageId,
+          replyToMessageId: record.entry.messageId,
+          hit,
+          attempts: result.attempts,
+          dryRun: result.dryRun,
+        });
+        updates.push(updated);
+        continue;
+      }
+
+      let updated = tgOutbox.markResultFailed(dayDir, matchId, record.decisionKey, {
+        error: result.error,
+        attempts: result.attempts,
+      });
+      if (result.attempts >= Math.max(1, LIVE_TG_MAX_RETRIES)) {
+        updated = tgOutbox.setStatus(dayDir, matchId, record.decisionKey, 'failed');
+      }
+      logger.warn('tg.result.failed', {
+        matchId,
+        decisionKey: record.decisionKey,
+        error: result.error,
+        attempts: result.attempts,
+      });
+      updates.push(updated);
+    } catch (err) {
+      logger.warn('tg.result.dispatch_error', {
+        matchId,
+        decisionKey: record?.decisionKey,
+        err: err?.message || String(err),
+      });
+    }
+  }
+
+  return updates;
+}
+
 module.exports = {
   enqueueEntry,
   isPrimaryPrediction,
   buildOutboxPayload,
+  dispatchResults,
+  pendingResultRecords,
+  resultHitForRecord,
 };
