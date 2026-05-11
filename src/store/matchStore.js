@@ -6,8 +6,8 @@ const { dateKeyLocal, toISO } = require('../helpers/date');
 const { computeDerived } = require('../tracker/derivedFields');
 const { CUMULATIVE_STAT_FIELDS } = require('../tracker/deltaCalculator');
 const { applyPredictionHits } = require('./predictionAuditResolver');
+const predictionSignals = require('./predictionSignals');
 const logger = require('../observability/logger');
-let tgDispatcher = null;
 
 const DATA_ROOT = path.resolve(__dirname, '../../data/logs');
 
@@ -54,8 +54,10 @@ function readStore(date = new Date()) {
 function writeStore(store, date = new Date()) {
   try {
     fs.writeFileSync(matchesFile(date), JSON.stringify(store, null, 2), 'utf8');
+    return true;
   } catch (e) {
     logger.warn('matchStore: write failed', { err: e.message });
+    return false;
   }
 }
 
@@ -110,6 +112,8 @@ function upsertFromEnrichment(enrichedItem, date = new Date()) {
     return existing;
   }
 
+  const baseline1H = buildBaseline1H(enrichedItem.statistics);
+
   const record = {
     matchId:      enrichedItem.matchId,
     country:      enrichedItem.country      || null,
@@ -126,14 +130,14 @@ function upsertFromEnrichment(enrichedItem, date = new Date()) {
     statistics:      enrichedItem.statistics || null,
     enrichmentTabs: enrichedItem.tabs       || null,
 
-    baseline1H: buildBaseline1H(enrichedItem.statistics),
+    baseline1H,
 
     standings: enrichedItem.standings || null,
     h2h:       enrichedItem.h2h       || null,
 
     tracking: {
-      status:             'active',
-      discardReason:      null,
+      status:             baseline1H ? 'active' : 'discarded',
+      discardReason:      baseline1H ? null : 'missing_baseline_1h',
       validForPrediction: false,
       firstGoalMinute:    null,
       nextSnapshotAt:     null,
@@ -309,6 +313,7 @@ function finalize(matchId, final, derived, date = new Date()) {
   match.final   = final;
   match.derived = derived;
   applyPredictionHits(match);
+  predictionSignals.attachFinalResult(dayDir(date), match);
   match.tracking.status         = 'finished';
   match.tracking.nextSnapshotAt = null;
 
@@ -316,26 +321,26 @@ function finalize(matchId, final, derived, date = new Date()) {
     match.tracking.firstGoalMinute = final.firstGoalMinute;
   }
 
-  writeStore(store, date);
+  const persisted = writeStore(store, date);
 
-  setImmediate(() => {
-    try {
-      if (!tgDispatcher) {
-        tgDispatcher = require('../integrations/telegram/dispatcher');
-      }
-      tgDispatcher.dispatchResults({ match, date }).catch((err) => {
+  if (persisted) {
+    setImmediate(() => {
+      try {
+        const tgDispatcher = require('../integrations/telegram/dispatcher');
+        tgDispatcher.dispatchResults({ match, date }).catch((err) => {
+          logger.warn('tg.result.enqueue_unhandled', {
+            matchId,
+            err: err?.message || String(err),
+          });
+        });
+      } catch (err) {
         logger.warn('tg.result.enqueue_unhandled', {
           matchId,
           err: err?.message || String(err),
         });
-      });
-    } catch (err) {
-      logger.warn('tg.result.enqueue_unhandled', {
-        matchId,
-        err: err?.message || String(err),
-      });
-    }
-  });
+      }
+    });
+  }
 
   return match;
 }
