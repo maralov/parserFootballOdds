@@ -1,17 +1,31 @@
 'use strict';
 
-const { describe, test } = require('node:test');
+const { describe, test, after } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('fs');
 const path = require('path');
+
+after(() => {
+  const logsRoot = path.resolve(__dirname, '../data/logs');
+  if (!fs.existsSync(logsRoot)) return;
+  for (const entry of fs.readdirSync(logsRoot)) {
+    if (entry.startsWith('2099-')) {
+      fs.rmSync(path.join(logsRoot, entry), { recursive: true, force: true });
+    }
+  }
+});
 
 const {
   MATCH_STATES,
   DOMINANT_SIDES,
   DEFAULT_AI_MODEL,
+  SYSTEM_PROMPT_HALFTIME,
+  SYSTEM_PROMPT_HALFTIME_RESEARCH,
 } = require('../src/ai/constants');
-const { validateAIResponse } = require('../src/ai/schemas');
-const { calculateCost } = require('../src/ai/costCalculator');
+const { validateDecision60Response } = require('../src/ai/schemas/decision60Schema');
+const { validateDecision80Response, normalizeDecision80 } = require('../src/ai/schemas/decision80Schema');
+const { validateHalftimeResearchResponse } = require('../src/ai/halftimeSchema');
+const { calculateCost, calculateResponsesCost } = require('../src/ai/costCalculator');
 const {
   buildFiveMinWindows,
   buildHalftimePrompt,
@@ -24,8 +38,80 @@ const {
   maybeRequestAI,
   determineCheckpoint,
   shouldRunCheckpoint,
+  buildPromptForCheckpoint,
 } = require('../src/ai/aiOrchestrator');
 const { printTracking } = require('../src/observability/display');
+const { performHalftimeResearch, parseJsonFromResponsesText } = require('../src/ai/halftimeResponses');
+
+function sampleHalftimeOutput(patch = {}) {
+  const base = {
+    research_meta: {
+      search_queries_made: ['q1'],
+      sources_consulted: 7,
+      research_quality: 0.72,
+      data_freshness_days: 1,
+      language_of_sources: 'en',
+    },
+    home_team: {
+      starting_lineup_known: true,
+      lineup_strength_vs_normal: 0.82,
+      key_absences: [],
+      form_last_5: 'WWWDD',
+      form_quality_assessment: 'average',
+      team_internal_state: 'stable',
+      coach_situation: 'secure',
+      tactical_style: 'Баланс володіння.',
+      late_game_pattern: 'balanced',
+    },
+    away_team: {
+      starting_lineup_known: false,
+      lineup_strength_vs_normal: 0.71,
+      key_absences: [],
+      form_last_5: 'WWWDD',
+      form_quality_assessment: 'below_average',
+      team_internal_state: 'minor_tension',
+      coach_situation: 'under_pressure',
+      tactical_style: 'Контратаки.',
+      late_game_pattern: 'defensive',
+    },
+    match_context: {
+      tournament_importance_home: 2,
+      tournament_importance_away: 2,
+      tournament_importance_explanation_home: 'Боротьба за місце.',
+      tournament_importance_explanation_away: 'Тиск ізнизу.',
+      rotation_risk_home: 0.1,
+      rotation_risk_away: 0.15,
+      is_derby_or_rivalry: false,
+      rivalry_notes: null,
+      weather: { conditions: 'not_found', may_affect_play: false },
+      pitch_condition: 'good',
+      venue_factor: null,
+    },
+    h2h_qualitative: {
+      common_pattern: 'Низькі рахунки.',
+      notable_recent_h2h: '0:0 восени.',
+      h2h_low_scoring_tendency: true,
+    },
+    first_half_interpretation: {
+      score_consistent_with_research: true,
+      explanation: 'Мало явних нагоди.',
+      expected_2h_pattern: 'balanced',
+      key_factor_driving_pattern: 'Низький темп і ротація.',
+    },
+    probabilities: {
+      p_match_ends_0_0: 0.55,
+      p_match_has_goal: 0.45,
+      reasoning_for_probabilities: 'Низький темп. Свіжі склади без сенсацій.',
+    },
+    confidence: 0.72,
+    red_flags: [],
+  };
+  const { probabilities: pOverrides, ...rest } = patch;
+  const out = { ...base, ...rest };
+  if (pOverrides) out.probabilities = { ...base.probabilities, ...pOverrides };
+  if (patch.research_meta) out.research_meta = { ...base.research_meta, ...patch.research_meta };
+  return out;
+}
 
 describe('ai constants', () => {
   test('exposes allowed enums and default model', () => {
@@ -37,49 +123,243 @@ describe('ai constants', () => {
     ]);
     assert.deepEqual(DOMINANT_SIDES, ['home', 'away', 'none']);
     assert.equal(DEFAULT_AI_MODEL, 'gpt-4o');
+    assert.match(SYSTEM_PROMPT_HALFTIME_RESEARCH, /ПОШУКОВА ТАКТИКА/);
+    assert.match(SYSTEM_PROMPT_HALFTIME_RESEARCH, /STRICT JSON/i);
   });
 });
 
-describe('schemas.validateAIResponse', () => {
-  test('accepts valid AI response payload', () => {
-    const result = validateAIResponse({
-      p_match_ends_0_0: 0.62,
-      p_match_has_goal: 0.38,
-      match_state: 'low_tempo',
-      dominant_side: 'away',
-      key_observations: ['a', 'b', 'c'],
-      confidence: 0.71,
-    });
+function sampleDecision60Payload(patch = {}) {
+  const base = {
+    checkpoint: 'decision60',
+    minute: 60,
+    match_state: 'balanced',
+    tempo_state: 'flat',
+    favorite_pressure: 'weak',
+    underdog_resistance: 'comfortable',
+    second_half_activity: {
+      shots_since_ht: 2,
+      shots_on_target_since_ht: 1,
+      corners_since_ht: 1,
+      xg_since_ht: 0.12,
+      danger_score: 4,
+    },
+    trend_45_60: {
+      attacking_trend: 'flat',
+      chance_quality_trend: 'low',
+      pressure_direction: 'none',
+    },
+    probabilities: {
+      p_match_ends_0_0: 0.58,
+      p_goal_after_60: 0.42,
+      p_goal_60_75: 0.22,
+      p_goal_after_75: 0.2,
+    },
+    recommendation: {
+      action: 'no_bet',
+      confidence: 'medium',
+      reason: 'Tem moderate.',
+    },
+    risk_flags: [],
+    confidence: 0.61,
+  };
+  return { ...base, ...patch };
+}
 
-    assert.deepEqual(result, { ok: true, error: null });
+function sampleDecision80Payload(patch = {}) {
+  const base = {
+    checkpoint: 'decision80',
+    minute: 80,
+    match_state: 'late_siege',
+    late_goal_scenario: 'possible',
+    pressure_team: 'home',
+    pressure_quality: 'real',
+    last_10_minutes: {
+      shots: 3,
+      shots_on_target: 1,
+      corners: 2,
+      xg: 0.18,
+      danger_score: 6,
+    },
+    last_20_minutes: {
+      shots: 5,
+      shots_on_target: 2,
+      corners: 4,
+      xg: 0.31,
+      danger_score: 9,
+    },
+    probabilities: {
+      p_match_ends_0_0: 0.42,
+      p_goal_after_80: 0.58,
+      p_goal_in_stoppage_time: 0.22,
+    },
+    recommendation: {
+      action: 'late_goal_candidate',
+      confidence: 'medium',
+      reason: 'Late waves.',
+    },
+    risk_flags: [],
+    confidence: 0.63,
+  };
+  return { ...base, ...patch };
+}
+
+describe('schemas.validateDecision60Response', () => {
+  test('accepts valid payload', () => {
+    const result = validateDecision60Response(sampleDecision60Payload());
+    assert.equal(result.ok, true);
+    assert.equal(result.normalized.match_state, 'balanced');
+    assert.equal(result.normalized.probabilities.p_goal_after_60, 0.42);
   });
 
-  test('rejects payloads when probabilities do not sum to one', () => {
-    const result = validateAIResponse({
-      p_match_ends_0_0: 0.62,
-      p_match_has_goal: 0.48,
-      match_state: 'low_tempo',
-      dominant_side: 'away',
-      key_observations: ['a', 'b', 'c'],
-      confidence: 0.71,
-    });
-
+  test('rejects when primary probabilities do not sum to ~1', () => {
+    const result = validateDecision60Response(sampleDecision60Payload({
+      probabilities: {
+        p_match_ends_0_0: 0.62,
+        p_goal_after_60: 0.48,
+        p_goal_60_75: 0.22,
+        p_goal_after_75: 0.26,
+      },
+    }));
     assert.equal(result.ok, false);
     assert.match(result.error, /sum/i);
   });
 
-  test('rejects payloads with invalid match_state', () => {
-    const result = validateAIResponse({
-      p_match_ends_0_0: 0.62,
-      p_match_has_goal: 0.38,
-      match_state: 'chaotic',
-      dominant_side: 'away',
-      key_observations: ['a', 'b', 'c'],
-      confidence: 0.71,
-    });
-
+  test('rejects invalid match_state', () => {
+    const result = validateDecision60Response(sampleDecision60Payload({
+      match_state: 'galaxy_pressure',
+    }));
     assert.equal(result.ok, false);
     assert.match(result.error, /match_state/i);
+  });
+
+  test('accepts chaotic as allowed enum', () => {
+    const result = validateDecision60Response(sampleDecision60Payload({
+      match_state: 'chaotic',
+    }));
+    assert.equal(result.ok, true);
+  });
+
+  test('unwraps nested analysis wrapper', () => {
+    const result = validateDecision60Response({
+      analysis: sampleDecision60Payload({
+        probabilities: {
+          p_match_ends_0_0: '0.55',
+          p_goal_after_60: '0.45',
+          p_goal_60_75: '0.25',
+          p_goal_after_75: '0.20',
+        },
+        confidence: '0.70',
+      }),
+    });
+    assert.equal(result.ok, true);
+    assert.equal(result.normalized.confidence, 0.7);
+  });
+});
+
+describe('schemas.validateDecision80Response', () => {
+  test('accepts valid payload', () => {
+    const result = validateDecision80Response(sampleDecision80Payload());
+    assert.equal(result.ok, true);
+    assert.equal(result.normalized.pressure_quality, 'real');
+  });
+
+  test('rejects when stoppage goal exceeds after-80 mass', () => {
+    const result = validateDecision80Response(sampleDecision80Payload({
+      probabilities: {
+        p_match_ends_0_0: 0.2,
+        p_goal_after_80: 0.8,
+        p_goal_in_stoppage_time: 0.95,
+      },
+    }));
+    assert.equal(result.ok, false);
+    assert.match(result.error, /stoppage/i);
+  });
+
+  test('normalizeDecision80 correctly normalizes motivation_asymmetry when present', () => {
+    const payload = sampleDecision80Payload({
+      motivation_asymmetry: {
+        team_that_must_score: 'home',
+        strength: 'high',
+        reason: 'needs win to avoid relegation',
+      },
+    });
+    const n = normalizeDecision80(payload);
+    assert.equal(n.motivation_asymmetry.team_that_must_score, 'home');
+    assert.equal(n.motivation_asymmetry.strength, 'high');
+    assert.equal(n.motivation_asymmetry.reason, 'needs win to avoid relegation');
+  });
+
+  test('normalizeDecision80 handles missing motivation_asymmetry gracefully', () => {
+    const payload = sampleDecision80Payload();
+    const n = normalizeDecision80(payload);
+    assert.equal(n.motivation_asymmetry.team_that_must_score, undefined);
+    assert.equal(n.motivation_asymmetry.strength, undefined);
+    assert.equal(n.motivation_asymmetry.reason, '');
+  });
+});
+
+describe('halftimeSchema.validateHalftimeResearchResponse', () => {
+  test('accepts valid halftime payload', () => {
+    const p = sampleHalftimeOutput();
+    p.home_team.key_absences = [{ player: 'A', reason: 'injury', impact: 'high' }];
+    const r = validateHalftimeResearchResponse(p);
+    assert.equal(r.ok, true);
+    assert.equal(r.normalized.probabilities.p_match_ends_0_0, 0.55);
+    assert.equal(r.normalized.home_team.key_absences[0].player, 'A');
+  });
+
+  test('accepts payload wrapped under analysis', () => {
+    const r = validateHalftimeResearchResponse({ analysis: sampleHalftimeOutput() });
+    assert.equal(r.ok, true);
+    assert.equal(r.normalized.confidence, 0.72);
+  });
+
+  test('rejects when probabilities do not sum to one', () => {
+    const p = sampleHalftimeOutput({ probabilities: { p_match_has_goal: 0.9 } });
+    const r = validateHalftimeResearchResponse(p);
+    assert.equal(r.ok, false);
+    assert.match(r.error, /sum/i);
+  });
+
+  test('rejects missing top-level key', () => {
+    const p = { ...sampleHalftimeOutput() };
+    delete p.research_meta;
+    const r = validateHalftimeResearchResponse(p);
+    assert.equal(r.ok, false);
+    assert.match(r.error, /Missing: research_meta/);
+  });
+
+  test('rejects empty reasoning_for_probabilities', () => {
+    const p = sampleHalftimeOutput({
+      probabilities: { reasoning_for_probabilities: '   ' },
+    });
+    const r = validateHalftimeResearchResponse(p);
+    assert.equal(r.ok, false);
+    assert.match(r.error, /reasoning_for_probabilities/i);
+  });
+
+  test('rejects invalid research_quality', () => {
+    const p = sampleHalftimeOutput({ research_meta: { research_quality: 2 } });
+    const r = validateHalftimeResearchResponse(p);
+    assert.equal(r.ok, false);
+    assert.match(r.error, /research_quality/i);
+  });
+});
+
+describe('costCalculator.calculateResponsesCost', () => {
+  test('calculates cost from Responses API token fields', () => {
+    const cost = calculateResponsesCost({
+      input_tokens: 1000,
+      output_tokens: 500,
+    }, 'gpt-4o');
+    assert.equal(cost, 0.0075);
+  });
+
+  test('returns null for unknown model', () => {
+    assert.equal(calculateResponsesCost({
+      input_tokens: 500,
+      output_tokens: 200,
+    }, 'unknown-model'), null);
   });
 });
 
@@ -185,21 +465,31 @@ describe('prompts', () => {
     ],
     aiAnalysis: {
       halftime: {
-        output: {
-          p_match_ends_0_0: 0.58,
-          match_state: 'balanced',
-          dominant_side: 'home',
+        output: sampleHalftimeOutput({
+          probabilities: {
+            p_match_ends_0_0: 0.58,
+            p_match_has_goal: 0.42,
+            reasoning_for_probabilities: 'Low xG.',
+          },
           confidence: 0.63,
-        },
+          research_meta: {
+            search_queries_made: ['x'],
+            sources_consulted: 2,
+            research_quality: 0.55,
+            data_freshness_days: 3,
+          },
+        }),
       },
       decision60: {
-        output: {
-          p_match_ends_0_0: 0.45,
-          p_match_has_goal: 0.55,
-          match_state: 'building_pressure',
-          dominant_side: 'away',
+        output: sampleDecision60Payload({
+          probabilities: {
+            p_match_ends_0_0: 0.45,
+            p_goal_after_60: 0.55,
+            p_goal_60_75: 0.30,
+            p_goal_after_75: 0.25,
+          },
           confidence: 0.67,
-        },
+        }),
       },
     },
   };
@@ -216,30 +506,45 @@ describe('prompts', () => {
     });
   });
 
-  test('buildHalftimePrompt includes teams and first-half summary', () => {
-    const prompt = buildHalftimePrompt(match);
+  test('buildHalftimePrompt includes teams, 1H stats block, and research task', () => {
+    const prompt = buildHalftimePrompt(match, {
+      timezone: 'Europe/Kyiv',
+      now: new Date('2099-06-01T14:30:00.000Z'),
+    });
 
-    assert.match(prompt.system, /аналітик футбольних матчів/i);
+    assert.equal(prompt.system, SYSTEM_PROMPT_HALFTIME_RESEARCH);
     assert.match(prompt.user, /St Albans/);
     assert.match(prompt.user, /Green Gully/);
-    assert.match(prompt.user, /0\.82 - 0\.14/);
+    assert.match(prompt.user, /СТАТИСТИКА ПЕРШОГО ТАЙМУ/);
+    assert.match(prompt.user, /ЗАВДАННЯ/);
+    assert.match(prompt.user, /Europe\/Kyiv/);
+    assert.match(prompt.user, /0\.82 \| 0\.14/);
   });
 
-  test('buildDecision60Prompt includes 5-minute windows and halftime AI summary', () => {
+  test('buildHalftimePrompt defaults timezone and shows H2H when present', () => {
+    const prompt = buildHalftimePrompt(match);
+
+    assert.match(prompt.user, /\(UTC\)/);
+    assert.match(prompt.user, /H2H останні 5/);
+    assert.match(prompt.user, /W\/D\/L/);
+  });
+
+  test('buildDecision60Prompt embeds MATCH bundle and precomputed activity JSON', () => {
     const prompt = buildDecision60Prompt(match);
 
-    assert.match(prompt.user, /поточна хвилина 60/i);
-    assert.match(prompt.user, /52\s+\|\s+3\s+\|\s+1\s+\|\s+0\.22\s+\|\s+1/);
-    assert.match(prompt.user, /ОЦІНКА В ПЕРЕРВІ \(AI\)/);
-    assert.match(prompt.user, /0\.58/);
+    assert.match(prompt.system, /Allowed match_state:/);
+    assert.match(prompt.user, /"currentMinute":\s*60/);
+    assert.match(prompt.user, /"currentScore":\s*"0:0"/);
+    assert.match(prompt.user, /PRECOMPUTED_FOR_MODEL/);
+    assert.match(prompt.user, /St Albans/);
   });
 
-  test('buildDecision80Prompt includes remaining-time context and decision60 summary', () => {
+  test('buildDecision80Prompt embeds decision60_summary and danger hints JSON', () => {
     const prompt = buildDecision80Prompt(match);
 
-    assert.match(prompt.user, /10 регулярних хвилин \+ компенсований час/);
-    assert.match(prompt.user, /ОЦІНКА НА 60-Й ХВИЛИНІ \(AI\)/);
-    assert.match(prompt.user, /0\.45/);
+    assert.match(prompt.system, /fake_pressure/);
+    assert.match(prompt.user, /decision60_summary/);
+    assert.match(prompt.user, /"currentMinute":\s*80/);
   });
 });
 
@@ -254,20 +559,15 @@ describe('aiClient.callAI', () => {
       maxTokens: 500,
       timeoutMs: 1000,
       maxRetries: 2,
+      checkpoint: 'decision60',
+      apiKey: 'k',
     }, {
       requester: async () => {
         attempts += 1;
         return {
           choices: [{
             message: {
-              content: JSON.stringify({
-                p_match_ends_0_0: 0.6,
-                p_match_has_goal: 0.4,
-                match_state: 'balanced',
-                dominant_side: 'none',
-                key_observations: ['a', 'b', 'c'],
-                confidence: 0.7,
-              }),
+              content: JSON.stringify(sampleDecision60Payload()),
             },
           }],
           usage: { prompt_tokens: 500, completion_tokens: 200 },
@@ -282,7 +582,7 @@ describe('aiClient.callAI', () => {
     assert.equal(result.costUsd, 0.00325);
     assert.equal(result.promptTokens, 500);
     assert.equal(result.completionTokens, 200);
-    assert.equal(result.output.p_match_ends_0_0, 0.6);
+    assert.equal(result.output.probabilities.p_match_ends_0_0, 0.58);
   });
 
   test('retries schema failures and returns final error', async () => {
@@ -295,20 +595,22 @@ describe('aiClient.callAI', () => {
       maxTokens: 500,
       timeoutMs: 1000,
       maxRetries: 2,
+      checkpoint: 'decision60',
+      apiKey: 'k',
     }, {
       requester: async () => {
         attempts += 1;
         return {
           choices: [{
             message: {
-              content: JSON.stringify({
-                p_match_ends_0_0: 0.9,
-                p_match_has_goal: 0.9,
-                match_state: 'balanced',
-                dominant_side: 'none',
-                key_observations: ['a', 'b', 'c'],
-                confidence: 0.7,
-              }),
+              content: JSON.stringify(sampleDecision60Payload({
+                probabilities: {
+                  p_match_ends_0_0: 0.9,
+                  p_goal_after_60: 0.9,
+                  p_goal_60_75: 0.5,
+                  p_goal_after_75: 0.4,
+                },
+              })),
             },
           }],
           usage: { prompt_tokens: 500, completion_tokens: 200 },
@@ -319,7 +621,93 @@ describe('aiClient.callAI', () => {
 
     assert.equal(attempts, 2);
     assert.equal(result.output, null);
-    assert.match(result.error, /probabilities/i);
+    assert.match(result.error, /probabilities|sum/i);
+  });
+});
+
+describe('halftimeResponses.parseJsonFromResponsesText', () => {
+  test('parses fenced or padded model output', () => {
+    const inner = '{"a":1,"b":"x"}';
+    assert.equal(parseJsonFromResponsesText(inner).a, 1);
+    assert.equal(parseJsonFromResponsesText(`Here:\n\`\`\`json\n${inner}\n\`\`\``).b, 'x');
+    assert.equal(parseJsonFromResponsesText(`prefix\n${inner}\ntrailing`).a, 1);
+  });
+});
+
+describe('halftimeResponses.performHalftimeResearch', () => {
+  test('returns validated normalized output and cost on success', async () => {
+    const payload = sampleHalftimeOutput({
+      probabilities: {
+        p_match_ends_0_0: 0.7,
+        p_match_has_goal: 0.3,
+        reasoning_for_probabilities: 'Facts one. Facts two.',
+      },
+    });
+    const client = {
+      responses: {
+        create: async () => ({
+          output_text: JSON.stringify(payload),
+          usage: { input_tokens: 1000, output_tokens: 400 },
+          output: [],
+        }),
+      },
+    };
+    const cfg = {
+      OPENAI_API_KEY: 'k',
+      LIVE_AI_HT_MODEL: 'gpt-4o',
+      LIVE_AI_HT_MAX_TOKENS: 2000,
+      LIVE_AI_HT_RESPONSES_TIMEOUT_MS: 5000,
+      LIVE_AI_HT_TEMPERATURE: 0.2,
+    };
+
+    const res = await performHalftimeResearch({ system: 's', user: 'u' }, cfg, { client });
+    assert.equal(res.error, null);
+    assert.equal(res.output?.probabilities?.p_match_ends_0_0, 0.7);
+    assert.equal(res.promptTokens, 1000);
+    assert.equal(res.completionTokens, 400);
+    assert.equal(res.costUsd, calculateResponsesCost(
+      { input_tokens: 1000, output_tokens: 400 },
+      'gpt-4o',
+    ));
+  });
+
+  test('returns structured error after retry on schema failure', async () => {
+    let phase = 0;
+    const client = {
+      responses: {
+        create: async () => {
+          phase += 1;
+          if (phase === 1) {
+            return {
+              output_text: '{ broken',
+              usage: {},
+              output: [],
+            };
+          }
+          return {
+            output_text: JSON.stringify({
+              probabilities: {
+                p_match_ends_0_0: 0.61,
+                p_match_has_goal: 0.39,
+              },
+            }),
+            usage: {},
+            output: [],
+          };
+        },
+      },
+    };
+    const cfg = {
+      OPENAI_API_KEY: 'k',
+      LIVE_AI_HT_MODEL: 'gpt-4o-mini',
+      LIVE_AI_HT_MAX_TOKENS: 500,
+      LIVE_AI_HT_RESPONSES_TIMEOUT_MS: 5000,
+      LIVE_AI_HT_TEMPERATURE: 0.35,
+    };
+    const res = await performHalftimeResearch({ system: 's', user: 'u' }, cfg, { client });
+    assert.ok(res.error);
+    assert.equal(res.output, null);
+    assert.ok(phase >= 2);
   });
 });
 
@@ -339,19 +727,25 @@ describe('matchStore AI helpers', () => {
     }, date);
 
     matchStore.setAiAnalysis('ai-match-1', 'halftime', {
-      output: {
-        p_match_ends_0_0: 0.55,
-        p_match_has_goal: 0.45,
-        match_state: 'balanced',
-        dominant_side: 'none',
-        key_observations: ['a', 'b', 'c'],
+      output: sampleHalftimeOutput({
+        research_meta: {
+          search_queries_made: [],
+          sources_consulted: 0,
+          research_quality: 0.35,
+          data_freshness_days: 999,
+        },
+        probabilities: {
+          p_match_ends_0_0: 0.55,
+          p_match_has_goal: 0.45,
+          reasoning_for_probabilities: 'One. Two.',
+        },
         confidence: 0.6,
-      },
+      }),
       costUsd: 0.004,
     }, date);
 
     const stored = matchStore.getMatch('ai-match-1', date);
-    assert.equal(stored.aiAnalysis.halftime.output.p_match_ends_0_0, 0.55);
+    assert.equal(stored.aiAnalysis.halftime.output.probabilities.p_match_ends_0_0, 0.55);
     assert.equal(stored.aiAnalysis.totalCostUsd, 0.004);
     assert.equal(stored.aiAnalysis.requestCount, 1);
     assert.equal(matchStore.hasAiCheckpoint('ai-match-1', 'halftime', date), true);
@@ -362,11 +756,17 @@ describe('matchStore AI helpers', () => {
     const derivedDir = path.resolve(__dirname, '../data/logs/2099-01-04');
     fs.rmSync(derivedDir, { recursive: true, force: true });
 
+    const statBlob = {
+      capturedAtStatus: 'Half Time',
+      '1half': { home: { shotsOffTarget: 2 }, away: {}, overall: {} },
+      rawRows: [{ label: 'Test', home: '1', away: '2' }],
+    };
     const record = matchStore.upsertFromEnrichment({
       matchId: 'ai-match-2',
       homeTeam: 'Home',
       awayTeam: 'Away',
-      statistics: { '1half': { home: {}, away: {} } },
+      statistics: statBlob,
+      tabs: { stats: true, standings: false, h2h: false },
       statsLevel: 'detailed',
       odds: { home: 2.1, draw: 3.2, away: 3.6 },
       standings: {
@@ -375,6 +775,8 @@ describe('matchStore AI helpers', () => {
       },
     }, derivedDate);
 
+    assert.deepEqual(record.statistics, statBlob);
+    assert.deepEqual(record.enrichmentTabs, { stats: true, standings: false, h2h: false });
     assert.equal(typeof record.derived.marketSignal, 'number');
     assert.equal(typeof record.derived.tableSignal, 'number');
   });
@@ -434,7 +836,7 @@ describe('aiOrchestrator filters', () => {
     assert.equal(checkpoint, 'halftime');
   });
 
-  test('shouldRunCheckpoint skips basic stats matches', () => {
+  test('shouldRunCheckpoint skips when statsLevel is not detailed (no tokens for basic)', () => {
     const decision = shouldRunCheckpoint('halftime', {
       statsLevel: 'basic',
       baseline1H: { expectedGoalsXg: { home: null, away: null } },
@@ -499,8 +901,13 @@ describe('aiOrchestrator filters', () => {
       OPENAI_API_KEY: 'key',
       LIVE_AI_HT_XG_THRESHOLD: 1.5,
       LIVE_AI_MODEL: 'gpt-4o',
+      LIVE_AI_HT_MODEL: 'gpt-4o-mini',
       LIVE_AI_TEMPERATURE: 0.2,
       LIVE_AI_MAX_TOKENS: 500,
+      LIVE_AI_HT_MAX_TOKENS: 1200,
+      LIVE_AI_HT_RESPONSES_TIMEOUT_MS: 90_000,
+      LIVE_AI_HT_TEMPERATURE: 0.3,
+      LIVE_AI_MATCH_TIMEZONE: 'UTC',
       LIVE_AI_TIMEOUT_MS: 1000,
       LIVE_AI_MAX_RETRIES: 1,
     };
@@ -511,7 +918,7 @@ describe('aiOrchestrator filters', () => {
     const p1 = maybeRequestAI('ai-match-3', header, match, date, {
       env: cfg,
       matchStore,
-      callAI: async () => {
+      performHalftimeResearch: async () => {
         calls += 1;
         return resultPromise;
       },
@@ -523,29 +930,41 @@ describe('aiOrchestrator filters', () => {
     const p2 = maybeRequestAI('ai-match-3', header, pending, date, {
       env: cfg,
       matchStore,
-      callAI: async () => {
+      performHalftimeResearch: async () => {
         calls += 1;
         return resultPromise;
       },
     });
 
+    await new Promise(resolve => setImmediate(resolve));
     assert.equal(calls, 1);
 
-    resolveCall({
-      output: {
+    const htPayload = sampleHalftimeOutput({
+      research_meta: {
+        search_queries_made: [],
+        sources_consulted: 0,
+        research_quality: 0.41,
+        data_freshness_days: 999,
+      },
+      probabilities: {
         p_match_ends_0_0: 0.61,
         p_match_has_goal: 0.39,
-        match_state: 'balanced',
-        dominant_side: 'none',
-        key_observations: ['one', 'two', 'three'],
-        confidence: 0.74,
+        reasoning_for_probabilities: 'One note. Two note.',
       },
+      confidence: 0.74,
+    });
+
+    resolveCall({
+      output: htPayload,
       latencyMs: 12,
       promptTokens: 100,
       completionTokens: 50,
-      model: 'gpt-4o',
+      model: 'gpt-4o-mini',
       costUsd: 0.00075,
       error: null,
+      useInModel: true,
+      weightMultiplier: 1,
+      webSearchCallsCount: 0,
     });
 
     await Promise.all([p1, p2]);
@@ -553,7 +972,32 @@ describe('aiOrchestrator filters', () => {
     const stored = matchStore.getMatch('ai-match-3', date);
     assert.equal(stored.aiAnalysis.halftime.pending, undefined);
     assert.equal(stored.aiAnalysis.requestCount, 1);
-    assert.equal(stored.aiAnalysis.halftime.output.p_match_ends_0_0, 0.61);
+    assert.equal(stored.aiAnalysis.halftime.output.probabilities.p_match_ends_0_0, 0.61);
+  });
+
+  test('buildPromptForCheckpoint halftime builds research user block', async () => {
+    const m = {
+      homeTeam: 'Alpha',
+      awayTeam: 'Beta',
+      league: 'Test League',
+      country: 'ZZ',
+      baseline1H: {
+        totalShots: { home: 2, away: 1 },
+        shotsOnTarget: { home: 1, away: 0 },
+        cornerKicks: { home: 0, away: 0 },
+        expectedGoalsXg: { home: 0.1, away: 0.05 },
+        ballPossession: { home: 50, away: 50 },
+        yellowCards: { home: 0, away: 0 },
+        redCards: { home: 0, away: 0 },
+      },
+    };
+    const pr = await buildPromptForCheckpoint('halftime', m, {
+      LIVE_AI_MATCH_TIMEZONE: 'UTC',
+    });
+    assert.match(pr.user, /ЗАВДАННЯ/);
+    assert.match(pr.user, /СТАТИСТИКА ПЕРШОГО ТАЙМУ/);
+    assert.match(pr.user, /Alpha/);
+    assert.match(pr.user, /0\.1 \| 0\.05/);
   });
 
   test('maybeRequestAI persists thrown AI errors instead of leaving pending forever', async () => {
@@ -585,13 +1029,18 @@ describe('aiOrchestrator filters', () => {
         OPENAI_API_KEY: 'key',
         LIVE_AI_HT_XG_THRESHOLD: 1.5,
         LIVE_AI_MODEL: 'gpt-4o',
+        LIVE_AI_HT_MODEL: 'gpt-4o-mini',
         LIVE_AI_TEMPERATURE: 0.2,
         LIVE_AI_MAX_TOKENS: 500,
+        LIVE_AI_HT_MAX_TOKENS: 1200,
+        LIVE_AI_HT_RESPONSES_TIMEOUT_MS: 90_000,
+        LIVE_AI_HT_TEMPERATURE: 0.3,
+        LIVE_AI_MATCH_TIMEZONE: 'UTC',
         LIVE_AI_TIMEOUT_MS: 1000,
         LIVE_AI_MAX_RETRIES: 1,
       },
       matchStore,
-      callAI: async () => {
+      performHalftimeResearch: async () => {
         throw new Error('boom');
       },
     });
@@ -629,7 +1078,11 @@ describe('display.printTracking AI tags', () => {
           },
         }],
         aiAnalysis: {
-          halftime: { output: { p_match_ends_0_0: 0.6 } },
+          halftime: {
+            output: {
+              probabilities: { p_match_ends_0_0: 0.6 },
+            },
+          },
           decision60: { skipped: true },
           decision80: undefined,
         },
