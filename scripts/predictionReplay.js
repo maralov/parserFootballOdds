@@ -118,6 +118,77 @@ function fillRiskFlagImpactWithout(report, allRows) {
   }
 }
 
+/**
+ * Load a threshold config from a JSON file (--config=path.json).
+ * Returns the parsed config object or null if not specified.
+ */
+function loadConfig(flags) {
+  if (!flags.config) return null;
+  if (!fs.existsSync(flags.config)) {
+    console.error('Config file not found:', flags.config);
+    process.exit(1);
+  }
+  let config;
+  try {
+    config = JSON.parse(fs.readFileSync(flags.config, 'utf8'));
+  } catch (err) {
+    console.error('Failed to parse config file:', err.message);
+    process.exit(1);
+  }
+  // Print a summary of overrides to stderr
+  for (const [section, overrides] of Object.entries(config)) {
+    for (const [key, value] of Object.entries(overrides)) {
+      process.stderr.write(`Config loaded: ${section}.${key}=${value}\n`);
+    }
+  }
+  return config;
+}
+
+/**
+ * Filter allRows by config thresholds.
+ * If config specifies decision80.tbActionableLateTh, only include decision80 predictions
+ * where p.finalScore >= that threshold. Same logic applies to any <checkpoint>.<thresholdKey>
+ * mapping where the threshold key ends in "Th".
+ *
+ * Each row is { p, isHit } where p is the prediction object.
+ * Checkpoint is inferred from p.checkpoint or the decision key.
+ */
+function applyConfigFilter(allRows, config) {
+  if (!config) return allRows;
+
+  return allRows.filter(({ p }) => {
+    const checkpoint = p.checkpoint || 'unknown';
+
+    for (const [section, overrides] of Object.entries(config)) {
+      // section must match the checkpoint (e.g. "decision80" matches checkpoint "decision80")
+      if (section !== checkpoint) continue;
+
+      for (const [key, threshold] of Object.entries(overrides)) {
+        // Map known threshold keys to the prediction field to compare
+        let fieldValue;
+        if (key === 'tbActionableLateTh' || key === 'tbActionableRealTh') {
+          fieldValue = p.finalScore;
+        } else if (key === 'tbLeanLateTh' || key === 'tbLeanRealTh') {
+          fieldValue = p.finalScore;
+        } else {
+          // Generic: any key ending in "Th" — compare against finalScore
+          if (key.endsWith('Th')) {
+            fieldValue = p.finalScore;
+          }
+        }
+
+        if (fieldValue !== undefined && Number.isFinite(Number(fieldValue))) {
+          if (Number(fieldValue) < Number(threshold)) {
+            return false; // Does not meet threshold
+          }
+        }
+      }
+    }
+
+    return true;
+  });
+}
+
 function run() {
   const { positional, flags } = parseArgs(process.argv);
   const fileArg = positional[0]
@@ -127,6 +198,8 @@ function run() {
     console.error('File not found:', fileArg);
     process.exit(1);
   }
+
+  const config = loadConfig(flags);
 
   const store = JSON.parse(fs.readFileSync(fileArg, 'utf8'));
 
@@ -143,20 +216,44 @@ function run() {
     riskFlagImpact: {},
   };
 
-  const allRows = [];
+  let allRows = [];
   for (const m of Object.values(store)) {
     const p60 = m.predictions?.decision60;
     const p80 = m.predictions?.decision80;
 
     if (p60?.predictionAudit) {
-      processPrediction(report, p60, m, '60');
       const isHit = p60.predictionAudit.hit;
       if (isHit === true || isHit === false) allRows.push({ p: p60, isHit });
     }
     if (p80?.predictionAudit) {
-      processPrediction(report, p80, m, '80');
       const isHit = p80.predictionAudit.hit;
       if (isHit === true || isHit === false) allRows.push({ p: p80, isHit });
+    }
+  }
+
+  // Apply config threshold filter before processing
+  allRows = applyConfigFilter(allRows, config);
+
+  // Build a lookup of filtered match predictions for processPrediction
+  const filteredPredictionKeys = new Set(
+    allRows.map(({ p }) => `${p.matchId}:${p.checkpoint}`)
+  );
+
+  for (const m of Object.values(store)) {
+    const p60 = m.predictions?.decision60;
+    const p80 = m.predictions?.decision80;
+
+    if (p60?.predictionAudit) {
+      const key = `${p60.predictionAudit?.matchId || m.matchId}:${p60.checkpoint || 'decision60'}`;
+      if (!config || filteredPredictionKeys.has(key)) {
+        processPrediction(report, p60, m, '60');
+      }
+    }
+    if (p80?.predictionAudit) {
+      const key = `${p80.predictionAudit?.matchId || m.matchId}:${p80.checkpoint || 'decision80'}`;
+      if (!config || filteredPredictionKeys.has(key)) {
+        processPrediction(report, p80, m, '80');
+      }
     }
   }
 
