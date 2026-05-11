@@ -160,6 +160,13 @@ function parseMatchStats(html, capturedAtStatus = '') {
     if (!sections['1st Half']) return null;
     rawRows = sections['1st Half'];
   } else {
+    // DOM fallback is only safe at halftime — the DOM shows whatever is currently
+    // visible (1H stats during HT, cumulative stats during 2H).  If the match is
+    // NOT at halftime, we can't trust the DOM as a pure 1H baseline, so return null.
+    const status = capturedAtStatus.toLowerCase();
+    const isHalftime = status.includes('half') || status.includes('45+') || status.includes('ht');
+    if (!isHalftime) return null;
+
     const $ = cheerio.load(html);
     rawRows = parseStatsDomFallback($);
   }

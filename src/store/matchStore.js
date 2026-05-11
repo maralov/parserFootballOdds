@@ -114,6 +114,10 @@ function upsertFromEnrichment(enrichedItem, date = new Date()) {
 
   const baseline1H = buildBaseline1H(enrichedItem.statistics);
 
+  if (!baseline1H) {
+    logger.info('matchStore: match discarded — missing baseline1H', { matchId: enrichedItem.matchId });
+  }
+
   const record = {
     matchId:      enrichedItem.matchId,
     country:      enrichedItem.country      || null,
