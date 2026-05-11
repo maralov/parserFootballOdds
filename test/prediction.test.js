@@ -24,6 +24,7 @@ const {
 } = require('../src/computed/modelScoresRaw');
 const { applyAiOverlay, isPremiumAiSignal } = require('../src/prediction/aiOverlay');
 const { buildConfidence } = require('../src/prediction/confidence');
+const { sideWeightedPressure } = require('../src/computed/pressureEngine');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -1465,4 +1466,41 @@ test('evaluateDecision80 AI overlay: balanced match_state — no upgrade, no blo
   assert.equal(pred.predictionType, 'LEAN_TB05_80_PLUS', 'predictionType should remain LEAN_TB05_80_PLUS');
   assert.ok(pred.reasons.some(r => r.startsWith('ai_confirmed')), 'ai_confirmed reason should be added');
   assert.ok(pred.aiScenarioScore != null, 'aiScenarioScore should be set');
+});
+
+// ─── pressureEngine sideWeightedPressure weights ─────────────────────────────
+
+test('pressureEngine sideWeightedPressure weights: xG-driven match beats high-shots no-xG match', () => {
+  const xgDriven = {
+    totalShots: { home: 2 },
+    shotsOnTarget: { home: 1 },
+    cornerKicks: { home: 1 },
+    expectedGoalsXg: { home: 0.8 },
+    xgOnTargetXgot: { home: 0 },
+    shotsInsideTheBox: { home: 0 },
+    touchesInOppositionBox: { home: 0 },
+    bigChances: { home: 0 },
+  };
+
+  const highShotsNoXg = {
+    totalShots: { home: 8 },
+    shotsOnTarget: { home: 2 },
+    cornerKicks: { home: 3 },
+    expectedGoalsXg: { home: 0 },
+    xgOnTargetXgot: { home: 0 },
+    shotsInsideTheBox: { home: 0 },
+    touchesInOppositionBox: { home: 0 },
+    bigChances: { home: 0 },
+  };
+
+  const scoreXg = sideWeightedPressure(xgDriven, 'home');
+  const scoreShots = sideWeightedPressure(highShotsNoXg, 'home');
+  assert.ok(
+    scoreXg > scoreShots,
+    `xG-driven score (${scoreXg}) should exceed high-shots no-xG score (${scoreShots})`,
+  );
+});
+
+test('pressureEngine sideWeightedPressure weights: zero-input returns 0', () => {
+  assert.equal(sideWeightedPressure(null, 'home'), 0);
 });
