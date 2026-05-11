@@ -41,3 +41,28 @@ test('writeStore overwrites atomically without truncate-window', () => {
 
   fs.rmSync(dir, { recursive: true, force: true });
 });
+
+test('flushSync writes pending data to disk (no-op when no cache)', () => {
+  const date = makeTempDate('03');
+  matchStore.writeStore({ x: { matchId: 'x' } }, date);
+  matchStore.flushSync(date);
+
+  const dir = matchStore.dayLogsAbsolute(date);
+  const file = path.join(dir, 'matches.json');
+  const onDisk = JSON.parse(fs.readFileSync(file, 'utf8'));
+  assert.equal(onDisk.x.matchId, 'x');
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('flushAll iterates all cached dates', () => {
+  const d1 = makeTempDate('04');
+  const d2 = makeTempDate('05');
+  matchStore.writeStore({ a: { matchId: 'a' } }, d1);
+  matchStore.writeStore({ b: { matchId: 'b' } }, d2);
+  matchStore.flushAll();
+
+  for (const d of [d1, d2]) {
+    const dir = matchStore.dayLogsAbsolute(d);
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});

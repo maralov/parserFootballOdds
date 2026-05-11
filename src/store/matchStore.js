@@ -11,6 +11,69 @@ const logger = require('../observability/logger');
 
 const DATA_ROOT = path.resolve(__dirname, '../../data/logs');
 
+const DEBOUNCE_MS = Math.max(0, Number(process.env.MATCHSTORE_DEBOUNCE_MS) || 0);
+
+const cache = new Map();    // dateKey → store object
+const dirty = new Set();    // dateKey for entries pending flush
+const timers = new Map();   // dateKey → setTimeout handle
+
+function dateKey(date) {
+  return dateKeyLocal(date);
+}
+
+function pathForDateKey(key) {
+  return path.join(DATA_ROOT, key, 'matches.json');
+}
+
+function writeStoreToDisk(store, key) {
+  const dir = path.join(DATA_ROOT, key);
+  fs.mkdirSync(dir, { recursive: true });
+  const target = path.join(dir, 'matches.json');
+  const tmp = target + '.tmp';
+  try {
+    fs.writeFileSync(tmp, JSON.stringify(store, null, 2), 'utf8');
+    fs.renameSync(tmp, target);
+    return true;
+  } catch (e) {
+    logger.warn('matchStore: write failed', { err: e.message });
+    try { fs.unlinkSync(tmp); } catch (_) { /* ignore */ }
+    return false;
+  }
+}
+
+function loadFromDisk(key) {
+  const file = pathForDateKey(key);
+  if (!fs.existsSync(file)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch (e) {
+    logger.warn('matchStore: failed to parse, starting fresh', { file, err: e.message });
+    return {};
+  }
+}
+
+function flushSync(date = new Date()) {
+  const key = dateKey(date);
+  const t = timers.get(key);
+  if (t) { clearTimeout(t); timers.delete(key); }
+  if (!dirty.has(key)) return false;
+  const store = cache.get(key);
+  if (!store) { dirty.delete(key); return false; }
+  const ok = writeStoreToDisk(store, key);
+  if (ok) dirty.delete(key);
+  return ok;
+}
+
+function flushAll() {
+  for (const key of Array.from(dirty)) {
+    const t = timers.get(key);
+    if (t) { clearTimeout(t); timers.delete(key); }
+    const store = cache.get(key);
+    if (store) writeStoreToDisk(store, key);
+    dirty.delete(key);
+  }
+}
+
 function round(value, digits = 6) {
   return Math.round(value * (10 ** digits)) / (10 ** digits);
 }
@@ -41,28 +104,33 @@ function dayLogsAbsolute(date = new Date()) {
  * @returns {{ [matchId: string]: Object }}
  */
 function readStore(date = new Date()) {
-  const file = matchesFile(date);
-  if (!fs.existsSync(file)) return {};
-  try {
-    return JSON.parse(fs.readFileSync(file, 'utf8'));
-  } catch (e) {
-    logger.warn('matchStore: failed to parse, starting fresh', { file, err: e.message });
-    return {};
+  const key = dateKey(date);
+  let store = cache.get(key);
+  if (!store) {
+    store = loadFromDisk(key);
+    cache.set(key, store);
   }
+  return store;
 }
 
 function writeStore(store, date = new Date()) {
-  const target = matchesFile(date);
-  const tmp = target + '.tmp';
-  try {
-    fs.writeFileSync(tmp, JSON.stringify(store, null, 2), 'utf8');
-    fs.renameSync(tmp, target);
-    return true;
-  } catch (e) {
-    logger.warn('matchStore: write failed', { err: e.message });
-    try { fs.unlinkSync(tmp); } catch (_) { /* ignore */ }
-    return false;
+  const key = dateKey(date);
+  cache.set(key, store);
+  dirty.add(key);
+
+  if (DEBOUNCE_MS <= 0) {
+    return flushSync(date);
   }
+
+  const existing = timers.get(key);
+  if (existing) clearTimeout(existing);
+  const t = setTimeout(() => {
+    timers.delete(key);
+    flushSync(date);
+  }, DEBOUNCE_MS);
+  if (typeof t.unref === 'function') t.unref();
+  timers.set(key, t);
+  return true;
 }
 
 // ─── baseline1H builder ───────────────────────────────────────────────────────
@@ -486,6 +554,8 @@ function ensurePredictionLocks(matchId, date = new Date(), blockTb = true) {
 module.exports = {
   readStore,
   writeStore,
+  flushSync,
+  flushAll,
   upsertFromEnrichment,
   appendSnapshot,
   markDiscarded,
