@@ -324,6 +324,64 @@ test('evaluateDecision60 cooling override does not fire when window65_70 >= 35',
   assert.ok(!pred.reasons.includes('cooling_override_applied'));
 });
 
+test('evaluateDecision60 audit includes coolingOverride payload when cooling fires', () => {
+  const match = { matchId: 'm1', statsLevel: 'detailed', snapshots: [] };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 70,
+      realPressureScores: {
+        window45_60: 100,
+        window60_70: 57.7,
+        window65_70: 31.85,
+        window70_75: 6,
+        windowTracked6075: 63.7,
+      },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 3 },
+      tempoTrend6075: 'falling',
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: true },
+    snapshotCount: 6,
+  };
+  const pred = evaluateDecision60(match, computed);
+  const co = pred.predictionAudit.featuresSnapshot.coolingOverride;
+  assert.ok(co, 'coolingOverride object повинен існувати');
+  assert.equal(co.active, true);
+  assert.equal(co.window70_75, 6);
+  assert.equal(co.window65_70, 31.85);
+  assert.ok(Array.isArray(co.bypassedGates));
+  assert.ok(co.bypassedGates.includes('lateActivationRisk'));
+  assert.ok(co.bypassedGates.includes('rpHardMax'));
+});
+
+test('evaluateDecision60 audit coolingOverride.active=false when not firing', () => {
+  const match = { matchId: 'm1', statsLevel: 'detailed', snapshots: [] };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 30,
+      realPressureScores: {
+        window60_70: 30, window65_70: 25, window70_75: 20, windowTracked6075: 25,
+      },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'flat',
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: false },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  const co = pred.predictionAudit.featuresSnapshot.coolingOverride;
+  assert.ok(co);
+  assert.equal(co.active, false);
+  assert.deepEqual(co.bypassedGates, []);
+});
+
 test('evaluateDecision60 cooling override does not bypass tempoBad gate', () => {
   const match = { matchId: 'm1', statsLevel: 'detailed', snapshots: [] };
   const computed = {

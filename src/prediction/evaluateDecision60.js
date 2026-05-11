@@ -357,6 +357,18 @@ function evaluateDecision60(match, computed) {
     actionablePrimary ||
     predictionType === PRED_TYPES_60.LEAN_FT_TM05_FROM_60_75;
 
+  const coolingBypassedGates = [];
+  if (cooling) {
+    if (lateAct >= LATE_ACTIVATION_HARD_CAP) coolingBypassedGates.push('lateActivationRisk');
+    if (rpHardMax >= REAL_PRESSURE_HARD_CAP) coolingBypassedGates.push('rpHardMax');
+  }
+  const coolingOverride = {
+    active: cooling,
+    window70_75: typeof coolingWindow70_75 === 'number' ? coolingWindow70_75 : null,
+    window65_70: typeof coolingWindow65_70 === 'number' ? coolingWindow65_70 : null,
+    bypassedGates: coolingBypassedGates,
+  };
+
   return finalizeReturn({
     match,
     predictionType,
@@ -380,6 +392,7 @@ function evaluateDecision60(match, computed) {
     hot1hDanger,
     missingXgotFlag,
     hasNgDetailed,
+    coolingOverride,
   });
 }
 
@@ -407,6 +420,7 @@ function finalizeReturn(p) {
     hot1hDanger,
     missingXgotFlag,
     hasNgDetailed,
+    coolingOverride,
   } = p;
 
   const result = {
@@ -450,6 +464,7 @@ function finalizeReturn(p) {
         modelSignals: ms,
         totalsTracked6075: tracked6075Totals,
         sinceHtTotals: sinceHt,
+        coolingOverride,
       },
       finalResult: null,
       hit: null,
