@@ -143,6 +143,7 @@ function evaluateDecision60(match, computed) {
   if (sinceHt?.xg == null && statsLevel === 'detailed') riskFlags.push('missing_xg');
   if (missingXgotFlag) riskFlags.push('missing_xgot');
   if (statsLevel === 'basic') riskFlags.push('basic_stats_only');
+  if (ms?.tempoTrend6075 === 'unknown') riskFlags.push('sparse_snapshots');
 
   if (redBlocked) {
     predictionType = PRED_TYPES_60.NO_BET;

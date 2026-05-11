@@ -90,6 +90,7 @@ function evaluateDecision80(match, computed) {
   if (w7080 && w7080.xg == null) riskFlags.push('missing_xg');
   if (statsLevel === 'detailed' && w7080?.xgot == null) riskFlags.push('missing_xgot');
   if (fake80 >= 55 && fake80 > real80 + 8) riskFlags.push('fake_pressure');
+  if (computed.modelSignals?.tempoTrend70_80 === 'unknown') riskFlags.push('sparse_snapshots');
 
   if (statsLevel === 'basic') {
     reasons.push('model_uses_basic_stats');

@@ -1323,3 +1323,26 @@ test('findSnapshotAtOrAfter returns null when no snapshot meets threshold', () =
   const result = findSnapshotAtOrAfter([s50, s55], 60);
   assert.equal(result, null);
 });
+
+test('classifyTrend6075 returns unknown when only window45_60 exists (same object fallback)', () => {
+  const win = { totals: { totalShots: 3, shotsOnTarget: 1 } };
+  const windows = { window45_60: win };
+  const result = classifyTrend6075(windows);
+  assert.equal(result, 'unknown');
+});
+
+test('classifyTrend7080 returns unknown when only window45_60 exists (same object fallback)', () => {
+  const win = { totals: { totalShots: 3, shotsOnTarget: 1 } };
+  const windows = { window45_60: win };
+  const result = classifyTrend7080(windows);
+  assert.equal(result, 'unknown');
+});
+
+test('classifyTrend6075 classifies normally when window65_70 and window70_75 are distinct', () => {
+  const prevWin = { totals: { totalShots: 2, shotsOnTarget: 0, corners: 1 } };
+  const lastWin = { totals: { totalShots: 6, shotsOnTarget: 3, corners: 3, xg: 0.4, xgot: 0.2, bigChances: 1, shotsInsideBox: 4, touchesInBox: 8 } };
+  const windows = { window65_70: prevWin, window70_75: lastWin };
+  const result = classifyTrend6075(windows);
+  assert.notEqual(result, 'unknown', 'should classify normally with two distinct windows');
+  assert.ok(['explosive', 'growing', 'falling', 'flat'].includes(result), `unexpected result: ${result}`);
+});

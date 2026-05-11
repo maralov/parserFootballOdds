@@ -127,6 +127,8 @@ function classifyTrend6075(windows, opts = {}) {
   const lastWin = windows.window70_75 || windows.window65_70 || windows.window60_65 || windows.window45_60;
   const prevWin = windows.window65_70 || windows.window60_65 || windows.window50_60 || windows.window45_60;
 
+  if (lastWin === prevWin) return 'unknown';
+
   const last = activityScore(lastWin?.totals, statsLevel);
   const prev = activityScore(prevWin?.totals, statsLevel);
 
@@ -143,6 +145,8 @@ function classifyTrend7080(windows, opts = {}) {
   const statsLevel = opts.statsLevel || 'detailed';
   const lastWin = windows.window75_80 || windows.window70_75 || windows.window45_60;
   const prevWin = windows.window70_75 || windows.window65_70 || windows.window45_60;
+
+  if (lastWin === prevWin) return 'unknown';
 
   const last = activityScore(lastWin?.totals, statsLevel);
   const prev = activityScore(prevWin?.totals, statsLevel);
