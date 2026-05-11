@@ -1,0 +1,40 @@
+[
+  {
+    "matchId": "Ui32fe15",
+    "decisionKey": "decision80",
+    "predictionType": "TB05_80_PLUS",
+    "tier": null,
+    "modelMode": "detailed",
+    "createdAt": "2026-05-10T23:11:20.511Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 81,
+      "score": "0:0",
+      "confidence": 0.76,
+      "components": {
+        "lateGoalScore80": 100,
+        "realPressureScore": 89.25,
+        "fakePressureScore": 10,
+        "finalScore": 100
+      },
+      "riskFlags": [],
+      "reasons": [
+        "tb_actionable_core late=100 real=89.25 fake=10"
+      ],
+      "aiVerdict": null
+    }
+  }
+]

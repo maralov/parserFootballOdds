@@ -2,7 +2,8 @@
 
 const OpenAI = require('openai');
 const { calculateCost } = require('./costCalculator');
-const { validateAIResponse } = require('./schemas');
+const { validateDecision60Response } = require('./schemas/decision60Schema');
+const { validateDecision80Response } = require('./schemas/decision80Schema');
 
 let cachedClient = null;
 
@@ -10,6 +11,12 @@ function getClient(apiKey) {
   if (!apiKey) return null;
   if (!cachedClient) cachedClient = new OpenAI({ apiKey });
   return cachedClient;
+}
+
+function pickValidator(checkpoint) {
+  if (checkpoint === 'decision60') return validateDecision60Response;
+  if (checkpoint === 'decision80') return validateDecision80Response;
+  throw new Error(`callAI: unsupported checkpoint "${checkpoint}"`);
 }
 
 function defaultRequesterFactory(apiKey) {
@@ -44,7 +51,10 @@ async function callAI(options, deps = {}) {
     timeoutMs,
     maxRetries = 2,
     apiKey,
+    checkpoint,
   } = options;
+
+  const validatePayload = output => pickValidator(checkpoint)(output);
 
   const requester = deps.requester || defaultRequesterFactory(apiKey);
   const sleep = deps.sleep || defaultSleep;
@@ -61,12 +71,12 @@ async function callAI(options, deps = {}) {
 
       const raw = response?.choices?.[0]?.message?.content || '{}';
       const output = JSON.parse(raw);
-      const validation = validateAIResponse(output);
+      const validation = validatePayload(output);
 
       if (!validation.ok) throw new Error(validation.error);
 
       return {
-        output,
+        output: validation.normalized,
         latencyMs: Date.now() - startedAt,
         promptTokens: response?.usage?.prompt_tokens || 0,
         completionTokens: response?.usage?.completion_tokens || 0,

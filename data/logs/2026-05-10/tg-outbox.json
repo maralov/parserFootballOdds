@@ -1,0 +1,814 @@
+[
+  {
+    "matchId": "MNZjexrK",
+    "decisionKey": "decision60",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "tier": "extended_ft",
+    "modelMode": "detailed",
+    "createdAt": "2026-05-10T09:18:10.520Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 61,
+      "score": "0:0",
+      "confidence": 0.6809469696969699,
+      "components": {
+        "fullTimeNilNilScore": 87,
+        "dryStateScore": 100,
+        "lateActivationRisk": 36,
+        "realPressureScores": {
+          "window45_60": 2,
+          "window60_70": 0,
+          "window65_70": 0,
+          "window70_75": 0,
+          "windowTracked6075": 0,
+          "windowCombined6075": 0
+        },
+        "chaosRisk": 0,
+        "tempoTrend6075": "flat",
+        "favoriteDesperationRisk": 35,
+        "ruleScore": 87,
+        "aiScenarioScore": null,
+        "aiAgreementAdjustment": 0,
+        "aiWeight": 0,
+        "aiUseInModel": false,
+        "isPremiumAiSignal": false
+      },
+      "riskFlags": [],
+      "reasons": [
+        "fullTimeNilNilScore=87",
+        "lateActivationRisk=36",
+        "tempoTrend=flat",
+        "extended_ft_candidate"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "hOGZZ2KF",
+    "decisionKey": "decision60",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "tier": "basic_ft",
+    "modelMode": "basic",
+    "createdAt": "2026-05-10T09:34:01.096Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 61,
+      "score": "0:0",
+      "confidence": 0.46242424242424246,
+      "components": {
+        "fullTimeNilNilScore": 80,
+        "dryStateScore": 97,
+        "lateActivationRisk": 20,
+        "realPressureScores": {
+          "window45_60": 20,
+          "window60_70": 0,
+          "window65_70": 0,
+          "window70_75": 0,
+          "windowTracked6075": 0,
+          "windowCombined6075": 0
+        },
+        "chaosRisk": 0,
+        "tempoTrend6075": "flat",
+        "favoriteDesperationRisk": 0,
+        "ruleScore": 80,
+        "aiScenarioScore": null,
+        "aiAgreementAdjustment": 0,
+        "aiWeight": 0,
+        "aiUseInModel": false,
+        "isPremiumAiSignal": false
+      },
+      "riskFlags": [
+        "basic_stats_only"
+      ],
+      "reasons": [
+        "fullTimeNilNilScore=80",
+        "lateActivationRisk=20",
+        "tempoTrend=flat",
+        "basic_ft_candidate"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "d8Uupjb6",
+    "decisionKey": "decision60",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "tier": "basic_ft",
+    "modelMode": "basic",
+    "createdAt": "2026-05-10T10:24:03.861Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 61,
+      "score": "0:0",
+      "confidence": 0.5912121212121211,
+      "components": {
+        "fullTimeNilNilScore": 90,
+        "dryStateScore": 97,
+        "lateActivationRisk": 10,
+        "realPressureScores": {
+          "window45_60": 4,
+          "window60_70": 0,
+          "window65_70": 0,
+          "window70_75": 0,
+          "windowTracked6075": 0,
+          "windowCombined6075": 0
+        },
+        "chaosRisk": 0,
+        "tempoTrend6075": "flat",
+        "favoriteDesperationRisk": 0,
+        "ruleScore": 90,
+        "aiScenarioScore": null,
+        "aiAgreementAdjustment": 0,
+        "aiWeight": 0,
+        "aiUseInModel": false,
+        "isPremiumAiSignal": false
+      },
+      "riskFlags": [
+        "basic_stats_only"
+      ],
+      "reasons": [
+        "fullTimeNilNilScore=90",
+        "lateActivationRisk=10",
+        "tempoTrend=flat",
+        "basic_ft_candidate"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "O8tlUTVp",
+    "decisionKey": "decision80",
+    "predictionType": "TB05_80_PLUS",
+    "tier": null,
+    "modelMode": "detailed",
+    "createdAt": "2026-05-10T11:55:11.145Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 80,
+      "score": "0:0",
+      "confidence": 0.76,
+      "components": {
+        "lateGoalScore80": 100,
+        "realPressureScore": 100,
+        "fakePressureScore": 0,
+        "finalScore": 100
+      },
+      "riskFlags": [],
+      "reasons": [
+        "tb_actionable_core late=100 real=100 fake=0"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "fHGSUkNa",
+    "decisionKey": "decision80",
+    "predictionType": "TB05_80_PLUS",
+    "tier": null,
+    "modelMode": "detailed",
+    "createdAt": "2026-05-10T12:39:15.432Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 80,
+      "score": "0:0",
+      "confidence": 0.82,
+      "components": {
+        "lateGoalScore80": 100,
+        "realPressureScore": 100,
+        "fakePressureScore": 10,
+        "finalScore": 100
+      },
+      "riskFlags": [],
+      "reasons": [
+        "tb_actionable_core late=100 real=100 fake=10"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "r3ZMNlIi",
+    "decisionKey": "decision80",
+    "predictionType": "TB05_80_PLUS",
+    "tier": null,
+    "modelMode": "detailed",
+    "createdAt": "2026-05-10T13:07:17.725Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 80,
+      "score": "0:0",
+      "confidence": 0.76,
+      "components": {
+        "lateGoalScore80": 100,
+        "realPressureScore": 100,
+        "fakePressureScore": 20,
+        "finalScore": 100
+      },
+      "riskFlags": [],
+      "reasons": [
+        "tb_actionable_core late=100 real=100 fake=20"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "IaM5TfG6",
+    "decisionKey": "decision80",
+    "predictionType": "TB05_80_PLUS",
+    "tier": null,
+    "modelMode": "detailed",
+    "createdAt": "2026-05-10T13:42:04.524Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 80,
+      "score": "0:0",
+      "confidence": 0.76,
+      "components": {
+        "lateGoalScore80": 100,
+        "realPressureScore": 100,
+        "fakePressureScore": 10,
+        "finalScore": 100
+      },
+      "riskFlags": [],
+      "reasons": [
+        "tb_actionable_core late=100 real=100 fake=10"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "O8OTGpSb",
+    "decisionKey": "decision60",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "tier": "basic_ft",
+    "modelMode": "basic",
+    "createdAt": "2026-05-10T16:21:04.277Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 61,
+      "score": "0:0",
+      "confidence": 0.47075757575757576,
+      "components": {
+        "fullTimeNilNilScore": 81,
+        "dryStateScore": 97,
+        "lateActivationRisk": 20,
+        "realPressureScores": {
+          "window45_60": 16,
+          "window60_70": 0,
+          "window65_70": 0,
+          "window70_75": 0,
+          "windowTracked6075": 0,
+          "windowCombined6075": 0
+        },
+        "chaosRisk": 0,
+        "tempoTrend6075": "flat",
+        "favoriteDesperationRisk": 0,
+        "ruleScore": 81,
+        "aiScenarioScore": null,
+        "aiAgreementAdjustment": 0,
+        "aiWeight": 0,
+        "aiUseInModel": false,
+        "isPremiumAiSignal": false
+      },
+      "riskFlags": [
+        "basic_stats_only"
+      ],
+      "reasons": [
+        "fullTimeNilNilScore=81",
+        "lateActivationRisk=20",
+        "tempoTrend=flat",
+        "basic_ft_candidate"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "4r8EjV1t",
+    "decisionKey": "decision80",
+    "predictionType": "TB05_80_PLUS",
+    "tier": null,
+    "modelMode": "detailed",
+    "createdAt": "2026-05-10T16:36:22.833Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 80,
+      "score": "0:0",
+      "confidence": 0.76,
+      "components": {
+        "lateGoalScore80": 100,
+        "realPressureScore": 61.1,
+        "fakePressureScore": 25,
+        "finalScore": 100
+      },
+      "riskFlags": [],
+      "reasons": [
+        "tb_actionable_core late=100 real=61.1 fake=25"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "OKXasIkJ",
+    "decisionKey": "decision80",
+    "predictionType": "TB05_80_PLUS",
+    "tier": null,
+    "modelMode": "detailed",
+    "createdAt": "2026-05-10T17:06:50.330Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 80,
+      "score": "0:0",
+      "confidence": 0.82,
+      "components": {
+        "lateGoalScore80": 100,
+        "realPressureScore": 74.69999999999999,
+        "fakePressureScore": 20,
+        "finalScore": 100
+      },
+      "riskFlags": [],
+      "reasons": [
+        "tb_actionable_core late=100 real=74.69999999999999 fake=20"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "8Cxbx9Wh",
+    "decisionKey": "decision80",
+    "predictionType": "TB05_80_PLUS",
+    "tier": null,
+    "modelMode": "detailed",
+    "createdAt": "2026-05-10T17:10:34.847Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 80,
+      "score": "0:0",
+      "confidence": 0.7332142857142858,
+      "components": {
+        "lateGoalScore80": 97,
+        "realPressureScore": 75.44999999999999,
+        "fakePressureScore": 39,
+        "finalScore": 97
+      },
+      "riskFlags": [],
+      "reasons": [
+        "tb_actionable_core late=97 real=75.44999999999999 fake=39"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "rDd8Zhng",
+    "decisionKey": "decision60",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "tier": "basic_ft",
+    "modelMode": "basic",
+    "createdAt": "2026-05-10T17:26:52.786Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 60,
+      "score": "0:0",
+      "confidence": 0.5995454545454544,
+      "components": {
+        "fullTimeNilNilScore": 91,
+        "dryStateScore": 97,
+        "lateActivationRisk": 10,
+        "realPressureScores": {
+          "window45_60": 0,
+          "window60_70": 0,
+          "window65_70": 0,
+          "window70_75": 0,
+          "windowTracked6075": 0,
+          "windowCombined6075": 0
+        },
+        "chaosRisk": 0,
+        "tempoTrend6075": "flat",
+        "favoriteDesperationRisk": 0,
+        "ruleScore": 91,
+        "aiScenarioScore": null,
+        "aiAgreementAdjustment": 0,
+        "aiWeight": 0,
+        "aiUseInModel": false,
+        "isPremiumAiSignal": false
+      },
+      "riskFlags": [
+        "basic_stats_only"
+      ],
+      "reasons": [
+        "fullTimeNilNilScore=91",
+        "lateActivationRisk=10",
+        "tempoTrend=flat",
+        "basic_ft_candidate"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "8Sw2qoe4",
+    "decisionKey": "decision60",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "tier": "basic_ft",
+    "modelMode": "basic",
+    "createdAt": "2026-05-10T17:30:54.866Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 60,
+      "score": "0:0",
+      "confidence": 0.5040909090909089,
+      "components": {
+        "fullTimeNilNilScore": 85,
+        "dryStateScore": 97,
+        "lateActivationRisk": 20,
+        "realPressureScores": {
+          "window45_60": 0,
+          "window60_70": 0,
+          "window65_70": 0,
+          "window70_75": 0,
+          "windowTracked6075": 0,
+          "windowCombined6075": 0
+        },
+        "chaosRisk": 0,
+        "tempoTrend6075": "flat",
+        "favoriteDesperationRisk": 0,
+        "ruleScore": 85,
+        "aiScenarioScore": null,
+        "aiAgreementAdjustment": 0,
+        "aiWeight": 0,
+        "aiUseInModel": false,
+        "isPremiumAiSignal": false
+      },
+      "riskFlags": [
+        "basic_stats_only"
+      ],
+      "reasons": [
+        "fullTimeNilNilScore=85",
+        "lateActivationRisk=20",
+        "tempoTrend=flat",
+        "basic_ft_candidate"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "W8XgrLLH",
+    "decisionKey": "decision80",
+    "predictionType": "TB05_80_PLUS",
+    "tier": null,
+    "modelMode": "detailed",
+    "createdAt": "2026-05-10T18:38:56.677Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 80,
+      "score": "0:0",
+      "confidence": 0.82,
+      "components": {
+        "lateGoalScore80": 100,
+        "realPressureScore": 100,
+        "fakePressureScore": 14,
+        "finalScore": 100
+      },
+      "riskFlags": [],
+      "reasons": [
+        "tb_actionable_core late=100 real=100 fake=14"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "GA2JnWNP",
+    "decisionKey": "decision80",
+    "predictionType": "TB05_80_PLUS",
+    "tier": null,
+    "modelMode": "detailed",
+    "createdAt": "2026-05-10T18:48:02.832Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 1947,
+      "sentAt": "2026-05-10T18:48:03.112Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 1948,
+      "sentAt": "2026-05-10T19:02:46.093Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 81,
+      "score": "0:0",
+      "confidence": 0.76,
+      "components": {
+        "lateGoalScore80": 100,
+        "realPressureScore": 100,
+        "fakePressureScore": 10,
+        "finalScore": 100
+      },
+      "riskFlags": [],
+      "reasons": [
+        "tb_actionable_core late=100 real=100 fake=10"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "6P6ZMo4K",
+    "decisionKey": "decision60",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "tier": "basic_ft",
+    "modelMode": "basic",
+    "createdAt": "2026-05-10T19:28:39.342Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 65,
+      "score": "0:0",
+      "confidence": 0.42530303030303035,
+      "components": {
+        "fullTimeNilNilScore": 81,
+        "dryStateScore": 97,
+        "lateActivationRisk": 30,
+        "realPressureScores": {
+          "window45_60": 20,
+          "window60_70": 0,
+          "window65_70": 0,
+          "window70_75": 0,
+          "windowTracked6075": 0,
+          "windowCombined6075": 0
+        },
+        "chaosRisk": 0,
+        "tempoTrend6075": "flat",
+        "favoriteDesperationRisk": 0,
+        "ruleScore": 81,
+        "aiScenarioScore": null,
+        "aiAgreementAdjustment": 0,
+        "aiWeight": 0,
+        "aiUseInModel": false,
+        "isPremiumAiSignal": false
+      },
+      "riskFlags": [
+        "basic_stats_only"
+      ],
+      "reasons": [
+        "fullTimeNilNilScore=81",
+        "lateActivationRisk=30",
+        "tempoTrend=flat",
+        "basic_ft_candidate"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "djqt0qel",
+    "decisionKey": "decision60",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "tier": "basic_ft",
+    "modelMode": "basic",
+    "createdAt": "2026-05-10T20:23:44.657Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 60,
+      "score": "0:0",
+      "confidence": 0.48742424242424237,
+      "components": {
+        "fullTimeNilNilScore": 83,
+        "dryStateScore": 97,
+        "lateActivationRisk": 20,
+        "realPressureScores": {
+          "window45_60": 10,
+          "window60_70": 0,
+          "window65_70": 0,
+          "window70_75": 0,
+          "windowTracked6075": 0,
+          "windowCombined6075": 0
+        },
+        "chaosRisk": 0,
+        "tempoTrend6075": "flat",
+        "favoriteDesperationRisk": 0,
+        "ruleScore": 83,
+        "aiScenarioScore": null,
+        "aiAgreementAdjustment": 0,
+        "aiWeight": 0,
+        "aiUseInModel": false,
+        "isPremiumAiSignal": false
+      },
+      "riskFlags": [
+        "basic_stats_only"
+      ],
+      "reasons": [
+        "fullTimeNilNilScore=83",
+        "lateActivationRisk=20",
+        "tempoTrend=flat",
+        "basic_ft_candidate"
+      ],
+      "aiVerdict": null
+    }
+  }
+]

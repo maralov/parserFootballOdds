@@ -15,5 +15,9 @@
       "Bash(git merge *)",
       "Bash(git push *)"
     ]
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true
   }
 }

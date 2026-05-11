@@ -19,4 +19,17 @@ function calculateCost(usage, model) {
   return round(inputCost + outputCost);
 }
 
-module.exports = { calculateCost };
+function calculateResponsesCost(usage, model) {
+  const pricing = MODEL_PRICING[model];
+  if (!pricing) return null;
+
+  const inputTokens = usage?.input_tokens || 0;
+  const outputTokens = usage?.output_tokens || 0;
+
+  const inputCost = (inputTokens / 1_000_000) * pricing.input;
+  const outputCost = (outputTokens / 1_000_000) * pricing.output;
+
+  return round(inputCost + outputCost);
+}
+
+module.exports = { calculateCost, calculateResponsesCost, round };

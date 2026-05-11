@@ -1,0 +1,1246 @@
+{
+  "KQe5572N": {
+    "matchInfo": "Shaanxi Union vs Ningbo Professional",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 16484,
+      "webSearches": 1,
+      "searchQueries": [
+        "Shaanxi Union vs Ningbo Professional lineup news League One China",
+        "Shaanxi Union vs Ningbo Professional head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.8,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.000946,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "8x2W8Y2t": {
+    "matchInfo": "Kashiwa Reysol vs Kawasaki Frontale",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9861,
+      "webSearches": 1,
+      "searchQueries": [
+        "Kashiwa Reysol vs Kawasaki Frontale lineup injuries news May 2023",
+        "Kashiwa Reysol vs Kawasaki Frontale head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.75,
+      "redFlags": [
+        "Kashiwa Reysol's poor recent form",
+        "Kawasaki Frontale's inconsistent away performances"
+      ],
+      "sourcesCount": 2,
+      "costUsd": 0.001006,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "xluMkG5s": {
+    "matchInfo": "Changchun Xidu vs Shanghai Second",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 11939,
+      "webSearches": 1,
+      "searchQueries": [
+        "Changchun Xidu Shanghai Second League Two China lineups injuries news"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 1,
+      "confidence": 0.75,
+      "redFlags": [
+        "Notable absences or injuries not specified in available sources.",
+        "Recent coaching changes may affect team performance and tactics."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.001086,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "MNZjexrK": {
+    "matchInfo": "Shanghai Port B vs Dalian Yingbo B",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10157,
+      "webSearches": 1,
+      "searchQueries": [
+        "Shanghai Port B Dalian Yingbo B Ліга Ту Китай передматчевий прогноз травми мотивація форма тактика зовнішні фактори"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.000961,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "QNak8tHE": {
+    "matchInfo": "Levante W vs DUX Logrono W",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9640,
+      "webSearches": 1,
+      "searchQueries": [
+        "Levante W DUX Logrono W Liga F Women injuries news May 2023"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 3,
+      "confidence": 0.85,
+      "redFlags": [
+        "Levante W's recent poor form and potential internal issues may affect performance."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.000974,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "O8tlUTVp": {
+    "matchInfo": "Piast Gliwice vs GKS Katowice",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 13358,
+      "webSearches": 1,
+      "searchQueries": [
+        "Piast Gliwice GKS Katowice injuries news May 2023",
+        "Piast Gliwice GKS Katowice head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [
+        "not_found"
+      ],
+      "sourcesCount": 2,
+      "costUsd": 0.001024,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "nLjw02ZA": {
+    "matchInfo": "Verona vs Como",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9922,
+      "webSearches": 1,
+      "searchQueries": [
+        "Verona vs Como травми новини травми мотивація тактика зовнішні фактори ринкові сигнали H2H контекст",
+        "Verona vs Como травми новини травми мотивація тактика зовнішні фактори ринкові сигнали H2H контекст",
+        "Verona vs Como травми новини травми мотивація тактика зовнішні фактори ринкові сигнали H2H контекст"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [
+        "Verona's confirmed relegation may lead to a lack of motivation or cohesion within the team.",
+        "Como's recent inconsistency could affect their performance despite their higher standing."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.001041,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "Y1SJWBhm": {
+    "matchInfo": "Chiangrai Utd vs Uthai Thani",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 11435,
+      "webSearches": 1,
+      "searchQueries": [
+        "Chiangrai United vs Uthai Thani lineup news Thai League 1",
+        "Chiangrai United vs Uthai Thani head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.001013,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "tGGS8LiI": {
+    "matchInfo": "Shenzhen Juniors vs Shijiazhuang Gongfu",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9000,
+      "webSearches": 1,
+      "searchQueries": [
+        "Shenzhen Juniors vs Shijiazhuang Gongfu lineup news League One China",
+        "Shenzhen Juniors vs Shijiazhuang Gongfu head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.000982,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "fHGSUkNa": {
+    "matchInfo": "Chonburi vs Nakhon Ratchasima FC",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 14034,
+      "webSearches": 1,
+      "searchQueries": [
+        "Chonburi Nakhon Ratchasima FC injuries news Thai League 1 May 2023",
+        "Chonburi Nakhon Ratchasima FC head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.75,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.000974,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "prRrVbHr": {
+    "matchInfo": "Buriram vs Lamphun Warrior",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9555,
+      "webSearches": 1,
+      "searchQueries": [
+        "Buriram United starting lineup Thai League 1 May 2026",
+        "Lamphun Warrior starting lineup Thai League 1 May 2026",
+        "Buriram United vs Lamphun Warrior head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 3,
+      "costUsd": 0.000977,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "r3ZMNlIi": {
+    "matchInfo": "Nantong Zhiyun vs Wuxi Wugou",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10844,
+      "webSearches": 1,
+      "searchQueries": [
+        "Nantong Zhiyun vs Wuxi Wugou lineups injuries news League One China",
+        "Nantong Zhiyun vs Wuxi Wugou head-to-head statistics"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.001023,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "IRtxnY46": {
+    "matchInfo": "Lanzhou Longyuan vs Qingdao Red Lions",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9504,
+      "webSearches": 1,
+      "searchQueries": [
+        "Lanzhou Longyuan vs Qingdao Red Lions склади новини перед матчем Ліга Три Китай 2026",
+        "Lanzhou Longyuan vs Qingdao Red Lions мотивація форма тактика зовнішні фактори Ліга Три Китай 2026",
+        "Lanzhou Longyuan vs Qingdao Red Lions ринкові сигнали H2H контекст Ліга Три Китай 2026"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.75,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.000964,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "QipppCZI": {
+    "matchInfo": "Guangdong Mingtu vs Hubei Istar",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 25023,
+      "webSearches": 1,
+      "searchQueries": [
+        "Guangdong Mingtu vs Hubei Istar League Two China May 2023 lineup news",
+        "Guangdong Mingtu vs Hubei Istar League Two China May 2023 form"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.75,
+      "redFlags": [
+        "Notable absences in both teams could impact performance.",
+        "Recent form suggests potential for a low-scoring match."
+      ],
+      "sourcesCount": 7,
+      "costUsd": 0.000997,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "j9ny0oQp": {
+    "matchInfo": "Foshan Nanshi vs Suzhou Dongwu",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 8898,
+      "webSearches": 1,
+      "searchQueries": [
+        "Foshan Nanshi Suzhou Dongwu League One China squad news May 2023",
+        "Foshan Nanshi Suzhou Dongwu League One China match preview May 2023"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.8,
+      "redFlags": [],
+      "sourcesCount": 7,
+      "costUsd": 0.000984,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "x0AmUN86": {
+    "matchInfo": "Hertha Berlin vs Greuther Furth",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 12521,
+      "webSearches": 1,
+      "searchQueries": [
+        "Hertha Berlin vs Greuther Fürth injuries news 2. Bundesliga",
+        "Hertha Berlin vs Greuther Fürth head-to-head 2. Bundesliga"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.001204,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "tYiXHkhl": {
+    "matchInfo": "Zhejiang Professional vs Tianjin Jinmen Tiger",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9083,
+      "webSearches": 1,
+      "searchQueries": [
+        "Zhejiang Professional Tianjin Jinmen Tiger lineups injuries news Super League China",
+        "Zhejiang Professional Tianjin Jinmen Tiger tactical analysis",
+        "Zhejiang Professional Tianjin Jinmen Tiger head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.7,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.000961,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "dliZzbSP": {
+    "matchInfo": "Kalmar vs Halmstad",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9043,
+      "webSearches": 1,
+      "searchQueries": [
+        "Kalmar FF vs Halmstads BK Allsvenskan match preview May 2026",
+        "Kalmar FF vs Halmstads BK head-to-head record"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 7,
+      "costUsd": 0.000975,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "YTRsQNGD": {
+    "matchInfo": "Lugano vs St. Gallen",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9604,
+      "webSearches": 1,
+      "searchQueries": [
+        "Lugano St. Gallen starting lineup May 2023",
+        "Lugano St. Gallen injury updates May 2023"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.8,
+      "redFlags": [],
+      "sourcesCount": 2,
+      "costUsd": 0.000966,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "xWhvMmnC": {
+    "matchInfo": "Nottingham vs Newcastle",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 12244,
+      "webSearches": 1,
+      "searchQueries": [
+        "Nottingham Forest Newcastle injury news May 2023",
+        "Nottingham Forest Newcastle head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 2,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 4,
+      "costUsd": 0.000952,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "hUCtSe3n": {
+    "matchInfo": "FC Botosani vs Petrolul",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10222,
+      "webSearches": 1,
+      "searchQueries": [
+        "FC Botoșani vs Petrolul starting lineup news Superliga May 2023",
+        "FC Botoșani vs Petrolul injury updates Superliga May 2023"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.8,
+      "redFlags": [],
+      "sourcesCount": 2,
+      "costUsd": 0.000902,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "A1Gui7jt": {
+    "matchInfo": "Fiorentina vs Genoa",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 8989,
+      "webSearches": 1,
+      "searchQueries": [
+        "Fiorentina vs Genoa match preview May 2026",
+        "Fiorentina vs Genoa head-to-head record"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 2,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.000978,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "AJOqEtUr": {
+    "matchInfo": "Germany U17 W vs Northern Ireland U17 W",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10075,
+      "webSearches": 1,
+      "searchQueries": [
+        "Germany U17 W squad Euro U17 Women 2026",
+        "Northern Ireland U17 W squad Euro U17 Women 2026",
+        "Germany U17 W vs Northern Ireland U17 W head-to-head",
+        "Germany U17 W recent form",
+        "Northern Ireland U17 W recent form"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.00099,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "UudYXw4C": {
+    "matchInfo": "Ath Bilbao vs Valencia",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 13586,
+      "webSearches": 1,
+      "searchQueries": [
+        "Athletic Bilbao vs Valencia lineups May 2026",
+        "Athletic Bilbao vs Valencia match preview May 2026"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 2,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.001002,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "d65ar5Ws": {
+    "matchInfo": "Young Boys vs Basel",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10684,
+      "webSearches": 1,
+      "searchQueries": [
+        "Young Boys Basel Super League Championship Group May 2026 lineups",
+        "Young Boys Basel Super League Championship Group May 2026 match preview"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 2,
+      "confidence": 0.7,
+      "redFlags": [
+        "Not all starting lineups are confirmed, which may affect the accuracy of the analysis."
+      ],
+      "sourcesCount": 2,
+      "costUsd": 0.001026,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "tnYgV8s0": {
+    "matchInfo": "Ajax vs Utrecht",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 12494,
+      "webSearches": 1,
+      "searchQueries": [
+        "Ajax Utrecht Eredivisie match preview May 2023",
+        "Ajax Utrecht head-to-head record",
+        "Ajax Utrecht recent form",
+        "Ajax Utrecht team news",
+        "Ajax Utrecht tactical analysis"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 30,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.001133,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "4r8EjV1t": {
+    "matchInfo": "Tromso vs Molde",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 12783,
+      "webSearches": 1,
+      "searchQueries": [
+        "Tromso Molde starting lineup Eliteserien May 2023",
+        "Tromso Molde injury updates Eliteserien May 2023"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.7,
+      "redFlags": [],
+      "sourcesCount": 2,
+      "costUsd": 0.000886,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "2R5g2ADD": {
+    "matchInfo": "Telstar vs Heracles",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9072,
+      "webSearches": 1,
+      "searchQueries": [
+        "Telstar Heracles Eredivisie match preview May 2026",
+        "Telstar Heracles starting lineups May 2026",
+        "Telstar Heracles injuries May 2026",
+        "Telstar Heracles tactical analysis May 2026",
+        "Telstar Heracles head-to-head record"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.000986,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "zHSymMLs": {
+    "matchInfo": "Dibba Al Fujairah vs Ajman",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 11515,
+      "webSearches": 1,
+      "searchQueries": [
+        "Dibba Al Fujairah vs Ajman match preview UAE Pro League May 2026",
+        "Dibba Al Fujairah vs Ajman head-to-head record"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [
+        "Dibba Al Fujairah's recent form and defensive record raise concerns about their ability to secure a positive result."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.001031,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "OKXasIkJ": {
+    "matchInfo": "Al Bataeh vs Al Sharjah",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10199,
+      "webSearches": 1,
+      "searchQueries": [
+        "Al Bataeh vs Al Sharjah UAE League May 2026 match preview",
+        "Al Bataeh vs Al Sharjah head-to-head record"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [
+        "Not all starting lineups are confirmed, which could impact team performance.",
+        "Recent form indicates inconsistency, making the outcome uncertain."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.001023,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "K4VtwamL": {
+    "matchInfo": "Sekhukhune vs Kaizer Chiefs",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9734,
+      "webSearches": 1,
+      "searchQueries": [
+        "Sekhukhune United vs Kaizer Chiefs lineups Betway Premiership May 2023",
+        "Sekhukhune United vs Kaizer Chiefs head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.85,
+      "redFlags": [
+        "Notable absences in both teams could impact performance.",
+        "Recent form suggests potential for unexpected outcomes."
+      ],
+      "sourcesCount": 3,
+      "costUsd": 0.001017,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "8Cxbx9Wh": {
+    "matchInfo": "West Ham vs Arsenal",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 11142,
+      "webSearches": 1,
+      "searchQueries": [
+        "West Ham vs Arsenal injuries news May 2023",
+        "West Ham vs Arsenal head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [
+        "not_found"
+      ],
+      "sourcesCount": 3,
+      "costUsd": 0.000971,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "6oPhoGc2": {
+    "matchInfo": "Al Riyadh vs Al Fateh",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 8919,
+      "webSearches": 1,
+      "searchQueries": [
+        "Al Riyadh vs Al Fateh Saudi Pro League squad news May 2026",
+        "Al Riyadh vs Al Fateh Saudi Pro League match preview May 2026"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 2,
+      "confidence": 0.85,
+      "redFlags": [
+        "Al Riyadh's recent poor form and internal tensions",
+        "Al Fateh's inconsistent performances in recent matches"
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.000963,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "rgPtArRs": {
+    "matchInfo": "Slaven Belupo vs Gorica",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10574,
+      "webSearches": 1,
+      "searchQueries": [
+        "Slaven Belupo vs Gorica травми гравців",
+        "Slaven Belupo vs Gorica новини перед матчем",
+        "Slaven Belupo vs Gorica тактика"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.75,
+      "redFlags": [
+        "Notable absences due to injuries could impact team performance."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.000988,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "x8R1uujn": {
+    "matchInfo": "Radnicki Nis vs Mladost",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 11905,
+      "webSearches": 1,
+      "searchQueries": [
+        "Radnicki Nis Mladost squad news injuries May 2023",
+        "Radnicki Nis Mladost head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [
+        "Not all starting lineups are confirmed, which could impact team performance predictions."
+      ],
+      "sourcesCount": 2,
+      "costUsd": 0.001001,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "fyUpNczI": {
+    "matchInfo": "IMT Novi Beograd vs Radnicki 1923",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 14779,
+      "webSearches": 1,
+      "searchQueries": [
+        "IMT Novi Beograd Radnicki 1923 match preview May 2026",
+        "IMT Novi Beograd Radnicki 1923 lineups injuries motivation tactics external factors market signals H2H context"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 3,
+      "confidence": 0.75,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.000998,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "vwErljfA": {
+    "matchInfo": "Oviedo vs Getafe",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 8379,
+      "webSearches": 1,
+      "searchQueries": [
+        "Real Oviedo vs Getafe lineups injuries news LaLiga",
+        "Real Oviedo vs Getafe head-to-head record"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 2,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 7,
+      "costUsd": 0.000923,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "rR72DLjn": {
+    "matchInfo": "AEK Athens vs Panathinaikos",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10136,
+      "webSearches": 1,
+      "searchQueries": [
+        "AEK Athens vs Panathinaikos starting lineup May 2026",
+        "AEK Athens vs Panathinaikos match preview May 2026"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 2,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.001027,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "jiBABaLb": {
+    "matchInfo": "Olympiacos Piraeus vs PAOK",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10245,
+      "webSearches": 1,
+      "searchQueries": [
+        "Olympiacos Piraeus PAOK starting lineup news May 2023",
+        "Olympiacos Piraeus PAOK injury updates May 2023"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.000987,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "W8XgrLLH": {
+    "matchInfo": "Trnava vs Zilina",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 16371,
+      "webSearches": 1,
+      "searchQueries": [
+        "Spartak Trnava vs MŠK Žilina 10 травня 2026 склади травми",
+        "Spartak Trnava vs MŠK Žilina 10 травня 2026 мотивація форма",
+        "Spartak Trnava vs MŠK Žilina 10 травня 2026 тактика зовнішні фактори",
+        "Spartak Trnava vs MŠK Žilina 10 травня 2026 ринкові сигнали H2H контекст"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 1,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.001213,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "0vp175uP": {
+    "matchInfo": "Hapoel Haifa vs SC Ashdod",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 8139,
+      "webSearches": 1,
+      "searchQueries": [
+        "Hapoel Haifa SC Ashdod lineup news injuries May 2023",
+        "Hapoel Haifa SC Ashdod head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.75,
+      "redFlags": [
+        "Not enough recent data on team lineups and injuries to make a fully informed assessment."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.001014,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "GA2JnWNP": {
+    "matchInfo": "AFC Toronto W vs Montreal Roses W",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 12404,
+      "webSearches": 1,
+      "searchQueries": [
+        "AFC Toronto W vs Montreal Roses W lineup news NSL Women Canada May 2023"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 3,
+      "costUsd": 0.001019,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "n5L9nnSH": {
+    "matchInfo": "Genk vs Westerlo",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9465,
+      "webSearches": 1,
+      "searchQueries": [
+        "Genk vs Westerlo lineup injuries news May 2023",
+        "Genk vs Westerlo recent form and tactics",
+        "Genk vs Westerlo head-to-head record",
+        "Genk vs Westerlo market signals and betting odds",
+        "Genk vs Westerlo external factors May 2023"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.001024,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "Qq7RGRDF": {
+    "matchInfo": "Le Havre vs Marseille",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9383,
+      "webSearches": 1,
+      "searchQueries": [
+        "Le Havre vs Marseille May 2026 match preview",
+        "Le Havre vs Marseille head-to-head record"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [
+        "Marseille's recent inconsistent form and internal tensions may affect their performance."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.00099,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "OCBT3dGj": {
+    "matchInfo": "Independiente vs Always Ready",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10892,
+      "webSearches": 1,
+      "searchQueries": [
+        "Independiente vs Always Ready lineup news Division Profesional Bolivia",
+        "Independiente vs Always Ready match preview May 2026"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 1,
+      "confidence": 0.85,
+      "redFlags": [
+        "Independiente's recent elimination from Copa Sudamericana may affect team morale."
+      ],
+      "sourcesCount": 7,
+      "costUsd": 0.000977,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "I1AmMMke": {
+    "matchInfo": "Monaco vs Lille",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10244,
+      "webSearches": 1,
+      "searchQueries": [
+        "AS Monaco vs Lille OSC match preview May 2026",
+        "AS Monaco and Lille OSC injury updates May 2026"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 2,
+      "confidence": 0.85,
+      "redFlags": [
+        "Monaco's recent inconsistency in form could impact their performance.",
+        "Lille's injury list may affect their squad depth and match dynamics."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.001124,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "4UIIImq3": {
+    "matchInfo": "PSG vs Brest",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 8922,
+      "webSearches": 1,
+      "searchQueries": [
+        "PSG Brest Ligue 1 injuries news May 2026"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 1,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 1,
+      "costUsd": 0.001097,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "G81Nl5hJ": {
+    "matchInfo": "Estudiantes L.P. vs Racing Club",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10403,
+      "webSearches": 1,
+      "searchQueries": [
+        "Estudiantes LP vs Racing Club Liga Profesional Apertura Play Offs 2023 injuries news",
+        "Estudiantes LP vs Racing Club Liga Profesional Apertura Play Offs 2023 tactics"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.85,
+      "redFlags": [
+        "Notable absences of key players for both teams",
+        "Recent form suggests potential for a low-scoring match"
+      ],
+      "sourcesCount": 3,
+      "costUsd": 0.001,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "zwcThof4": {
+    "matchInfo": "Bay FC W vs Utah Royals W",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 8963,
+      "webSearches": 1,
+      "searchQueries": [
+        "Bay FC W vs Utah Royals W NWSL lineup news May 2026",
+        "Bay FC W vs Utah Royals W NWSL match preview May 2026",
+        "Bay FC W vs Utah Royals W NWSL head-to-head record"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 2,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.000987,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "fei5QAEG": {
+    "matchInfo": "San Lorenzo vs Olimpia Asuncion",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9470,
+      "webSearches": 1,
+      "searchQueries": [
+        "San Lorenzo vs Olimpia Asuncion injuries news Copa de Primera Apertura",
+        "San Lorenzo vs Olimpia Asuncion tactical analysis Copa de Primera Apertura"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 1,
+      "confidence": 0.85,
+      "redFlags": [
+        "San Lorenzo's key player, Wilson Quiñónez, is unavailable due to injury, weakening their defensive capabilities.",
+        "Olimpia's recent form has been inconsistent, with two losses in their last five matches, indicating potential vulnerabilities."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.001039,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "Ui32fe15": {
+    "matchInfo": "Avai vs Fortaleza",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10753,
+      "webSearches": 1,
+      "searchQueries": [
+        "Avai vs Fortaleza injuries news May 2023",
+        "Avai vs Fortaleza head-to-head statistics"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.00092,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "ltkUQ4wf": {
+    "matchInfo": "Mirassol vs Chapecoense-SC",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10218,
+      "webSearches": 1,
+      "searchQueries": [
+        "Mirassol vs Chapecoense-SC squad news injuries Serie A Betano",
+        "Mirassol vs Chapecoense-SC match preview May 2026"
+      ],
+      "researchQuality": 0.9,
+      "dataFreshnessDays": 1,
+      "confidence": 0.85,
+      "redFlags": [
+        "Chapecoense's away form is concerning, with 4 consecutive away losses and only 1 point from 5 away games.",
+        "Mirassol's home form is inconsistent, with 2 wins, 2 draws, and 3 losses in their last 7 home matches."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.001084,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "4MJrIdlm": {
+    "matchInfo": "Vancouver FC vs Langley United",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9004,
+      "webSearches": 1,
+      "searchQueries": [
+        "Vancouver FC Langley United match preview May 2026",
+        "Vancouver FC Langley United head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.7,
+      "redFlags": [],
+      "sourcesCount": 3,
+      "costUsd": 0.000936,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "0tIuxiem": {
+    "matchInfo": "Cusco vs Los Chankas",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9740,
+      "webSearches": 1,
+      "searchQueries": [
+        "Cusco vs Los Chankas Liga 1 Apertura May 2026 lineups",
+        "Cusco vs Los Chankas Liga 1 Apertura May 2026 injuries",
+        "Cusco vs Los Chankas Liga 1 Apertura May 2026 match preview"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 5,
+      "costUsd": 0.001031,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "23epNMxJ": {
+    "matchInfo": "Gremio vs Flamengo RJ",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 8310,
+      "webSearches": 1,
+      "searchQueries": [
+        "Gremio Flamengo RJ Serie A May 2023 squad news"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 2,
+      "costUsd": 0.001013,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "YT5NsIHa": {
+    "matchInfo": "Novorizontino vs Botafogo SP",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 10490,
+      "webSearches": 1,
+      "searchQueries": [
+        "Novorizontino vs Botafogo SP lineup news injuries May 2026",
+        "Novorizontino vs Botafogo SP Serie B standings May 2026"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 1,
+      "confidence": 0.7,
+      "redFlags": [],
+      "sourcesCount": 2,
+      "costUsd": 0.000933,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  }
+}

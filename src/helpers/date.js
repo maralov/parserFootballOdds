@@ -1,3 +1,5 @@
+'use strict';
+
 const dayjs = require('dayjs');
 require('dayjs/locale/uk');
 

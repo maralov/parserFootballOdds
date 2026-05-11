@@ -1,0 +1,270 @@
+{
+  "date": "2026-05-11",
+  "updatedAt": "2026-05-11T02:25:04.197Z",
+  "candidates": [
+    {
+      "matchId": "G81Nl5hJ",
+      "country": "ARGENTINA",
+      "league": "Liga Profesional - Apertura - Play Offs",
+      "homeTeam": "Estudiantes L.P.",
+      "awayTeam": "Racing Club",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/G81Nl5hJ/?s=2",
+      "discoveredAt": "2026-05-10T21:07:26.788Z",
+      "cycleId": 194
+    },
+    {
+      "matchId": "pMOPFthM",
+      "country": "BRAZIL",
+      "league": "Serie C - First stage",
+      "homeTeam": "Amazonas",
+      "awayTeam": "Figueirense",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/pMOPFthM/?s=2",
+      "discoveredAt": "2026-05-10T21:07:26.788Z",
+      "cycleId": 194
+    },
+    {
+      "matchId": "6ghfHYBT",
+      "country": "BRAZIL",
+      "league": "Serie C - First stage",
+      "homeTeam": "Volta Redonda",
+      "awayTeam": "Ferroviaria",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/6ghfHYBT/?s=2",
+      "discoveredAt": "2026-05-10T21:07:26.788Z",
+      "cycleId": 194
+    },
+    {
+      "matchId": "zwcThof4",
+      "country": "USA",
+      "league": "NWSL Women",
+      "homeTeam": "Bay FC W",
+      "awayTeam": "Utah Royals W",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/zwcThof4/?s=2",
+      "discoveredAt": "2026-05-10T21:07:26.788Z",
+      "cycleId": 194
+    },
+    {
+      "matchId": "fei5QAEG",
+      "country": "PARAGUAY",
+      "league": "Copa de Primera - Apertura",
+      "homeTeam": "San Lorenzo",
+      "awayTeam": "Olimpia Asuncion",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/fei5QAEG/?s=2",
+      "discoveredAt": "2026-05-10T21:37:58.096Z",
+      "cycleId": 199
+    },
+    {
+      "matchId": "2mUHKIQH",
+      "country": "BRAZIL",
+      "league": "Serie D",
+      "homeTeam": "Ivinhema",
+      "awayTeam": "Ouvidorense",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/2mUHKIQH/?s=2",
+      "discoveredAt": "2026-05-10T21:52:10.990Z",
+      "cycleId": 201
+    },
+    {
+      "matchId": "6PUwsiLb",
+      "country": "BRAZIL",
+      "league": "Serie D",
+      "homeTeam": "Manauara",
+      "awayTeam": "GAS",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/6PUwsiLb/?s=2",
+      "discoveredAt": "2026-05-10T21:52:10.990Z",
+      "cycleId": 201
+    },
+    {
+      "matchId": "YBWVrDjn",
+      "country": "BRAZIL",
+      "league": "Serie D",
+      "homeTeam": "Sao Raimundo RR",
+      "awayTeam": "Nacional-AM",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/YBWVrDjn/?s=2",
+      "discoveredAt": "2026-05-10T21:52:10.990Z",
+      "cycleId": 201
+    },
+    {
+      "matchId": "QgHzLgXa",
+      "country": "COLOMBIA",
+      "league": "Primera B - Apertura - Quadrangular",
+      "homeTeam": "Tigres",
+      "awayTeam": "Quindio",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/QgHzLgXa/?s=2",
+      "discoveredAt": "2026-05-10T21:52:10.990Z",
+      "cycleId": 201
+    },
+    {
+      "matchId": "jJ3FRa8c",
+      "country": "BOLIVIA",
+      "league": "Division Profesional",
+      "homeTeam": "The Strongest",
+      "awayTeam": "Real Potosi",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/jJ3FRa8c/?s=2",
+      "discoveredAt": "2026-05-10T22:07:36.765Z",
+      "cycleId": 204
+    },
+    {
+      "matchId": "ltkUQ4wf",
+      "country": "BRAZIL",
+      "league": "Serie A Betano",
+      "homeTeam": "Mirassol",
+      "awayTeam": "Chapecoense-SC",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/ltkUQ4wf/?s=2",
+      "discoveredAt": "2026-05-10T22:22:52.831Z",
+      "cycleId": 207
+    },
+    {
+      "matchId": "Ui32fe15",
+      "country": "BRAZIL",
+      "league": "Serie B",
+      "homeTeam": "Avai",
+      "awayTeam": "Fortaleza",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/Ui32fe15/?s=2",
+      "discoveredAt": "2026-05-10T22:22:52.831Z",
+      "cycleId": 207
+    },
+    {
+      "matchId": "4MJrIdlm",
+      "country": "CANADA",
+      "league": "Championship",
+      "homeTeam": "Vancouver FC",
+      "awayTeam": "Langley United",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/4MJrIdlm/?s=2",
+      "discoveredAt": "2026-05-10T22:52:13.166Z",
+      "cycleId": 212
+    },
+    {
+      "matchId": "MkdCJDF6",
+      "country": "COSTA RICA",
+      "league": "Primera Division - Clausura - Play Offs",
+      "homeTeam": "Saprissa",
+      "awayTeam": "Liberia",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/MkdCJDF6/?s=2",
+      "discoveredAt": "2026-05-10T22:52:13.166Z",
+      "cycleId": 212
+    },
+    {
+      "matchId": "23epNMxJ",
+      "country": "BRAZIL",
+      "league": "Serie A Betano",
+      "homeTeam": "Gremio",
+      "awayTeam": "Flamengo RJ",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/23epNMxJ/?s=2",
+      "discoveredAt": "2026-05-10T23:22:31.563Z",
+      "cycleId": 217
+    },
+    {
+      "matchId": "YT5NsIHa",
+      "country": "BRAZIL",
+      "league": "Serie B",
+      "homeTeam": "Novorizontino",
+      "awayTeam": "Botafogo SP",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/YT5NsIHa/?s=2",
+      "discoveredAt": "2026-05-10T23:22:31.563Z",
+      "cycleId": 217
+    },
+    {
+      "matchId": "0tIuxiem",
+      "country": "PERU",
+      "league": "Liga 1 - Apertura",
+      "homeTeam": "Cusco",
+      "awayTeam": "Los Chankas",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/0tIuxiem/?s=2",
+      "discoveredAt": "2026-05-10T23:22:31.563Z",
+      "cycleId": 217
+    },
+    {
+      "matchId": "tz0yiPOG",
+      "country": "USA",
+      "league": "NWSL Women",
+      "homeTeam": "Seattle Reign W",
+      "awayTeam": "Washington Spirit W",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/tz0yiPOG/?s=2",
+      "discoveredAt": "2026-05-10T23:52:54.330Z",
+      "cycleId": 222
+    },
+    {
+      "matchId": "bXvFEXAk",
+      "country": "COLOMBIA",
+      "league": "Primera A - Apertura - Play Offs",
+      "homeTeam": "Once Caldas",
+      "awayTeam": "Junior",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/bXvFEXAk/?s=2",
+      "discoveredAt": "2026-05-10T23:55:08.794Z",
+      "cycleId": 224
+    },
+    {
+      "matchId": "d4pvRaJs",
+      "country": "ECUADOR",
+      "league": "Liga Pro",
+      "homeTeam": "Manta",
+      "awayTeam": "Macara",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/d4pvRaJs/?s=2",
+      "discoveredAt": "2026-05-10T23:55:08.794Z",
+      "cycleId": 224
+    },
+    {
+      "matchId": "OW1NPwwA",
+      "country": "BOLIVIA",
+      "league": "Division Profesional",
+      "homeTeam": "Blooming",
+      "awayTeam": "Bolivar",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/OW1NPwwA/?s=2",
+      "discoveredAt": "2026-05-11T00:22:27.834Z",
+      "cycleId": 229
+    },
+    {
+      "matchId": "OWgqZUa6",
+      "country": "EL SALVADOR",
+      "league": "Primera Division - Clausura - Play Offs",
+      "homeTeam": "Inter F.A",
+      "awayTeam": "Municipal Limeno",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/OWgqZUa6/?s=2",
+      "discoveredAt": "2026-05-11T00:52:43.329Z",
+      "cycleId": 234
+    },
+    {
+      "matchId": "2egW9dLs",
+      "country": "USA",
+      "league": "MLS Next Pro",
+      "homeTeam": "Austin FC II",
+      "awayTeam": "Tacoma Defiance",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/2egW9dLs/?s=2",
+      "discoveredAt": "2026-05-11T01:22:59.784Z",
+      "cycleId": 239
+    },
+    {
+      "matchId": "YJKrJX1C",
+      "country": "COLOMBIA",
+      "league": "Primera B - Apertura - Quadrangular",
+      "homeTeam": "Inter Palmira",
+      "awayTeam": "Envigado",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/YJKrJX1C/?s=2",
+      "discoveredAt": "2026-05-11T02:09:21.793Z",
+      "cycleId": 246
+    }
+  ]
+}

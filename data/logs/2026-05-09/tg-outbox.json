@@ -1,0 +1,120 @@
+[
+  {
+    "matchId": "hAtrRPu9",
+    "decisionKey": "decision60",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "tier": "basic_ft",
+    "modelMode": "basic",
+    "createdAt": "2026-05-09T11:15:53.216Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 60,
+      "score": "0:0",
+      "confidence": 0.47909090909090907,
+      "components": {
+        "fullTimeNilNilScore": 82,
+        "dryStateScore": 97,
+        "lateActivationRisk": 20,
+        "realPressureScores": {
+          "window45_60": 14,
+          "window60_70": 0,
+          "window65_70": 0,
+          "window70_75": 0,
+          "windowTracked6075": 0,
+          "windowCombined6075": 0
+        },
+        "chaosRisk": 0,
+        "tempoTrend6075": "flat",
+        "favoriteDesperationRisk": 0,
+        "ruleScore": 82,
+        "aiScenarioScore": null,
+        "aiAgreementAdjustment": 0,
+        "aiWeight": 0,
+        "aiUseInModel": false,
+        "isPremiumAiSignal": false
+      },
+      "riskFlags": [
+        "basic_stats_only"
+      ],
+      "reasons": [
+        "fullTimeNilNilScore=82",
+        "lateActivationRisk=20",
+        "tempoTrend=flat",
+        "basic_ft_candidate"
+      ],
+      "aiVerdict": null
+    }
+  },
+  {
+    "matchId": "xzxOJiIF",
+    "decisionKey": "decision60",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "tier": "basic_ft",
+    "modelMode": "basic",
+    "createdAt": "2026-05-09T11:20:44.163Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 60,
+      "score": "0:0",
+      "confidence": 0.5995454545454544,
+      "components": {
+        "fullTimeNilNilScore": 91,
+        "dryStateScore": 97,
+        "lateActivationRisk": 10,
+        "realPressureScores": {
+          "window45_60": 0,
+          "window60_70": 0,
+          "window65_70": 0,
+          "window70_75": 0,
+          "windowTracked6075": 0,
+          "windowCombined6075": 0
+        },
+        "chaosRisk": 0,
+        "tempoTrend6075": "flat",
+        "favoriteDesperationRisk": 0,
+        "ruleScore": 91,
+        "aiScenarioScore": null,
+        "aiAgreementAdjustment": 0,
+        "aiWeight": 0,
+        "aiUseInModel": false,
+        "isPremiumAiSignal": false
+      },
+      "riskFlags": [
+        "basic_stats_only"
+      ],
+      "reasons": [
+        "fullTimeNilNilScore=91",
+        "lateActivationRisk=10",
+        "tempoTrend=flat",
+        "basic_ft_candidate"
+      ],
+      "aiVerdict": null
+    }
+  }
+]

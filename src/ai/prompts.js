@@ -1,6 +1,8 @@
 'use strict';
 
-const { SYSTEM_PROMPT } = require('./constants');
+const { SYSTEM_PROMPT, SYSTEM_PROMPT_HALFTIME } = require('./constants');
+const { buildDecision60Prompt } = require('./prompts/decision60Prompt');
+const { buildDecision80Prompt } = require('./prompts/decision80Prompt');
 
 function safeNumber(value, fallback = 'n/a') {
   return value == null ? fallback : String(value);
@@ -9,11 +11,6 @@ function safeNumber(value, fallback = 'n/a') {
 function safeAdd(a, b) {
   if (a == null && b == null) return null;
   return Math.round((((a || 0) + (b || 0)) * 100)) / 100;
-}
-
-function summarizeStandings(standings) {
-  if (!standings?.home || !standings?.away) return 'немає даних';
-  return `home #${standings.home.position}, away #${standings.away.position}`;
 }
 
 function summarizeH2H(h2h) {
@@ -36,125 +33,125 @@ function buildFiveMinWindows(snapshots = []) {
     }));
 }
 
-function formatWindowsTable(windows) {
-  if (!windows.length) return 'немає даних';
-
-  const lines = ['хв  | удари | у_створ | xG    | кутові'];
-  for (const item of windows) {
-    lines.push(
-      `${item.minute}  | ${item.shots_total} | ${item.sot_total} | ${safeNumber(item.xg_total)} | ${item.corners}`,
-    );
-  }
-  return lines.join('\n');
+function halftimeProbs(ht) {
+  if (!ht) return null;
+  if (typeof ht.p_match_ends_0_0 === 'number') return { p00: ht.p_match_ends_0_0, pGoal: ht.p_match_has_goal, conf: ht.confidence };
+  const pq = ht.probabilities || {};
+  if (typeof pq.p_match_ends_0_0 !== 'number') return null;
+  return {
+    p00: pq.p_match_ends_0_0,
+    pGoal: pq.p_match_has_goal,
+    conf: ht.confidence,
+  };
 }
 
-function findSnapshotForMinute(match, minute) {
-  const eligible = (match.snapshots || []).filter(snapshot => snapshot.minute <= minute);
-  return eligible[eligible.length - 1] || null;
+function summarizeHtSide(side) {
+  if (!side || typeof side !== 'object') return 'n/a';
+  const gaps = Array.isArray(side.key_absences) ? side.key_absences.length : 0;
+  const situation = side.form_quality_assessment || side.team_internal_state || side.tournament_situation || 'n/a';
+  const rot = side.rotation_risk ?? side.lineup_strength_vs_normal;
+  return `${safeNumber(situation)}, rot=${safeNumber(rot)}, abs=${gaps}`;
 }
 
 function buildHalftimeSection(match) {
   const ht = match.aiAnalysis?.halftime?.output;
   if (!ht) return '';
-  return `ОЦІНКА В ПЕРЕРВІ (AI):
-- p(0:0): ${safeNumber(ht.p_match_ends_0_0)}
-- Стан: ${safeNumber(ht.match_state)}
-- Домінує: ${safeNumber(ht.dominant_side)}
-- Впевненість: ${safeNumber(ht.confidence)}`;
+  const probs = halftimeProbs(ht);
+  const legacy = probs
+    ? `p(0:0): ${safeNumber(probs.p00)}\np(goal): ${safeNumber(probs.pGoal)}\nВпевненість: ${safeNumber(probs.conf)}`
+    : '';
+  let research = '';
+  if (typeof ht.research_meta?.research_quality === 'number') {
+    research += `Якість research: ${safeNumber(ht.research_meta.research_quality)}\n`;
+  }
+  if (ht.first_half_interpretation?.expected_2h_pattern || ht.first_half_context?.expected_2h_pattern) {
+    research += `Очікування 2H: ${safeNumber(
+      ht.first_half_interpretation?.expected_2h_pattern || ht.first_half_context?.expected_2h_pattern,
+    )}\n`;
+  }
+  const homeAway = [`${match.homeTeam}: ${summarizeHtSide(ht.home_team)}`, `${match.awayTeam}: ${summarizeHtSide(ht.away_team)}`];
+
+  return `ОЦІНКА В ПЕРЕРВІ (AI research):
+${legacy}
+${research}${homeAway.join('\n')}
+Ключ фактор: ${safeNumber(ht.first_half_interpretation?.key_factor_driving_pattern || ht.first_half_context?.key_factor)}`;
 }
 
-function buildDecision60Section(match) {
-  const d60 = match.aiAnalysis?.decision60?.output;
-  if (!d60) return '';
-  return `ОЦІНКА НА 60-Й ХВИЛИНІ (AI):
-- p(0:0): ${safeNumber(d60.p_match_ends_0_0)}
-- p(goal): ${safeNumber(d60.p_match_has_goal)}
-- Стан: ${safeNumber(d60.match_state)}
-- Домінує: ${safeNumber(d60.dominant_side)}
-- Впевненість: ${safeNumber(d60.confidence)}`;
-}
+/**
+ * @param {object} match
+ * @param {{ timezone?: string, now?: Date }} [ctx]
+ */
+function buildHalftimeUserPrompt(match, ctx = {}) {
+  const timezone = ctx.timezone || 'UTC';
+  const now = ctx.now instanceof Date ? ctx.now : new Date();
+  const matchDateTime = match.matchDateTime || match.match_datetime || 'not_found';
+  const round = match.round || 'not_found';
+  const fatigueHome = match?.h2h?.daysSinceLastMatch?.home;
+  const fatigueAway = match?.h2h?.daysSinceLastMatch?.away;
+  const standings = match.standings || {};
+  const homePpg = standings.home?.mp > 0 ? (standings.home.pts / standings.home.mp).toFixed(2) : 'not_found';
+  const awayPpg = standings.away?.mp > 0 ? (standings.away.pts / standings.away.mp).toFixed(2) : 'not_found';
 
-function buildHalftimePrompt(match) {
-  const user = `Матч на перерві з рахунком 0:0.
+  const ht1 = match.statistics?.['1half'];
+  const cap = match.statistics?.capturedAtStatus;
 
-КОМАНДИ:
-${match.homeTeam} (дім) vs ${match.awayTeam} (гості)
-Ліга: ${match.league}, ${match.country}
+  return `МАТЧ:
+- Дім: ${match.homeTeam}
+- Гості: ${match.awayTeam}
+- Ліга: ${match.league} (${match.country})
+- Дата і час: ${safeNumber(matchDateTime)} (${timezone})
+- Тур: ${safeNumber(round)}
 
-ПЕРЕДМАТЧЕВИЙ КОНТЕКСТ:
+ПОТОЧНИЙ СТАН:
+- Перерва, рахунок 0:0
+- Поточний час: ${now.toISOString()}
+
+СТАТИСТИКА ПЕРШОГО ТАЙМУ (знімок зі stats-сторінки: ${safeNumber(cap, 'невідомо')}):
+| Показник       | Дім | Гості |
+| Удари          | ${safeNumber(match.baseline1H?.totalShots?.home)} | ${safeNumber(match.baseline1H?.totalShots?.away)} |
+| Удари повз     | ${safeNumber(ht1?.home?.shotsOffTarget)} | ${safeNumber(ht1?.away?.shotsOffTarget)} |
+| Удари у створ  | ${safeNumber(match.baseline1H?.shotsOnTarget?.home)} | ${safeNumber(match.baseline1H?.shotsOnTarget?.away)} |
+| Кутові         | ${safeNumber(match.baseline1H?.cornerKicks?.home)} | ${safeNumber(match.baseline1H?.cornerKicks?.away)} |
+| xG             | ${safeNumber(match.baseline1H?.expectedGoalsXg?.home)} | ${safeNumber(match.baseline1H?.expectedGoalsXg?.away)} |
+| Володіння      | ${safeNumber(match.baseline1H?.ballPossession?.home)}% | ${safeNumber(match.baseline1H?.ballPossession?.away)}% |
+| Жовті картки   | ${safeNumber(match.baseline1H?.yellowCards?.home)} | ${safeNumber(match.baseline1H?.yellowCards?.away)} |
+| Червоні        | ${safeNumber(match.baseline1H?.redCards?.home)} | ${safeNumber(match.baseline1H?.redCards?.away)} |
+
+Сирі рядки статистики (як на Flashscore): ${match.statistics?.rawRows?.length
+    ? JSON.stringify(match.statistics.rawRows, null, 0)
+    : 'немає'}
+
+ПЕРЕДМАТЧЕВИЙ КОНТЕКСТ (з нашої системи):
 - Коефіцієнти 1X2: ${safeNumber(match.odds?.home)} / ${safeNumber(match.odds?.draw)} / ${safeNumber(match.odds?.away)}
-- Market signal (чисті ймовірності): ${safeNumber(match.derived?.marketSignal)}
+- Market signal: ${safeNumber(match.derived?.marketSignal)} (від -1 до +1, мінус = фаворит гості)
 - Table signal: ${safeNumber(match.derived?.tableSignal)}
+- Положення в таблиці: дім ${safeNumber(standings.home?.position, 'not_found')} / гості ${safeNumber(standings.away?.position, 'not_found')}
+- Очки за гру: дім ${safeNumber(homePpg, 'not_found')} / гості ${safeNumber(awayPpg, 'not_found')}
 - H2H останні 5: ${summarizeH2H(match.h2h)}
-- Турнірне положення: ${summarizeStandings(match.standings)}
+- Дні відпочинку: дім ${safeNumber(fatigueHome, 'not_found')} / гості ${safeNumber(fatigueAway, 'not_found')}
 
-СТАТИСТИКА ПЕРШОГО ТАЙМУ:
-- Удари: ${safeNumber(match.baseline1H?.totalShots?.home)} - ${safeNumber(match.baseline1H?.totalShots?.away)}
-- Удари у створ: ${safeNumber(match.baseline1H?.shotsOnTarget?.home)} - ${safeNumber(match.baseline1H?.shotsOnTarget?.away)}
-- Кутові: ${safeNumber(match.baseline1H?.cornerKicks?.home)} - ${safeNumber(match.baseline1H?.cornerKicks?.away)}
-- Очікувані голи (xG): ${safeNumber(match.baseline1H?.expectedGoalsXg?.home)} - ${safeNumber(match.baseline1H?.expectedGoalsXg?.away)}
-- Володіння: ${safeNumber(match.baseline1H?.ballPossession?.home)}% - ${safeNumber(match.baseline1H?.ballPossession?.away)}%
-- Жовті картки: ${safeNumber(match.baseline1H?.yellowCards?.home)} - ${safeNumber(match.baseline1H?.yellowCards?.away)}
-- Червоні: ${safeNumber(match.baseline1H?.redCards?.home)} - ${safeNumber(match.baseline1H?.redCards?.away)}
-
-Оціни ймовірності розвитку матчу.`;
-
-  return { system: SYSTEM_PROMPT, user };
+ЗАВДАННЯ:
+Виконай контекстне дослідження для цього матчу за categories 1-7
+(склади, мотивація, форма, тактика, зовнішні фактори, ринкові
+сигнали, H2H контекст). Зроби 3-5 цілеспрямованих пошуків.
+Поверни структуровану оцінку у строгому JSON-форматі.`;
 }
 
-function buildDecisionPrompt(match, minute, options = {}) {
-  const currentSnapshot = findSnapshotForMinute(match, minute);
-  const windows = buildFiveMinWindows((match.snapshots || []).filter(snapshot => snapshot.minute <= minute));
-  const totalXg = safeAdd(match.baseline1H?.expectedGoalsXg?.home, match.baseline1H?.expectedGoalsXg?.away);
-  const half1Tempo = totalXg == null ? 'n/a' : Math.round((totalXg / 45) * 1000) / 1000;
-  const sections = [buildHalftimeSection(match)];
-
-  if (options.includeDecision60Summary) sections.push(buildDecision60Section(match));
-
-  const user = `Матч триває, поточна хвилина ${minute}, рахунок 0:0.
-
-КОМАНДИ: ${match.homeTeam} vs ${match.awayTeam}
-
-ПЕРШИЙ ТАЙМ (baseline):
-- Удари: ${safeNumber(match.baseline1H?.totalShots?.home)} - ${safeNumber(match.baseline1H?.totalShots?.away)}
-- У створ: ${safeNumber(match.baseline1H?.shotsOnTarget?.home)} - ${safeNumber(match.baseline1H?.shotsOnTarget?.away)}
-- xG: ${safeNumber(match.baseline1H?.expectedGoalsXg?.home)} - ${safeNumber(match.baseline1H?.expectedGoalsXg?.away)}
-
-ДРУГИЙ ТАЙМ ДО ЦЬОГО МОМЕНТУ (хв 45-${minute}):
-- Удари: ${safeNumber(currentSnapshot?.since2H?.totalShots?.home)} - ${safeNumber(currentSnapshot?.since2H?.totalShots?.away)}
-- У створ: ${safeNumber(currentSnapshot?.since2H?.shotsOnTarget?.home)} - ${safeNumber(currentSnapshot?.since2H?.shotsOnTarget?.away)}
-- Кутові: ${safeNumber(currentSnapshot?.since2H?.cornerKicks?.home)} - ${safeNumber(currentSnapshot?.since2H?.cornerKicks?.away)}
-- xG 2-го тайму: ${safeNumber(currentSnapshot?.since2H?.expectedGoalsXg?.home)} - ${safeNumber(currentSnapshot?.since2H?.expectedGoalsXg?.away)}
-- Володіння: ${safeNumber(currentSnapshot?.ballPossession?.home)}% - ${safeNumber(currentSnapshot?.ballPossession?.away)}%
-
-ДИНАМІКА ПО 5-ХВИЛИННИХ ВІКНАХ:
-${formatWindowsTable(windows)}
-
-БАЗОВИЙ ТЕМП 1-ГО ТАЙМУ: ${safeNumber(half1Tempo)} xG/хв
-
-${sections.filter(Boolean).join('\n\n')}
-
-Оціни ймовірності розвитку матчу до фінального свистка.
-Зверни увагу на динаміку — чи зростає тиск, чи матч уповільнюється.${options.remainingTimeHint || ''}`;
-
-  return { system: SYSTEM_PROMPT, user };
-}
-
-function buildDecision60Prompt(match) {
-  return buildDecisionPrompt(match, 60);
-}
-
-function buildDecision80Prompt(match) {
-  return buildDecisionPrompt(match, 80, {
-    includeDecision60Summary: true,
-    remainingTimeHint: '\nДо фінального свистка залишилось 10 регулярних хвилин + компенсований час.',
-  });
+function buildHalftimePrompt(match, ctx = {}) {
+  return {
+    system: SYSTEM_PROMPT_HALFTIME,
+    user: buildHalftimeUserPrompt(match, ctx),
+  };
 }
 
 module.exports = {
+  SYSTEM_PROMPT,
   buildFiveMinWindows,
   buildHalftimePrompt,
+  buildHalftimeUserPrompt,
+  buildHalftimeSection,
+  summarizeH2H,
+  safeAdd,
   buildDecision60Prompt,
   buildDecision80Prompt,
-  safeAdd,
 };

@@ -49,7 +49,7 @@ function formatResultMessage({ outboxRecord, match }) {
 
   if (predictionType === 'FT_TM05_FROM_60_75') {
     const status = hit ? '✅ *HIT*' : '❌ *MISS*';
-    const lines = [`${status} · FT TM0\\.5`, `Фінал: ${escapeMarkdownV2(finalScore(match))}`];
+    const lines = [`${status} · ТМ 0,5`, `Фінал: ${escapeMarkdownV2(finalScore(match))}`];
     if (!hit) {
       const first = regularGoals(match).find((g) => typeof g?.minute === 'number');
       if (first) lines.push(`Перший гол: ${escapeMarkdownV2(first.minute)}'`);
@@ -61,9 +61,9 @@ function formatResultMessage({ outboxRecord, match }) {
     if (hit) {
       const goal = firstGoalAfterMinute(match, 80);
       const suffix = goal?.scoreAfter ? ` · ${escapeMarkdownV2(goal.scoreAfter)}` : '';
-      return `✅ *HIT* · TB0\\.5 after 80'\nГол після 80': ${escapeMarkdownV2(goal?.minute ?? '?')}'${suffix}`;
+      return `✅ *HIT* · ТБ 0,5\nГол після 80': ${escapeMarkdownV2(goal?.minute ?? '?')}'${suffix}`;
     }
-    return `❌ *MISS* · TB0\\.5 after 80'\nФінал: ${escapeMarkdownV2(finalScore(match))} — голу після 80' не було\\.`;
+    return `❌ *MISS* · ТБ 0,5\nФінал: ${escapeMarkdownV2(finalScore(match))} — голу після 80' не було\\.`;
   }
 
   return null;

@@ -164,7 +164,8 @@ function printTracking(trackedMatches, activeTimers) {
       const f = m.final;
       const score = f ? `${f.scoreHome}:${f.scoreAway}` : '?:?';
       const verdict = f?.resultTM05 ? 'TM✓' : 'TB✓';
-      const p00 = m.aiAnalysis?.decision60?.output?.p_match_ends_0_0;
+      const d60Out = m.aiAnalysis?.decision60?.output;
+      const p00 = d60Out?.probabilities?.p_match_ends_0_0 ?? d60Out?.p_match_ends_0_0;
       const aiSummary = p00 != null ? `  (p00=${p00})` : '';
       console.log(`  ✓  ${m.matchId}  ${label}  FINISHED ${score}  ${verdict}${aiSummary}`);
       continue;
@@ -191,13 +192,13 @@ function printTracking(trackedMatches, activeTimers) {
       if (xg.home != null) statsInfo += `  xG:${xg.home}/${xg.away}`;
     }
 
-    let nextInfo = '';
+    let nextInfo = '  next: unscheduled';
     if (t.nextSnapshotAt) {
       const diffMs   = new Date(t.nextSnapshotAt).getTime() - now;
       const diffMins = Math.floor(Math.abs(diffMs) / 60_000);
       const diffSecs = Math.floor((Math.abs(diffMs) % 60_000) / 1000);
-      const sign     = diffMs < 0 ? '-' : '';
-      nextInfo = `  next: ${sign}${diffMins}:${String(diffSecs).padStart(2, '0')}`;
+      const prefix   = diffMs < 0 ? 'overdue ' : '';
+      nextInfo = `  next: ${prefix}${diffMins}:${String(diffSecs).padStart(2, '0')}`;
     }
 
     let aiInfo = '';
@@ -217,4 +218,29 @@ function printTracking(trackedMatches, activeTimers) {
   }
 }
 
-module.exports = { printCycle, printTracking, printWatchHeader, printOutsideHours, printShutdown };
+/**
+ * Print a single, prominent live event line for tracker/AI activity.
+ *
+ * Format:
+ *   [HH:MM:SS] CAT | MatchLabel | message | k=v k=v
+ *
+ * @param {string} category   short tag, e.g. "tracker" or "ai"
+ * @param {string} label      "Home - Away" or matchId
+ * @param {string} message    short status, e.g. "snapshot @50'  0:0"
+ * @param {Object} [extra]    flat object of extra fields to render as k=v
+ */
+function printEvent(category, label, message, extra) {
+  const stamp = dayjs().format('HH:mm:ss');
+  let extras = '';
+  if (extra && typeof extra === 'object') {
+    const parts = [];
+    for (const [k, v] of Object.entries(extra)) {
+      if (v === undefined || v === null) continue;
+      parts.push(`${k}=${v}`);
+    }
+    if (parts.length) extras = `  ${parts.join(' ')}`;
+  }
+  console.log(`[${stamp}] ${pad(category, 7)} | ${label} | ${message}${extras}`);
+}
+
+module.exports = { printCycle, printTracking, printEvent, printWatchHeader, printOutsideHours, printShutdown };

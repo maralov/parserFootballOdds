@@ -13,8 +13,8 @@ function fixed2(value) {
 }
 
 function decisionTitle(predictionType) {
-  if (predictionType === 'FT_TM05_FROM_60_75') return 'FT TM0.5';
-  if (predictionType === 'TB05_80_PLUS') return "TB0.5 after 80'";
+  if (predictionType === 'FT_TM05_FROM_60_75') return 'ТМ 0,5';
+  if (predictionType === 'TB05_80_PLUS') return 'ТБ 0,5';
   return String(predictionType || '');
 }
 
@@ -105,7 +105,7 @@ function formatEntryMessage({ match, prediction, decisionKey, minute, score }) {
 
   const oddsLine = renderOdds(match.odds);
   if (oddsLine) {
-    lines.push('', '💰 *Pre-match odds:*', oddsLine);
+    lines.push('', '💰 *Pre\\-match odds:*', oddsLine);
   }
 
   if (desktopUrl) {

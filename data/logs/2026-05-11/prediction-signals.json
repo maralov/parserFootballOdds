@@ -1,0 +1,154 @@
+[
+  {
+    "matchId": "pMOPFthM",
+    "homeTeam": "Amazonas",
+    "awayTeam": "Figueirense",
+    "league": "Serie C - First stage",
+    "recordedAt": "2026-05-10T21:27:03.094Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 65,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.40820346320346335,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 69,
+      "dryStateScore": 64,
+      "lateActivationRisk": 28,
+      "realPressureScores": {
+        "window45_60": 16,
+        "window60_70": 18,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 18,
+        "windowCombined6075": 18
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 69,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=69",
+      "lateActivationRisk=28",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:1",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "G81Nl5hJ",
+    "homeTeam": "Estudiantes L.P.",
+    "awayTeam": "Racing Club",
+    "league": "Liga Profesional - Apertura - Play Offs",
+    "recordedAt": "2026-05-10T21:41:16.646Z",
+    "checkpoint": "decision80",
+    "signal": "PROTECT_UNDER",
+    "minute": 80,
+    "score": "0:0",
+    "predictionType": "PROTECT_UNDER",
+    "confidence": 0.6511111111111111,
+    "modelMode": "detailed",
+    "components": {
+      "lateGoalScore80": 12,
+      "realPressureScore": 20.5,
+      "fakePressureScore": 66,
+      "finalScore": 66
+    },
+    "reasons": [
+      "fake_pressure_shield TB unlikely fake=66 real=20.5"
+    ],
+    "riskFlags": [
+      "fake_pressure"
+    ],
+    "finalScore": "0:1",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "YBWVrDjn",
+    "homeTeam": "Sao Raimundo RR",
+    "awayTeam": "Nacional-AM",
+    "league": "Serie D",
+    "recordedAt": "2026-05-10T22:22:22.135Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.4921861471861471,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 77,
+      "dryStateScore": 91,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 24,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 77,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=77",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:2",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "Ui32fe15",
+    "homeTeam": "Avai",
+    "awayTeam": "Fortaleza",
+    "league": "Serie B",
+    "recordedAt": "2026-05-10T23:11:20.491Z",
+    "checkpoint": "decision80",
+    "signal": "TB80_PLUS",
+    "minute": 81,
+    "score": "0:0",
+    "predictionType": "TB05_80_PLUS",
+    "confidence": 0.76,
+    "modelMode": "detailed",
+    "components": {
+      "lateGoalScore80": 100,
+      "realPressureScore": 89.25,
+      "fakePressureScore": 10,
+      "finalScore": 100
+    },
+    "reasons": [
+      "tb_actionable_core late=100 real=89.25 fake=10"
+    ],
+    "riskFlags": [],
+    "finalScore": "0:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  }
+]

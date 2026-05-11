@@ -1,0 +1,91 @@
+{
+  "tz0yiPOG": {
+    "matchInfo": "Seattle Reign W vs Washington Spirit W",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9783,
+      "webSearches": 1,
+      "searchQueries": [
+        "Seattle Reign W vs Washington Spirit W lineup news NWSL May 2023",
+        "Seattle Reign W vs Washington Spirit W injury updates NWSL May 2023"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.85,
+      "redFlags": [],
+      "sourcesCount": 2,
+      "costUsd": 0.000975,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "d4pvRaJs": {
+    "matchInfo": "Manta vs Macara",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 9676,
+      "webSearches": 1,
+      "searchQueries": [
+        "Manta FC vs Macara Liga Pro Ecuador starting lineup May 2023",
+        "Manta FC vs Macara Liga Pro Ecuador match preview May 2023"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 7,
+      "confidence": 0.75,
+      "redFlags": [
+        "Manta FC's poor home form and Macará's average away performance may lead to unexpected outcomes."
+      ],
+      "sourcesCount": 5,
+      "costUsd": 0.001006,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "OW1NPwwA": {
+    "matchInfo": "Blooming vs Bolivar",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 13447,
+      "webSearches": 1,
+      "searchQueries": [
+        "Blooming vs Bolivar match preview May 2026",
+        "Blooming vs Bolivar head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 3,
+      "confidence": 0.75,
+      "redFlags": [
+        "Blooming's recent form and internal tensions may affect their performance.",
+        "Bolívar's away form is strong, but they have been inconsistent in recent matches."
+      ],
+      "sourcesCount": 2,
+      "costUsd": 0.001039,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  },
+  "2egW9dLs": {
+    "matchInfo": "Austin FC II vs Tacoma Defiance",
+    "halftimeAI": {
+      "success": true,
+      "latencyMs": 7801,
+      "webSearches": 1,
+      "searchQueries": [
+        "Austin FC II vs Tacoma Defiance lineup injuries news May 2023",
+        "Austin FC II vs Tacoma Defiance head-to-head record"
+      ],
+      "researchQuality": 0.8,
+      "dataFreshnessDays": 30,
+      "confidence": 0.8,
+      "redFlags": [],
+      "sourcesCount": 2,
+      "costUsd": 0.000951,
+      "useInModel": true,
+      "weightMultiplier": 1,
+      "error": null
+    }
+  }
+}

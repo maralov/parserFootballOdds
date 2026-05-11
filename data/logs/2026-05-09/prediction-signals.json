@@ -1,0 +1,500 @@
+[
+  {
+    "matchId": "CMy4cKz9",
+    "recordedAt": "2026-05-09T06:18:03.624Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.4855844155844156,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 82,
+      "dryStateScore": 97,
+      "lateActivationRisk": 28,
+      "realPressureScores": {
+        "window45_60": 4,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 82,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=82",
+      "lateActivationRisk=28",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ]
+  },
+  {
+    "matchId": "KSlIZGr2",
+    "recordedAt": "2026-05-09T06:19:50.744Z",
+    "checkpoint": "decision60",
+    "signal": "FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "confidence": 0.5465151515151516,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 89,
+      "dryStateScore": 97,
+      "lateActivationRisk": 18,
+      "realPressureScores": {
+        "window45_60": 0,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 89,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=89",
+      "lateActivationRisk=18",
+      "tempoTrend=flat",
+      "basic_ft_candidate"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ]
+  },
+  {
+    "matchId": "tIGeHino",
+    "recordedAt": "2026-05-09T06:20:03.484Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.45647186147186153,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 71,
+      "dryStateScore": 64,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 30,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 71,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=71",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ]
+  },
+  {
+    "matchId": "A1tYXwnd",
+    "recordedAt": "2026-05-09T06:27:32.996Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 65,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.5040909090909089,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 79,
+      "dryStateScore": 91,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 14,
+        "window60_70": 18,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 18,
+        "windowCombined6075": 18
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 79,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=79",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ]
+  },
+  {
+    "matchId": "2eTJesv3",
+    "recordedAt": "2026-05-09T08:27:34.032Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 65,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.5219480519480519,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 82,
+      "dryStateScore": 97,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 14,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 82,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=82",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "xGaGoaBN",
+    "recordedAt": "2026-05-09T08:28:57.849Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.5338528138528138,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 84,
+      "dryStateScore": 97,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 4,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 84,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=84",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "0Ku2bz05",
+    "homeTeam": "CSM Slatina",
+    "awayTeam": "Poli Iasi",
+    "league": "Liga 2 - Relegation Group",
+    "recordedAt": "2026-05-09T09:21:39.114Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 66,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.4439177489177489,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 75,
+      "dryStateScore": 82,
+      "lateActivationRisk": 28,
+      "realPressureScores": {
+        "window45_60": 16,
+        "window60_70": 6,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 6,
+        "windowCombined6075": 6
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 75,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=75",
+      "lateActivationRisk=28",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "1:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "4Ml0yDhl",
+    "homeTeam": "St. George City",
+    "awayTeam": "Sutherland Sharks",
+    "league": "NPL NSW",
+    "recordedAt": "2026-05-09T10:36:01.944Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.4921861471861471,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 77,
+      "dryStateScore": 82,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 16,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 77,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=77",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "1:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "hAtrRPu9",
+    "homeTeam": "Okzhetpes",
+    "awayTeam": "Atyrau",
+    "league": "Premier League",
+    "recordedAt": "2026-05-09T11:15:53.187Z",
+    "checkpoint": "decision60",
+    "signal": "FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "confidence": 0.47909090909090907,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 82,
+      "dryStateScore": 97,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 14,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 82,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=82",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "basic_ft_candidate"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "lWF81ZI8",
+    "homeTeam": "Daejeon",
+    "awayTeam": "Pohang",
+    "league": "K League 1",
+    "recordedAt": "2026-05-09T11:17:39.355Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.5338528138528138,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 84,
+      "dryStateScore": 97,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 6,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 84,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=84",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:2",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "xzxOJiIF",
+    "homeTeam": "St. George",
+    "awayTeam": "Mekelle 70 Enderta",
+    "league": "Premier League",
+    "recordedAt": "2026-05-09T11:20:44.137Z",
+    "checkpoint": "decision60",
+    "signal": "FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "confidence": 0.5995454545454544,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 91,
+      "dryStateScore": 97,
+      "lateActivationRisk": 10,
+      "realPressureScores": {
+        "window45_60": 0,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 91,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=91",
+      "lateActivationRisk=10",
+      "tempoTrend=flat",
+      "basic_ft_candidate"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "1:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  }
+]

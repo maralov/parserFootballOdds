@@ -1,0 +1,1379 @@
+[
+  {
+    "matchId": "MNZjexrK",
+    "homeTeam": "Shanghai Port B",
+    "awayTeam": "Dalian Yingbo B",
+    "league": "League Two",
+    "recordedAt": "2026-05-10T09:18:10.492Z",
+    "checkpoint": "decision60",
+    "signal": "FT_TM60_75",
+    "minute": 61,
+    "score": "0:0",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "confidence": 0.6809469696969699,
+    "modelMode": "detailed",
+    "components": {
+      "fullTimeNilNilScore": 87,
+      "dryStateScore": 100,
+      "lateActivationRisk": 36,
+      "realPressureScores": {
+        "window45_60": 2,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 35,
+      "ruleScore": 87,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=87",
+      "lateActivationRisk=36",
+      "tempoTrend=flat",
+      "extended_ft_candidate"
+    ],
+    "riskFlags": [],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "hOGZZ2KF",
+    "homeTeam": "Slavia Prague B",
+    "awayTeam": "Taborsko",
+    "league": "ChNL",
+    "recordedAt": "2026-05-10T09:34:01.077Z",
+    "checkpoint": "decision60",
+    "signal": "FT_TM60_75",
+    "minute": 61,
+    "score": "0:0",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "confidence": 0.46242424242424246,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 80,
+      "dryStateScore": 97,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 20,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 80,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=80",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "basic_ft_candidate"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "2:1",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "d8Uupjb6",
+    "homeTeam": "Zabbar",
+    "awayTeam": "Tarxien",
+    "league": "Premier League - Relegation",
+    "recordedAt": "2026-05-10T10:24:03.839Z",
+    "checkpoint": "decision60",
+    "signal": "FT_TM60_75",
+    "minute": 61,
+    "score": "0:0",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "confidence": 0.5912121212121211,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 90,
+      "dryStateScore": 97,
+      "lateActivationRisk": 10,
+      "realPressureScores": {
+        "window45_60": 4,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 90,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=90",
+      "lateActivationRisk=10",
+      "tempoTrend=flat",
+      "basic_ft_candidate"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ]
+  },
+  {
+    "matchId": "lUC0kFU1",
+    "homeTeam": "Warta Poznan",
+    "awayTeam": "Sandecja Nowy S.",
+    "league": "Division 2",
+    "recordedAt": "2026-05-10T11:35:03.376Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.35,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 59,
+      "dryStateScore": 51,
+      "lateActivationRisk": 30,
+      "realPressureScores": {
+        "window45_60": 40,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 59,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=59",
+      "lateActivationRisk=30",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "O8tlUTVp",
+    "homeTeam": "Piast Gliwice",
+    "awayTeam": "GKS Katowice",
+    "league": "Ekstraklasa",
+    "recordedAt": "2026-05-10T11:55:11.104Z",
+    "checkpoint": "decision80",
+    "signal": "TB80_PLUS",
+    "minute": 80,
+    "score": "0:0",
+    "predictionType": "TB05_80_PLUS",
+    "confidence": 0.76,
+    "modelMode": "detailed",
+    "components": {
+      "lateGoalScore80": 100,
+      "realPressureScore": 100,
+      "fakePressureScore": 0,
+      "finalScore": 100
+    },
+    "reasons": [
+      "tb_actionable_core late=100 real=100 fake=0"
+    ],
+    "riskFlags": [],
+    "finalScore": "0:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "xzUNw3PE",
+    "homeTeam": "Altai",
+    "awayTeam": "Ordabasy",
+    "league": "Premier League",
+    "recordedAt": "2026-05-10T12:18:50.939Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.35,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 83,
+      "dryStateScore": 97,
+      "lateActivationRisk": 38,
+      "realPressureScores": {
+        "window45_60": 4,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 40,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 83,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=83",
+      "lateActivationRisk=38",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "chaos_cards",
+      "basic_stats_only"
+    ],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "fHGSUkNa",
+    "homeTeam": "Chonburi",
+    "awayTeam": "Nakhon Ratchasima FC",
+    "league": "Thai League 1",
+    "recordedAt": "2026-05-10T12:39:15.391Z",
+    "checkpoint": "decision80",
+    "signal": "TB80_PLUS",
+    "minute": 80,
+    "score": "0:0",
+    "predictionType": "TB05_80_PLUS",
+    "confidence": 0.82,
+    "modelMode": "detailed",
+    "components": {
+      "lateGoalScore80": 100,
+      "realPressureScore": 100,
+      "fakePressureScore": 10,
+      "finalScore": 100
+    },
+    "reasons": [
+      "tb_actionable_core late=100 real=100 fake=10"
+    ],
+    "riskFlags": [],
+    "finalScore": "2:1",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "r3ZMNlIi",
+    "homeTeam": "Nantong Zhiyun",
+    "awayTeam": "Wuxi Wugou",
+    "league": "League One",
+    "recordedAt": "2026-05-10T13:07:17.673Z",
+    "checkpoint": "decision80",
+    "signal": "TB80_PLUS",
+    "minute": 80,
+    "score": "0:0",
+    "predictionType": "TB05_80_PLUS",
+    "confidence": 0.76,
+    "modelMode": "detailed",
+    "components": {
+      "lateGoalScore80": 100,
+      "realPressureScore": 100,
+      "fakePressureScore": 20,
+      "finalScore": 100
+    },
+    "reasons": [
+      "tb_actionable_core late=100 real=100 fake=20"
+    ],
+    "riskFlags": [],
+    "finalScore": "1:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "IaM5TfG6",
+    "homeTeam": "Nordsjaelland",
+    "awayTeam": "Midtjylland",
+    "league": "Superliga - Championship Group",
+    "recordedAt": "2026-05-10T13:42:04.470Z",
+    "checkpoint": "decision80",
+    "signal": "TB80_PLUS",
+    "minute": 80,
+    "score": "0:0",
+    "predictionType": "TB05_80_PLUS",
+    "confidence": 0.76,
+    "modelMode": "detailed",
+    "components": {
+      "lateGoalScore80": 100,
+      "realPressureScore": 100,
+      "fakePressureScore": 10,
+      "finalScore": 100
+    },
+    "reasons": [
+      "tb_actionable_core late=100 real=100 fake=10"
+    ],
+    "riskFlags": [],
+    "finalScore": "0:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "dS6JoyY8",
+    "homeTeam": "Amarante",
+    "awayTeam": "Santarem",
+    "league": "Liga 3 - Promotion Group",
+    "recordedAt": "2026-05-10T15:05:33.020Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.35,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 77,
+      "dryStateScore": 97,
+      "lateActivationRisk": 48,
+      "realPressureScores": {
+        "window45_60": 6,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 35,
+      "ruleScore": 77,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=77",
+      "lateActivationRisk=48",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "1:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "O2HYiGVs",
+    "homeTeam": "Sporting W",
+    "awayTeam": "Racing Power W",
+    "league": "Liga BPI Women",
+    "recordedAt": "2026-05-10T15:09:41.464Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 61,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.43731601731601744,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 80,
+      "dryStateScore": 97,
+      "lateActivationRisk": 36,
+      "realPressureScores": {
+        "window45_60": 4,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 35,
+      "ruleScore": 80,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=80",
+      "lateActivationRisk=36",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "Ams4IDoD",
+    "homeTeam": "Brozany",
+    "awayTeam": "Kolin",
+    "league": "3. CFL - Group B",
+    "recordedAt": "2026-05-10T16:16:45.659Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.35,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 60,
+      "dryStateScore": 57,
+      "lateActivationRisk": 38,
+      "realPressureScores": {
+        "window45_60": 36,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 60,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=60",
+      "lateActivationRisk=38",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "8zsWFsTq",
+    "homeTeam": "Brno",
+    "awayTeam": "Vlasim",
+    "league": "ChNL",
+    "recordedAt": "2026-05-10T16:19:28.744Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.4432683982683983,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 81,
+      "dryStateScore": 97,
+      "lateActivationRisk": 36,
+      "realPressureScores": {
+        "window45_60": 0,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 35,
+      "ruleScore": 81,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=81",
+      "lateActivationRisk=36",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "1:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "O8OTGpSb",
+    "homeTeam": "Raufoss",
+    "awayTeam": "Lyn",
+    "league": "OBOS-ligaen",
+    "recordedAt": "2026-05-10T16:21:04.165Z",
+    "checkpoint": "decision60",
+    "signal": "FT_TM60_75",
+    "minute": 61,
+    "score": "0:0",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "confidence": 0.47075757575757576,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 81,
+      "dryStateScore": 97,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 16,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 81,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=81",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "basic_ft_candidate"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:1",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "WUwBcHy8",
+    "homeTeam": "Hearts of Oak",
+    "awayTeam": "Aduana",
+    "league": "Premier League",
+    "recordedAt": "2026-05-10T16:24:15.129Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.4855844155844156,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 82,
+      "dryStateScore": 97,
+      "lateActivationRisk": 28,
+      "realPressureScores": {
+        "window45_60": 4,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 82,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=82",
+      "lateActivationRisk=28",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "4r8EjV1t",
+    "homeTeam": "Tromso",
+    "awayTeam": "Molde",
+    "league": "Eliteserien",
+    "recordedAt": "2026-05-10T16:36:22.742Z",
+    "checkpoint": "decision80",
+    "signal": "TB80_PLUS",
+    "minute": 80,
+    "score": "0:0",
+    "predictionType": "TB05_80_PLUS",
+    "confidence": 0.76,
+    "modelMode": "detailed",
+    "components": {
+      "lateGoalScore80": 100,
+      "realPressureScore": 61.1,
+      "fakePressureScore": 25,
+      "finalScore": 100
+    },
+    "reasons": [
+      "tb_actionable_core late=100 real=61.1 fake=25"
+    ],
+    "riskFlags": [],
+    "finalScore": "2:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "YgEzzB7C",
+    "homeTeam": "Etar",
+    "awayTeam": "Hebar",
+    "league": "Vtora liga",
+    "recordedAt": "2026-05-10T16:48:33.880Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.5398051948051947,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 85,
+      "dryStateScore": 97,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 0,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 85,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=85",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:1",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "OKXasIkJ",
+    "homeTeam": "Al Bataeh",
+    "awayTeam": "Al Sharjah",
+    "league": "UAE League",
+    "recordedAt": "2026-05-10T17:06:50.227Z",
+    "checkpoint": "decision80",
+    "signal": "TB80_PLUS",
+    "minute": 80,
+    "score": "0:0",
+    "predictionType": "TB05_80_PLUS",
+    "confidence": 0.82,
+    "modelMode": "detailed",
+    "components": {
+      "lateGoalScore80": 100,
+      "realPressureScore": 74.69999999999999,
+      "fakePressureScore": 20,
+      "finalScore": 100
+    },
+    "reasons": [
+      "tb_actionable_core late=100 real=74.69999999999999 fake=20"
+    ],
+    "riskFlags": [],
+    "finalScore": "0:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "8Cxbx9Wh",
+    "homeTeam": "West Ham",
+    "awayTeam": "Arsenal",
+    "league": "Premier League",
+    "recordedAt": "2026-05-10T17:10:34.744Z",
+    "checkpoint": "decision80",
+    "signal": "TB80_PLUS",
+    "minute": 80,
+    "score": "0:0",
+    "predictionType": "TB05_80_PLUS",
+    "confidence": 0.7332142857142858,
+    "modelMode": "detailed",
+    "components": {
+      "lateGoalScore80": 97,
+      "realPressureScore": 75.44999999999999,
+      "fakePressureScore": 39,
+      "finalScore": 97
+    },
+    "reasons": [
+      "tb_actionable_core late=97 real=75.44999999999999 fake=39"
+    ],
+    "riskFlags": [],
+    "finalScore": "0:1",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "YsU5zkMk",
+    "homeTeam": "Mladost DG",
+    "awayTeam": "Petrovac",
+    "league": "Prva Crnogorska Liga",
+    "recordedAt": "2026-05-10T17:16:19.738Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 61,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.44456709956709967,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 69,
+      "dryStateScore": 57,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 28,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 69,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=69",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "1:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "WlnhdWr9",
+    "homeTeam": "Jedinstvo",
+    "awayTeam": "Buducnost",
+    "league": "Prva Crnogorska Liga",
+    "recordedAt": "2026-05-10T17:20:20.377Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.35,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 58,
+      "dryStateScore": 26,
+      "lateActivationRisk": 28,
+      "realPressureScores": {
+        "window45_60": 26,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 40,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 58,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=58",
+      "lateActivationRisk=28",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "chaos_cards",
+      "basic_stats_only"
+    ],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "rDd8Zhng",
+    "homeTeam": "Muglaspor",
+    "awayTeam": "Elazigspor",
+    "league": "2. Lig Play Offs",
+    "recordedAt": "2026-05-10T17:26:52.640Z",
+    "checkpoint": "decision60",
+    "signal": "FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "confidence": 0.5995454545454544,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 91,
+      "dryStateScore": 97,
+      "lateActivationRisk": 10,
+      "realPressureScores": {
+        "window45_60": 0,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 91,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=91",
+      "lateActivationRisk=10",
+      "tempoTrend=flat",
+      "basic_ft_candidate"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ]
+  },
+  {
+    "matchId": "GIJxO2GF",
+    "homeTeam": "07 Vestur Sorvagur",
+    "awayTeam": "Toftir",
+    "league": "Premier League",
+    "recordedAt": "2026-05-10T17:30:23.860Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.5793073593073592,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 84,
+      "dryStateScore": 91,
+      "lateActivationRisk": 10,
+      "realPressureScores": {
+        "window45_60": 20,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 84,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=84",
+      "lateActivationRisk=10",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:2",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "8Sw2qoe4",
+    "homeTeam": "Dobrudzha",
+    "awayTeam": "Beroe",
+    "league": "efbet League - Relegation Group",
+    "recordedAt": "2026-05-10T17:30:54.722Z",
+    "checkpoint": "decision60",
+    "signal": "FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "confidence": 0.5040909090909089,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 85,
+      "dryStateScore": 97,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 0,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 85,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=85",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "basic_ft_candidate"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:1",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "rgPtArRs",
+    "homeTeam": "Slaven Belupo",
+    "awayTeam": "Gorica",
+    "league": "HNL",
+    "recordedAt": "2026-05-10T17:36:47.563Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 61,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.5963203463203464,
+    "modelMode": "detailed",
+    "components": {
+      "fullTimeNilNilScore": 78,
+      "dryStateScore": 100,
+      "lateActivationRisk": 38,
+      "realPressureScores": {
+        "window45_60": 13.4,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 78,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=78",
+      "lateActivationRisk=38",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [],
+    "finalScore": "1:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "fyUpNczI",
+    "homeTeam": "IMT Novi Beograd",
+    "awayTeam": "Radnicki 1923",
+    "league": "Mozzart Bet Super Liga - Relegation Group",
+    "recordedAt": "2026-05-10T17:48:56.182Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 61,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.5665584415584417,
+    "modelMode": "detailed",
+    "components": {
+      "fullTimeNilNilScore": 73,
+      "dryStateScore": 100,
+      "lateActivationRisk": 38,
+      "realPressureScores": {
+        "window45_60": 31.75,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 73,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=73",
+      "lateActivationRisk=38",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "KWmBezzg",
+    "homeTeam": "Cordoba",
+    "awayTeam": "Granada CF",
+    "league": "LaLiga2",
+    "recordedAt": "2026-05-10T17:55:19.165Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 65,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.5665584415584417,
+    "modelMode": "detailed",
+    "components": {
+      "fullTimeNilNilScore": 73,
+      "dryStateScore": 92,
+      "lateActivationRisk": 38,
+      "realPressureScores": {
+        "window45_60": 24.099999999999994,
+        "window60_70": 2,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 2,
+        "windowCombined6075": 2
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 73,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=73",
+      "lateActivationRisk=38",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [],
+    "finalScore": "1:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "W8XgrLLH",
+    "homeTeam": "Trnava",
+    "awayTeam": "Zilina",
+    "league": "Nike liga - Championship Group",
+    "recordedAt": "2026-05-10T18:38:56.543Z",
+    "checkpoint": "decision80",
+    "signal": "TB80_PLUS",
+    "minute": 80,
+    "score": "0:0",
+    "predictionType": "TB05_80_PLUS",
+    "confidence": 0.82,
+    "modelMode": "detailed",
+    "components": {
+      "lateGoalScore80": 100,
+      "realPressureScore": 100,
+      "fakePressureScore": 14,
+      "finalScore": 100
+    },
+    "reasons": [
+      "tb_actionable_core late=100 real=100 fake=14"
+    ],
+    "riskFlags": [],
+    "finalScore": "1:0",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "GA2JnWNP",
+    "homeTeam": "AFC Toronto W",
+    "awayTeam": "Montreal Roses W",
+    "league": "NSL Women",
+    "recordedAt": "2026-05-10T18:48:02.615Z",
+    "checkpoint": "decision80",
+    "signal": "TB80_PLUS",
+    "minute": 81,
+    "score": "0:0",
+    "predictionType": "TB05_80_PLUS",
+    "confidence": 0.76,
+    "modelMode": "detailed",
+    "components": {
+      "lateGoalScore80": 100,
+      "realPressureScore": 100,
+      "fakePressureScore": 10,
+      "finalScore": 100
+    },
+    "reasons": [
+      "tb_actionable_core late=100 real=100 fake=10"
+    ],
+    "riskFlags": [],
+    "finalScore": "0:1",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "6P6ZMo4K",
+    "homeTeam": "Union Touarga",
+    "awayTeam": "Maghreb Fez",
+    "league": "Botola Pro",
+    "recordedAt": "2026-05-10T19:28:39.088Z",
+    "checkpoint": "decision60",
+    "signal": "FT_TM60_75",
+    "minute": 65,
+    "score": "0:0",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "confidence": 0.42530303030303035,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 81,
+      "dryStateScore": 97,
+      "lateActivationRisk": 30,
+      "realPressureScores": {
+        "window45_60": 20,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 81,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=81",
+      "lateActivationRisk=30",
+      "tempoTrend=flat",
+      "basic_ft_candidate"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:1",
+    "predictionHit": false,
+    "predictionOutcome": "MISS"
+  },
+  {
+    "matchId": "ttlce2c6",
+    "homeTeam": "Central SC",
+    "awayTeam": "ABC",
+    "league": "Serie D",
+    "recordedAt": "2026-05-10T20:20:04.222Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.5100432900432901,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 80,
+      "dryStateScore": 91,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 14,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 80,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=80",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ]
+  },
+  {
+    "matchId": "W8CZw7rL",
+    "homeTeam": "Agropecuario",
+    "awayTeam": "Atletico Atlanta",
+    "league": "Primera Nacional",
+    "recordedAt": "2026-05-10T20:22:22.814Z",
+    "checkpoint": "decision60",
+    "signal": "LEAN_FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "LEAN_FT_TM05_FROM_60_75",
+    "confidence": 0.4207575757575757,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 65,
+      "dryStateScore": 57,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 32,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 65,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=65",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "weak_positive_ft_tm_context"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ],
+    "finalScore": "0:0",
+    "predictionHit": true,
+    "predictionOutcome": "HIT"
+  },
+  {
+    "matchId": "djqt0qel",
+    "homeTeam": "Vitoria ES",
+    "awayTeam": "Democrata GV",
+    "league": "Serie D",
+    "recordedAt": "2026-05-10T20:23:44.376Z",
+    "checkpoint": "decision60",
+    "signal": "FT_TM60_75",
+    "minute": 60,
+    "score": "0:0",
+    "predictionType": "FT_TM05_FROM_60_75",
+    "confidence": 0.48742424242424237,
+    "modelMode": "basic",
+    "components": {
+      "fullTimeNilNilScore": 83,
+      "dryStateScore": 97,
+      "lateActivationRisk": 20,
+      "realPressureScores": {
+        "window45_60": 10,
+        "window60_70": 0,
+        "window65_70": 0,
+        "window70_75": 0,
+        "windowTracked6075": 0,
+        "windowCombined6075": 0
+      },
+      "chaosRisk": 0,
+      "tempoTrend6075": "flat",
+      "favoriteDesperationRisk": 0,
+      "ruleScore": 83,
+      "aiScenarioScore": null,
+      "aiAgreementAdjustment": 0,
+      "aiWeight": 0,
+      "aiUseInModel": false,
+      "isPremiumAiSignal": false
+    },
+    "reasons": [
+      "fullTimeNilNilScore=83",
+      "lateActivationRisk=20",
+      "tempoTrend=flat",
+      "basic_ft_candidate"
+    ],
+    "riskFlags": [
+      "basic_stats_only"
+    ]
+  }
+]

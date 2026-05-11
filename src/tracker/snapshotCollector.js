@@ -7,11 +7,19 @@ const { parseLiveHeader }        = require('./parsers/liveHeaderParser');
 const { parseCumulativeStats }   = require('../enrichment/parsers/matchStatsParser');
 const { shouldDiscard }          = require('./discardPolicy');
 const { subtractStats, buildStatsMap } = require('./deltaCalculator');
+const { getSnapshotMinute, getDelayToNextSnapshotMs } = require('./snapshotCadence');
 const matchStore                 = require('../store/matchStore');
 const { collectFinal }           = require('./finalCollector');
+const { maybeRunPredictionPipeline } = require('../prediction/runLivePrediction');
 const { maybeRequestAI }         = require('../ai/aiOrchestrator');
 const env                        = require('../config/env');
 const logger                     = require('../observability/logger');
+const { printEvent }             = require('../observability/display');
+
+function matchLabel(match) {
+  if (!match) return '?';
+  return `${match.homeTeam || '?'} - ${match.awayTeam || '?'}`;
+}
 
 /**
  * Collect a single live snapshot for a tracked match.
@@ -28,7 +36,7 @@ const logger                     = require('../observability/logger');
  * @param {string}   matchId
  * @param {Function} scheduleNext  callback(matchId, delayMs) — provided by trackingScheduler
  * @param {Date}     [date]        logging date context
- * @returns {Promise<'discarded'|'stale'|'snapshot'|'final'>}
+ * @returns {Promise<'discarded'|'stale'|'retry_scheduled'|'snapshot'|'final'>}
  */
 async function collectSnapshot(matchId, scheduleNext, date = new Date()) {
   await randomDelay(
@@ -61,7 +69,7 @@ async function collectSnapshot(matchId, scheduleNext, date = new Date()) {
     const updated = matchStore.getMatch(matchId, date);
     if (updated?.tracking?.status === 'stale') return 'stale';
     scheduleNext(matchId, env.LIVE_TRACKER_HALFTIME_RETRY_MS);
-    return 'stale';
+    return 'retry_scheduled';
   }
 
   // ── 3. Parse header (score + minute) ─────────────────────────────────────
@@ -70,15 +78,26 @@ async function collectSnapshot(matchId, scheduleNext, date = new Date()) {
 
   // Still in halftime — reschedule and wait
   if (isHalftime || (minute !== null && minute < 45)) {
-    logger.debug('snapshotCollector: still halftime, rescheduling', { matchId, statusText });
+    const retrySec = Math.round(env.LIVE_TRACKER_HALFTIME_RETRY_MS / 1000);
+    printEvent('tracker', matchLabel(match), `HT-retry (${statusText || 'HT'})`, {
+      observedMin: minute,
+      retryIn: `${retrySec}s`,
+    });
+    logger.info('snapshotCollector: still halftime, rescheduling', {
+      matchId, statusText, observedMinute: minute, retryInSec: retrySec,
+    });
     scheduleNext(matchId, env.LIVE_TRACKER_HALFTIME_RETRY_MS);
-    return 'snapshot';
+    return 'retry_scheduled';
   }
 
   // ── 4. Discard policy ────────────────────────────────────────────────────
   const discard = shouldDiscard(header, env.LIVE_TRACKER_DISCARD_BEFORE_MINUTE);
   if (discard.discard) {
     matchStore.markDiscarded(matchId, discard.reason, date);
+    printEvent('tracker', matchLabel(match), `DISCARDED (${discard.reason})`, {
+      observedMin: minute,
+      score: `${scoreHome}:${scoreAway}`,
+    });
     logger.info('snapshotCollector: discarded', { matchId, minute, score: `${scoreHome}:${scoreAway}` });
     return 'discarded';
   }
@@ -114,12 +133,11 @@ async function collectSnapshot(matchId, scheduleNext, date = new Date()) {
 
   // ── 6. Build and store snapshot ───────────────────────────────────────────
   const capturedAt = new Date().toISOString();
-  const nextAt = isFinished
-    ? null
-    : new Date(Date.now() + env.LIVE_TRACKER_INTERVAL_MS + _jitter()).toISOString();
+  const snapshotMinute = isFinished ? null : getSnapshotMinute(minute);
 
   const snapshot = {
-    minute,
+    minute: snapshotMinute,
+    observedMinute: minute,
     capturedAt,
     statusText,
     scoreHome,
@@ -130,11 +148,41 @@ async function collectSnapshot(matchId, scheduleNext, date = new Date()) {
     delta,
   };
 
-  matchStore.appendSnapshot(matchId, snapshot, nextAt, date);
+  matchStore.appendSnapshot(matchId, snapshot, null, date);
 
-  logger.debug('snapshotCollector: snapshot stored', {
-    matchId, minute, score: `${scoreHome}:${scoreAway}`, isFinished,
+  const shotsPart = cumulativeMap?.totalShots
+    ? `shots:${cumulativeMap.totalShots.home ?? '?'}/${cumulativeMap.totalShots.away ?? '?'}`
+    : 'shots:?';
+  const xgHome = cumulativeMap?.expectedGoalsXg?.home;
+  const xgAway = cumulativeMap?.expectedGoalsXg?.away;
+  const xgPart = xgHome != null && xgAway != null ? `xG:${xgHome}/${xgAway}` : null;
+  printEvent(
+    'tracker',
+    matchLabel(match),
+    `snapshot @${snapshotMinute ?? minute}'  ${scoreHome}:${scoreAway}  ${shotsPart}`,
+    {
+      observedMin: minute,
+      level: match.statsLevel || '?',
+      ...(xgPart ? { xG: `${xgHome}/${xgAway}` } : {}),
+      finished: isFinished || undefined,
+    },
+  );
+  logger.info('snapshotCollector: snapshot stored', {
+    matchId,
+    minute: snapshotMinute,
+    observedMinute: minute,
+    score: `${scoreHome}:${scoreAway}`,
+    hasStats: cumulativeMap !== null,
+    isFinished,
   });
+
+  maybeRunPredictionPipeline(matchId, {
+    observedMinute: minute,
+    minute: snapshotMinute,
+    scoreHome,
+    scoreAway,
+    statusText,
+  }, date);
 
   // Stage 4 — AI checkpoints run in parallel and never block live tracking.
   if (env.LIVE_AI_ENABLED) {
@@ -170,13 +218,8 @@ async function collectSnapshot(matchId, scheduleNext, date = new Date()) {
     }
   }
 
-  scheduleNext(matchId, env.LIVE_TRACKER_INTERVAL_MS);
+  scheduleNext(matchId, getDelayToNextSnapshotMs(minute));
   return 'snapshot';
-}
-
-function _jitter() {
-  const jitter = env.LIVE_TRACKER_JITTER_MS || 15_000;
-  return Math.floor(Math.random() * jitter * 2) - jitter;
 }
 
 module.exports = { collectSnapshot };
