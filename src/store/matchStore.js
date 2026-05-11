@@ -52,11 +52,15 @@ function readStore(date = new Date()) {
 }
 
 function writeStore(store, date = new Date()) {
+  const target = matchesFile(date);
+  const tmp = target + '.tmp';
   try {
-    fs.writeFileSync(matchesFile(date), JSON.stringify(store, null, 2), 'utf8');
+    fs.writeFileSync(tmp, JSON.stringify(store, null, 2), 'utf8');
+    fs.renameSync(tmp, target);
     return true;
   } catch (e) {
     logger.warn('matchStore: write failed', { err: e.message });
+    try { fs.unlinkSync(tmp); } catch (_) { /* ignore */ }
     return false;
   }
 }

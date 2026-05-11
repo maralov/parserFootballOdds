@@ -1556,7 +1556,7 @@ test('matchStore.finalize skips Telegram dispatch if writeStore fails', async ()
 
       try {
         fs.writeFileSync = (p, ...rest) => {
-          if (typeof p === 'string' && p.endsWith('matches.json')) {
+          if (typeof p === 'string' && (p.endsWith('matches.json') || p.endsWith('matches.json.tmp'))) {
             throw new Error('disk full');
           }
           return realWrite.call(fs, p, ...rest);
