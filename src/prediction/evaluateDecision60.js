@@ -125,7 +125,6 @@ function evaluateDecision60(match, computed) {
   const ftScore = ms?.fullTimeNilNilScore ?? 0;
   const lateAct = ms?.lateActivationRisk ?? 0;
   const rpHardMax = Math.max(
-    ms?.realPressureScores?.window45_60 ?? 0,
     ms?.realPressureScores?.window60_70 ?? 0,
     ms?.realPressureScores?.window65_70 ?? 0,
     ms?.realPressureScores?.window70_75 ?? 0,

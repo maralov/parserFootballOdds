@@ -138,6 +138,30 @@ test('evaluateDecision60 NO_BET on realPressureScore >= 60', () => {
   assert.ok(pred.riskFlags.includes('late_activation_signs'));
 });
 
+test('evaluateDecision60 window45_60 alone no longer triggers rpHardMax', () => {
+  const match = {
+    matchId: 'm1',
+    statsLevel: 'detailed',
+    snapshots: [],
+  };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 30,
+      realPressureScores: { window45_60: 100, window60_70: 20, window65_70: 20, window70_75: 20, windowTracked6075: 20 },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'flat',
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: false },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  assert.ok(!pred.reasons.includes('real_pressure_too_high'));
+});
+
 test('evaluateDecision60 NO_BET on window70_75 real pressure >= 60', () => {
   const match = {
     matchId: 'm1',
