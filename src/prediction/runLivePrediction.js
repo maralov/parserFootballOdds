@@ -101,10 +101,19 @@ function appendSignalsIfEligible(matchId, evaluated, header, minute, date) {
     evaluated.predictionType === PRED_TYPES_80.PROTECT_UNDER;
   if (!actionable) return;
 
+  const match = matchStore.getMatch(matchId, date);
+  if (!match) return;
+
   const score = `${Number(header.scoreHome)}:${Number(header.scoreAway)}`;
   const dayDir = matchStore.dayLogsAbsolute(date);
+  const isPrimary60 = evaluated.predictionType === PRED_TYPES_60.FT_TM05_FROM_60_75;
+  const isPrimary80 = evaluated.predictionType === PRED_TYPES_80.TB05_80_PLUS;
+  const audience = (isPrimary60 || isPrimary80) && evaluated.useInTelegram === true ? 'telegram' : 'internal';
   predictionSignals.appendPredictionSignals(dayDir, {
     matchId,
+    homeTeam: match.homeTeam || null,
+    awayTeam: match.awayTeam || null,
+    league: match.league || match.tournament || match.competition || null,
     recordedAt: new Date().toISOString(),
     checkpoint: evaluated.checkpoint,
     signal: predictionSignals.deriveSignal(evaluated),
@@ -116,15 +125,13 @@ function appendSignalsIfEligible(matchId, evaluated, header, minute, date) {
     components: evaluated.components,
     reasons: evaluated.reasons,
     riskFlags: evaluated.riskFlags,
+    audience,
   });
 
   const decisionKey = evaluated.checkpoint
     || (evaluated.predictionType === PRED_TYPES_60.FT_TM05_FROM_60_75 ? 'decision60' : null)
     || (evaluated.predictionType === PRED_TYPES_80.TB05_80_PLUS ? 'decision80' : null);
   if (!decisionKey) return;
-
-  const match = matchStore.getMatch(matchId, date);
-  if (!match) return;
 
   setImmediate(() => {
     tgDispatcher.enqueueEntry({

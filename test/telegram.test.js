@@ -877,6 +877,7 @@ test('enqueueEntry dry-run sends primary and marks pending_result', async () => 
         components: {},
         riskFlags: [],
         reasons: [],
+        useInTelegram: true,
       };
 
       const row = await enqueueEntry({
@@ -918,7 +919,7 @@ test('enqueueEntry is idempotent and does not send duplicate if entry already se
         league: 'Test League',
         matchUrl: '/match/abcd/',
       };
-      const prediction = { predictionType: 'FT_TM05_FROM_60_75', modelMode: 'basic' };
+      const prediction = { predictionType: 'FT_TM05_FROM_60_75', modelMode: 'basic', useInTelegram: true };
 
       const first = await enqueueEntry({
         match,
@@ -1021,7 +1022,7 @@ test('enqueueEntry marks failed when sendMessage returns missing_credentials', a
       const { enqueueEntry } = reloadTelegramDispatcher();
       const row = await enqueueEntry({
         match: { matchId: 'M-T4-5', homeTeam: 'A', awayTeam: 'B', matchUrl: '/match/z/' },
-        prediction: { predictionType: 'FT_TM05_FROM_60_75', modelMode: 'basic' },
+        prediction: { predictionType: 'FT_TM05_FROM_60_75', modelMode: 'basic', useInTelegram: true },
         decisionKey: 'decision60',
         minute: 65,
         score: '0:0',
@@ -1080,6 +1081,7 @@ test('enqueueEntry prevents duplicate send for concurrent same key', async () =>
           components: {},
           riskFlags: [],
           reasons: [],
+          useInTelegram: true,
         };
 
         await Promise.all([
@@ -1904,6 +1906,7 @@ test('E2E FT: enqueue entry then finalize resolves outbox thread (dry-run)', asy
             riskFlags: [],
             checkpoint: 'decision60',
             predictionAudit: { components: {}, hit: null, finalResult: null },
+            useInTelegram: true,
           },
         },
       };
@@ -2014,6 +2017,7 @@ test('E2E TB80: enqueue entry then finalize resolves outbox thread (dry-run)', a
             riskFlags: [],
             checkpoint: 'decision80',
             predictionAudit: { components: {}, hit: null, finalResult: null },
+            useInTelegram: true,
           },
         },
       };

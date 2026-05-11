@@ -9,8 +9,13 @@ const { formatEntryMessage } = require('./formatters/entryMessage');
 const { formatResultMessage } = require('./formatters/resultMessage');
 const { PRED_TYPES_60, PRED_TYPES_80 } = require('../../prediction/constants');
 const inFlightEntries = new Set();
+const inFlightResults = new Set();
 
 function entryKey(matchId, decisionKey) {
+  return `${matchId}|${decisionKey}`;
+}
+
+function resultKey(matchId, decisionKey) {
   return `${matchId}|${decisionKey}`;
 }
 
@@ -44,7 +49,14 @@ function buildOutboxPayload({ match, prediction, decisionKey, minute, score }) {
 async function enqueueEntry({ match, prediction, decisionKey, minute, score, date = new Date() }) {
   if (!LIVE_TG_ENABLED) return null;
   if (!match || !prediction) return null;
-  if (!isPrimaryPrediction(prediction.predictionType)) return null;
+  if (!isPrimaryPrediction(prediction.predictionType)) {
+    logger.info('tg.entry.dropped', { matchId: match?.matchId, predictionType: prediction?.predictionType, reason: 'lean_internal_only' });
+    return null;
+  }
+  if (prediction.useInTelegram !== true) {
+    logger.info('tg.entry.dropped', { matchId: match?.matchId, predictionType: prediction?.predictionType, reason: 'use_in_telegram_false' });
+    return null;
+  }
 
   const matchId = match.matchId;
   const dayDir = matchStore.dayLogsAbsolute(date);
@@ -145,54 +157,64 @@ async function dispatchResults({ match, date = new Date() }) {
 
   for (const record of records) {
     try {
-      const message = formatResultMessage({ outboxRecord: record, match });
-      if (message == null) {
-        logger.warn('tg.result.skipped', {
-          matchId,
-          decisionKey: record.decisionKey,
-          reason: 'format_null',
-        });
+      const rkey = resultKey(matchId, record.decisionKey);
+      if (inFlightResults.has(rkey)) {
         continue;
       }
+      inFlightResults.add(rkey);
 
-      const result = await client.sendMessage({
-        text: message,
-        replyToMessageId: record.entry.messageId,
-      });
-      if (result.ok) {
-        const hit = resultHitForRecord(record, match);
-        const updated = tgOutbox.markResultSent(dayDir, matchId, record.decisionKey, {
-          messageId: result.messageId,
-          sentAt: new Date().toISOString(),
-          hit,
+      try {
+        const message = formatResultMessage({ outboxRecord: record, match });
+        if (message == null) {
+          logger.warn('tg.result.skipped', {
+            matchId,
+            decisionKey: record.decisionKey,
+            reason: 'format_null',
+          });
+          continue;
+        }
+
+        const result = await client.sendMessage({
+          text: message,
+          replyToMessageId: record.entry.messageId,
         });
-        logger.info('tg.result.sent', {
+        if (result.ok) {
+          const hit = resultHitForRecord(record, match);
+          const updated = tgOutbox.markResultSent(dayDir, matchId, record.decisionKey, {
+            messageId: result.messageId,
+            sentAt: new Date().toISOString(),
+            hit,
+          });
+          logger.info('tg.result.sent', {
+            matchId,
+            decisionKey: record.decisionKey,
+            messageId: result.messageId,
+            replyToMessageId: record.entry.messageId,
+            hit,
+            attempts: result.attempts,
+            dryRun: result.dryRun,
+          });
+          updates.push(updated);
+          continue;
+        }
+
+        let updated = tgOutbox.markResultFailed(dayDir, matchId, record.decisionKey, {
+          error: result.error,
+          attempts: result.attempts,
+        });
+        if (result.attempts >= Math.max(1, LIVE_TG_MAX_RETRIES)) {
+          updated = tgOutbox.setStatus(dayDir, matchId, record.decisionKey, 'failed');
+        }
+        logger.warn('tg.result.failed', {
           matchId,
           decisionKey: record.decisionKey,
-          messageId: result.messageId,
-          replyToMessageId: record.entry.messageId,
-          hit,
+          error: result.error,
           attempts: result.attempts,
-          dryRun: result.dryRun,
         });
         updates.push(updated);
-        continue;
+      } finally {
+        inFlightResults.delete(rkey);
       }
-
-      let updated = tgOutbox.markResultFailed(dayDir, matchId, record.decisionKey, {
-        error: result.error,
-        attempts: result.attempts,
-      });
-      if (result.attempts >= Math.max(1, LIVE_TG_MAX_RETRIES)) {
-        updated = tgOutbox.setStatus(dayDir, matchId, record.decisionKey, 'failed');
-      }
-      logger.warn('tg.result.failed', {
-        matchId,
-        decisionKey: record.decisionKey,
-        error: result.error,
-        attempts: result.attempts,
-      });
-      updates.push(updated);
     } catch (err) {
       logger.warn('tg.result.dispatch_error', {
         matchId,
@@ -204,7 +226,6 @@ async function dispatchResults({ match, date = new Date() }) {
 
   return updates;
 }
-
 
 async function flushPending({ date = new Date() } = {}) {
   if (!LIVE_TG_ENABLED) return { entries: [], results: [] };
@@ -240,6 +261,7 @@ async function flushPending({ date = new Date() } = {}) {
           aiOverlay: record.snapshot?.aiVerdict
             ? { scenario: record.snapshot.aiVerdict }
             : undefined,
+          useInTelegram: true, // already validated when originally enqueued
         },
         decisionKey: record.decisionKey,
         minute: record.snapshot?.minute,
