@@ -1,0 +1,13 @@
+{
+  "matchId": "CSYCPr4d",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/ldu-quito-xIqORMgg/mirassol-pQ8ryEe7/summary/stats/overall/?mid=CSYCPr4d",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-07T23:04:48.402Z"
+}

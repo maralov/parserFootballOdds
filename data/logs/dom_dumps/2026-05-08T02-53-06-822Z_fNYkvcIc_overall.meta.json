@@ -1,0 +1,13 @@
+{
+  "matchId": "fNYkvcIc",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/guadalajara-chivas-KvW5YxK6/juarez-YmiFfNy2/summary/stats/overall/?mid=fNYkvcIc",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-08T02:53:14.826Z"
+}

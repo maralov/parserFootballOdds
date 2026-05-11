@@ -1,0 +1,13 @@
+{
+  "matchId": "CWayX1tm",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/summary/stats/overall/?mid=CWayX1tm",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-07T19:25:04.247Z"
+}

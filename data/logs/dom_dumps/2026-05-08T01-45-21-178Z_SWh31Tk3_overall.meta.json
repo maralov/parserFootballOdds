@@ -1,0 +1,13 @@
+{
+  "matchId": "SWh31Tk3",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/carabobo-6cmntinM/river-plate-EVqSBe2f/summary/stats/overall/?mid=SWh31Tk3",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-08T01:45:29.181Z"
+}

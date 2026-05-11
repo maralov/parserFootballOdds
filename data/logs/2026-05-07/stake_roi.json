@@ -1,0 +1,150 @@
+{
+  "date": "2026-05-07",
+  "generatedAt": "2026-05-08T07:09:25.716Z",
+  "rules": {
+    "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
+    "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
+  },
+  "model": {
+    "bankStart": 10000,
+    "stakePct": 0.05,
+    "stakePerBet": 500,
+    "oddsByPeriod": {
+      "tm_60_70": 2.5,
+      "tm_60_78": 1.7,
+      "tm_or_tb_70_80": 1.8,
+      "tb_80_90": 2.5
+    }
+  },
+  "overall": {
+    "bets": 1,
+    "checked": 1,
+    "wins": 0,
+    "losses": 1,
+    "pending": 0,
+    "turnover": 500,
+    "profit": -500,
+    "roi": -1,
+    "hitRate": 0,
+    "bankStart": 10000,
+    "bankEnd": 9500
+  },
+  "byPeriod": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "60-78": {
+      "total": 1,
+      "checked": 1,
+      "wins": 0,
+      "losses": 1,
+      "pending": 0,
+      "turnover": 500,
+      "profit": -500,
+      "roi": -1,
+      "hitRate": 0
+    },
+    "70-80": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "byBetType": {
+    "UNDER_0_5": {
+      "total": 1,
+      "checked": 1,
+      "wins": 0,
+      "losses": 1,
+      "pending": 0,
+      "turnover": 500,
+      "profit": -500,
+      "roi": -1,
+      "hitRate": 0
+    },
+    "OVER_0_5": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "noFlipsScenario": {
+    "bets": 1,
+    "checked": 1,
+    "wins": 0,
+    "losses": 1,
+    "pending": 0,
+    "turnover": 500,
+    "profit": -500,
+    "roi": -1,
+    "hitRate": 0,
+    "bankStart": 10000,
+    "bankEnd": 9500
+  },
+  "matches": [
+    {
+      "matchId": "CWayX1tm",
+      "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+      "home": "Естудіантес Л.-П. 2",
+      "away": "Ньюелз Олд Бойз 2",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    }
+  ]
+}

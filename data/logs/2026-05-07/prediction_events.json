@@ -1,0 +1,4505 @@
+[
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "v3_main",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.517,
+    "pGoal": 0.483,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.025] [форма:form_high_totals Δp=0.024]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:23:43.915Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L1",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.483,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:23:43.916Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L2",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=61 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:23:43.918Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "v3_main",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.517,
+    "pGoal": 0.483,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.025] [форма:form_high_totals Δp=0.024]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:26:47.336Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L1",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.483,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:26:47.338Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L2",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=64 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:26:47.340Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "v3_main",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.517,
+    "pGoal": 0.483,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.025] [форма:form_high_totals Δp=0.024]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:29:16.310Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L1",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.483,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:29:16.313Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L2",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=66 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:29:16.315Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "v3_main",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.511,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:31:45.648Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L1",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:31:45.651Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L2",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=70 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:31:45.654Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "v3_main",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.511,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:34:15.334Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L1",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:34:15.338Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L2",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=71 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:34:15.341Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "v3_main",
+    "minute": 75,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.511,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:36:44.576Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L1",
+    "minute": 75,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:36:44.578Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L2",
+    "minute": 75,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "snapshots in late window=0 < 2",
+    "components": {
+      "pressureScore": 0,
+      "favoriteSide": "away",
+      "favoriteOdds": 1.64,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:36:44.582Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "v3_main",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.511,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:39:14.882Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L1",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:39:14.884Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L2",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "snapshots in late window=0 < 2",
+    "components": {
+      "pressureScore": 0,
+      "favoriteSide": "away",
+      "favoriteOdds": 1.64,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:39:14.887Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "v3_main",
+    "minute": 80,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.511,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:43:12.882Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L1",
+    "minute": 80,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=80 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:43:12.884Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L2",
+    "minute": 80,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "snapshots in late window=0 < 2",
+    "components": {
+      "pressureScore": 0,
+      "favoriteSide": "away",
+      "favoriteOdds": 1.64,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:43:12.887Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "v3_main",
+    "minute": 83,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.511,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:46:36.994Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L1",
+    "minute": 83,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=83 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:46:36.997Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L2",
+    "minute": 83,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "snapshots in late window=0 < 2",
+    "components": {
+      "pressureScore": 0,
+      "favoriteSide": "away",
+      "favoriteOdds": 1.64,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:46:37.000Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "v3_main",
+    "minute": 87,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.511,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:49:06.625Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L1",
+    "minute": 87,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=87 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:49:06.629Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L2",
+    "minute": 87,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "snapshots in late window=0 < 2",
+    "components": {
+      "pressureScore": 0,
+      "favoriteSide": "away",
+      "favoriteOdds": 1.64,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:49:06.631Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "v3_main",
+    "minute": 90,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.511,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:52:09.510Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L1",
+    "minute": 90,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.489,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=90 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:52:09.513Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "model": "L2",
+    "minute": 90,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "snapshots in late window=0 < 2",
+    "components": {
+      "pressureScore": 0,
+      "favoriteSide": "away",
+      "favoriteOdds": 1.64,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/fc-nizhny-novgorod-est-2015-fyeINsVh/rodina-moscow-rmYxyL2s/?mid=GS3Jfzrf",
+    "ts": "2026-05-07T14:52:09.517Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T14:56:39.138Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "v3_main",
+    "minute": 62,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.62,
+    "pGoal": 0.38,
+    "signalQuality": 0.7871,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=3/2 burst=false pD=0.62 pG=0.38 SQ=0.7871(мін 0.77) стан=dry | 3 уд. в площ., 0 мом., xG 0.3 [форма:h2h_low_totals Δp=-0.018]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "high"
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:32:04.151Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "L1",
+    "minute": 62,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.38,
+    "signalQuality": 0.7871,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "hard gate: red card (h=0, a=1)",
+    "components": {
+      "dry_1H": 0.4505,
+      "dry_2H": 0.3991,
+      "trajectory": 0.3702,
+      "odds": 0.3501,
+      "prematch": 0.6,
+      "intensityRatio": {
+        "shotsOnTarget": 1.5882,
+        "expectedGoalsXg": 0.6563,
+        "bigChances": 0,
+        "touchesInOppositionBox": 1.2457,
+        "totalShots": 0.9454
+      },
+      "currentState": "dry",
+      "snapshotCount": 3
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:32:04.156Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "L2",
+    "minute": 62,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=62 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:32:04.159Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "v3_main",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.62,
+    "pGoal": 0.38,
+    "signalQuality": 0.8029,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=4/2 burst=false pD=0.62 pG=0.38 SQ=0.8029(мін 0.77) стан=dry | 3 уд. в площ., 0 мом., xG 0.3 [форма:h2h_low_totals Δp=-0.018]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "high"
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:34:51.492Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "L1",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.38,
+    "signalQuality": 0.8029,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "hard gate: red card (h=0, a=1)",
+    "components": {
+      "dry_1H": 0.449,
+      "dry_2H": 0.4892,
+      "trajectory": 0.5415,
+      "odds": 0.3501,
+      "prematch": 0.6,
+      "intensityRatio": {
+        "shotsOnTarget": 1.35,
+        "expectedGoalsXg": 0.5533,
+        "bigChances": 0,
+        "touchesInOppositionBox": 1.0588,
+        "totalShots": 0.9643
+      },
+      "currentState": "dry",
+      "snapshotCount": 4
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:34:51.496Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "L2",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=65 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:34:51.499Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "v3_main",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.67,
+    "pGoal": 0.33,
+    "signalQuality": 0.8186,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=5/2 burst=false pD=0.67 pG=0.33 SQ=0.8186(мін 0.77) стан=dry | 3 уд. в площ., 0 мом., xG 0.31 [форма:h2h_low_totals Δp=-0.018]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5265,
+      "confidence": "high"
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:37:39.091Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "L1",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.33,
+    "signalQuality": 0.8186,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "hard gate: red card (h=0, a=1)",
+    "components": {
+      "dry_1H": 0.4505,
+      "dry_2H": 0.5451,
+      "trajectory": 0.6297,
+      "odds": 0.3501,
+      "prematch": 0.6,
+      "intensityRatio": {
+        "shotsOnTarget": 1.1739,
+        "expectedGoalsXg": 0.5013,
+        "bigChances": 0,
+        "touchesInOppositionBox": 1.0358,
+        "totalShots": 0.8385
+      },
+      "currentState": "dry",
+      "snapshotCount": 5
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:37:39.095Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "L2",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=68 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:37:39.098Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "v3_main",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.622,
+    "pGoal": 0.378,
+    "signalQuality": 0.8343,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "[ТБ вимкнено] ТБ 70-80 v3 (dry alert) | рахунок 0:0 після dry@60-70 | 3 уд. в площ., 0 мом., xG 0.31 (2H+O) [ринок ΔpG +0.03]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5265,
+      "confidence": "high"
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:39:54.725Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "L1",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.378,
+    "signalQuality": 0.8343,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "hard gate: red card (h=0, a=1)",
+    "components": {
+      "dry_1H": 0.4505,
+      "dry_2H": 0.5815,
+      "trajectory": 0.6993,
+      "odds": 0.3501,
+      "prematch": 0.6,
+      "intensityRatio": {
+        "shotsOnTarget": 1.08,
+        "expectedGoalsXg": 0.4612,
+        "bigChances": 0,
+        "touchesInOppositionBox": 0.9529,
+        "totalShots": 0.7714
+      },
+      "currentState": "dry",
+      "snapshotCount": 6
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:39:54.730Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "L2",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=70 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:39:54.734Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "v3_main",
+    "minute": 73,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.622,
+    "pGoal": 0.378,
+    "signalQuality": 0.85,
+    "edge": 0.122,
+    "timeWindow": "70-80",
+    "reason": "ТМ 70–80 v3 | 3 уд. в площ., 0 мом., xG 0.33 (2H+O) | SQ=0.85 [ринок ΔpG +0.03]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5271,
+      "confidence": "high"
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:42:10.094Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": true,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "L1",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.378,
+    "signalQuality": 0.85,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "hard gate: red card (h=0, a=1)",
+    "components": {
+      "dry_1H": 0.4505,
+      "dry_2H": 0.6215,
+      "trajectory": 0.7745,
+      "odds": 0.3501,
+      "prematch": 0.6,
+      "intensityRatio": {
+        "shotsOnTarget": 0.9643,
+        "expectedGoalsXg": 0.4383,
+        "bigChances": 0,
+        "touchesInOppositionBox": 0.8508,
+        "totalShots": 0.8036
+      },
+      "currentState": "dry",
+      "snapshotCount": 7
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:42:10.099Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "model": "L2",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=73 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/?mid=Me1jhhnJ",
+    "ts": "2026-05-07T18:42:10.103Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:04:59.491Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "v3_main",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.599,
+    "pGoal": 0.401,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.025] [форма:h2h_low_totals Δp=-0.018]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T18:57:08.307Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L1",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.401,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T18:57:08.311Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L2",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=60 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T18:57:08.314Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "v3_main",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.599,
+    "pGoal": 0.401,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.025] [форма:h2h_low_totals Δp=-0.018]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T18:59:37.869Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L1",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.401,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T18:59:37.873Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L2",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=63 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T18:59:37.876Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "v3_main",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.599,
+    "pGoal": 0.401,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.025] [форма:h2h_low_totals Δp=-0.018]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:02:07.588Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L1",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.401,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:02:07.592Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L2",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=66 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:02:07.595Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "v3_main",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.599,
+    "pGoal": 0.401,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.025] [форма:h2h_low_totals Δp=-0.018]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:04:38.994Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L1",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.401,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:04:38.997Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L2",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=68 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:04:39.000Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "v3_main",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.551,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:07:28.958Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L1",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:07:28.962Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L2",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=71 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:07:28.966Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "v3_main",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.551,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:10:18.078Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L1",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:10:18.082Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L2",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=74 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:10:18.086Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "v3_main",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.551,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:13:06.922Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L1",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:13:06.926Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L2",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "favorite odds=1.82 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 1.82,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:13:06.929Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "v3_main",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.551,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:15:54.966Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L1",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=79 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:15:54.970Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L2",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=1.82 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 1.82,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:15:54.974Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "v3_main",
+    "minute": 82,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.551,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:18:43.129Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L1",
+    "minute": 82,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=82 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:18:43.134Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L2",
+    "minute": 82,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=1.82 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 1.82,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:18:43.137Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "v3_main",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.649,
+    "pGoal": 0.351,
+    "signalQuality": 0.5719,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=4/2 burst=false pD=0.649 pG=0.351 SQ=0.5719(мін 0.77) стан=dry | 0 уд. в площ.",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:19:03.184Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L1",
+    "minute": 61,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "pGoal": 0.351,
+    "signalQuality": 0.5719,
+    "edge": 0.42,
+    "timeWindow": "60-78",
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 0.3125
+      },
+      "currentState": "dry",
+      "snapshotCount": 4
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:19:03.188Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": false,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L2",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=61 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:19:03.464Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "v3_main",
+    "minute": 85,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.551,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:21:46.970Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L1",
+    "minute": 85,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=85 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:21:46.974Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L2",
+    "minute": 85,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=1.82 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 1.82,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:21:46.977Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "v3_main",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.649,
+    "pGoal": 0.351,
+    "signalQuality": 0.5876,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=5/2 burst=false pD=0.649 pG=0.351 SQ=0.5876(мін 0.77) стан=dry | 0 уд. в площ.",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:22:06.052Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L1",
+    "minute": 64,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "pGoal": 0.351,
+    "signalQuality": 0.5876,
+    "edge": 0.42,
+    "timeWindow": "60-78",
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 0.2632
+      },
+      "currentState": "dry",
+      "snapshotCount": 5
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:22:06.057Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": false,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L2",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=64 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:22:06.060Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "v3_main",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.551,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "Немає знімків (snapshots=0) — прогноз заблоковано [ринок ΔpG +0.055]",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:24:50.651Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L1",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.449,
+    "signalQuality": 0.429,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=88 outside window 60-78",
+    "components": {
+      "currentState": "dry",
+      "snapshotCount": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:24:50.655Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "model": "L2",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=1.82 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 1.82,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/dynamo-moscow-AFWA2jAQ/krasnodar-dz6KeNj3/?mid=0OHaLIv2",
+    "ts": "2026-05-07T19:24:50.659Z",
+    "actualResult": {
+      "home": 1,
+      "away": 0
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:46:43.562Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "v3_main",
+    "minute": 67,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.649,
+    "pGoal": 0.351,
+    "signalQuality": 0.6033,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=6/2 burst=false pD=0.649 pG=0.351 SQ=0.6033(мін 0.77) стан=dry | 0 уд. в площ.",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:25:08.945Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L1",
+    "minute": 67,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "pGoal": 0.351,
+    "signalQuality": 0.6033,
+    "edge": 0.42,
+    "timeWindow": "60-78",
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 0.2273
+      },
+      "currentState": "dry",
+      "snapshotCount": 6
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:25:08.949Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": false,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L2",
+    "minute": 67,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=67 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:25:08.953Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "v3_main",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.579,
+    "pGoal": 0.421,
+    "signalQuality": 0.539,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "[ТБ вимкнено] ТБ 70-80 v3 (dry alert) | рахунок 0:0 після dry@60-70 | 0 уд. в площ. (2H+O)",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 1,
+      "confidence": "low"
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:27:38.825Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L1",
+    "minute": 71,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "pGoal": 0.421,
+    "signalQuality": 0.539,
+    "edge": 0.42,
+    "timeWindow": "60-78",
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 0.1923
+      },
+      "currentState": "dry",
+      "snapshotCount": 7
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:27:38.832Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": false,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L2",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=71 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:27:38.836Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "v3_main",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.579,
+    "pGoal": 0.421,
+    "signalQuality": 0.5547,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "70–80 v3: немає порогів pG=0.421 pD=0.579 | 0 уд. в площ.",
+    "components": {
+      "currentState": "dry",
+      "dominanceStrength": 0.6667,
+      "confidence": "low"
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:30:28.919Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L1",
+    "minute": 73,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "pGoal": 0.421,
+    "signalQuality": 0.5547,
+    "edge": 0.42,
+    "timeWindow": "60-78",
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 0.1786
+      },
+      "currentState": "dry",
+      "snapshotCount": 8
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:30:28.925Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": false,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L2",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=73 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:30:28.929Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "v3_main",
+    "minute": 75,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.509,
+    "pGoal": 0.491,
+    "signalQuality": 0.5704,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "70–80 v3: немає порогів pG=0.491 pD=0.509 | 0 уд. в площ.",
+    "components": {
+      "currentState": "lateSurge",
+      "dominanceStrength": 0.5,
+      "confidence": "low"
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:33:18.081Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L1",
+    "minute": 75,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "pGoal": 0.491,
+    "signalQuality": 0.5704,
+    "edge": 0.42,
+    "timeWindow": "60-78",
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "components": {
+      "consensusCount": 3,
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": 0,
+        "expectedGoalsXg": null,
+        "bigChances": null,
+        "touchesInOppositionBox": null,
+        "totalShots": 0.1667
+      },
+      "currentState": "lateSurge",
+      "snapshotCount": 9
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:33:18.088Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": false,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L2",
+    "minute": 75,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "favorite odds=2.2 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 2.2,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:33:18.091Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "v3_main",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.509,
+    "pGoal": 0.491,
+    "signalQuality": 0.5861,
+    "edge": null,
+    "timeWindow": "70-80",
+    "reason": "70–80 v3: немає порогів pG=0.491 pD=0.509 | 1 уд. в площ.",
+    "components": {
+      "currentState": "lateSurge",
+      "dominanceStrength": 0.7037,
+      "confidence": "low"
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:35:35.063Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L1",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.491,
+    "signalQuality": 0.5861,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=79 outside window 60-78",
+    "components": {
+      "currentState": "lateSurge",
+      "snapshotCount": 10
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:35:35.067Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L2",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=2.2 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 2.2,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:35:35.071Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "v3_main",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.459,
+    "pGoal": 0.541,
+    "signalQuality": 0.6019,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "[ТБ вимкнено] ТБ 80+ v3 (late surge) | 2 уд. в площ. (2H+O)",
+    "components": {
+      "currentState": "lateSurge",
+      "dominanceStrength": 0.7895,
+      "confidence": "low"
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:37:51.774Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L1",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.541,
+    "signalQuality": 0.6019,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=81 outside window 60-78",
+    "components": {
+      "currentState": "lateSurge",
+      "snapshotCount": 11
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:37:51.779Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L2",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=2.2 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 2.2,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:37:51.784Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "v3_main",
+    "minute": 83,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.459,
+    "pGoal": 0.541,
+    "signalQuality": 0.6176,
+    "edge": null,
+    "timeWindow": "80-90+",
+    "reason": "[ТБ вимкнено] ТБ 80+ v3 (late surge) | 3 уд. в площ. (2H+O)",
+    "components": {
+      "currentState": "lateSurge",
+      "dominanceStrength": 0.6122,
+      "confidence": "low"
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:40:08.829Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L1",
+    "minute": 83,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.541,
+    "signalQuality": 0.6176,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "minute=83 outside window 60-78",
+    "components": {
+      "currentState": "lateSurge",
+      "snapshotCount": 12
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:40:08.833Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "model": "L2",
+    "minute": 83,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "locked favorite odds=2.2 > 1.8",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": "home",
+      "favoriteOdds": 2.2,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/estudiantes-l-p-GlR2nmPp/newells-old-boys-YiOkiQ4P/?mid=CWayX1tm",
+    "ts": "2026-05-07T19:40:08.838Z",
+    "actualResult": {
+      "home": 0,
+      "away": 1
+    },
+    "actualTotal": 1,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T19:42:22.452Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "v3_main",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.478,
+    "pGoal": 0.522,
+    "signalQuality": 0.7071,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=3/2 burst=true pD=0.478 pG=0.522 SQ=0.7071(мін 0.77) стан=pressureGrowth | 1 уд. в площ., 1 мом., xG 0.71",
+    "components": {
+      "currentState": "pressureGrowth",
+      "dominanceStrength": 0.5118,
+      "confidence": "high"
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:19:00.966Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "L1",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.522,
+    "signalQuality": 0.7071,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "hard gate: xG burst ratio=14.8026 >= 1.5",
+    "components": {
+      "dry_1H": 0.895,
+      "dry_2H": 0.3192,
+      "trajectory": 0,
+      "odds": 0.5394,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": null,
+        "expectedGoalsXg": 5.2549,
+        "bigChances": null,
+        "touchesInOppositionBox": 2.1094,
+        "totalShots": 1.4063
+      },
+      "currentState": "pressureGrowth",
+      "snapshotCount": 3
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:19:00.972Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "L2",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=61 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:19:00.977Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "v3_main",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.437,
+    "pGoal": 0.563,
+    "signalQuality": 0.7229,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=4/2 burst=false pD=0.437 pG=0.563 SQ=0.7229(мін 0.77) стан=pressureGrowth | 2 уд. в площ., 1 мом., xG 0.81",
+    "components": {
+      "currentState": "pressureGrowth",
+      "dominanceStrength": 0.5697,
+      "confidence": "high"
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:21:16.580Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "L1",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.563,
+    "signalQuality": 0.7229,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "hard gate: xG burst ratio=5.9211 >= 1.5",
+    "components": {
+      "dry_1H": 0.895,
+      "dry_2H": 0.225,
+      "trajectory": 0,
+      "odds": 0.5394,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": null,
+        "expectedGoalsXg": 5.3289,
+        "bigChances": null,
+        "touchesInOppositionBox": 2.7083,
+        "totalShots": 1.5625
+      },
+      "currentState": "pressureGrowth",
+      "snapshotCount": 4
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:21:16.587Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "L2",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=63 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:21:16.592Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "v3_main",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.437,
+    "pGoal": 0.563,
+    "signalQuality": 0.7386,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=5/2 burst=false pD=0.437 pG=0.563 SQ=0.7386(мін 0.77) стан=pressureGrowth | 2 уд. в площ., 1 мом., xG 0.84",
+    "components": {
+      "currentState": "pressureGrowth",
+      "dominanceStrength": 0.6421,
+      "confidence": "high"
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:23:31.621Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "L1",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.563,
+    "signalQuality": 0.7386,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "hard gate: xG burst ratio=1.7763 >= 1.5",
+    "components": {
+      "dry_1H": 0.895,
+      "dry_2H": 0.279,
+      "trajectory": 0,
+      "odds": 0.5394,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": null,
+        "expectedGoalsXg": 4.9737,
+        "bigChances": null,
+        "touchesInOppositionBox": 2.8125,
+        "totalShots": 1.9687
+      },
+      "currentState": "pressureGrowth",
+      "snapshotCount": 5
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:23:31.626Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "L2",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=65 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:23:31.632Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "v3_main",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": 0.568,
+    "pGoal": 0.432,
+    "signalQuality": 0.7543,
+    "edge": null,
+    "timeWindow": "60-70",
+    "reason": "60–70 v3 очікування: зрізів=6/2 burst=false pD=0.568 pG=0.432 SQ=0.7543(мін 0.77) стан=pressureGrowth | 2 уд. в площ., 1 мом., xG 0.88",
+    "components": {
+      "currentState": "pressureGrowth",
+      "dominanceStrength": 0.6426,
+      "confidence": "high"
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:25:47.054Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "L1",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.432,
+    "signalQuality": 0.7543,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "hard gate: xG burst ratio=1.5789 >= 1.5",
+    "components": {
+      "dry_1H": 0.895,
+      "dry_2H": 0.3483,
+      "trajectory": 0,
+      "odds": 0.5394,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": null,
+        "expectedGoalsXg": 4.5309,
+        "bigChances": null,
+        "touchesInOppositionBox": 2.4457,
+        "totalShots": 1.712
+      },
+      "currentState": "pressureGrowth",
+      "snapshotCount": 6
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:25:47.060Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "L2",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=68 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:25:47.065Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "v3_main",
+    "minute": 70,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.557,
+    "pGoal": 0.443,
+    "signalQuality": 0.71,
+    "edge": 0.057,
+    "timeWindow": "70-80",
+    "reason": "ТМ 70–80 v3 | 2 уд. в площ., 1 мом., xG 0.93 (2H+O) | SQ=0.71",
+    "components": {
+      "currentState": "neutral",
+      "dominanceStrength": 0.5803,
+      "confidence": "high"
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:28:34.519Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": true,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "L1",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": 0.443,
+    "signalQuality": 0.71,
+    "edge": null,
+    "timeWindow": "60-78",
+    "reason": "hard gate: xG burst ratio=2.9605 >= 1.5",
+    "components": {
+      "dry_1H": 0.895,
+      "dry_2H": 0.3789,
+      "trajectory": 0,
+      "odds": 0.5394,
+      "prematch": 0.4,
+      "intensityRatio": {
+        "shotsOnTarget": null,
+        "expectedGoalsXg": 4.4053,
+        "bigChances": null,
+        "touchesInOppositionBox": 2.4,
+        "totalShots": 1.8
+      },
+      "currentState": "neutral",
+      "snapshotCount": 7
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:28:34.525Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "model": "L2",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "pGoal": null,
+    "signalQuality": null,
+    "edge": null,
+    "timeWindow": "75-90",
+    "reason": "minute=70 before window (>=75)",
+    "components": {
+      "pressureScore": null,
+      "favoriteSide": null,
+      "favoriteOdds": null,
+      "underdogRedCard": false,
+      "surgingCount": 0,
+      "monotonic": false,
+      "snapshotsInWindow": 0
+    },
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "score": {
+      "home": "0",
+      "away": "0"
+    },
+    "desktopUrl": "https://www.flashscore.ua/match/soccer/o-higgins-hYrshGxg/sao-paulo-QgP0oAUH/?mid=00Vkzii4",
+    "ts": "2026-05-07T23:28:34.530Z",
+    "actualResult": {
+      "home": 0,
+      "away": 0
+    },
+    "actualTotal": 0,
+    "hit": null,
+    "resultTimestamp": "2026-05-07T23:55:13.183Z"
+  }
+]

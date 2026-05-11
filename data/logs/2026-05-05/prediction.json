@@ -1,0 +1,556 @@
+{
+  "date": "2026-05-05",
+  "generatedAt": "2026-05-06T07:00:48.514Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 12,
+    "stakes": 13,
+    "stakesResolved": 13,
+    "wins": 6,
+    "losses": 7,
+    "hitRate": 0.462
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "60-78": {
+      "total": 12,
+      "checked": 12,
+      "hits": 6,
+      "misses": 6,
+      "hitRate": 0.5
+    },
+    "70-80": {
+      "total": 1,
+      "checked": 1,
+      "hits": 0,
+      "misses": 1,
+      "hitRate": 0
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "matches": [
+    {
+      "matchId": "Kz0lspGd",
+      "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+      "home": "Теджон",
+      "away": "Інчхон",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 4,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.299,
+          "pDry": 0.92,
+          "signalQuality": 0.5719,
+          "timestamp": "2026-05-05T08:48:41.096Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.6522,
+        "latestSignalQuality": 0.5719
+      }
+    },
+    {
+      "matchId": "O629Ow7r",
+      "league": "КИТАЙ: League Two",
+      "home": "Ганьчжоу Руїші",
+      "away": "Гуйчжоу Гуйян",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 5,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.288,
+          "pDry": 0.8821,
+          "signalQuality": 0.8186,
+          "timestamp": "2026-05-05T12:58:15.087Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.5,
+        "latestSignalQuality": 0.8657
+      }
+    },
+    {
+      "matchId": "OfvqEnzG",
+      "league": "КИТАЙ: Суперліга",
+      "home": "Ляонін Тіерень",
+      "away": "Ченду Рончен",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.388,
+          "pDry": null,
+          "signalQuality": 0.7871,
+          "timestamp": "2026-05-05T12:55:11.838Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.8224,
+        "latestSignalQuality": 0.7871
+      }
+    },
+    {
+      "matchId": "Kdjz9z4c",
+      "league": "ЕФІОПІЯ: Прем'єр-ліга",
+      "home": "Дава",
+      "away": "Ефіопія Бунна",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 4,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.424,
+          "pDry": 0.92,
+          "signalQuality": 0.4919,
+          "timestamp": "2026-05-05T13:20:51.796Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.6,
+        "latestSignalQuality": 0.4919
+      }
+    },
+    {
+      "matchId": "CIwq6zxP",
+      "league": "УЗБЕКИСТАН: Про-ліга",
+      "home": "FA",
+      "away": "Лочин",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.345,
+          "pDry": 0.92,
+          "signalQuality": 0.5561,
+          "timestamp": "2026-05-05T13:20:51.963Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 1,
+        "latestSignalQuality": 0.5561
+      }
+    },
+    {
+      "matchId": "OE606vD6",
+      "league": "ЕСТОНІЯ: Кубок Естонії",
+      "home": "Флора",
+      "away": "Нарва",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 2,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.402,
+          "pDry": 0.9127,
+          "signalQuality": 0.4604,
+          "timestamp": "2026-05-05T17:20:26.303Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 1,
+        "latestSignalQuality": 0.4604
+      }
+    },
+    {
+      "matchId": "j5lS5ZNj",
+      "league": "АЗІЯ: АФК Кубок Азії U17",
+      "home": "Індонезія U17",
+      "away": "Китай U17",
+      "periods": [
+        {
+          "period": "70-80",
+          "minute": 74,
+          "snapshots": 7,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.28,
+          "pDry": 0.72,
+          "signalQuality": 0.85,
+          "timestamp": "2026-05-05T18:04:48.384Z",
+          "hit": false
+        },
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 7,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.28,
+          "pDry": null,
+          "signalQuality": 0.85,
+          "timestamp": "2026-05-05T18:04:48.645Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 2,
+        "stakesResolved": 2,
+        "wins": 1,
+        "losses": 1,
+        "hitRate": 0.5
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.8159,
+        "latestSignalQuality": 0.85
+      }
+    },
+    {
+      "matchId": "EZBM5Mvn",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Чемпіонська група",
+      "home": "Смуха",
+      "away": "Замалек",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 4,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.421,
+          "pDry": 0.92,
+          "signalQuality": 0.7229,
+          "timestamp": "2026-05-05T18:30:56.931Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.8713,
+        "latestSignalQuality": 0.7229
+      }
+    },
+    {
+      "matchId": "t0nFHQ1m",
+      "league": "ТУРЕЧЧИНА: Кубок Туреччини - Плей-оф",
+      "home": "Бешикташ",
+      "away": "Коньяспор",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.348,
+          "pDry": 0.92,
+          "signalQuality": 0.7871,
+          "timestamp": "2026-05-05T18:52:53.354Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.7478,
+        "latestSignalQuality": 0.7871
+      }
+    },
+    {
+      "matchId": "pKENPPHM",
+      "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+      "home": "Інстітуто 2",
+      "away": "Хімнасія Мендоса 2",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.261,
+          "pDry": 0.92,
+          "signalQuality": 0.5561,
+          "timestamp": "2026-05-05T19:34:30.044Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.6842,
+        "latestSignalQuality": 0.5561
+      }
+    },
+    {
+      "matchId": "AunNLx0N",
+      "league": "ПІВНІЧНА ТА ЦЕНТРАЛЬНА АМЕРИКА: Кубок чемпіонів КОНКАКАФ",
+      "home": "УАНЛ Тігрес",
+      "away": "Нешвілл СК",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 4,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.492,
+          "pDry": 0.92,
+          "signalQuality": 0.7229,
+          "timestamp": "2026-05-06T03:01:59.102Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 1,
+        "latestSignalQuality": 0.7229
+      }
+    },
+    {
+      "matchId": "YDTcYULG",
+      "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+      "home": "Куенка (Ecu)",
+      "away": "Сан-Лоренсо (Arg)",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.413,
+          "pDry": 0.92,
+          "signalQuality": 0.7071,
+          "timestamp": "2026-05-06T03:19:07.503Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.6058,
+        "latestSignalQuality": 0.8657
+      }
+    }
+  ]
+}

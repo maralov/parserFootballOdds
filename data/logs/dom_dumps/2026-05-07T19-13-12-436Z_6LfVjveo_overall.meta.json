@@ -1,0 +1,13 @@
+{
+  "matchId": "6LfVjveo",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/perolas-negras-dMIctOar/sao-joao-pi-tzp5WYWr/summary/stats/overall/?mid=6LfVjveo",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-07T19:13:20.442Z"
+}

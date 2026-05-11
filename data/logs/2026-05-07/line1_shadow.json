@@ -1,0 +1,749 @@
+[
+  {
+    "matchId": "GS3Jfzrf",
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T14:23:43.916Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "minute": 64,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T14:26:47.338Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T14:29:16.312Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T14:31:45.650Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T14:34:15.337Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "minute": 75,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T14:36:44.577Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T14:39:14.883Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "minute": 80,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=80 outside window 60-78",
+    "timestamp": "2026-05-07T14:43:12.883Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "minute": 83,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=83 outside window 60-78",
+    "timestamp": "2026-05-07T14:46:36.996Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "minute": 87,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=87 outside window 60-78",
+    "timestamp": "2026-05-07T14:49:06.627Z"
+  },
+  {
+    "matchId": "GS3Jfzrf",
+    "league": "РОСІЯ: Молодіжна ліга",
+    "home": "Новгород U19",
+    "away": "Родіна U19",
+    "minute": 90,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=90 outside window 60-78",
+    "timestamp": "2026-05-07T14:52:09.512Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "minute": 62,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.4505,
+      "dry_2H": 0.3991,
+      "trajectory": 0.3702,
+      "odds": 0.3501,
+      "prematch": 0.6
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 1.5882,
+      "expectedGoalsXg": 0.6563,
+      "bigChances": 0,
+      "touchesInOppositionBox": 1.2457,
+      "totalShots": 0.9454
+    },
+    "timestamp": "2026-05-07T18:32:04.155Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.449,
+      "dry_2H": 0.4892,
+      "trajectory": 0.5415,
+      "odds": 0.3501,
+      "prematch": 0.6
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 1.35,
+      "expectedGoalsXg": 0.5533,
+      "bigChances": 0,
+      "touchesInOppositionBox": 1.0588,
+      "totalShots": 0.9643
+    },
+    "timestamp": "2026-05-07T18:34:51.495Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.4505,
+      "dry_2H": 0.5451,
+      "trajectory": 0.6297,
+      "odds": 0.3501,
+      "prematch": 0.6
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 1.1739,
+      "expectedGoalsXg": 0.5013,
+      "bigChances": 0,
+      "touchesInOppositionBox": 1.0358,
+      "totalShots": 0.8385
+    },
+    "timestamp": "2026-05-07T18:37:39.094Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.4505,
+      "dry_2H": 0.5815,
+      "trajectory": 0.6993,
+      "odds": 0.3501,
+      "prematch": 0.6
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 1.08,
+      "expectedGoalsXg": 0.4612,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.9529,
+      "totalShots": 0.7714
+    },
+    "timestamp": "2026-05-07T18:39:54.728Z"
+  },
+  {
+    "matchId": "Me1jhhnJ",
+    "league": "ЄГИПЕТ: Прем'єр-ліга - Група вибування",
+    "home": "банк Єгипту",
+    "away": "Ель-Ісмаїлі",
+    "minute": 73,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.4505,
+      "dry_2H": 0.6215,
+      "trajectory": 0.7745,
+      "odds": 0.3501,
+      "prematch": 0.6
+    },
+    "reason": "hard gate: red card (h=0, a=1)",
+    "intensityRatio": {
+      "shotsOnTarget": 0.9643,
+      "expectedGoalsXg": 0.4383,
+      "bigChances": 0,
+      "touchesInOppositionBox": 0.8508,
+      "totalShots": 0.8036
+    },
+    "timestamp": "2026-05-07T18:42:10.098Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "minute": 60,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T18:57:08.309Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T18:59:37.871Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "minute": 66,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T19:02:07.591Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T19:04:38.996Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "minute": 71,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T19:07:28.961Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "minute": 74,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T19:10:18.080Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "minute": 77,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "raw1H missing — Line 1 requires 1H stats",
+    "timestamp": "2026-05-07T19:13:06.925Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=79 outside window 60-78",
+    "timestamp": "2026-05-07T19:15:54.968Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "minute": 82,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=82 outside window 60-78",
+    "timestamp": "2026-05-07T19:18:43.133Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "minute": 61,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.3125
+    },
+    "timestamp": "2026-05-07T19:19:03.187Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "minute": 85,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=85 outside window 60-78",
+    "timestamp": "2026-05-07T19:21:46.973Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "minute": 64,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.2632
+    },
+    "timestamp": "2026-05-07T19:22:06.056Z"
+  },
+  {
+    "matchId": "0OHaLIv2",
+    "league": "РОСІЯ: Кубок Росії - Плей-оф",
+    "home": "Краснодар",
+    "away": "Динамо Москва",
+    "minute": 88,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=88 outside window 60-78",
+    "timestamp": "2026-05-07T19:24:50.654Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "minute": 67,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.2273
+    },
+    "timestamp": "2026-05-07T19:25:08.948Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "minute": 71,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.1923
+    },
+    "timestamp": "2026-05-07T19:27:38.830Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "minute": 73,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.1786
+    },
+    "timestamp": "2026-05-07T19:30:28.923Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "minute": 75,
+    "bet": "UNDER_0_5",
+    "signalEligible": true,
+    "pDry": 0.92,
+    "consensusCount": 3,
+    "components": {
+      "dry_1H": 0.5,
+      "dry_2H": 1,
+      "trajectory": 1,
+      "odds": 0.4283,
+      "prematch": 0.4
+    },
+    "reason": "Line1 TM 0.5 — P_dry=0.92, consensus=3/5",
+    "intensityRatio": {
+      "shotsOnTarget": 0,
+      "expectedGoalsXg": null,
+      "bigChances": null,
+      "touchesInOppositionBox": null,
+      "totalShots": 0.1667
+    },
+    "timestamp": "2026-05-07T19:33:18.086Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "minute": 79,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=79 outside window 60-78",
+    "timestamp": "2026-05-07T19:35:35.066Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "minute": 81,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=81 outside window 60-78",
+    "timestamp": "2026-05-07T19:37:51.777Z"
+  },
+  {
+    "matchId": "CWayX1tm",
+    "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+    "home": "Естудіантес Л.-П. 2",
+    "away": "Ньюелз Олд Бойз 2",
+    "minute": 83,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": null,
+    "reason": "minute=83 outside window 60-78",
+    "timestamp": "2026-05-07T19:40:08.832Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "minute": 61,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.895,
+      "dry_2H": 0.3192,
+      "trajectory": 0,
+      "odds": 0.5394,
+      "prematch": 0.4
+    },
+    "reason": "hard gate: xG burst ratio=14.8026 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": null,
+      "expectedGoalsXg": 5.2549,
+      "bigChances": null,
+      "touchesInOppositionBox": 2.1094,
+      "totalShots": 1.4063
+    },
+    "timestamp": "2026-05-07T23:19:00.970Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "minute": 63,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.895,
+      "dry_2H": 0.225,
+      "trajectory": 0,
+      "odds": 0.5394,
+      "prematch": 0.4
+    },
+    "reason": "hard gate: xG burst ratio=5.9211 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": null,
+      "expectedGoalsXg": 5.3289,
+      "bigChances": null,
+      "touchesInOppositionBox": 2.7083,
+      "totalShots": 1.5625
+    },
+    "timestamp": "2026-05-07T23:21:16.584Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "minute": 65,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.895,
+      "dry_2H": 0.279,
+      "trajectory": 0,
+      "odds": 0.5394,
+      "prematch": 0.4
+    },
+    "reason": "hard gate: xG burst ratio=1.7763 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": null,
+      "expectedGoalsXg": 4.9737,
+      "bigChances": null,
+      "touchesInOppositionBox": 2.8125,
+      "totalShots": 1.9687
+    },
+    "timestamp": "2026-05-07T23:23:31.625Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "minute": 68,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.895,
+      "dry_2H": 0.3483,
+      "trajectory": 0,
+      "odds": 0.5394,
+      "prematch": 0.4
+    },
+    "reason": "hard gate: xG burst ratio=1.5789 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": null,
+      "expectedGoalsXg": 4.5309,
+      "bigChances": null,
+      "touchesInOppositionBox": 2.4457,
+      "totalShots": 1.712
+    },
+    "timestamp": "2026-05-07T23:25:47.058Z"
+  },
+  {
+    "matchId": "00Vkzii4",
+    "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+    "home": "О'Хіггінс (Chi)",
+    "away": "Сан-Паулу (Bra)",
+    "minute": 70,
+    "bet": "SKIP",
+    "signalEligible": false,
+    "pDry": null,
+    "components": {
+      "dry_1H": 0.895,
+      "dry_2H": 0.3789,
+      "trajectory": 0,
+      "odds": 0.5394,
+      "prematch": 0.4
+    },
+    "reason": "hard gate: xG burst ratio=2.9605 >= 1.5",
+    "intensityRatio": {
+      "shotsOnTarget": null,
+      "expectedGoalsXg": 4.4053,
+      "bigChances": null,
+      "touchesInOppositionBox": 2.4,
+      "totalShots": 1.8
+    },
+    "timestamp": "2026-05-07T23:28:34.523Z"
+  }
+]

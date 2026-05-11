@@ -1,0 +1,13 @@
+{
+  "matchId": "Me1jhhnJ",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/el-ismaily-Q79lCRYM/national-bank-egypt-Gx9ImdAm/summary/stats/overall/?mid=Me1jhhnJ",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-07T18:31:58.132Z"
+}

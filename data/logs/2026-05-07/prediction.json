@@ -1,0 +1,93 @@
+{
+  "date": "2026-05-07",
+  "generatedAt": "2026-05-08T07:09:25.714Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 1,
+    "stakes": 1,
+    "stakesResolved": 1,
+    "wins": 0,
+    "losses": 1,
+    "hitRate": 0
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "60-78": {
+      "total": 1,
+      "checked": 1,
+      "hits": 0,
+      "misses": 1,
+      "hitRate": 0
+    },
+    "70-80": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "matches": [
+    {
+      "matchId": "CWayX1tm",
+      "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+      "home": "Естудіантес Л.-П. 2",
+      "away": "Ньюелз Олд Бойз 2",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 4,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.351,
+          "pDry": 0.92,
+          "signalQuality": 0.5719,
+          "timestamp": "2026-05-07T19:19:03.460Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.6122,
+        "latestSignalQuality": 0.5719
+      }
+    }
+  ]
+}

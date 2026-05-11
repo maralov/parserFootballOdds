@@ -1,0 +1,13 @@
+{
+  "matchId": "ptjbx31S",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/aldosivi-MwfEquoB/tigre-YmKzQr9p/summary/stats/overall/?mid=ptjbx31S",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-07T19:04:52.857Z"
+}

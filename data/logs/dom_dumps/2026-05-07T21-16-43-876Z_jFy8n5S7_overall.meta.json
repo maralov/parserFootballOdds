@@ -1,0 +1,13 @@
+{
+  "matchId": "jFy8n5S7",
+  "endpointKey": "overall",
+  "errorMessage": "page.evaluate timeout 15000ms",
+  "url": "https://www.flashscore.ua/match/soccer/far-rabat-CMn7Clai/olympique-de-safi-fFoSR8Sj/summary/stats/overall/?mid=jFy8n5S7",
+  "title": null,
+  "indicators": {
+    "hasCaptcha": false,
+    "isShort": true,
+    "lengthBytes": 42
+  },
+  "timestamp": "2026-05-07T21:16:51.882Z"
+}

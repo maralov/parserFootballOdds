@@ -1,0 +1,282 @@
+{
+  "date": "2026-05-06",
+  "generatedAt": "2026-05-07T07:13:36.491Z",
+  "rules": {
+    "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
+    "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
+  },
+  "model": {
+    "bankStart": 10000,
+    "stakePct": 0.05,
+    "stakePerBet": 500,
+    "oddsByPeriod": {
+      "tm_60_70": 2.5,
+      "tm_60_78": 1.7,
+      "tm_or_tb_70_80": 1.8,
+      "tb_80_90": 2.5
+    }
+  },
+  "overall": {
+    "bets": 7,
+    "checked": 7,
+    "wins": 4,
+    "losses": 3,
+    "pending": 0,
+    "turnover": 3500,
+    "profit": -450,
+    "roi": -0.129,
+    "hitRate": 0.571,
+    "bankStart": 10000,
+    "bankEnd": 9550
+  },
+  "byPeriod": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "60-78": {
+      "total": 7,
+      "checked": 7,
+      "wins": 4,
+      "losses": 3,
+      "pending": 0,
+      "turnover": 3500,
+      "profit": -450,
+      "roi": -0.129,
+      "hitRate": 0.571
+    },
+    "70-80": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "byBetType": {
+    "UNDER_0_5": {
+      "total": 6,
+      "checked": 6,
+      "wins": 3,
+      "losses": 3,
+      "pending": 0,
+      "turnover": 3000,
+      "profit": -450,
+      "roi": -0.15,
+      "hitRate": 0.5
+    },
+    "OVER_0_5": {
+      "total": 1,
+      "checked": 1,
+      "wins": 1,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 500,
+      "profit": 0,
+      "roi": 0,
+      "hitRate": 1
+    }
+  },
+  "noFlipsScenario": {
+    "bets": 7,
+    "checked": 7,
+    "wins": 4,
+    "losses": 3,
+    "pending": 0,
+    "turnover": 3500,
+    "profit": -450,
+    "roi": -0.129,
+    "hitRate": 0.571,
+    "bankStart": 10000,
+    "bankEnd": 9550
+  },
+  "matches": [
+    {
+      "matchId": "UkrMaWQq",
+      "league": "ЕФІОПІЯ: Прем'єр-ліга",
+      "home": "Бунна",
+      "away": "Ефіопіан Іншуренс",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "SjYvsLam",
+      "league": "ЧЕХІЯ: 3. ЧФЛ - Група A",
+      "home": "Ческе Будейовіце B",
+      "away": "Гостоунь",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "K4O04y8L",
+      "league": "ЧОРНОГОРІЯ: Кубок Чорногорії",
+      "home": "Дечич",
+      "away": "Отрант",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "jiwtdNZ2",
+      "league": "ІЗРАЇЛЬ: Прем'єр-ліга - Чемпіонська група",
+      "home": "Маккабі Хайфа",
+      "away": "Хапоель Беер-Шева",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТБ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "lMzJVeOc",
+      "league": "ПІВДЕННА АФРИКА: Прем'єр-ліга",
+      "home": "Річардс Бей",
+      "away": "Полокване Сіті",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "QwzcvPWF",
+      "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+      "home": "Сентраль 2",
+      "away": "Хімнасія і Есгріма 2",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "OEzjRvFk",
+      "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+      "home": "Ювентус U23",
+      "away": "П'янезе",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    }
+  ]
+}

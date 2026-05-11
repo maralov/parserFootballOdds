@@ -1,0 +1,339 @@
+{
+  "date": "2026-05-06",
+  "generatedAt": "2026-05-07T07:13:36.488Z",
+  "source": "telegram_signal_predictions_compact",
+  "totals": {
+    "matches": 7,
+    "stakes": 7,
+    "stakesResolved": 7,
+    "wins": 4,
+    "losses": 3,
+    "hitRate": 0.571
+  },
+  "periodSummary": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "60-78": {
+      "total": 7,
+      "checked": 7,
+      "hits": 4,
+      "misses": 3,
+      "hitRate": 0.571
+    },
+    "70-80": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "hits": 0,
+      "misses": 0,
+      "hitRate": null
+    }
+  },
+  "matches": [
+    {
+      "matchId": "UkrMaWQq",
+      "league": "ЕФІОПІЯ: Прем'єр-ліга",
+      "home": "Бунна",
+      "away": "Ефіопіан Іншуренс",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.194,
+          "pDry": 0.92,
+          "signalQuality": 0.5561,
+          "timestamp": "2026-05-06T13:21:15.258Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.6129,
+        "latestSignalQuality": 0.5561
+      }
+    },
+    {
+      "matchId": "SjYvsLam",
+      "league": "ЧЕХІЯ: 3. ЧФЛ - Група A",
+      "home": "Ческе Будейовіце B",
+      "away": "Гостоунь",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.432,
+          "pDry": 0.92,
+          "signalQuality": 0.4761,
+          "timestamp": "2026-05-06T16:25:44.950Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.5526,
+        "latestSignalQuality": 0.4761
+      }
+    },
+    {
+      "matchId": "K4O04y8L",
+      "league": "ЧОРНОГОРІЯ: Кубок Чорногорії",
+      "home": "Дечич",
+      "away": "Отрант",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 3,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.297,
+          "pDry": 0.92,
+          "signalQuality": 0.5561,
+          "timestamp": "2026-05-06T17:50:47.167Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 1,
+          "away": 0
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.5897,
+        "latestSignalQuality": 0.5561
+      }
+    },
+    {
+      "matchId": "jiwtdNZ2",
+      "league": "ІЗРАЇЛЬ: Прем'єр-ліга - Чемпіонська група",
+      "home": "Маккабі Хайфа",
+      "away": "Хапоель Беер-Шева",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 3,
+          "bet": "ТБ 0,5",
+          "confidence": "high",
+          "pGoal": 0.448,
+          "pDry": null,
+          "signalQuality": 0.7071,
+          "timestamp": "2026-05-06T18:22:23.229Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.6329,
+        "latestSignalQuality": 0.7071
+      }
+    },
+    {
+      "matchId": "lMzJVeOc",
+      "league": "ПІВДЕННА АФРИКА: Прем'єр-ліга",
+      "home": "Річардс Бей",
+      "away": "Полокване Сіті",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 5,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.258,
+          "pDry": 0.8461,
+          "signalQuality": 0.8186,
+          "timestamp": "2026-05-06T18:53:25.800Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "pressureGrowth",
+        "dominanceStrength": 0.5623,
+        "latestSignalQuality": 0.8186
+      }
+    },
+    {
+      "matchId": "QwzcvPWF",
+      "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+      "home": "Сентраль 2",
+      "away": "Хімнасія і Есгріма 2",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 4,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.383,
+          "pDry": 0.92,
+          "signalQuality": 0.5719,
+          "timestamp": "2026-05-06T19:22:52.760Z",
+          "hit": true
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 0
+        },
+        "totalGoals": 0
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 1
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "dry",
+        "dominanceStrength": 0.7551,
+        "latestSignalQuality": 0.5719
+      }
+    },
+    {
+      "matchId": "OEzjRvFk",
+      "league": "ІТАЛІЯ: Серія C - Підвищення в класі - Плей-оф",
+      "home": "Ювентус U23",
+      "away": "П'янезе",
+      "periods": [
+        {
+          "period": "60-78",
+          "minute": null,
+          "snapshots": 4,
+          "bet": "ТМ 0,5",
+          "confidence": "high",
+          "pGoal": 0.33,
+          "pDry": 0.8893,
+          "signalQuality": 0.5719,
+          "timestamp": "2026-05-06T19:19:25.493Z",
+          "hit": false
+        }
+      ],
+      "finalResult": {
+        "resultChecked": true,
+        "actualResult": {
+          "home": 0,
+          "away": 1
+        },
+        "totalGoals": 1
+      },
+      "predictionOutcome": {
+        "stakesTotal": 1,
+        "stakesResolved": 1,
+        "wins": 0,
+        "losses": 1,
+        "hitRate": 0
+      },
+      "keyMetrics": {
+        "statsStatus": "both",
+        "currentState": "lateSurge",
+        "dominanceStrength": 0.8947,
+        "latestSignalQuality": 0.5719
+      }
+    }
+  ]
+}

@@ -1,0 +1,398 @@
+{
+  "date": "2026-05-05",
+  "generatedAt": "2026-05-06T07:00:48.517Z",
+  "rules": {
+    "uniqueSignalRule": "Однаковий напрям ставки не дублюється; нова ставка тільки при зміні вектору.",
+    "settlementRule": "Результат ставки визначається за фінальним тоталом матчу (>0 = ТБ, 0 = ТМ)."
+  },
+  "model": {
+    "bankStart": 10000,
+    "stakePct": 0.05,
+    "stakePerBet": 500,
+    "oddsByPeriod": {
+      "tm_60_70": 2.5,
+      "tm_60_78": 1.7,
+      "tm_or_tb_70_80": 1.8,
+      "tb_80_90": 2.5
+    }
+  },
+  "overall": {
+    "bets": 13,
+    "checked": 13,
+    "wins": 6,
+    "losses": 7,
+    "pending": 0,
+    "turnover": 6925,
+    "profit": -2175,
+    "roi": -0.314,
+    "hitRate": 0.462,
+    "bankStart": 10000,
+    "bankEnd": 7825
+  },
+  "byPeriod": {
+    "60-70": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "60-78": {
+      "total": 12,
+      "checked": 12,
+      "wins": 6,
+      "losses": 6,
+      "pending": 0,
+      "turnover": 6000,
+      "profit": -1250,
+      "roi": -0.208,
+      "hitRate": 0.5
+    },
+    "70-80": {
+      "total": 1,
+      "checked": 1,
+      "wins": 0,
+      "losses": 1,
+      "pending": 0,
+      "turnover": 925,
+      "profit": -925,
+      "roi": -1,
+      "hitRate": 0
+    },
+    "80-90+": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    },
+    "other": {
+      "total": 0,
+      "checked": 0,
+      "wins": 0,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 0,
+      "profit": 0,
+      "roi": null,
+      "hitRate": null
+    }
+  },
+  "byBetType": {
+    "UNDER_0_5": {
+      "total": 12,
+      "checked": 12,
+      "wins": 5,
+      "losses": 7,
+      "pending": 0,
+      "turnover": 6425,
+      "profit": -2175,
+      "roi": -0.339,
+      "hitRate": 0.417
+    },
+    "OVER_0_5": {
+      "total": 1,
+      "checked": 1,
+      "wins": 1,
+      "losses": 0,
+      "pending": 0,
+      "turnover": 500,
+      "profit": 0,
+      "roi": 0,
+      "hitRate": 1
+    }
+  },
+  "noFlipsScenario": {
+    "bets": 12,
+    "checked": 12,
+    "wins": 5,
+    "losses": 7,
+    "pending": 0,
+    "turnover": 6425,
+    "profit": -2175,
+    "roi": -0.339,
+    "hitRate": 0.417,
+    "bankStart": 10000,
+    "bankEnd": 7825
+  },
+  "matches": [
+    {
+      "matchId": "Kz0lspGd",
+      "league": "ПІВДЕННА КОРЕЯ: К-Ліга 1",
+      "home": "Теджон",
+      "away": "Інчхон",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "O629Ow7r",
+      "league": "КИТАЙ: League Two",
+      "home": "Ганьчжоу Руїші",
+      "away": "Гуйчжоу Гуйян",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "OfvqEnzG",
+      "league": "КИТАЙ: Суперліга",
+      "home": "Ляонін Тіерень",
+      "away": "Ченду Рончен",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "Kdjz9z4c",
+      "league": "ЕФІОПІЯ: Прем'єр-ліга",
+      "home": "Дава",
+      "away": "Ефіопія Бунна",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "CIwq6zxP",
+      "league": "УЗБЕКИСТАН: Про-ліга",
+      "home": "FA",
+      "away": "Лочин",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "OE606vD6",
+      "league": "ЕСТОНІЯ: Кубок Естонії",
+      "home": "Флора",
+      "away": "Нарва",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "j5lS5ZNj",
+      "league": "АЗІЯ: АФК Кубок Азії U17",
+      "home": "Індонезія U17",
+      "away": "Китай U17",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "70-80",
+          "bet": "ТМ 0,5",
+          "hit": false
+        },
+        {
+          "order": 2,
+          "period": "60-78",
+          "bet": "ТБ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "EZBM5Mvn",
+      "league": "ЄГИПЕТ: Прем'єр-ліга - Чемпіонська група",
+      "home": "Смуха",
+      "away": "Замалек",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "t0nFHQ1m",
+      "league": "ТУРЕЧЧИНА: Кубок Туреччини - Плей-оф",
+      "home": "Бешикташ",
+      "away": "Коньяспор",
+      "finalResult": {
+        "home": 0,
+        "away": 1
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "pKENPPHM",
+      "league": "АРГЕНТИНА: Ліга дублерів - Апертура",
+      "home": "Інстітуто 2",
+      "away": "Хімнасія Мендоса 2",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    },
+    {
+      "matchId": "AunNLx0N",
+      "league": "ПІВНІЧНА ТА ЦЕНТРАЛЬНА АМЕРИКА: Кубок чемпіонів КОНКАКАФ",
+      "home": "УАНЛ Тігрес",
+      "away": "Нешвілл СК",
+      "finalResult": {
+        "home": 1,
+        "away": 0
+      },
+      "totalGoals": 1,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": false
+        }
+      ],
+      "wins": 0,
+      "losses": 1,
+      "pending": 0
+    },
+    {
+      "matchId": "YDTcYULG",
+      "league": "ПІВДЕННА АМЕРИКА: Південноамериканський кубок - Груповий етап",
+      "home": "Куенка (Ecu)",
+      "away": "Сан-Лоренсо (Arg)",
+      "finalResult": {
+        "home": 0,
+        "away": 0
+      },
+      "totalGoals": 0,
+      "uniqueSignals": [
+        {
+          "order": 1,
+          "period": "60-78",
+          "bet": "ТМ 0,5",
+          "hit": true
+        }
+      ],
+      "wins": 1,
+      "losses": 0,
+      "pending": 0
+    }
+  ]
+}
