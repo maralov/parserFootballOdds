@@ -24,6 +24,16 @@ function findSnapshotAtOrBefore(snapshots, targetMinute) {
   return filtered.pop() || null;
 }
 
+function findSnapshotAtOrAfter(snapshots, targetMinute) {
+  if (!Array.isArray(snapshots) || targetMinute == null) return null;
+  const filtered = snapshots.filter((s) => {
+    const m = snapshotMinute(s);
+    return isMinute(m) && m >= targetMinute;
+  });
+  filtered.sort((a, b) => snapshotMinute(a) - snapshotMinute(b));
+  return filtered[0] || null;
+}
+
 function buildWindow(snapshots, fromMin, toMin) {
   const sFrom = findSnapshotAtOrBefore(snapshots, fromMin);
   const sTo = findSnapshotAtOrBefore(snapshots, toMin);
@@ -40,8 +50,21 @@ function buildOpen6075Window(match) {
   const last = snapshots[snapshots.length - 1];
   const lm = snapshotMinute(last);
   if (lm == null || lm < 60) return null;
+
+  const sFrom = findSnapshotAtOrAfter(snapshots, 60);
+  if (!sFrom?.cumulative) return null;
+
   const end = Math.min(75, lm);
-  return buildWindow(snapshots, 60, end);
+  const sTo = findSnapshotAtOrBefore(snapshots, end);
+  if (!sTo?.cumulative || snapshotMinute(sTo) <= snapshotMinute(sFrom)) return null;
+
+  const raw = subtractStats(sTo.cumulative, sFrom.cumulative);
+  return {
+    raw,
+    totals: bundleWindowTotals(raw),
+    fromMinute: snapshotMinute(sFrom),
+    toMinute: snapshotMinute(sTo),
+  };
 }
 
 function buildAllWindows(match) {
@@ -66,6 +89,7 @@ function buildAllWindows(match) {
 module.exports = {
   snapshotMinute,
   findSnapshotAtOrBefore,
+  findSnapshotAtOrAfter,
   buildWindow,
   buildOpen6075Window,
   buildAllWindows,

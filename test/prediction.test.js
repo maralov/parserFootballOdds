@@ -4,7 +4,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 
 const { subtractStats, buildStatsMap, CUMULATIVE_STAT_FIELDS } = require('../src/tracker/deltaCalculator');
-const { buildAllWindows } = require('../src/computed/windows');
+const { buildAllWindows, buildOpen6075Window, findSnapshotAtOrAfter } = require('../src/computed/windows');
 const { evaluateDecision60 } = require('../src/prediction/evaluateDecision60');
 const { evaluateDecision80 } = require('../src/prediction/evaluateDecision80');
 const { updateComputed } = require('../src/computed/updateComputed');
@@ -232,6 +232,39 @@ test('prediction-signals idempotent append', () => {
   predictionSignals.appendPredictionSignals(tmp, row);
   const arr = predictionSignals.readSignalsArray(tmp);
   assert.equal(arr.length, 1);
+});
+
+test('prediction-signals attach final score and outcome after finalize', () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'signals-'));
+  const row = {
+    matchId: 'm-final',
+    recordedAt: new Date().toISOString(),
+    checkpoint: 'decision60',
+    signal: predictionSignals.deriveSignal({ predictionType: 'FT_TM05_FROM_60_75' }),
+    minute: 64,
+    score: '0:0',
+    predictionType: 'FT_TM05_FROM_60_75',
+    confidence: 0.79,
+    modelMode: 'detailed',
+    components: {},
+    reasons: [],
+    riskFlags: [],
+  };
+  predictionSignals.appendPredictionSignals(tmp, row);
+  predictionSignals.attachFinalResult(tmp, {
+    matchId: 'm-final',
+    final: { score: '0:0' },
+    predictions: {
+      decision60: {
+        predictionAudit: { hit: true },
+      },
+    },
+  });
+  const arr = predictionSignals.readSignalsArray(tmp);
+  assert.equal(arr.length, 1);
+  assert.equal(arr[0].finalScore, '0:0');
+  assert.equal(arr[0].predictionHit, true);
+  assert.equal(arr[0].predictionOutcome, 'HIT');
 });
 
 test('buildFirstHalfProfile detailed dry', () => {
@@ -1149,4 +1182,83 @@ test('predictionLocks NO_BET decision80 has mode detailed and useInBacktest fals
   });
   assert.equal(pred.mode, 'detailed');
   assert.equal(pred.useInBacktest, false);
+});
+
+// ── buildOpen6075Window ──────────────────────────────────────────────────────
+
+test('buildOpen6075Window starts at first snapshot >=60, not at 50', () => {
+  const c50 = buildStatsMap({ totalShots: 2 }, { totalShots: 1 });
+  const c55 = buildStatsMap({ totalShots: 4 }, { totalShots: 2 });
+  const c60 = buildStatsMap({ totalShots: 6 }, { totalShots: 3 });
+  const c65 = buildStatsMap({ totalShots: 9 }, { totalShots: 5 });
+  const c70 = buildStatsMap({ totalShots: 12 }, { totalShots: 7 });
+
+  const match = {
+    snapshots: [
+      { minute: 50, cumulative: c50 },
+      { minute: 55, cumulative: c55 },
+      { minute: 60, cumulative: c60 },
+      { minute: 65, cumulative: c65 },
+      { minute: 70, cumulative: c70 },
+    ],
+  };
+
+  const win = buildOpen6075Window(match);
+  assert.ok(win, 'window should exist');
+  assert.equal(win.fromMinute, 60, 'window must start at 60, not 50 or 55');
+  assert.equal(win.toMinute, 70);
+  // totalShots delta: (12-6) + (7-3) = 6 + 4 = 10
+  assert.equal(win.totals.totalShots, (12 - 6) + (7 - 3));
+});
+
+test('buildOpen6075Window returns null when no snapshot >=60 exists', () => {
+  const c50 = buildStatsMap({ totalShots: 2 }, { totalShots: 1 });
+  const c55 = buildStatsMap({ totalShots: 4 }, { totalShots: 2 });
+
+  const match = {
+    snapshots: [
+      { minute: 50, cumulative: c50 },
+      { minute: 55, cumulative: c55 },
+    ],
+  };
+
+  const win = buildOpen6075Window(match);
+  assert.equal(win, null, 'should return null when no snapshot >=60');
+});
+
+test('buildOpen6075Window starts at 62 when first snapshot >=60 is at 62', () => {
+  const c50 = buildStatsMap({ totalShots: 2 }, { totalShots: 1 });
+  const c62 = buildStatsMap({ totalShots: 7 }, { totalShots: 4 });
+  const c70 = buildStatsMap({ totalShots: 12 }, { totalShots: 8 });
+
+  const match = {
+    snapshots: [
+      { minute: 50, cumulative: c50 },
+      { minute: 62, cumulative: c62 },
+      { minute: 70, cumulative: c70 },
+    ],
+  };
+
+  const win = buildOpen6075Window(match);
+  assert.ok(win, 'window should exist');
+  assert.equal(win.fromMinute, 62, 'window must start at 62 (first snapshot >=60)');
+  assert.equal(win.toMinute, 70);
+});
+
+test('findSnapshotAtOrAfter returns earliest snapshot with minute >= target', () => {
+  const s55 = { minute: 55, cumulative: {} };
+  const s60 = { minute: 60, cumulative: {} };
+  const s65 = { minute: 65, cumulative: {} };
+  const snapshots = [s55, s65, s60]; // intentionally unsorted
+
+  const result = findSnapshotAtOrAfter(snapshots, 60);
+  assert.equal(result.minute, 60);
+});
+
+test('findSnapshotAtOrAfter returns null when no snapshot meets threshold', () => {
+  const s50 = { minute: 50, cumulative: {} };
+  const s55 = { minute: 55, cumulative: {} };
+
+  const result = findSnapshotAtOrAfter([s50, s55], 60);
+  assert.equal(result, null);
 });
