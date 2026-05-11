@@ -2,7 +2,7 @@
 
 const { CHECKPOINTS, TARGET_MARKET, PRED_TYPES_80 } = require('./constants');
 const { buildConfidence, dataQualityTier } = require('./confidence');
-const { applyAiOverlay, computeAiScenarioScore } = require('./aiOverlay');
+const { computeAiWeight, computeAiScenarioScore } = require('./aiOverlay');
 
 function totalsFrom(win) {
   return win?.totals ?? null;
@@ -140,6 +140,7 @@ function evaluateDecision80(match, computed) {
     reasons.push(`fake_pressure_shield TB unlikely fake=${fake80} real=${real80}`);
   }
 
+  let effectiveLate = late;
   let aiApplied = false;
   let aiScenarioScore80 = null;
 
@@ -150,17 +151,10 @@ function evaluateDecision80(match, computed) {
     // TB signal: high when AI sees pressure/goals likely
     const tbAiScore = rawAiScore != null ? 100 - rawAiScore : null;
     if (tbAiScore != null) {
-      const overlay = applyAiOverlay({
-        ruleScore: late,
-        aiOutput: { ...aiOutput80, _tbInverted: true },
-        aiConfidence: aiConfidence80,
-        predictionType,
-      });
-      // overlay.finalScore blends rule lateGoalScore with AI via aiWeight
-      // But since AGREEMENT_MAP doesn't have TB types, we do manual blend:
-      const aiWeight = overlay.aiWeight;
+      const aiWeight = computeAiWeight(aiConfidence80);
       const blendedLate = late * (1 - aiWeight) + tbAiScore * aiWeight;
       const clampedLate = Math.max(0, Math.min(100, blendedLate));
+      effectiveLate = clampedLate;
       aiApplied = true;
       aiScenarioScore80 = tbAiScore;
 
@@ -171,7 +165,7 @@ function evaluateDecision80(match, computed) {
         predictionType === PRED_TYPES_80.LEAN_TB05_80_PLUS &&
         isAiHighPressure &&
         isAiFavoritePressureStrong &&
-        aiConfidence80 >= 0.65 &&
+        aiConfidence80 != null && aiConfidence80 >= 0.65 &&
         clampedLate >= 68
       ) {
         predictionType = PRED_TYPES_80.TB05_80_PLUS;
@@ -208,7 +202,7 @@ function evaluateDecision80(match, computed) {
         : predictionType === PRED_TYPES_80.PROTECT_UNDER ? 55 : 54;
 
   const primaryScore =
-    predictionType === PRED_TYPES_80.NO_BET ? 45 : predictionType === PRED_TYPES_80.PROTECT_UNDER ? fake80 : late;
+    predictionType === PRED_TYPES_80.NO_BET ? 45 : predictionType === PRED_TYPES_80.PROTECT_UNDER ? fake80 : effectiveLate;
 
   const lowSnapshotCount = snapN < 3;
   const isHotButNoGoal = computed?.firstHalfProfile?.isHotButNoGoal === true;
@@ -248,7 +242,7 @@ function evaluateDecision80(match, computed) {
     useInTelegram: actionablePrimary || (predictionType !== PRED_TYPES_80.NO_BET && confidence >= 0.70),
     useInBacktest: predictionType !== PRED_TYPES_80.NO_BET,
     components: {
-      lateGoalScore80: late,
+      lateGoalScore80: effectiveLate,
       realPressureScore: real80,
       fakePressureScore: fake80,
       finalScore: primaryScore,
