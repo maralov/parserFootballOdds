@@ -131,6 +131,15 @@ function evaluateDecision60(match, computed) {
     ms?.realPressureScores?.windowTracked6075 ?? 0,
   );
 
+  const coolingWindow70_75 = ms?.realPressureScores?.window70_75;
+  const coolingWindow65_70 = ms?.realPressureScores?.window65_70;
+  const cooling = Boolean(
+    typeof coolingWindow70_75 === 'number' &&
+    typeof coolingWindow65_70 === 'number' &&
+    coolingWindow70_75 < 15 &&
+    coolingWindow65_70 < 35
+  );
+
   const hasNgDetailed = !!(sinceHt?.xg != null || tracked6075Totals?.xg != null);
   const missingXgotFlag = statsLevel === 'detailed' && sinceHt?.xgot == null;
 
@@ -156,13 +165,13 @@ function evaluateDecision60(match, computed) {
     riskFlags.push('data_inconsistent');
   }
 
-  else if (lateAct >= LATE_ACTIVATION_HARD_CAP) {
+  else if (lateAct >= LATE_ACTIVATION_HARD_CAP && !cooling) {
     predictionType = PRED_TYPES_60.NO_BET;
     reasons.push('late_activation_risk_too_high');
     riskFlags.push('late_activation_signs');
   }
 
-  else if (rpHardMax >= REAL_PRESSURE_HARD_CAP) {
+  else if (rpHardMax >= REAL_PRESSURE_HARD_CAP && !cooling) {
     predictionType = PRED_TYPES_60.NO_BET;
     reasons.push('real_pressure_too_high');
     riskFlags.push('late_activation_signs');
@@ -181,6 +190,9 @@ function evaluateDecision60(match, computed) {
   }
 
   else if (tempoBad === false && trackedHard === false) {
+    if (cooling && (lateAct >= LATE_ACTIVATION_HARD_CAP || rpHardMax >= REAL_PRESSURE_HARD_CAP)) {
+      reasons.push('cooling_override_applied');
+    }
     reasons.push(`fullTimeNilNilScore=${ftScore}`);
     reasons.push(`lateActivationRisk=${lateAct}`);
     reasons.push(`tempoTrend=${ms?.tempoTrend6075 ?? '?'}`);

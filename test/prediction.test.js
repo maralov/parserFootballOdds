@@ -237,6 +237,119 @@ test('evaluateDecision60 does not trigger hard filters on moderate values', () =
   assert.ok(!pred.reasons.includes('real_pressure_too_high'));
 });
 
+test('evaluateDecision60 cooling override bypasses lateActivationRisk hard cap', () => {
+  const match = {
+    matchId: 'm1',
+    statsLevel: 'detailed',
+    snapshots: [],
+  };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 70,
+      realPressureScores: {
+        window45_60: 100,
+        window60_70: 57.7,
+        window65_70: 31.85,
+        window70_75: 6,
+        windowTracked6075: 63.7,
+      },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 3 },
+      tempoTrend6075: 'falling',
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: true },
+    snapshotCount: 6,
+  };
+  const pred = evaluateDecision60(match, computed);
+  assert.ok(!pred.reasons.includes('late_activation_risk_too_high'),
+    'cooling override повинен зняти lateActivationRisk hard cap');
+  assert.ok(!pred.reasons.includes('real_pressure_too_high'),
+    'cooling override повинен зняти rpHardMax hard cap');
+  assert.ok(pred.reasons.includes('cooling_override_applied'),
+    'reasons має містити маркер cooling_override_applied');
+});
+
+test('evaluateDecision60 cooling override does not fire when window70_75 >= 15', () => {
+  const match = { matchId: 'm1', statsLevel: 'detailed', snapshots: [] };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 70,
+      realPressureScores: {
+        window60_70: 57.7,
+        window65_70: 30,
+        window70_75: 20,
+        windowTracked6075: 50,
+      },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'flat',
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: false },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  assert.ok(pred.reasons.includes('late_activation_risk_too_high'));
+  assert.ok(!pred.reasons.includes('cooling_override_applied'));
+});
+
+test('evaluateDecision60 cooling override does not fire when window65_70 >= 35', () => {
+  const match = { matchId: 'm1', statsLevel: 'detailed', snapshots: [] };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 70,
+      realPressureScores: {
+        window60_70: 57.7,
+        window65_70: 40,
+        window70_75: 5,
+        windowTracked6075: 50,
+      },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'flat',
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: false },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  assert.ok(pred.reasons.includes('late_activation_risk_too_high'));
+  assert.ok(!pred.reasons.includes('cooling_override_applied'));
+});
+
+test('evaluateDecision60 cooling override does not bypass tempoBad gate', () => {
+  const match = { matchId: 'm1', statsLevel: 'detailed', snapshots: [] };
+  const computed = {
+    windows: {},
+    modelSignals: {
+      fullTimeNilNilScore: 80,
+      lateActivationRisk: 70,
+      realPressureScores: {
+        window60_70: 30,
+        window65_70: 25,
+        window70_75: 5,
+        windowTracked6075: 30,
+      },
+      sinceHtTotalsSnapshot: { shotsOnTarget: 0, xg: 0.05, xgot: 0 },
+      cumulativeLiveTotals: { yellowCardsTotal: 1 },
+      tempoTrend6075: 'growing',
+    },
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: false },
+    snapshotCount: 5,
+  };
+  const pred = evaluateDecision60(match, computed);
+  assert.equal(pred.predictionType, 'NO_BET');
+  assert.ok(pred.reasons.includes('late_activation_tempo_negative'));
+});
+
 test('prediction-signals idempotent append', () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'signals-'));
   const row = {
