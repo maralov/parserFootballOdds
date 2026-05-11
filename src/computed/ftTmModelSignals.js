@@ -258,7 +258,7 @@ function buildFtTmModelSignals(match, computed) {
     hasXgot: sinceHt?.xgot != null,
   });
 
-  const fullTimeNilNilScore = calculateFullTimeNilNilScore({
+  const { score: fullTimeNilNilScore } = calculateFullTimeNilNilScore({
     dryStateScore,
     realPressureScore,
     lateActivationRisk,

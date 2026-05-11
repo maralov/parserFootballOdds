@@ -231,23 +231,34 @@ function calculateFullTimeNilNilScore({
   fakePressureScore,
   dataQualityScore: dqIn,
 }) {
-  const noRealPressure = 100 - (realPressureScore || 0);
-  const noLateActivation = 100 - (lateActivationRisk || 0);
+  const effectiveDryState = dryStateScore != null ? dryStateScore : 50;
+  const effectiveRealPressure = realPressureScore != null ? realPressureScore : 50;
+  const effectiveLateActivation = lateActivationRisk != null ? lateActivationRisk : 50;
+  const effectiveFakePressure = fakePressureScore != null ? fakePressureScore : 50;
+
+  const noRealPressure = 100 - effectiveRealPressure;
+  const noLateActivation = 100 - effectiveLateActivation;
   const firstHalfDryness = isDryFirstHalf === true ? 85
     : isHotButNoGoal === true ? 25
       : 55;
-  const sterilePressure = ((fakePressureScore || 0) >= 45 && (realPressureScore || 0) < 35) ? 75 : 50;
+  const sterilePressure = (effectiveFakePressure >= 45 && effectiveRealPressure < 35) ? 75 : 50;
   const dq = dqIn || 50;
 
-  const score =
-    (dryStateScore || 0) * 0.30 +
+  const score = clamp(
+    effectiveDryState * 0.30 +
     noRealPressure * 0.25 +
     noLateActivation * 0.25 +
     firstHalfDryness * 0.10 +
     sterilePressure * 0.05 +
-    dq * 0.05;
+    dq * 0.05,
+    0,
+    100,
+  );
 
-  return clamp(score, 0, 100);
+  const dataCompletenessRatio = [dryStateScore, realPressureScore, lateActivationRisk, fakePressureScore]
+    .filter((v) => v != null).length / 4;
+
+  return { score, dataCompletenessRatio };
 }
 
 module.exports = {

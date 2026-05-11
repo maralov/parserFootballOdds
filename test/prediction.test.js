@@ -743,7 +743,7 @@ test('calculateLateActivationRisk dry-1h bonus', () => {
 });
 
 test('calculateFullTimeNilNilScore dry detailed', () => {
-  const score = calculateFullTimeNilNilScore({
+  const { score } = calculateFullTimeNilNilScore({
     dryStateScore: 90,
     realPressureScore: 10,
     lateActivationRisk: 15,
@@ -756,7 +756,7 @@ test('calculateFullTimeNilNilScore dry detailed', () => {
 });
 
 test('calculateFullTimeNilNilScore hot1h kill', () => {
-  const dry = calculateFullTimeNilNilScore({
+  const { score: dry } = calculateFullTimeNilNilScore({
     dryStateScore: 90,
     realPressureScore: 10,
     lateActivationRisk: 15,
@@ -765,7 +765,7 @@ test('calculateFullTimeNilNilScore hot1h kill', () => {
     fakePressureScore: 50,
     dataQualityScore: 90,
   });
-  const hot = calculateFullTimeNilNilScore({
+  const { score: hot } = calculateFullTimeNilNilScore({
     dryStateScore: 90,
     realPressureScore: 10,
     lateActivationRisk: 15,
@@ -775,6 +775,67 @@ test('calculateFullTimeNilNilScore hot1h kill', () => {
     dataQualityScore: 90,
   });
   assert.ok(hot < dry);
+});
+
+test('calculateFullTimeNilNilScore all values provided — uses real data, no neutral substitution', () => {
+  const { score, dataCompletenessRatio } = calculateFullTimeNilNilScore({
+    dryStateScore: 80,
+    realPressureScore: 20,
+    lateActivationRisk: 25,
+    isDryFirstHalf: true,
+    isHotButNoGoal: false,
+    fakePressureScore: 55,
+    dataQualityScore: 90,
+  });
+  // noRealPressure=80, noLateActivation=75, firstHalfDryness=85, sterilePressure=75 (55>=45 && 20<35), dq=90
+  // score = 80*0.30 + 80*0.25 + 75*0.25 + 85*0.10 + 75*0.05 + 90*0.05 = 24+20+18.75+8.5+3.75+4.5 = 79.5
+  assert.equal(score, 79.5);
+  assert.equal(dataCompletenessRatio, 1);
+});
+
+test('calculateFullTimeNilNilScore null pressure and risk — neutral 50, not inflated', () => {
+  const { score } = calculateFullTimeNilNilScore({
+    dryStateScore: 50,
+    realPressureScore: null,
+    lateActivationRisk: null,
+    isDryFirstHalf: false,
+    isHotButNoGoal: false,
+    fakePressureScore: 50,
+    dataQualityScore: 50,
+  });
+  // effectiveRealPressure=50, effectiveLateActivation=50 → noRealPressure=50, noLateActivation=50
+  // firstHalfDryness=55, sterilePressure=50 (50>=45 but 50 not <35), dq=50
+  // score = 50*0.30 + 50*0.25 + 50*0.25 + 55*0.10 + 50*0.05 + 50*0.05 = 15+12.5+12.5+5.5+2.5+2.5 = 50.5
+  assert.ok(score >= 50 && score <= 55, `expected score in 50-55 range, got ${score}`);
+});
+
+test('calculateFullTimeNilNilScore all 4 primary metrics null — score near 50, dataCompletenessRatio=0', () => {
+  const { score, dataCompletenessRatio } = calculateFullTimeNilNilScore({
+    dryStateScore: null,
+    realPressureScore: null,
+    lateActivationRisk: null,
+    isDryFirstHalf: false,
+    isHotButNoGoal: false,
+    fakePressureScore: null,
+    dataQualityScore: 50,
+  });
+  // all effective values = 50: noRealPressure=50, noLateActivation=50, firstHalfDryness=55, sterilePressure=50 (50>=45 but 50 not <35)
+  // score = 50*0.30 + 50*0.25 + 50*0.25 + 55*0.10 + 50*0.05 + 50*0.05 = 15+12.5+12.5+5.5+2.5+2.5 = 50.5
+  assert.ok(score >= 48 && score <= 55, `expected score near 50, got ${score}`);
+  assert.equal(dataCompletenessRatio, 0);
+});
+
+test('calculateFullTimeNilNilScore all 4 metrics provided — dataCompletenessRatio=1', () => {
+  const { dataCompletenessRatio } = calculateFullTimeNilNilScore({
+    dryStateScore: 70,
+    realPressureScore: 30,
+    lateActivationRisk: 20,
+    isDryFirstHalf: true,
+    isHotButNoGoal: false,
+    fakePressureScore: 40,
+    dataQualityScore: 80,
+  });
+  assert.equal(dataCompletenessRatio, 1);
 });
 
 test('dataQualityScore tiers', () => {
