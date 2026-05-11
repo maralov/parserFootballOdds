@@ -141,6 +141,7 @@ function rowsToTeamStats(rows) {
  * @returns {{
  *   statsLevel: 'detailed'|'basic',
  *   capturedAtStatus: string,
+ *   baseline1HCapturedAtStatus: string,
  *   '1half': { home: Object, away: Object, overall: Object },
  *   rawRows: Array
  * }|null}
