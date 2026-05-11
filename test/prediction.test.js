@@ -1346,3 +1346,123 @@ test('classifyTrend6075 classifies normally when window65_70 and window70_75 are
   assert.notEqual(result, 'unknown', 'should classify normally with two distinct windows');
   assert.ok(['explosive', 'growing', 'falling', 'flat'].includes(result), `unexpected result: ${result}`);
 });
+
+// ─── evaluateDecision80 AI overlay ───────────────────────────────────────────
+
+function makeComputedForAi80(overrides = {}) {
+  return {
+    windows: {
+      window70_80: {
+        totals: {
+          totalShots: 6,
+          shotsOnTarget: 2,
+          corners: 2,
+          xg: 0.3,
+          xgot: 0.1,
+          bigChances: 1,
+        },
+      },
+    },
+    modelScoresRaw: {
+      lateGoalScore80: overrides.lateGoalScore80 ?? 65,
+      realPressureScore80: overrides.realPressureScore80 ?? 55,
+      fakePressureScore80: overrides.fakePressureScore80 ?? 20,
+    },
+    snapshotCount: 5,
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: false },
+    modelSignals: {},
+    ...overrides.computed,
+  };
+}
+
+test('evaluateDecision80 AI overlay: disabled when no aiAnalysis.decision80', () => {
+  const match = { matchId: 'ai80_test1', statsLevel: 'detailed', snapshots: [] };
+  const computed = makeComputedForAi80();
+  const pred = evaluateDecision80(match, computed);
+  assert.equal(pred.aiApplied, false, 'aiApplied should be false when no AI data');
+  assert.equal(pred.aiScenarioScore, null, 'aiScenarioScore should be null');
+  // predictionType should be set by rules alone (lateGoalScore80=65 → LEAN_TB05_80_PLUS)
+  assert.equal(pred.predictionType, 'LEAN_TB05_80_PLUS');
+});
+
+test('evaluateDecision80 AI overlay: LEAN upgrades to PRIMARY with high_pressure + strong + confidence >= 0.65', () => {
+  // lateGoalScore80=65 → LEAN_TB05_80_PLUS rule; AI high_pressure + strong should upgrade
+  // high_pressure: rawAiScore = 15*0.45 + 15*0.35 + 35*0.20 = 6.75 + 5.25 + 7.0 = 19
+  // tbAiScore = 100 - 19 = 81; aiWeight=0.15 (confidence=0.7)
+  // blendedLate = 65 * 0.85 + 81 * 0.15 = 55.25 + 12.15 = 67.4 → clampedLate = 67.4 < 68
+  // So we need lateGoalScore80 high enough → use 68
+  const match = {
+    matchId: 'ai80_test2',
+    statsLevel: 'detailed',
+    snapshots: [],
+    aiAnalysis: {
+      decision80: {
+        useInModel: true,
+        confidence: 0.7,
+        output: {
+          match_state: 'high_pressure',
+          favorite_pressure: 'strong',
+          tempo_state: 'growing',
+        },
+      },
+    },
+  };
+  // lateGoalScore80=68: rule gives LEAN (68 >= 60, < 72); AI upgrades to PRIMARY
+  const computed = makeComputedForAi80({ lateGoalScore80: 68 });
+  const pred = evaluateDecision80(match, computed);
+  assert.equal(pred.aiApplied, true, 'aiApplied should be true');
+  assert.equal(pred.predictionType, 'TB05_80_PLUS', 'LEAN should be upgraded to PRIMARY');
+  assert.ok(pred.reasons.some(r => r.startsWith('ai_upgrade_lean_to_primary')), 'upgrade reason should be in reasons');
+});
+
+test('evaluateDecision80 AI overlay: TB05_80_PLUS blocked to NO_BET when dead + none pressure', () => {
+  // lateGoalScore80=75 → TB05_80_PLUS rule; AI dead + none should block
+  const match = {
+    matchId: 'ai80_test3',
+    statsLevel: 'detailed',
+    snapshots: [],
+    aiAnalysis: {
+      decision80: {
+        useInModel: true,
+        confidence: 0.8,
+        output: {
+          match_state: 'dead',
+          favorite_pressure: 'none',
+          tempo_state: 'falling',
+        },
+      },
+    },
+  };
+  const computed = makeComputedForAi80({ lateGoalScore80: 75, realPressureScore80: 62 });
+  const pred = evaluateDecision80(match, computed);
+  assert.equal(pred.aiApplied, true, 'aiApplied should be true');
+  assert.equal(pred.predictionType, 'NO_BET', 'TB should be blocked to NO_BET');
+  assert.ok(pred.reasons.some(r => r.startsWith('ai_block_tb')), 'block reason should be in reasons');
+});
+
+test('evaluateDecision80 AI overlay: balanced match_state — no upgrade, no block, aiApplied=true', () => {
+  // lateGoalScore80=65 → LEAN; AI balanced → no change, but aiApplied=true and ai_confirmed reason added
+  const match = {
+    matchId: 'ai80_test4',
+    statsLevel: 'detailed',
+    snapshots: [],
+    aiAnalysis: {
+      decision80: {
+        useInModel: true,
+        confidence: 0.7,
+        output: {
+          match_state: 'balanced',
+          favorite_pressure: 'moderate',
+          tempo_state: 'flat',
+        },
+      },
+    },
+  };
+  const computed = makeComputedForAi80({ lateGoalScore80: 65 });
+  const pred = evaluateDecision80(match, computed);
+  assert.equal(pred.aiApplied, true, 'aiApplied should be true');
+  assert.equal(pred.predictionType, 'LEAN_TB05_80_PLUS', 'predictionType should remain LEAN_TB05_80_PLUS');
+  assert.ok(pred.reasons.some(r => r.startsWith('ai_confirmed')), 'ai_confirmed reason should be added');
+  assert.ok(pred.aiScenarioScore != null, 'aiScenarioScore should be set');
+});

@@ -2,6 +2,7 @@
 
 const { CHECKPOINTS, TARGET_MARKET, PRED_TYPES_80 } = require('./constants');
 const { buildConfidence, dataQualityTier } = require('./confidence');
+const { applyAiOverlay, computeAiScenarioScore } = require('./aiOverlay');
 
 function totalsFrom(win) {
   return win?.totals ?? null;
@@ -60,6 +61,8 @@ function evaluateDecision80(match, computed) {
       },
       reasons: ['blocked_by_prediction_lock_tm60'],
       riskFlags,
+      aiApplied: false,
+      aiScenarioScore: null,
       predictionAudit: {
         matchId: match.matchId,
         checkpoint: CHECKPOINTS.DECISION_80,
@@ -67,7 +70,7 @@ function evaluateDecision80(match, computed) {
         score: 0,
         confidence: 0.35,
         components: {},
-        featuresSnapshot: { predictionLocks: match.predictionLocks },
+        featuresSnapshot: { predictionLocks: match.predictionLocks, aiOutput: null },
         finalResult: null,
         hit: null,
       },
@@ -79,6 +82,11 @@ function evaluateDecision80(match, computed) {
   const late = mr.lateGoalScore80 ?? 0;
   const real80 = mr.realPressureScore80 ?? 0;
   const fake80 = mr.fakePressureScore80 ?? 0;
+
+  const ai80 = match.aiAnalysis?.decision80;
+  const aiOutput80 = ai80?.output ?? null;
+  const aiConfidence80 = typeof ai80?.confidence === 'number' ? ai80.confidence : null;
+  const aiUseInModel = ai80?.useInModel === true;
 
   const statsLevel = match.statsLevel || 'basic';
   const snapN = computed.snapshotCount ?? 0;
@@ -130,6 +138,62 @@ function evaluateDecision80(match, computed) {
   } else if (!redWarn && fakeShield) {
     predictionType = PRED_TYPES_80.PROTECT_UNDER;
     reasons.push(`fake_pressure_shield TB unlikely fake=${fake80} real=${real80}`);
+  }
+
+  let aiApplied = false;
+  let aiScenarioScore80 = null;
+
+  if (aiUseInModel && aiOutput80) {
+    // For TB0.5: invert the aiScenarioScore (which is TM-oriented: high=nil-nil)
+    // TB wants low nil-nil likelihood → we want "1 - nilNilScore" as TB signal
+    const rawAiScore = computeAiScenarioScore(aiOutput80);
+    // TB signal: high when AI sees pressure/goals likely
+    const tbAiScore = rawAiScore != null ? 100 - rawAiScore : null;
+    if (tbAiScore != null) {
+      const overlay = applyAiOverlay({
+        ruleScore: late,
+        aiOutput: { ...aiOutput80, _tbInverted: true },
+        aiConfidence: aiConfidence80,
+        predictionType,
+      });
+      // overlay.finalScore blends rule lateGoalScore with AI via aiWeight
+      // But since AGREEMENT_MAP doesn't have TB types, we do manual blend:
+      const aiWeight = overlay.aiWeight;
+      const blendedLate = late * (1 - aiWeight) + tbAiScore * aiWeight;
+      const clampedLate = Math.max(0, Math.min(100, blendedLate));
+      aiApplied = true;
+      aiScenarioScore80 = tbAiScore;
+
+      // AI upgrade: LEAN → PRIMARY if AI shows strong pressure signal
+      const isAiHighPressure = ['high_pressure', 'pressure_building'].includes(aiOutput80?.match_state);
+      const isAiFavoritePressureStrong = aiOutput80?.favorite_pressure === 'strong';
+      if (
+        predictionType === PRED_TYPES_80.LEAN_TB05_80_PLUS &&
+        isAiHighPressure &&
+        isAiFavoritePressureStrong &&
+        aiConfidence80 >= 0.65 &&
+        clampedLate >= 68
+      ) {
+        predictionType = PRED_TYPES_80.TB05_80_PLUS;
+        reasons.push(`ai_upgrade_lean_to_primary ai_state=${aiOutput80.match_state} ai_pressure=${aiOutput80.favorite_pressure}`);
+      }
+
+      // AI block: if AI says dead/no pressure, block TB prediction
+      const isAiDead = aiOutput80?.match_state === 'dead';
+      const isAiNoPressure = aiOutput80?.favorite_pressure === 'none';
+      if (
+        (predictionType === PRED_TYPES_80.TB05_80_PLUS || predictionType === PRED_TYPES_80.LEAN_TB05_80_PLUS) &&
+        isAiDead &&
+        isAiNoPressure
+      ) {
+        predictionType = PRED_TYPES_80.NO_BET;
+        reasons.push(`ai_block_tb dead_match_no_pressure ai_state=${aiOutput80.match_state}`);
+      }
+    }
+  }
+
+  if (aiApplied && !reasons.some(r => r.startsWith('ai_'))) {
+    reasons.push(`ai_confirmed scenario=${aiOutput80?.match_state} tbSignal=${aiScenarioScore80?.toFixed(0)}`);
   }
 
   let dq = dataQualityTier({
@@ -191,6 +255,8 @@ function evaluateDecision80(match, computed) {
     },
     reasons,
     riskFlags: [...new Set(riskFlags)],
+    aiApplied,
+    aiScenarioScore: aiScenarioScore80,
     predictionAudit: {
       matchId: match.matchId,
       checkpoint: CHECKPOINTS.DECISION_80,
@@ -198,7 +264,7 @@ function evaluateDecision80(match, computed) {
       score: primaryScore,
       confidence,
       components: {},
-      featuresSnapshot: { totals70_80: w7080, modelScoresRaw: mr },
+      featuresSnapshot: { totals70_80: w7080, modelScoresRaw: mr, aiOutput: aiOutput80 ?? null },
       finalResult: null,
       hit: null,
       missingDetailed: statsLevel === 'detailed' && (!w7080 || w7080.xg == null),
