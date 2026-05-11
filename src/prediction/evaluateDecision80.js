@@ -31,6 +31,46 @@ function passesDetailedTbAdvantage7080(w7080Totals) {
   );
 }
 
+/**
+ * Scores TB0.5 candidate quality (0-3 points).
+ * Returns { score, reasons } where score 3=all signals, 2=strong, 1=partial, 0=weak
+ */
+function evaluateTbCandidateQuality(w7080Totals, modelSignals, aiOutput80) {
+  let score = 0;
+  const reasons = [];
+
+  // Component 1: Real pressure quality (xG or shots)
+  const t = w7080Totals;
+  if (t) {
+    const xg = typeof t.xg === 'number' ? t.xg : 0;
+    const sot = t.shotsOnTarget ?? 0;
+    const trend = modelSignals?.tempoTrend70_80;
+    if (xg >= 0.6 || (sot >= 3 && (trend === 'growing' || trend === 'explosive'))) {
+      score += 1;
+      reasons.push(`tb_quality_pressure xg=${xg} sot=${sot} trend=${trend}`);
+    }
+  }
+
+  // Component 2: Pressure direction (one team clearly pushing)
+  // Use available totals — if one team dominates via AI pressure_team field
+  if (aiOutput80?.pressure_team && aiOutput80.pressure_team !== 'none' && aiOutput80.pressure_team !== 'both') {
+    const pq = aiOutput80.pressure_quality;
+    if (pq === 'real') {
+      score += 1;
+      reasons.push(`tb_quality_direction team=${aiOutput80.pressure_team} quality=${pq}`);
+    }
+  }
+
+  // Component 3: Motivation asymmetry (one team must score)
+  const motiv = aiOutput80?.motivation_asymmetry;
+  if (motiv?.team_that_must_score && motiv.team_that_must_score !== 'none' && motiv.strength === 'high') {
+    score += 1;
+    reasons.push(`tb_quality_motivation team=${motiv.team_that_must_score} strength=${motiv.strength}`);
+  }
+
+  return { score, reasons };
+}
+
 function evaluateDecision80(match, computed) {
   const reasons = [];
   const riskFlags = [];
@@ -83,6 +123,21 @@ function evaluateDecision80(match, computed) {
   const real80 = mr.realPressureScore80 ?? 0;
   const fake80 = mr.fakePressureScore80 ?? 0;
 
+  // Pre-match draw odds: open match (draw > 4.0) → boost TB; closed (draw < 3.0) → suppress
+  const drawOdds = match.odds?.draw != null ? Number(match.odds.draw) : null;
+  let oddsAdjustment = 0;
+  if (drawOdds != null && Number.isFinite(drawOdds) && drawOdds > 0) {
+    if (drawOdds > 4.0) {
+      oddsAdjustment = 5;   // open match, 0:0 was unexpected → TB more likely
+      reasons.push(`odds_open_match draw=${drawOdds}`);
+    } else if (drawOdds < 3.0) {
+      oddsAdjustment = -5;  // closed match, 0:0 expected → suppress TB
+      reasons.push(`odds_closed_match draw=${drawOdds}`);
+    }
+  }
+
+  let effectiveLate = Math.max(0, Math.min(100, late + oddsAdjustment));
+
   const ai80 = match.aiAnalysis?.decision80;
   const aiOutput80 = ai80?.output ?? null;
   const aiConfidence80 = typeof ai80?.confidence === 'number' ? ai80.confidence : null;
@@ -110,37 +165,43 @@ function evaluateDecision80(match, computed) {
       ? passesBasicTbGates7080(w7080)
       : (passesDetailedTbAdvantage7080(w7080) || passesBasicTbGates7080(w7080));
 
+  const tbQuality = evaluateTbCandidateQuality(w7080, computed.modelSignals, aiOutput80);
+  const qualityGate = qualityOkDetailedOrBasic || tbQuality.score >= 2;
+
   let predictionType = PRED_TYPES_80.NO_BET;
 
   const tbActionableCandidate =
     !redWarn &&
-    late >= 72 &&
+    effectiveLate >= 72 &&
     real80 >= 60 &&
     fake80 < 55 &&
-    qualityOkDetailedOrBasic;
+    qualityGate;
 
   const tbLeanCandidate =
     !redWarn &&
-    late >= 60 &&
-    late < 72 &&
+    effectiveLate >= 60 &&
+    effectiveLate < 72 &&
     real80 >= 52 &&
     fake80 < 65 &&
-    qualityOkDetailedOrBasic;
+    qualityGate;
 
-  const fakeShield = fake80 >= 62 || (fake80 >= 55 && real80 < 48 && late < 68);
+  const fakeShield = fake80 >= 62 || (fake80 >= 55 && real80 < 48 && effectiveLate < 68);
 
   if (tbActionableCandidate) {
     predictionType = PRED_TYPES_80.TB05_80_PLUS;
-    reasons.push(`tb_actionable_core late=${late} real=${real80} fake=${fake80}`);
+    reasons.push(`tb_actionable_core late=${effectiveLate} real=${real80} fake=${fake80}`);
   } else if (tbLeanCandidate) {
     predictionType = PRED_TYPES_80.LEAN_TB05_80_PLUS;
-    reasons.push(`lean_tb late=${late} real=${real80} fake=${fake80}`);
+    reasons.push(`lean_tb late=${effectiveLate} real=${real80} fake=${fake80}`);
   } else if (!redWarn && fakeShield) {
     predictionType = PRED_TYPES_80.PROTECT_UNDER;
     reasons.push(`fake_pressure_shield TB unlikely fake=${fake80} real=${real80}`);
   }
 
-  let effectiveLate = late;
+  if (tbActionableCandidate || tbLeanCandidate) {
+    reasons.push(...tbQuality.reasons);
+  }
+
   let aiApplied = false;
   let aiScenarioScore80 = null;
 
@@ -152,7 +213,7 @@ function evaluateDecision80(match, computed) {
     const tbAiScore = rawAiScore != null ? 100 - rawAiScore : null;
     if (tbAiScore != null) {
       const aiWeight = computeAiWeight(aiConfidence80);
-      const blendedLate = late * (1 - aiWeight) + tbAiScore * aiWeight;
+      const blendedLate = effectiveLate * (1 - aiWeight) + tbAiScore * aiWeight;
       const clampedLate = Math.max(0, Math.min(100, blendedLate));
       effectiveLate = clampedLate;
       aiApplied = true;
@@ -246,6 +307,8 @@ function evaluateDecision80(match, computed) {
       realPressureScore: real80,
       fakePressureScore: fake80,
       finalScore: primaryScore,
+      tbQualityScore: tbQuality.score,
+      oddsAdjustment,
     },
     reasons,
     riskFlags: [...new Set(riskFlags)],
@@ -258,7 +321,13 @@ function evaluateDecision80(match, computed) {
       score: primaryScore,
       confidence,
       components: {},
-      featuresSnapshot: { totals70_80: w7080, modelScoresRaw: mr, aiOutput: aiOutput80 ?? null },
+      featuresSnapshot: {
+        totals70_80: w7080,
+        modelScoresRaw: mr,
+        aiOutput: aiOutput80 ?? null,
+        drawOdds,
+        oddsAdjustment,
+      },
       finalResult: null,
       hit: null,
       missingDetailed: statsLevel === 'detailed' && (!w7080 || w7080.xg == null),
@@ -266,4 +335,4 @@ function evaluateDecision80(match, computed) {
   };
 }
 
-module.exports = { evaluateDecision80 };
+module.exports = { evaluateDecision80, evaluateTbCandidateQuality };

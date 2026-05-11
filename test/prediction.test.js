@@ -6,7 +6,7 @@ const assert = require('node:assert/strict');
 const { subtractStats, buildStatsMap, CUMULATIVE_STAT_FIELDS } = require('../src/tracker/deltaCalculator');
 const { buildAllWindows, buildOpen6075Window, findSnapshotAtOrAfter } = require('../src/computed/windows');
 const { evaluateDecision60 } = require('../src/prediction/evaluateDecision60');
-const { evaluateDecision80 } = require('../src/prediction/evaluateDecision80');
+const { evaluateDecision80, evaluateTbCandidateQuality } = require('../src/prediction/evaluateDecision80');
 const { updateComputed } = require('../src/computed/updateComputed');
 const predictionSignals = require('../src/store/predictionSignals');
 const { buildFirstHalfProfile } = require('../src/computed/firstHalfProfile');
@@ -1503,4 +1503,106 @@ test('pressureEngine sideWeightedPressure weights: xG-driven match beats high-sh
 
 test('pressureEngine sideWeightedPressure weights: zero-input returns 0', () => {
   assert.equal(sideWeightedPressure(null, 'home'), 0);
+});
+
+// ─── evaluateDecision80 odds and quality ──────────────────────────────────────
+
+function makeMatchForOddsTest(drawOdds, lateGoalScore80 = 50) {
+  const match = {
+    matchId: 'odds_test',
+    statsLevel: 'detailed',
+    snapshots: [],
+  };
+  if (drawOdds != null) {
+    match.odds = { draw: drawOdds };
+  }
+  const computed = {
+    windows: {
+      window70_80: {
+        totals: {
+          xg: 0.2,
+          xgot: 0.1,
+          totalShots: 5,
+          shotsOnTarget: 1,
+          corners: 2,
+        },
+      },
+    },
+    modelScoresRaw: {
+      lateGoalScore80,
+      realPressureScore80: 20,
+      fakePressureScore80: 10,
+    },
+    snapshotCount: 5,
+    pressure: { redCards: { anyRed: false } },
+    firstHalfProfile: { isHotButNoGoal: false },
+    modelSignals: {},
+  };
+  return { match, computed };
+}
+
+test('evaluateDecision80 odds: draw > 4.0 increases effectiveLate by 5', () => {
+  const { match: mNo, computed: cNo } = makeMatchForOddsTest(null, 60);
+  const { match: mOpen, computed: cOpen } = makeMatchForOddsTest(4.5, 60);
+
+  const predNo = evaluateDecision80(mNo, cNo);
+  const predOpen = evaluateDecision80(mOpen, cOpen);
+
+  // effectiveLate is stored in components.lateGoalScore80 (before AI, no AI here)
+  assert.equal(predOpen.components.lateGoalScore80 - predNo.components.lateGoalScore80, 5,
+    'open match draw > 4.0 should boost lateGoalScore80 by 5');
+  assert.equal(predOpen.components.oddsAdjustment, 5);
+  assert.ok(predOpen.reasons.some(r => r.startsWith('odds_open_match')));
+});
+
+test('evaluateDecision80 odds: draw < 3.0 decreases effectiveLate by 5', () => {
+  const { match: mNo, computed: cNo } = makeMatchForOddsTest(null, 60);
+  const { match: mClosed, computed: cClosed } = makeMatchForOddsTest(2.5, 60);
+
+  const predNo = evaluateDecision80(mNo, cNo);
+  const predClosed = evaluateDecision80(mClosed, cClosed);
+
+  assert.equal(predNo.components.lateGoalScore80 - predClosed.components.lateGoalScore80, 5,
+    'closed match draw < 3.0 should suppress lateGoalScore80 by 5');
+  assert.equal(predClosed.components.oddsAdjustment, -5);
+  assert.ok(predClosed.reasons.some(r => r.startsWith('odds_closed_match')));
+});
+
+test('evaluateDecision80 odds: no draw odds → no adjustment', () => {
+  const { match, computed } = makeMatchForOddsTest(null, 60);
+  const pred = evaluateDecision80(match, computed);
+  assert.equal(pred.components.oddsAdjustment, 0);
+  assert.ok(!pred.reasons.some(r => r.startsWith('odds_')));
+});
+
+test('evaluateTbCandidateQuality: all 3 signals → score 3', () => {
+  const w7080Totals = { xg: 0.7, shotsOnTarget: 4 };
+  const modelSignals = { tempoTrend70_80: 'growing' };
+  const aiOutput80 = {
+    pressure_team: 'home',
+    pressure_quality: 'real',
+    motivation_asymmetry: {
+      team_that_must_score: 'home',
+      strength: 'high',
+    },
+  };
+  const result = evaluateTbCandidateQuality(w7080Totals, modelSignals, aiOutput80);
+  assert.equal(result.score, 3, 'all 3 components should score 3');
+  assert.equal(result.reasons.length, 3);
+});
+
+test('evaluateTbCandidateQuality: no signals → score 0', () => {
+  const w7080Totals = { xg: 0.1, shotsOnTarget: 0 };
+  const modelSignals = { tempoTrend70_80: 'flat' };
+  const aiOutput80 = {
+    pressure_team: 'none',
+    pressure_quality: 'fake',
+    motivation_asymmetry: {
+      team_that_must_score: 'none',
+      strength: 'low',
+    },
+  };
+  const result = evaluateTbCandidateQuality(w7080Totals, modelSignals, aiOutput80);
+  assert.equal(result.score, 0, 'no qualifying signals should give score 0');
+  assert.equal(result.reasons.length, 0);
 });
