@@ -553,9 +553,12 @@ function ensurePredictionLocks(matchId, date = new Date(), blockTb = true) {
   writeStore(store, date);
 }
 
-process.on('exit', () => {
-  try { flushAll(); } catch (_) { /* exit-handler best-effort */ }
-});
+if (!global.__matchStoreExitHandlerRegistered) {
+  global.__matchStoreExitHandlerRegistered = true;
+  process.on('exit', () => {
+    try { flushAll(); } catch (_) { /* exit-handler best-effort */ }
+  });
+}
 
 module.exports = {
   readStore,
