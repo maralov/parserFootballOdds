@@ -66,3 +66,76 @@ test('flushAll iterates all cached dates', () => {
     fs.rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test('debounced writeStore defers disk write until flushSync', () => {
+  process.env.MATCHSTORE_DEBOUNCE_MS = '5000';
+  delete require.cache[require.resolve('../src/store/matchStore')];
+  const debounced = require('../src/store/matchStore');
+
+  const date = makeTempDate('06');
+  const dir = debounced.dayLogsAbsolute(date);
+  const file = path.join(dir, 'matches.json');
+
+  debounced.writeStore({ pending: { matchId: 'pending' } }, date);
+
+  assert.ok(
+    !fs.existsSync(file) || JSON.stringify(JSON.parse(fs.readFileSync(file, 'utf8'))) === '{}',
+    'файл не повинен містити запис до flushSync'
+  );
+
+  debounced.flushSync(date);
+  const onDisk = JSON.parse(fs.readFileSync(file, 'utf8'));
+  assert.equal(onDisk.pending.matchId, 'pending');
+
+  fs.rmSync(dir, { recursive: true, force: true });
+  delete process.env.MATCHSTORE_DEBOUNCE_MS;
+  delete require.cache[require.resolve('../src/store/matchStore')];
+});
+
+test('debounced writeStore — readStore returns latest cached state immediately', () => {
+  process.env.MATCHSTORE_DEBOUNCE_MS = '5000';
+  delete require.cache[require.resolve('../src/store/matchStore')];
+  const debounced = require('../src/store/matchStore');
+
+  const date = makeTempDate('07');
+  debounced.writeStore({ live: { matchId: 'live' } }, date);
+  const got = debounced.readStore(date);
+  assert.equal(got.live.matchId, 'live', 'readStore має повертати cached state без flush');
+
+  debounced.flushSync(date);
+  fs.rmSync(debounced.dayLogsAbsolute(date), { recursive: true, force: true });
+  delete process.env.MATCHSTORE_DEBOUNCE_MS;
+  delete require.cache[require.resolve('../src/store/matchStore')];
+});
+
+test('finalize flushes synchronously even in debounced mode', () => {
+  process.env.MATCHSTORE_DEBOUNCE_MS = '60000';
+  delete require.cache[require.resolve('../src/store/matchStore')];
+  const debounced = require('../src/store/matchStore');
+
+  const date = makeTempDate('08');
+  debounced.upsertFromEnrichment({
+    matchId: 'fin-1',
+    homeTeam: 'H', awayTeam: 'A',
+    statistics: { '1half': { home: {}, away: {} } },
+    statsLevel: 'detailed',
+    odds: { home: 2.0, draw: 3.2, away: 3.6 },
+    standings: { home: { pts: 10, mp: 5 }, away: { pts: 10, mp: 5 } },
+  }, date);
+
+  debounced.finalize('fin-1', {
+    scoreHome: 0, scoreAway: 0, totalGoals: 0,
+    resultTM05: true, resultTB05: false,
+    firstGoalMinute: null, goals: [],
+    finishedAt: new Date().toISOString(),
+  }, {}, date);
+
+  const file = path.join(debounced.dayLogsAbsolute(date), 'matches.json');
+  const onDisk = JSON.parse(fs.readFileSync(file, 'utf8'));
+  assert.equal(onDisk['fin-1'].tracking.status, 'finished',
+    'finalize має sync-flushити навіть при увімкненому debouncing');
+
+  fs.rmSync(debounced.dayLogsAbsolute(date), { recursive: true, force: true });
+  delete process.env.MATCHSTORE_DEBOUNCE_MS;
+  delete require.cache[require.resolve('../src/store/matchStore')];
+});

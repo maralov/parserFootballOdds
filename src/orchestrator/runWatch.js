@@ -27,6 +27,12 @@ async function runWatch() {
     running = false;
     trackingScheduler.stop();
     await closeBrowser();
+    try {
+      const matchStore = require('../store/matchStore');
+      matchStore.flushAll();
+    } catch (err) {
+      // best-effort; not worth blocking exit
+    }
     process.exit(0);
   }
 

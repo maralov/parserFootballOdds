@@ -56,7 +56,8 @@ function flushSync(date = new Date()) {
   const key = dateKey(date);
   const t = timers.get(key);
   if (t) { clearTimeout(t); timers.delete(key); }
-  if (!dirty.has(key)) return false;
+  // Not dirty = already persisted (or nothing ever written); treat as success.
+  if (!dirty.has(key)) return cache.has(key) ? true : false;
   const store = cache.get(key);
   if (!store) { dirty.delete(key); return false; }
   const ok = writeStoreToDisk(store, key);
@@ -397,7 +398,8 @@ function finalize(matchId, final, derived, date = new Date()) {
     match.tracking.firstGoalMinute = final.firstGoalMinute;
   }
 
-  const persisted = writeStore(store, date);
+  writeStore(store, date);
+  const persisted = flushSync(date);
 
   if (persisted) {
     setImmediate(() => {
@@ -550,6 +552,10 @@ function ensurePredictionLocks(matchId, date = new Date(), blockTb = true) {
   match.predictionLocks.createdAt = match.predictionLocks.createdAt || new Date().toISOString();
   writeStore(store, date);
 }
+
+process.on('exit', () => {
+  try { flushAll(); } catch (_) { /* exit-handler best-effort */ }
+});
 
 module.exports = {
   readStore,
