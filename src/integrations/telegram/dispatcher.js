@@ -7,9 +7,10 @@ const tgOutbox = require('../../store/tgOutbox');
 const client = require('./client');
 const { formatEntryMessage } = require('./formatters/entryMessage');
 const { formatResultMessage } = require('./formatters/resultMessage');
-const { PRED_TYPES_60, PRED_TYPES_80 } = require('../../prediction/constants');
 const inFlightEntries = new Set();
 const inFlightResults = new Set();
+
+const PRIMARY_DECISION_KEYS = new Set(['tm05', 'tb05']);
 
 function entryKey(matchId, decisionKey) {
   return `${matchId}|${decisionKey}`;
@@ -19,29 +20,26 @@ function resultKey(matchId, decisionKey) {
   return `${matchId}|${decisionKey}`;
 }
 
-function isPrimaryPrediction(predictionType) {
-  return predictionType === PRED_TYPES_60.FT_TM05_FROM_60_75
-    || predictionType === PRED_TYPES_80.TB05_80_PLUS;
+function isPrimaryDecision(decisionKey) {
+  return PRIMARY_DECISION_KEYS.has(decisionKey);
 }
 
 function buildOutboxPayload({ match, prediction, decisionKey, minute, score }) {
   return {
     matchId: match.matchId,
     decisionKey,
-    predictionType: prediction.predictionType,
-    tier: prediction.tier || null,
-    modelMode: prediction.modelMode || prediction.mode || 'unknown',
     snapshot: {
       minute,
       score,
+      dsScore: prediction.dsScore ?? null,
+      psScore: prediction.psScore ?? null,
+      pNoGoal: prediction.pNoGoal ?? null,
+      pGoal: prediction.pGoal ?? null,
       confidence: prediction.confidence ?? null,
-      components: prediction.components || {},
-      riskFlags: prediction.riskFlags || [],
-      reasons: prediction.reasons || [],
-      aiVerdict: prediction.aiOverlay?.scenario
-        || prediction.aiScenario
-        || prediction.components?.aiScenario
-        || null,
+      odds: prediction.odds ?? null,
+      ev: prediction.evGate?.ev ?? null,
+      reasoning: prediction.reasoning || '',
+      keySignals: prediction.keySignals || [],
     },
   };
 }
@@ -49,12 +47,8 @@ function buildOutboxPayload({ match, prediction, decisionKey, minute, score }) {
 async function enqueueEntry({ match, prediction, decisionKey, minute, score, date = new Date() }) {
   if (!LIVE_TG_ENABLED) return null;
   if (!match || !prediction) return null;
-  if (!isPrimaryPrediction(prediction.predictionType)) {
-    logger.info('tg.entry.dropped', { matchId: match?.matchId, predictionType: prediction?.predictionType, reason: 'lean_internal_only' });
-    return null;
-  }
-  if (prediction.useInTelegram !== true) {
-    logger.info('tg.entry.dropped', { matchId: match?.matchId, predictionType: prediction?.predictionType, reason: 'use_in_telegram_false' });
+  if (!isPrimaryDecision(decisionKey)) {
+    logger.info('tg.entry.dropped', { matchId: match?.matchId, decisionKey, reason: 'not_primary' });
     return null;
   }
 
@@ -141,8 +135,12 @@ function pendingResultRecords(dayDir, matchId) {
 
 function resultHitForRecord(record, match) {
   if (typeof record?.result?.hit === 'boolean') return record.result.hit;
-  const auditHit = match?.predictions?.[record?.decisionKey]?.predictionAudit?.hit;
-  if (typeof auditHit === 'boolean') return auditHit;
+  if (record?.decisionKey === 'tm05' && typeof match?.final?.resultTM05 === 'boolean') {
+    return match.final.resultTM05;
+  }
+  if (record?.decisionKey === 'tb05' && typeof match?.final?.resultTB05 === 'boolean') {
+    return match.final.resultTB05;
+  }
   return null;
 }
 
@@ -251,17 +249,15 @@ async function flushPending({ date = new Date() } = {}) {
       const updated = await enqueueEntry({
         match,
         prediction: {
-          predictionType: record.predictionType,
-          tier: record.tier,
-          modelMode: record.modelMode,
+          dsScore: record.snapshot?.dsScore ?? null,
+          psScore: record.snapshot?.psScore ?? null,
+          pNoGoal: record.snapshot?.pNoGoal ?? null,
+          pGoal: record.snapshot?.pGoal ?? null,
           confidence: record.snapshot?.confidence ?? null,
-          components: record.snapshot?.components || {},
-          riskFlags: record.snapshot?.riskFlags || [],
-          reasons: record.snapshot?.reasons || [],
-          aiOverlay: record.snapshot?.aiVerdict
-            ? { scenario: record.snapshot.aiVerdict }
-            : undefined,
-          useInTelegram: true, // already validated when originally enqueued
+          odds: record.snapshot?.odds ?? null,
+          evGate: { ev: record.snapshot?.ev ?? null },
+          reasoning: record.snapshot?.reasoning || '',
+          keySignals: record.snapshot?.keySignals || [],
         },
         decisionKey: record.decisionKey,
         minute: record.snapshot?.minute,
@@ -296,7 +292,7 @@ async function flushPending({ date = new Date() } = {}) {
 
 module.exports = {
   enqueueEntry,
-  isPrimaryPrediction,
+  isPrimaryDecision,
   buildOutboxPayload,
   dispatchResults,
   flushPending,

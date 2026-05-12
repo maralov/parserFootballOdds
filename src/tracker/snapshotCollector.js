@@ -10,8 +10,9 @@ const { subtractStats, buildStatsMap } = require('./deltaCalculator');
 const { getSnapshotMinute, getDelayToNextSnapshotMs } = require('./snapshotCadence');
 const matchStore                 = require('../store/matchStore');
 const { collectFinal }           = require('./finalCollector');
-const { maybeRunPredictionPipeline } = require('../prediction/runLivePrediction');
-const { maybeRequestAI }         = require('../ai/aiOrchestrator');
+const { runTm05Decision }        = require('../prediction/runTm05Decision');
+const { runTb05Decision }        = require('../prediction/runTb05Decision');
+const tgDispatcher               = require('../integrations/telegram/dispatcher');
 const env                        = require('../config/env');
 const logger                     = require('../observability/logger');
 const { printEvent }             = require('../observability/display');
@@ -176,22 +177,34 @@ async function collectSnapshot(matchId, scheduleNext, date = new Date()) {
     isFinished,
   });
 
-  maybeRunPredictionPipeline(matchId, {
-    observedMinute: minute,
-    minute: snapshotMinute,
-    scoreHome,
-    scoreAway,
-    statusText,
-  }, date);
+  // V4.1 decision pipeline — non-blocking, fire-and-forget.
+  // TM 0.5: at first snapshot with observedMinute >= 60 (single call per match)
+  if (
+    !isFinished &&
+    minute != null && minute >= 60 && minute <= 75 &&
+    scoreHome === 0 && scoreAway === 0
+  ) {
+    const fresh = matchStore.getMatch(matchId, date);
+    if (fresh && !fresh.predictions?.tm05) {
+      setImmediate(() => {
+        runTm05Decision(matchId, snapshot, date, { tgDispatcher }).catch((err) => {
+          logger.warn('snapshotCollector: runTm05Decision failed', { matchId, err: err.message });
+        });
+      });
+    }
+  }
 
-  // Stage 4 — AI checkpoints run in parallel and never block live tracking.
-  if (env.LIVE_AI_ENABLED) {
-    const freshMatch = matchStore.getMatch(matchId, date);
-    if (freshMatch) {
-      maybeRequestAI(matchId, header, freshMatch, date).catch(err => {
-        logger.warn('snapshotCollector: AI checkpoint failed', {
-          matchId,
-          err: err.message,
+  // TB 0.5: at first snapshot with observedMinute >= 80 if still 0:0
+  if (
+    !isFinished &&
+    minute != null && minute >= 80 && minute <= 90 &&
+    scoreHome === 0 && scoreAway === 0
+  ) {
+    const fresh = matchStore.getMatch(matchId, date);
+    if (fresh && !fresh.predictions?.tb05) {
+      setImmediate(() => {
+        runTb05Decision(matchId, snapshot, date, { tgDispatcher }).catch((err) => {
+          logger.warn('snapshotCollector: runTb05Decision failed', { matchId, err: err.message });
         });
       });
     }

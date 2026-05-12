@@ -163,10 +163,16 @@ function printTracking(trackedMatches, activeTimers) {
     if (t.status === 'finished') {
       const f = m.final;
       const score = f ? `${f.scoreHome}:${f.scoreAway}` : '?:?';
-      const verdict = f?.resultTM05 ? 'TM✓' : 'TB✓';
-      const d60Out = m.aiAnalysis?.decision60?.output;
-      const p00 = d60Out?.probabilities?.p_match_ends_0_0 ?? d60Out?.p_match_ends_0_0;
-      const aiSummary = p00 != null ? `  (p00=${p00})` : '';
+      const tmHit = f?.resultTM05 === true ? 'TM✓' : f?.resultTM05 === false ? 'TM✗' : '';
+      const tbHit = f?.resultTB05 === true ? 'TB✓' : f?.resultTB05 === false ? 'TB✗' : '';
+      const verdict = [tmHit, tbHit].filter(Boolean).join(' ') || '—';
+      const tm05p = m.predictions?.tm05?.pNoGoal;
+      const tb05p = m.predictions?.tb05?.pGoal;
+      const pSummary = [
+        tm05p != null ? `p_no_goal=${tm05p}` : '',
+        tb05p != null ? `p_goal=${tb05p}` : '',
+      ].filter(Boolean).join(' ');
+      const aiSummary = pSummary ? `  (${pSummary})` : '';
       console.log(`  ✓  ${m.matchId}  ${label}  FINISHED ${score}  ${verdict}${aiSummary}`);
       continue;
     }
@@ -202,16 +208,17 @@ function printTracking(trackedMatches, activeTimers) {
     }
 
     let aiInfo = '';
-    if (m.aiAnalysis) {
-      const tag = (checkpoint) => {
-        const value = m.aiAnalysis[checkpoint];
-        if (value === undefined || value === null) return '—';
-        if (value.skipped) return 'skip';
-        if (value.error) return 'X';
-        if (value.output) return '✓';
+    if (m.predictions) {
+      const tag = (pred) => {
+        if (!pred) return '—';
+        if (pred.phase === 'signal') return '✓';
+        if (pred.phase === 'gate_blocked') return 'block';
+        if (pred.phase === 'skipped_by_ds' || pred.phase === 'skipped_by_ps') return 'skip';
+        if (pred.phase === 'ai_error') return 'X';
+        if (pred.phase) return pred.phase.slice(0, 4);
         return '…';
       };
-      aiInfo = `  AI:HT${tag('halftime')} D60${tag('decision60')} D80${tag('decision80')}`;
+      aiInfo = `  TM05:${tag(m.predictions.tm05)} TB05:${tag(m.predictions.tb05)}`;
     }
 
     console.log(`  ~  ${m.matchId}  ${label}  ${minute}  ${score}${valid}${statsInfo}${aiInfo}${nextInfo}`);

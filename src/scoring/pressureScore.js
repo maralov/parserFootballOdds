@@ -1,0 +1,140 @@
+'use strict';
+
+const { pressureBiasFor } = require('./leagueBias');
+
+function clamp(v, min, max) {
+  return Math.max(min, Math.min(max, v));
+}
+
+function sumSide(pair) {
+  if (!pair) return null;
+  const h = pair.home;
+  const a = pair.away;
+  if (h == null && a == null) return null;
+  return (h || 0) + (a || 0);
+}
+
+function subSide(a, b) {
+  if (!a || !b) return null;
+  if (a.home == null && a.away == null) return null;
+  return {
+    home: (a.home || 0) - (b.home || 0),
+    away: (a.away || 0) - (b.away || 0),
+  };
+}
+
+function maxSide(pair) {
+  if (!pair) return null;
+  const h = pair.home;
+  const a = pair.away;
+  if (h == null && a == null) return null;
+  return Math.max(h || 0, a || 0);
+}
+
+function presFromXgDelta10(snapshot80) {
+  const dxg = sumSide(snapshot80?.delta?.expectedGoalsXg);
+  if (dxg == null) return null;
+  return 100 * clamp(dxg / 0.6, 0, 1);
+}
+
+function presFromSotDelta10(snapshot80) {
+  const ds = sumSide(snapshot80?.delta?.shotsOnTarget);
+  if (ds == null) return null;
+  return 100 * clamp(ds / 4, 0, 1);
+}
+
+function presFromTouchesDelta10(snapshot80) {
+  const dt = sumSide(snapshot80?.delta?.touchesInOppositionBox);
+  if (dt == null) return null;
+  return 100 * clamp(dt / 8, 0, 1);
+}
+
+function presFromCornersDelta10(snapshot80) {
+  const dc = sumSide(snapshot80?.delta?.cornerKicks);
+  if (dc == null) return null;
+  return 100 * clamp(dc / 3, 0, 1);
+}
+
+function presFromBigChancesDelta10(snapshot80) {
+  const db = sumSide(snapshot80?.delta?.bigChances);
+  if (db == null) return null;
+  return 100 * clamp(db / 2, 0, 1);
+}
+
+function presFromXgVs60(snapshot80, snapshot60) {
+  const xg80 = sumSide(snapshot80?.cumulative?.expectedGoalsXg);
+  const xg60 = sumSide(snapshot60?.cumulative?.expectedGoalsXg);
+  if (xg80 == null || xg60 == null) return null;
+  const diff = xg80 - xg60;
+  return 100 * clamp(diff / 0.5, 0, 1);
+}
+
+function presFromPossessionImbalance(snapshot80) {
+  const h = snapshot80?.ballPossession?.home;
+  const a = snapshot80?.ballPossession?.away;
+  if (h == null && a == null) return null;
+  const maxPoss = Math.max(h || 0, a || 0);
+  return clamp((maxPoss - 55) * 4, 0, 100);
+}
+
+function presFromFavoriteOddsDisparity(match, snapshot80) {
+  const odds = match?.odds;
+  if (!odds || !odds.home || !odds.away) return null;
+  const fav = odds.home < odds.away ? 'home' : 'away';
+  const ratio = odds.home < odds.away ? (odds.away / odds.home) : (odds.home / odds.away);
+  if (ratio < 1.3) return null; // no clear favorite
+
+  // Pressing favorite: does the favorite have more touches in opp box in last 10'?
+  const dt = snapshot80?.delta?.touchesInOppositionBox;
+  if (!dt) return clamp((ratio - 1) * 50, 0, 100);
+  const favTouches = dt[fav] || 0;
+  const otherTouches = dt[fav === 'home' ? 'away' : 'home'] || 0;
+  if (favTouches > otherTouches) return clamp((ratio - 1) * 70 + 20, 0, 100);
+  return clamp((ratio - 1) * 30, 0, 100);
+}
+
+const COMPONENTS = [
+  { key: 'xg_delta_10',          weight: 20, fn: (m, s80, s60) => presFromXgDelta10(s80) },
+  { key: 'sot_delta_10',         weight: 15, fn: (m, s80, s60) => presFromSotDelta10(s80) },
+  { key: 'touches_delta_10',     weight: 15, fn: (m, s80, s60) => presFromTouchesDelta10(s80) },
+  { key: 'corners_delta_10',     weight: 10, fn: (m, s80, s60) => presFromCornersDelta10(s80) },
+  { key: 'big_chances_delta_10', weight: 10, fn: (m, s80, s60) => presFromBigChancesDelta10(s80) },
+  { key: 'xg_60_to_80',          weight: 10, fn: (m, s80, s60) => presFromXgVs60(s80, s60) },
+  { key: 'possession_imbalance', weight:  5, fn: (m, s80) => presFromPossessionImbalance(s80) },
+  { key: 'favorite_pressing',    weight: 10, fn: (m, s80) => presFromFavoriteOddsDisparity(m, s80) },
+];
+
+const LEAGUE_BIAS_WEIGHT = 5;
+
+/**
+ * Compute Pressure Score at minute 80.
+ * @param {Object} match
+ * @param {Object} snapshot80  the snapshot near minute 80
+ * @param {Object} [snapshot60] the snapshot near minute 60 (for xG diff)
+ * @returns {{score: number, components: Object, weightUsed: number}}
+ */
+function computePS(match, snapshot80, snapshot60) {
+  const components = {};
+  let weightedSum = 0;
+  let weightUsed = 0;
+
+  for (const c of COMPONENTS) {
+    const value = c.fn(match, snapshot80, snapshot60);
+    components[c.key] = value;
+    if (value != null) {
+      weightedSum += value * c.weight;
+      weightUsed += c.weight;
+    }
+  }
+
+  const leagueBias = pressureBiasFor(match);
+  components.league_bias = leagueBias;
+  weightedSum += leagueBias * LEAGUE_BIAS_WEIGHT;
+  weightUsed += LEAGUE_BIAS_WEIGHT;
+
+  const score = weightUsed > 0 ? Math.round(weightedSum / weightUsed) : null;
+
+  return { score, components, weightUsed };
+}
+
+module.exports = { computePS, COMPONENTS };

@@ -5,7 +5,6 @@ const { randomDelay }          = require('../fetcher/antibot/delays');
 const { buildFinalSummaryUrl } = require('../enrichment/helpers/urlBuilder');
 const { parseLiveHeader }      = require('./parsers/liveHeaderParser');
 const { parseIncidents }       = require('./parsers/incidentParser');
-const { computeDerived }       = require('./derivedFields');
 const matchStore               = require('../store/matchStore');
 const env                      = require('../config/env');
 const logger                   = require('../observability/logger');
@@ -99,12 +98,8 @@ async function collectFinal(matchId, date = new Date()) {
     finishedAt: new Date().toISOString(),
   };
 
-  // ── Compute derived (uses full match record) ──────────────────────────────
-  const freshMatch = matchStore.getMatch(matchId, date);
-  const derived = computeDerived(freshMatch || match);
-
   // ── Persist ───────────────────────────────────────────────────────────────
-  matchStore.finalize(matchId, final, derived, date);
+  matchStore.finalize(matchId, final, null, date);
 
   logger.info('finalCollector: finalized', {
     matchId,

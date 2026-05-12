@@ -2,8 +2,8 @@
 
 const OpenAI = require('openai');
 const { calculateCost } = require('./costCalculator');
-const { validateDecision60Response } = require('./schemas/decision60Schema');
-const { validateDecision80Response } = require('./schemas/decision80Schema');
+const { validateTm05Response } = require('./schemas/tm05Schema');
+const { validateTb05Response } = require('./schemas/tb05Schema');
 
 let cachedClient = null;
 
@@ -14,9 +14,35 @@ function getClient(apiKey) {
 }
 
 function pickValidator(checkpoint) {
-  if (checkpoint === 'decision60') return validateDecision60Response;
-  if (checkpoint === 'decision80') return validateDecision80Response;
+  if (checkpoint === 'tm05') return validateTm05Response;
+  if (checkpoint === 'tb05') return validateTb05Response;
   throw new Error(`callAI: unsupported checkpoint "${checkpoint}"`);
+}
+
+// Extract JSON from text that may include markdown code blocks or prose.
+function extractJsonFromText(text) {
+  if (!text) return '{}';
+  // Try ```json ... ``` block first
+  const jsonBlock = text.match(/```json\s*([\s\S]*?)```/);
+  if (jsonBlock) return jsonBlock[1].trim();
+  // Try ``` ... ``` block
+  const codeBlock = text.match(/```\s*([\s\S]*?)```/);
+  if (codeBlock) return codeBlock[1].trim();
+  // Try to find raw JSON object in text
+  const jsonMatch = text.match(/\{[\s\S]*\}/);
+  if (jsonMatch) return jsonMatch[0];
+  return '{}';
+}
+
+// Extract text content from Responses API output array.
+function extractResponsesText(output) {
+  if (!Array.isArray(output)) return '';
+  return output
+    .filter((o) => o.type === 'message')
+    .flatMap((o) => (Array.isArray(o.content) ? o.content : []))
+    .filter((c) => c.type === 'output_text')
+    .map((c) => c.text || '')
+    .join('');
 }
 
 function defaultRequesterFactory(apiKey) {
@@ -37,6 +63,24 @@ function defaultRequesterFactory(apiKey) {
   };
 }
 
+function defaultWebSearchRequesterFactory(apiKey) {
+  return async function webSearchRequester(params) {
+    const client = getClient(apiKey);
+    if (!client) throw new Error('OPENAI_API_KEY is missing');
+
+    return client.responses.create({
+      model: params.model,
+      tools: [{ type: 'web_search_preview' }],
+      input: [
+        { role: 'system', content: params.system },
+        { role: 'user', content: params.user },
+      ],
+      temperature: params.temperature,
+      max_output_tokens: params.maxTokens,
+    });
+  };
+}
+
 async function defaultSleep(ms) {
   await new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -52,11 +96,17 @@ async function callAI(options, deps = {}) {
     maxRetries = 2,
     apiKey,
     checkpoint,
+    validator,
+    useWebSearch = false,
   } = options;
 
-  const validatePayload = output => pickValidator(checkpoint)(output);
+  const validatePayload = output => (validator || pickValidator(checkpoint))(output);
 
-  const requester = deps.requester || defaultRequesterFactory(apiKey);
+  const isWebSearch = useWebSearch && !deps.requester;
+  const requester = deps.requester
+    || (isWebSearch
+      ? defaultWebSearchRequesterFactory(apiKey)
+      : defaultRequesterFactory(apiKey));
   const sleep = deps.sleep || defaultSleep;
   const startedAt = Date.now();
 
@@ -69,19 +119,28 @@ async function callAI(options, deps = {}) {
         }),
       ]);
 
-      const raw = response?.choices?.[0]?.message?.content || '{}';
-      const output = JSON.parse(raw);
+      // Responses API and Chat Completions API have different output shapes.
+      let rawText;
+      if (isWebSearch && response?.output) {
+        rawText = extractResponsesText(response.output);
+      } else {
+        rawText = response?.choices?.[0]?.message?.content || '{}';
+      }
+
+      const jsonStr = isWebSearch ? extractJsonFromText(rawText) : rawText;
+      const output = JSON.parse(jsonStr);
       const validation = validatePayload(output);
 
       if (!validation.ok) throw new Error(validation.error);
 
+      const usage = response?.usage || {};
       return {
         output: validation.normalized,
         latencyMs: Date.now() - startedAt,
-        promptTokens: response?.usage?.prompt_tokens || 0,
-        completionTokens: response?.usage?.completion_tokens || 0,
+        promptTokens: usage.prompt_tokens ?? usage.input_tokens ?? 0,
+        completionTokens: usage.completion_tokens ?? usage.output_tokens ?? 0,
         model,
-        costUsd: calculateCost(response?.usage, model),
+        costUsd: calculateCost(usage, model),
         error: null,
       };
     } catch (error) {

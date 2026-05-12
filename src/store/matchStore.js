@@ -3,10 +3,7 @@
 const fs   = require('fs');
 const path = require('path');
 const { dateKeyLocal, toISO } = require('../helpers/date');
-const { computeDerived } = require('../tracker/derivedFields');
 const { CUMULATIVE_STAT_FIELDS } = require('../tracker/deltaCalculator');
-const { applyPredictionHits } = require('./predictionAuditResolver');
-const predictionSignals = require('./predictionSignals');
 const logger = require('../observability/logger');
 
 const DATA_ROOT = path.resolve(__dirname, '../../data/logs');
@@ -73,10 +70,6 @@ function flushAll() {
     if (store) writeStoreToDisk(store, key);
     dirty.delete(key);
   }
-}
-
-function round(value, digits = 6) {
-  return Math.round(value * (10 ** digits)) / (10 ** digits);
 }
 
 // ─── File helpers ─────────────────────────────────────────────────────────────
@@ -176,13 +169,8 @@ function upsertFromEnrichment(enrichedItem, date = new Date()) {
   const store = readStore(date);
 
   if (store[enrichedItem.matchId]) {
-    const existing = store[enrichedItem.matchId];
-    if (!existing.derived) {
-      existing.derived = computeDerived(existing);
-      writeStore(store, date);
-    }
     // Already registered — don't overwrite existing tracking state
-    return existing;
+    return store[enrichedItem.matchId];
   }
 
   const baseline1H = buildBaseline1H(enrichedItem.statistics);
@@ -225,13 +213,8 @@ function upsertFromEnrichment(enrichedItem, date = new Date()) {
     snapshots: [],
     final: null,
     derived: null,
-    aiAnalysis: null,
-    computed: null,
-    predictions: null,
-    predictionLocks: null,
+    predictions: { tm05: null, tb05: null },
   };
-
-  record.derived = computeDerived(record);
 
   store[enrichedItem.matchId] = record;
   writeStore(store, date);
@@ -389,8 +372,6 @@ function finalize(matchId, final, derived, date = new Date()) {
 
   match.final   = final;
   match.derived = derived;
-  applyPredictionHits(match);
-  predictionSignals.attachFinalResult(dayDir(date), match);
   match.tracking.status         = 'finished';
   match.tracking.nextSnapshotAt = null;
 
@@ -454,103 +435,36 @@ function getLastSnapshot(matchId, date = new Date()) {
   return match.snapshots[match.snapshots.length - 1];
 }
 
-function setAiAnalysis(matchId, checkpoint, data, date = new Date()) {
+
+function setTrackDecision(matchId, track, payload, date = new Date()) {
+  if (track !== 'tm05' && track !== 'tb05') {
+    logger.warn('matchStore.setTrackDecision: invalid track', { matchId, track });
+    return null;
+  }
   const store = readStore(date);
   const match = store[matchId];
   if (!match) {
-    logger.warn('matchStore.setAiAnalysis: match not found', { matchId, checkpoint });
+    logger.warn('matchStore.setTrackDecision: match not found', { matchId, track });
     return null;
   }
-
-  if (!match.aiAnalysis) {
-    match.aiAnalysis = {
-      halftime: undefined,
-      decision60: undefined,
-      decision80: undefined,
-      totalCostUsd: 0,
-      requestCount: 0,
-    };
-  }
-
-  const previous = match.aiAnalysis[checkpoint];
-  match.aiAnalysis[checkpoint] = data;
-
-  if (data?.costUsd != null) {
-    const previousCost = previous?.costUsd || 0;
-    match.aiAnalysis.totalCostUsd = round(
-      (match.aiAnalysis.totalCostUsd || 0) - previousCost + data.costUsd,
-    );
-  }
-
-  if (!previous && data && !data.pending) {
-    match.aiAnalysis.requestCount = (match.aiAnalysis.requestCount || 0) + 1;
-  } else if (previous?.pending && !data?.pending) {
-    match.aiAnalysis.requestCount = (match.aiAnalysis.requestCount || 0) || 1;
-  } else if (data?.pending && !previous) {
-    match.aiAnalysis.requestCount = (match.aiAnalysis.requestCount || 0) + 1;
-  }
-
+  if (!match.predictions) match.predictions = { tm05: null, tb05: null };
+  // Merge so intermediate phases (e.g. ds_computed) are preserved alongside later updates
+  match.predictions[track] = { ...(match.predictions[track] || {}), ...payload };
   writeStore(store, date);
-  return match.aiAnalysis;
+  return match.predictions[track];
 }
 
-function hasAiCheckpoint(matchId, checkpoint, date = new Date()) {
+function setTm05Decision(matchId, payload, date = new Date()) {
+  return setTrackDecision(matchId, 'tm05', payload, date);
+}
+
+function setTb05Decision(matchId, payload, date = new Date()) {
+  return setTrackDecision(matchId, 'tb05', payload, date);
+}
+
+function getTrackDecision(matchId, track, date = new Date()) {
   const match = getMatch(matchId, date);
-  return Boolean(match?.aiAnalysis && Object.prototype.hasOwnProperty.call(match.aiAnalysis, checkpoint)
-    && match.aiAnalysis[checkpoint] !== undefined);
-}
-
-function ensurePredictionShell(matchId, date = new Date()) {
-  const store = readStore(date);
-  const match = store[matchId];
-  if (!match) return;
-  match.predictions = match.predictions || {
-    decision60: null,
-    decision80: null,
-  };
-  if (!Object.prototype.hasOwnProperty.call(match, 'predictionLocks')) {
-    match.predictionLocks = null;
-  }
-  if (!Object.prototype.hasOwnProperty.call(match, 'computed')) {
-    match.computed = null;
-  }
-  writeStore(store, date);
-}
-
-/** @param {'decision60'|'decision80'} checkpoint */
-function setPrediction(matchId, checkpoint, payload, date = new Date()) {
-  const store = readStore(date);
-  const match = store[matchId];
-  if (!match) {
-    logger.warn('matchStore.setPrediction: match missing', { matchId, checkpoint });
-    return null;
-  }
-  ensurePredictionShell(matchId, date);
-  if (!match.predictions) match.predictions = { decision60: null, decision80: null };
-  match.predictions[checkpoint] = payload;
-  writeStore(store, date);
-  return payload;
-}
-
-function setComputed(matchId, computedSnapshot, date = new Date()) {
-  const store = readStore(date);
-  const match = store[matchId];
-  if (!match) return null;
-  match.computed = computedSnapshot;
-  writeStore(store, date);
-  return computedSnapshot;
-}
-
-function ensurePredictionLocks(matchId, date = new Date(), blockTb = true) {
-  const store = readStore(date);
-  const match = store[matchId];
-  if (!match) return;
-  if (!blockTb) return;
-  match.predictionLocks = match.predictionLocks || {};
-  match.predictionLocks.blockTb80Plus = true;
-  match.predictionLocks.reason = match.predictionLocks.reason || 'ft_tm05_from_6075_signal_was_issued';
-  match.predictionLocks.createdAt = match.predictionLocks.createdAt || new Date().toISOString();
-  writeStore(store, date);
+  return match?.predictions?.[track] || null;
 }
 
 if (!global.__matchStoreExitHandlerRegistered) {
@@ -576,11 +490,8 @@ module.exports = {
   getActiveMatches,
   getLastSnapshot,
   setNextSnapshotAt,
-  setAiAnalysis,
-  hasAiCheckpoint,
   dayLogsAbsolute,
-  setPrediction,
-  setComputed,
-  ensurePredictionShell,
-  ensurePredictionLocks,
+  setTm05Decision,
+  setTb05Decision,
+  getTrackDecision,
 };
