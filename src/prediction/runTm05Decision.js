@@ -6,6 +6,7 @@ const matchStore = require('../store/matchStore');
 const { computeDS } = require('../scoring/drynessScore');
 const { tm05OddsAt } = require('../scoring/oddsTable');
 const { evaluateEvGate } = require('./evGate');
+const { isLockedPhase } = require('./lockPolicy');
 const { buildTm05Prompt } = require('../ai/prompts/tm05Prompt');
 const { validateTm05Response } = require('../ai/schemas/tm05Schema');
 const { callAI } = require('../ai/aiClient');
@@ -33,8 +34,8 @@ async function runTm05Decision(matchId, snapshot60, date = new Date(), deps = {}
   if (!match) return { status: 'no_match' };
   if (match.tracking?.status !== 'active') return { status: 'not_active' };
 
-  // Idempotency: only one AI call per match per track
-  if (match.predictions?.tm05) return { status: 'already_decided' };
+  // Idempotency: locked only on terminal phases (signal, goal_during_decision)
+  if (isLockedPhase(match.predictions?.tm05?.phase)) return { status: 'already_decided' };
 
   // Compute DS using hydrated snapshot60 + older snapshots for delta context
   const hydrated = store.getHydratedSnapshots(matchId, date);
@@ -90,8 +91,14 @@ async function runTm05Decision(matchId, snapshot60, date = new Date(), deps = {}
   const prompt = buildTm05Prompt(promptMatch, snap60, snapshotsBefore60, ds);
   const requestedAt = new Date().toISOString();
 
-  logger.info('runTm05Decision: calling AI', { matchId, ds: ds.score, model: cfg.LIVE_AI_MODEL });
-  const aiResult = await callAIImpl({
+  // Reuse recent AI output to avoid duplicate paid calls on re-evaluation
+  const prev = match.predictions?.tm05;
+  const nowMin = snap60.observedMinute || 60;
+  const recentAi = prev?.ai?.output && prev?.requestedAtMinute != null
+    && (nowMin - prev.requestedAtMinute) < cfg.LIVE_AI_REEVAL_MIN_GAP_MIN;
+
+  logger.info('runTm05Decision: calling AI', { matchId, ds: ds.score, model: cfg.LIVE_AI_MODEL, reusingAi: !!recentAi });
+  const aiResult = recentAi ? prev.ai : await callAIImpl({
     system: prompt.system,
     user: prompt.user,
     model: cfg.LIVE_AI_MODEL,
@@ -146,6 +153,7 @@ async function runTm05Decision(matchId, snapshot60, date = new Date(), deps = {}
     odds,
     evGate: gate,
     requestedAt,
+    requestedAtMinute: nowMin,
     decidedAt: new Date().toISOString(),
   };
 

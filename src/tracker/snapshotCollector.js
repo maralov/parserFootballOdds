@@ -12,6 +12,7 @@ const matchStore                 = require('../store/matchStore');
 const { collectFinal }           = require('./finalCollector');
 const { runTm05Decision }        = require('../prediction/runTm05Decision');
 const { runTb05Decision }        = require('../prediction/runTb05Decision');
+const { isLockedPhase }          = require('../prediction/lockPolicy');
 const tgDispatcher               = require('../integrations/telegram/dispatcher');
 const env                        = require('../config/env');
 const logger                     = require('../observability/logger');
@@ -172,7 +173,7 @@ async function collectSnapshot(matchId, scheduleNext, date = new Date()) {
     scoreHome === 0 && scoreAway === 0
   ) {
     const fresh = matchStore.getMatch(matchId, date);
-    if (fresh && !fresh.predictions?.tm05) {
+    if (fresh && !isLockedPhase(fresh.predictions?.tm05?.phase)) {
       setImmediate(() => {
         runTm05Decision(matchId, snapshot, date, { tgDispatcher }).catch((err) => {
           logger.warn('snapshotCollector: runTm05Decision failed', { matchId, err: err.message });
@@ -188,7 +189,7 @@ async function collectSnapshot(matchId, scheduleNext, date = new Date()) {
     scoreHome === 0 && scoreAway === 0
   ) {
     const fresh = matchStore.getMatch(matchId, date);
-    if (fresh && !fresh.predictions?.tb05) {
+    if (fresh && !isLockedPhase(fresh.predictions?.tb05?.phase)) {
       setImmediate(() => {
         runTb05Decision(matchId, snapshot, date, { tgDispatcher }).catch((err) => {
           logger.warn('snapshotCollector: runTb05Decision failed', { matchId, err: err.message });

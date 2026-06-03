@@ -6,6 +6,7 @@ const matchStore = require('../store/matchStore');
 const { computePS } = require('../scoring/pressureScore');
 const { tb05OddsAt } = require('../scoring/oddsTable');
 const { evaluateEvGate } = require('./evGate');
+const { isLockedPhase } = require('./lockPolicy');
 const { buildTb05Prompt } = require('../ai/prompts/tb05Prompt');
 const { validateTb05Response } = require('../ai/schemas/tb05Schema');
 const { callAI } = require('../ai/aiClient');
@@ -49,7 +50,8 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
     return { status: 'not_scoreless' };
   }
 
-  if (match.predictions?.tb05) return { status: 'already_decided' };
+  // Idempotency: locked only on terminal phases (signal, goal_during_decision)
+  if (isLockedPhase(match.predictions?.tb05?.phase)) return { status: 'already_decided' };
 
   const hydrated = store.getHydratedSnapshots(matchId, date);
   const snap80 = hydrated.find(s => s.capturedAt === snapshot80.capturedAt) || snapshot80;
@@ -102,8 +104,14 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
   const prompt = buildTb05Prompt(promptMatch, snap80, hydrated, ps);
   const requestedAt = new Date().toISOString();
 
-  logger.info('runTb05Decision: calling AI', { matchId, ps: ps.score, model: cfg.LIVE_AI_MODEL });
-  const aiResult = await callAIImpl({
+  // Reuse recent AI output to avoid duplicate paid calls on re-evaluation
+  const prev = match.predictions?.tb05;
+  const nowMin = snap80.observedMinute || 80;
+  const recentAi = prev?.ai?.output && prev?.requestedAtMinute != null
+    && (nowMin - prev.requestedAtMinute) < cfg.LIVE_AI_REEVAL_MIN_GAP_MIN;
+
+  logger.info('runTb05Decision: calling AI', { matchId, ps: ps.score, model: cfg.LIVE_AI_MODEL, reusingAi: !!recentAi });
+  const aiResult = recentAi ? prev.ai : await callAIImpl({
     system: prompt.system,
     user: prompt.user,
     model: cfg.LIVE_AI_MODEL,
@@ -156,6 +164,7 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
     odds,
     evGate: gate,
     requestedAt,
+    requestedAtMinute: nowMin,
     decidedAt: new Date().toISOString(),
   };
 

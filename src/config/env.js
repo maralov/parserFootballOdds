@@ -70,6 +70,8 @@ const env = {
   LIVE_AI_TEMPERATURE: Number(process.env.LIVE_AI_TEMPERATURE) || 0.2,
   LIVE_AI_MAX_TOKENS: envInt('LIVE_AI_MAX_TOKENS', 2500),
 
+  LIVE_AI_REEVAL_MIN_GAP_MIN: envInt('LIVE_AI_REEVAL_MIN_GAP_MIN', 10),
+
   // Stage 5 — Telegram notifications
   LIVE_TG_ENABLED: envBool('LIVE_TG_ENABLED', true),
   LIVE_TG_DRY_RUN: envBool('LIVE_TG_DRY_RUN', false),
