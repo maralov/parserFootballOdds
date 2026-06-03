@@ -132,10 +132,11 @@ async function runTm05Decision(matchId, snapshot60, date = new Date(), deps = {}
     baseline: TM05_BASELINE_P,
   });
 
-  // Goal-during-decision race check
+  // Goal-during-decision race check via firstGoalMinute (authoritative)
   const fresh = store.getMatch(matchId, date);
-  const lastSnap = fresh?.snapshots?.[fresh.snapshots.length - 1];
-  const goalAfterCall = lastSnap && ((lastSnap.scoreHome || 0) + (lastSnap.scoreAway || 0) > 0);
+  const snapMin = snap60.observedMinute || 60;
+  const goalAfterCall = fresh?.tracking?.firstGoalMinute != null
+    && fresh.tracking.firstGoalMinute >= snapMin;
 
   const finalPhase = goalAfterCall ? 'goal_during_decision'
     : gate.pass ? 'signal' : 'gate_blocked';
