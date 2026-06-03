@@ -98,4 +98,9 @@ function getPendingMatchIds(date = new Date()) {
     .map(item => item.matchId);
 }
 
-module.exports = { readEnrichmentStore, saveEnrichment, getPendingMatchIds, rebuildCandidates };
+function getEnrichment(matchId, date = new Date()) {
+  const store = readEnrichmentStore(date);
+  return store[matchId] || null;
+}
+
+module.exports = { readEnrichmentStore, saveEnrichment, getPendingMatchIds, rebuildCandidates, getEnrichment };
