@@ -11,6 +11,7 @@ const { validateTb05Response } = require('../ai/schemas/tb05Schema');
 const { callAI } = require('../ai/aiClient');
 
 const PS_THRESHOLD_AI = 60;
+const TB05_BASELINE_P = Number(process.env.LIVE_TB05_BASELINE_P) || 0.30;
 
 function findSnapshotByMinute(snapshots, target) {
   if (!snapshots?.length) return null;
@@ -130,10 +131,10 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
 
   const odds = tb05OddsAt(snap80.observedMinute || 80);
   const gate = evaluateEvGate({
-    decision: aiResult.output.decision,
     probability: aiResult.output.p_goal,
     confidence: aiResult.output.confidence,
     odds,
+    baseline: TB05_BASELINE_P,
   });
 
   const fresh = store.getMatch(matchId, date);

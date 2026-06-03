@@ -17,9 +17,9 @@ function validateTm05Response(raw) {
     return { ok: false, error: 'tm05: response is not an object' };
   }
 
-  const decision = raw.decision;
-  if (!VALID_DECISIONS.has(decision)) {
-    return { ok: false, error: `tm05: decision must be BET or SKIP, got "${decision}"` };
+  const decision = raw.decision ?? null; // optional, diagnostic only
+  if (decision != null && !VALID_DECISIONS.has(decision)) {
+    return { ok: false, error: `tm05: decision, if present, must be BET or SKIP, got "${decision}"` };
   }
 
   const pNoGoal = Number(raw.p_no_goal);
@@ -44,7 +44,7 @@ function validateTm05Response(raw) {
     ok: true,
     normalized: {
       track: 'TM05',
-      decision,
+      decision: decision ?? null,
       p_no_goal: pNoGoal,
       confidence,
       reasoning,

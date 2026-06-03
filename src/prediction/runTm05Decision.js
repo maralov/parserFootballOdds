@@ -11,6 +11,7 @@ const { validateTm05Response } = require('../ai/schemas/tm05Schema');
 const { callAI } = require('../ai/aiClient');
 
 const DS_THRESHOLD_AI = 60;
+const TM05_BASELINE_P = Number(process.env.LIVE_TM05_BASELINE_P) || 0.45;
 
 /**
  * Decide on TM 0.5 for a match at the 60' snapshot.
@@ -118,10 +119,10 @@ async function runTm05Decision(matchId, snapshot60, date = new Date(), deps = {}
 
   const odds = tm05OddsAt(snap60.observedMinute || 60);
   const gate = evaluateEvGate({
-    decision: aiResult.output.decision,
     probability: aiResult.output.p_no_goal,
     confidence: aiResult.output.confidence,
     odds,
+    baseline: TM05_BASELINE_P,
   });
 
   // Goal-during-decision race check
