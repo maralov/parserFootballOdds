@@ -165,6 +165,18 @@ describe('liveHeaderParser.parseLiveHeader', () => {
     assert.equal(h.scoreAway, 0);
     assert.equal(h.isFinished, false);
   });
+
+  test('parses dash-separated score (Flashscore mobi/ua)', () => {
+    const html = `
+<div id="main" class="soccer">
+  <h3>Team A - Team B</h3>
+  <div class="detail"><b>3-0</b></div>
+  <div class="detail">72'</div>
+</div>`;
+    const h = parseLiveHeader(html);
+    assert.equal(h.scoreHome, 3);
+    assert.equal(h.scoreAway, 0);
+  });
 });
 
 // ─── incidentParser ───────────────────────────────────────────────────────────
@@ -203,6 +215,15 @@ const INCIDENTS_HTML = `
 describe('incidentParser.parseIncidents', () => {
   test('parses 1st/2nd half scores from h4 headers', () => {
     const r = parseIncidents(INCIDENTS_HTML);
+    assert.deepEqual(r.firstHalfScore,  { home: 0, away: 0 });
+    assert.deepEqual(r.secondHalfScore, { home: 0, away: 1 });
+  });
+
+  test('parses dash-separated half scores', () => {
+    const html = INCIDENTS_HTML
+      .replace('<b>0:0</b>', '<b>0-0</b>')
+      .replace('<b>0:1</b>', '<b>0-1</b>');
+    const r = parseIncidents(html);
     assert.deepEqual(r.firstHalfScore,  { home: 0, away: 0 });
     assert.deepEqual(r.secondHalfScore, { home: 0, away: 1 });
   });

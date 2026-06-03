@@ -2,6 +2,7 @@
 
 const cheerio = require('cheerio');
 const { parseMinute } = require('../../parser/minuteUtils');
+const { parseScorePair } = require('../../parser/scoreUtils');
 
 /**
  * Parse the #main block from a flashscore.mobi match page.
@@ -37,11 +38,11 @@ function parseLiveHeader(html) {
 
   const scoreDetail = $('#main .detail').filter((_, el) => $(el).find('b').length > 0).first();
   if (scoreDetail.length) {
-    const scoreText = scoreDetail.find('b').first().text().trim(); // "0:1"
-    const parts = scoreText.split(':');
-    if (parts.length === 2) {
-      scoreHome = parseInt(parts[0], 10) || 0;
-      scoreAway = parseInt(parts[1], 10) || 0;
+    const scoreText = scoreDetail.find('b').first().text().trim(); // "0:1" or "0-1"
+    const pair = parseScorePair(scoreText);
+    if (pair) {
+      scoreHome = pair.home;
+      scoreAway = pair.away;
     }
   }
 

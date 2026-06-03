@@ -1,6 +1,7 @@
 'use strict';
 
 const cheerio = require('cheerio');
+const { SCORE_SEP } = require('../../parser/scoreUtils');
 
 /**
  * Parse goal incidents from #detail-tab-content on a flashscore.mobi match summary page.
@@ -56,7 +57,7 @@ function parseIncidents(html, homeTeam = '', awayTeam = '') {
   // ── Parse half-time scores from <h4> headers ──────────────────────────────
   container.find('h4').each((_, el) => {
     const text = $(el).text().trim(); // "1st Half: 0:0" or "2nd Half: 0:1"
-    const scoreMatch = text.match(/([\d]+):([\d]+)/);
+    const scoreMatch = text.match(new RegExp(`([\\d]+)${SCORE_SEP.source}([\\d]+)`));
     if (!scoreMatch) return;
     const h = parseInt(scoreMatch[1], 10);
     const a = parseInt(scoreMatch[2], 10);

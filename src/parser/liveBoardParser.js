@@ -4,6 +4,7 @@ const cheerio = require('cheerio');
 const { sanitizeLeagueName, sanitizeTeams } = require('../helpers/utils/normalizeMatchText');
 const { parseMinute } = require('./minuteUtils');
 const { extractMatchId } = require('./urlUtils');
+const { normalizeScoreString } = require('./scoreUtils');
 
 /**
  * @typedef {Object} LiveMatch
@@ -32,7 +33,8 @@ const { extractMatchId } = require('./urlUtils');
  * DOM structure inside #score-data (flat, server-rendered):
  *   <h4>COUNTRY: League <a>Standings</a></h4>
  *   <span class="live">45+'</span>Home - Away <a href="/match/ID/?s=2" class="live">0:0</a><br>
- *   <span class="live">90+'</span>Home - Away<img class="rcard-1"> <a ... class="live">2:0</a><br>
+ *   <span class="live">90+'</span>Home - Away<img class="rcard-1"> <a ... class="live">2-0</a><br>
+ *   (Flashscore may use ":" or "-" as separator; normalized to "H:A" internally.)
  *
  * Strategy: walk #score-data.contents() tracking state (league, pendingStatus, pendingTeamText).
  * An `a.live[href*=/match/]` node closes a "row" and produces one LiveMatch.
@@ -106,7 +108,7 @@ function parseLiveBoard(html) {
         health.totalRows++;
 
         const href = $node.attr('href') || '';
-        const score = $node.text().trim();
+        const score = normalizeScoreString($node.text().trim());
         const matchId = extractMatchId(href);
 
         if (!matchId) health.missingId++;
