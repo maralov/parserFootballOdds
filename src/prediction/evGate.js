@@ -2,48 +2,38 @@
 
 const DEFAULTS = {
   evMin: 1.10,
-  confidenceMin: 0.65,
+  baseline: 0.45, // per-track baseline probability; pass explicitly per track
 };
 
 /**
- * Final mathematical sanity check before dispatching a bet signal.
+ * EV gate — sole BET/SKIP decision-maker.
+ * Confidence is a soft shrink toward baseline, NOT a hard cutoff:
+ *   pAdj = baseline + (probability - baseline) * confidence
  *
- * @param {Object} args
- * @param {'BET'|'SKIP'|string} args.decision
- * @param {number|null}         args.probability  AI-returned probability for the bet outcome (0..1)
- * @param {number|null}         args.confidence   AI-stated confidence (0..1)
- * @param {number|null}         args.odds         odds from normative table for the minute
- * @param {Object}              [args.thresholds] override defaults
- * @returns {{ pass: boolean, reason: string|null, ev: number|null }}
+ * @returns {{ pass:boolean, reason:string|null, ev:number|null, pAdj:number|null }}
  */
-function evaluateEvGate({ decision, probability, confidence, odds, thresholds } = {}) {
+function evaluateEvGate({ probability, confidence, odds, baseline, thresholds } = {}) {
   const T = { ...DEFAULTS, ...(thresholds || {}) };
+  const base = Number.isFinite(baseline) ? baseline : T.baseline;
 
-  if (decision !== 'BET') {
-    return { pass: false, reason: 'decision_not_bet', ev: null };
-  }
   if (probability == null || !Number.isFinite(probability)) {
-    return { pass: false, reason: 'probability_missing', ev: null };
+    return { pass: false, reason: 'probability_missing', ev: null, pAdj: null };
   }
   if (probability < 0 || probability > 1) {
-    return { pass: false, reason: 'probability_out_of_range', ev: null };
+    return { pass: false, reason: 'probability_out_of_range', ev: null, pAdj: null };
   }
-  if (confidence == null || !Number.isFinite(confidence)) {
-    return { pass: false, reason: 'confidence_missing', ev: null };
-  }
-  if (confidence < T.confidenceMin) {
-    return { pass: false, reason: 'low_confidence', ev: null };
-  }
+  const conf = (confidence == null || !Number.isFinite(confidence))
+    ? 1 : Math.min(1, Math.max(0, confidence));
   if (odds == null || !Number.isFinite(odds) || odds <= 1) {
-    return { pass: false, reason: 'odds_invalid', ev: null };
+    return { pass: false, reason: 'odds_invalid', ev: null, pAdj: null };
   }
 
-  const ev = +(probability * odds).toFixed(4);
+  const pAdj = +(base + (probability - base) * conf).toFixed(4);
+  const ev = +(pAdj * odds).toFixed(4);
   if (ev < T.evMin) {
-    return { pass: false, reason: 'negative_ev', ev };
+    return { pass: false, reason: 'negative_ev', ev, pAdj };
   }
-
-  return { pass: true, reason: null, ev };
+  return { pass: true, reason: null, ev, pAdj };
 }
 
 module.exports = { evaluateEvGate, DEFAULTS };
