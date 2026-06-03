@@ -9,7 +9,7 @@ const logger = require('../observability/logger');
 
 const DATA_ROOT = path.resolve(__dirname, '../../data/logs');
 
-const DEBOUNCE_MS = Math.max(0, Number(process.env.MATCHSTORE_DEBOUNCE_MS) || 0);
+const DEBOUNCE_MS = Math.max(0, Number(process.env.MATCHSTORE_DEBOUNCE_MS) || 2500);
 
 const cache = new Map();    // dateKey → store object
 const dirty = new Set();    // dateKey for entries pending flush

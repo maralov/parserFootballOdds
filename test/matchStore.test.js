@@ -15,6 +15,7 @@ function makeTempDate(label) {
 test('writeStore is atomic (no .tmp left behind on success)', () => {
   const date = makeTempDate('01');
   matchStore.writeStore({ atomicTest: { matchId: 'atomicTest' } }, date);
+  matchStore.flushSync(date);
 
   const dir = matchStore.dayLogsAbsolute(date);
   const file = path.join(dir, 'matches.json');
@@ -33,6 +34,7 @@ test('writeStore overwrites atomically without truncate-window', () => {
   const date = makeTempDate('02');
   matchStore.writeStore({ a: { matchId: 'a' } }, date);
   matchStore.writeStore({ b: { matchId: 'b' } }, date);
+  matchStore.flushSync(date);
 
   const dir = matchStore.dayLogsAbsolute(date);
   const file = path.join(dir, 'matches.json');
