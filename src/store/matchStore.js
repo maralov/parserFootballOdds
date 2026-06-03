@@ -4,6 +4,7 @@ const fs   = require('fs');
 const path = require('path');
 const { dateKeyLocal, toISO } = require('../helpers/date');
 const { CUMULATIVE_STAT_FIELDS } = require('../tracker/deltaCalculator');
+const { hydrateAll } = require('../tracker/snapshotHydrator');
 const logger = require('../observability/logger');
 
 const DATA_ROOT = path.resolve(__dirname, '../../data/logs');
@@ -467,6 +468,17 @@ function getTrackDecision(matchId, track, date = new Date()) {
   return match?.predictions?.[track] || null;
 }
 
+function getHydratedSnapshots(matchId, date = new Date()) {
+  const match = getMatch(matchId, date);
+  if (!match) return [];
+  return hydrateAll(match.snapshots || [], match.baseline1H);
+}
+
+function getLastHydratedSnapshot(matchId, date = new Date()) {
+  const h = getHydratedSnapshots(matchId, date);
+  return h.length ? h[h.length - 1] : null;
+}
+
 if (!global.__matchStoreExitHandlerRegistered) {
   global.__matchStoreExitHandlerRegistered = true;
   process.on('exit', () => {
@@ -494,4 +506,6 @@ module.exports = {
   setTm05Decision,
   setTb05Decision,
   getTrackDecision,
+  getHydratedSnapshots,
+  getLastHydratedSnapshot,
 };
