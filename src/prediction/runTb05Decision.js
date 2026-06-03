@@ -50,10 +50,11 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
 
   if (match.predictions?.tb05) return { status: 'already_decided' };
 
-  const snapshots = match.snapshots || [];
-  const snapshot60 = findSnapshotByMinute(snapshots, 60);
+  const hydrated = store.getHydratedSnapshots(matchId, date);
+  const snap80 = hydrated.find(s => s.capturedAt === snapshot80.capturedAt) || snapshot80;
+  const snapshot60 = findSnapshotByMinute(hydrated, 60);
 
-  const ps = computePS(match, snapshot80, snapshot60);
+  const ps = computePS(match, snap80, snapshot60);
   store.setTb05Decision(matchId, {
     phase: 'ps_computed',
     psScore: ps.score,
@@ -91,7 +92,7 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
     return { status: 'stats_not_detailed' };
   }
 
-  const prompt = buildTb05Prompt(match, snapshot80, snapshots, ps);
+  const prompt = buildTb05Prompt(match, snap80, hydrated, ps);
   const requestedAt = new Date().toISOString();
 
   logger.info('runTb05Decision: calling AI', { matchId, ps: ps.score, model: cfg.LIVE_AI_MODEL });
@@ -121,7 +122,7 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
     return { status: 'ai_error', error: aiResult.error };
   }
 
-  const odds = tb05OddsAt(snapshot80.observedMinute || 80);
+  const odds = tb05OddsAt(snap80.observedMinute || 80);
   const gate = evaluateEvGate({
     decision: aiResult.output.decision,
     probability: aiResult.output.p_goal,
@@ -159,7 +160,7 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
         match: store.getMatch(matchId, date) || match,
         prediction: payload,
         decisionKey: 'tb05',
-        minute: snapshot80.observedMinute || 80,
+        minute: snap80.observedMinute || 80,
         score: '0:0',
         date,
       }).catch((err) => {

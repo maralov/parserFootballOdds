@@ -35,13 +35,12 @@ async function runTm05Decision(matchId, snapshot60, date = new Date(), deps = {}
   // Idempotency: only one AI call per match per track
   if (match.predictions?.tm05) return { status: 'already_decided' };
 
-  // Compute DS using snapshot60 + older snapshots for delta context
-  const snapshots = (match.snapshots || []);
-  const idx = snapshots.findIndex((s) => s === snapshot60)
-    + (snapshots.includes(snapshot60) ? 0 : snapshots.length);
-  const snapshotsBefore60 = snapshots.filter((s) => (s.observedMinute || 0) < 60);
+  // Compute DS using hydrated snapshot60 + older snapshots for delta context
+  const hydrated = store.getHydratedSnapshots(matchId, date);
+  const snap60 = hydrated.find(s => s.capturedAt === snapshot60.capturedAt) || snapshot60;
+  const snapshotsBefore60 = hydrated.filter(s => (s.observedMinute || 0) < 60);
 
-  const ds = computeDS(match, snapshot60);
+  const ds = computeDS(match, snap60);
   store.setTm05Decision(matchId, {
     phase: 'ds_computed',
     dsScore: ds.score,
@@ -81,7 +80,7 @@ async function runTm05Decision(matchId, snapshot60, date = new Date(), deps = {}
     return { status: 'stats_not_detailed' };
   }
 
-  const prompt = buildTm05Prompt(match, snapshot60, snapshotsBefore60, ds);
+  const prompt = buildTm05Prompt(match, snap60, snapshotsBefore60, ds);
   const requestedAt = new Date().toISOString();
 
   logger.info('runTm05Decision: calling AI', { matchId, ds: ds.score, model: cfg.LIVE_AI_MODEL });
@@ -111,7 +110,7 @@ async function runTm05Decision(matchId, snapshot60, date = new Date(), deps = {}
     return { status: 'ai_error', error: aiResult.error };
   }
 
-  const odds = tm05OddsAt(snapshot60.observedMinute || 60);
+  const odds = tm05OddsAt(snap60.observedMinute || 60);
   const gate = evaluateEvGate({
     decision: aiResult.output.decision,
     probability: aiResult.output.p_no_goal,
@@ -151,7 +150,7 @@ async function runTm05Decision(matchId, snapshot60, date = new Date(), deps = {}
         match: store.getMatch(matchId, date) || match,
         prediction: payload,
         decisionKey: 'tm05',
-        minute: snapshot60.observedMinute || 60,
+        minute: snap60.observedMinute || 60,
         score: '0:0',
         date,
       }).catch((err) => {

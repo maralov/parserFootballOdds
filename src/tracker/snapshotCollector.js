@@ -6,7 +6,7 @@ const { buildLiveStatsUrl }      = require('../enrichment/helpers/urlBuilder');
 const { parseLiveHeader }        = require('./parsers/liveHeaderParser');
 const { parseCumulativeStats }   = require('../enrichment/parsers/matchStatsParser');
 const { shouldDiscard }          = require('./discardPolicy');
-const { subtractStats, buildStatsMap } = require('./deltaCalculator');
+const { buildStatsMap } = require('./deltaCalculator');
 const { getSnapshotMinute, getDelayToNextSnapshotMs } = require('./snapshotCadence');
 const matchStore                 = require('../store/matchStore');
 const { collectFinal }           = require('./finalCollector');
@@ -106,22 +106,11 @@ async function collectSnapshot(matchId, scheduleNext, date = new Date()) {
   // ── 5. Parse cumulative stats ─────────────────────────────────────────────
   const cumulativeRaw = parseCumulativeStats(html);
   let cumulativeMap = null;
-  let since2H = null;
-  let delta = null;
   let ballPossession = null;
 
   if (cumulativeRaw) {
     // Build { field: { home, away } } map (excludes possession)
     cumulativeMap = buildStatsMap(cumulativeRaw.home, cumulativeRaw.away);
-
-    // since2H = cumulative − baseline1H
-    since2H = subtractStats(cumulativeMap, match.baseline1H);
-
-    // delta = cumulative − previous snapshot's cumulative
-    const lastSnapshot = matchStore.getLastSnapshot(matchId, date);
-    if (lastSnapshot?.cumulative) {
-      delta = subtractStats(cumulativeMap, lastSnapshot.cumulative);
-    }
 
     // Possession is a current % value — not cumulative, keep separately
     if (cumulativeRaw.home?.ballPossession != null) {
@@ -145,8 +134,6 @@ async function collectSnapshot(matchId, scheduleNext, date = new Date()) {
     scoreAway,
     ballPossession,
     cumulative: cumulativeMap,
-    since2H,
-    delta,
   };
 
   matchStore.appendSnapshot(matchId, snapshot, null, date);
