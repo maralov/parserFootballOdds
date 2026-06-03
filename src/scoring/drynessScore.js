@@ -58,10 +58,12 @@ function dryFromCornersDelta(snapshot) {
 }
 
 function dryFromCards(snapshot) {
-  const y = sumSide(snapshot?.cumulative?.yellowCards) || 0;
-  const r = sumSide(snapshot?.cumulative?.redCards) || 0;
-  if (y === 0 && r === 0) return null;
-  return Math.min(100, y * 15 + r * 40);
+  const y = sumSide(snapshot?.cumulative?.yellowCards);
+  const r = sumSide(snapshot?.cumulative?.redCards);
+  if (y == null && r == null) return null; // stat truly missing
+  const total = (y || 0) * 15 + (r || 0) * 40;
+  // zero cards = calm match = maximally dry
+  return Math.max(0, 100 - total);
 }
 
 function dryFromErrors(snapshot) {

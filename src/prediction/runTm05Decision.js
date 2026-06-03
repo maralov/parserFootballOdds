@@ -72,14 +72,14 @@ async function runTm05Decision(matchId, snapshot60, date = new Date(), deps = {}
     return { status: 'ai_disabled', dsScore: ds.score };
   }
 
-  // Skip if stats level not detailed (DS would be unreliable anyway)
+  // Soft gate on basic stats: allow AI if DS is still high enough
   if (match.statsLevel !== 'detailed') {
-    store.setTm05Decision(matchId, {
-      phase: 'stats_not_detailed',
-      dsScore: ds.score,
-      decidedAt: new Date().toISOString(),
-    }, date);
-    return { status: 'stats_not_detailed' };
+    if (ds.score == null || ds.score < cfg.LIVE_PRED_BASIC_DS_MIN) {
+      store.setTm05Decision(matchId, { phase: 'basic_below_threshold', dsScore: ds.score,
+        decidedAt: new Date().toISOString() }, date);
+      return { status: 'basic_below_threshold', dsScore: ds.score };
+    }
+    // else: allow AI on basic stats with the higher bar
   }
 
   const enrichment = require('../store/enrichmentStore').getEnrichment(matchId, date) || {};

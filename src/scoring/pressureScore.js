@@ -77,31 +77,48 @@ function presFromPossessionImbalance(snapshot80) {
   return clamp((maxPoss - 55) * 4, 0, 100);
 }
 
-function presFromFavoriteOddsDisparity(match, snapshot80) {
-  const odds = match?.odds;
-  if (!odds || !odds.home || !odds.away) return null;
-  const fav = odds.home < odds.away ? 'home' : 'away';
-  const ratio = odds.home < odds.away ? (odds.away / odds.home) : (odds.home / odds.away);
-  if (ratio < 1.3) return null; // no clear favorite
+function presFromXg2H(s80) {
+  const xg = sumSide(s80?.since2H?.expectedGoalsXg);
+  if (xg == null) return null;
+  return 100 * clamp(xg / 1.2, 0, 1);
+}
 
-  // Pressing favorite: does the favorite have more touches in opp box in last 10'?
-  const dt = snapshot80?.delta?.touchesInOppositionBox;
-  if (!dt) return clamp((ratio - 1) * 50, 0, 100);
-  const favTouches = dt[fav] || 0;
-  const otherTouches = dt[fav === 'home' ? 'away' : 'home'] || 0;
-  if (favTouches > otherTouches) return clamp((ratio - 1) * 70 + 20, 0, 100);
-  return clamp((ratio - 1) * 30, 0, 100);
+function presFromSot2H(s80) {
+  const sot = sumSide(s80?.since2H?.shotsOnTarget);
+  if (sot == null) return null;
+  return 100 * clamp(sot / 5, 0, 1);
+}
+
+function presFromBigChances2H(s80) {
+  const big = sumSide(s80?.since2H?.bigChances);
+  if (big == null) return null;
+  return 100 * clamp(big / 2, 0, 1);
+}
+
+function presFromLiveDominance(match, s80) {
+  const xg = s80?.since2H?.expectedGoalsXg;
+  const sot = s80?.since2H?.shotsOnTarget;
+  const touch = s80?.since2H?.touchesInOppositionBox;
+  const parts = [];
+  if (xg) parts.push(Math.abs((xg.home || 0) - (xg.away || 0)) / 0.6);
+  if (sot) parts.push(Math.abs((sot.home || 0) - (sot.away || 0)) / 4);
+  if (touch) parts.push(Math.abs((touch.home || 0) - (touch.away || 0)) / 8);
+  if (!parts.length) return null;
+  const avg = parts.reduce((a, b) => a + b, 0) / parts.length;
+  return clamp(avg * 100, 0, 100);
 }
 
 const COMPONENTS = [
-  { key: 'xg_delta_10',          weight: 20, fn: (m, s80, s60) => presFromXgDelta10(s80) },
-  { key: 'sot_delta_10',         weight: 15, fn: (m, s80, s60) => presFromSotDelta10(s80) },
-  { key: 'touches_delta_10',     weight: 15, fn: (m, s80, s60) => presFromTouchesDelta10(s80) },
-  { key: 'corners_delta_10',     weight: 10, fn: (m, s80, s60) => presFromCornersDelta10(s80) },
-  { key: 'big_chances_delta_10', weight: 10, fn: (m, s80, s60) => presFromBigChancesDelta10(s80) },
-  { key: 'xg_60_to_80',          weight: 10, fn: (m, s80, s60) => presFromXgVs60(s80, s60) },
+  { key: 'xg_delta_10',          weight: 12, fn: (m, s80) => presFromXgDelta10(s80) },
+  { key: 'sot_delta_10',         weight: 10, fn: (m, s80) => presFromSotDelta10(s80) },
+  { key: 'touches_delta_10',     weight:  8, fn: (m, s80) => presFromTouchesDelta10(s80) },
+  { key: 'corners_delta_10',     weight:  5, fn: (m, s80) => presFromCornersDelta10(s80) },
+  { key: 'big_chances_delta_10', weight:  5, fn: (m, s80) => presFromBigChancesDelta10(s80) },
+  { key: 'xg_2h',                weight: 15, fn: (m, s80) => presFromXg2H(s80) },
+  { key: 'sot_2h',               weight: 12, fn: (m, s80) => presFromSot2H(s80) },
+  { key: 'big_chances_2h',       weight:  8, fn: (m, s80) => presFromBigChances2H(s80) },
   { key: 'possession_imbalance', weight:  5, fn: (m, s80) => presFromPossessionImbalance(s80) },
-  { key: 'favorite_pressing',    weight: 10, fn: (m, s80) => presFromFavoriteOddsDisparity(m, s80) },
+  { key: 'live_dominance',       weight: 10, fn: (m, s80) => presFromLiveDominance(m, s80) },
 ];
 
 const LEAGUE_BIAS_WEIGHT = 5;

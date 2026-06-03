@@ -71,6 +71,7 @@ const env = {
   LIVE_AI_MAX_TOKENS: envInt('LIVE_AI_MAX_TOKENS', 2500),
 
   LIVE_AI_REEVAL_MIN_GAP_MIN: envInt('LIVE_AI_REEVAL_MIN_GAP_MIN', 10),
+  LIVE_PRED_BASIC_DS_MIN: envInt('LIVE_PRED_BASIC_DS_MIN', 70),
 
   // Stage 5 — Telegram notifications
   LIVE_TG_ENABLED: envBool('LIVE_TG_ENABLED', true),

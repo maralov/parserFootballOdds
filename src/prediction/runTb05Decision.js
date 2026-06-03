@@ -14,17 +14,16 @@ const { callAI } = require('../ai/aiClient');
 const PS_THRESHOLD_AI = 60;
 const TB05_BASELINE_P = Number(process.env.LIVE_TB05_BASELINE_P) || 0.30;
 
-function findSnapshotByMinute(snapshots, target) {
+function findSnapshotByMinute(snapshots, target, maxDiff = 10) {
   if (!snapshots?.length) return null;
-  let best = null;
-  let bestDiff = Infinity;
+  let best = null; let bestDiff = Infinity;
   for (const s of snapshots) {
     const m = s.minute ?? s.observedMinute;
     if (m == null) continue;
     const diff = Math.abs(m - target);
     if (diff < bestDiff) { bestDiff = diff; best = s; }
   }
-  return best;
+  return bestDiff > maxDiff ? null : best;
 }
 
 /**
@@ -86,13 +85,14 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
     return { status: 'ai_disabled', psScore: ps.score };
   }
 
+  // Soft gate on basic stats: allow AI if PS is still high enough
   if (match.statsLevel !== 'detailed') {
-    store.setTb05Decision(matchId, {
-      phase: 'stats_not_detailed',
-      psScore: ps.score,
-      decidedAt: new Date().toISOString(),
-    }, date);
-    return { status: 'stats_not_detailed' };
+    if (ps.score == null || ps.score < cfg.LIVE_PRED_BASIC_DS_MIN) {
+      store.setTb05Decision(matchId, { phase: 'basic_below_threshold', psScore: ps.score,
+        decidedAt: new Date().toISOString() }, date);
+      return { status: 'basic_below_threshold', psScore: ps.score };
+    }
+    // else: allow AI on basic stats with the higher bar
   }
 
   const enrichment = require('../store/enrichmentStore').getEnrichment(matchId, date) || {};
