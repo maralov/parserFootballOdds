@@ -193,13 +193,7 @@ function upsertFromEnrichment(enrichedItem, date = new Date()) {
     odds:       enrichedItem.odds      || null,
     statsLevel: enrichedItem.statsLevel || null,
 
-    statistics:      enrichedItem.statistics || null,
-    enrichmentTabs: enrichedItem.tabs       || null,
-
     baseline1H,
-
-    standings: enrichedItem.standings || null,
-    h2h:       enrichedItem.h2h       || null,
 
     tracking: {
       status:             baseline1H ? 'active' : 'discarded',

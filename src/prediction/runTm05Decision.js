@@ -80,7 +80,13 @@ async function runTm05Decision(matchId, snapshot60, date = new Date(), deps = {}
     return { status: 'stats_not_detailed' };
   }
 
-  const prompt = buildTm05Prompt(match, snap60, snapshotsBefore60, ds);
+  const enrichment = require('../store/enrichmentStore').getEnrichment(matchId, date) || {};
+  const promptMatch = { ...match,
+    standings: enrichment.standings || null,
+    h2h: enrichment.h2h || null,
+    statistics: enrichment.statistics || null };
+
+  const prompt = buildTm05Prompt(promptMatch, snap60, snapshotsBefore60, ds);
   const requestedAt = new Date().toISOString();
 
   logger.info('runTm05Decision: calling AI', { matchId, ds: ds.score, model: cfg.LIVE_AI_MODEL });
