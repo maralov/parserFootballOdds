@@ -2,6 +2,7 @@
 
 const cheerio = require('cheerio');
 const { flashscoreToMobi } = require('../helpers/flashscoreUrlNormalizer');
+const { parseScorePair } = require('../../parser/scoreUtils');
 
 /**
  * Parse flashscore date string "DD.MM.YYYY" → Date object (local midnight).
@@ -47,9 +48,9 @@ function computeResult(homeTeamInRow, awayTeamInRow, score, perspectiveTeam) {
   const target = norm(perspectiveTeam);
   const isHome = norm(homeTeamInRow).includes(target) || target.includes(norm(homeTeamInRow));
 
-  const parts = score.split(':').map(Number);
-  if (parts.length < 2) return null;
-  const [homeScore, awayScore] = parts;
+  const pair = parseScorePair(score);
+  if (!pair) return null;
+  const { home: homeScore, away: awayScore } = pair;
 
   const myScore  = isHome ? homeScore  : awayScore;
   const oppScore = isHome ? awayScore  : homeScore;
