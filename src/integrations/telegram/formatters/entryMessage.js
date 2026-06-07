@@ -65,8 +65,8 @@ function formatEntryMessage({ match, prediction, decisionKey, minute, score }) {
     `🏆 ${leagueLine}`,
     `⏱ ${escapeMarkdownV2(String(minute ?? '?'))}' · ${escapeMarkdownV2(scoreText)}`,
     '',
-    `📊 ${escapeMarkdownV2(scoreLabel)}=${escapeMarkdownV2(String(score_value ?? '?'))} · p=${escapeMarkdownV2(fixed2(probability))} · EV=${escapeMarkdownV2(fixed2(ev))}`,
-    `📈 confidence=${escapeMarkdownV2(fixed2(prediction.confidence))}`,
+    `📊 ${escapeMarkdownV2(scoreLabel)}\\=${escapeMarkdownV2(String(score_value ?? '?'))} · p\\=${escapeMarkdownV2(fixed2(probability))} · EV\\=${escapeMarkdownV2(fixed2(ev))}`,
+    `📈 confidence\\=${escapeMarkdownV2(fixed2(prediction.confidence))}`,
   ];
 
   const signalsBlock = renderKeySignals(prediction.keySignals);
