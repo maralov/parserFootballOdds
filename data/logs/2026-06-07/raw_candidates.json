@@ -1,0 +1,248 @@
+{
+  "date": "2026-06-07",
+  "updatedAt": "2026-06-07T09:20:52.529Z",
+  "candidates": [
+    {
+      "matchId": "WrpbU7b2",
+      "country": "WORLD",
+      "league": "Friendly International",
+      "homeTeam": "Qatar",
+      "awayTeam": "El Salvador",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/WrpbU7b2/?s=2",
+      "discoveredAt": "2026-06-06T21:00:19.612Z",
+      "cycleId": 598
+    },
+    {
+      "matchId": "KfmIiYwm",
+      "country": "BRAZIL",
+      "league": "Carioca 2",
+      "homeTeam": "Resende",
+      "awayTeam": "CEAC/Araruama",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/KfmIiYwm/?s=2",
+      "discoveredAt": "2026-06-06T21:00:19.612Z",
+      "cycleId": 598
+    },
+    {
+      "matchId": "0rQeG8zp",
+      "country": "WORLD",
+      "league": "Friendly International",
+      "homeTeam": "Chile U20",
+      "awayTeam": "Brazil U20",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/0rQeG8zp/?s=2",
+      "discoveredAt": "2026-06-06T21:52:48.011Z",
+      "cycleId": 607
+    },
+    {
+      "matchId": "Sb541eyC",
+      "country": "ECUADOR",
+      "league": "Serie B",
+      "homeTeam": "LDU Portoviejo",
+      "awayTeam": "Gualaceo",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/Sb541eyC/?s=2",
+      "discoveredAt": "2026-06-06T21:52:48.011Z",
+      "cycleId": 607
+    },
+    {
+      "matchId": "Q1b62pME",
+      "country": "ARGENTINA",
+      "league": "Primera Nacional",
+      "homeTeam": "Tristan Suarez",
+      "awayTeam": "Almagro",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/Q1b62pME/?s=2",
+      "discoveredAt": "2026-06-06T22:49:16.109Z",
+      "cycleId": 616
+    },
+    {
+      "matchId": "fDqEfNbk",
+      "country": "CHILE",
+      "league": "Segunda Division",
+      "homeTeam": "Deportes Rengo",
+      "awayTeam": "Lota Schwager",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/fDqEfNbk/?s=2",
+      "discoveredAt": "2026-06-06T22:49:16.109Z",
+      "cycleId": 616
+    },
+    {
+      "matchId": "0WZqSNJF",
+      "country": "PARAGUAY",
+      "league": "Division Intermedia",
+      "homeTeam": "12 de Junio",
+      "awayTeam": "Dep. Capiata",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/0WZqSNJF/?s=2",
+      "discoveredAt": "2026-06-06T22:49:16.109Z",
+      "cycleId": 616
+    },
+    {
+      "matchId": "trpceB3B",
+      "country": "USA",
+      "league": "USL Cup",
+      "homeTeam": "Loudoun",
+      "awayTeam": "Richmond Kickers",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/trpceB3B/?s=2",
+      "discoveredAt": "2026-06-06T22:49:16.109Z",
+      "cycleId": 616
+    },
+    {
+      "matchId": "QwVAvLMh",
+      "country": "CANADA",
+      "league": "Canadian Premier League",
+      "homeTeam": "Cavalry",
+      "awayTeam": "HFX Wanderers",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/QwVAvLMh/?s=2",
+      "discoveredAt": "2026-06-06T23:54:37.489Z",
+      "cycleId": 636
+    },
+    {
+      "matchId": "hQW2tsht",
+      "country": "CANADA",
+      "league": "Canadian Premier League",
+      "homeTeam": "Supra du Quebec",
+      "awayTeam": "Pacific FC",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/hQW2tsht/?s=2",
+      "discoveredAt": "2026-06-06T23:54:37.489Z",
+      "cycleId": 636
+    },
+    {
+      "matchId": "pzyZahGN",
+      "country": "USA",
+      "league": "MLS Next Pro",
+      "homeTeam": "Atlanta United 2",
+      "awayTeam": "Chicago Fire II",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/pzyZahGN/?s=2",
+      "discoveredAt": "2026-06-06T23:54:37.489Z",
+      "cycleId": 636
+    },
+    {
+      "matchId": "Usykr7uT",
+      "country": "USA",
+      "league": "USL Cup",
+      "homeTeam": "Charleston",
+      "awayTeam": "Pittsburgh",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/Usykr7uT/?s=2",
+      "discoveredAt": "2026-06-06T23:54:37.489Z",
+      "cycleId": 636
+    },
+    {
+      "matchId": "QoUbnGKt",
+      "country": "USA",
+      "league": "USL Cup",
+      "homeTeam": "Indy Eleven",
+      "awayTeam": "Forward Madison",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/QoUbnGKt/?s=2",
+      "discoveredAt": "2026-06-06T23:54:37.489Z",
+      "cycleId": 636
+    },
+    {
+      "matchId": "APZfvJVr",
+      "country": "WORLD",
+      "league": "Friendly International",
+      "homeTeam": "Curacao",
+      "awayTeam": "Aruba",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/APZfvJVr/?s=2",
+      "discoveredAt": "2026-06-07T00:52:21.549Z",
+      "cycleId": 646
+    },
+    {
+      "matchId": "WAzYvWkt",
+      "country": "AUSTRALIA",
+      "league": "NPL NSW U20",
+      "homeTeam": "Marconi S. U20",
+      "awayTeam": "Wollongong Wolves U20",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/WAzYvWkt/?s=2",
+      "discoveredAt": "2026-06-07T03:49:53.084Z",
+      "cycleId": 657
+    },
+    {
+      "matchId": "dUxspTAG",
+      "country": "USA",
+      "league": "USL Cup",
+      "homeTeam": "Sacramento Republic",
+      "awayTeam": "Monterey Bay",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/dUxspTAG/?s=2",
+      "discoveredAt": "2026-06-07T03:49:53.084Z",
+      "cycleId": 657
+    },
+    {
+      "matchId": "0OONtClI",
+      "country": "USA",
+      "league": "USL Cup",
+      "homeTeam": "Colorado Springs",
+      "awayTeam": "El Paso",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/0OONtClI/?s=2",
+      "discoveredAt": "2026-06-07T03:51:05.324Z",
+      "cycleId": 658
+    },
+    {
+      "matchId": "QNvSYgQ7",
+      "country": "JAPAN",
+      "league": "Nadeshiko League Women",
+      "homeTeam": "Kunoichi W",
+      "awayTeam": "Orca Kamogawa W",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/QNvSYgQ7/?s=2",
+      "discoveredAt": "2026-06-07T04:49:45.984Z",
+      "cycleId": 675
+    },
+    {
+      "matchId": "0O6YjDgR",
+      "country": "AUSTRALIA",
+      "league": "NPL NSW",
+      "homeTeam": "Blacktown City",
+      "awayTeam": "Rockdale Ilinden",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/0O6YjDgR/?s=2",
+      "discoveredAt": "2026-06-07T05:52:21.129Z",
+      "cycleId": 694
+    },
+    {
+      "matchId": "M3RZHpqe",
+      "country": "JAPAN",
+      "league": "J2/J3 League - Placement matches",
+      "homeTeam": "Kanazawa",
+      "awayTeam": "Kusatsu",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/M3RZHpqe/?s=2",
+      "discoveredAt": "2026-06-07T05:52:21.129Z",
+      "cycleId": 694
+    },
+    {
+      "matchId": "MNHTwS5E",
+      "country": "JAPAN",
+      "league": "J2/J3 League - Placement matches",
+      "homeTeam": "Oita Trinita",
+      "awayTeam": "Montedio Yamagata",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/MNHTwS5E/?s=2",
+      "discoveredAt": "2026-06-07T07:52:16.555Z",
+      "cycleId": 719
+    },
+    {
+      "matchId": "4OBoMvKq",
+      "country": "CZECH REPUBLIC",
+      "league": "4. liga - Group E",
+      "homeTeam": "Slavicin",
+      "awayTeam": "Bzenec",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/4OBoMvKq/?s=2",
+      "discoveredAt": "2026-06-07T09:04:44.889Z",
+      "cycleId": 730
+    }
+  ]
+}

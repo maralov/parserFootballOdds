@@ -134,5 +134,5 @@ dist
 **/.DS_Store
 
 # stray local scratch
-logs/
+
 **/*\ copy.json

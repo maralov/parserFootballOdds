@@ -1,0 +1,138 @@
+{
+  "date": "2026-06-04",
+  "updatedAt": "2026-06-04T20:02:00.511Z",
+  "candidates": [
+    {
+      "matchId": "6ohFUWJ8",
+      "country": "WORLD",
+      "league": "Friendly International",
+      "homeTeam": "Andorra",
+      "awayTeam": "Liechtenstein",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/6ohFUWJ8/?s=2",
+      "discoveredAt": "2026-06-04T17:52:12.280Z",
+      "cycleId": 4
+    },
+    {
+      "matchId": "WMrn3Wa6",
+      "country": "DENMARK",
+      "league": "3rd Division - Relegation Group",
+      "homeTeam": "Sundby",
+      "awayTeam": "Holbaek",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/WMrn3Wa6/?s=2",
+      "discoveredAt": "2026-06-04T17:52:12.280Z",
+      "cycleId": 4
+    },
+    {
+      "matchId": "rXGccm34",
+      "country": "SENEGAL",
+      "league": "Ligue 1",
+      "homeTeam": "ASC HLM",
+      "awayTeam": "Pikine",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/rXGccm34/?s=2",
+      "discoveredAt": "2026-06-04T17:52:12.280Z",
+      "cycleId": 4
+    },
+    {
+      "matchId": "bqRAiIWr",
+      "country": "SENEGAL",
+      "league": "Ligue 1",
+      "homeTeam": "Guediawaye",
+      "awayTeam": "Teungueth",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/bqRAiIWr/?s=2",
+      "discoveredAt": "2026-06-04T17:52:12.280Z",
+      "cycleId": 4
+    },
+    {
+      "matchId": "fmxXb0v9",
+      "country": "SENEGAL",
+      "league": "Ligue 1",
+      "homeTeam": "US Goree",
+      "awayTeam": "Mbour",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/fmxXb0v9/?s=2",
+      "discoveredAt": "2026-06-04T17:52:12.280Z",
+      "cycleId": 4
+    },
+    {
+      "matchId": "f9OzAjdl",
+      "country": "ARGENTINA",
+      "league": "Reserve League - Apertura",
+      "homeTeam": "Barracas Central 2",
+      "awayTeam": "Aldosivi 2",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/f9OzAjdl/?s=2",
+      "discoveredAt": "2026-06-04T18:52:48.551Z",
+      "cycleId": 19
+    },
+    {
+      "matchId": "SbvdHY3E",
+      "country": "ARGENTINA",
+      "league": "Reserve League - Apertura",
+      "homeTeam": "Godoy Cruz 2",
+      "awayTeam": "Union de Santa Fe 2",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/SbvdHY3E/?s=2",
+      "discoveredAt": "2026-06-04T18:52:48.551Z",
+      "cycleId": 19
+    },
+    {
+      "matchId": "tpoC9s25",
+      "country": "ARGENTINA",
+      "league": "Reserve League - Apertura",
+      "homeTeam": "San Lorenzo 2",
+      "awayTeam": "Velez Sarsfield 2",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/tpoC9s25/?s=2",
+      "discoveredAt": "2026-06-04T18:52:48.551Z",
+      "cycleId": 19
+    },
+    {
+      "matchId": "xbpzXVfE",
+      "country": "BRAZIL",
+      "league": "Copa FGF",
+      "homeTeam": "GE Bage",
+      "awayTeam": "Brasil de Pelotas",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/xbpzXVfE/?s=2",
+      "discoveredAt": "2026-06-04T18:52:48.551Z",
+      "cycleId": 19
+    },
+    {
+      "matchId": "MJTSNifE",
+      "country": "MOROCCO",
+      "league": "Botola Pro",
+      "homeTeam": "Hassania Agadir",
+      "awayTeam": "FUS Rabat",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/MJTSNifE/?s=2",
+      "discoveredAt": "2026-06-04T18:52:48.551Z",
+      "cycleId": 19
+    },
+    {
+      "matchId": "nDTevpnK",
+      "country": "MALI",
+      "league": "Premiere Division",
+      "homeTeam": "Mali Coura",
+      "awayTeam": "US Bougouni",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/nDTevpnK/?s=2",
+      "discoveredAt": "2026-06-04T19:22:21.162Z",
+      "cycleId": 24
+    },
+    {
+      "matchId": "Ols5FpzA",
+      "country": "PARAGUAY",
+      "league": "Division Intermedia",
+      "homeTeam": "Paraguari AC",
+      "awayTeam": "Atl. Tembetary",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/Ols5FpzA/?s=2",
+      "discoveredAt": "2026-06-04T19:52:33.860Z",
+      "cycleId": 29
+    }
+  ]
+}

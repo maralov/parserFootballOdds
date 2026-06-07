@@ -1,0 +1,31 @@
+{
+  "m": {
+    "matchId": "m",
+    "baseline1H": {
+      "expectedGoalsXg": {
+        "home": 0.1,
+        "away": 0
+      }
+    },
+    "snapshots": [
+      {
+        "observedMinute": 50,
+        "cumulative": {
+          "expectedGoalsXg": {
+            "home": 0.2,
+            "away": 0.1
+          }
+        }
+      },
+      {
+        "observedMinute": 60,
+        "cumulative": {
+          "expectedGoalsXg": {
+            "home": 0.5,
+            "away": 0.2
+          }
+        }
+      }
+    ]
+  }
+}
