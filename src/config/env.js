@@ -72,6 +72,8 @@ const env = {
 
   LIVE_AI_REEVAL_MIN_GAP_MIN: envInt('LIVE_AI_REEVAL_MIN_GAP_MIN', 10),
   LIVE_PRED_BASIC_DS_MIN: envInt('LIVE_PRED_BASIC_DS_MIN', 70),
+  // Minimum Pressure Score to proceed to AI for Line B (TB 0.5). Calibrated at 35 on 63 samples.
+  LIVE_PS_THRESHOLD_AI: envInt('LIVE_PS_THRESHOLD_AI', 35),
 
   // Stage 5 — Telegram notifications
   LIVE_TG_ENABLED: envBool('LIVE_TG_ENABLED', true),

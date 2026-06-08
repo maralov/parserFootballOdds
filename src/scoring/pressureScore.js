@@ -108,17 +108,17 @@ function presFromLiveDominance(match, s80) {
   return clamp(avg * 100, 0, 100);
 }
 
+// big_chances_delta_10 and big_chances_2h removed: Flashscore publishes this stat
+// unreliably (~40% null), so their weight was redistributed proportionally.
 const COMPONENTS = [
-  { key: 'xg_delta_10',          weight: 12, fn: (m, s80) => presFromXgDelta10(s80) },
-  { key: 'sot_delta_10',         weight: 10, fn: (m, s80) => presFromSotDelta10(s80) },
-  { key: 'touches_delta_10',     weight:  8, fn: (m, s80) => presFromTouchesDelta10(s80) },
-  { key: 'corners_delta_10',     weight:  5, fn: (m, s80) => presFromCornersDelta10(s80) },
-  { key: 'big_chances_delta_10', weight:  5, fn: (m, s80) => presFromBigChancesDelta10(s80) },
-  { key: 'xg_2h',                weight: 15, fn: (m, s80) => presFromXg2H(s80) },
-  { key: 'sot_2h',               weight: 12, fn: (m, s80) => presFromSot2H(s80) },
-  { key: 'big_chances_2h',       weight:  8, fn: (m, s80) => presFromBigChances2H(s80) },
-  { key: 'possession_imbalance', weight:  5, fn: (m, s80) => presFromPossessionImbalance(s80) },
-  { key: 'live_dominance',       weight: 10, fn: (m, s80) => presFromLiveDominance(m, s80) },
+  { key: 'xg_delta_10',          weight: 13, fn: (m, s80) => presFromXgDelta10(s80) },
+  { key: 'sot_delta_10',         weight: 12, fn: (m, s80) => presFromSotDelta10(s80) },
+  { key: 'touches_delta_10',     weight:  9, fn: (m, s80) => presFromTouchesDelta10(s80) },
+  { key: 'corners_delta_10',     weight:  6, fn: (m, s80) => presFromCornersDelta10(s80) },
+  { key: 'xg_2h',                weight: 18, fn: (m, s80) => presFromXg2H(s80) },
+  { key: 'sot_2h',               weight: 14, fn: (m, s80) => presFromSot2H(s80) },
+  { key: 'possession_imbalance', weight:  6, fn: (m, s80) => presFromPossessionImbalance(s80) },
+  { key: 'live_dominance',       weight: 12, fn: (m, s80) => presFromLiveDominance(m, s80) },
 ];
 
 const LEAGUE_BIAS_WEIGHT = 5;
