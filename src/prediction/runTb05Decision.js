@@ -11,7 +11,6 @@ const { buildTb05Prompt } = require('../ai/prompts/tb05Prompt');
 const { validateTb05Response } = require('../ai/schemas/tb05Schema');
 const { callAI } = require('../ai/aiClient');
 
-const PS_THRESHOLD_AI = 60;
 const TB05_BASELINE_P = Number(process.env.LIVE_TB05_BASELINE_P) || 0.30;
 
 function findSnapshotByMinute(snapshots, target, maxDiff = 10) {
@@ -64,7 +63,8 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
     decidedAt: new Date().toISOString(),
   }, date);
 
-  if (ps.score == null || ps.score < PS_THRESHOLD_AI) {
+  const psThreshold = cfg.LIVE_PS_THRESHOLD_AI ?? 35;
+  if (ps.score == null || ps.score < psThreshold) {
     store.setTb05Decision(matchId, {
       phase: 'skipped_by_ps',
       psScore: ps.score,
@@ -72,7 +72,7 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
       decision: 'SKIP',
       decidedAt: new Date().toISOString(),
     }, date);
-    logger.info('runTb05Decision: SKIP by PS', { matchId, ps: ps.score });
+    logger.info('runTb05Decision: SKIP by PS', { matchId, ps: ps.score, threshold: psThreshold });
     return { status: 'skipped_by_ps', psScore: ps.score };
   }
 
@@ -199,4 +199,4 @@ async function runTb05Decision(matchId, snapshot80, date = new Date(), deps = {}
   return { status: finalPhase, ev: gate.ev, gateReason: gate.reason };
 }
 
-module.exports = { runTb05Decision, PS_THRESHOLD_AI };
+module.exports = { runTb05Decision };
