@@ -1,0 +1,145 @@
+'use strict';
+
+const env = require('../config/env');
+const logger = require('../observability/logger');
+const matchStore = require('../store/matchStore');
+const { computeDS1H } = require('../scoring/drynessScore1H');
+const { dsToProbability1H } = require('./dsToProbability1H');
+const { tm05_1hOddsAt } = require('../scoring/oddsTable');
+const { evaluateEvGate } = require('./evGate');
+const { isLockedPhase } = require('./lockPolicy');
+
+/**
+ * Decide on 1HUNDER (ТМ 0.5 першого тайму) in the 25–35' window.
+ * No AI — probability comes from DS1H → dsToProbability1H. Idempotent via
+ * predictions.tm05_1h (locked on terminal phases).
+ *
+ * @param {string} matchId
+ * @param {Object} snapshot  the just-stored 1H snapshot (cumulative + ballPossession)
+ * @param {Date}   [date]
+ * @param {Object} [deps]
+ * @returns {Promise<{status: string, ev?: number, gateReason?: string}>}
+ */
+async function runTm05_1hDecision(matchId, snapshot, date = new Date(), deps = {}) {
+  const cfg = deps.env || env;
+  const store = deps.matchStore || matchStore;
+  const tgDispatcher = deps.tgDispatcher || null;
+
+  const match = store.getMatch(matchId, date);
+  if (!match) return { status: 'no_match' };
+  if (match.tracking?.status !== 'active') return { status: 'not_active' };
+  if (isLockedPhase(match.predictions?.tm05_1h?.phase)) return { status: 'already_decided' };
+
+  const minute = snapshot.observedMinute || snapshot.minute || cfg.LIVE_1H_DECISION_MIN;
+
+  const ds = computeDS1H(match, snapshot);
+  store.setTm05_1hDecision(matchId, {
+    phase: 'ds_computed',
+    dsScore: ds.score,
+    dsComponents: ds.components,
+    favorite: ds.favorite,
+    decidedAt: new Date().toISOString(),
+  }, date);
+
+  if (ds.score == null || ds.score < cfg.LIVE_1H_DS_THRESHOLD_MIN) {
+    store.setTm05_1hDecision(matchId, {
+      phase: 'skipped_by_ds',
+      dsScore: ds.score,
+      decision: 'SKIP',
+      decidedAt: new Date().toISOString(),
+    }, date);
+    logger.info('runTm05_1hDecision: SKIP by DS', { matchId, ds: ds.score, minute });
+    return { status: 'skipped_by_ds', dsScore: ds.score };
+  }
+
+  const probability = dsToProbability1H(ds.score);
+  const confidence = cfg.LIVE_1H_CONFIDENCE;
+  const odds = tm05_1hOddsAt(minute);
+
+  const gate = evaluateEvGate({
+    probability,
+    confidence,
+    odds,
+    baseline: cfg.LIVE_1H_BASELINE_P,
+  });
+
+  // Goal-during-decision race: any goal before halftime kills the line.
+  const fresh = store.getMatch(matchId, date);
+  const goalBeforeHalftime = fresh?.tracking?.firstGoalMinute != null
+    && fresh.tracking.firstGoalMinute <= 45;
+
+  const finalPhase = goalBeforeHalftime ? 'goal_during_decision'
+    : gate.pass ? 'signal' : 'gate_blocked';
+
+  const keySignals = buildKeySignals(ds, snapshot);
+  const reasoning = buildReasoning(match, ds, snapshot, minute);
+
+  const payload = {
+    phase: finalPhase,
+    dsScore: ds.score,
+    dsComponents: ds.components,
+    favorite: ds.favorite,
+    pNoGoal: probability,
+    confidence,
+    reasoning,
+    keySignals,
+    odds,
+    evGate: gate,
+    calibrated: cfg.LIVE_1H_CALIBRATED === true,
+    requestedAtMinute: minute,
+    decidedAt: new Date().toISOString(),
+  };
+
+  store.setTm05_1hDecision(matchId, payload, date);
+
+  if (finalPhase === 'signal' && tgDispatcher && cfg.LIVE_1H_TG_ENABLED) {
+    setImmediate(() => {
+      tgDispatcher.enqueueEntry({
+        match: store.getMatch(matchId, date) || match,
+        prediction: payload,
+        decisionKey: 'tm05_1h',
+        minute,
+        score: '0:0',
+        date,
+      }).catch((err) => {
+        logger.warn('tg.entry.tm05_1h_enqueue_failed', { matchId, err: err?.message || String(err) });
+      });
+    });
+  }
+
+  logger.info('runTm05_1hDecision: done', {
+    matchId, ds: ds.score, p: probability, odds, ev: gate.ev, pass: gate.pass, phase: finalPhase,
+  });
+
+  return { status: finalPhase, ev: gate.ev, gateReason: gate.reason };
+}
+
+function fav(side, pair) {
+  if (!side || !pair) return null;
+  return pair[side];
+}
+
+function buildReasoning(match, ds, snapshot, minute) {
+  const side = ds.favorite;
+  if (!side) return `Низький темп до ${minute}' (DS1H=${ds.score}).`;
+  const favName = side === 'home' ? (match.homeTeam || 'фаворит') : (match.awayTeam || 'фаворит');
+  const favXg = fav(side, snapshot?.cumulative?.expectedGoalsXg);
+  const favSot = fav(side, snapshot?.cumulative?.shotsOnTarget);
+  return `Фаворит (${favName}) не пробиває до ${minute}': xG=${favXg ?? '?'}, у площину=${favSot ?? '?'}. DS1H=${ds.score}.`;
+}
+
+function buildKeySignals(ds, snapshot) {
+  const side = ds.favorite;
+  const signals = [];
+  if (side) {
+    const favXg = fav(side, snapshot?.cumulative?.expectedGoalsXg);
+    if (favXg != null) signals.push({ signal: 'fav_xg', value: favXg, weight: 'high' });
+    const favSot = fav(side, snapshot?.cumulative?.shotsOnTarget);
+    if (favSot != null) signals.push({ signal: 'fav_shots_on_target', value: favSot, weight: 'high' });
+  }
+  const totXg = ds.components?.total_tempo;
+  if (totXg != null) signals.push({ signal: 'tempo_dryness', value: totXg, weight: 'med' });
+  return signals;
+}
+
+module.exports = { runTm05_1hDecision };

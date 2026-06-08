@@ -170,8 +170,28 @@ function upsertFromEnrichment(enrichedItem, date = new Date()) {
   const store = readStore(date);
 
   if (store[enrichedItem.matchId]) {
-    // Already registered — don't overwrite existing tracking state
-    return store[enrichedItem.matchId];
+    // Already registered (e.g. created by the 1H worker at ~15'). Don't overwrite
+    // tracking state, but backfill baseline1H/odds/standings once they become
+    // available at halftime so the 2H lines (A/B) work seamlessly.
+    const existing = store[enrichedItem.matchId];
+    if (!existing.baseline1H) {
+      const backfilled = buildBaseline1H(enrichedItem.statistics);
+      if (backfilled) {
+        existing.baseline1H = backfilled;
+        existing.statsLevel = enrichedItem.statsLevel || existing.statsLevel;
+        if (enrichedItem.odds) existing.odds = enrichedItem.odds;
+        if (enrichedItem.standings) existing.standings = enrichedItem.standings;
+        if (enrichedItem.h2h) existing.h2h = enrichedItem.h2h;
+        if (existing.tracking?.status === 'discarded'
+            && existing.tracking?.discardReason === 'missing_baseline_1h') {
+          existing.tracking.status = 'active';
+          existing.tracking.discardReason = null;
+        }
+        writeStore(store, date);
+        logger.info('matchStore: backfilled baseline1H for 1H-tracked match', { matchId: enrichedItem.matchId });
+      }
+    }
+    return existing;
   }
 
   const baseline1H = buildBaseline1H(enrichedItem.statistics);
@@ -208,7 +228,7 @@ function upsertFromEnrichment(enrichedItem, date = new Date()) {
     snapshots: [],
     final: null,
     derived: null,
-    predictions: { tm05: null, tb05: null },
+    predictions: { tm05: null, tb05: null, tm05_1h: null },
   };
 
   store[enrichedItem.matchId] = record;
@@ -432,7 +452,7 @@ function getLastSnapshot(matchId, date = new Date()) {
 
 
 function setTrackDecision(matchId, track, payload, date = new Date()) {
-  if (track !== 'tm05' && track !== 'tb05') {
+  if (track !== 'tm05' && track !== 'tb05' && track !== 'tm05_1h') {
     logger.warn('matchStore.setTrackDecision: invalid track', { matchId, track });
     return null;
   }
@@ -442,7 +462,7 @@ function setTrackDecision(matchId, track, payload, date = new Date()) {
     logger.warn('matchStore.setTrackDecision: match not found', { matchId, track });
     return null;
   }
-  if (!match.predictions) match.predictions = { tm05: null, tb05: null };
+  if (!match.predictions) match.predictions = { tm05: null, tb05: null, tm05_1h: null };
   // Merge so intermediate phases (e.g. ds_computed) are preserved alongside later updates
   match.predictions[track] = { ...(match.predictions[track] || {}), ...payload };
   writeStore(store, date);
@@ -455,6 +475,10 @@ function setTm05Decision(matchId, payload, date = new Date()) {
 
 function setTb05Decision(matchId, payload, date = new Date()) {
   return setTrackDecision(matchId, 'tb05', payload, date);
+}
+
+function setTm05_1hDecision(matchId, payload, date = new Date()) {
+  return setTrackDecision(matchId, 'tm05_1h', payload, date);
 }
 
 function getTrackDecision(matchId, track, date = new Date()) {
@@ -499,6 +523,7 @@ module.exports = {
   dayLogsAbsolute,
   setTm05Decision,
   setTb05Decision,
+  setTm05_1hDecision,
   getTrackDecision,
   getHydratedSnapshots,
   getLastHydratedSnapshot,

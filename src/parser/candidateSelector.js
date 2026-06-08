@@ -37,6 +37,8 @@ function selectCandidates(matches, cycleId) {
   const candidates = [];
   /** @type {PotentialSleeper[]} */
   const potentialSleepers = [];
+  /** @type {Candidate[]} first-half candidates (0:0, in 1st half) for the 1HUNDER line */
+  const oneHCandidates = [];
 
   const discoveredAt = toISO();
 
@@ -63,10 +65,22 @@ function selectCandidates(matches, cycleId) {
         homeTeam: m.homeTeam,
         awayTeam: m.awayTeam,
       });
+      oneHCandidates.push({
+        matchId: m.matchId,
+        country: m.country,
+        league: m.league,
+        homeTeam: m.homeTeam,
+        awayTeam: m.awayTeam,
+        currentStatus: m.status || '',
+        matchUrl: m.matchUrl,
+        minute: m.minute,
+        discoveredAt,
+        ...(cycleId !== undefined ? { cycleId } : {}),
+      });
     }
   }
 
-  return { candidates, potentialSleepers };
+  return { candidates, potentialSleepers, oneHCandidates };
 }
 
 module.exports = { selectCandidates };

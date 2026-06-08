@@ -14,6 +14,15 @@ const TB05_ODDS_BY_MINUTE = {
   90: 3.50,
 };
 
+// 1HUNDER — ТМ 0.5 першого тайму (0:0 на перерві). Коефи високі рано, бо
+// ринок чекає гол фаворита. Стартові значення; калібруються реальними числами.
+const TM05_1H_ODDS_BY_MINUTE = {
+  20: 3.00,
+  25: 2.60,
+  30: 2.20,
+  35: 1.80,
+};
+
 function nearestKey(table, minute) {
   const keys = Object.keys(table).map(Number).sort((a, b) => a - b);
   let best = keys[0];
@@ -37,9 +46,18 @@ function tb05OddsAt(minute) {
   return TB05_ODDS_BY_MINUTE[nearestKey(TB05_ODDS_BY_MINUTE, minute)];
 }
 
+function tm05_1hOddsAt(minute) {
+  if (minute == null || !Number.isFinite(minute)) return null;
+  if (minute < 20) return TM05_1H_ODDS_BY_MINUTE[20];
+  if (minute > 35) return null;
+  return TM05_1H_ODDS_BY_MINUTE[nearestKey(TM05_1H_ODDS_BY_MINUTE, minute)];
+}
+
 module.exports = {
   TM05_ODDS_BY_MINUTE,
   TB05_ODDS_BY_MINUTE,
+  TM05_1H_ODDS_BY_MINUTE,
   tm05OddsAt,
   tb05OddsAt,
+  tm05_1hOddsAt,
 };

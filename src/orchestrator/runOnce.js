@@ -16,6 +16,8 @@ const logger = require('../observability/logger');
 const { enrichBatch } = require('../enrichment/enrichBatch');
 const { saveEnrichment } = require('../store/enrichmentStore');
 const trackingScheduler = require('../tracker/trackingScheduler');
+const trackingScheduler1H = require('../tracker/trackingScheduler1H');
+const { SNAPSHOT_START_MINUTE_1H } = require('../tracker/snapshotCadence1H');
 
 let _cycleId = 0;
 
@@ -63,7 +65,7 @@ async function runOnce() {
       return finalize(result, cycleStart);
     }
 
-    const { candidates, potentialSleepers } = selectCandidates(matches, cycleId);
+    const { candidates, potentialSleepers, oneHCandidates } = selectCandidates(matches, cycleId);
     result.candidates = candidates;
     result.potentialSleepers = potentialSleepers;
 
@@ -107,6 +109,15 @@ async function runOnce() {
       }
     }
 
+    // ── 1HUNDER (first-half ТМ 0.5): discover + enrich + register ────────────
+    if (env.LIVE_1H_ENABLED && env.LIVE_ENRICHMENT_ENABLED && Array.isArray(oneHCandidates)) {
+      try {
+        await processOneHCandidates(oneHCandidates, cycleId);
+      } catch (err) {
+        logger.warn('runOnce: 1H processing error', { err: err.message });
+      }
+    }
+
     const { sleepMs, reason, nearestMatch } = computeSleep(potentialSleepers, candidates.length > 0);
     result.sleepMs = sleepMs;
     result.sleepReason = reason;
@@ -119,6 +130,51 @@ async function runOnce() {
   }
 
   return finalize(result, cycleStart);
+}
+
+/**
+ * Discover, enrich and register first-half (1HUNDER) candidates.
+ * Only matches in the open minute window, with a clear pre-match favorite, and
+ * not already seen/tracked are registered with the 1H worker.
+ */
+async function processOneHCandidates(oneHCandidates, cycleId) {
+  const capacity = env.LIVE_1H_MAX_CONCURRENT - trackingScheduler1H.activeCount();
+  if (capacity <= 0) return;
+
+  const fresh = oneHCandidates.filter((c) =>
+    c.minute >= env.LIVE_1H_OPEN_MIN &&
+    c.minute <= env.LIVE_1H_OPEN_MAX &&
+    !trackingScheduler1H.hasSeen(c.matchId) &&
+    !trackingScheduler1H.isTracked(c.matchId) &&
+    !matchStore.getMatch(c.matchId),
+  ).slice(0, capacity);
+
+  if (!fresh.length) return;
+
+  const enrichResults = await enrichBatch(fresh, cycleId);
+  for (const item of enrichResults) {
+    trackingScheduler1H.markSeen(item.matchId);
+    if (item.status !== 'enriched') continue;
+
+    // Thesis gate: require a clear pre-match favorite.
+    const favorite = item.odds?.isOddsFavorite?.favorite;
+    if (!favorite) {
+      logger.info('runOnce: 1H skip — no clear favorite', { matchId: item.matchId });
+      continue;
+    }
+
+    const candidate = fresh.find((c) => c.matchId === item.matchId);
+    if (candidate?.discoveredAt) item.discoveredAt = candidate.discoveredAt;
+    // Aim the first snapshot at the 20' bucket based on the discovery minute.
+    const min = candidate?.minute ?? 0;
+    item.firstDelayMs = Math.max(0, (SNAPSHOT_START_MINUTE_1H - min) * 60_000);
+
+    try {
+      trackingScheduler1H.register(item);
+    } catch (regErr) {
+      logger.warn('runOnce: 1H register error', { matchId: item.matchId, err: regErr.message });
+    }
+  }
 }
 
 function finalize(result, cycleStart) {

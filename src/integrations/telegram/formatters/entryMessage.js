@@ -13,18 +13,21 @@ function fixed2(value) {
 function trackLabel(decisionKey) {
   if (decisionKey === 'tm05') return 'ТМ 0,5 матчу';
   if (decisionKey === 'tb05') return 'ТБ 0,5 матчу';
+  if (decisionKey === 'tm05_1h') return '1HUNDER · ТМ 0,5 тайму';
   return String(decisionKey || '');
 }
 
 function trackEmoji(decisionKey) {
   if (decisionKey === 'tm05') return '🟢';
   if (decisionKey === 'tb05') return '🔴';
+  if (decisionKey === 'tm05_1h') return '🟡';
   return '⚪';
 }
 
 function pickProbability(prediction, decisionKey) {
   if (decisionKey === 'tm05') return prediction?.pNoGoal;
   if (decisionKey === 'tb05') return prediction?.pGoal;
+  if (decisionKey === 'tm05_1h') return prediction?.pNoGoal;
   return null;
 }
 
@@ -50,8 +53,8 @@ function formatEntryMessage({ match, prediction, decisionKey, minute, score }) {
   const probability = pickProbability(prediction, decisionKey);
   const ev = prediction.evGate?.ev;
   const odds = prediction.odds;
-  const score_value = decisionKey === 'tm05' ? prediction.dsScore : prediction.psScore;
-  const scoreLabel = decisionKey === 'tm05' ? 'DS' : 'PS';
+  const score_value = decisionKey === 'tb05' ? prediction.psScore : prediction.dsScore;
+  const scoreLabel = decisionKey === 'tb05' ? 'PS' : (decisionKey === 'tm05_1h' ? 'DS1H' : 'DS');
 
   const league = match.league || match.tournament || 'Unknown league';
   const country = match.country || '';
@@ -68,6 +71,10 @@ function formatEntryMessage({ match, prediction, decisionKey, minute, score }) {
     `📊 ${escapeMarkdownV2(scoreLabel)}\\=${escapeMarkdownV2(String(score_value ?? '?'))} · p\\=${escapeMarkdownV2(fixed2(probability))} · EV\\=${escapeMarkdownV2(fixed2(ev))}`,
     `📈 confidence\\=${escapeMarkdownV2(fixed2(prediction.confidence))}`,
   ];
+
+  if (decisionKey === 'tm05_1h' && prediction.calibrated !== true) {
+    lines.push('⚠️ некалібровано · малий стейк');
+  }
 
   const signalsBlock = renderKeySignals(prediction.keySignals);
   if (signalsBlock) {

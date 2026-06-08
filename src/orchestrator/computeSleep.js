@@ -26,9 +26,23 @@ function computeSleep(sleepers, hasCandidates = false) {
   if (sleepers.length > 0) {
     const nearest = sleepers.reduce((best, s) => (s.minute > best.minute ? s : best), sleepers[0]);
     const rawMs = (TARGET - nearest.minute) * 60_000;
-    const sleepMs = Math.max(MIN, Math.min(MAX, rawMs));
+    let sleepMs = Math.max(MIN, Math.min(MAX, rawMs));
+
+    // 1HUNDER: if any 0:0 match sits in the first-half discovery window, keep the
+    // poll tight so we can open it in time for the 20' first snapshot.
+    let oneHNote = '';
+    if (env.LIVE_1H_ENABLED) {
+      const inOpenWindow = sleepers.some(
+        (s) => s.minute >= 0 && s.minute <= env.LIVE_1H_OPEN_MAX,
+      );
+      if (inOpenWindow && env.LIVE_1H_POLL_MS < sleepMs) {
+        sleepMs = Math.max(MIN, env.LIVE_1H_POLL_MS);
+        oneHNote = ' [1H poll]';
+      }
+    }
+
     const sleepMin = Math.round(sleepMs / 60_000);
-    const reason = `nearest 0:0 at ${nearest.minute}' (${nearest.homeTeam} - ${nearest.awayTeam}) → sleep ${sleepMin} min`;
+    const reason = `nearest 0:0 at ${nearest.minute}' (${nearest.homeTeam} - ${nearest.awayTeam}) → sleep ${sleepMin} min${oneHNote}`;
     return { sleepMs, reason, nearestMatch: nearest };
   }
 

@@ -5,6 +5,7 @@ const { closeBrowser } = require('../fetcher/browserFetcher');
 const { hour } = require('../helpers/date');
 const { printWatchHeader, printOutsideHours, printShutdown } = require('../observability/display');
 const trackingScheduler = require('../tracker/trackingScheduler');
+const trackingScheduler1H = require('../tracker/trackingScheduler1H');
 const logger = require('../observability/logger');
 const env = require('../config/env');
 const dayjs = require('dayjs');
@@ -26,6 +27,7 @@ async function runWatch() {
     printShutdown();
     running = false;
     trackingScheduler.stop();
+    if (env.LIVE_1H_ENABLED) trackingScheduler1H.stop();
     await closeBrowser();
     try {
       const matchStore = require('../store/matchStore');
@@ -43,6 +45,10 @@ async function runWatch() {
   if (env.LIVE_TRACKER_ENABLED) {
     trackingScheduler.start();
     await trackingScheduler.resume();
+  }
+
+  if (env.LIVE_1H_ENABLED) {
+    trackingScheduler1H.start();
   }
 
   if (env.LIVE_TG_ENABLED) {

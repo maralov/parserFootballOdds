@@ -10,7 +10,7 @@ const { formatResultMessage } = require('./formatters/resultMessage');
 const inFlightEntries = new Set();
 const inFlightResults = new Set();
 
-const PRIMARY_DECISION_KEYS = new Set(['tm05', 'tb05']);
+const PRIMARY_DECISION_KEYS = new Set(['tm05', 'tb05', 'tm05_1h']);
 
 function entryKey(matchId, decisionKey) {
   return `${matchId}|${decisionKey}`;
@@ -40,6 +40,7 @@ function buildOutboxPayload({ match, prediction, decisionKey, minute, score }) {
       ev: prediction.evGate?.ev ?? null,
       reasoning: prediction.reasoning || '',
       keySignals: prediction.keySignals || [],
+      calibrated: prediction.calibrated ?? null,
     },
   };
 }
@@ -140,6 +141,13 @@ function resultHitForRecord(record, match) {
   }
   if (record?.decisionKey === 'tb05' && typeof match?.final?.resultTB05 === 'boolean') {
     return match.final.resultTB05;
+  }
+  if (record?.decisionKey === 'tm05_1h') {
+    // 1HUNDER hits when the first half stayed dry (no goal before/at 45').
+    const fgm = match?.final?.firstGoalMinute;
+    if (fgm == null) return true;
+    if (typeof fgm === 'number') return fgm > 45;
+    return null;
   }
   return null;
 }
@@ -258,6 +266,7 @@ async function flushPending({ date = new Date() } = {}) {
           evGate: { ev: record.snapshot?.ev ?? null },
           reasoning: record.snapshot?.reasoning || '',
           keySignals: record.snapshot?.keySignals || [],
+          calibrated: record.snapshot?.calibrated ?? null,
         },
         decisionKey: record.decisionKey,
         minute: record.snapshot?.minute,

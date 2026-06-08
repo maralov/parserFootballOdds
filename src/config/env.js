@@ -75,6 +75,27 @@ const env = {
   // Minimum Pressure Score to proceed to AI for Line B (TB 0.5). Calibrated at 35 on 63 samples.
   LIVE_PS_THRESHOLD_AI: envInt('LIVE_PS_THRESHOLD_AI', 35),
 
+  // Stage 6 — 1HUNDER (first-half ТМ 0.5) line
+  LIVE_1H_ENABLED: envBool('LIVE_1H_ENABLED', false),
+  LIVE_1H_CONCURRENCY: envInt('LIVE_1H_CONCURRENCY', 2),
+  LIVE_1H_MAX_CONCURRENT: envInt('LIVE_1H_MAX_CONCURRENT', 20),
+  // Discovery window: live 0:0 matches in this minute range become 1H candidates
+  LIVE_1H_OPEN_MIN: envInt('LIVE_1H_OPEN_MIN', 12),
+  LIVE_1H_OPEN_MAX: envInt('LIVE_1H_OPEN_MAX', 24),
+  // Snapshot cadence (minutes between 1H snapshots)
+  LIVE_1H_SNAPSHOT_INTERVAL_MIN: envInt('LIVE_1H_SNAPSHOT_INTERVAL_MIN', 2),
+  // Decision window (single signal per match, first EV-pass in window)
+  LIVE_1H_DECISION_MIN: envInt('LIVE_1H_DECISION_MIN', 25),
+  LIVE_1H_DECISION_MAX: envInt('LIVE_1H_DECISION_MAX', 35),
+  // Gate parameters
+  LIVE_1H_DS_THRESHOLD_MIN: envInt('LIVE_1H_DS_THRESHOLD_MIN', 70),
+  LIVE_1H_BASELINE_P: Number(process.env.LIVE_1H_BASELINE_P) || 0.42,
+  LIVE_1H_CONFIDENCE: Number(process.env.LIVE_1H_CONFIDENCE) || 0.6,
+  LIVE_1H_CALIBRATED: envBool('LIVE_1H_CALIBRATED', false),
+  LIVE_1H_TG_ENABLED: envBool('LIVE_1H_TG_ENABLED', true),
+  // Max sleep while a first-half match is in the discovery window (keep polling tight)
+  LIVE_1H_POLL_MS: envInt('LIVE_1H_POLL_MS', 120_000),
+
   // Stage 5 — Telegram notifications
   LIVE_TG_ENABLED: envBool('LIVE_TG_ENABLED', true),
   LIVE_TG_DRY_RUN: envBool('LIVE_TG_DRY_RUN', false),
