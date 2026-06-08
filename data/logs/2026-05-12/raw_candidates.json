@@ -1,0 +1,72 @@
+{
+  "date": "2026-05-12",
+  "updatedAt": "2026-05-12T20:08:25.165Z",
+  "candidates": [
+    {
+      "matchId": "fmzxQAB7",
+      "country": "SCOTLAND",
+      "league": "Premiership - Relegation Group",
+      "homeTeam": "Dundee Utd",
+      "awayTeam": "Livingston",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/fmzxQAB7/?s=2",
+      "discoveredAt": "2026-05-12T19:32:27.953Z",
+      "cycleId": 1
+    },
+    {
+      "matchId": "nsNNmE3E",
+      "country": "SCOTLAND",
+      "league": "Premiership - Relegation Group",
+      "homeTeam": "Kilmarnock",
+      "awayTeam": "Dundee FC",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/nsNNmE3E/?s=2",
+      "discoveredAt": "2026-05-12T19:32:27.953Z",
+      "cycleId": 1
+    },
+    {
+      "matchId": "fNvorHgd",
+      "country": "SWITZERLAND",
+      "league": "Super League - Relegation Group",
+      "homeTeam": "Luzern",
+      "awayTeam": "Zurich",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/fNvorHgd/?s=2",
+      "discoveredAt": "2026-05-12T19:32:27.953Z",
+      "cycleId": 1
+    },
+    {
+      "matchId": "MTWW5Ko3",
+      "country": "SWITZERLAND",
+      "league": "Super League - Relegation Group",
+      "homeTeam": "Servette",
+      "awayTeam": "Lausanne",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/MTWW5Ko3/?s=2",
+      "discoveredAt": "2026-05-12T19:32:27.953Z",
+      "cycleId": 1
+    },
+    {
+      "matchId": "YV91xczf",
+      "country": "ALGERIA",
+      "league": "Ligue 1",
+      "homeTeam": "Saoura",
+      "awayTeam": "CR Belouizdad",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/YV91xczf/?s=2",
+      "discoveredAt": "2026-05-12T19:53:00.295Z",
+      "cycleId": 5
+    },
+    {
+      "matchId": "rqVnyX5T",
+      "country": "COLOMBIA",
+      "league": "Copa Colombia - First stage",
+      "homeTeam": "Leones",
+      "awayTeam": "Orsomarso",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/rqVnyX5T/?s=2",
+      "discoveredAt": "2026-05-12T19:53:00.295Z",
+      "cycleId": 5
+    }
+  ]
+}

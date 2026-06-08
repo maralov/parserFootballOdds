@@ -1,0 +1,2525 @@
+[
+  {
+    "matchId": "M33s0SdU",
+    "country": "ARGENTINA",
+    "league": "Liga Profesional - Apertura - Play Offs",
+    "homeTeam": "Belgrano",
+    "awayTeam": "Union de Santa Fe",
+    "matchUrl": "/match/M33s0SdU/?s=2",
+    "status": "enriched",
+    "enrichedAt": "2026-05-12T22:52:16.863Z",
+    "tabs": {
+      "stats": true,
+      "standings": false,
+      "h2h": true
+    },
+    "odds": {
+      "home": 2.54,
+      "draw": 2.95,
+      "away": 3.25,
+      "isOddsFavorite": {
+        "favorite": null,
+        "margin": 0,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "detailed",
+    "statistics": {
+      "capturedAtStatus": "Half Time",
+      "baseline1HCapturedAtStatus": "Half Time",
+      "1half": {
+        "home": {
+          "expectedGoalsXg": 0.35,
+          "ballPossession": 63,
+          "totalShots": 8,
+          "shotsOnTarget": 5,
+          "bigChances": 2,
+          "cornerKicks": 3,
+          "passes": 82,
+          "passesMade": 181,
+          "passesAttempted": 220,
+          "xgOnTargetXgot": 0.99,
+          "shotsOffTarget": 1,
+          "blockedShots": 2,
+          "shotsInsideTheBox": 3,
+          "shotsOutsideTheBox": 4,
+          "hitTheWoodwork": 0,
+          "touchesInOppositionBox": 6,
+          "accurateThroughPasses": 0,
+          "offsides": 2,
+          "freeKicks": 2,
+          "longPasses": 60,
+          "longPassesMade": 6,
+          "longPassesAttempted": 10,
+          "passesInFinalThird": 72,
+          "passesInFinalThirdMade": 34,
+          "passesInFinalThirdAttempted": 47,
+          "crosses": 9,
+          "crossesMade": 1,
+          "crossesAttempted": 11,
+          "expectedAssistsXa": 0.11,
+          "throwIns": 9,
+          "fouls": 3,
+          "tackles": 67,
+          "tacklesMade": 8,
+          "tacklesAttempted": 12,
+          "duelsWon": 13,
+          "clearances": 12,
+          "interceptions": 10,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 0,
+          "xgotFaced": 0,
+          "goalsPrevented": 0
+        },
+        "away": {
+          "expectedGoalsXg": 0.1,
+          "ballPossession": 37,
+          "totalShots": 6,
+          "shotsOnTarget": 0,
+          "bigChances": 0,
+          "cornerKicks": 4,
+          "passes": 69,
+          "passesMade": 88,
+          "passesAttempted": 127,
+          "xgOnTargetXgot": 0,
+          "shotsOffTarget": 6,
+          "blockedShots": 0,
+          "shotsInsideTheBox": 4,
+          "shotsOutsideTheBox": 1,
+          "hitTheWoodwork": 0,
+          "touchesInOppositionBox": 7,
+          "accurateThroughPasses": 0,
+          "offsides": 1,
+          "freeKicks": 3,
+          "longPasses": 70,
+          "longPassesMade": 14,
+          "longPassesAttempted": 20,
+          "passesInFinalThird": 53,
+          "passesInFinalThirdMade": 16,
+          "passesInFinalThirdAttempted": 30,
+          "crosses": 50,
+          "crossesMade": 7,
+          "crossesAttempted": 14,
+          "expectedAssistsXa": 0.16,
+          "throwIns": 8,
+          "fouls": 2,
+          "tackles": 100,
+          "tacklesMade": 4,
+          "tacklesAttempted": 4,
+          "duelsWon": 12,
+          "clearances": 8,
+          "interceptions": 6,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 5,
+          "xgotFaced": 0.99,
+          "goalsPrevented": 0.99
+        },
+        "overall": {
+          "expectedGoalsXg": 0.45,
+          "ballPossession": null,
+          "totalShots": 14,
+          "shotsOnTarget": 5,
+          "bigChances": 2,
+          "cornerKicks": 7,
+          "passes": null,
+          "passesMade": 269,
+          "passesAttempted": 347,
+          "xgOnTargetXgot": 0.99,
+          "shotsOffTarget": 7,
+          "blockedShots": 2,
+          "shotsInsideTheBox": 7,
+          "shotsOutsideTheBox": 5,
+          "hitTheWoodwork": 0,
+          "touchesInOppositionBox": 13,
+          "accurateThroughPasses": 0,
+          "offsides": 3,
+          "freeKicks": 5,
+          "longPasses": null,
+          "longPassesMade": 20,
+          "longPassesAttempted": 30,
+          "passesInFinalThird": null,
+          "passesInFinalThirdMade": 50,
+          "passesInFinalThirdAttempted": 77,
+          "crosses": null,
+          "crossesMade": 8,
+          "crossesAttempted": 25,
+          "expectedAssistsXa": 0.27,
+          "throwIns": 17,
+          "fouls": 5,
+          "tackles": null,
+          "tacklesMade": 12,
+          "tacklesAttempted": 16,
+          "duelsWon": 25,
+          "clearances": 20,
+          "interceptions": 16,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 5,
+          "xgotFaced": 0.99,
+          "goalsPrevented": 0.99
+        }
+      },
+      "rawRows": [
+        {
+          "label": "Expected goals (xG)",
+          "home": "0.35",
+          "away": "0.10"
+        },
+        {
+          "label": "Ball possession",
+          "home": "63%",
+          "away": "37%"
+        },
+        {
+          "label": "Total shots",
+          "home": "8",
+          "away": "6"
+        },
+        {
+          "label": "Shots on target",
+          "home": "5",
+          "away": "0"
+        },
+        {
+          "label": "Big chances",
+          "home": "2",
+          "away": "0"
+        },
+        {
+          "label": "Corner kicks",
+          "home": "3",
+          "away": "4"
+        },
+        {
+          "label": "Passes",
+          "home": "82% (181/220)",
+          "away": "69% (88/127)"
+        },
+        {
+          "label": "xG on target (xGOT)",
+          "home": "0.99",
+          "away": "0.00"
+        },
+        {
+          "label": "Shots off target",
+          "home": "1",
+          "away": "6"
+        },
+        {
+          "label": "Blocked shots",
+          "home": "2",
+          "away": "0"
+        },
+        {
+          "label": "Shots inside the box",
+          "home": "3",
+          "away": "4"
+        },
+        {
+          "label": "Shots outside the box",
+          "home": "4",
+          "away": "1"
+        },
+        {
+          "label": "Hit the woodwork",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Touches in opposition box",
+          "home": "6",
+          "away": "7"
+        },
+        {
+          "label": "Accurate through passes",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Offsides",
+          "home": "2",
+          "away": "1"
+        },
+        {
+          "label": "Free kicks",
+          "home": "2",
+          "away": "3"
+        },
+        {
+          "label": "Long passes",
+          "home": "60% (6/10)",
+          "away": "70% (14/20)"
+        },
+        {
+          "label": "Passes in final third",
+          "home": "72% (34/47)",
+          "away": "53% (16/30)"
+        },
+        {
+          "label": "Crosses",
+          "home": "9% (1/11)",
+          "away": "50% (7/14)"
+        },
+        {
+          "label": "Expected assists (xA)",
+          "home": "0.11",
+          "away": "0.16"
+        },
+        {
+          "label": "Throw ins",
+          "home": "9",
+          "away": "8"
+        },
+        {
+          "label": "Fouls",
+          "home": "3",
+          "away": "2"
+        },
+        {
+          "label": "Tackles",
+          "home": "67% (8/12)",
+          "away": "100% (4/4)"
+        },
+        {
+          "label": "Duels won",
+          "home": "13",
+          "away": "12"
+        },
+        {
+          "label": "Clearances",
+          "home": "12",
+          "away": "8"
+        },
+        {
+          "label": "Interceptions",
+          "home": "10",
+          "away": "6"
+        },
+        {
+          "label": "Errors leading to shot",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Errors leading to goal",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Goalkeeper saves",
+          "home": "0",
+          "away": "5"
+        },
+        {
+          "label": "xGOT faced",
+          "home": "0.00",
+          "away": "0.99"
+        },
+        {
+          "label": "Goals prevented",
+          "home": "0.00",
+          "away": "0.99"
+        }
+      ]
+    },
+    "standings": null,
+    "h2h": {
+      "recentForm": {
+        "home": [
+          {
+            "date": "09.05.2026",
+            "daysAgo": 4,
+            "result": "W",
+            "score": "0:1",
+            "vs": "Talleres Cordoba",
+            "matchUrl": "https://www.flashscore.mobi/match/UXdaf9Os/"
+          },
+          {
+            "date": "03.05.2026",
+            "daysAgo": 10,
+            "result": "W",
+            "score": "4:0",
+            "vs": "Sarmiento Junin",
+            "matchUrl": "https://www.flashscore.mobi/match/vNy23BZG/"
+          },
+          {
+            "date": "27.04.2026",
+            "daysAgo": 16,
+            "result": "L",
+            "score": "0:1",
+            "vs": "Gimnasia L.P.",
+            "matchUrl": "https://www.flashscore.mobi/match/bFjthC6K/"
+          },
+          {
+            "date": "20.04.2026",
+            "daysAgo": 23,
+            "result": "D",
+            "score": "0:0",
+            "vs": "Barracas Central",
+            "matchUrl": "https://www.flashscore.mobi/match/roFECqmB/"
+          },
+          {
+            "date": "11.04.2026",
+            "daysAgo": 32,
+            "result": "W",
+            "score": "1:0",
+            "vs": "Aldosivi",
+            "matchUrl": "https://www.flashscore.mobi/match/lr0I5yzR/"
+          }
+        ],
+        "away": [
+          {
+            "date": "10.05.2026",
+            "daysAgo": 3,
+            "result": "W",
+            "score": "1:2",
+            "vs": "Ind. Rivadavia",
+            "matchUrl": "https://www.flashscore.mobi/match/2oe7hmgf/"
+          },
+          {
+            "date": "03.05.2026",
+            "daysAgo": 10,
+            "result": "D",
+            "score": "1:1",
+            "vs": "Talleres Cordoba",
+            "matchUrl": "https://www.flashscore.mobi/match/QicvB2yQ/"
+          },
+          {
+            "date": "28.04.2026",
+            "daysAgo": 15,
+            "result": "D",
+            "score": "2:2",
+            "vs": "Velez Sarsfield",
+            "matchUrl": "https://www.flashscore.mobi/match/dAGOwMoA/"
+          },
+          {
+            "date": "18.04.2026",
+            "daysAgo": 25,
+            "result": "L",
+            "score": "2:3",
+            "vs": "Newells Old Boys",
+            "matchUrl": "https://www.flashscore.mobi/match/AJyYa635/"
+          },
+          {
+            "date": "12.04.2026",
+            "daysAgo": 31,
+            "result": "L",
+            "score": "2:1",
+            "vs": "Estudiantes L.P.",
+            "matchUrl": "https://www.flashscore.mobi/match/l8q9vayS/"
+          }
+        ]
+      },
+      "faceToFace": [
+        {
+          "date": "17.11.2025",
+          "daysAgo": 177,
+          "home": "Belgrano",
+          "away": "Union de Santa Fe",
+          "score": "0:0",
+          "matchUrl": "https://www.flashscore.mobi/match/KYAa6l6E/"
+        },
+        {
+          "date": "03.05.2025",
+          "daysAgo": 375,
+          "home": "Union de Santa Fe",
+          "away": "Belgrano",
+          "score": "1:1",
+          "matchUrl": "https://www.flashscore.mobi/match/SlcBN0gB/"
+        },
+        {
+          "date": "10.08.2024",
+          "daysAgo": 641,
+          "home": "Belgrano",
+          "away": "Union de Santa Fe",
+          "score": "1:1",
+          "matchUrl": "https://www.flashscore.mobi/match/llkWcC07/"
+        },
+        {
+          "date": "07.04.2024",
+          "daysAgo": 766,
+          "home": "Union de Santa Fe",
+          "away": "Belgrano",
+          "score": "1:2",
+          "matchUrl": "https://www.flashscore.mobi/match/U7QzBd2p/"
+        },
+        {
+          "date": "13.11.2023",
+          "daysAgo": 912,
+          "home": "Belgrano",
+          "away": "Union de Santa Fe",
+          "score": "4:1",
+          "matchUrl": "https://www.flashscore.mobi/match/Wp2HzNit/"
+        }
+      ],
+      "daysSinceLastH2h": 177,
+      "daysSinceLastMatch": {
+        "home": 4,
+        "away": 3
+      }
+    }
+  },
+  {
+    "matchId": "vB8kGk5e",
+    "country": "VENEZUELA",
+    "league": "Liga FUTVE - Apertura - Quadrangular",
+    "homeTeam": "Dep. Tachira",
+    "awayTeam": "Metropolitanos",
+    "matchUrl": "/match/vB8kGk5e/?s=2",
+    "status": "enriched",
+    "enrichedAt": "2026-05-12T22:52:16.863Z",
+    "tabs": {
+      "stats": true,
+      "standings": true,
+      "h2h": true
+    },
+    "odds": {
+      "home": 1.6,
+      "draw": 3.74,
+      "away": 5.66,
+      "isOddsFavorite": {
+        "favorite": "home",
+        "margin": 0.2,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "detailed",
+    "statistics": {
+      "capturedAtStatus": "Half Time",
+      "baseline1HCapturedAtStatus": "Half Time",
+      "1half": {
+        "home": {
+          "expectedGoalsXg": 0.47,
+          "ballPossession": 54,
+          "totalShots": 13,
+          "shotsOnTarget": 5,
+          "bigChances": 0,
+          "cornerKicks": 6,
+          "passes": 82,
+          "passesMade": 138,
+          "passesAttempted": 168,
+          "yellowCards": 0,
+          "xgOnTargetXgot": 0.92,
+          "shotsOffTarget": 4,
+          "blockedShots": 4,
+          "shotsInsideTheBox": 6,
+          "shotsOutsideTheBox": 6,
+          "hitTheWoodwork": 0,
+          "touchesInOppositionBox": 13,
+          "accurateThroughPasses": 0,
+          "offsides": 1,
+          "freeKicks": 1,
+          "longPasses": 68,
+          "longPassesMade": 15,
+          "longPassesAttempted": 22,
+          "passesInFinalThird": 74,
+          "passesInFinalThirdMade": 39,
+          "passesInFinalThirdAttempted": 53,
+          "crosses": 27,
+          "crossesMade": 4,
+          "crossesAttempted": 15,
+          "expectedAssistsXa": 0.29,
+          "throwIns": 11,
+          "fouls": 5,
+          "tackles": 33,
+          "tacklesMade": 1,
+          "tacklesAttempted": 3,
+          "duelsWon": 7,
+          "clearances": 5,
+          "interceptions": 5,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 3,
+          "xgotFaced": 0.29,
+          "goalsPrevented": 0.29
+        },
+        "away": {
+          "expectedGoalsXg": 0.34,
+          "ballPossession": 46,
+          "totalShots": 6,
+          "shotsOnTarget": 2,
+          "bigChances": 0,
+          "cornerKicks": 2,
+          "passes": 74,
+          "passesMade": 111,
+          "passesAttempted": 151,
+          "yellowCards": 1,
+          "xgOnTargetXgot": 0.29,
+          "shotsOffTarget": 2,
+          "blockedShots": 2,
+          "shotsInsideTheBox": 5,
+          "shotsOutsideTheBox": 1,
+          "hitTheWoodwork": 1,
+          "touchesInOppositionBox": 8,
+          "accurateThroughPasses": 0,
+          "offsides": 1,
+          "freeKicks": 5,
+          "longPasses": 50,
+          "longPassesMade": 13,
+          "longPassesAttempted": 26,
+          "passesInFinalThird": 70,
+          "passesInFinalThirdMade": 21,
+          "passesInFinalThirdAttempted": 30,
+          "crosses": 33,
+          "crossesMade": 2,
+          "crossesAttempted": 6,
+          "expectedAssistsXa": 0.62,
+          "throwIns": 10,
+          "fouls": 1,
+          "tackles": 75,
+          "tacklesMade": 6,
+          "tacklesAttempted": 8,
+          "duelsWon": 11,
+          "clearances": 11,
+          "interceptions": 2,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 4,
+          "xgotFaced": 0.92,
+          "goalsPrevented": 0.92
+        },
+        "overall": {
+          "expectedGoalsXg": 0.81,
+          "ballPossession": null,
+          "totalShots": 19,
+          "shotsOnTarget": 7,
+          "bigChances": 0,
+          "cornerKicks": 8,
+          "passes": null,
+          "passesMade": 249,
+          "passesAttempted": 319,
+          "yellowCards": 1,
+          "xgOnTargetXgot": 1.21,
+          "shotsOffTarget": 6,
+          "blockedShots": 6,
+          "shotsInsideTheBox": 11,
+          "shotsOutsideTheBox": 7,
+          "hitTheWoodwork": 1,
+          "touchesInOppositionBox": 21,
+          "accurateThroughPasses": 0,
+          "offsides": 2,
+          "freeKicks": 6,
+          "longPasses": null,
+          "longPassesMade": 28,
+          "longPassesAttempted": 48,
+          "passesInFinalThird": null,
+          "passesInFinalThirdMade": 60,
+          "passesInFinalThirdAttempted": 83,
+          "crosses": null,
+          "crossesMade": 6,
+          "crossesAttempted": 21,
+          "expectedAssistsXa": 0.91,
+          "throwIns": 21,
+          "fouls": 6,
+          "tackles": null,
+          "tacklesMade": 7,
+          "tacklesAttempted": 11,
+          "duelsWon": 18,
+          "clearances": 16,
+          "interceptions": 7,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 7,
+          "xgotFaced": 1.21,
+          "goalsPrevented": 1.21
+        }
+      },
+      "rawRows": [
+        {
+          "label": "Expected goals (xG)",
+          "home": "0.47",
+          "away": "0.34"
+        },
+        {
+          "label": "Ball possession",
+          "home": "54%",
+          "away": "46%"
+        },
+        {
+          "label": "Total shots",
+          "home": "13",
+          "away": "6"
+        },
+        {
+          "label": "Shots on target",
+          "home": "5",
+          "away": "2"
+        },
+        {
+          "label": "Big chances",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Corner kicks",
+          "home": "6",
+          "away": "2"
+        },
+        {
+          "label": "Passes",
+          "home": "82% (138/168)",
+          "away": "74% (111/151)"
+        },
+        {
+          "label": "Yellow cards",
+          "home": "0",
+          "away": "1"
+        },
+        {
+          "label": "xG on target (xGOT)",
+          "home": "0.92",
+          "away": "0.29"
+        },
+        {
+          "label": "Shots off target",
+          "home": "4",
+          "away": "2"
+        },
+        {
+          "label": "Blocked shots",
+          "home": "4",
+          "away": "2"
+        },
+        {
+          "label": "Shots inside the box",
+          "home": "6",
+          "away": "5"
+        },
+        {
+          "label": "Shots outside the box",
+          "home": "6",
+          "away": "1"
+        },
+        {
+          "label": "Hit the woodwork",
+          "home": "0",
+          "away": "1"
+        },
+        {
+          "label": "Touches in opposition box",
+          "home": "13",
+          "away": "8"
+        },
+        {
+          "label": "Accurate through passes",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Offsides",
+          "home": "1",
+          "away": "1"
+        },
+        {
+          "label": "Free kicks",
+          "home": "1",
+          "away": "5"
+        },
+        {
+          "label": "Long passes",
+          "home": "68% (15/22)",
+          "away": "50% (13/26)"
+        },
+        {
+          "label": "Passes in final third",
+          "home": "74% (39/53)",
+          "away": "70% (21/30)"
+        },
+        {
+          "label": "Crosses",
+          "home": "27% (4/15)",
+          "away": "33% (2/6)"
+        },
+        {
+          "label": "Expected assists (xA)",
+          "home": "0.29",
+          "away": "0.62"
+        },
+        {
+          "label": "Throw ins",
+          "home": "11",
+          "away": "10"
+        },
+        {
+          "label": "Fouls",
+          "home": "5",
+          "away": "1"
+        },
+        {
+          "label": "Tackles",
+          "home": "33% (1/3)",
+          "away": "75% (6/8)"
+        },
+        {
+          "label": "Duels won",
+          "home": "7",
+          "away": "11"
+        },
+        {
+          "label": "Clearances",
+          "home": "5",
+          "away": "11"
+        },
+        {
+          "label": "Interceptions",
+          "home": "5",
+          "away": "2"
+        },
+        {
+          "label": "Errors leading to shot",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Errors leading to goal",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Goalkeeper saves",
+          "home": "3",
+          "away": "4"
+        },
+        {
+          "label": "xGOT faced",
+          "home": "0.29",
+          "away": "0.92"
+        },
+        {
+          "label": "Goals prevented",
+          "home": "0.29",
+          "away": "0.92"
+        }
+      ]
+    },
+    "standings": {
+      "totalTeams": 4,
+      "home": {
+        "position": 2,
+        "mp": 2,
+        "w": 1,
+        "d": 0,
+        "l": 1,
+        "gd": 1,
+        "pts": 3
+      },
+      "away": {
+        "position": 1,
+        "mp": 2,
+        "w": 1,
+        "d": 1,
+        "l": 0,
+        "gd": 2,
+        "pts": 4
+      },
+      "favoriteStrength": {
+        "label": "balanced",
+        "score": 0.14,
+        "favorite": "away",
+        "components": {
+          "positionScore": 0.25,
+          "pointsScore": 0.17,
+          "goalDiffScore": 0.13,
+          "winRateScore": 0
+        }
+      }
+    },
+    "h2h": {
+      "recentForm": {
+        "home": [
+          {
+            "date": "10.05.2026",
+            "daysAgo": 3,
+            "result": "W",
+            "score": "3:1",
+            "vs": "Carabobo",
+            "matchUrl": "https://www.flashscore.mobi/match/jPrMYIxK/"
+          },
+          {
+            "date": "03.05.2026",
+            "daysAgo": 10,
+            "result": "L",
+            "score": "2:1",
+            "vs": "Estudiantes Merida",
+            "matchUrl": "https://www.flashscore.mobi/match/Kprpr5gC/"
+          },
+          {
+            "date": "26.04.2026",
+            "daysAgo": 17,
+            "result": "W",
+            "score": "2:1",
+            "vs": "Carabobo",
+            "matchUrl": "https://www.flashscore.mobi/match/UwL4EhBM/"
+          },
+          {
+            "date": "20.04.2026",
+            "daysAgo": 23,
+            "result": "D",
+            "score": "1:1",
+            "vs": "Universidad Central",
+            "matchUrl": "https://www.flashscore.mobi/match/vB1CIq6t/"
+          },
+          {
+            "date": "11.04.2026",
+            "daysAgo": 32,
+            "result": "L",
+            "score": "2:3",
+            "vs": "La Guaira",
+            "matchUrl": "https://www.flashscore.mobi/match/SC9CmP66/"
+          }
+        ],
+        "away": [
+          {
+            "date": "09.05.2026",
+            "daysAgo": 4,
+            "result": "W",
+            "score": "2:0",
+            "vs": "Estudiantes Merida",
+            "matchUrl": "https://www.flashscore.mobi/match/6cAsIBzq/"
+          },
+          {
+            "date": "04.05.2026",
+            "daysAgo": 9,
+            "result": "D",
+            "score": "0:0",
+            "vs": "Carabobo",
+            "matchUrl": "https://www.flashscore.mobi/match/rNL10n9t/"
+          },
+          {
+            "date": "27.04.2026",
+            "daysAgo": 16,
+            "result": "W",
+            "score": "2:0",
+            "vs": "Estudiantes Merida",
+            "matchUrl": "https://www.flashscore.mobi/match/6JEr7A3d/"
+          },
+          {
+            "date": "18.04.2026",
+            "daysAgo": 25,
+            "result": "W",
+            "score": "0:1",
+            "vs": "Rayo Zuliano",
+            "matchUrl": "https://www.flashscore.mobi/match/YXvo2OLa/"
+          },
+          {
+            "date": "12.04.2026",
+            "daysAgo": 31,
+            "result": "D",
+            "score": "0:0",
+            "vs": "Zamora",
+            "matchUrl": "https://www.flashscore.mobi/match/tz0696TP/"
+          }
+        ]
+      },
+      "faceToFace": [
+        {
+          "date": "01.03.2026",
+          "daysAgo": 73,
+          "home": "Dep. Tachira",
+          "away": "Metropolitanos",
+          "score": "0:1",
+          "matchUrl": "https://www.flashscore.mobi/match/z7Wbundd/"
+        },
+        {
+          "date": "10.11.2025",
+          "daysAgo": 184,
+          "home": "Dep. Tachira",
+          "away": "Metropolitanos",
+          "score": "2:0",
+          "matchUrl": "https://www.flashscore.mobi/match/jezkBQR8/"
+        },
+        {
+          "date": "19.10.2025",
+          "daysAgo": 206,
+          "home": "Metropolitanos",
+          "away": "Dep. Tachira",
+          "score": "1:1",
+          "matchUrl": "https://www.flashscore.mobi/match/4837VTdJ/"
+        },
+        {
+          "date": "25.08.2025",
+          "daysAgo": 261,
+          "home": "Metropolitanos",
+          "away": "Dep. Tachira",
+          "score": "2:3",
+          "matchUrl": "https://www.flashscore.mobi/match/bi6SDOb4/"
+        },
+        {
+          "date": "01.06.2025",
+          "daysAgo": 346,
+          "home": "Metropolitanos",
+          "away": "Dep. Tachira",
+          "score": "2:1",
+          "matchUrl": "https://www.flashscore.mobi/match/8bB6FXCs/"
+        }
+      ],
+      "daysSinceLastH2h": 73,
+      "daysSinceLastMatch": {
+        "home": 3,
+        "away": 4
+      }
+    }
+  },
+  {
+    "matchId": "WdafINOh",
+    "country": "BRAZIL",
+    "league": "Catarinense 2",
+    "homeTeam": "Nacao",
+    "awayTeam": "Tubarao",
+    "matchUrl": "/match/WdafINOh/?s=2",
+    "status": "enriched",
+    "enrichedAt": "2026-05-12T23:22:38.479Z",
+    "tabs": {
+      "stats": true,
+      "standings": true,
+      "h2h": true
+    },
+    "odds": {
+      "home": 4.05,
+      "draw": 3.34,
+      "away": 1.87,
+      "isOddsFavorite": {
+        "favorite": null,
+        "margin": 0,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "basic",
+    "statistics": {
+      "capturedAtStatus": "Half Time",
+      "baseline1HCapturedAtStatus": "Half Time",
+      "1half": {
+        "home": {
+          "ballPossession": 52,
+          "totalShots": 1,
+          "shotsOnTarget": 1,
+          "cornerKicks": 1,
+          "shotsOffTarget": 0
+        },
+        "away": {
+          "ballPossession": 48,
+          "totalShots": 4,
+          "shotsOnTarget": 1,
+          "cornerKicks": 5,
+          "shotsOffTarget": 3
+        },
+        "overall": {
+          "ballPossession": null,
+          "totalShots": 5,
+          "shotsOnTarget": 2,
+          "cornerKicks": 6,
+          "shotsOffTarget": 3
+        }
+      },
+      "rawRows": [
+        {
+          "label": "Ball possession",
+          "home": "52%",
+          "away": "48%"
+        },
+        {
+          "label": "Total shots",
+          "home": "1",
+          "away": "4"
+        },
+        {
+          "label": "Shots on target",
+          "home": "1",
+          "away": "1"
+        },
+        {
+          "label": "Corner kicks",
+          "home": "1",
+          "away": "5"
+        },
+        {
+          "label": "Shots off target",
+          "home": "0",
+          "away": "3"
+        }
+      ]
+    },
+    "standings": {
+      "totalTeams": 10,
+      "home": {
+        "position": 7,
+        "mp": 3,
+        "w": 1,
+        "d": 1,
+        "l": 1,
+        "gd": -2,
+        "pts": 4
+      },
+      "away": {
+        "position": 6,
+        "mp": 3,
+        "w": 1,
+        "d": 2,
+        "l": 0,
+        "gd": 4,
+        "pts": 5
+      },
+      "favoriteStrength": {
+        "label": "balanced",
+        "score": 0.13,
+        "favorite": "away",
+        "components": {
+          "positionScore": 0.1,
+          "pointsScore": 0.11,
+          "goalDiffScore": 0.3,
+          "winRateScore": 0
+        }
+      }
+    },
+    "h2h": {
+      "recentForm": {
+        "home": [
+          {
+            "date": "06.05.2026",
+            "daysAgo": 7,
+            "result": "L",
+            "score": "5:2",
+            "vs": "Metropolitano",
+            "matchUrl": "https://www.flashscore.mobi/match/OCwh5GT6/"
+          },
+          {
+            "date": "03.05.2026",
+            "daysAgo": 10,
+            "result": "W",
+            "score": "1:0",
+            "vs": "Guarani de Palhoca",
+            "matchUrl": "https://www.flashscore.mobi/match/UVyx9bUs/"
+          },
+          {
+            "date": "26.04.2026",
+            "daysAgo": 17,
+            "result": "D",
+            "score": "1:1",
+            "vs": "Gremio Juventus",
+            "matchUrl": "https://www.flashscore.mobi/match/S8CPET03/"
+          },
+          {
+            "date": "14.10.2025",
+            "daysAgo": 211,
+            "result": "D",
+            "score": "1:1",
+            "vs": "Carlos Renaux",
+            "matchUrl": "https://www.flashscore.mobi/match/tIvFG6bt/"
+          },
+          {
+            "date": "08.10.2025",
+            "daysAgo": 217,
+            "result": "L",
+            "score": "0:1",
+            "vs": "Joinville",
+            "matchUrl": "https://www.flashscore.mobi/match/829bEyZ9/"
+          }
+        ],
+        "away": [
+          {
+            "date": "06.05.2026",
+            "daysAgo": 7,
+            "result": "D",
+            "score": "1:1",
+            "vs": "Jaragua-SC",
+            "matchUrl": "https://www.flashscore.mobi/match/QaGqB6HP/"
+          },
+          {
+            "date": "01.05.2026",
+            "daysAgo": 12,
+            "result": "W",
+            "score": "4:0",
+            "vs": "Gremio Juventus",
+            "matchUrl": "https://www.flashscore.mobi/match/WxNI33h2/"
+          },
+          {
+            "date": "21.04.2026",
+            "daysAgo": 22,
+            "result": "D",
+            "score": "0:0",
+            "vs": "Blumenau",
+            "matchUrl": "https://www.flashscore.mobi/match/IFz0b8GM/"
+          },
+          {
+            "date": "26.10.2025",
+            "daysAgo": 199,
+            "result": "L",
+            "score": "3:1",
+            "vs": "Blumenau",
+            "matchUrl": "https://www.flashscore.mobi/match/hYDzQ1LE/"
+          },
+          {
+            "date": "19.10.2025",
+            "daysAgo": 206,
+            "result": "L",
+            "score": "0:1",
+            "vs": "Blumenau",
+            "matchUrl": "https://www.flashscore.mobi/match/tp7k2bT7/"
+          }
+        ]
+      },
+      "faceToFace": [
+        {
+          "date": "27.07.2025",
+          "daysAgo": 290,
+          "home": "Nacao",
+          "away": "Tubarao",
+          "score": "1:2",
+          "matchUrl": "https://www.flashscore.mobi/match/UH9fTumC/"
+        },
+        {
+          "date": "16.07.2022",
+          "daysAgo": 1397,
+          "home": "Tubarao",
+          "away": "Nacao",
+          "score": "0:4",
+          "matchUrl": "https://www.flashscore.mobi/match/IF70ruf7/"
+        }
+      ],
+      "daysSinceLastH2h": 290,
+      "daysSinceLastMatch": {
+        "home": 7,
+        "away": 7
+      }
+    }
+  },
+  {
+    "matchId": "82rmoa8T",
+    "country": "ECUADOR",
+    "league": "Copa Ecuador",
+    "homeTeam": "Banos",
+    "awayTeam": "Delfin",
+    "matchUrl": "/match/82rmoa8T/?s=2",
+    "status": "enriched",
+    "enrichedAt": "2026-05-12T23:52:59.711Z",
+    "tabs": {
+      "stats": true,
+      "standings": false,
+      "h2h": true
+    },
+    "odds": {
+      "home": 5.46,
+      "draw": 3.43,
+      "away": 1.68,
+      "isOddsFavorite": {
+        "favorite": "away",
+        "margin": 0.12,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "basic",
+    "statistics": {
+      "capturedAtStatus": "Half Time",
+      "baseline1HCapturedAtStatus": "Half Time",
+      "1half": {
+        "home": {
+          "ballPossession": 52,
+          "totalShots": 6,
+          "shotsOnTarget": 3,
+          "cornerKicks": 2,
+          "shotsOffTarget": 3
+        },
+        "away": {
+          "ballPossession": 48,
+          "totalShots": 6,
+          "shotsOnTarget": 2,
+          "cornerKicks": 3,
+          "shotsOffTarget": 4
+        },
+        "overall": {
+          "ballPossession": null,
+          "totalShots": 12,
+          "shotsOnTarget": 5,
+          "cornerKicks": 5,
+          "shotsOffTarget": 7
+        }
+      },
+      "rawRows": [
+        {
+          "label": "Ball possession",
+          "home": "52%",
+          "away": "48%"
+        },
+        {
+          "label": "Total shots",
+          "home": "6",
+          "away": "6"
+        },
+        {
+          "label": "Shots on target",
+          "home": "3",
+          "away": "2"
+        },
+        {
+          "label": "Corner kicks",
+          "home": "2",
+          "away": "3"
+        },
+        {
+          "label": "Shots off target",
+          "home": "3",
+          "away": "4"
+        }
+      ]
+    },
+    "standings": null,
+    "h2h": {
+      "recentForm": {
+        "home": [
+          {
+            "date": "23.04.2026",
+            "daysAgo": 20,
+            "result": "W",
+            "score": "2:1",
+            "vs": "Anaconda",
+            "matchUrl": "https://www.flashscore.mobi/match/xdo4Yd5E/"
+          },
+          {
+            "date": "08.08.2025",
+            "daysAgo": 278,
+            "result": "L",
+            "score": "0:2",
+            "vs": "Dep. Cuenca",
+            "matchUrl": "https://www.flashscore.mobi/match/KQK7lwb2/"
+          },
+          {
+            "date": "07.06.2025",
+            "daysAgo": 340,
+            "result": "W",
+            "score": "3:2",
+            "vs": "Huaquillas FC",
+            "matchUrl": "https://www.flashscore.mobi/match/hUB7ybtP/"
+          },
+          {
+            "date": "21.07.2024",
+            "daysAgo": 661,
+            "result": "L",
+            "score": "1:2",
+            "vs": "EL Nacional",
+            "matchUrl": "https://www.flashscore.mobi/match/boozammf/"
+          },
+          {
+            "date": "22.06.2024",
+            "daysAgo": 690,
+            "result": "W",
+            "score": "2:1",
+            "vs": "Vargas Torres",
+            "matchUrl": "https://www.flashscore.mobi/match/4fYCtAE6/"
+          }
+        ],
+        "away": [
+          {
+            "date": "09.05.2026",
+            "daysAgo": 4,
+            "result": "L",
+            "score": "4:0",
+            "vs": "Tecnico U.",
+            "matchUrl": "https://www.flashscore.mobi/match/xrnfNHI6/"
+          },
+          {
+            "date": "04.05.2026",
+            "daysAgo": 9,
+            "result": "W",
+            "score": "1:0",
+            "vs": "Mushuc Runa",
+            "matchUrl": "https://www.flashscore.mobi/match/plq2G95M/"
+          },
+          {
+            "date": "28.04.2026",
+            "daysAgo": 15,
+            "result": "L",
+            "score": "1:0",
+            "vs": "Aucas",
+            "matchUrl": "https://www.flashscore.mobi/match/bDf0dlEj/"
+          },
+          {
+            "date": "22.04.2026",
+            "daysAgo": 21,
+            "result": "L",
+            "score": "0:1",
+            "vs": "Ind. del Valle",
+            "matchUrl": "https://www.flashscore.mobi/match/hdohgO1s/"
+          },
+          {
+            "date": "19.04.2026",
+            "daysAgo": 24,
+            "result": "D",
+            "score": "0:0",
+            "vs": "Orense",
+            "matchUrl": "https://www.flashscore.mobi/match/zw6KvPnl/"
+          }
+        ]
+      },
+      "faceToFace": [],
+      "daysSinceLastH2h": null,
+      "daysSinceLastMatch": {
+        "home": 20,
+        "away": 4
+      }
+    }
+  },
+  {
+    "matchId": "fs957LMN",
+    "country": "VENEZUELA",
+    "league": "Liga FUTVE - Apertura - Quadrangular",
+    "homeTeam": "Universidad Central",
+    "awayTeam": "La Guaira",
+    "matchUrl": "/match/fs957LMN/?s=2",
+    "status": "enriched",
+    "enrichedAt": "2026-05-13T00:22:18.438Z",
+    "tabs": {
+      "stats": true,
+      "standings": true,
+      "h2h": true
+    },
+    "odds": {
+      "home": 2.88,
+      "draw": 3.08,
+      "away": 2.52,
+      "isOddsFavorite": {
+        "favorite": null,
+        "margin": 0,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "detailed",
+    "statistics": {
+      "capturedAtStatus": "Half Time",
+      "baseline1HCapturedAtStatus": "Half Time",
+      "1half": {
+        "home": {
+          "expectedGoalsXg": 0.07,
+          "ballPossession": 42,
+          "totalShots": 2,
+          "shotsOnTarget": 1,
+          "bigChances": 0,
+          "cornerKicks": 3,
+          "passes": 66,
+          "passesMade": 95,
+          "passesAttempted": 144,
+          "xgOnTargetXgot": 0.01,
+          "shotsOffTarget": 0,
+          "blockedShots": 1,
+          "shotsInsideTheBox": 0,
+          "shotsOutsideTheBox": 0,
+          "hitTheWoodwork": 0,
+          "touchesInOppositionBox": 6,
+          "accurateThroughPasses": 0,
+          "offsides": 1,
+          "freeKicks": 5,
+          "crosses": 0,
+          "crossesMade": 0,
+          "crossesAttempted": 10,
+          "expectedAssistsXa": 0.09,
+          "throwIns": 13,
+          "fouls": 9,
+          "tackles": 100,
+          "tacklesMade": 1,
+          "tacklesAttempted": 1,
+          "duelsWon": 0,
+          "clearances": 0,
+          "interceptions": 3,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 2,
+          "xgotFaced": 0.03,
+          "goalsPrevented": 0.03
+        },
+        "away": {
+          "expectedGoalsXg": 0.11,
+          "ballPossession": 58,
+          "totalShots": 4,
+          "shotsOnTarget": 2,
+          "bigChances": 0,
+          "cornerKicks": 3,
+          "passes": 73,
+          "passesMade": 145,
+          "passesAttempted": 200,
+          "xgOnTargetXgot": 0.03,
+          "shotsOffTarget": 1,
+          "blockedShots": 1,
+          "shotsInsideTheBox": 0,
+          "shotsOutsideTheBox": 0,
+          "hitTheWoodwork": 0,
+          "touchesInOppositionBox": 4,
+          "accurateThroughPasses": 0,
+          "offsides": 1,
+          "freeKicks": 9,
+          "crosses": 0,
+          "crossesMade": 0,
+          "crossesAttempted": 11,
+          "expectedAssistsXa": 0.12,
+          "throwIns": 8,
+          "fouls": 5,
+          "tackles": 100,
+          "tacklesMade": 11,
+          "tacklesAttempted": 11,
+          "duelsWon": 0,
+          "clearances": 0,
+          "interceptions": 4,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 1,
+          "xgotFaced": 0.01,
+          "goalsPrevented": 0.01
+        },
+        "overall": {
+          "expectedGoalsXg": 0.18,
+          "ballPossession": null,
+          "totalShots": 6,
+          "shotsOnTarget": 3,
+          "bigChances": 0,
+          "cornerKicks": 6,
+          "passes": null,
+          "passesMade": 240,
+          "passesAttempted": 344,
+          "xgOnTargetXgot": 0.04,
+          "shotsOffTarget": 1,
+          "blockedShots": 2,
+          "shotsInsideTheBox": 0,
+          "shotsOutsideTheBox": 0,
+          "hitTheWoodwork": 0,
+          "touchesInOppositionBox": 10,
+          "accurateThroughPasses": 0,
+          "offsides": 2,
+          "freeKicks": 14,
+          "crosses": null,
+          "crossesMade": 0,
+          "crossesAttempted": 21,
+          "expectedAssistsXa": 0.21,
+          "throwIns": 21,
+          "fouls": 14,
+          "tackles": null,
+          "tacklesMade": 12,
+          "tacklesAttempted": 12,
+          "duelsWon": 0,
+          "clearances": 0,
+          "interceptions": 7,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 3,
+          "xgotFaced": 0.04,
+          "goalsPrevented": 0.04
+        }
+      },
+      "rawRows": [
+        {
+          "label": "Expected goals (xG)",
+          "home": "0.07",
+          "away": "0.11"
+        },
+        {
+          "label": "Ball possession",
+          "home": "42%",
+          "away": "58%"
+        },
+        {
+          "label": "Total shots",
+          "home": "2",
+          "away": "4"
+        },
+        {
+          "label": "Shots on target",
+          "home": "1",
+          "away": "2"
+        },
+        {
+          "label": "Big chances",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Corner kicks",
+          "home": "3",
+          "away": "3"
+        },
+        {
+          "label": "Passes",
+          "home": "66% (95/144)",
+          "away": "73% (145/200)"
+        },
+        {
+          "label": "xG on target (xGOT)",
+          "home": "0.01",
+          "away": "0.03"
+        },
+        {
+          "label": "Shots off target",
+          "home": "0",
+          "away": "1"
+        },
+        {
+          "label": "Blocked shots",
+          "home": "1",
+          "away": "1"
+        },
+        {
+          "label": "Shots inside the box",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Shots outside the box",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Hit the woodwork",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Touches in opposition box",
+          "home": "6",
+          "away": "4"
+        },
+        {
+          "label": "Accurate through passes",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Offsides",
+          "home": "1",
+          "away": "1"
+        },
+        {
+          "label": "Free kicks",
+          "home": "5",
+          "away": "9"
+        },
+        {
+          "label": "Crosses",
+          "home": "0% (0/10)",
+          "away": "0% (0/11)"
+        },
+        {
+          "label": "Expected assists (xA)",
+          "home": "0.09",
+          "away": "0.12"
+        },
+        {
+          "label": "Throw ins",
+          "home": "13",
+          "away": "8"
+        },
+        {
+          "label": "Fouls",
+          "home": "9",
+          "away": "5"
+        },
+        {
+          "label": "Tackles",
+          "home": "100% (1/1)",
+          "away": "100% (11/11)"
+        },
+        {
+          "label": "Duels won",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Clearances",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Interceptions",
+          "home": "3",
+          "away": "4"
+        },
+        {
+          "label": "Errors leading to shot",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Errors leading to goal",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Goalkeeper saves",
+          "home": "2",
+          "away": "1"
+        },
+        {
+          "label": "xGOT faced",
+          "home": "0.03",
+          "away": "0.01"
+        },
+        {
+          "label": "Goals prevented",
+          "home": "0.03",
+          "away": "0.01"
+        }
+      ]
+    },
+    "standings": {
+      "totalTeams": 4,
+      "home": {
+        "position": 1,
+        "mp": 2,
+        "w": 1,
+        "d": 1,
+        "l": 0,
+        "gd": 2,
+        "pts": 4
+      },
+      "away": {
+        "position": 3,
+        "mp": 2,
+        "w": 0,
+        "d": 2,
+        "l": 0,
+        "gd": 0,
+        "pts": 2
+      },
+      "favoriteStrength": {
+        "label": "slight",
+        "score": 0.4,
+        "favorite": "home",
+        "components": {
+          "positionScore": 0.5,
+          "pointsScore": 0.33,
+          "goalDiffScore": 0.25,
+          "winRateScore": 0.5
+        }
+      }
+    },
+    "h2h": {
+      "recentForm": {
+        "home": [
+          {
+            "date": "10.05.2026",
+            "daysAgo": 3,
+            "result": "W",
+            "score": "3:1",
+            "vs": "Puerto Cabello",
+            "matchUrl": "https://www.flashscore.mobi/match/nH5c9shB/"
+          },
+          {
+            "date": "06.05.2026",
+            "daysAgo": 7,
+            "result": "W",
+            "score": "2:0",
+            "vs": "Ind. del Valle",
+            "matchUrl": "https://www.flashscore.mobi/match/CnP6oQQF/"
+          },
+          {
+            "date": "03.05.2026",
+            "daysAgo": 10,
+            "result": "D",
+            "score": "1:1",
+            "vs": "Portuguesa",
+            "matchUrl": "https://www.flashscore.mobi/match/CKvxpROa/"
+          },
+          {
+            "date": "29.04.2026",
+            "daysAgo": 14,
+            "result": "L",
+            "score": "0:3",
+            "vs": "Rosario Central",
+            "matchUrl": "https://www.flashscore.mobi/match/IsVt8mQ1/"
+          },
+          {
+            "date": "26.04.2026",
+            "daysAgo": 17,
+            "result": "L",
+            "score": "3:0",
+            "vs": "Portuguesa",
+            "matchUrl": "https://www.flashscore.mobi/match/MRdVUDe3/"
+          }
+        ],
+        "away": [
+          {
+            "date": "10.05.2026",
+            "daysAgo": 3,
+            "result": "D",
+            "score": "1:1",
+            "vs": "Portuguesa",
+            "matchUrl": "https://www.flashscore.mobi/match/vi2kB3Nb/"
+          },
+          {
+            "date": "07.05.2026",
+            "daysAgo": 6,
+            "result": "D",
+            "score": "1:1",
+            "vs": "Bolivar",
+            "matchUrl": "https://www.flashscore.mobi/match/QgBy7OZ9/"
+          },
+          {
+            "date": "03.05.2026",
+            "daysAgo": 10,
+            "result": "D",
+            "score": "1:1",
+            "vs": "Puerto Cabello",
+            "matchUrl": "https://www.flashscore.mobi/match/SAohtqOO/"
+          },
+          {
+            "date": "01.05.2026",
+            "daysAgo": 12,
+            "result": "L",
+            "score": "4:1",
+            "vs": "Ind. Rivadavia",
+            "matchUrl": "https://www.flashscore.mobi/match/n55agKN0/"
+          },
+          {
+            "date": "26.04.2026",
+            "daysAgo": 17,
+            "result": "W",
+            "score": "0:1",
+            "vs": "Trujillanos",
+            "matchUrl": "https://www.flashscore.mobi/match/MDHdGEtA/"
+          }
+        ]
+      },
+      "faceToFace": [
+        {
+          "date": "22.03.2026",
+          "daysAgo": 52,
+          "home": "Universidad Central",
+          "away": "La Guaira",
+          "score": "0:1",
+          "matchUrl": "https://www.flashscore.mobi/match/n1W6pafc/"
+        },
+        {
+          "date": "18.09.2025",
+          "daysAgo": 237,
+          "home": "La Guaira",
+          "away": "Universidad Central",
+          "score": "1:1",
+          "matchUrl": "https://www.flashscore.mobi/match/nghZmW2b/"
+        },
+        {
+          "date": "11.09.2025",
+          "daysAgo": 244,
+          "home": "Universidad Central",
+          "away": "La Guaira",
+          "score": "2:0",
+          "matchUrl": "https://www.flashscore.mobi/match/S4RzRzjf/"
+        },
+        {
+          "date": "12.07.2025",
+          "daysAgo": 305,
+          "home": "Universidad Central",
+          "away": "La Guaira",
+          "score": "1:2",
+          "matchUrl": "https://www.flashscore.mobi/match/dx59WIc4/"
+        },
+        {
+          "date": "22.05.2025",
+          "daysAgo": 356,
+          "home": "La Guaira",
+          "away": "Universidad Central",
+          "score": "0:1",
+          "matchUrl": "https://www.flashscore.mobi/match/xbyfCsln/"
+        }
+      ],
+      "daysSinceLastH2h": 52,
+      "daysSinceLastMatch": {
+        "home": 3,
+        "away": 3
+      }
+    }
+  },
+  {
+    "matchId": "UoLTH6b2",
+    "country": "ARGENTINA",
+    "league": "Primera Nacional",
+    "homeTeam": "San Martin T.",
+    "awayTeam": "Gimnasia Jujuy",
+    "matchUrl": "/match/UoLTH6b2/?s=2",
+    "status": "enriched",
+    "enrichedAt": "2026-05-13T01:02:38.679Z",
+    "tabs": {
+      "stats": true,
+      "standings": true,
+      "h2h": true
+    },
+    "odds": {
+      "home": 2.37,
+      "draw": 2.49,
+      "away": 4.08,
+      "isOddsFavorite": {
+        "favorite": null,
+        "margin": 0,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "basic",
+    "statistics": {
+      "capturedAtStatus": "Half Time",
+      "baseline1HCapturedAtStatus": "Half Time",
+      "1half": {
+        "home": {
+          "ballPossession": 50,
+          "totalShots": 10,
+          "shotsOnTarget": 7,
+          "cornerKicks": 4,
+          "yellowCards": 1,
+          "shotsOffTarget": 3
+        },
+        "away": {
+          "ballPossession": 50,
+          "totalShots": 2,
+          "shotsOnTarget": 1,
+          "cornerKicks": 0,
+          "yellowCards": 2,
+          "shotsOffTarget": 1
+        },
+        "overall": {
+          "ballPossession": null,
+          "totalShots": 12,
+          "shotsOnTarget": 8,
+          "cornerKicks": 4,
+          "yellowCards": 3,
+          "shotsOffTarget": 4
+        }
+      },
+      "rawRows": [
+        {
+          "label": "Ball possession",
+          "home": "50%",
+          "away": "50%"
+        },
+        {
+          "label": "Total shots",
+          "home": "10",
+          "away": "2"
+        },
+        {
+          "label": "Shots on target",
+          "home": "7",
+          "away": "1"
+        },
+        {
+          "label": "Corner kicks",
+          "home": "4",
+          "away": "0"
+        },
+        {
+          "label": "Yellow cards",
+          "home": "1",
+          "away": "2"
+        },
+        {
+          "label": "Shots off target",
+          "home": "3",
+          "away": "1"
+        }
+      ]
+    },
+    "standings": {
+      "totalTeams": 18,
+      "home": {
+        "position": 6,
+        "mp": 11,
+        "w": 4,
+        "d": 6,
+        "l": 1,
+        "gd": 4,
+        "pts": 18
+      },
+      "away": {
+        "position": 1,
+        "mp": 11,
+        "w": 7,
+        "d": 2,
+        "l": 2,
+        "gd": 7,
+        "pts": 23
+      },
+      "favoriteStrength": {
+        "label": "balanced",
+        "score": 0.2,
+        "favorite": "away",
+        "components": {
+          "positionScore": 0.28,
+          "pointsScore": 0.15,
+          "goalDiffScore": 0.08,
+          "winRateScore": 0.27
+        }
+      }
+    },
+    "h2h": {
+      "recentForm": {
+        "home": [
+          {
+            "date": "09.05.2026",
+            "daysAgo": 4,
+            "result": "L",
+            "score": "2:1",
+            "vs": "Banfield",
+            "matchUrl": "https://www.flashscore.mobi/match/Awidfk6m/"
+          },
+          {
+            "date": "03.05.2026",
+            "daysAgo": 10,
+            "result": "W",
+            "score": "2:1",
+            "vs": "Atl. Rafaela",
+            "matchUrl": "https://www.flashscore.mobi/match/OlILJSTk/"
+          },
+          {
+            "date": "26.04.2026",
+            "daysAgo": 17,
+            "result": "L",
+            "score": "2:0",
+            "vs": "Agropecuario",
+            "matchUrl": "https://www.flashscore.mobi/match/fDMl0sXa/"
+          },
+          {
+            "date": "20.04.2026",
+            "daysAgo": 23,
+            "result": "D",
+            "score": "0:0",
+            "vs": "Tristan Suarez",
+            "matchUrl": "https://www.flashscore.mobi/match/lz0NqMnJ/"
+          },
+          {
+            "date": "13.04.2026",
+            "daysAgo": 30,
+            "result": "W",
+            "score": "0:2",
+            "vs": "Club A. Guemes",
+            "matchUrl": "https://www.flashscore.mobi/match/6kw9rI5c/"
+          }
+        ],
+        "away": [
+          {
+            "date": "03.05.2026",
+            "daysAgo": 10,
+            "result": "D",
+            "score": "1:1",
+            "vs": "Deportivo Maipu",
+            "matchUrl": "https://www.flashscore.mobi/match/YXlkTu1n/"
+          },
+          {
+            "date": "26.04.2026",
+            "daysAgo": 17,
+            "result": "D",
+            "score": "0:0",
+            "vs": "Atl. Rafaela",
+            "matchUrl": "https://www.flashscore.mobi/match/YcYu232m/"
+          },
+          {
+            "date": "19.04.2026",
+            "daysAgo": 24,
+            "result": "W",
+            "score": "6:1",
+            "vs": "Almagro",
+            "matchUrl": "https://www.flashscore.mobi/match/8zB0iDlS/"
+          },
+          {
+            "date": "12.04.2026",
+            "daysAgo": 31,
+            "result": "W",
+            "score": "1:2",
+            "vs": "Agropecuario",
+            "matchUrl": "https://www.flashscore.mobi/match/fB9jQzjT/"
+          },
+          {
+            "date": "06.04.2026",
+            "daysAgo": 37,
+            "result": "W",
+            "score": "2:0",
+            "vs": "Patronato",
+            "matchUrl": "https://www.flashscore.mobi/match/h6ZYBpVI/"
+          }
+        ]
+      },
+      "faceToFace": [
+        {
+          "date": "23.06.2024",
+          "daysAgo": 689,
+          "home": "Gimnasia Jujuy",
+          "away": "San Martin T.",
+          "score": "2:0",
+          "matchUrl": "https://www.flashscore.mobi/match/69X34D7t/"
+        },
+        {
+          "date": "04.02.2024",
+          "daysAgo": 829,
+          "home": "San Martin T.",
+          "away": "Gimnasia Jujuy",
+          "score": "1:0",
+          "matchUrl": "https://www.flashscore.mobi/match/2sYPwaX7/"
+        },
+        {
+          "date": "19.01.2023",
+          "daysAgo": 1210,
+          "home": "San Martin T.",
+          "away": "Gimnasia Jujuy",
+          "score": "0:0",
+          "matchUrl": "https://www.flashscore.mobi/match/zTyiY1X5/"
+        },
+        {
+          "date": "01.10.2022",
+          "daysAgo": 1320,
+          "home": "Gimnasia Jujuy",
+          "away": "San Martin T.",
+          "score": "1:1",
+          "matchUrl": "https://www.flashscore.mobi/match/xfJL6Fm7/"
+        },
+        {
+          "date": "11.11.2019",
+          "daysAgo": 2375,
+          "home": "San Martin T.",
+          "away": "Gimnasia Jujuy",
+          "score": "2:0",
+          "matchUrl": "https://www.flashscore.mobi/match/lAAnbYsk/"
+        }
+      ],
+      "daysSinceLastH2h": 689,
+      "daysSinceLastMatch": {
+        "home": 4,
+        "away": 10
+      }
+    }
+  },
+  {
+    "matchId": "rDtaI9Cb",
+    "country": "ARGENTINA",
+    "league": "Liga Profesional - Apertura - Play Offs",
+    "homeTeam": "Argentinos Jrs",
+    "awayTeam": "Huracan",
+    "matchUrl": "/match/rDtaI9Cb/?s=2",
+    "status": "enriched",
+    "enrichedAt": "2026-05-13T01:15:55.194Z",
+    "tabs": {
+      "stats": true,
+      "standings": false,
+      "h2h": true
+    },
+    "odds": {
+      "home": 1.93,
+      "draw": 2.91,
+      "away": 5.57,
+      "isOddsFavorite": {
+        "favorite": null,
+        "margin": 0,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "detailed",
+    "statistics": {
+      "capturedAtStatus": "45+'",
+      "baseline1HCapturedAtStatus": "45+'",
+      "1half": {
+        "home": {
+          "expectedGoalsXg": 0.02,
+          "ballPossession": 57,
+          "totalShots": 6,
+          "shotsOnTarget": 1,
+          "bigChances": 0,
+          "cornerKicks": 2,
+          "passes": 80,
+          "passesMade": 176,
+          "passesAttempted": 219,
+          "yellowCards": 0,
+          "xgOnTargetXgot": 0,
+          "shotsOffTarget": 4,
+          "blockedShots": 1,
+          "shotsInsideTheBox": 0,
+          "shotsOutsideTheBox": 0,
+          "hitTheWoodwork": 0,
+          "touchesInOppositionBox": 0,
+          "accurateThroughPasses": 0,
+          "offsides": 2,
+          "freeKicks": 10,
+          "crosses": 0,
+          "crossesMade": 0,
+          "crossesAttempted": 7,
+          "expectedAssistsXa": 0.01,
+          "throwIns": 10,
+          "fouls": 6,
+          "tackles": 71,
+          "tacklesMade": 5,
+          "tacklesAttempted": 7,
+          "duelsWon": 0,
+          "clearances": 0,
+          "interceptions": 3,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 1,
+          "xgotFaced": 0,
+          "goalsPrevented": 0
+        },
+        "away": {
+          "expectedGoalsXg": 0,
+          "ballPossession": 43,
+          "totalShots": 2,
+          "shotsOnTarget": 1,
+          "bigChances": 0,
+          "cornerKicks": 0,
+          "passes": 71,
+          "passesMade": 118,
+          "passesAttempted": 166,
+          "yellowCards": 2,
+          "xgOnTargetXgot": 0,
+          "shotsOffTarget": 1,
+          "blockedShots": 0,
+          "shotsInsideTheBox": 0,
+          "shotsOutsideTheBox": 0,
+          "hitTheWoodwork": 0,
+          "touchesInOppositionBox": 0,
+          "accurateThroughPasses": 0,
+          "offsides": 0,
+          "freeKicks": 6,
+          "crosses": 0,
+          "crossesMade": 0,
+          "crossesAttempted": 2,
+          "expectedAssistsXa": 0,
+          "throwIns": 17,
+          "fouls": 10,
+          "tackles": 86,
+          "tacklesMade": 6,
+          "tacklesAttempted": 7,
+          "duelsWon": 0,
+          "clearances": 0,
+          "interceptions": 5,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 1,
+          "xgotFaced": 0,
+          "goalsPrevented": 0
+        },
+        "overall": {
+          "expectedGoalsXg": 0.02,
+          "ballPossession": null,
+          "totalShots": 8,
+          "shotsOnTarget": 2,
+          "bigChances": 0,
+          "cornerKicks": 2,
+          "passes": null,
+          "passesMade": 294,
+          "passesAttempted": 385,
+          "yellowCards": 2,
+          "xgOnTargetXgot": 0,
+          "shotsOffTarget": 5,
+          "blockedShots": 1,
+          "shotsInsideTheBox": 0,
+          "shotsOutsideTheBox": 0,
+          "hitTheWoodwork": 0,
+          "touchesInOppositionBox": 0,
+          "accurateThroughPasses": 0,
+          "offsides": 2,
+          "freeKicks": 16,
+          "crosses": null,
+          "crossesMade": 0,
+          "crossesAttempted": 9,
+          "expectedAssistsXa": 0.01,
+          "throwIns": 27,
+          "fouls": 16,
+          "tackles": null,
+          "tacklesMade": 11,
+          "tacklesAttempted": 14,
+          "duelsWon": 0,
+          "clearances": 0,
+          "interceptions": 8,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 2,
+          "xgotFaced": 0,
+          "goalsPrevented": 0
+        }
+      },
+      "rawRows": [
+        {
+          "label": "Expected goals (xG)",
+          "home": "0.02",
+          "away": "0.00"
+        },
+        {
+          "label": "Ball possession",
+          "home": "57%",
+          "away": "43%"
+        },
+        {
+          "label": "Total shots",
+          "home": "6",
+          "away": "2"
+        },
+        {
+          "label": "Shots on target",
+          "home": "1",
+          "away": "1"
+        },
+        {
+          "label": "Big chances",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Corner kicks",
+          "home": "2",
+          "away": "0"
+        },
+        {
+          "label": "Passes",
+          "home": "80% (176/219)",
+          "away": "71% (118/166)"
+        },
+        {
+          "label": "Yellow cards",
+          "home": "0",
+          "away": "2"
+        },
+        {
+          "label": "xG on target (xGOT)",
+          "home": "0.00",
+          "away": "0.00"
+        },
+        {
+          "label": "Shots off target",
+          "home": "4",
+          "away": "1"
+        },
+        {
+          "label": "Blocked shots",
+          "home": "1",
+          "away": "0"
+        },
+        {
+          "label": "Shots inside the box",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Shots outside the box",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Hit the woodwork",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Touches in opposition box",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Accurate through passes",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Offsides",
+          "home": "2",
+          "away": "0"
+        },
+        {
+          "label": "Free kicks",
+          "home": "10",
+          "away": "6"
+        },
+        {
+          "label": "Crosses",
+          "home": "0% (0/7)",
+          "away": "0% (0/2)"
+        },
+        {
+          "label": "Expected assists (xA)",
+          "home": "0.01",
+          "away": "0.00"
+        },
+        {
+          "label": "Throw ins",
+          "home": "10",
+          "away": "17"
+        },
+        {
+          "label": "Fouls",
+          "home": "6",
+          "away": "10"
+        },
+        {
+          "label": "Tackles",
+          "home": "71% (5/7)",
+          "away": "86% (6/7)"
+        },
+        {
+          "label": "Duels won",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Clearances",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Interceptions",
+          "home": "3",
+          "away": "5"
+        },
+        {
+          "label": "Errors leading to shot",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Errors leading to goal",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Goalkeeper saves",
+          "home": "1",
+          "away": "1"
+        },
+        {
+          "label": "xGOT faced",
+          "home": "0.00",
+          "away": "0.00"
+        },
+        {
+          "label": "Goals prevented",
+          "home": "0.00",
+          "away": "0.00"
+        }
+      ]
+    },
+    "standings": null,
+    "h2h": {
+      "recentForm": {
+        "home": [
+          {
+            "date": "10.05.2026",
+            "daysAgo": 3,
+            "result": "W",
+            "score": "2:0",
+            "vs": "Lanus",
+            "matchUrl": "https://www.flashscore.mobi/match/bk6TaV0K/"
+          },
+          {
+            "date": "03.05.2026",
+            "daysAgo": 10,
+            "result": "L",
+            "score": "2:0",
+            "vs": "Gimnasia L.P.",
+            "matchUrl": "https://www.flashscore.mobi/match/ITOTHAlA/"
+          },
+          {
+            "date": "28.04.2026",
+            "daysAgo": 15,
+            "result": "W",
+            "score": "1:2",
+            "vs": "Huracan",
+            "matchUrl": "https://www.flashscore.mobi/match/2T6wYjFl/"
+          },
+          {
+            "date": "19.04.2026",
+            "daysAgo": 24,
+            "result": "W",
+            "score": "1:0",
+            "vs": "Atl. Tucuman",
+            "matchUrl": "https://www.flashscore.mobi/match/Mi2tRr24/"
+          },
+          {
+            "date": "11.04.2026",
+            "daysAgo": 32,
+            "result": "L",
+            "score": "3:1",
+            "vs": "Ind. Rivadavia",
+            "matchUrl": "https://www.flashscore.mobi/match/EPozgbjL/"
+          }
+        ],
+        "away": [
+          {
+            "date": "10.05.2026",
+            "daysAgo": 3,
+            "result": "W",
+            "score": "2:3",
+            "vs": "Boca Juniors",
+            "matchUrl": "https://www.flashscore.mobi/match/6s4rxS8D/"
+          },
+          {
+            "date": "03.05.2026",
+            "daysAgo": 10,
+            "result": "D",
+            "score": "0:0",
+            "vs": "Racing Club",
+            "matchUrl": "https://www.flashscore.mobi/match/bPi31k4T/"
+          },
+          {
+            "date": "28.04.2026",
+            "daysAgo": 15,
+            "result": "L",
+            "score": "1:2",
+            "vs": "Argentinos Jrs",
+            "matchUrl": "https://www.flashscore.mobi/match/2T6wYjFl/"
+          },
+          {
+            "date": "21.04.2026",
+            "daysAgo": 22,
+            "result": "D",
+            "score": "1:1",
+            "vs": "Tigre",
+            "matchUrl": "https://www.flashscore.mobi/match/ERbYS4Xi/"
+          },
+          {
+            "date": "13.04.2026",
+            "daysAgo": 30,
+            "result": "W",
+            "score": "3:1",
+            "vs": "Rosario Central",
+            "matchUrl": "https://www.flashscore.mobi/match/6NQEoGre/"
+          }
+        ]
+      },
+      "faceToFace": [
+        {
+          "date": "28.04.2026",
+          "daysAgo": 15,
+          "home": "Huracan",
+          "away": "Argentinos Jrs",
+          "score": "1:2",
+          "matchUrl": "https://www.flashscore.mobi/match/2T6wYjFl/"
+        },
+        {
+          "date": "16.08.2025",
+          "daysAgo": 270,
+          "home": "Huracan",
+          "away": "Argentinos Jrs",
+          "score": "1:0",
+          "matchUrl": "https://www.flashscore.mobi/match/4IxV7xWb/"
+        },
+        {
+          "date": "13.02.2025",
+          "daysAgo": 454,
+          "home": "Argentinos Jrs",
+          "away": "Huracan",
+          "score": "1:1",
+          "matchUrl": "https://www.flashscore.mobi/match/veXKGRme/"
+        },
+        {
+          "date": "24.08.2024",
+          "daysAgo": 627,
+          "home": "Argentinos Jrs",
+          "away": "Huracan",
+          "score": "0:0",
+          "matchUrl": "https://www.flashscore.mobi/match/hrmM8lWM/"
+        },
+        {
+          "date": "15.08.2024",
+          "daysAgo": 636,
+          "home": "Argentinos Jrs",
+          "away": "Huracan",
+          "score": "1:2",
+          "matchUrl": "https://www.flashscore.mobi/match/Y9EiyTMr/"
+        }
+      ],
+      "daysSinceLastH2h": 15,
+      "daysSinceLastMatch": {
+        "home": 3,
+        "away": 3
+      }
+    }
+  }
+]
