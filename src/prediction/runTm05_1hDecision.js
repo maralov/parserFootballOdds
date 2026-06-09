@@ -119,22 +119,38 @@ function fav(side, pair) {
   return pair[side];
 }
 
+/** Format a numeric stat to `digits` decimals, or null when absent/non-finite. */
+function numOrNull(value, digits = 2) {
+  if (value == null || !Number.isFinite(Number(value))) return null;
+  return Number(Number(value).toFixed(digits));
+}
+
 function buildReasoning(match, ds, snapshot, minute) {
   const side = ds.favorite;
   if (!side) return `Низький темп до ${minute}' (DS1H=${ds.score}).`;
   const favName = side === 'home' ? (match.homeTeam || 'фаворит') : (match.awayTeam || 'фаворит');
-  const favXg = fav(side, snapshot?.cumulative?.expectedGoalsXg);
-  const favSot = fav(side, snapshot?.cumulative?.shotsOnTarget);
-  return `Фаворит (${favName}) не пробиває до ${minute}': xG=${favXg ?? '?'}, у площину=${favSot ?? '?'}. DS1H=${ds.score}.`;
+  const cum = snapshot?.cumulative || {};
+  const favXg = numOrNull(fav(side, cum.expectedGoalsXg));
+  const favSot = fav(side, cum.shotsOnTarget);
+  const favShots = fav(side, cum.totalShots);
+
+  // Build only from metrics that exist — never emit a bare "?" (basic-stats matches lack xG).
+  const parts = [];
+  if (favXg != null) parts.push(`xG=${favXg}`);
+  if (favSot != null) parts.push(`у площину=${favSot}`);
+  else if (favShots != null) parts.push(`удари=${favShots}`);
+  const tail = parts.length ? ` (${parts.join(', ')})` : '';
+  return `Фаворит (${favName}) не пробиває до ${minute}'${tail}. DS1H=${ds.score}.`;
 }
 
 function buildKeySignals(ds, snapshot) {
   const side = ds.favorite;
+  const cum = snapshot?.cumulative || {};
   const signals = [];
   if (side) {
-    const favXg = fav(side, snapshot?.cumulative?.expectedGoalsXg);
+    const favXg = numOrNull(fav(side, cum.expectedGoalsXg));
     if (favXg != null) signals.push({ signal: 'fav_xg', value: favXg, weight: 'high' });
-    const favSot = fav(side, snapshot?.cumulative?.shotsOnTarget);
+    const favSot = fav(side, cum.shotsOnTarget);
     if (favSot != null) signals.push({ signal: 'fav_shots_on_target', value: favSot, weight: 'high' });
   }
   const totXg = ds.components?.total_tempo;

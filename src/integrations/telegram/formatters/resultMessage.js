@@ -54,8 +54,29 @@ function formatResultMessage({ outboxRecord, match }) {
   return lines.join('\n');
 }
 
+/**
+ * Halftime result for the 1HUNDER (ТМ 0,5 першого тайму) line.
+ * Resolved at the break — independent of the full-time `match.final`.
+ *
+ * @param {{ htScoreHome:number, htScoreAway:number, hit:boolean, firstGoalMinute:(number|null) }} params
+ * @returns {string}
+ */
+function formatOneHResultMessage({ htScoreHome, htScoreAway, hit, firstGoalMinute: fgm }) {
+  const score = `${htScoreHome ?? '?'}:${htScoreAway ?? '?'}`;
+  const status = hit ? '✅ *HIT*' : '❌ *MISS*';
+  const lines = [
+    `${status} · ${escapeMarkdownV2('1HUNDER ТМ 0,5 тайму')}`,
+    `Перерва: ${escapeMarkdownV2(score)}`,
+  ];
+  if (!hit && fgm != null) {
+    lines.push(`Перший гол: ${escapeMarkdownV2(String(fgm))}'`);
+  }
+  return lines.join('\n');
+}
+
 module.exports = {
   formatResultMessage,
+  formatOneHResultMessage,
   finalScore,
   regularGoals,
   firstGoalMinute,

@@ -77,6 +77,10 @@ const env = {
 
   // Stage 6 — 1HUNDER (first-half ТМ 0.5) line
   LIVE_1H_ENABLED: envBool('LIVE_1H_ENABLED', false),
+  // Data-collection mode: run ONLY the 1H line. Disables A/B enrichment+tracking,
+  // settles the 1H bet at halftime (records HT outcome + replies HIT/MISS), then
+  // stops tracking the match instead of handing it to the 2H scheduler.
+  LIVE_1H_ONLY: envBool('LIVE_1H_ONLY', false),
   LIVE_1H_CONCURRENCY: envInt('LIVE_1H_CONCURRENCY', 2),
   LIVE_1H_MAX_CONCURRENT: envInt('LIVE_1H_MAX_CONCURRENT', 20),
   // Discovery window: live 0:0 matches in this minute range become 1H candidates

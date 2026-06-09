@@ -6,7 +6,7 @@ const matchStore = require('../../store/matchStore');
 const tgOutbox = require('../../store/tgOutbox');
 const client = require('./client');
 const { formatEntryMessage } = require('./formatters/entryMessage');
-const { formatResultMessage } = require('./formatters/resultMessage');
+const { formatResultMessage, formatOneHResultMessage } = require('./formatters/resultMessage');
 const inFlightEntries = new Set();
 const inFlightResults = new Set();
 
@@ -233,6 +233,65 @@ async function dispatchResults({ match, date = new Date() }) {
   return updates;
 }
 
+/**
+ * Resolve the 1HUNDER (tm05_1h) line at HALFTIME and reply to the original
+ * entry with HIT/MISS. Independent of full-time `match.final` — the first-half
+ * bet settles at the break. Idempotent via the outbox FSM (status flips to
+ * 'resolved', so a later full-time pass finds no pending record).
+ *
+ * @param {{ matchId:string, htScoreHome:number, htScoreAway:number,
+ *           firstGoalMinute?:(number|null), date?:Date }} params
+ * @returns {Promise<Object|null>} the updated outbox record, or null if nothing to send
+ */
+async function dispatchOneHResult({ matchId, htScoreHome, htScoreAway, firstGoalMinute = null, date = new Date() }) {
+  if (!LIVE_TG_ENABLED) return null;
+  if (!matchId) return null;
+
+  const dayDir = matchStore.dayLogsAbsolute(date);
+  const record = pendingResultRecords(dayDir, matchId)
+    .find((r) => r.decisionKey === 'tm05_1h');
+  if (!record) return null;
+
+  const rkey = resultKey(matchId, 'tm05_1h');
+  if (inFlightResults.has(rkey)) return null;
+  inFlightResults.add(rkey);
+
+  try {
+    const hit = (Number(htScoreHome) || 0) + (Number(htScoreAway) || 0) === 0;
+    const message = formatOneHResultMessage({ htScoreHome, htScoreAway, hit, firstGoalMinute });
+
+    const result = await client.sendMessage({
+      text: message,
+      replyToMessageId: record.entry.messageId,
+    });
+    if (result.ok) {
+      const updated = tgOutbox.markResultSent(dayDir, matchId, 'tm05_1h', {
+        messageId: result.messageId,
+        sentAt: new Date().toISOString(),
+        hit,
+      });
+      logger.info('tg.result.1h.sent', {
+        matchId, messageId: result.messageId, replyToMessageId: record.entry.messageId, hit,
+      });
+      return updated;
+    }
+
+    let updated = tgOutbox.markResultFailed(dayDir, matchId, 'tm05_1h', {
+      error: result.error, attempts: result.attempts,
+    });
+    if (result.attempts >= Math.max(1, LIVE_TG_MAX_RETRIES)) {
+      updated = tgOutbox.setStatus(dayDir, matchId, 'tm05_1h', 'failed');
+    }
+    logger.warn('tg.result.1h.failed', { matchId, error: result.error, attempts: result.attempts });
+    return updated;
+  } catch (err) {
+    logger.warn('tg.result.1h.dispatch_error', { matchId, err: err?.message || String(err) });
+    return null;
+  } finally {
+    inFlightResults.delete(rkey);
+  }
+}
+
 async function flushPending({ date = new Date() } = {}) {
   if (!LIVE_TG_ENABLED) return { entries: [], results: [] };
 
@@ -304,6 +363,7 @@ module.exports = {
   isPrimaryDecision,
   buildOutboxPayload,
   dispatchResults,
+  dispatchOneHResult,
   flushPending,
   pendingResultRecords,
   resultHitForRecord,

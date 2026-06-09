@@ -26,6 +26,45 @@ function matchLabel(match) {
 }
 
 /**
+ * Settle the 1HUNDER bet at (or before) the break: record the HT outcome on
+ * every tracked 1H match for later calibration, and reply HIT/MISS in Telegram
+ * for matches that actually signalled (dispatchOneHResult is a no-op otherwise).
+ *
+ * @param {string} matchId
+ * @param {Object} match
+ * @param {number} scoreHome
+ * @param {number} scoreAway
+ * @param {number|null} firstGoalMinute
+ * @param {Date} date
+ */
+async function resolveOneH(matchId, match, scoreHome, scoreAway, firstGoalMinute, date) {
+  const dry = (scoreHome + scoreAway) === 0;
+  matchStore.setTm05_1hDecision(matchId, {
+    htOutcome: {
+      score: `${scoreHome}:${scoreAway}`,
+      dry,
+      firstGoalMinute: firstGoalMinute ?? null,
+      resolvedAt: new Date().toISOString(),
+    },
+  }, date);
+
+  printEvent('1hunder', matchLabel(match), `RESULT ${dry ? 'HIT' : 'MISS'} ${scoreHome}:${scoreAway}`, {});
+
+  if (!env.LIVE_1H_TG_ENABLED) return;
+  try {
+    await tgDispatcher.dispatchOneHResult({
+      matchId,
+      htScoreHome: scoreHome,
+      htScoreAway: scoreAway,
+      firstGoalMinute: firstGoalMinute ?? null,
+      date,
+    });
+  } catch (err) {
+    logger.warn('snapshotCollector1H: 1H result dispatch failed', { matchId, err: err.message });
+  }
+}
+
+/**
  * Collect one first-half snapshot for a 1HUNDER-tracked match.
  *
  * Lifecycle within the first half:
@@ -66,7 +105,7 @@ async function collectSnapshot1H(matchId, scheduleNext, date = new Date()) {
   const header = parseLiveHeader(html);
   const { scoreHome, scoreAway, minute, statusText, isFinished, isHalftime } = header;
 
-  // Goal before halftime → discard the candidate entirely.
+  // Goal before halftime → the first-half bet is a MISS; discard the candidate.
   if ((scoreHome + scoreAway) > 0 && (minute == null || minute < 45)) {
     matchStore.markDiscarded(matchId, 'goal_before_halftime', date);
     const fresh = matchStore.getMatch(matchId, date);
@@ -79,11 +118,21 @@ async function collectSnapshot1H(matchId, scheduleNext, date = new Date()) {
     printEvent('1hunder', matchLabel(match), `DISCARDED goal@${minute ?? '?'}'`, {
       score: `${scoreHome}:${scoreAway}`,
     });
+    if (env.LIVE_1H_ONLY) {
+      const fgm = fresh?.tracking?.firstGoalMinute ?? minute ?? null;
+      await resolveOneH(matchId, match, scoreHome, scoreAway, fgm, date);
+    }
     return 'discarded';
   }
 
-  // Halftime reached or past the 1H window → hand the match to the 2H scheduler.
-  if (isHalftime || (minute != null && minute > SNAPSHOT_END_MINUTE_1H)) {
+  // Halftime reached → settle the first-half bet at the break.
+  if (isHalftime || (minute != null && minute >= 45)) {
+    if (env.LIVE_1H_ONLY) {
+      const fgm = match?.tracking?.firstGoalMinute ?? null;
+      await resolveOneH(matchId, match, scoreHome, scoreAway, fgm, date);
+      logger.info('snapshotCollector1H: resolved at halftime', { matchId, score: `${scoreHome}:${scoreAway}` });
+      return 'resolved_1h';
+    }
     logger.info('snapshotCollector1H: handoff to 2H track', { matchId, minute, statusText });
     return 'handoff_2h';
   }
@@ -147,8 +196,14 @@ async function collectSnapshot1H(matchId, scheduleNext, date = new Date()) {
     }
   }
 
-  // Stop polling once we pass the decision window; 2H scheduler resumes at HT.
+  // Past the decision window (35'+) but not yet halftime.
   if (minute >= SNAPSHOT_END_MINUTE_1H) {
+    if (env.LIVE_1H_ONLY) {
+      // Keep a light watch until the break so we can settle the bet at HT.
+      scheduleNext(matchId, env.LIVE_1H_POLL_MS);
+      return 'snapshot';
+    }
+    // Combined mode: stop 1H polling; the 2H scheduler resumes at halftime.
     return 'handoff_2h';
   }
 

@@ -101,3 +101,33 @@ test('locked phase → already_decided (idempotent)', async () => {
   const res = await runTm05_1hDecision('m1', DRY_SNAP, new Date(), { env: CFG, matchStore: store });
   assert.equal(res.status, 'already_decided');
 });
+
+test('reasoning formats favorite xG to 2 decimals when present', async () => {
+  const store = fakeStore(baseRecord());
+  await runTm05_1hDecision('m1', DRY_SNAP, new Date(), { env: CFG, matchStore: store });
+  const reasoning = store.record.predictions.tm05_1h.reasoning;
+  assert.match(reasoning, /xG=0\.05/);
+  assert.doesNotMatch(reasoning, /\?/);
+});
+
+test('reasoning omits xG (no bare "?") when xG stat is missing', async () => {
+  // Basic-stats match: no xG, but dry by shots/touches → still a signal.
+  const noXgSnap = {
+    observedMinute: 25,
+    cumulative: {
+      shotsOnTarget: { home: 0, away: 0 },
+      totalShots: { home: 1, away: 1 },
+      touchesInOppositionBox: { home: 2, away: 3 },
+      bigChances: { home: 0, away: 0 },
+      yellowCards: { home: 0, away: 0 },
+      redCards: { home: 0, away: 0 },
+    },
+    ballPossession: { home: 50, away: 50 },
+  };
+  const store = fakeStore(baseRecord());
+  await runTm05_1hDecision('m1', noXgSnap, new Date(), { env: CFG, matchStore: store });
+  const reasoning = store.record.predictions.tm05_1h.reasoning;
+  assert.doesNotMatch(reasoning, /\?/);
+  assert.doesNotMatch(reasoning, /xG=/);
+  assert.match(reasoning, /у площину=0/);
+});

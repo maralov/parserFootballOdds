@@ -7,6 +7,8 @@
     "parse": "node scripts/once.js",
     "watch": "node scripts/watch.js",
     "watch:anytime": "LIVE_IGNORE_HOURS=1 node scripts/watch.js",
+    "watch-1h": "node scripts/watch-1h.js",
+    "watch-1h:anytime": "LIVE_IGNORE_HOURS=1 node scripts/watch-1h.js",
     "enrich:retry": "node scripts/enrich-retry.js",
     "tracker:resume": "node scripts/tracker-resume.js",
     "test": "node --test test/*.test.js"

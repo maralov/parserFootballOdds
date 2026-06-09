@@ -69,7 +69,8 @@ async function runOnce() {
     result.candidates = candidates;
     result.potentialSleepers = potentialSleepers;
 
-    if (candidates.length > 0) {
+    // In 1H-only data-collection mode we skip the A/B (halftime) pipeline entirely.
+    if (!env.LIVE_1H_ONLY && candidates.length > 0) {
       const saveResult = appendCandidates(candidates);
       result.saved = saveResult;
       metrics.incrementCandidates(saveResult.added);
