@@ -1,0 +1,215 @@
+{
+  "date": "2026-06-08",
+  "updatedAt": "2026-06-08T20:10:36.816Z",
+  "candidates": [
+    {
+      "matchId": "GpD3ScJj",
+      "country": "WORLD",
+      "league": "Friendly International",
+      "homeTeam": "Saudi Arabia U20",
+      "awayTeam": "Panama U20",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/GpD3ScJj/?s=2",
+      "discoveredAt": "2026-06-08T14:51:16.605Z",
+      "cycleId": 1
+    },
+    {
+      "matchId": "A3GvWtid",
+      "country": "AFRICA",
+      "league": "Olympic Games Women - Qualification",
+      "homeTeam": "Djibouti W",
+      "awayTeam": "Mauritius W",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/A3GvWtid/?s=2",
+      "discoveredAt": "2026-06-08T14:51:16.605Z",
+      "cycleId": 1
+    },
+    {
+      "matchId": "vHLrAHS0",
+      "country": "EGYPT",
+      "league": "League Cup - Play Offs",
+      "homeTeam": "ZED",
+      "awayTeam": "Wadi Degla",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/vHLrAHS0/?s=2",
+      "discoveredAt": "2026-06-08T14:51:16.605Z",
+      "cycleId": 1
+    },
+    {
+      "matchId": "niQw7jiD",
+      "country": "WORLD",
+      "league": "Friendly International",
+      "homeTeam": "Iraq U20",
+      "awayTeam": "Jordan U20",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/niQw7jiD/?s=2",
+      "discoveredAt": "2026-06-08T15:46:34.876Z",
+      "cycleId": 20
+    },
+    {
+      "matchId": "nPDD88oJ",
+      "country": "WORLD",
+      "league": "Friendly International Women",
+      "homeTeam": "Nigeria W",
+      "awayTeam": "Senegal W",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/nPDD88oJ/?s=2",
+      "discoveredAt": "2026-06-08T15:46:34.876Z",
+      "cycleId": 20
+    },
+    {
+      "matchId": "WC3WGq3j",
+      "country": "WORLD",
+      "league": "Friendly International",
+      "homeTeam": "USA U21",
+      "awayTeam": "Uzbekistan U23",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/WC3WGq3j/?s=2",
+      "discoveredAt": "2026-06-08T16:46:14.150Z",
+      "cycleId": 55
+    },
+    {
+      "matchId": "fTRANDVP",
+      "country": "LITHUANIA",
+      "league": "I Lyga",
+      "homeTeam": "Dainava Alytus",
+      "awayTeam": "Garliava",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/fTRANDVP/?s=2",
+      "discoveredAt": "2026-06-08T16:46:14.150Z",
+      "cycleId": 55
+    },
+    {
+      "matchId": "vZWiWYC7",
+      "country": "MOROCCO",
+      "league": "Botola Pro",
+      "homeTeam": "FUS Rabat",
+      "awayTeam": "Difaa El Jadidi",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/vZWiWYC7/?s=2",
+      "discoveredAt": "2026-06-08T16:46:14.150Z",
+      "cycleId": 55
+    },
+    {
+      "matchId": "UmeTD3oB",
+      "country": "WORLD",
+      "league": "Friendly International",
+      "homeTeam": "Italy U21",
+      "awayTeam": "Albania U21",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/UmeTD3oB/?s=2",
+      "discoveredAt": "2026-06-08T17:07:38.922Z",
+      "cycleId": 62
+    },
+    {
+      "matchId": "6kfHDErL",
+      "country": "WORLD",
+      "league": "Friendly International Women",
+      "homeTeam": "Sweden U23 W",
+      "awayTeam": "Mexico U23 W",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/6kfHDErL/?s=2",
+      "discoveredAt": "2026-06-08T17:16:09.204Z",
+      "cycleId": 66
+    },
+    {
+      "matchId": "jBKQnFDU",
+      "country": "SWEDEN",
+      "league": "Division 1 - Södra",
+      "homeTeam": "Angelholm",
+      "awayTeam": "Olympic",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/jBKQnFDU/?s=2",
+      "discoveredAt": "2026-06-08T17:46:38.408Z",
+      "cycleId": 76
+    },
+    {
+      "matchId": "6sIwSFOi",
+      "country": "BRAZIL",
+      "league": "Carioca C",
+      "homeTeam": "Buzios",
+      "awayTeam": "Cardoso Moreira",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/6sIwSFOi/?s=2",
+      "discoveredAt": "2026-06-08T18:30:04.399Z",
+      "cycleId": 98
+    },
+    {
+      "matchId": "t28kvg7d",
+      "country": "ARGENTINA",
+      "league": "Reserve League - Apertura",
+      "homeTeam": "Gimnasia L.P. 2",
+      "awayTeam": "Godoy Cruz 2",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/t28kvg7d/?s=2",
+      "discoveredAt": "2026-06-08T18:52:32.910Z",
+      "cycleId": 107
+    },
+    {
+      "matchId": "E5SohGZQ",
+      "country": "MOROCCO",
+      "league": "Botola Pro",
+      "homeTeam": "Berkane",
+      "awayTeam": "IR Tanger",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/E5SohGZQ/?s=2",
+      "discoveredAt": "2026-06-08T18:52:32.910Z",
+      "cycleId": 107
+    },
+    {
+      "matchId": "6uPwfx5E",
+      "country": "MOROCCO",
+      "league": "Botola Pro",
+      "homeTeam": "Wydad AC",
+      "awayTeam": "Olympique de Safi",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/6uPwfx5E/?s=2",
+      "discoveredAt": "2026-06-08T18:52:32.910Z",
+      "cycleId": 107
+    },
+    {
+      "matchId": "v3G9od7L",
+      "country": "WORLD",
+      "league": "Friendly International Women",
+      "homeTeam": "Germany U23 W",
+      "awayTeam": "Denmark U23 W",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/v3G9od7L/?s=2",
+      "discoveredAt": "2026-06-08T19:01:57.725Z",
+      "cycleId": 110
+    },
+    {
+      "matchId": "fFby3KRr",
+      "country": "WORLD",
+      "league": "Friendly International",
+      "homeTeam": "Niger",
+      "awayTeam": "Mauritania",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/fFby3KRr/?s=2",
+      "discoveredAt": "2026-06-08T19:53:04.605Z",
+      "cycleId": 133
+    },
+    {
+      "matchId": "CMxR1EoB",
+      "country": "USA",
+      "league": "MLS Next Pro",
+      "homeTeam": "Columbus Crew 2",
+      "awayTeam": "Connecticut FC",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/CMxR1EoB/?s=2",
+      "discoveredAt": "2026-06-08T19:53:04.605Z",
+      "cycleId": 133
+    },
+    {
+      "matchId": "rwIRhLoo",
+      "country": "WORLD",
+      "league": "Friendly International Women",
+      "homeTeam": "Ivory Coast W",
+      "awayTeam": "Cape Verde W",
+      "currentStatus": "Half Time",
+      "matchUrl": "/match/rwIRhLoo/?s=2",
+      "discoveredAt": "2026-06-08T19:53:04.605Z",
+      "cycleId": 133
+    }
+  ]
+}

@@ -1,0 +1,752 @@
+{
+  "pYz7vh4c": {
+    "matchId": "pYz7vh4c",
+    "country": "COLOMBIA",
+    "league": "Primera A - Apertura - Play Offs",
+    "homeTeam": "Atl. Nacional",
+    "awayTeam": "Junior",
+    "matchUrl": "/match/pYz7vh4c/?s=2",
+    "status": "enriched",
+    "enrichedAt": "2026-06-08T22:46:33.200Z",
+    "tabs": {
+      "stats": true,
+      "standings": false,
+      "h2h": true
+    },
+    "odds": {
+      "home": 1.54,
+      "draw": 4.64,
+      "away": 5.93,
+      "isOddsFavorite": {
+        "favorite": "home",
+        "margin": 0.26,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "detailed",
+    "statistics": {
+      "capturedAtStatus": "45+'",
+      "baseline1HCapturedAtStatus": "45+'",
+      "1half": {
+        "home": {
+          "expectedGoalsXg": 0.46,
+          "ballPossession": 69,
+          "totalShots": 12,
+          "shotsOnTarget": 1,
+          "bigChances": 0,
+          "cornerKicks": 6,
+          "passes": 81,
+          "passesMade": 161,
+          "passesAttempted": 198,
+          "xgOnTargetXgot": 0.16,
+          "shotsOffTarget": 7,
+          "blockedShots": 4,
+          "shotsInsideTheBox": 4,
+          "shotsOutsideTheBox": 6,
+          "hitTheWoodwork": 2,
+          "touchesInOppositionBox": 14,
+          "accurateThroughPasses": 0,
+          "offsides": 1,
+          "freeKicks": 5,
+          "longPasses": 57,
+          "longPassesMade": 17,
+          "longPassesAttempted": 30,
+          "passesInFinalThird": 63,
+          "passesInFinalThirdMade": 42,
+          "passesInFinalThirdAttempted": 67,
+          "crosses": 19,
+          "crossesMade": 3,
+          "crossesAttempted": 16,
+          "expectedAssistsXa": 0.59,
+          "throwIns": 8,
+          "fouls": 2,
+          "tackles": 67,
+          "tacklesMade": 2,
+          "tacklesAttempted": 3,
+          "duelsWon": 12,
+          "clearances": 4,
+          "interceptions": 3,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 1,
+          "xgotFaced": 0.02,
+          "goalsPrevented": 0.02
+        },
+        "away": {
+          "expectedGoalsXg": 0.14,
+          "ballPossession": 31,
+          "totalShots": 4,
+          "shotsOnTarget": 1,
+          "bigChances": 0,
+          "cornerKicks": 4,
+          "passes": 62,
+          "passesMade": 56,
+          "passesAttempted": 91,
+          "xgOnTargetXgot": 0.02,
+          "shotsOffTarget": 0,
+          "blockedShots": 3,
+          "shotsInsideTheBox": 0,
+          "shotsOutsideTheBox": 4,
+          "hitTheWoodwork": 0,
+          "touchesInOppositionBox": 1,
+          "accurateThroughPasses": 0,
+          "offsides": 1,
+          "freeKicks": 2,
+          "longPasses": 26,
+          "longPassesMade": 7,
+          "longPassesAttempted": 27,
+          "passesInFinalThird": 54,
+          "passesInFinalThirdMade": 22,
+          "passesInFinalThirdAttempted": 41,
+          "crosses": 14,
+          "crossesMade": 1,
+          "crossesAttempted": 7,
+          "expectedAssistsXa": 0.04,
+          "throwIns": 5,
+          "fouls": 5,
+          "tackles": 56,
+          "tacklesMade": 5,
+          "tacklesAttempted": 9,
+          "duelsWon": 13,
+          "clearances": 18,
+          "interceptions": 6,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 1,
+          "xgotFaced": 0.16,
+          "goalsPrevented": 0.16
+        },
+        "overall": {
+          "expectedGoalsXg": 0.6,
+          "ballPossession": null,
+          "totalShots": 16,
+          "shotsOnTarget": 2,
+          "bigChances": 0,
+          "cornerKicks": 10,
+          "passes": null,
+          "passesMade": 217,
+          "passesAttempted": 289,
+          "xgOnTargetXgot": 0.18,
+          "shotsOffTarget": 7,
+          "blockedShots": 7,
+          "shotsInsideTheBox": 4,
+          "shotsOutsideTheBox": 10,
+          "hitTheWoodwork": 2,
+          "touchesInOppositionBox": 15,
+          "accurateThroughPasses": 0,
+          "offsides": 2,
+          "freeKicks": 7,
+          "longPasses": null,
+          "longPassesMade": 24,
+          "longPassesAttempted": 57,
+          "passesInFinalThird": null,
+          "passesInFinalThirdMade": 64,
+          "passesInFinalThirdAttempted": 108,
+          "crosses": null,
+          "crossesMade": 4,
+          "crossesAttempted": 23,
+          "expectedAssistsXa": 0.63,
+          "throwIns": 13,
+          "fouls": 7,
+          "tackles": null,
+          "tacklesMade": 7,
+          "tacklesAttempted": 12,
+          "duelsWon": 25,
+          "clearances": 22,
+          "interceptions": 9,
+          "errorsLeadingToShot": 0,
+          "errorsLeadingToGoal": 0,
+          "goalkeeperSaves": 2,
+          "xgotFaced": 0.18,
+          "goalsPrevented": 0.18
+        }
+      },
+      "rawRows": [
+        {
+          "label": "Expected goals (xG)",
+          "home": "0.46",
+          "away": "0.14"
+        },
+        {
+          "label": "Ball possession",
+          "home": "69%",
+          "away": "31%"
+        },
+        {
+          "label": "Total shots",
+          "home": "12",
+          "away": "4"
+        },
+        {
+          "label": "Shots on target",
+          "home": "1",
+          "away": "1"
+        },
+        {
+          "label": "Big chances",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Corner kicks",
+          "home": "6",
+          "away": "4"
+        },
+        {
+          "label": "Passes",
+          "home": "81% (161/198)",
+          "away": "62% (56/91)"
+        },
+        {
+          "label": "xG on target (xGOT)",
+          "home": "0.16",
+          "away": "0.02"
+        },
+        {
+          "label": "Shots off target",
+          "home": "7",
+          "away": "0"
+        },
+        {
+          "label": "Blocked shots",
+          "home": "4",
+          "away": "3"
+        },
+        {
+          "label": "Shots inside the box",
+          "home": "4",
+          "away": "0"
+        },
+        {
+          "label": "Shots outside the box",
+          "home": "6",
+          "away": "4"
+        },
+        {
+          "label": "Hit the woodwork",
+          "home": "2",
+          "away": "0"
+        },
+        {
+          "label": "Touches in opposition box",
+          "home": "14",
+          "away": "1"
+        },
+        {
+          "label": "Accurate through passes",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Offsides",
+          "home": "1",
+          "away": "1"
+        },
+        {
+          "label": "Free kicks",
+          "home": "5",
+          "away": "2"
+        },
+        {
+          "label": "Long passes",
+          "home": "57% (17/30)",
+          "away": "26% (7/27)"
+        },
+        {
+          "label": "Passes in final third",
+          "home": "63% (42/67)",
+          "away": "54% (22/41)"
+        },
+        {
+          "label": "Crosses",
+          "home": "19% (3/16)",
+          "away": "14% (1/7)"
+        },
+        {
+          "label": "Expected assists (xA)",
+          "home": "0.59",
+          "away": "0.04"
+        },
+        {
+          "label": "Throw ins",
+          "home": "8",
+          "away": "5"
+        },
+        {
+          "label": "Fouls",
+          "home": "2",
+          "away": "5"
+        },
+        {
+          "label": "Tackles",
+          "home": "67% (2/3)",
+          "away": "56% (5/9)"
+        },
+        {
+          "label": "Duels won",
+          "home": "12",
+          "away": "13"
+        },
+        {
+          "label": "Clearances",
+          "home": "4",
+          "away": "18"
+        },
+        {
+          "label": "Interceptions",
+          "home": "3",
+          "away": "6"
+        },
+        {
+          "label": "Errors leading to shot",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Errors leading to goal",
+          "home": "0",
+          "away": "0"
+        },
+        {
+          "label": "Goalkeeper saves",
+          "home": "1",
+          "away": "1"
+        },
+        {
+          "label": "xGOT faced",
+          "home": "0.02",
+          "away": "0.16"
+        },
+        {
+          "label": "Goals prevented",
+          "home": "0.02",
+          "away": "0.16"
+        }
+      ]
+    },
+    "standings": null,
+    "h2h": {
+      "recentForm": {
+        "home": [
+          {
+            "date": "03.06.2026",
+            "daysAgo": 6,
+            "result": "L",
+            "score": "3-0",
+            "vs": "Junior",
+            "matchUrl": "https://www.flashscore.mobi/match/IRrLGlCj/"
+          },
+          {
+            "date": "24.05.2026",
+            "daysAgo": 16,
+            "result": "W",
+            "score": "3-1",
+            "vs": "Deportes Tolima",
+            "matchUrl": "https://www.flashscore.mobi/match/zHW7zBv1/"
+          },
+          {
+            "date": "17.05.2026",
+            "daysAgo": 23,
+            "result": "W",
+            "score": "0-1",
+            "vs": "Deportes Tolima",
+            "matchUrl": "https://www.flashscore.mobi/match/SjTaxX9l/"
+          },
+          {
+            "date": "13.05.2026",
+            "daysAgo": 27,
+            "result": "W",
+            "score": "7-1",
+            "vs": "Inter Bogotá",
+            "matchUrl": "https://www.flashscore.mobi/match/2TXTNyl3/"
+          },
+          {
+            "date": "10.05.2026",
+            "daysAgo": 30,
+            "result": "W",
+            "score": "1-2",
+            "vs": "Inter Bogotá",
+            "matchUrl": "https://www.flashscore.mobi/match/zNur0Yed/"
+          }
+        ],
+        "away": [
+          {
+            "date": "03.06.2026",
+            "daysAgo": 6,
+            "result": "W",
+            "score": "3-0",
+            "vs": "Atl. Nacional",
+            "matchUrl": "https://www.flashscore.mobi/match/IRrLGlCj/"
+          },
+          {
+            "date": "29.05.2026",
+            "daysAgo": 11,
+            "result": "L",
+            "score": "4-1",
+            "vs": "Palmeiras",
+            "matchUrl": "https://www.flashscore.mobi/match/foRg1TMU/"
+          },
+          {
+            "date": "24.05.2026",
+            "daysAgo": 16,
+            "result": "L",
+            "score": "0-0 (Pen: 5-4)",
+            "vs": "Santa Fe",
+            "matchUrl": "https://www.flashscore.mobi/match/zyN1dh1K/"
+          },
+          {
+            "date": "21.05.2026",
+            "daysAgo": 19,
+            "result": "W",
+            "score": "3-2",
+            "vs": "Sporting Cristal",
+            "matchUrl": "https://www.flashscore.mobi/match/GQlHJ1JF/"
+          },
+          {
+            "date": "17.05.2026",
+            "daysAgo": 23,
+            "result": "D",
+            "score": "1-1",
+            "vs": "Santa Fe",
+            "matchUrl": "https://www.flashscore.mobi/match/rszGYl9D/"
+          }
+        ]
+      },
+      "faceToFace": [
+        {
+          "date": "03.06.2026",
+          "daysAgo": 6,
+          "home": "Junior",
+          "away": "Atl. Nacional",
+          "score": "3-0",
+          "matchUrl": "https://www.flashscore.mobi/match/IRrLGlCj/"
+        },
+        {
+          "date": "11.03.2026",
+          "daysAgo": 90,
+          "home": "Junior",
+          "away": "Atl. Nacional",
+          "score": "0-4",
+          "matchUrl": "https://www.flashscore.mobi/match/ncO74chK/"
+        },
+        {
+          "date": "01.12.2025",
+          "daysAgo": 190,
+          "home": "Junior",
+          "away": "Atl. Nacional",
+          "score": "2-1",
+          "matchUrl": "https://www.flashscore.mobi/match/GY18TVI6/"
+        },
+        {
+          "date": "27.11.2025",
+          "daysAgo": 194,
+          "home": "Atl. Nacional",
+          "away": "Junior",
+          "score": "1-1",
+          "matchUrl": "https://www.flashscore.mobi/match/My8QIE4l/"
+        },
+        {
+          "date": "14.11.2025",
+          "daysAgo": 207,
+          "home": "Junior",
+          "away": "Atl. Nacional",
+          "score": "2-1",
+          "matchUrl": "https://www.flashscore.mobi/match/4Uv0ZJio/"
+        }
+      ],
+      "daysSinceLastH2h": 6,
+      "daysSinceLastMatch": {
+        "home": 6,
+        "away": 6
+      }
+    }
+  },
+  "MsrS4TYI": {
+    "matchId": "MsrS4TYI",
+    "country": "URUGUAY",
+    "league": "Liga AUF Uruguaya - Torneo Intermedio",
+    "homeTeam": "Liverpool M.",
+    "awayTeam": "Cerro Largo",
+    "matchUrl": "/match/MsrS4TYI/?s=2",
+    "status": "enriched",
+    "enrichedAt": "2026-06-08T22:46:33.200Z",
+    "tabs": {
+      "stats": true,
+      "standings": true,
+      "h2h": true
+    },
+    "odds": {
+      "home": 2.03,
+      "draw": 3.04,
+      "away": 4.05,
+      "isOddsFavorite": {
+        "favorite": null,
+        "margin": 0,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "basic",
+    "statistics": {
+      "capturedAtStatus": "45+'",
+      "baseline1HCapturedAtStatus": "45+'",
+      "1half": {
+        "home": {
+          "ballPossession": 46,
+          "totalShots": 1,
+          "shotsOnTarget": 0,
+          "cornerKicks": 2,
+          "yellowCards": 1,
+          "shotsOffTarget": 1
+        },
+        "away": {
+          "ballPossession": 54,
+          "totalShots": 2,
+          "shotsOnTarget": 1,
+          "cornerKicks": 0,
+          "yellowCards": 2,
+          "shotsOffTarget": 1
+        },
+        "overall": {
+          "ballPossession": null,
+          "totalShots": 3,
+          "shotsOnTarget": 1,
+          "cornerKicks": 2,
+          "yellowCards": 3,
+          "shotsOffTarget": 2
+        }
+      },
+      "rawRows": [
+        {
+          "label": "Ball possession",
+          "home": "46%",
+          "away": "54%"
+        },
+        {
+          "label": "Total shots",
+          "home": "1",
+          "away": "2"
+        },
+        {
+          "label": "Shots on target",
+          "home": "0",
+          "away": "1"
+        },
+        {
+          "label": "Corner kicks",
+          "home": "2",
+          "away": "0"
+        },
+        {
+          "label": "Yellow cards",
+          "home": "1",
+          "away": "2"
+        },
+        {
+          "label": "Shots off target",
+          "home": "1",
+          "away": "1"
+        }
+      ]
+    },
+    "standings": {
+      "totalTeams": 8,
+      "home": {
+        "position": 5,
+        "mp": 3,
+        "w": 1,
+        "d": 1,
+        "l": 1,
+        "gd": 0,
+        "pts": 4
+      },
+      "away": {
+        "position": 3,
+        "mp": 3,
+        "w": 2,
+        "d": 0,
+        "l": 1,
+        "gd": 4,
+        "pts": 6
+      },
+      "favoriteStrength": {
+        "label": "balanced",
+        "score": 0.26,
+        "favorite": "away",
+        "components": {
+          "positionScore": 0.25,
+          "pointsScore": 0.22,
+          "goalDiffScore": 0.25,
+          "winRateScore": 0.33
+        }
+      }
+    },
+    "h2h": {
+      "recentForm": {
+        "home": [
+          {
+            "date": "01.06.2026",
+            "daysAgo": 8,
+            "result": "W",
+            "score": "0-1",
+            "vs": "Boston River",
+            "matchUrl": "https://www.flashscore.mobi/match/dbanhjkD/"
+          },
+          {
+            "date": "23.05.2026",
+            "daysAgo": 17,
+            "result": "D",
+            "score": "0-0",
+            "vs": "Racing Montevideo",
+            "matchUrl": "https://www.flashscore.mobi/match/x4wVv8O6/"
+          },
+          {
+            "date": "17.05.2026",
+            "daysAgo": 23,
+            "result": "L",
+            "score": "2-1",
+            "vs": "Penarol",
+            "matchUrl": "https://www.flashscore.mobi/match/KMLZ5bq4/"
+          },
+          {
+            "date": "09.05.2026",
+            "daysAgo": 31,
+            "result": "L",
+            "score": "1-0",
+            "vs": "Wanderers",
+            "matchUrl": "https://www.flashscore.mobi/match/lCpkOq0L/"
+          },
+          {
+            "date": "03.05.2026",
+            "daysAgo": 37,
+            "result": "W",
+            "score": "3-0",
+            "vs": "Danubio",
+            "matchUrl": "https://www.flashscore.mobi/match/Onv3TtRq/"
+          }
+        ],
+        "away": [
+          {
+            "date": "30.05.2026",
+            "daysAgo": 10,
+            "result": "W",
+            "score": "2-0",
+            "vs": "CA Cerro",
+            "matchUrl": "https://www.flashscore.mobi/match/WxqXeYkl/"
+          },
+          {
+            "date": "23.05.2026",
+            "daysAgo": 17,
+            "result": "W",
+            "score": "3-0",
+            "vs": "Boston River",
+            "matchUrl": "https://www.flashscore.mobi/match/AHywwngJ/"
+          },
+          {
+            "date": "17.05.2026",
+            "daysAgo": 23,
+            "result": "L",
+            "score": "1-0",
+            "vs": "Racing Montevideo",
+            "matchUrl": "https://www.flashscore.mobi/match/00Nk2GrT/"
+          },
+          {
+            "date": "12.05.2026",
+            "daysAgo": 28,
+            "result": "L",
+            "score": "2-3",
+            "vs": "Penarol",
+            "matchUrl": "https://www.flashscore.mobi/match/h8ZSG1he/"
+          },
+          {
+            "date": "03.05.2026",
+            "daysAgo": 37,
+            "result": "W",
+            "score": "0-1",
+            "vs": "Progreso",
+            "matchUrl": "https://www.flashscore.mobi/match/d0xBRKed/"
+          }
+        ]
+      },
+      "faceToFace": [
+        {
+          "date": "01.03.2026",
+          "daysAgo": 100,
+          "home": "Liverpool M.",
+          "away": "Cerro Largo",
+          "score": "2-0",
+          "matchUrl": "https://www.flashscore.mobi/match/8n4VLob2/"
+        },
+        {
+          "date": "08.11.2025",
+          "daysAgo": 213,
+          "home": "Cerro Largo",
+          "away": "Liverpool M.",
+          "score": "2-0",
+          "matchUrl": "https://www.flashscore.mobi/match/rNxd6XdE/"
+        },
+        {
+          "date": "07.06.2025",
+          "daysAgo": 367,
+          "home": "Liverpool M.",
+          "away": "Cerro Largo",
+          "score": "2-1",
+          "matchUrl": "https://www.flashscore.mobi/match/lxNTKkNq/"
+        },
+        {
+          "date": "18.05.2025",
+          "daysAgo": 387,
+          "home": "Liverpool M.",
+          "away": "Cerro Largo",
+          "score": "1-0",
+          "matchUrl": "https://www.flashscore.mobi/match/6TqVam14/"
+        },
+        {
+          "date": "14.11.2024",
+          "daysAgo": 572,
+          "home": "Cerro Largo",
+          "away": "Liverpool M.",
+          "score": "0-0",
+          "matchUrl": "https://www.flashscore.mobi/match/QXb6IStp/"
+        }
+      ],
+      "daysSinceLastH2h": 100,
+      "daysSinceLastMatch": {
+        "home": 8,
+        "away": 10
+      }
+    }
+  },
+  "zsh6kotf": {
+    "matchId": "zsh6kotf",
+    "country": "BRAZIL",
+    "league": "Mineiro 2",
+    "homeTeam": "Mamore",
+    "awayTeam": "Uberaba",
+    "matchUrl": "/match/zsh6kotf/?s=2",
+    "status": "skip:no_stats",
+    "skippedAt": "2026-06-08T23:16:20.212Z",
+    "reason": "no stats tab in #detail-tabs"
+  },
+  "SUZwsT6M": {
+    "matchId": "SUZwsT6M",
+    "country": "USA",
+    "league": "USL League Two",
+    "homeTeam": "Brave SC",
+    "awayTeam": "Sporting Jax 2",
+    "matchUrl": "/match/SUZwsT6M/?s=2",
+    "status": "skip:no_stats",
+    "skippedAt": "2026-06-08T23:46:55.061Z",
+    "reason": "no stats tab in #detail-tabs"
+  },
+  "EBBSyucL": {
+    "matchId": "EBBSyucL",
+    "country": "WORLD",
+    "league": "Friendly International Women",
+    "homeTeam": "Panama W",
+    "awayTeam": "Jamaica W",
+    "matchUrl": "/match/EBBSyucL/?s=2",
+    "status": "skip:no_stats",
+    "skippedAt": "2026-06-09T01:50:08.943Z",
+    "reason": "no stats tab in #detail-tabs"
+  }
+}

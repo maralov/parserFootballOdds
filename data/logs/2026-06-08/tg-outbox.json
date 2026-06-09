@@ -1,0 +1,82 @@
+[
+  {
+    "matchId": "APPmFuWr",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-08T15:25:33.914Z",
+    "status": "pending_result",
+    "entry": {
+      "messageId": 1992,
+      "sentAt": "2026-06-08T15:25:34.094Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 87,
+      "psScore": null,
+      "pNoGoal": 0.4665,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": 1.1645,
+      "reasoning": "Фаворит (Belarus U21) не пробиває до 26': xG=?, у площину=0. DS1H=87.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 0,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "E5SohGZQ",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-08T18:24:05.897Z",
+    "status": "pending_result",
+    "entry": {
+      "messageId": 1993,
+      "sentAt": "2026-06-08T18:24:06.097Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 25,
+      "score": "0:0",
+      "dsScore": 90,
+      "psScore": null,
+      "pNoGoal": 0.48,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": 1.1856,
+      "reasoning": "Фаворит (Berkane) не пробиває до 25': xG=?, у площину=0. DS1H=90.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 0,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  }
+]

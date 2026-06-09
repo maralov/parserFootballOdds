@@ -1,0 +1,52 @@
+[
+  {
+    "matchId": "pYz7vh4c",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-08T22:25:16.046Z",
+    "status": "queued",
+    "entry": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 1,
+      "lastError": "400: Bad Request: can't parse entities: Character '-' is reserved and must be escaped with the preceding '\\'"
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 85,
+      "psScore": null,
+      "pNoGoal": 0.4575,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": 1.1505,
+      "reasoning": "Фаворит (Atl. Nacional) не пробиває до 26': xG=0.09, у площину=0. DS1H=85.",
+      "keySignals": [
+        {
+          "signal": "fav_xg",
+          "value": 0.09,
+          "weight": "high"
+        },
+        {
+          "signal": "fav_shots_on_target",
+          "value": 0,
+          "weight": "high"
+        },
+        {
+          "signal": "tempo_dryness",
+          "value": 83.75,
+          "weight": "med"
+        }
+      ],
+      "calibrated": false
+    }
+  }
+]

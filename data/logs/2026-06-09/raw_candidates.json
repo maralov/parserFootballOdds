@@ -1,0 +1,61 @@
+{
+  "date": "2026-06-09",
+  "updatedAt": "2026-06-09T02:06:37.362Z",
+  "candidates": [
+    {
+      "matchId": "pYz7vh4c",
+      "country": "COLOMBIA",
+      "league": "Primera A - Apertura - Play Offs",
+      "homeTeam": "Atl. Nacional",
+      "awayTeam": "Junior",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/pYz7vh4c/?s=2",
+      "discoveredAt": "2026-06-08T22:46:33.199Z",
+      "cycleId": 191
+    },
+    {
+      "matchId": "MsrS4TYI",
+      "country": "URUGUAY",
+      "league": "Liga AUF Uruguaya - Torneo Intermedio",
+      "homeTeam": "Liverpool M.",
+      "awayTeam": "Cerro Largo",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/MsrS4TYI/?s=2",
+      "discoveredAt": "2026-06-08T22:46:33.199Z",
+      "cycleId": 191
+    },
+    {
+      "matchId": "zsh6kotf",
+      "country": "BRAZIL",
+      "league": "Mineiro 2",
+      "homeTeam": "Mamore",
+      "awayTeam": "Uberaba",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/zsh6kotf/?s=2",
+      "discoveredAt": "2026-06-08T23:16:20.211Z",
+      "cycleId": 203
+    },
+    {
+      "matchId": "SUZwsT6M",
+      "country": "USA",
+      "league": "USL League Two",
+      "homeTeam": "Brave SC",
+      "awayTeam": "Sporting Jax 2",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/SUZwsT6M/?s=2",
+      "discoveredAt": "2026-06-08T23:46:55.061Z",
+      "cycleId": 216
+    },
+    {
+      "matchId": "EBBSyucL",
+      "country": "WORLD",
+      "league": "Friendly International Women",
+      "homeTeam": "Panama W",
+      "awayTeam": "Jamaica W",
+      "currentStatus": "45+'",
+      "matchUrl": "/match/EBBSyucL/?s=2",
+      "discoveredAt": "2026-06-09T01:50:08.943Z",
+      "cycleId": 250
+    }
+  ]
+}
