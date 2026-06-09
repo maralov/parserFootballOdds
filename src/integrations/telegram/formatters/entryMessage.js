@@ -58,7 +58,7 @@ function formatEntryMessage({ match, prediction, decisionKey, minute, score }) {
 
   const league = match.league || match.tournament || 'Unknown league';
   const country = match.country || '';
-  const leagueLine = country ? `${league} \\(${escapeMarkdownV2(country)}\\)` : escapeMarkdownV2(league);
+  const leagueLine = country ? `${escapeMarkdownV2(league)} \\(${escapeMarkdownV2(country)}\\)` : escapeMarkdownV2(league);
   const scoreText = score || '0:0';
   const desktopUrl = buildFlashscoreDesktopUrl(match.matchUrl || match.url);
 
