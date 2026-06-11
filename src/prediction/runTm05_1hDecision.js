@@ -41,14 +41,26 @@ async function runTm05_1hDecision(matchId, snapshot, date = new Date(), deps = {
     decidedAt: new Date().toISOString(),
   }, date);
 
-  if (ds.score == null || ds.score < cfg.LIVE_1H_DS_THRESHOLD_MIN) {
+  // Inverted TEST mode: bet exactly on the band the normal gate skips, and skip
+  // everything else. The DS-band membership IS the BET/SKIP decision here — the
+  // EV gate (built on the non-inverted probability mapping) is bypassed below.
+  const inverted = cfg.LIVE_1H_INVERT_DECISION === true;
+  const inBand = ds.score != null
+    && ds.score >= cfg.LIVE_1H_INVERT_DS_MIN
+    && ds.score <= cfg.LIVE_1H_INVERT_DS_MAX;
+
+  const skip = inverted
+    ? !inBand
+    : (ds.score == null || ds.score < cfg.LIVE_1H_DS_THRESHOLD_MIN);
+
+  if (skip) {
     store.setTm05_1hDecision(matchId, {
       phase: 'skipped_by_ds',
       dsScore: ds.score,
-      decision: 'SKIP',
+      decision: inverted ? 'SKIP_INVERTED' : 'SKIP',
       decidedAt: new Date().toISOString(),
     }, date);
-    logger.info('runTm05_1hDecision: SKIP by DS', { matchId, ds: ds.score, minute });
+    logger.info('runTm05_1hDecision: SKIP by DS', { matchId, ds: ds.score, minute, inverted });
     return { status: 'skipped_by_ds', dsScore: ds.score };
   }
 
@@ -56,12 +68,14 @@ async function runTm05_1hDecision(matchId, snapshot, date = new Date(), deps = {
   const confidence = cfg.LIVE_1H_CONFIDENCE;
   const odds = tm05_1hOddsAt(minute);
 
-  const gate = evaluateEvGate({
-    probability,
-    confidence,
-    odds,
-    baseline: cfg.LIVE_1H_BASELINE_P,
-  });
+  const gate = inverted
+    ? { pass: true, reason: 'inverted_test', ev: null, pAdj: null }
+    : evaluateEvGate({
+      probability,
+      confidence,
+      odds,
+      baseline: cfg.LIVE_1H_BASELINE_P,
+    });
 
   // Goal-during-decision race: any goal before halftime kills the line.
   const fresh = store.getMatch(matchId, date);

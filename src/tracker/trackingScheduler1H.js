@@ -9,6 +9,7 @@ const logger     = require('../observability/logger');
 
 // ─── State ────────────────────────────────────────────────────────────────────
 const timers = new Map();  // matchId → Timeout
+const dates  = new Map();   // matchId → Date (the match's opening day; pins the store dir)
 const seen = new Set();     // matchIds already considered this process (avoid re-enrich)
 let limit = null;
 
@@ -19,19 +20,25 @@ function jitterMs() {
 function _cancel(matchId) {
   const t = timers.get(matchId);
   if (t) { clearTimeout(t); timers.delete(matchId); }
+  dates.delete(matchId);
 }
 
 function _schedule(matchId, delayMs) {
+  // Pin the store directory to the match's opening day so timers that fire
+  // after midnight don't look the match up in the (empty) next-day store.
+  // Read it before _cancel (which clears the dates entry).
+  const date = dates.get(matchId);
   _cancel(matchId);
+  if (date) dates.set(matchId, date);
   const actualDelay = Math.max(0, delayMs + jitterMs());
-  matchStore.setNextSnapshotAt(matchId, new Date(Date.now() + actualDelay).toISOString());
+  matchStore.setNextSnapshotAt(matchId, new Date(Date.now() + actualDelay).toISOString(), date);
 
   const timer = setTimeout(async () => {
     timers.delete(matchId);
-    matchStore.setNextSnapshotAt(matchId, null);
+    matchStore.setNextSnapshotAt(matchId, null, date);
     if (!limit) return;
     try {
-      const status = await limit(() => collectSnapshot1H(matchId, _schedule));
+      const status = await limit(() => collectSnapshot1H(matchId, _schedule, date));
       if (status === 'handoff_2h') {
         logger.info('trackingScheduler1H: match handed off to 2H track', { matchId });
       }
@@ -55,6 +62,7 @@ function start() {
 function stop() {
   for (const [, timer] of timers) clearTimeout(timer);
   timers.clear();
+  dates.clear();
   logger.info('trackingScheduler1H: stopped');
 }
 
@@ -74,6 +82,7 @@ function register(enrichedItem, date = new Date()) {
 
   const { matchId } = enrichedItem;
   seen.add(matchId);
+  dates.set(matchId, date);
 
   const record = matchStore.upsertFromEnrichment(enrichedItem, date);
   // A 1H candidate at ~15' has no clean baseline1H yet; that's expected. Keep it
@@ -85,6 +94,7 @@ function register(enrichedItem, date = new Date()) {
     record.tracking.discardReason = null;
     matchStore.writeStore(matchStore.readStore(date), date);
   } else if (record.tracking.status !== 'active') {
+    dates.delete(matchId);
     return;
   }
 

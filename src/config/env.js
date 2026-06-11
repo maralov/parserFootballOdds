@@ -93,6 +93,12 @@ const env = {
   LIVE_1H_DECISION_MAX: envInt('LIVE_1H_DECISION_MAX', 35),
   // Gate parameters
   LIVE_1H_DS_THRESHOLD_MIN: envInt('LIVE_1H_DS_THRESHOLD_MIN', 70),
+  // Inverted-decision TEST mode: signal exactly on the band the normal gate
+  // skips (DS in [MIN,MAX]) and skip everything else. EV gate is bypassed in
+  // this mode. Formulas are untouched — only the BET/SKIP branch flips.
+  LIVE_1H_INVERT_DECISION: envBool('LIVE_1H_INVERT_DECISION', false),
+  LIVE_1H_INVERT_DS_MIN: envInt('LIVE_1H_INVERT_DS_MIN', 20),
+  LIVE_1H_INVERT_DS_MAX: envInt('LIVE_1H_INVERT_DS_MAX', 64),
   LIVE_1H_BASELINE_P: Number(process.env.LIVE_1H_BASELINE_P) || 0.42,
   LIVE_1H_CONFIDENCE: Number(process.env.LIVE_1H_CONFIDENCE) || 0.6,
   LIVE_1H_CALIBRATED: envBool('LIVE_1H_CALIBRATED', false),

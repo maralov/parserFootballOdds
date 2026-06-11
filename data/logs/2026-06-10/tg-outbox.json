@@ -1,14 +1,134 @@
 [
   {
-    "matchId": "pYz7vh4c",
+    "matchId": "GtOfHHVq",
     "decisionKey": "tm05_1h",
     "tier": null,
-    "createdAt": "2026-06-08T22:25:16.046Z",
+    "createdAt": "2026-06-10T17:25:39.380Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2021,
+      "sentAt": "2026-06-10T17:25:39.581Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2025,
+      "sentAt": "2026-06-10T17:29:53.221Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 89,
+      "psScore": null,
+      "pNoGoal": 0.4755,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": 1.1786,
+      "reasoning": "Фаворит (Varberg) не пробиває до 26' (у площину=0). DS1H=89.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 0,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "riROjjeS",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-10T17:25:48.125Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2022,
+      "sentAt": "2026-06-10T17:25:48.548Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2026,
+      "sentAt": "2026-06-10T17:44:32.729Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 84,
+      "psScore": null,
+      "pNoGoal": 0.453,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": 1.1435,
+      "reasoning": "Фаворит (Karlstad) не пробиває до 26' (у площину=0). DS1H=84.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 0,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "ARycDHv3",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-10T19:40:51.894Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2027,
+      "sentAt": "2026-06-10T19:40:52.102Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2029,
+      "sentAt": "2026-06-10T19:52:40.837Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 90,
+      "psScore": null,
+      "pNoGoal": 0.48,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": 1.1856,
+      "reasoning": "Фаворит (Throttur Vogar) не пробиває до 26' (у площину=0). DS1H=90.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 0,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "jV9sCp8t",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-10T20:25:48.950Z",
     "status": "pending_result",
     "entry": {
-      "messageId": 2001,
-      "sentAt": "2026-06-09T11:36:09.863Z",
-      "attempts": 1,
+      "messageId": 2030,
+      "sentAt": "2026-06-10T20:25:49.116Z",
+      "attempts": 0,
       "lastError": null
     },
     "result": {
@@ -21,144 +141,14 @@
     "snapshot": {
       "minute": 26,
       "score": "0:0",
-      "dsScore": 85,
+      "dsScore": 91,
       "psScore": null,
-      "pNoGoal": 0.4575,
+      "pNoGoal": 0.4845,
       "pGoal": null,
       "confidence": 0.6,
       "odds": 2.6,
-      "ev": 1.1505,
-      "reasoning": "Фаворит (Atl. Nacional) не пробиває до 26': xG=0.09, у площину=0. DS1H=85.",
-      "keySignals": [
-        {
-          "signal": "fav_xg",
-          "value": 0.09,
-          "weight": "high"
-        },
-        {
-          "signal": "fav_shots_on_target",
-          "value": 0,
-          "weight": "high"
-        },
-        {
-          "signal": "tempo_dryness",
-          "value": 83.75,
-          "weight": "med"
-        }
-      ],
-      "calibrated": false
-    }
-  },
-  {
-    "matchId": "4W2PFVcJ",
-    "decisionKey": "tm05_1h",
-    "tier": null,
-    "createdAt": "2026-06-09T15:25:22.156Z",
-    "status": "resolved",
-    "entry": {
-      "messageId": 2008,
-      "sentAt": "2026-06-09T15:25:22.327Z",
-      "attempts": 0,
-      "lastError": null
-    },
-    "result": {
-      "messageId": 2010,
-      "sentAt": "2026-06-09T15:27:27.948Z",
-      "attempts": 0,
-      "lastError": null,
-      "hit": false
-    },
-    "snapshot": {
-      "minute": 26,
-      "score": "0:0",
-      "dsScore": 85,
-      "psScore": null,
-      "pNoGoal": 0.4575,
-      "pGoal": null,
-      "confidence": 0.6,
-      "odds": 2.6,
-      "ev": 1.1505,
-      "reasoning": "Фаворит (Tajikistan) не пробиває до 26' (у площину=0). DS1H=85.",
-      "keySignals": [
-        {
-          "signal": "fav_shots_on_target",
-          "value": 0,
-          "weight": "high"
-        }
-      ],
-      "calibrated": false
-    }
-  },
-  {
-    "matchId": "CdEoBiMa",
-    "decisionKey": "tm05_1h",
-    "tier": null,
-    "createdAt": "2026-06-09T16:26:01.810Z",
-    "status": "resolved",
-    "entry": {
-      "messageId": 2013,
-      "sentAt": "2026-06-09T16:26:02.117Z",
-      "attempts": 0,
-      "lastError": null
-    },
-    "result": {
-      "messageId": 2017,
-      "sentAt": "2026-06-09T16:44:37.201Z",
-      "attempts": 0,
-      "lastError": null,
-      "hit": true
-    },
-    "snapshot": {
-      "minute": 26,
-      "score": "0:0",
-      "dsScore": 86,
-      "psScore": null,
-      "pNoGoal": 0.462,
-      "pGoal": null,
-      "confidence": 0.6,
-      "odds": 2.6,
-      "ev": 1.1575,
-      "reasoning": "Фаворит (Georgia U21) не пробиває до 26' (у площину=0). DS1H=86.",
-      "keySignals": [
-        {
-          "signal": "fav_shots_on_target",
-          "value": 0,
-          "weight": "high"
-        }
-      ],
-      "calibrated": false
-    }
-  },
-  {
-    "matchId": "CA8oLJv1",
-    "decisionKey": "tm05_1h",
-    "tier": null,
-    "createdAt": "2026-06-09T17:24:22.299Z",
-    "status": "resolved",
-    "entry": {
-      "messageId": 2018,
-      "sentAt": "2026-06-09T17:24:22.467Z",
-      "attempts": 0,
-      "lastError": null
-    },
-    "result": {
-      "messageId": 2020,
-      "sentAt": "2026-06-09T17:30:06.744Z",
-      "attempts": 0,
-      "lastError": null,
-      "hit": false
-    },
-    "snapshot": {
-      "minute": 25,
-      "score": "0:0",
-      "dsScore": 84,
-      "psScore": null,
-      "pNoGoal": 0.453,
-      "pGoal": null,
-      "confidence": 0.6,
-      "odds": 2.6,
-      "ev": 1.1435,
-      "reasoning": "Фаворит (Switzerland W) не пробиває до 25' (у площину=0). DS1H=84.",
+      "ev": 1.1926,
+      "reasoning": "Фаворит (Marica) не пробиває до 26' (у площину=0). DS1H=91.",
       "keySignals": [
         {
           "signal": "fav_shots_on_target",

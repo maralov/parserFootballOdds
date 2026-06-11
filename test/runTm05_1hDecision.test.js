@@ -110,6 +110,62 @@ test('reasoning formats favorite xG to 2 decimals when present', async () => {
   assert.doesNotMatch(reasoning, /\?/);
 });
 
+// ── Inverted-decision test mode (LIVE_1H_INVERT_DECISION) ────────────────────
+// Behind the flag we REVERT the decision: signal exactly on the band that the
+// normal gate skips (DS in [INVERT_DS_MIN, INVERT_DS_MAX]) and skip everything
+// else. No formula changes — only the BET/SKIP branch flips. The EV gate is
+// bypassed because it is built on the non-inverted probability mapping and would
+// block these low-DS matches.
+const CFG_INVERTED = {
+  ...CFG,
+  LIVE_1H_INVERT_DECISION: true,
+  LIVE_1H_INVERT_DS_MIN: 20,
+  LIVE_1H_INVERT_DS_MAX: 64,
+};
+
+// Basic-stats "leader active early but quieted" snapshot: favorite (home) has
+// 2 shots on target → fav_shots component ≈ 20, balanced possession → DS ≈ 37.
+// In normal mode DS < 70 → skipped; in inverted mode 20 ≤ 37 ≤ 64 → signal.
+const BAND_SNAP = {
+  observedMinute: 25,
+  cumulative: {
+    shotsOnTarget: { home: 2, away: 0 },
+    totalShots: { home: 3, away: 1 },
+  },
+  ballPossession: { home: 55, away: 45 },
+};
+
+test('inverted mode: DS in band → signal + telegram enqueue', async () => {
+  const store = fakeStore(baseRecord());
+  const calls = [];
+  const tg = { enqueueEntry: (a) => { calls.push(a); return Promise.resolve(); } };
+  const res = await runTm05_1hDecision('m1', BAND_SNAP, new Date(), { env: CFG_INVERTED, matchStore: store, tgDispatcher: tg });
+  assert.equal(res.status, 'signal');
+  await new Promise((r) => setImmediate(r));
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].decisionKey, 'tm05_1h');
+});
+
+test('inverted mode: high DS (normal signal) → skipped', async () => {
+  // DRY_SNAP yields DS ≈ 90, above the inverted band → now a SKIP.
+  const store = fakeStore(baseRecord());
+  const res = await runTm05_1hDecision('m1', DRY_SNAP, new Date(), { env: CFG_INVERTED, matchStore: store });
+  assert.equal(res.status, 'skipped_by_ds');
+});
+
+test('inverted mode: very active favorite below band (DS < 20) → skipped', async () => {
+  // ACTIVE_SNAP yields DS ≈ 11, below the band lower bound → SKIP.
+  const store = fakeStore(baseRecord());
+  const res = await runTm05_1hDecision('m1', ACTIVE_SNAP, new Date(), { env: CFG_INVERTED, matchStore: store });
+  assert.equal(res.status, 'skipped_by_ds');
+});
+
+test('inverted mode: goal before halftime still wins → goal_during_decision', async () => {
+  const store = fakeStore(baseRecord({ tracking: { status: 'active', firstGoalMinute: 22 } }));
+  const res = await runTm05_1hDecision('m1', BAND_SNAP, new Date(), { env: CFG_INVERTED, matchStore: store });
+  assert.equal(res.status, 'goal_during_decision');
+});
+
 test('reasoning omits xG (no bare "?") when xG stat is missing', async () => {
   // Basic-stats match: no xG, but dry by shots/touches → still a signal.
   const noXgSnap = {
