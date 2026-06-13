@@ -1,0 +1,129 @@
+{
+  "m": {
+    "matchId": "m",
+    "country": null,
+    "league": null,
+    "homeTeam": null,
+    "awayTeam": null,
+    "matchUrl": null,
+    "discoveredAt": null,
+    "enrichedAt": "2026-06-13T10:55:13.563Z",
+    "odds": null,
+    "statsLevel": null,
+    "baseline1H": {
+      "totalShots": {
+        "home": null,
+        "away": null
+      },
+      "shotsOnTarget": {
+        "home": null,
+        "away": null
+      },
+      "cornerKicks": {
+        "home": null,
+        "away": null
+      },
+      "expectedGoalsXg": {
+        "home": null,
+        "away": null
+      },
+      "yellowCards": {
+        "home": null,
+        "away": null
+      },
+      "redCards": {
+        "home": null,
+        "away": null
+      },
+      "xgOnTargetXgot": {
+        "home": null,
+        "away": null
+      },
+      "bigChances": {
+        "home": null,
+        "away": null
+      },
+      "shotsInsideTheBox": {
+        "home": null,
+        "away": null
+      },
+      "shotsOutsideTheBox": {
+        "home": null,
+        "away": null
+      },
+      "blockedShots": {
+        "home": null,
+        "away": null
+      },
+      "touchesInOppositionBox": {
+        "home": null,
+        "away": null
+      },
+      "expectedAssistsXa": {
+        "home": null,
+        "away": null
+      },
+      "goalkeeperSaves": {
+        "home": null,
+        "away": null
+      },
+      "goalsPrevented": {
+        "home": null,
+        "away": null
+      },
+      "passesMade": {
+        "home": null,
+        "away": null
+      },
+      "passesAttempted": {
+        "home": null,
+        "away": null
+      },
+      "passesInFinalThirdMade": {
+        "home": null,
+        "away": null
+      },
+      "passesInFinalThirdAttempted": {
+        "home": null,
+        "away": null
+      },
+      "crossesMade": {
+        "home": null,
+        "away": null
+      },
+      "crossesAttempted": {
+        "home": null,
+        "away": null
+      },
+      "accurateThroughPasses": {
+        "home": null,
+        "away": null
+      },
+      "freeKicks": {
+        "home": null,
+        "away": null
+      },
+      "offsides": {
+        "home": null,
+        "away": null
+      }
+    },
+    "tracking": {
+      "status": "active",
+      "discardReason": null,
+      "validForPrediction": false,
+      "firstGoalMinute": null,
+      "nextSnapshotAt": null,
+      "snapshotCount": 0,
+      "failureCount": 0
+    },
+    "snapshots": [],
+    "final": null,
+    "derived": null,
+    "predictions": {
+      "tm05": null,
+      "tb05": null,
+      "tm05_1h": null
+    }
+  }
+}

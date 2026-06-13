@@ -3,7 +3,10 @@
 const { escapeMarkdownV2, escapeMarkdownV2LinkUrl } = require('./markdown');
 const { buildFlashscoreDesktopUrl } = require('./flashscoreUrl');
 
-const GGBET_URL = 'https://ggbet.ua/en/live?sportId=football';
+const GGBET_URL   = 'https://ggbet.ua/en/live?sportId=football';
+const VBET_URL    = 'https://www.vbet.ua/en/sports/live/event-view/Soccer/';
+const BETKING_URL = 'https://betking.com.ua/en/sports-book/?page=live';
+const BETON_URL   = 'https://beton.ua/sportsbook/page/live';
 
 function fixed2(value) {
 	if (value == null || !Number.isFinite(Number(value))) return 'n/a';
@@ -94,7 +97,13 @@ function formatEntryMessage({ match, prediction, decisionKey, minute, score }) {
 	if (desktopUrl) {
 		lines.push(`🔗 [Flashscore](${escapeMarkdownV2LinkUrl(desktopUrl)})`);
 	}
-	lines.push(`🎯 [GGBET](${escapeMarkdownV2LinkUrl(GGBET_URL)})`);
+	const bkLinks = [
+		`[GGBET](${escapeMarkdownV2LinkUrl(GGBET_URL)})`,
+		`[VBET](${escapeMarkdownV2LinkUrl(VBET_URL)})`,
+		`[BetKing](${escapeMarkdownV2LinkUrl(BETKING_URL)})`,
+		`[Beton](${escapeMarkdownV2LinkUrl(BETON_URL)})`,
+	].join(' · ');
+	lines.push(`🎯 ${bkLinks}`);
 
 	return lines.join('\n');
 }
@@ -103,4 +112,7 @@ module.exports = {
 	formatEntryMessage,
 	trackLabel,
 	GGBET_URL,
+	VBET_URL,
+	BETKING_URL,
+	BETON_URL,
 };

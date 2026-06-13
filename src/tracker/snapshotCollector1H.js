@@ -103,10 +103,18 @@ async function collectSnapshot1H(matchId, scheduleNext, date = new Date()) {
   }
 
   const header = parseLiveHeader(html);
-  const { scoreHome, scoreAway, minute, statusText, isFinished, isHalftime } = header;
+  const {
+    scoreHome, scoreAway, minute, statusText,
+    isFinished, isHalftime, isSecondHalf, isFirstHalfStoppage, htScore,
+  } = header;
 
-  // Goal before halftime → the first-half bet is a MISS; discard the candidate.
-  if ((scoreHome + scoreAway) > 0 && (minute == null || minute < 45)) {
+  // We're still in the first half (including stoppage) unless an explicit
+  // halftime / 2nd-half / finished marker is set. This is the authoritative
+  // gate for both goal-discard and HT settlement — never minute >= 45.
+  const inFirstHalf = !isHalftime && !isSecondHalf && !isFinished;
+
+  // Goal during the first half (including 45+ stoppage) → MISS.
+  if ((scoreHome + scoreAway) > 0 && inFirstHalf) {
     matchStore.markDiscarded(matchId, 'goal_before_halftime', date);
     const fresh = matchStore.getMatch(matchId, date);
     if (fresh && !isLockedPhase(fresh.predictions?.tm05_1h?.phase)) {
@@ -125,16 +133,42 @@ async function collectSnapshot1H(matchId, scheduleNext, date = new Date()) {
     return 'discarded';
   }
 
-  // Halftime reached → settle the first-half bet at the break.
-  if (isHalftime || (minute != null && minute >= 45)) {
+  // Halftime / 2nd half / finished → settle the first-half bet using the HT
+  // score from the parenthetical when available; otherwise fall back to the
+  // current score (safe at true HT; best-effort during 2nd half or finished).
+  if (isHalftime || isSecondHalf || isFinished) {
     if (env.LIVE_1H_ONLY) {
+      let htHome = scoreHome;
+      let htAway = scoreAway;
+      if (htScore) {
+        htHome = htScore.home;
+        htAway = htScore.away;
+      } else if (!isHalftime) {
+        // No parenthetical and we're past true HT → trust our own goal tracking.
+        const fgm = match?.tracking?.firstGoalMinute;
+        if (fgm == null || fgm > 45) {
+          htHome = 0;
+          htAway = 0;
+        }
+        logger.warn('snapshotCollector1H: settling post-HT without parenthetical', {
+          matchId, statusText, score: `${scoreHome}:${scoreAway}`, firstGoalMinute: fgm ?? null,
+        });
+      }
       const fgm = match?.tracking?.firstGoalMinute ?? null;
-      await resolveOneH(matchId, match, scoreHome, scoreAway, fgm, date);
-      logger.info('snapshotCollector1H: resolved at halftime', { matchId, score: `${scoreHome}:${scoreAway}` });
+      await resolveOneH(matchId, match, htHome, htAway, fgm, date);
+      logger.info('snapshotCollector1H: resolved at halftime', {
+        matchId, statusText, htScore: `${htHome}:${htAway}`,
+      });
       return 'resolved_1h';
     }
     logger.info('snapshotCollector1H: handoff to 2H track', { matchId, minute, statusText });
     return 'handoff_2h';
+  }
+
+  // First-half stoppage (45+X') — poll fast so we don't miss the true HT tick.
+  if (isFirstHalfStoppage || (minute != null && minute >= 45 && inFirstHalf)) {
+    scheduleNext(matchId, Math.min(env.LIVE_1H_POLL_MS, 20_000));
+    return 'snapshot';
   }
 
   // Too early (kickoff lag) — wait for the 20' bucket.

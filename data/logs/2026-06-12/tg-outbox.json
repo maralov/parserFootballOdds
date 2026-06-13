@@ -1,0 +1,162 @@
+[
+  {
+    "matchId": "fVz7s57M",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-12T16:26:07.866Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2034,
+      "sentAt": "2026-06-12T16:26:08.076Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2036,
+      "sentAt": "2026-06-12T16:44:42.803Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": 64,
+      "psScore": null,
+      "pNoGoal": 0.363,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Dainava Alytus) не пробиває до 27' (у площину=1). DS1H=64.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "vPB4DkdD",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-12T18:25:45.025Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2037,
+      "sentAt": "2026-06-12T18:25:45.443Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2039,
+      "sentAt": "2026-06-12T18:44:09.438Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 63,
+      "psScore": null,
+      "pNoGoal": 0.3585,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (AD Tarma) не пробиває до 26' (у площину=1). DS1H=63.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "xSV4zT7U",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-12T18:26:03.702Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2038,
+      "sentAt": "2026-06-12T18:26:04.182Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2040,
+      "sentAt": "2026-06-12T18:44:59.422Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": 58,
+      "psScore": null,
+      "pNoGoal": 0.336,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Barreiras) не пробиває до 27' (у площину=1). DS1H=58.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "CdbqKkVh",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-12T20:40:21.109Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2041,
+      "sentAt": "2026-06-12T20:40:21.303Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2042,
+      "sentAt": "2026-06-12T21:00:05.868Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 62,
+      "psScore": null,
+      "pNoGoal": 0.354,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Vikingur Reykjavik) не пробиває до 26' (у площину=1). DS1H=62.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  }
+]

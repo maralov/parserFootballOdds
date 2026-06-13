@@ -27,6 +27,9 @@ const { parseScorePair } = require('../../parser/scoreUtils');
  *   statusText: string,
  *   isFinished: boolean,
  *   isHalftime: boolean,
+ *   isSecondHalf: boolean,
+ *   isFirstHalfStoppage: boolean,
+ *   htScore: {home:number, away:number}|null,
  * }}
  */
 function parseLiveHeader(html) {
@@ -35,6 +38,7 @@ function parseLiveHeader(html) {
   // ── Score from first .detail containing <b> ────────────────────────────────
   let scoreHome = 0;
   let scoreAway = 0;
+  let htScore = null;
 
   const scoreDetail = $('#main .detail').filter((_, el) => $(el).find('b').length > 0).first();
   if (scoreDetail.length) {
@@ -44,6 +48,12 @@ function parseLiveHeader(html) {
       scoreHome = pair.home;
       scoreAway = pair.away;
     }
+
+    // Halftime score appears in parentheses, e.g. "0:1  (0:0,0:1)" → HT = 0:0.
+    // First pair inside parens is the HT score (Flashscore convention).
+    const fullText = scoreDetail.text();
+    const m = fullText.match(/\((\d+)\s*[:\-]\s*(\d+)/);
+    if (m) htScore = { home: Number(m[1]), away: Number(m[2]) };
   }
 
   // ── Status text from the second .detail (no <b>, no date pattern) ──────────
@@ -61,12 +71,19 @@ function parseLiveHeader(html) {
   });
 
   const isFinished  = /^finished$/i.test(statusText);
-  const isHalftime  = /^(half[\s-]*time|ht)$|^45\+/i.test(statusText);
+  // True break only — explicit HT words. First-half stoppage ("45+1'") is NOT
+  // halftime: goals still possible until the whistle.
+  const isHalftime  = /^(half[\s-]*time|ht|перерва)$/i.test(statusText);
+  const isSecondHalf = /^(2nd\s+half|second\s+half)/i.test(statusText);
+  const isFirstHalfStoppage = /^(1st\s+half\s*[-–]\s*)?45\+/i.test(statusText);
 
   // Parse numeric minute from status (e.g. "67'" → 67; "Finished" → null)
   const minute = isFinished ? null : parseMinute(statusText);
 
-  return { scoreHome, scoreAway, minute, statusText, isFinished, isHalftime };
+  return {
+    scoreHome, scoreAway, minute, statusText,
+    isFinished, isHalftime, isSecondHalf, isFirstHalfStoppage, htScore,
+  };
 }
 
 module.exports = { parseLiveHeader };

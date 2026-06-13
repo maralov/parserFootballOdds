@@ -1,0 +1,202 @@
+[
+  {
+    "matchId": "Wb8dFBR0",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T01:33:42.817Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2043,
+      "sentAt": "2026-06-13T01:33:42.975Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2044,
+      "sentAt": "2026-06-13T01:44:48.972Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 34,
+      "score": "0:0",
+      "dsScore": 62,
+      "psScore": null,
+      "pNoGoal": 0.354,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.2,
+      "ev": null,
+      "reasoning": "Фаворит (Pirata) не пробиває до 34' (у площину=1). DS1H=62.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "0lrEl9Zh",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T06:55:55.095Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2045,
+      "sentAt": "2026-06-13T06:55:55.267Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2047,
+      "sentAt": "2026-06-13T07:14:12.481Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 62,
+      "psScore": null,
+      "pNoGoal": 0.354,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Edgeworth E.) не пробиває до 26' (у площину=1). DS1H=62.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "MR2dkdnR",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T08:10:59.969Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2048,
+      "sentAt": "2026-06-13T08:11:00.178Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2052,
+      "sentAt": "2026-06-13T08:29:13.299Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 57,
+      "psScore": null,
+      "pNoGoal": 0.3315,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (NE Metrostars) не пробиває до 26' (у площину=1). DS1H=57.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "nq7nbU0f",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T08:25:39.200Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2049,
+      "sentAt": "2026-06-13T08:25:39.442Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2054,
+      "sentAt": "2026-06-13T08:46:08.302Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 37,
+      "psScore": null,
+      "pNoGoal": 0.3,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (APIA Leichhardt) не пробиває до 26' (у площину=2). DS1H=37.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 2,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "4r37FyNF",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T09:25:42.045Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2056,
+      "sentAt": "2026-06-13T09:25:42.210Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2057,
+      "sentAt": "2026-06-13T09:44:12.535Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 22,
+      "psScore": null,
+      "pNoGoal": 0.3,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Indonesia U19) не пробиває до 26' (у площину=3). DS1H=22.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 3,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  }
+]

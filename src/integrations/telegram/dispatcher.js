@@ -302,7 +302,24 @@ async function flushPending({ date = new Date() } = {}) {
     const dayDir = matchStore.dayLogsAbsolute(date);
     const queued = tgOutbox.findByStatus(dayDir, 'queued');
 
+    // Predictions are time-sensitive: a 1H signal from 30 minutes ago is
+    // useless if we crashed before sending. Drop stale queued items on
+    // startup so we never spam old predictions after a restart.
+    const STALE_MS = 5 * 60_000;
+    const now = Date.now();
+
     for (const record of queued) {
+      const createdAtMs = record.createdAt ? Date.parse(record.createdAt) : NaN;
+      if (Number.isFinite(createdAtMs) && (now - createdAtMs) > STALE_MS) {
+        tgOutbox.setStatus(dayDir, record.matchId, record.decisionKey, 'failed');
+        logger.info('tg.flush.entry.dropped_stale', {
+          matchId: record.matchId,
+          decisionKey: record.decisionKey,
+          ageMs: now - createdAtMs,
+        });
+        continue;
+      }
+
       const match = matchStore.getMatch(record.matchId, date);
       if (!match) {
         logger.warn('tg.flush.entry.skipped', {
