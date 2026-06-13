@@ -140,10 +140,15 @@
         "phase": "goal_during_decision",
         "decidedAt": "2026-06-10T23:20:05.023Z",
         "htOutcome": {
-          "score": "0:1",
+          "score": "1:2",
           "dry": false,
           "firstGoalMinute": 20,
-          "resolvedAt": "2026-06-10T23:20:05.023Z"
+          "resolvedAt": "2026-06-10T23:20:05.023Z",
+          "correctedAt": "2026-06-13T11:59:04.525Z",
+          "correctedFrom": {
+            "score": "0:1",
+            "dry": false
+          }
         }
       }
     }
@@ -1959,10 +1964,15 @@
         "decidedAt": "2026-06-11T00:34:12.829Z",
         "decision": "SKIP",
         "htOutcome": {
-          "score": "0:0",
-          "dry": true,
+          "score": "0:1",
+          "dry": false,
           "firstGoalMinute": null,
-          "resolvedAt": "2026-06-11T00:44:59.235Z"
+          "resolvedAt": "2026-06-11T00:44:59.235Z",
+          "correctedAt": "2026-06-13T11:59:08.391Z",
+          "correctedFrom": {
+            "score": "0:0",
+            "dry": true
+          }
         }
       }
     }
@@ -2591,10 +2601,15 @@
         "phase": "goal_during_decision",
         "decidedAt": "2026-06-11T11:20:09.509Z",
         "htOutcome": {
-          "score": "0:1",
+          "score": "0:4",
           "dry": false,
           "firstGoalMinute": 21,
-          "resolvedAt": "2026-06-11T11:20:09.509Z"
+          "resolvedAt": "2026-06-11T11:20:09.509Z",
+          "correctedAt": "2026-06-13T11:59:12.410Z",
+          "correctedFrom": {
+            "score": "0:1",
+            "dry": false
+          }
         }
       }
     }

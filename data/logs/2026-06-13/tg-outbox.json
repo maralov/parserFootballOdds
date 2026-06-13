@@ -136,7 +136,11 @@
       "sentAt": "2026-06-13T08:46:08.302Z",
       "attempts": 0,
       "lastError": null,
-      "hit": true
+      "hit": false,
+      "correctedAt": "2026-06-13T12:00:16.453Z",
+      "correctedFrom": {
+        "hit": true
+      }
     },
     "snapshot": {
       "minute": 26,
@@ -194,6 +198,56 @@
           "signal": "fav_shots_on_target",
           "value": 3,
           "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "zqcLlULt",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T11:56:04.924Z",
+    "status": "pending_result",
+    "entry": {
+      "messageId": 2058,
+      "sentAt": "2026-06-13T11:56:05.177Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": null,
+      "sentAt": null,
+      "attempts": 0,
+      "lastError": null,
+      "hit": null
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": 58,
+      "psScore": null,
+      "pNoGoal": 0.336,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Xiamen Feilu) не пробиває до 27' (xG=0.28, у площину=1). DS1H=58.",
+      "keySignals": [
+        {
+          "signal": "fav_xg",
+          "value": 0.28,
+          "weight": "high"
+        },
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        },
+        {
+          "signal": "tempo_dryness",
+          "value": 36.25000000000001,
+          "weight": "med"
         }
       ],
       "calibrated": false

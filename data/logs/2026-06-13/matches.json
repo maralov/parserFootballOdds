@@ -8703,10 +8703,15 @@
         "phase": "goal_during_decision",
         "decidedAt": "2026-06-13T07:20:11.224Z",
         "htOutcome": {
-          "score": "1:0",
+          "score": "2:1",
           "dry": false,
           "firstGoalMinute": 21,
-          "resolvedAt": "2026-06-13T07:20:11.224Z"
+          "resolvedAt": "2026-06-13T07:20:11.224Z",
+          "correctedAt": "2026-06-13T12:00:08.703Z",
+          "correctedFrom": {
+            "score": "1:0",
+            "dry": false
+          }
         }
       }
     }
@@ -8852,10 +8857,15 @@
         "phase": "goal_during_decision",
         "decidedAt": "2026-06-13T07:50:10.035Z",
         "htOutcome": {
-          "score": "1:0",
+          "score": "2:0",
           "dry": false,
           "firstGoalMinute": 21,
-          "resolvedAt": "2026-06-13T07:50:10.035Z"
+          "resolvedAt": "2026-06-13T07:50:10.035Z",
+          "correctedAt": "2026-06-13T12:00:11.079Z",
+          "correctedFrom": {
+            "score": "1:0",
+            "dry": false
+          }
         }
       }
     }
@@ -9681,10 +9691,15 @@
         "decidedAt": "2026-06-13T08:02:04.914Z",
         "decision": "SKIP_INVERTED",
         "htOutcome": {
-          "score": "0:1",
+          "score": "2:1",
           "dry": false,
           "firstGoalMinute": 33,
-          "resolvedAt": "2026-06-13T08:02:04.914Z"
+          "resolvedAt": "2026-06-13T08:02:04.914Z",
+          "correctedAt": "2026-06-13T12:00:13.623Z",
+          "correctedFrom": {
+            "score": "0:1",
+            "dry": false
+          }
         }
       }
     }
@@ -12818,10 +12833,15 @@
         "calibrated": false,
         "requestedAtMinute": 26,
         "htOutcome": {
-          "score": "0:0",
-          "dry": true,
+          "score": "0:1",
+          "dry": false,
           "firstGoalMinute": null,
-          "resolvedAt": "2026-06-13T08:46:08.137Z"
+          "resolvedAt": "2026-06-13T08:46:08.137Z",
+          "correctedAt": "2026-06-13T12:00:16.453Z",
+          "correctedFrom": {
+            "score": "0:0",
+            "dry": true
+          }
         }
       }
     }
@@ -16730,6 +16750,1878 @@
         "favorite": "home",
         "decidedAt": "2026-06-13T10:55:25.263Z",
         "decision": "SKIP_INVERTED"
+      }
+    }
+  },
+  "hEKkLrlD": {
+    "matchId": "hEKkLrlD",
+    "country": "LATVIA",
+    "league": "Virsliga",
+    "homeTeam": "Ogre United",
+    "awayTeam": "Riga FC",
+    "matchUrl": "/match/hEKkLrlD/?s=2",
+    "discoveredAt": "2026-06-13T11:11:15.291Z",
+    "enrichedAt": "2026-06-13T11:11:29.415Z",
+    "odds": {
+      "home": 21,
+      "draw": 10,
+      "away": 1.09,
+      "isOddsFavorite": {
+        "favorite": "away",
+        "margin": 0.71,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "detailed",
+    "baseline1H": {
+      "totalShots": {
+        "home": 1,
+        "away": 1
+      },
+      "shotsOnTarget": {
+        "home": 0,
+        "away": 0
+      },
+      "cornerKicks": {
+        "home": 0,
+        "away": 0
+      },
+      "expectedGoalsXg": {
+        "home": 0.01,
+        "away": 0.1
+      },
+      "yellowCards": {
+        "home": null,
+        "away": null
+      },
+      "redCards": {
+        "home": null,
+        "away": null
+      },
+      "xgOnTargetXgot": {
+        "home": 0,
+        "away": 0
+      },
+      "bigChances": {
+        "home": 0,
+        "away": 0
+      },
+      "shotsInsideTheBox": {
+        "home": 0,
+        "away": 1
+      },
+      "shotsOutsideTheBox": {
+        "home": 1,
+        "away": 0
+      },
+      "blockedShots": {
+        "home": 0,
+        "away": 0
+      },
+      "touchesInOppositionBox": {
+        "home": 0,
+        "away": 2
+      },
+      "expectedAssistsXa": {
+        "home": 0,
+        "away": 0.19
+      },
+      "goalkeeperSaves": {
+        "home": 0,
+        "away": 0
+      },
+      "goalsPrevented": {
+        "home": 0,
+        "away": 0
+      },
+      "passesMade": {
+        "home": 25,
+        "away": 49
+      },
+      "passesAttempted": {
+        "home": 36,
+        "away": 58
+      },
+      "passesInFinalThirdMade": {
+        "home": 1,
+        "away": 12
+      },
+      "passesInFinalThirdAttempted": {
+        "home": 3,
+        "away": 17
+      },
+      "crossesMade": {
+        "home": 0,
+        "away": 1
+      },
+      "crossesAttempted": {
+        "home": 1,
+        "away": 3
+      },
+      "accurateThroughPasses": {
+        "home": 0,
+        "away": 0
+      },
+      "freeKicks": {
+        "home": 2,
+        "away": 0
+      },
+      "offsides": {
+        "home": 0,
+        "away": 0
+      },
+      "ballPossession": {
+        "home": 38,
+        "away": 62
+      }
+    },
+    "tracking": {
+      "status": "discarded",
+      "discardReason": "goal_before_halftime",
+      "validForPrediction": false,
+      "firstGoalMinute": null,
+      "nextSnapshotAt": null,
+      "snapshotCount": 0,
+      "failureCount": 0
+    },
+    "snapshots": [],
+    "final": null,
+    "derived": null,
+    "predictions": {
+      "tm05": null,
+      "tb05": null,
+      "tm05_1h": {
+        "phase": "goal_during_decision",
+        "decidedAt": "2026-06-13T11:20:05.959Z",
+        "htOutcome": {
+          "score": "0:2",
+          "dry": false,
+          "firstGoalMinute": 21,
+          "resolvedAt": "2026-06-13T11:20:05.959Z",
+          "correctedAt": "2026-06-13T12:00:26.561Z",
+          "correctedFrom": {
+            "score": "0:1",
+            "dry": false
+          }
+        }
+      }
+    }
+  },
+  "pGoAsDED": {
+    "matchId": "pGoAsDED",
+    "country": "CHINA",
+    "league": "League Two",
+    "homeTeam": "Jiangxi Lushan",
+    "awayTeam": "Chengdu Rongcheng B",
+    "matchUrl": "/match/pGoAsDED/?s=2",
+    "discoveredAt": "2026-06-13T11:41:43.691Z",
+    "enrichedAt": "2026-06-13T11:41:51.394Z",
+    "odds": {
+      "home": 1.73,
+      "draw": 3.33,
+      "away": 4.93,
+      "isOddsFavorite": {
+        "favorite": "home",
+        "margin": 0.07,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "detailed",
+    "baseline1H": {
+      "totalShots": {
+        "home": 0,
+        "away": 0
+      },
+      "shotsOnTarget": {
+        "home": 0,
+        "away": 0
+      },
+      "cornerKicks": {
+        "home": 0,
+        "away": 0
+      },
+      "expectedGoalsXg": {
+        "home": 0,
+        "away": 0
+      },
+      "yellowCards": {
+        "home": null,
+        "away": null
+      },
+      "redCards": {
+        "home": null,
+        "away": null
+      },
+      "xgOnTargetXgot": {
+        "home": 0,
+        "away": 0
+      },
+      "bigChances": {
+        "home": 0,
+        "away": 0
+      },
+      "shotsInsideTheBox": {
+        "home": 0,
+        "away": 0
+      },
+      "shotsOutsideTheBox": {
+        "home": 0,
+        "away": 0
+      },
+      "blockedShots": {
+        "home": 0,
+        "away": 0
+      },
+      "touchesInOppositionBox": {
+        "home": 0,
+        "away": 2
+      },
+      "expectedAssistsXa": {
+        "home": 0.01,
+        "away": 0
+      },
+      "goalkeeperSaves": {
+        "home": 0,
+        "away": 0
+      },
+      "goalsPrevented": {
+        "home": 0,
+        "away": 0
+      },
+      "passesMade": {
+        "home": 25,
+        "away": 24
+      },
+      "passesAttempted": {
+        "home": 44,
+        "away": 34
+      },
+      "passesInFinalThirdMade": {
+        "home": 6,
+        "away": 5
+      },
+      "passesInFinalThirdAttempted": {
+        "home": 12,
+        "away": 11
+      },
+      "crossesMade": {
+        "home": null,
+        "away": null
+      },
+      "crossesAttempted": {
+        "home": null,
+        "away": null
+      },
+      "accurateThroughPasses": {
+        "home": 0,
+        "away": 0
+      },
+      "freeKicks": {
+        "home": 4,
+        "away": 1
+      },
+      "offsides": {
+        "home": 0,
+        "away": 1
+      },
+      "ballPossession": {
+        "home": 56,
+        "away": 44
+      }
+    },
+    "tracking": {
+      "status": "discarded",
+      "discardReason": "goal_before_halftime",
+      "validForPrediction": false,
+      "firstGoalMinute": null,
+      "nextSnapshotAt": null,
+      "snapshotCount": 5,
+      "failureCount": 0
+    },
+    "snapshots": [
+      {
+        "phase": "1H",
+        "minute": 20,
+        "observedMinute": 21,
+        "capturedAt": "2026-06-13T11:50:28.126Z",
+        "statusText": "1st Half - 21'",
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ballPossession": {
+          "home": 54,
+          "away": 46
+        },
+        "cumulative": {
+          "totalShots": {
+            "home": 1,
+            "away": 1
+          },
+          "shotsOnTarget": {
+            "home": 1,
+            "away": 0
+          },
+          "cornerKicks": {
+            "home": 0,
+            "away": 0
+          },
+          "expectedGoalsXg": {
+            "home": 0.02,
+            "away": 0.02
+          },
+          "yellowCards": {
+            "home": null,
+            "away": null
+          },
+          "redCards": {
+            "home": null,
+            "away": null
+          },
+          "xgOnTargetXgot": {
+            "home": 0.1,
+            "away": 0
+          },
+          "bigChances": {
+            "home": 0,
+            "away": 0
+          },
+          "shotsInsideTheBox": {
+            "home": 0,
+            "away": 1
+          },
+          "shotsOutsideTheBox": {
+            "home": 1,
+            "away": 0
+          },
+          "blockedShots": {
+            "home": 0,
+            "away": 0
+          },
+          "touchesInOppositionBox": {
+            "home": 1,
+            "away": 3
+          },
+          "expectedAssistsXa": {
+            "home": 0.01,
+            "away": 0.07
+          },
+          "goalkeeperSaves": {
+            "home": 0,
+            "away": 1
+          },
+          "goalsPrevented": {
+            "home": 0,
+            "away": 0.1
+          },
+          "passesMade": {
+            "home": 30,
+            "away": 33
+          },
+          "passesAttempted": {
+            "home": 61,
+            "away": 51
+          },
+          "passesInFinalThirdMade": {
+            "home": 7,
+            "away": 6
+          },
+          "passesInFinalThirdAttempted": {
+            "home": 18,
+            "away": 14
+          },
+          "crossesMade": {
+            "home": 0,
+            "away": 1
+          },
+          "crossesAttempted": {
+            "home": 1,
+            "away": 1
+          },
+          "accurateThroughPasses": {
+            "home": 0,
+            "away": 0
+          },
+          "freeKicks": {
+            "home": 6,
+            "away": 1
+          },
+          "offsides": {
+            "home": 0,
+            "away": 1
+          }
+        }
+      },
+      {
+        "phase": "1H",
+        "minute": 22,
+        "observedMinute": 22,
+        "capturedAt": "2026-06-13T11:51:43.224Z",
+        "statusText": "1st Half - 22'",
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ballPossession": {
+          "home": 50,
+          "away": 50
+        },
+        "cumulative": {
+          "totalShots": {
+            "home": 1,
+            "away": 1
+          },
+          "shotsOnTarget": {
+            "home": 1,
+            "away": 0
+          },
+          "cornerKicks": {
+            "home": 0,
+            "away": 0
+          },
+          "expectedGoalsXg": {
+            "home": 0.02,
+            "away": 0.02
+          },
+          "yellowCards": {
+            "home": null,
+            "away": null
+          },
+          "redCards": {
+            "home": null,
+            "away": null
+          },
+          "xgOnTargetXgot": {
+            "home": 0.1,
+            "away": 0
+          },
+          "bigChances": {
+            "home": 0,
+            "away": 0
+          },
+          "shotsInsideTheBox": {
+            "home": 0,
+            "away": 1
+          },
+          "shotsOutsideTheBox": {
+            "home": 1,
+            "away": 0
+          },
+          "blockedShots": {
+            "home": 0,
+            "away": 0
+          },
+          "touchesInOppositionBox": {
+            "home": 1,
+            "away": 3
+          },
+          "expectedAssistsXa": {
+            "home": 0.01,
+            "away": 0.07
+          },
+          "goalkeeperSaves": {
+            "home": 0,
+            "away": 1
+          },
+          "goalsPrevented": {
+            "home": 0,
+            "away": 0.1
+          },
+          "passesMade": {
+            "home": 30,
+            "away": 42
+          },
+          "passesAttempted": {
+            "home": 62,
+            "away": 61
+          },
+          "passesInFinalThirdMade": {
+            "home": 7,
+            "away": 8
+          },
+          "passesInFinalThirdAttempted": {
+            "home": 19,
+            "away": 18
+          },
+          "crossesMade": {
+            "home": 0,
+            "away": 1
+          },
+          "crossesAttempted": {
+            "home": 1,
+            "away": 1
+          },
+          "accurateThroughPasses": {
+            "home": 0,
+            "away": 0
+          },
+          "freeKicks": {
+            "home": 7,
+            "away": 1
+          },
+          "offsides": {
+            "home": 0,
+            "away": 1
+          }
+        }
+      },
+      {
+        "phase": "1H",
+        "minute": 24,
+        "observedMinute": 24,
+        "capturedAt": "2026-06-13T11:53:51.721Z",
+        "statusText": "1st Half - 24'",
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ballPossession": {
+          "home": 45,
+          "away": 55
+        },
+        "cumulative": {
+          "totalShots": {
+            "home": 1,
+            "away": 1
+          },
+          "shotsOnTarget": {
+            "home": 1,
+            "away": 0
+          },
+          "cornerKicks": {
+            "home": 0,
+            "away": 0
+          },
+          "expectedGoalsXg": {
+            "home": 0.02,
+            "away": 0.02
+          },
+          "yellowCards": {
+            "home": null,
+            "away": null
+          },
+          "redCards": {
+            "home": null,
+            "away": null
+          },
+          "xgOnTargetXgot": {
+            "home": 0.1,
+            "away": 0
+          },
+          "bigChances": {
+            "home": 0,
+            "away": 0
+          },
+          "shotsInsideTheBox": {
+            "home": 0,
+            "away": 1
+          },
+          "shotsOutsideTheBox": {
+            "home": 1,
+            "away": 0
+          },
+          "blockedShots": {
+            "home": 0,
+            "away": 0
+          },
+          "touchesInOppositionBox": {
+            "home": 1,
+            "away": 3
+          },
+          "expectedAssistsXa": {
+            "home": 0.01,
+            "away": 0.07
+          },
+          "goalkeeperSaves": {
+            "home": 0,
+            "away": 1
+          },
+          "goalsPrevented": {
+            "home": 0,
+            "away": 0.1
+          },
+          "passesMade": {
+            "home": 30,
+            "away": 54
+          },
+          "passesAttempted": {
+            "home": 63,
+            "away": 75
+          },
+          "passesInFinalThirdMade": {
+            "home": 7,
+            "away": 8
+          },
+          "passesInFinalThirdAttempted": {
+            "home": 20,
+            "away": 18
+          },
+          "crossesMade": {
+            "home": 0,
+            "away": 1
+          },
+          "crossesAttempted": {
+            "home": 1,
+            "away": 2
+          },
+          "accurateThroughPasses": {
+            "home": 0,
+            "away": 0
+          },
+          "freeKicks": {
+            "home": 7,
+            "away": 2
+          },
+          "offsides": {
+            "home": 0,
+            "away": 1
+          }
+        }
+      },
+      {
+        "phase": "1H",
+        "minute": 26,
+        "observedMinute": 27,
+        "capturedAt": "2026-06-13T11:56:07.637Z",
+        "statusText": "1st Half - 27'",
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ballPossession": {
+          "home": 46,
+          "away": 54
+        },
+        "cumulative": {
+          "totalShots": {
+            "home": 1,
+            "away": 2
+          },
+          "shotsOnTarget": {
+            "home": 1,
+            "away": 0
+          },
+          "cornerKicks": {
+            "home": 0,
+            "away": 0
+          },
+          "expectedGoalsXg": {
+            "home": 0.02,
+            "away": 0.04
+          },
+          "yellowCards": {
+            "home": null,
+            "away": null
+          },
+          "redCards": {
+            "home": null,
+            "away": null
+          },
+          "xgOnTargetXgot": {
+            "home": 0.1,
+            "away": 0
+          },
+          "bigChances": {
+            "home": 0,
+            "away": 0
+          },
+          "shotsInsideTheBox": {
+            "home": 0,
+            "away": 2
+          },
+          "shotsOutsideTheBox": {
+            "home": 1,
+            "away": 0
+          },
+          "blockedShots": {
+            "home": 0,
+            "away": 0
+          },
+          "touchesInOppositionBox": {
+            "home": 1,
+            "away": 4
+          },
+          "expectedAssistsXa": {
+            "home": 0.01,
+            "away": 0.11
+          },
+          "goalkeeperSaves": {
+            "home": 0,
+            "away": 1
+          },
+          "goalsPrevented": {
+            "home": 0,
+            "away": 0.1
+          },
+          "passesMade": {
+            "home": 35,
+            "away": 56
+          },
+          "passesAttempted": {
+            "home": 69,
+            "away": 78
+          },
+          "passesInFinalThirdMade": {
+            "home": 7,
+            "away": 11
+          },
+          "passesInFinalThirdAttempted": {
+            "home": 20,
+            "away": 21
+          },
+          "crossesMade": {
+            "home": 0,
+            "away": 2
+          },
+          "crossesAttempted": {
+            "home": 1,
+            "away": 4
+          },
+          "accurateThroughPasses": {
+            "home": 0,
+            "away": 0
+          },
+          "freeKicks": {
+            "home": 7,
+            "away": 3
+          },
+          "offsides": {
+            "home": 1,
+            "away": 1
+          }
+        }
+      },
+      {
+        "phase": "1H",
+        "minute": 28,
+        "observedMinute": 28,
+        "capturedAt": "2026-06-13T11:57:14.459Z",
+        "statusText": "1st Half - 28'",
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ballPossession": {
+          "home": 43,
+          "away": 57
+        },
+        "cumulative": {
+          "totalShots": {
+            "home": 1,
+            "away": 2
+          },
+          "shotsOnTarget": {
+            "home": 1,
+            "away": 0
+          },
+          "cornerKicks": {
+            "home": 0,
+            "away": 0
+          },
+          "expectedGoalsXg": {
+            "home": 0.02,
+            "away": 0.04
+          },
+          "yellowCards": {
+            "home": null,
+            "away": null
+          },
+          "redCards": {
+            "home": null,
+            "away": null
+          },
+          "xgOnTargetXgot": {
+            "home": 0.1,
+            "away": 0
+          },
+          "bigChances": {
+            "home": 0,
+            "away": 0
+          },
+          "shotsInsideTheBox": {
+            "home": 0,
+            "away": 2
+          },
+          "shotsOutsideTheBox": {
+            "home": 1,
+            "away": 0
+          },
+          "blockedShots": {
+            "home": 0,
+            "away": 0
+          },
+          "touchesInOppositionBox": {
+            "home": 1,
+            "away": 4
+          },
+          "expectedAssistsXa": {
+            "home": 0.01,
+            "away": 0.11
+          },
+          "goalkeeperSaves": {
+            "home": 0,
+            "away": 1
+          },
+          "goalsPrevented": {
+            "home": 0,
+            "away": 0.1
+          },
+          "passesMade": {
+            "home": 35,
+            "away": 68
+          },
+          "passesAttempted": {
+            "home": 71,
+            "away": 92
+          },
+          "passesInFinalThirdMade": {
+            "home": 7,
+            "away": 11
+          },
+          "passesInFinalThirdAttempted": {
+            "home": 20,
+            "away": 22
+          },
+          "crossesMade": {
+            "home": 0,
+            "away": 2
+          },
+          "crossesAttempted": {
+            "home": 1,
+            "away": 4
+          },
+          "accurateThroughPasses": {
+            "home": 0,
+            "away": 0
+          },
+          "freeKicks": {
+            "home": 7,
+            "away": 3
+          },
+          "offsides": {
+            "home": 1,
+            "away": 1
+          }
+        }
+      }
+    ],
+    "final": null,
+    "derived": null,
+    "predictions": {
+      "tm05": null,
+      "tb05": null,
+      "tm05_1h": {
+        "phase": "goal_during_decision",
+        "dsScore": 85,
+        "dsComponents": {
+          "fav_xg_suppressed": 96,
+          "fav_shots_suppressed": 60,
+          "fav_touches_box": 91.66666666666666,
+          "total_tempo": 92.5,
+          "big_chances": 100,
+          "calm_cards": null,
+          "possession_bal": 86,
+          "league_bias_1h": 50
+        },
+        "favorite": "home",
+        "decidedAt": "2026-06-13T11:59:30.933Z",
+        "decision": "SKIP_INVERTED",
+        "htOutcome": {
+          "score": "1:0",
+          "dry": false,
+          "firstGoalMinute": 30,
+          "resolvedAt": "2026-06-13T11:59:30.933Z"
+        }
+      }
+    }
+  },
+  "zqcLlULt": {
+    "matchId": "zqcLlULt",
+    "country": "CHINA",
+    "league": "League Two",
+    "homeTeam": "Wenzhou Professional",
+    "awayTeam": "Xiamen Feilu",
+    "matchUrl": "/match/zqcLlULt/?s=2",
+    "discoveredAt": "2026-06-13T11:41:43.691Z",
+    "enrichedAt": "2026-06-13T11:41:55.458Z",
+    "odds": {
+      "home": 5.39,
+      "draw": 3.29,
+      "away": 1.7,
+      "isOddsFavorite": {
+        "favorite": "away",
+        "margin": 0.1,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "detailed",
+    "baseline1H": {
+      "totalShots": {
+        "home": 1,
+        "away": 1
+      },
+      "shotsOnTarget": {
+        "home": 1,
+        "away": 0
+      },
+      "cornerKicks": {
+        "home": 1,
+        "away": 0
+      },
+      "expectedGoalsXg": {
+        "home": 0.09,
+        "away": 0
+      },
+      "yellowCards": {
+        "home": null,
+        "away": null
+      },
+      "redCards": {
+        "home": null,
+        "away": null
+      },
+      "xgOnTargetXgot": {
+        "home": 0.31,
+        "away": 0
+      },
+      "bigChances": {
+        "home": 0,
+        "away": 0
+      },
+      "shotsInsideTheBox": {
+        "home": 1,
+        "away": 0
+      },
+      "shotsOutsideTheBox": {
+        "home": 0,
+        "away": 0
+      },
+      "blockedShots": {
+        "home": 0,
+        "away": 0
+      },
+      "touchesInOppositionBox": {
+        "home": 3,
+        "away": 0
+      },
+      "expectedAssistsXa": {
+        "home": 0.01,
+        "away": 0
+      },
+      "goalkeeperSaves": {
+        "home": 0,
+        "away": 1
+      },
+      "goalsPrevented": {
+        "home": 0,
+        "away": 0.31
+      },
+      "passesMade": {
+        "home": 34,
+        "away": 48
+      },
+      "passesAttempted": {
+        "home": 46,
+        "away": 64
+      },
+      "passesInFinalThirdMade": {
+        "home": 4,
+        "away": 3
+      },
+      "passesInFinalThirdAttempted": {
+        "home": 7,
+        "away": 10
+      },
+      "crossesMade": {
+        "home": null,
+        "away": null
+      },
+      "crossesAttempted": {
+        "home": null,
+        "away": null
+      },
+      "accurateThroughPasses": {
+        "home": 0,
+        "away": 0
+      },
+      "freeKicks": {
+        "home": 2,
+        "away": 3
+      },
+      "offsides": {
+        "home": 0,
+        "away": 0
+      },
+      "ballPossession": {
+        "home": 43,
+        "away": 57
+      }
+    },
+    "tracking": {
+      "status": "active",
+      "discardReason": null,
+      "validForPrediction": false,
+      "firstGoalMinute": null,
+      "nextSnapshotAt": "2026-06-13T12:01:30.806Z",
+      "snapshotCount": 6,
+      "failureCount": 0
+    },
+    "snapshots": [
+      {
+        "phase": "1H",
+        "minute": 20,
+        "observedMinute": 21,
+        "capturedAt": "2026-06-13T11:50:40.899Z",
+        "statusText": "1st Half - 21'",
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ballPossession": {
+          "home": 39,
+          "away": 61
+        },
+        "cumulative": {
+          "totalShots": {
+            "home": 2,
+            "away": 1
+          },
+          "shotsOnTarget": {
+            "home": 2,
+            "away": 0
+          },
+          "cornerKicks": {
+            "home": 2,
+            "away": 0
+          },
+          "expectedGoalsXg": {
+            "home": 0.19,
+            "away": 0.28
+          },
+          "yellowCards": {
+            "home": null,
+            "away": null
+          },
+          "redCards": {
+            "home": null,
+            "away": null
+          },
+          "xgOnTargetXgot": {
+            "home": 0.57,
+            "away": 0
+          },
+          "bigChances": {
+            "home": 0,
+            "away": 1
+          },
+          "shotsInsideTheBox": {
+            "home": 2,
+            "away": 0
+          },
+          "shotsOutsideTheBox": {
+            "home": 0,
+            "away": 1
+          },
+          "blockedShots": {
+            "home": 0,
+            "away": 0
+          },
+          "touchesInOppositionBox": {
+            "home": 4,
+            "away": 0
+          },
+          "expectedAssistsXa": {
+            "home": 0.03,
+            "away": 0.02
+          },
+          "goalkeeperSaves": {
+            "home": 0,
+            "away": 2
+          },
+          "goalsPrevented": {
+            "home": 0,
+            "away": 0.57
+          },
+          "passesMade": {
+            "home": 47,
+            "away": 87
+          },
+          "passesAttempted": {
+            "home": 68,
+            "away": 113
+          },
+          "passesInFinalThirdMade": {
+            "home": 6,
+            "away": 7
+          },
+          "passesInFinalThirdAttempted": {
+            "home": 11,
+            "away": 16
+          },
+          "crossesMade": {
+            "home": 0,
+            "away": 0
+          },
+          "crossesAttempted": {
+            "home": 4,
+            "away": 2
+          },
+          "accurateThroughPasses": {
+            "home": 0,
+            "away": 0
+          },
+          "freeKicks": {
+            "home": 2,
+            "away": 5
+          },
+          "offsides": {
+            "home": 0,
+            "away": 0
+          }
+        }
+      },
+      {
+        "phase": "1H",
+        "minute": 22,
+        "observedMinute": 22,
+        "capturedAt": "2026-06-13T11:51:52.880Z",
+        "statusText": "1st Half - 22'",
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ballPossession": {
+          "home": 39,
+          "away": 61
+        },
+        "cumulative": {
+          "totalShots": {
+            "home": 3,
+            "away": 1
+          },
+          "shotsOnTarget": {
+            "home": 2,
+            "away": 0
+          },
+          "cornerKicks": {
+            "home": 2,
+            "away": 0
+          },
+          "expectedGoalsXg": {
+            "home": 0.19,
+            "away": 0.28
+          },
+          "yellowCards": {
+            "home": 1,
+            "away": 1
+          },
+          "redCards": {
+            "home": null,
+            "away": null
+          },
+          "xgOnTargetXgot": {
+            "home": 0.57,
+            "away": 0
+          },
+          "bigChances": {
+            "home": 0,
+            "away": 1
+          },
+          "shotsInsideTheBox": {
+            "home": 2,
+            "away": 0
+          },
+          "shotsOutsideTheBox": {
+            "home": 1,
+            "away": 1
+          },
+          "blockedShots": {
+            "home": 1,
+            "away": 0
+          },
+          "touchesInOppositionBox": {
+            "home": 4,
+            "away": 0
+          },
+          "expectedAssistsXa": {
+            "home": 0.03,
+            "away": 0.02
+          },
+          "goalkeeperSaves": {
+            "home": 0,
+            "away": 2
+          },
+          "goalsPrevented": {
+            "home": 0,
+            "away": 0.57
+          },
+          "passesMade": {
+            "home": 47,
+            "away": 87
+          },
+          "passesAttempted": {
+            "home": 68,
+            "away": 113
+          },
+          "passesInFinalThirdMade": {
+            "home": 6,
+            "away": 7
+          },
+          "passesInFinalThirdAttempted": {
+            "home": 12,
+            "away": 16
+          },
+          "crossesMade": {
+            "home": 0,
+            "away": 0
+          },
+          "crossesAttempted": {
+            "home": 4,
+            "away": 2
+          },
+          "accurateThroughPasses": {
+            "home": 0,
+            "away": 0
+          },
+          "freeKicks": {
+            "home": 2,
+            "away": 5
+          },
+          "offsides": {
+            "home": 0,
+            "away": 0
+          }
+        }
+      },
+      {
+        "phase": "1H",
+        "minute": 24,
+        "observedMinute": 24,
+        "capturedAt": "2026-06-13T11:54:01.481Z",
+        "statusText": "1st Half - 24'",
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ballPossession": {
+          "home": 39,
+          "away": 61
+        },
+        "cumulative": {
+          "totalShots": {
+            "home": 3,
+            "away": 1
+          },
+          "shotsOnTarget": {
+            "home": 2,
+            "away": 0
+          },
+          "cornerKicks": {
+            "home": 2,
+            "away": 0
+          },
+          "expectedGoalsXg": {
+            "home": 0.23,
+            "away": 0.28
+          },
+          "yellowCards": {
+            "home": 1,
+            "away": 1
+          },
+          "redCards": {
+            "home": null,
+            "away": null
+          },
+          "xgOnTargetXgot": {
+            "home": 0.57,
+            "away": 0
+          },
+          "bigChances": {
+            "home": 0,
+            "away": 1
+          },
+          "shotsInsideTheBox": {
+            "home": 2,
+            "away": 0
+          },
+          "shotsOutsideTheBox": {
+            "home": 1,
+            "away": 1
+          },
+          "blockedShots": {
+            "home": 1,
+            "away": 0
+          },
+          "touchesInOppositionBox": {
+            "home": 4,
+            "away": 0
+          },
+          "expectedAssistsXa": {
+            "home": 0.03,
+            "away": 0.02
+          },
+          "goalkeeperSaves": {
+            "home": 0,
+            "away": 2
+          },
+          "goalsPrevented": {
+            "home": 0,
+            "away": 0.57
+          },
+          "passesMade": {
+            "home": 47,
+            "away": 87
+          },
+          "passesAttempted": {
+            "home": 68,
+            "away": 113
+          },
+          "passesInFinalThirdMade": {
+            "home": 6,
+            "away": 7
+          },
+          "passesInFinalThirdAttempted": {
+            "home": 12,
+            "away": 16
+          },
+          "crossesMade": {
+            "home": 0,
+            "away": 0
+          },
+          "crossesAttempted": {
+            "home": 4,
+            "away": 2
+          },
+          "accurateThroughPasses": {
+            "home": 0,
+            "away": 0
+          },
+          "freeKicks": {
+            "home": 2,
+            "away": 5
+          },
+          "offsides": {
+            "home": 0,
+            "away": 0
+          }
+        }
+      },
+      {
+        "phase": "1H",
+        "minute": 26,
+        "observedMinute": 27,
+        "capturedAt": "2026-06-13T11:56:04.922Z",
+        "statusText": "1st Half - 27'",
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ballPossession": {
+          "home": 37,
+          "away": 63
+        },
+        "cumulative": {
+          "totalShots": {
+            "home": 3,
+            "away": 2
+          },
+          "shotsOnTarget": {
+            "home": 2,
+            "away": 1
+          },
+          "cornerKicks": {
+            "home": 2,
+            "away": 0
+          },
+          "expectedGoalsXg": {
+            "home": 0.23,
+            "away": 0.28
+          },
+          "yellowCards": {
+            "home": 1,
+            "away": 1
+          },
+          "redCards": {
+            "home": null,
+            "away": null
+          },
+          "xgOnTargetXgot": {
+            "home": 0.57,
+            "away": 0
+          },
+          "bigChances": {
+            "home": 0,
+            "away": 1
+          },
+          "shotsInsideTheBox": {
+            "home": 2,
+            "away": 0
+          },
+          "shotsOutsideTheBox": {
+            "home": 1,
+            "away": 2
+          },
+          "blockedShots": {
+            "home": 1,
+            "away": 0
+          },
+          "touchesInOppositionBox": {
+            "home": 4,
+            "away": 0
+          },
+          "expectedAssistsXa": {
+            "home": 0.03,
+            "away": 0.03
+          },
+          "goalkeeperSaves": {
+            "home": 1,
+            "away": 2
+          },
+          "goalsPrevented": {
+            "home": 0.38,
+            "away": 0.57
+          },
+          "passesMade": {
+            "home": 47,
+            "away": 97
+          },
+          "passesAttempted": {
+            "home": 70,
+            "away": 124
+          },
+          "passesInFinalThirdMade": {
+            "home": 6,
+            "away": 9
+          },
+          "passesInFinalThirdAttempted": {
+            "home": 13,
+            "away": 19
+          },
+          "crossesMade": {
+            "home": 0,
+            "away": 0
+          },
+          "crossesAttempted": {
+            "home": 4,
+            "away": 2
+          },
+          "accurateThroughPasses": {
+            "home": 0,
+            "away": 0
+          },
+          "freeKicks": {
+            "home": 3,
+            "away": 5
+          },
+          "offsides": {
+            "home": 0,
+            "away": 0
+          }
+        }
+      },
+      {
+        "phase": "1H",
+        "minute": 28,
+        "observedMinute": 28,
+        "capturedAt": "2026-06-13T11:57:12.265Z",
+        "statusText": "1st Half - 28'",
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ballPossession": {
+          "home": 37,
+          "away": 63
+        },
+        "cumulative": {
+          "totalShots": {
+            "home": 3,
+            "away": 3
+          },
+          "shotsOnTarget": {
+            "home": 2,
+            "away": 1
+          },
+          "cornerKicks": {
+            "home": 2,
+            "away": 1
+          },
+          "expectedGoalsXg": {
+            "home": 0.23,
+            "away": 0.33
+          },
+          "yellowCards": {
+            "home": 1,
+            "away": 1
+          },
+          "redCards": {
+            "home": null,
+            "away": null
+          },
+          "xgOnTargetXgot": {
+            "home": 0.57,
+            "away": 0.33
+          },
+          "bigChances": {
+            "home": 0,
+            "away": 1
+          },
+          "shotsInsideTheBox": {
+            "home": 2,
+            "away": 0
+          },
+          "shotsOutsideTheBox": {
+            "home": 1,
+            "away": 2
+          },
+          "blockedShots": {
+            "home": 1,
+            "away": 0
+          },
+          "touchesInOppositionBox": {
+            "home": 4,
+            "away": 1
+          },
+          "expectedAssistsXa": {
+            "home": 0.03,
+            "away": 0.06
+          },
+          "goalkeeperSaves": {
+            "home": 1,
+            "away": 2
+          },
+          "goalsPrevented": {
+            "home": 0.33,
+            "away": 0.57
+          },
+          "passesMade": {
+            "home": 47,
+            "away": 98
+          },
+          "passesAttempted": {
+            "home": 71,
+            "away": 125
+          },
+          "passesInFinalThirdMade": {
+            "home": 6,
+            "away": 10
+          },
+          "passesInFinalThirdAttempted": {
+            "home": 13,
+            "away": 20
+          },
+          "crossesMade": {
+            "home": 0,
+            "away": 1
+          },
+          "crossesAttempted": {
+            "home": 4,
+            "away": 4
+          },
+          "accurateThroughPasses": {
+            "home": 0,
+            "away": 0
+          },
+          "freeKicks": {
+            "home": 3,
+            "away": 5
+          },
+          "offsides": {
+            "home": 0,
+            "away": 1
+          }
+        }
+      },
+      {
+        "phase": "1H",
+        "minute": 30,
+        "observedMinute": 30,
+        "capturedAt": "2026-06-13T11:59:25.414Z",
+        "statusText": "1st Half - 30'",
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ballPossession": {
+          "home": 36,
+          "away": 64
+        },
+        "cumulative": {
+          "totalShots": {
+            "home": 3,
+            "away": 3
+          },
+          "shotsOnTarget": {
+            "home": 2,
+            "away": 1
+          },
+          "cornerKicks": {
+            "home": 2,
+            "away": 1
+          },
+          "expectedGoalsXg": {
+            "home": 0.23,
+            "away": 0.34
+          },
+          "yellowCards": {
+            "home": 1,
+            "away": 1
+          },
+          "redCards": {
+            "home": null,
+            "away": null
+          },
+          "xgOnTargetXgot": {
+            "home": 0.57,
+            "away": 0.33
+          },
+          "bigChances": {
+            "home": 0,
+            "away": 1
+          },
+          "shotsInsideTheBox": {
+            "home": 2,
+            "away": 1
+          },
+          "shotsOutsideTheBox": {
+            "home": 1,
+            "away": 2
+          },
+          "blockedShots": {
+            "home": 1,
+            "away": 0
+          },
+          "touchesInOppositionBox": {
+            "home": 4,
+            "away": 1
+          },
+          "expectedAssistsXa": {
+            "home": 0.03,
+            "away": 0.06
+          },
+          "goalkeeperSaves": {
+            "home": 1,
+            "away": 2
+          },
+          "goalsPrevented": {
+            "home": 0.33,
+            "away": 0.57
+          },
+          "passesMade": {
+            "home": 47,
+            "away": 105
+          },
+          "passesAttempted": {
+            "home": 71,
+            "away": 133
+          },
+          "passesInFinalThirdMade": {
+            "home": 6,
+            "away": 14
+          },
+          "passesInFinalThirdAttempted": {
+            "home": 14,
+            "away": 25
+          },
+          "crossesMade": {
+            "home": 0,
+            "away": 1
+          },
+          "crossesAttempted": {
+            "home": 4,
+            "away": 5
+          },
+          "accurateThroughPasses": {
+            "home": 0,
+            "away": 0
+          },
+          "freeKicks": {
+            "home": 4,
+            "away": 6
+          },
+          "offsides": {
+            "home": 0,
+            "away": 1
+          }
+        }
+      }
+    ],
+    "final": null,
+    "derived": null,
+    "predictions": {
+      "tm05": null,
+      "tb05": null,
+      "tm05_1h": {
+        "phase": "signal",
+        "dsScore": 58,
+        "dsComponents": {
+          "fav_xg_suppressed": 43.99999999999999,
+          "fav_shots_suppressed": 60,
+          "fav_touches_box": 100,
+          "total_tempo": 36.25000000000001,
+          "big_chances": 50,
+          "calm_cards": 70,
+          "possession_bal": 74,
+          "league_bias_1h": 50
+        },
+        "favorite": "away",
+        "decidedAt": "2026-06-13T11:56:04.923Z",
+        "pNoGoal": 0.336,
+        "confidence": 0.6,
+        "reasoning": "Фаворит (Xiamen Feilu) не пробиває до 27' (xG=0.28, у площину=1). DS1H=58.",
+        "keySignals": [
+          {
+            "signal": "fav_xg",
+            "value": 0.28,
+            "weight": "high"
+          },
+          {
+            "signal": "fav_shots_on_target",
+            "value": 1,
+            "weight": "high"
+          },
+          {
+            "signal": "tempo_dryness",
+            "value": 36.25000000000001,
+            "weight": "med"
+          }
+        ],
+        "odds": 2.6,
+        "evGate": {
+          "pass": true,
+          "reason": "inverted_test",
+          "ev": null,
+          "pAdj": null
+        },
+        "calibrated": false,
+        "requestedAtMinute": 27
+      }
+    }
+  },
+  "0URfbXvp": {
+    "matchId": "0URfbXvp",
+    "country": "NORWAY",
+    "league": "Toppserien Women",
+    "homeTeam": "Haugesund W",
+    "awayTeam": "Bodo/Glimt W",
+    "matchUrl": "/match/0URfbXvp/?s=2",
+    "discoveredAt": "2026-06-13T11:41:43.691Z",
+    "enrichedAt": "2026-06-13T11:42:05.988Z",
+    "odds": {
+      "home": 1.28,
+      "draw": 5.55,
+      "away": 9.52,
+      "isOddsFavorite": {
+        "favorite": "home",
+        "margin": 0.52,
+        "threshold": 1.8
+      }
+    },
+    "statsLevel": "basic",
+    "baseline1H": {
+      "totalShots": {
+        "home": 1,
+        "away": 0
+      },
+      "shotsOnTarget": {
+        "home": 1,
+        "away": 0
+      },
+      "cornerKicks": {
+        "home": 1,
+        "away": 0
+      },
+      "expectedGoalsXg": {
+        "home": null,
+        "away": null
+      },
+      "yellowCards": {
+        "home": null,
+        "away": null
+      },
+      "redCards": {
+        "home": null,
+        "away": null
+      },
+      "xgOnTargetXgot": {
+        "home": null,
+        "away": null
+      },
+      "bigChances": {
+        "home": null,
+        "away": null
+      },
+      "shotsInsideTheBox": {
+        "home": null,
+        "away": null
+      },
+      "shotsOutsideTheBox": {
+        "home": null,
+        "away": null
+      },
+      "blockedShots": {
+        "home": null,
+        "away": null
+      },
+      "touchesInOppositionBox": {
+        "home": null,
+        "away": null
+      },
+      "expectedAssistsXa": {
+        "home": null,
+        "away": null
+      },
+      "goalkeeperSaves": {
+        "home": null,
+        "away": null
+      },
+      "goalsPrevented": {
+        "home": null,
+        "away": null
+      },
+      "passesMade": {
+        "home": null,
+        "away": null
+      },
+      "passesAttempted": {
+        "home": null,
+        "away": null
+      },
+      "passesInFinalThirdMade": {
+        "home": null,
+        "away": null
+      },
+      "passesInFinalThirdAttempted": {
+        "home": null,
+        "away": null
+      },
+      "crossesMade": {
+        "home": null,
+        "away": null
+      },
+      "crossesAttempted": {
+        "home": null,
+        "away": null
+      },
+      "accurateThroughPasses": {
+        "home": null,
+        "away": null
+      },
+      "freeKicks": {
+        "home": null,
+        "away": null
+      },
+      "offsides": {
+        "home": null,
+        "away": null
+      },
+      "ballPossession": {
+        "home": 61,
+        "away": 39
+      }
+    },
+    "tracking": {
+      "status": "discarded",
+      "discardReason": "goal_before_halftime",
+      "validForPrediction": false,
+      "firstGoalMinute": null,
+      "nextSnapshotAt": null,
+      "snapshotCount": 0,
+      "failureCount": 0
+    },
+    "snapshots": [],
+    "final": null,
+    "derived": null,
+    "predictions": {
+      "tm05": null,
+      "tb05": null,
+      "tm05_1h": {
+        "phase": "goal_during_decision",
+        "decidedAt": "2026-06-13T11:50:33.055Z",
+        "htOutcome": {
+          "score": "0:1",
+          "dry": false,
+          "firstGoalMinute": 21,
+          "resolvedAt": "2026-06-13T11:50:33.055Z"
+        }
       }
     }
   }
