@@ -60,6 +60,11 @@ async function runTm05_1hDecision(matchId, snapshot, date = new Date(), deps = {
     return { status: 'skipped_by_fav', dsScore: ds.score, gateReason: favGate.reason };
   }
 
+  // DS-off mode: DS does NOT gate the bet (it is still computed & recorded for
+  // analysis). We bet the whole favorite-band population and the EV gate is
+  // bypassed below — used to collect a clean base-rate dataset.
+  const dsOff = cfg.LIVE_1H_DISABLE_DS === true;
+
   // Inverted TEST mode: bet exactly on the band the normal gate skips, and skip
   // everything else. The DS-band membership IS the BET/SKIP decision here — the
   // EV gate (built on the non-inverted probability mapping) is bypassed below.
@@ -68,9 +73,11 @@ async function runTm05_1hDecision(matchId, snapshot, date = new Date(), deps = {
     && ds.score >= cfg.LIVE_1H_INVERT_DS_MIN
     && ds.score <= cfg.LIVE_1H_INVERT_DS_MAX;
 
-  const skip = inverted
-    ? !inBand
-    : (ds.score == null || ds.score < cfg.LIVE_1H_DS_THRESHOLD_MIN);
+  const skip = dsOff
+    ? false
+    : inverted
+      ? !inBand
+      : (ds.score == null || ds.score < cfg.LIVE_1H_DS_THRESHOLD_MIN);
 
   if (skip) {
     store.setTm05_1hDecision(matchId, {
@@ -87,8 +94,8 @@ async function runTm05_1hDecision(matchId, snapshot, date = new Date(), deps = {
   const confidence = cfg.LIVE_1H_CONFIDENCE;
   const odds = tm05_1hOddsAt(minute);
 
-  const gate = inverted
-    ? { pass: true, reason: 'inverted_test', ev: null, pAdj: null }
+  const gate = (dsOff || inverted)
+    ? { pass: true, reason: dsOff ? 'ds_off' : 'inverted_test', ev: null, pAdj: null }
     : evaluateEvGate({
       probability,
       confidence,

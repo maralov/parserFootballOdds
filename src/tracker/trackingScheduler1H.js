@@ -112,8 +112,40 @@ function register(enrichedItem, date = new Date()) {
 function cancel(matchId) { _cancel(matchId); }
 function activeCount() { return timers.size; }
 
+/**
+ * Restart-safe: re-arm snapshot timers for every still-active match from today's
+ * store. Without this, a process restart orphans in-flight 1H matches (their
+ * in-memory timers are lost) and they never settle at halftime.
+ *
+ * @param {Date} [date]
+ * @returns {number} how many matches were re-scheduled
+ */
+function resume(date = new Date()) {
+  if (!env.LIVE_1H_ENABLED) return 0;
+  if (!limit) start();
+
+  const active = matchStore.getActiveMatches(date);
+  let resumed = 0;
+  for (const match of active) {
+    const { matchId } = match;
+    if (timers.has(matchId)) continue; // already scheduled
+    seen.add(matchId);
+
+    const nextAt = match.tracking?.nextSnapshotAt
+      ? new Date(match.tracking.nextSnapshotAt).getTime()
+      : Date.now();
+    _schedule(matchId, Math.max(0, nextAt - Date.now()));
+    resumed += 1;
+    logger.info('trackingScheduler1H: resumed', {
+      matchId, homeTeam: match.homeTeam, awayTeam: match.awayTeam,
+    });
+  }
+  if (resumed) logger.info('trackingScheduler1H: resume complete', { resumed });
+  return resumed;
+}
+
 module.exports = {
-  start, stop, register, cancel, activeCount,
+  start, stop, register, resume, cancel, activeCount,
   hasSeen, markSeen, isTracked,
   SNAPSHOT_START_MINUTE_1H,
 };

@@ -99,9 +99,13 @@ const env = {
   LIVE_1H_INVERT_DECISION: envBool('LIVE_1H_INVERT_DECISION', false),
   LIVE_1H_INVERT_DS_MIN: envInt('LIVE_1H_INVERT_DS_MIN', 20),
   LIVE_1H_INVERT_DS_MAX: envInt('LIVE_1H_INVERT_DS_MAX', 64),
+  // Disable the DS gate entirely: bet the whole favorite-band population (DS is
+  // still computed & recorded). Used to collect a clean base-rate dataset.
+  LIVE_1H_DISABLE_DS: envBool('LIVE_1H_DISABLE_DS', false),
   // Bet-gate (signal only — every favorite is still tracked & resolved for data):
-  // Exclude HEAVY favorites: require favorite odds >= this (0 = disabled, ~1.45).
+  // favorite odds band [MIN, MAX] (0 = that bound disabled).
   LIVE_1H_FAV_ODDS_MIN: envInt('LIVE_1H_FAV_ODDS_MIN', 0),
+  LIVE_1H_FAV_ODDS_MAX: envInt('LIVE_1H_FAV_ODDS_MAX', 0),
   // Bet only on AWAY favorites (home favorites break 0:0 before HT more often).
   LIVE_1H_AWAY_FAV_ONLY: envBool('LIVE_1H_AWAY_FAV_ONLY', false),
   LIVE_1H_BASELINE_P: Number(process.env.LIVE_1H_BASELINE_P) || 0.42,

@@ -25,6 +25,11 @@ function passesFavoriteGate1H(odds, cfg) {
     return { pass: false, reason: 'fav_too_strong', favorite, favOdd: favOdd ?? null };
   }
 
+  const max = Number(cfg?.LIVE_1H_FAV_ODDS_MAX) || 0;
+  if (max > 0 && (favOdd == null || favOdd > max)) {
+    return { pass: false, reason: 'fav_too_weak', favorite, favOdd: favOdd ?? null };
+  }
+
   // Empirically away favorites keep the 0:0 to HT more often than home favorites
   // (home favorite is expected to attack and break through early).
   if (cfg?.LIVE_1H_AWAY_FAV_ONLY && favorite !== 'away') {

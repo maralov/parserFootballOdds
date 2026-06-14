@@ -166,6 +166,23 @@ test('inverted mode: goal before halftime still wins → goal_during_decision', 
   assert.equal(res.status, 'goal_during_decision');
 });
 
+// ── DS disabled (LIVE_1H_DISABLE_DS): signal regardless of DS, EV bypassed ────
+test('DS off: active favorite (low DS) still signals, DS still recorded', async () => {
+  const store = fakeStore(baseRecord());
+  const cfg = { ...CFG, LIVE_1H_DISABLE_DS: true };
+  // ACTIVE_SNAP yields a LOW DS that normally → skipped_by_ds. With DS off → signal.
+  const res = await runTm05_1hDecision('m1', ACTIVE_SNAP, new Date(), { env: cfg, matchStore: store });
+  assert.equal(res.status, 'signal');
+  assert.ok(store.record.predictions.tm05_1h.dsScore != null); // DS still recorded for analysis
+});
+
+test('DS off still respects favorite gate (home blocked when away-only)', async () => {
+  const store = fakeStore(baseRecord()); // home favorite
+  const cfg = { ...CFG, LIVE_1H_DISABLE_DS: true, LIVE_1H_AWAY_FAV_ONLY: true };
+  const res = await runTm05_1hDecision('m1', ACTIVE_SNAP, new Date(), { env: cfg, matchStore: store });
+  assert.equal(res.status, 'skipped_by_fav');
+});
+
 // ── Favorite bet-gate (LIVE_1H_AWAY_FAV_ONLY / LIVE_1H_FAV_ODDS_MIN) ──────────
 // The gate suppresses the SIGNAL but the match is still tracked and DS recorded,
 // so the dataset stays complete for offline analysis.

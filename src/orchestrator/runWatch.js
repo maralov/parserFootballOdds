@@ -49,6 +49,7 @@ async function runWatch() {
 
   if (env.LIVE_1H_ENABLED) {
     trackingScheduler1H.start();
+    trackingScheduler1H.resume();
   }
 
   if (env.LIVE_TG_ENABLED) {

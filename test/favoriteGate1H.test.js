@@ -42,6 +42,28 @@ test('favorite exactly at min → passes (inclusive lower bound)', () => {
   assert.equal(r.pass, true);
 });
 
+test('favorite above max → blocked as too weak', () => {
+  const r = passesFavoriteGate1H(FAV_HOME(1.95), { LIVE_1H_FAV_ODDS_MAX: 1.9 });
+  assert.equal(r.pass, false);
+  assert.equal(r.reason, 'fav_too_weak');
+});
+
+test('favorite exactly at max → passes (inclusive upper bound)', () => {
+  const r = passesFavoriteGate1H(FAV_HOME(1.9), { LIVE_1H_FAV_ODDS_MAX: 1.9 });
+  assert.equal(r.pass, true);
+});
+
+test('band [1.5,1.9] away-only: away fav 1.70 → passes', () => {
+  const r = passesFavoriteGate1H(FAV_AWAY(1.70), { LIVE_1H_FAV_ODDS_MIN: 1.5, LIVE_1H_FAV_ODDS_MAX: 1.9, LIVE_1H_AWAY_FAV_ONLY: true });
+  assert.equal(r.pass, true);
+});
+
+test('band [1.5,1.9] away-only: away fav 1.40 → too strong', () => {
+  const r = passesFavoriteGate1H(FAV_AWAY(1.40), { LIVE_1H_FAV_ODDS_MIN: 1.5, LIVE_1H_FAV_ODDS_MAX: 1.9, LIVE_1H_AWAY_FAV_ONLY: true });
+  assert.equal(r.pass, false);
+  assert.equal(r.reason, 'fav_too_strong');
+});
+
 test('away-only on, home favorite → blocked as not-away', () => {
   const r = passesFavoriteGate1H(FAV_HOME(1.70), { LIVE_1H_AWAY_FAV_ONLY: true });
   assert.equal(r.pass, false);
