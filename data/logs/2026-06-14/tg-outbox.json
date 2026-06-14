@@ -1,0 +1,142 @@
+[
+  {
+    "matchId": "vXQDgLbl",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T23:55:55.166Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2090,
+      "sentAt": "2026-06-13T23:55:55.335Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2091,
+      "sentAt": "2026-06-13T23:59:07.169Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 51,
+      "psScore": null,
+      "pNoGoal": 0.3045,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Tampa Bay) не пробиває до 26' (xG=0.37, у площину=1). DS1H=51.",
+      "keySignals": [
+        {
+          "signal": "fav_xg",
+          "value": 0.37,
+          "weight": "high"
+        },
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        },
+        {
+          "signal": "tempo_dryness",
+          "value": 53.75000000000001,
+          "weight": "med"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "fqwEL8xp",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-14T00:25:50.485Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2092,
+      "sentAt": "2026-06-14T00:25:50.647Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2093,
+      "sentAt": "2026-06-14T00:46:33.493Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 44,
+      "psScore": null,
+      "pNoGoal": 0.3,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Crown Legacy) не пробиває до 26' (xG=0.43, у площину=1). DS1H=44.",
+      "keySignals": [
+        {
+          "signal": "fav_xg",
+          "value": 0.43,
+          "weight": "high"
+        },
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        },
+        {
+          "signal": "tempo_dryness",
+          "value": 43.75,
+          "weight": "med"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "WMHbFcUh",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-14T04:57:30.786Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2094,
+      "sentAt": "2026-06-14T04:57:30.954Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2097,
+      "sentAt": "2026-06-14T05:19:59.372Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 28,
+      "score": "0:0",
+      "dsScore": 64,
+      "psScore": null,
+      "pNoGoal": 0.363,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Launceston) не пробиває до 28' (у площину=1). DS1H=64.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  }
+]

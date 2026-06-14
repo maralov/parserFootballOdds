@@ -166,6 +166,41 @@ test('inverted mode: goal before halftime still wins → goal_during_decision', 
   assert.equal(res.status, 'goal_during_decision');
 });
 
+// ── Favorite bet-gate (LIVE_1H_AWAY_FAV_ONLY / LIVE_1H_FAV_ODDS_MIN) ──────────
+// The gate suppresses the SIGNAL but the match is still tracked and DS recorded,
+// so the dataset stays complete for offline analysis.
+test('away-only on + home favorite → skipped_by_fav, no telegram, DS recorded', async () => {
+  const store = fakeStore(baseRecord()); // baseRecord favorite is 'home'
+  const calls = [];
+  const tg = { enqueueEntry: (a) => { calls.push(a); return Promise.resolve(); } };
+  const cfg = { ...CFG, LIVE_1H_AWAY_FAV_ONLY: true };
+  const res = await runTm05_1hDecision('m1', DRY_SNAP, new Date(), { env: cfg, matchStore: store, tgDispatcher: tg });
+  assert.equal(res.status, 'skipped_by_fav');
+  await new Promise((r) => setImmediate(r));
+  assert.equal(calls.length, 0);
+  assert.ok(store.record.predictions.tm05_1h.dsScore != null); // DS still recorded
+});
+
+test('away-only on + away favorite → signal', async () => {
+  // Mirror of DRY_SNAP with the AWAY side suppressed → high DS → signal.
+  const drySnapAway = {
+    observedMinute: 25,
+    cumulative: {
+      expectedGoalsXg: { home: 0.10, away: 0.05 },
+      shotsOnTarget: { home: 1, away: 0 },
+      touchesInOppositionBox: { home: 5, away: 2 },
+      bigChances: { home: 0, away: 0 },
+      yellowCards: { home: 0, away: 0 },
+      redCards: { home: 0, away: 0 },
+    },
+    ballPossession: { home: 50, away: 50 },
+  };
+  const store = fakeStore(baseRecord({ odds: { isOddsFavorite: { favorite: 'away' } } }));
+  const cfg = { ...CFG, LIVE_1H_AWAY_FAV_ONLY: true };
+  const res = await runTm05_1hDecision('m1', drySnapAway, new Date(), { env: cfg, matchStore: store });
+  assert.equal(res.status, 'signal');
+});
+
 test('reasoning omits xG (no bare "?") when xG stat is missing', async () => {
   // Basic-stats match: no xG, but dry by shots/touches → still a signal.
   const noXgSnap = {

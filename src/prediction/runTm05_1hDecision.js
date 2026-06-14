@@ -4,6 +4,7 @@ const env = require('../config/env');
 const logger = require('../observability/logger');
 const matchStore = require('../store/matchStore');
 const { computeDS1H } = require('../scoring/drynessScore1H');
+const { passesFavoriteGate1H } = require('../scoring/favoriteGate1H');
 const { dsToProbability1H } = require('./dsToProbability1H');
 const { tm05_1hOddsAt } = require('../scoring/oddsTable');
 const { evaluateEvGate } = require('./evGate');
@@ -40,6 +41,24 @@ async function runTm05_1hDecision(matchId, snapshot, date = new Date(), deps = {
     favorite: ds.favorite,
     decidedAt: new Date().toISOString(),
   }, date);
+
+  // Favorite bet-gate: optionally exclude heavy and/or home favorites. This only
+  // suppresses the SIGNAL — the match stays tracked and is resolved at HT, so the
+  // dataset remains complete for offline analysis of every favorite.
+  const favGate = passesFavoriteGate1H(match.odds, cfg);
+  if (!favGate.pass) {
+    store.setTm05_1hDecision(matchId, {
+      phase: 'skipped_by_fav',
+      dsScore: ds.score,
+      decision: 'SKIP',
+      favGateReason: favGate.reason,
+      decidedAt: new Date().toISOString(),
+    }, date);
+    logger.info('runTm05_1hDecision: SKIP by favorite gate', {
+      matchId, reason: favGate.reason, favOdd: favGate.favOdd, ds: ds.score, minute,
+    });
+    return { status: 'skipped_by_fav', dsScore: ds.score, gateReason: favGate.reason };
+  }
 
   // Inverted TEST mode: bet exactly on the band the normal gate skips, and skip
   // everything else. The DS-band membership IS the BET/SKIP decision here — the

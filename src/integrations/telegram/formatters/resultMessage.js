@@ -61,7 +61,7 @@ function formatResultMessage({ outboxRecord, match }) {
  * @param {{ htScoreHome:number, htScoreAway:number, hit:boolean, firstGoalMinute:(number|null) }} params
  * @returns {string}
  */
-function formatOneHResultMessage({ htScoreHome, htScoreAway, hit, firstGoalMinute: fgm }) {
+function formatOneHResultMessage({ htScoreHome, htScoreAway, hit, firstGoalMinute: fgm, tallyLine }) {
   const score = `${htScoreHome ?? '?'}:${htScoreAway ?? '?'}`;
   const status = hit ? '✅ *HIT*' : '❌ *MISS*';
   const lines = [
@@ -70,6 +70,9 @@ function formatOneHResultMessage({ htScoreHome, htScoreAway, hit, firstGoalMinut
   ];
   if (!hit && fgm != null) {
     lines.push(`Перший гол: ${escapeMarkdownV2(String(fgm))}'`);
+  }
+  if (tallyLine) {
+    lines.push(tallyLine);
   }
   return lines.join('\n');
 }

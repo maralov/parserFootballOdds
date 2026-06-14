@@ -7,6 +7,8 @@ const tgOutbox = require('../../store/tgOutbox');
 const client = require('./client');
 const { formatEntryMessage } = require('./formatters/entryMessage');
 const { formatResultMessage, formatOneHResultMessage } = require('./formatters/resultMessage');
+const { tally1H, formatDayTallyLine, formatDaySummary1H } = require('./formatters/daySummary1H');
+const { dateKeyLocal } = require('../../helpers/date');
 const inFlightEntries = new Set();
 const inFlightResults = new Set();
 
@@ -258,7 +260,11 @@ async function dispatchOneHResult({ matchId, htScoreHome, htScoreAway, firstGoal
 
   try {
     const hit = (Number(htScoreHome) || 0) + (Number(htScoreAway) || 0) === 0;
-    const message = formatOneHResultMessage({ htScoreHome, htScoreAway, hit, firstGoalMinute });
+    // Running day tally — count this match as settled even though its outbox
+    // record is still 'pending_result' at send time.
+    const tally = tally1H(tgOutbox.readOutbox(dayDir), { matchId, hit });
+    const tallyLine = formatDayTallyLine(tally);
+    const message = formatOneHResultMessage({ htScoreHome, htScoreAway, hit, firstGoalMinute, tallyLine });
 
     const result = await client.sendMessage({
       text: message,
@@ -290,6 +296,35 @@ async function dispatchOneHResult({ matchId, htScoreHome, htScoreAway, firstGoal
   } finally {
     inFlightResults.delete(rkey);
   }
+}
+
+/**
+ * Send an end-of-day 1HUNDER summary (signals, HIT/MISS, dry-rate, ROI) built
+ * from the day's outbox. Idempotent-ish: callers decide when to fire (e.g. a
+ * scheduled job at day's end). Returns the send result, or null if nothing/off.
+ *
+ * @param {{ date?:Date }} [params]
+ * @returns {Promise<Object|null>}
+ */
+async function dispatchDaySummary({ date = new Date() } = {}) {
+  if (!LIVE_TG_ENABLED) return null;
+
+  const dayDir = matchStore.dayLogsAbsolute(date);
+  const stats = tally1H(tgOutbox.readOutbox(dayDir));
+  if (stats.signals === 0) {
+    logger.info('tg.daySummary.skip', { reason: 'no_signals' });
+    return null;
+  }
+
+  const message = formatDaySummary1H(stats, dateKeyLocal(date));
+
+  const result = await client.sendMessage({ text: message });
+  if (result.ok) {
+    logger.info('tg.daySummary.sent', { messageId: result.messageId, ...stats });
+  } else {
+    logger.warn('tg.daySummary.failed', { error: result.error });
+  }
+  return result;
 }
 
 async function flushPending({ date = new Date() } = {}) {
@@ -381,6 +416,7 @@ module.exports = {
   buildOutboxPayload,
   dispatchResults,
   dispatchOneHResult,
+  dispatchDaySummary,
   flushPending,
   pendingResultRecords,
   resultHitForRecord,

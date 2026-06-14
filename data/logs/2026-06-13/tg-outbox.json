@@ -208,7 +208,7 @@
     "decisionKey": "tm05_1h",
     "tier": null,
     "createdAt": "2026-06-13T11:56:04.924Z",
-    "status": "pending_result",
+    "status": "resolved",
     "entry": {
       "messageId": 2058,
       "sentAt": "2026-06-13T11:56:05.177Z",
@@ -216,11 +216,11 @@
       "lastError": null
     },
     "result": {
-      "messageId": null,
-      "sentAt": null,
+      "messageId": 2061,
+      "sentAt": "2026-06-13T12:18:42.710Z",
       "attempts": 0,
       "lastError": null,
-      "hit": null
+      "hit": false
     },
     "snapshot": {
       "minute": 27,
@@ -248,6 +248,566 @@
           "signal": "tempo_dryness",
           "value": 36.25000000000001,
           "weight": "med"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "vRy36Qq4",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T12:25:32.750Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2062,
+      "sentAt": "2026-06-13T12:25:32.912Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2070,
+      "sentAt": "2026-06-13T12:47:29.599Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 46,
+      "psScore": null,
+      "pNoGoal": 0.3,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Ilves) не пробиває до 26' (xG=0.37, у площину=2). DS1H=46.",
+      "keySignals": [
+        {
+          "signal": "fav_xg",
+          "value": 0.37,
+          "weight": "high"
+        },
+        {
+          "signal": "fav_shots_on_target",
+          "value": 2,
+          "weight": "high"
+        },
+        {
+          "signal": "tempo_dryness",
+          "value": 45.00000000000001,
+          "weight": "med"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "zNjSLPNr",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T12:25:37.568Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2063,
+      "sentAt": "2026-06-13T12:25:37.634Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2068,
+      "sentAt": "2026-06-13T12:46:48.893Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 61,
+      "psScore": null,
+      "pNoGoal": 0.3495,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Malmo FF W) не пробиває до 26' (у площину=1). DS1H=61.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "niuB44EG",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T12:25:40.746Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2064,
+      "sentAt": "2026-06-13T12:25:40.845Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2071,
+      "sentAt": "2026-06-13T12:49:09.442Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 63,
+      "psScore": null,
+      "pNoGoal": 0.3585,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Inter Turku) не пробиває до 26' (xG=0.17, у площину=0). DS1H=63.",
+      "keySignals": [
+        {
+          "signal": "fav_xg",
+          "value": 0.17,
+          "weight": "high"
+        },
+        {
+          "signal": "fav_shots_on_target",
+          "value": 0,
+          "weight": "high"
+        },
+        {
+          "signal": "tempo_dryness",
+          "value": 66.25,
+          "weight": "med"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "QmSh9fvC",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T12:27:53.839Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2065,
+      "sentAt": "2026-06-13T12:27:53.998Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2069,
+      "sentAt": "2026-06-13T12:46:58.492Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 28,
+      "score": "0:0",
+      "dsScore": 43,
+      "psScore": null,
+      "pNoGoal": 0.3,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (HIFK) не пробиває до 28' (у площину=2). DS1H=43.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 2,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "rDR2c4Bk",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T13:40:49.971Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2072,
+      "sentAt": "2026-06-13T13:40:50.149Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2073,
+      "sentAt": "2026-06-13T13:42:59.184Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 62,
+      "psScore": null,
+      "pNoGoal": 0.354,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Young Africans) не пробиває до 26' (у площину=1). DS1H=62.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "KM1iITa5",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T14:25:19.611Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2074,
+      "sentAt": "2026-06-13T14:25:19.842Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2081,
+      "sentAt": "2026-06-13T14:48:47.449Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 23,
+      "psScore": null,
+      "pNoGoal": 0.3,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Fylkir) не пробиває до 26' (у площину=3). DS1H=23.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 3,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "dt4UX1hn",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T14:25:32.290Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2075,
+      "sentAt": "2026-06-13T14:25:32.459Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2079,
+      "sentAt": "2026-06-13T14:42:00.031Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 64,
+      "psScore": null,
+      "pNoGoal": 0.363,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Honka) не пробиває до 26' (у площину=1). DS1H=64.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "rcjVhDo2",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T14:25:34.114Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2076,
+      "sentAt": "2026-06-13T14:25:34.304Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2078,
+      "sentAt": "2026-06-13T14:37:44.689Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 33,
+      "psScore": null,
+      "pNoGoal": 0.3,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Guarani) не пробиває до 26' (у площину=2). DS1H=33.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 2,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "McexBAOk",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T14:33:55.833Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2077,
+      "sentAt": "2026-06-13T14:33:56.058Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2080,
+      "sentAt": "2026-06-13T14:44:58.310Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 34,
+      "score": "0:0",
+      "dsScore": 59,
+      "psScore": null,
+      "pNoGoal": 0.3405,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.2,
+      "ev": null,
+      "reasoning": "Фаворит (Brann W) не пробиває до 34' (у площину=1). DS1H=59.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "j7Z8QwQh",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T15:26:16.423Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2082,
+      "sentAt": "2026-06-13T15:26:16.643Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2083,
+      "sentAt": "2026-06-13T15:50:04.355Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": 64,
+      "psScore": null,
+      "pNoGoal": 0.363,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Auda) не пробиває до 27' (xG=0.14, у площину=2). DS1H=64.",
+      "keySignals": [
+        {
+          "signal": "fav_xg",
+          "value": 0.14,
+          "weight": "high"
+        },
+        {
+          "signal": "fav_shots_on_target",
+          "value": 2,
+          "weight": "high"
+        },
+        {
+          "signal": "tempo_dryness",
+          "value": 67.5,
+          "weight": "med"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "nch3rnmg",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T16:55:40.299Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2084,
+      "sentAt": "2026-06-13T16:55:40.517Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2085,
+      "sentAt": "2026-06-13T17:23:29.778Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 55,
+      "psScore": null,
+      "pNoGoal": 0.3225,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Coquimbo) не пробиває до 26' (xG=0.3, у площину=1). DS1H=55.",
+      "keySignals": [
+        {
+          "signal": "fav_xg",
+          "value": 0.3,
+          "weight": "high"
+        },
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        },
+        {
+          "signal": "tempo_dryness",
+          "value": 41.25000000000001,
+          "weight": "med"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "4xIoELqp",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T17:25:26.639Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2086,
+      "sentAt": "2026-06-13T17:25:26.803Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2087,
+      "sentAt": "2026-06-13T17:35:23.646Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 31,
+      "psScore": null,
+      "pNoGoal": 0.3,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Tartu Welco) не пробиває до 26' (у площину=2). DS1H=31.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 2,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "r3Tpyr5L",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-13T19:24:03.095Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2088,
+      "sentAt": "2026-06-13T19:24:03.269Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2089,
+      "sentAt": "2026-06-13T19:49:28.263Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 25,
+      "score": "0:0",
+      "dsScore": 61,
+      "psScore": null,
+      "pNoGoal": 0.3495,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Ferroviario) не пробиває до 25' (у площину=1). DS1H=61.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
         }
       ],
       "calibrated": false

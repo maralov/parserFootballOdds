@@ -23,3 +23,16 @@ test('returns a non-empty string', () => {
   assert.equal(typeof msg, 'string');
   assert.ok(msg.length > 0);
 });
+
+test('appends running day tally line when provided', () => {
+  const msg = formatOneHResultMessage({
+    htScoreHome: 0, htScoreAway: 0, hit: true, firstGoalMinute: null,
+    tallyLine: 'Сьогодні: 2W/1L · dry 67%',
+  });
+  assert.match(msg, /Сьогодні: 2W\/1L/);
+});
+
+test('no tally line when not provided', () => {
+  const msg = formatOneHResultMessage({ htScoreHome: 0, htScoreAway: 0, hit: true, firstGoalMinute: null });
+  assert.doesNotMatch(msg, /Сьогодні/);
+});

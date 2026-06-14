@@ -99,6 +99,11 @@ const env = {
   LIVE_1H_INVERT_DECISION: envBool('LIVE_1H_INVERT_DECISION', false),
   LIVE_1H_INVERT_DS_MIN: envInt('LIVE_1H_INVERT_DS_MIN', 20),
   LIVE_1H_INVERT_DS_MAX: envInt('LIVE_1H_INVERT_DS_MAX', 64),
+  // Bet-gate (signal only — every favorite is still tracked & resolved for data):
+  // Exclude HEAVY favorites: require favorite odds >= this (0 = disabled, ~1.45).
+  LIVE_1H_FAV_ODDS_MIN: envInt('LIVE_1H_FAV_ODDS_MIN', 0),
+  // Bet only on AWAY favorites (home favorites break 0:0 before HT more often).
+  LIVE_1H_AWAY_FAV_ONLY: envBool('LIVE_1H_AWAY_FAV_ONLY', false),
   LIVE_1H_BASELINE_P: Number(process.env.LIVE_1H_BASELINE_P) || 0.42,
   LIVE_1H_CONFIDENCE: Number(process.env.LIVE_1H_CONFIDENCE) || 0.6,
   LIVE_1H_CALIBRATED: envBool('LIVE_1H_CALIBRATED', false),

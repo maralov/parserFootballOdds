@@ -157,7 +157,10 @@ async function processOneHCandidates(oneHCandidates, cycleId) {
     trackingScheduler1H.markSeen(item.matchId);
     if (item.status !== 'enriched') continue;
 
-    // Thesis gate: require a clear pre-match favorite.
+    // Tracking gate: require a clear pre-match favorite. We TRACK every favorite
+    // (both sides, all strengths) so the dataset stays complete for analysis;
+    // the bet-gate (heavy/home-favorite exclusion) is applied later at decision
+    // time and only suppresses the signal, never the tracking/HT-resolution.
     const favorite = item.odds?.isOddsFavorite?.favorite;
     if (!favorite) {
       logger.info('runOnce: 1H skip — no clear favorite', { matchId: item.matchId });
