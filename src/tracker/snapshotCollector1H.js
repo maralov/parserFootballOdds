@@ -2,7 +2,7 @@
 
 const { fetchResilient }       = require('../fetcher/resilientFetcher');
 const { randomDelay }          = require('../fetcher/antibot/delays');
-const { buildLiveStatsUrl }    = require('../enrichment/helpers/urlBuilder');
+const { buildLiveStatsUrl, withCacheBuster } = require('../enrichment/helpers/urlBuilder');
 const { parseLiveHeader }      = require('./parsers/liveHeaderParser');
 const { parseCumulativeStats } = require('../enrichment/parsers/matchStatsParser');
 const { buildStatsMap }        = require('./deltaCalculator');
@@ -39,14 +39,19 @@ function matchLabel(match) {
  */
 async function resolveOneH(matchId, match, scoreHome, scoreAway, firstGoalMinute, date) {
   const dry = (scoreHome + scoreAway) === 0;
-  matchStore.setTm05_1hDecision(matchId, {
-    htOutcome: {
-      score: `${scoreHome}:${scoreAway}`,
-      dry,
-      firstGoalMinute: firstGoalMinute ?? null,
-      resolvedAt: new Date().toISOString(),
-    },
-  }, date);
+  const htOutcome = {
+    score: `${scoreHome}:${scoreAway}`,
+    dry,
+    firstGoalMinute: firstGoalMinute ?? null,
+    resolvedAt: new Date().toISOString(),
+  };
+  matchStore.setTm05_1hDecision(matchId, { htOutcome }, date);
+
+  // Also record outcome on tb05_1h if it exists (both get labeled for analysis)
+  const currentMatch = matchStore.getMatch(matchId, date);
+  if (currentMatch?.predictions?.tb05_1h != null) {
+    matchStore.setTb05_1hDecision(matchId, { htOutcome }, date);
+  }
 
   printEvent('1hunder', matchLabel(match), `RESULT ${dry ? 'HIT' : 'MISS'} ${scoreHome}:${scoreAway}`, {});
 
@@ -58,6 +63,15 @@ async function resolveOneH(matchId, match, scoreHome, scoreAway, firstGoalMinute
       htScoreAway: scoreAway,
       firstGoalMinute: firstGoalMinute ?? null,
       date,
+      decisionKey: 'tm05_1h',
+    });
+    await tgDispatcher.dispatchOneHResult({
+      matchId,
+      htScoreHome: scoreHome,
+      htScoreAway: scoreAway,
+      firstGoalMinute: firstGoalMinute ?? null,
+      date,
+      decisionKey: 'tb05_1h',
     });
   } catch (err) {
     logger.warn('snapshotCollector1H: 1H result dispatch failed', { matchId, err: err.message });
@@ -91,7 +105,7 @@ async function collectSnapshot1H(matchId, scheduleNext, date = new Date()) {
   // Fetch live stats page
   let html;
   try {
-    const res = await fetchResilient(buildLiveStatsUrl(matchId));
+    const res = await fetchResilient(withCacheBuster(buildLiveStatsUrl(matchId)));
     html = res.html;
   } catch (err) {
     logger.warn('snapshotCollector1H: fetch failed', { matchId, err: err.message });

@@ -151,6 +151,13 @@ function resultHitForRecord(record, match) {
     if (typeof fgm === 'number') return fgm > 45;
     return null;
   }
+  if (record?.decisionKey === 'tb05_1h') {
+    // OVER hits when first half had a goal (firstGoalMinute ≤ 45).
+    const fgm = match?.final?.firstGoalMinute;
+    if (fgm == null) return false;
+    if (typeof fgm === 'number') return fgm <= 45;
+    return null;
+  }
   return null;
 }
 
@@ -236,62 +243,69 @@ async function dispatchResults({ match, date = new Date() }) {
 }
 
 /**
- * Resolve the 1HUNDER (tm05_1h) line at HALFTIME and reply to the original
+ * Resolve a 1H line (tm05_1h or tb05_1h) at HALFTIME and reply to the original
  * entry with HIT/MISS. Independent of full-time `match.final` — the first-half
  * bet settles at the break. Idempotent via the outbox FSM (status flips to
  * 'resolved', so a later full-time pass finds no pending record).
+ * No-ops if no pending_result record exists for the given decisionKey.
  *
  * @param {{ matchId:string, htScoreHome:number, htScoreAway:number,
- *           firstGoalMinute?:(number|null), date?:Date }} params
+ *           firstGoalMinute?:(number|null), date?:Date, decisionKey?:string }} params
  * @returns {Promise<Object|null>} the updated outbox record, or null if nothing to send
  */
-async function dispatchOneHResult({ matchId, htScoreHome, htScoreAway, firstGoalMinute = null, date = new Date() }) {
+async function dispatchOneHResult({ matchId, htScoreHome, htScoreAway, firstGoalMinute = null, date = new Date(), decisionKey = 'tm05_1h' }) {
   if (!LIVE_TG_ENABLED) return null;
   if (!matchId) return null;
 
   const dayDir = matchStore.dayLogsAbsolute(date);
   const record = pendingResultRecords(dayDir, matchId)
-    .find((r) => r.decisionKey === 'tm05_1h');
+    .find((r) => r.decisionKey === decisionKey);
   if (!record) return null;
 
-  const rkey = resultKey(matchId, 'tm05_1h');
+  const rkey = resultKey(matchId, decisionKey);
   if (inFlightResults.has(rkey)) return null;
   inFlightResults.add(rkey);
 
   try {
-    const hit = (Number(htScoreHome) || 0) + (Number(htScoreAway) || 0) === 0;
+    // Hit logic depends on direction:
+    // tm05_1h (UNDER): HIT = dry (no goals in 1H)
+    // tb05_1h (OVER):  HIT = goal scored before HT
+    const hit = decisionKey === 'tb05_1h'
+      ? (Number(htScoreHome) || 0) + (Number(htScoreAway) || 0) > 0
+      : (Number(htScoreHome) || 0) + (Number(htScoreAway) || 0) === 0;
+
     // Running day tally — count this match as settled even though its outbox
     // record is still 'pending_result' at send time.
     const tally = tally1H(tgOutbox.readOutbox(dayDir), { matchId, hit });
     const tallyLine = formatDayTallyLine(tally);
-    const message = formatOneHResultMessage({ htScoreHome, htScoreAway, hit, firstGoalMinute, tallyLine });
+    const message = formatOneHResultMessage({ htScoreHome, htScoreAway, hit, firstGoalMinute, tallyLine, decisionKey });
 
     const result = await client.sendMessage({
       text: message,
       replyToMessageId: record.entry.messageId,
     });
     if (result.ok) {
-      const updated = tgOutbox.markResultSent(dayDir, matchId, 'tm05_1h', {
+      const updated = tgOutbox.markResultSent(dayDir, matchId, decisionKey, {
         messageId: result.messageId,
         sentAt: new Date().toISOString(),
         hit,
       });
       logger.info('tg.result.1h.sent', {
-        matchId, messageId: result.messageId, replyToMessageId: record.entry.messageId, hit,
+        matchId, decisionKey, messageId: result.messageId, replyToMessageId: record.entry.messageId, hit,
       });
       return updated;
     }
 
-    let updated = tgOutbox.markResultFailed(dayDir, matchId, 'tm05_1h', {
+    let updated = tgOutbox.markResultFailed(dayDir, matchId, decisionKey, {
       error: result.error, attempts: result.attempts,
     });
     if (result.attempts >= Math.max(1, LIVE_TG_MAX_RETRIES)) {
-      updated = tgOutbox.setStatus(dayDir, matchId, 'tm05_1h', 'failed');
+      updated = tgOutbox.setStatus(dayDir, matchId, decisionKey, 'failed');
     }
-    logger.warn('tg.result.1h.failed', { matchId, error: result.error, attempts: result.attempts });
+    logger.warn('tg.result.1h.failed', { matchId, decisionKey, error: result.error, attempts: result.attempts });
     return updated;
   } catch (err) {
-    logger.warn('tg.result.1h.dispatch_error', { matchId, err: err?.message || String(err) });
+    logger.warn('tg.result.1h.dispatch_error', { matchId, decisionKey, err: err?.message || String(err) });
     return null;
   } finally {
     inFlightResults.delete(rkey);

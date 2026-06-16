@@ -17,6 +17,7 @@ function trackLabel(decisionKey) {
 	if (decisionKey === 'tm05') return 'ТМ 0,5 матчу';
 	if (decisionKey === 'tb05') return 'ТБ 0,5 матчу';
 	if (decisionKey === 'tm05_1h') return '1HUNDER · ТМ 0,5 тайму';
+	if (decisionKey === 'tb05_1h') return '1HOVER · ТБ 0,5 тайму';
 	return String(decisionKey || '');
 }
 
@@ -24,6 +25,7 @@ function trackEmoji(decisionKey) {
 	if (decisionKey === 'tm05') return '🟢';
 	if (decisionKey === 'tb05') return '🔴';
 	if (decisionKey === 'tm05_1h') return '🟡';
+	if (decisionKey === 'tb05_1h') return '🟠';
 	return '⚪';
 }
 
@@ -31,6 +33,7 @@ function pickProbability(prediction, decisionKey) {
 	if (decisionKey === 'tm05') return prediction?.pNoGoal;
 	if (decisionKey === 'tb05') return prediction?.pGoal;
 	if (decisionKey === 'tm05_1h') return prediction?.pNoGoal;
+	if (decisionKey === 'tb05_1h') return prediction?.p ?? prediction?.pGoal;
 	return null;
 }
 

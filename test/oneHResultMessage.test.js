@@ -3,6 +3,8 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const { formatOneHResultMessage } = require('../src/integrations/telegram/formatters/resultMessage');
 
+// ─── Backward-compat: default (tm05_1h / 1HUNDER) ─────────────────────────────
+
 test('HIT when first half stayed 0:0', () => {
   const msg = formatOneHResultMessage({ htScoreHome: 0, htScoreAway: 0, hit: true, firstGoalMinute: null });
   assert.match(msg, /HIT/);
@@ -35,4 +37,33 @@ test('appends running day tally line when provided', () => {
 test('no tally line when not provided', () => {
   const msg = formatOneHResultMessage({ htScoreHome: 0, htScoreAway: 0, hit: true, firstGoalMinute: null });
   assert.doesNotMatch(msg, /Сьогодні/);
+});
+
+test('without decisionKey defaults to 1HUNDER (backward compat)', () => {
+  const msg = formatOneHResultMessage({ htScoreHome: 0, htScoreAway: 0, hit: true, firstGoalMinute: null });
+  assert.match(msg, /1HUNDER/);
+  assert.doesNotMatch(msg, /1HOVER/);
+});
+
+// ─── tb05_1h (1HOVER) ─────────────────────────────────────────────────────────
+
+test('tb05_1h HIT with fgm=37 shows 1HOVER and first goal minute', () => {
+  const msg = formatOneHResultMessage({
+    htScoreHome: 1, htScoreAway: 0, hit: true, firstGoalMinute: 37, decisionKey: 'tb05_1h',
+  });
+  assert.match(msg, /HIT/);
+  assert.match(msg, /1HOVER/);
+  assert.match(msg, /37/);
+  assert.doesNotMatch(msg, /MISS/);
+  assert.doesNotMatch(msg, /1HUNDER/);
+});
+
+test('tb05_1h MISS with no goals shows MISS and голів у 1-му таймі', () => {
+  const msg = formatOneHResultMessage({
+    htScoreHome: 0, htScoreAway: 0, hit: false, firstGoalMinute: null, decisionKey: 'tb05_1h',
+  });
+  assert.match(msg, /MISS/);
+  assert.match(msg, /1HOVER/);
+  assert.match(msg, /Голів у 1/);
+  assert.doesNotMatch(msg, /HIT/);
 });
