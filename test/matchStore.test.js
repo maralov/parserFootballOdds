@@ -141,3 +141,28 @@ test('finalize flushes synchronously even in debounced mode', () => {
   delete process.env.MATCHSTORE_DEBOUNCE_MS;
   delete require.cache[require.resolve('../src/store/matchStore')];
 });
+
+test('setTb05_1hDecision writes to predictions.tb05_1h (not tm05_1h)', () => {
+  const date = makeTempDate('09');
+  matchStore.upsertFromEnrichment({
+    matchId: 'tb05-test',
+    homeTeam: 'H', awayTeam: 'A',
+    statistics: { '1half': { home: {}, away: {} } },
+    statsLevel: 'detailed',
+    odds: { home: 2.0, draw: 3.2, away: 3.6 },
+    standings: { home: { pts: 10, mp: 5 }, away: { pts: 10, mp: 5 } },
+  }, date);
+
+  matchStore.setTb05_1hDecision('tb05-test', { signal: 'OVER', odds: 2.10 }, date);
+  matchStore.flushSync(date);
+
+  const file = path.join(matchStore.dayLogsAbsolute(date), 'matches.json');
+  const onDisk = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const predictions = onDisk['tb05-test'].predictions;
+
+  assert.ok(predictions?.tb05_1h, 'predictions.tb05_1h має існувати');
+  assert.equal(predictions.tb05_1h.signal, 'OVER');
+  assert.ok(!predictions?.tm05_1h, 'predictions.tm05_1h не має бути записано');
+
+  fs.rmSync(matchStore.dayLogsAbsolute(date), { recursive: true, force: true });
+});

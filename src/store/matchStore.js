@@ -452,7 +452,7 @@ function getLastSnapshot(matchId, date = new Date()) {
 
 
 function setTrackDecision(matchId, track, payload, date = new Date()) {
-  if (track !== 'tm05' && track !== 'tb05' && track !== 'tm05_1h') {
+  if (track !== 'tm05' && track !== 'tb05' && track !== 'tm05_1h' && track !== 'tb05_1h') {
     logger.warn('matchStore.setTrackDecision: invalid track', { matchId, track });
     return null;
   }
@@ -462,7 +462,7 @@ function setTrackDecision(matchId, track, payload, date = new Date()) {
     logger.warn('matchStore.setTrackDecision: match not found', { matchId, track });
     return null;
   }
-  if (!match.predictions) match.predictions = { tm05: null, tb05: null, tm05_1h: null };
+  if (!match.predictions) match.predictions = { tm05: null, tb05: null, tm05_1h: null, tb05_1h: null };
   // Merge so intermediate phases (e.g. ds_computed) are preserved alongside later updates
   match.predictions[track] = { ...(match.predictions[track] || {}), ...payload };
   writeStore(store, date);
@@ -479,6 +479,10 @@ function setTb05Decision(matchId, payload, date = new Date()) {
 
 function setTm05_1hDecision(matchId, payload, date = new Date()) {
   return setTrackDecision(matchId, 'tm05_1h', payload, date);
+}
+
+function setTb05_1hDecision(matchId, payload, date = new Date()) {
+  return setTrackDecision(matchId, 'tb05_1h', payload, date);
 }
 
 function getTrackDecision(matchId, track, date = new Date()) {
@@ -524,6 +528,7 @@ module.exports = {
   setTm05Decision,
   setTb05Decision,
   setTm05_1hDecision,
+  setTb05_1hDecision,
   getTrackDecision,
   getHydratedSnapshots,
   getLastHydratedSnapshot,

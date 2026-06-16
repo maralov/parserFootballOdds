@@ -12,7 +12,7 @@ const { dateKeyLocal } = require('../../helpers/date');
 const inFlightEntries = new Set();
 const inFlightResults = new Set();
 
-const PRIMARY_DECISION_KEYS = new Set(['tm05', 'tb05', 'tm05_1h']);
+const PRIMARY_DECISION_KEYS = new Set(['tm05', 'tb05', 'tm05_1h', 'tb05_1h']);
 
 function entryKey(matchId, decisionKey) {
   return `${matchId}|${decisionKey}`;

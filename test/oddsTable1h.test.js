@@ -1,7 +1,7 @@
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { tm05_1hOddsAt } = require('../src/scoring/oddsTable');
+const { tm05_1hOddsAt, tb05_1hOddsAt } = require('../src/scoring/oddsTable');
 
 test('1H odds at exact breakpoints', () => {
   assert.equal(tm05_1hOddsAt(20), 3.00);
@@ -27,4 +27,23 @@ test('1H odds past 35 are null (line closed)', () => {
 test('1H odds invalid input is null', () => {
   assert.equal(tm05_1hOddsAt(null), null);
   assert.equal(tm05_1hOddsAt(NaN), null);
+});
+
+// tb05_1h (OVER) odds tests
+test('tb05_1h odds at exact breakpoints', () => {
+  assert.equal(tb05_1hOddsAt(25), 2.10);
+  assert.equal(tb05_1hOddsAt(30), 1.90);
+  assert.equal(tb05_1hOddsAt(35), 1.70);
+});
+
+test('tb05_1h odds floor to nearest lower breakpoint', () => {
+  assert.equal(tb05_1hOddsAt(27), 2.10);
+});
+
+test('tb05_1h odds past 35 are null (line closed)', () => {
+  assert.equal(tb05_1hOddsAt(36), null);
+});
+
+test('tb05_1h odds below 25 clamp to 25 value', () => {
+  assert.equal(tb05_1hOddsAt(24), 2.10);
 });

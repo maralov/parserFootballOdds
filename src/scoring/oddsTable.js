@@ -23,6 +23,14 @@ const TM05_1H_ODDS_BY_MINUTE = {
   35: 1.80,
 };
 
+// 1HOVER — ТБ 0.5 першого тайму (гол до перерви). Коефи спадають з часом,
+// бо ймовірність голу зростає. Вікно рішення: 25–35'.
+const TB05_1H_ODDS_BY_MINUTE = {
+  25: 2.10,
+  30: 1.90,
+  35: 1.70,
+};
+
 function nearestKey(table, minute) {
   const keys = Object.keys(table).map(Number).sort((a, b) => a - b);
   let best = keys[0];
@@ -53,11 +61,20 @@ function tm05_1hOddsAt(minute) {
   return TM05_1H_ODDS_BY_MINUTE[nearestKey(TM05_1H_ODDS_BY_MINUTE, minute)];
 }
 
+function tb05_1hOddsAt(minute) {
+  if (minute == null || !Number.isFinite(minute)) return null;
+  if (minute < 25) return TB05_1H_ODDS_BY_MINUTE[25];
+  if (minute > 35) return null;
+  return TB05_1H_ODDS_BY_MINUTE[nearestKey(TB05_1H_ODDS_BY_MINUTE, minute)];
+}
+
 module.exports = {
   TM05_ODDS_BY_MINUTE,
   TB05_ODDS_BY_MINUTE,
   TM05_1H_ODDS_BY_MINUTE,
+  TB05_1H_ODDS_BY_MINUTE,
   tm05OddsAt,
   tb05OddsAt,
   tm05_1hOddsAt,
+  tb05_1hOddsAt,
 };
