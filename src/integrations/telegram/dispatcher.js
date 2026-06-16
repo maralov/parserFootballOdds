@@ -30,6 +30,9 @@ function buildOutboxPayload({ match, prediction, decisionKey, minute, score }) {
   return {
     matchId: match.matchId,
     decisionKey,
+    dataAvailability: prediction.dataAvailability ?? null,
+    direction: prediction.direction ?? null,
+    p: prediction.p ?? null,
     snapshot: {
       minute,
       score,

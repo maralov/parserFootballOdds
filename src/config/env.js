@@ -112,6 +112,16 @@ const env = {
   LIVE_1H_CONFIDENCE: Number(process.env.LIVE_1H_CONFIDENCE) || 0.6,
   LIVE_1H_CALIBRATED: envBool('LIVE_1H_CALIBRATED', false),
   LIVE_1H_TG_ENABLED: envBool('LIVE_1H_TG_ENABLED', true),
+  // Re-fetch the live score (cache-busted) right before sending a signal and
+  // abort if a goal already shows — guards against a stale 0:0 from the live
+  // page lagging the real match. See runTm05_1hDecision.
+  LIVE_1H_CONFIRM_BEFORE_SIGNAL: envBool('LIVE_1H_CONFIRM_BEFORE_SIGNAL', true),
+  // AI-powered 1H decision (UNDER/OVER routing via LLM + web search)
+  LIVE_1H_AI_ENABLED: envBool('LIVE_1H_AI_ENABLED', false),
+  LIVE_1H_AI_MODEL: process.env.LIVE_1H_AI_MODEL || '',  // falls back to LIVE_AI_MODEL in runOneH_AiDecision
+  LIVE_1H_UNDER_BASELINE_P: Number(process.env.LIVE_1H_UNDER_BASELINE_P) || 0.42,
+  LIVE_1H_OVER_BASELINE_P: Number(process.env.LIVE_1H_OVER_BASELINE_P) || 0.40,
+  LIVE_1H_AI_DAILY_CAP: envInt('LIVE_1H_AI_DAILY_CAP', 0),  // 0 = unlimited
   // Max sleep while a first-half match is in the discovery window (keep polling tight)
   LIVE_1H_POLL_MS: envInt('LIVE_1H_POLL_MS', 120_000),
 
