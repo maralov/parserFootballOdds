@@ -105,10 +105,23 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
 
   const gate = evaluateEvGate({ probability: p, confidence, odds, baseline });
 
-  // Goal-during-decision race check
+  // Goal-during-decision race: if a goal appeared during the ~90s AI call, the live
+  // 0:0 line is already closed — we can't place a bet regardless of direction.
+  // For UNDER this is a MISS; for OVER this would have been a HIT, but we still
+  // abort the TG signal (no entry sent). The htOutcome IS still written at halftime
+  // via resolveOneH, so this case is visible in offline analysis.
   const freshMatch = store.getMatch(matchId, date);
   const goalBeforeHalftime = freshMatch?.tracking?.firstGoalMinute != null
     && freshMatch.tracking.firstGoalMinute <= 45;
+
+  if (goalBeforeHalftime) {
+    logger.info('runOneH_AiDecision: goal during AI call — signal aborted', {
+      matchId, direction,
+      // For OVER: this goal would have been a HIT, but the live line is closed once a goal shows.
+      // htOutcome is still recorded at halftime via resolveOneH for offline analysis.
+      wouldBeHit: direction === 'over',
+    });
+  }
 
   let finalPhase = goalBeforeHalftime ? 'goal_during_decision'
     : gate.pass ? 'signal' : 'gate_blocked';
@@ -123,6 +136,8 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
         confirm = { ok: false, score: `${live.scoreHome}:${live.scoreAway}`, minute: live.minute ?? null };
         logger.info('runOneH_AiDecision: signal aborted — goal on confirm read', {
           matchId, direction, confirmScore: confirm.score,
+          // For OVER: goal confirms the OVER bet would win, but live line is now closed.
+          wouldBeHit: direction === 'over',
         });
       } else if (live) {
         confirm = { ok: true, score: `${live.scoreHome}:${live.scoreAway}`, minute: live.minute ?? null };
