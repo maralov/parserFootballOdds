@@ -14,6 +14,7 @@ const {
 } = require('./snapshotCadence1H');
 const matchStore               = require('../store/matchStore');
 const { runTm05_1hDecision }   = require('../prediction/runTm05_1hDecision');
+const { runOneH_AiDecision }   = require('../prediction/runOneH_AiDecision');
 const { isLockedPhase }        = require('../prediction/lockPolicy');
 const tgDispatcher             = require('../integrations/telegram/dispatcher');
 const env                      = require('../config/env');
@@ -235,11 +236,22 @@ async function collectSnapshot1H(matchId, scheduleNext, date = new Date()) {
     scoreHome === 0 && scoreAway === 0
   ) {
     const fresh = matchStore.getMatch(matchId, date);
-    if (fresh && !isLockedPhase(fresh.predictions?.tm05_1h?.phase)) {
+    // Block if either direction's key is locked or pending AI call
+    const tm05Phase = fresh?.predictions?.tm05_1h?.phase;
+    const tb05Phase = fresh?.predictions?.tb05_1h?.phase;
+    const alreadyDecided = isLockedPhase(tm05Phase) || isLockedPhase(tb05Phase)
+      || tm05Phase === 'ai_pending' || tb05Phase === 'ai_pending';
+    if (fresh && !alreadyDecided) {
       setImmediate(() => {
-        runTm05_1hDecision(matchId, snapshot, date, { tgDispatcher }).catch((err) => {
-          logger.warn('snapshotCollector1H: runTm05_1hDecision failed', { matchId, err: err.message });
-        });
+        if (env.LIVE_1H_AI_ENABLED) {
+          runOneH_AiDecision(matchId, snapshot, date, { tgDispatcher }).catch((err) => {
+            logger.warn('snapshotCollector1H: runOneH_AiDecision failed', { matchId, err: err.message });
+          });
+        } else {
+          runTm05_1hDecision(matchId, snapshot, date, { tgDispatcher }).catch((err) => {
+            logger.warn('snapshotCollector1H: runTm05_1hDecision failed', { matchId, err: err.message });
+          });
+        }
       });
     }
   }

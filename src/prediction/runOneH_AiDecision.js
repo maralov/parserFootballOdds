@@ -1,0 +1,179 @@
+'use strict';
+
+const env = require('../config/env');
+const logger = require('../observability/logger');
+const matchStore = require('../store/matchStore');
+const { callAI } = require('../ai/aiClient');
+const { buildOneHPrompt } = require('../ai/prompts/oneH_Prompt');
+const { validateOneHResponse } = require('../ai/schemas/oneHSchema');
+const { tm05_1hOddsAt, tb05_1hOddsAt } = require('../scoring/oddsTable');
+const { evaluateEvGate } = require('./evGate');
+const { isLockedPhase } = require('./lockPolicy');
+
+/**
+ * Re-read the live score from a cache-busted fetch of the match page. Used to
+ * confirm the board is still 0:0 immediately before sending a signal, so a
+ * stale 0:0 (live page lagging the real match) can't fire a doomed bet.
+ *
+ * @param {string} matchId
+ * @returns {Promise<{scoreHome:number, scoreAway:number, minute:number|null}>}
+ */
+async function defaultConfirmLiveScore(matchId) {
+  const { fetchResilient } = require('../fetcher/resilientFetcher');
+  const { buildLiveStatsUrl, withCacheBuster } = require('../enrichment/helpers/urlBuilder');
+  const { parseLiveHeader } = require('../tracker/parsers/liveHeaderParser');
+  const { html } = await fetchResilient(withCacheBuster(buildLiveStatsUrl(matchId)));
+  const h = parseLiveHeader(html);
+  return { scoreHome: h.scoreHome, scoreAway: h.scoreAway, minute: h.minute };
+}
+
+/**
+ * AI-powered decision engine for 1H UNDER/OVER.
+ * Routes by direction: favorite → OVER (tb05_1h), no favorite → UNDER (tm05_1h).
+ * Idempotent via predictions.tm05_1h / predictions.tb05_1h (locked on terminal phases).
+ *
+ * @param {string} matchId
+ * @param {Object} snapshot  the just-stored 1H snapshot
+ * @param {Date}   [date]
+ * @param {Object} [deps]
+ * @returns {Promise<{status: string, ev?: number, direction?: string, dataAvailability?: string}>}
+ */
+async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {}) {
+  const cfg = deps.env || env;
+  const store = deps.matchStore || matchStore;
+  const tgDispatcher = deps.tgDispatcher || null;
+  const aiCall = deps.callAI || callAI;
+  const confirmLiveScore = deps.confirmLiveScore || defaultConfirmLiveScore;
+
+  const match = store.getMatch(matchId, date);
+  if (!match) return { status: 'no_match' };
+  if (match.tracking?.status !== 'active') return { status: 'not_active' };
+
+  // Direction routing: favorite → OVER (tb05_1h), no favorite → UNDER (tm05_1h)
+  const favorite = match.odds?.isOddsFavorite?.favorite;
+  const direction = favorite ? 'over' : 'under';
+  const storeKey = direction === 'over' ? 'tb05_1h' : 'tm05_1h';
+  const setDecision = direction === 'over'
+    ? (id, payload, d) => store.setTb05_1hDecision(id, payload, d)
+    : (id, payload, d) => store.setTm05_1hDecision(id, payload, d);
+
+  const existing = match.predictions?.[storeKey];
+  if (isLockedPhase(existing?.phase)) return { status: 'already_decided' };
+  if (existing?.phase === 'ai_pending') return { status: 'ai_pending' };
+
+  const minute = snapshot.observedMinute || snapshot.minute || cfg.LIVE_1H_DECISION_MIN || 25;
+
+  // Mark pending immediately to prevent double-fire during slow AI call (~90s)
+  setDecision(matchId, {
+    phase: 'ai_pending',
+    direction,
+    decidedAt: new Date().toISOString(),
+  }, date);
+
+  const { system, user } = buildOneHPrompt(match, snapshot, direction);
+
+  const aiResult = await aiCall({
+    system,
+    user,
+    model: cfg.LIVE_1H_AI_MODEL || cfg.LIVE_AI_MODEL || 'gpt-4o',
+    temperature: cfg.LIVE_AI_TEMPERATURE ?? 0.2,
+    maxTokens: cfg.LIVE_AI_MAX_TOKENS ?? 2500,
+    maxRetries: cfg.LIVE_AI_MAX_RETRIES ?? 2,
+    apiKey: cfg.OPENAI_API_KEY,
+    validator: validateOneHResponse,
+    useWebSearch: true,
+    timeoutMs: cfg.LIVE_AI_WEB_SEARCH_TIMEOUT_MS ?? 90_000,
+  });
+
+  if (aiResult.error || !aiResult.output) {
+    setDecision(matchId, {
+      phase: 'ai_error',
+      direction,
+      aiError: aiResult.error || 'no output',
+      decidedAt: new Date().toISOString(),
+    }, date);
+    logger.warn('runOneH_AiDecision: AI error', { matchId, direction, error: aiResult.error });
+    return { status: 'ai_error', error: aiResult.error };
+  }
+
+  const { p, confidence, reasoning, key_signals, data_availability } = aiResult.output;
+  const odds = direction === 'over' ? tb05_1hOddsAt(minute) : tm05_1hOddsAt(minute);
+
+  const baseline = direction === 'over'
+    ? (cfg.LIVE_1H_OVER_BASELINE_P ?? 0.40)
+    : (cfg.LIVE_1H_UNDER_BASELINE_P ?? cfg.LIVE_1H_BASELINE_P ?? 0.42);
+
+  const gate = evaluateEvGate({ probability: p, confidence, odds, baseline });
+
+  // Goal-during-decision race check
+  const freshMatch = store.getMatch(matchId, date);
+  const goalBeforeHalftime = freshMatch?.tracking?.firstGoalMinute != null
+    && freshMatch.tracking.firstGoalMinute <= 45;
+
+  let finalPhase = goalBeforeHalftime ? 'goal_during_decision'
+    : gate.pass ? 'signal' : 'gate_blocked';
+
+  // Stale-0:0 guard: re-read live score before committing a signal
+  let confirm = null;
+  if (finalPhase === 'signal' && cfg.LIVE_1H_CONFIRM_BEFORE_SIGNAL === true) {
+    try {
+      const live = await confirmLiveScore(matchId);
+      if (live && (live.scoreHome + live.scoreAway) > 0) {
+        finalPhase = 'goal_during_decision';
+        confirm = { ok: false, score: `${live.scoreHome}:${live.scoreAway}`, minute: live.minute ?? null };
+        logger.info('runOneH_AiDecision: signal aborted — goal on confirm read', {
+          matchId, direction, confirmScore: confirm.score,
+        });
+      } else if (live) {
+        confirm = { ok: true, score: `${live.scoreHome}:${live.scoreAway}`, minute: live.minute ?? null };
+      } else {
+        confirm = { ok: null, reason: 'no_data' };
+      }
+    } catch (err) {
+      confirm = { ok: null, reason: err.message };
+      logger.warn('runOneH_AiDecision: confirm read failed, proceeding', { matchId, err: err.message });
+    }
+  }
+
+  const payload = {
+    phase: finalPhase,
+    direction,
+    p,
+    confidence,
+    dataAvailability: data_availability,
+    reasoning,
+    keySignals: key_signals,
+    odds,
+    evGate: gate,
+    aiCostUsd: aiResult.costUsd ?? null,
+    requestedAtMinute: minute,
+    ...(confirm ? { confirm } : {}),
+    decidedAt: new Date().toISOString(),
+  };
+
+  setDecision(matchId, payload, date);
+
+  if (finalPhase === 'signal' && tgDispatcher && cfg.LIVE_1H_TG_ENABLED) {
+    setImmediate(() => {
+      tgDispatcher.enqueueEntry({
+        match: store.getMatch(matchId, date) || match,
+        prediction: payload,
+        decisionKey: storeKey,
+        minute,
+        score: '0:0',
+        date,
+      }).catch((err) => {
+        logger.warn('tg.entry.oneh_ai_enqueue_failed', { matchId, err: err?.message || String(err) });
+      });
+    });
+  }
+
+  logger.info('runOneH_AiDecision: done', {
+    matchId, direction, p, confidence, dataAvailability: data_availability,
+    odds, ev: gate.ev, pass: gate.pass, phase: finalPhase,
+  });
+
+  return { status: finalPhase, ev: gate.ev, direction, dataAvailability: data_availability };
+}
+
+module.exports = { runOneH_AiDecision };
