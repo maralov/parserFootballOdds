@@ -142,6 +142,26 @@ test('finalize flushes synchronously even in debounced mode', () => {
   delete require.cache[require.resolve('../src/store/matchStore')];
 });
 
+test('upsertFromEnrichment initialises predictions with tb05_1h: null', () => {
+  const date = makeTempDate('10');
+  const record = matchStore.upsertFromEnrichment({
+    matchId: 'pred-init-test',
+    homeTeam: 'H', awayTeam: 'A',
+    statistics: { '1half': { home: {}, away: {} } },
+    statsLevel: 'detailed',
+    odds: { home: 2.0, draw: 3.2, away: 3.6 },
+    standings: { home: { pts: 10, mp: 5 }, away: { pts: 10, mp: 5 } },
+  }, date);
+
+  assert.equal(record.predictions.tm05, null,    'predictions.tm05 має бути null');
+  assert.equal(record.predictions.tb05, null,    'predictions.tb05 має бути null');
+  assert.equal(record.predictions.tm05_1h, null, 'predictions.tm05_1h має бути null');
+  assert.equal(record.predictions.tb05_1h, null, 'predictions.tb05_1h має бути null');
+
+  matchStore.flushSync(date);
+  fs.rmSync(matchStore.dayLogsAbsolute(date), { recursive: true, force: true });
+});
+
 test('setTb05_1hDecision writes to predictions.tb05_1h (not tm05_1h)', () => {
   const date = makeTempDate('09');
   matchStore.upsertFromEnrichment({

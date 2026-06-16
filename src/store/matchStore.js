@@ -228,7 +228,7 @@ function upsertFromEnrichment(enrichedItem, date = new Date()) {
     snapshots: [],
     final: null,
     derived: null,
-    predictions: { tm05: null, tb05: null, tm05_1h: null },
+    predictions: { tm05: null, tb05: null, tm05_1h: null, tb05_1h: null },
   };
 
   store[enrichedItem.matchId] = record;
