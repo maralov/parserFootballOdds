@@ -14,21 +14,26 @@ const TB05_ODDS_BY_MINUTE = {
   90: 3.50,
 };
 
-// 1HUNDER — ТМ 0.5 першого тайму (0:0 на перерві). Коефи високі рано, бо
-// ринок чекає гол фаворита. Стартові значення; калібруються реальними числами.
-const TM05_1H_ODDS_BY_MINUTE = {
-  20: 3.00,
-  25: 2.60,
-  30: 2.20,
-  35: 1.80,
-};
+// 1HUNDER — ТМ 0.5 першого тайму (0:0 на перерві). Реальний ринок на 25–30' ≈ 1.45–1.97
+// і корелює з прематч-кефом нічиєї (проксі очікуваної результативності), НЕ з фіктивними
+// 2.6/2.2. Provisional бакети з 2026-06-16 (7 точок) — калібрувати в P4.
+const TM05_1H_UNDER_BASE = 1.60; // fallback коли прематч-кеф нічиєї відсутній
 
-// 1HOVER — ТБ 0.5 першого тайму (гол до перерви). Коефи спадають з часом,
-// бо ймовірність голу зростає. Вікно рішення: 25–35'.
+function tmUnderOddsFromDraw(drawOdds) {
+  if (drawOdds == null || !Number.isFinite(drawOdds)) return TM05_1H_UNDER_BASE;
+  if (drawOdds < 2.6) return 1.45;
+  if (drawOdds < 3.3) return 1.55;
+  if (drawOdds < 3.8) return 1.70;
+  return 1.95;
+}
+
+// 1HOVER — ТБ 0.5 першого тайму (гол ДО перерви). Вікно для голу скорочується з часом,
+// тож P(гол) падає → кеф РОСТЕ. Реальне спостереження 2026-06-16: 27'≈1.8, 30'≈2.1, 35'≈2.5.
+// (Стара таблиця спадала — баг: інверсія за часом.)
 const TB05_1H_ODDS_BY_MINUTE = {
-  25: 2.10,
-  30: 1.90,
-  35: 1.70,
+  25: 1.80,
+  30: 2.10,
+  35: 2.50,
 };
 
 function nearestKey(table, minute) {
@@ -54,14 +59,13 @@ function tb05OddsAt(minute) {
   return TB05_ODDS_BY_MINUTE[nearestKey(TB05_ODDS_BY_MINUTE, minute)];
 }
 
-function tm05_1hOddsAt(minute) {
+function tm05_1hOddsAt(minute, matchOdds) {
   if (minute == null || !Number.isFinite(minute)) return null;
-  if (minute < 20) return TM05_1H_ODDS_BY_MINUTE[20];
-  if (minute > 35) return null;
-  return TM05_1H_ODDS_BY_MINUTE[nearestKey(TM05_1H_ODDS_BY_MINUTE, minute)];
+  if (minute > 35) return null; // лінія закрита після вікна рішення
+  return tmUnderOddsFromDraw(matchOdds?.draw);
 }
 
-function tb05_1hOddsAt(minute) {
+function tb05_1hOddsAt(minute, matchOdds) { // matchOdds зарезервовано (favorite-tilt → P4)
   if (minute == null || !Number.isFinite(minute)) return null;
   if (minute < 25) return TB05_1H_ODDS_BY_MINUTE[25];
   if (minute > 35) return null;
@@ -71,8 +75,9 @@ function tb05_1hOddsAt(minute) {
 module.exports = {
   TM05_ODDS_BY_MINUTE,
   TB05_ODDS_BY_MINUTE,
-  TM05_1H_ODDS_BY_MINUTE,
   TB05_1H_ODDS_BY_MINUTE,
+  TM05_1H_UNDER_BASE,
+  tmUnderOddsFromDraw,
   tm05OddsAt,
   tb05OddsAt,
   tm05_1hOddsAt,
