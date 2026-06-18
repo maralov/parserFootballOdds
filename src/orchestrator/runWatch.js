@@ -16,6 +16,13 @@ function isWithinWorkingHours() {
   return h >= env.LIVE_WORKING_HOURS_START && h < env.LIVE_WORKING_HOURS_END;
 }
 
+function msUntilWorkingHours() {
+  const now = dayjs();
+  const todayStart = now.startOf('day').add(env.LIVE_WORKING_HOURS_START, 'hour');
+  if (now.isBefore(todayStart)) return Math.max(0, todayStart.diff(now));
+  return Math.max(0, todayStart.add(1, 'day').diff(now));
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -73,9 +80,10 @@ async function runWatch() {
 
   while (running) {
     if (!isWithinWorkingHours()) {
-      const nextCheckAt = dayjs().add(5, 'minute').format('HH:mm');
-      printOutsideHours(nextCheckAt);
-      await sleep(5 * 60_000);
+      const sleepMs = msUntilWorkingHours();
+      const wakeAt = dayjs().add(sleepMs, 'ms').format('HH:mm');
+      printOutsideHours(wakeAt, sleepMs);
+      await sleep(sleepMs);
       continue;
     }
 

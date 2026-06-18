@@ -126,8 +126,11 @@ function printWatchHeader(url, workingHours) {
 /**
  * Print waiting-outside-hours message.
  */
-function printOutsideHours(nextCheckAt) {
-  console.log(`[${dayjs().format('HH:mm')}] Outside working hours. Next check: ${nextCheckAt}`);
+function printOutsideHours(wakeAt, sleepMs) {
+  const h = Math.floor(sleepMs / 3_600_000);
+  const m = Math.floor((sleepMs % 3_600_000) / 60_000);
+  const duration = h > 0 ? `${h}h ${m}m` : `${m}m`;
+  console.log(`[${dayjs().format('HH:mm')}] Outside working hours. Sleeping until ${wakeAt} (${duration})`);
 }
 
 /**
