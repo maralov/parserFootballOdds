@@ -63,10 +63,10 @@ test('under direction → user contains snapshot minute', () => {
   assert.ok(user.includes('25'), `user should contain minute 25, got:\n${user.slice(0, 300)}`);
 });
 
-test('under direction → user contains the odds value from tm05_1hOddsAt(25)=2.6', () => {
+test('under direction → user contains the odds value from tm05_1hOddsAt(25, {draw:3.20})=1.55', () => {
   const { user } = buildOneHPrompt(BASE_MATCH, BASE_SNAP, 'under');
-  // tm05_1hOddsAt(25) = 2.6
-  assert.ok(user.includes('2.6'), `user should contain odds 2.6, got:\n${user.slice(0, 400)}`);
+  // BASE_MATCH.odds.draw=3.20 (<3.3 bucket) → tm05_1hOddsAt(25, match.odds) = 1.55
+  assert.ok(user.includes('1.55'), `user should contain normative odds 1.55, got:\n${user.slice(0, 400)}`);
 });
 
 test('under direction → user does not mention favorite as ФАВОРИТ', () => {

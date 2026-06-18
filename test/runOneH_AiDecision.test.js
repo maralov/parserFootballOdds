@@ -50,7 +50,8 @@ function baseRecord(extra = {}) {
     awayTeam: 'Away',
     league: 'TestLeague',
     country: 'TestCountry',
-    odds: { isOddsFavorite: { favorite: null }, home: 2.0, draw: 3.0, away: 2.0 },
+    // draw=4.2 → tm05_1hOddsAt → 1.95 (≥3.8 bucket): EV gate passes at realistic p≥0.66
+    odds: { isOddsFavorite: { favorite: null }, home: 2.0, draw: 4.2, away: 2.0 },
     tracking: { status: 'active', firstGoalMinute: null },
     predictions: { tm05_1h: null, tb05_1h: null },
     ...extra,

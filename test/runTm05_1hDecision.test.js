@@ -32,7 +32,8 @@ function baseRecord(extra = {}) {
     matchId: 'm1',
     homeTeam: 'Home',
     awayTeam: 'Away',
-    odds: { isOddsFavorite: { favorite: 'home' } },
+    // draw=4.2 → tm05_1hOddsAt → 1.95 (≥3.8 bucket): EV gate passes at DS≥90 (p≈0.76)
+    odds: { isOddsFavorite: { favorite: 'home' }, draw: 4.2 },
     tracking: { status: 'active', firstGoalMinute: null },
     predictions: { tm05_1h: null },
     ...extra,
@@ -83,9 +84,11 @@ test('suppressed favorite at 25\' → signal + telegram enqueue', async () => {
   assert.equal(calls[0].decisionKey, 'tm05_1h');
 });
 
-test('dry but late (35\', odds 1.8) → gate_blocked', async () => {
+test('dry but too late (36\', market closed → null odds) → gate_blocked', async () => {
+  // tm05_1hOddsAt(36, ...) returns null (minute > 35 closes the 1H window)
+  // → evaluateEvGate sees odds=null → odds_invalid → blocked regardless of p
   const store = fakeStore(baseRecord());
-  const snap = { ...DRY_SNAP, observedMinute: 35 };
+  const snap = { ...DRY_SNAP, observedMinute: 36 };
   const res = await runTm05_1hDecision('m1', snap, new Date(), { env: CFG, matchStore: store });
   assert.equal(res.status, 'gate_blocked');
 });
@@ -212,10 +215,52 @@ test('away-only on + away favorite → signal', async () => {
     },
     ballPossession: { home: 50, away: 50 },
   };
-  const store = fakeStore(baseRecord({ odds: { isOddsFavorite: { favorite: 'away' } } }));
+  const store = fakeStore(baseRecord({ odds: { isOddsFavorite: { favorite: 'away' }, draw: 4.2 } }));
   const cfg = { ...CFG, LIVE_1H_AWAY_FAV_ONLY: true };
   const res = await runTm05_1hDecision('m1', drySnapAway, new Date(), { env: cfg, matchStore: store });
   assert.equal(res.status, 'signal');
+});
+
+// ── Confirmation read before sending the signal (stale-0:0 guard) ───────────
+const CFG_CONFIRM = { ...CFG, LIVE_1H_CONFIRM_BEFORE_SIGNAL: true };
+
+test('confirm shows a goal → signal blocked, no telegram enqueue', async () => {
+  const store = fakeStore(baseRecord());
+  const calls = [];
+  const tg = { enqueueEntry: (a) => { calls.push(a); return Promise.resolve(); } };
+  const confirmLiveScore = async () => ({ scoreHome: 0, scoreAway: 1, minute: 27 });
+  const res = await runTm05_1hDecision('m1', DRY_SNAP, new Date(), {
+    env: CFG_CONFIRM, matchStore: store, tgDispatcher: tg, confirmLiveScore,
+  });
+  assert.equal(res.status, 'goal_during_decision');
+  await new Promise((r) => setImmediate(r));
+  assert.equal(calls.length, 0);
+});
+
+test('confirm still 0:0 → signal sent', async () => {
+  const store = fakeStore(baseRecord());
+  const calls = [];
+  const tg = { enqueueEntry: (a) => { calls.push(a); return Promise.resolve(); } };
+  const confirmLiveScore = async () => ({ scoreHome: 0, scoreAway: 0, minute: 27 });
+  const res = await runTm05_1hDecision('m1', DRY_SNAP, new Date(), {
+    env: CFG_CONFIRM, matchStore: store, tgDispatcher: tg, confirmLiveScore,
+  });
+  assert.equal(res.status, 'signal');
+  await new Promise((r) => setImmediate(r));
+  assert.equal(calls.length, 1);
+});
+
+test('confirm fetch fails → signal still sent (no regression)', async () => {
+  const store = fakeStore(baseRecord());
+  const calls = [];
+  const tg = { enqueueEntry: (a) => { calls.push(a); return Promise.resolve(); } };
+  const confirmLiveScore = async () => { throw new Error('network'); };
+  const res = await runTm05_1hDecision('m1', DRY_SNAP, new Date(), {
+    env: CFG_CONFIRM, matchStore: store, tgDispatcher: tg, confirmLiveScore,
+  });
+  assert.equal(res.status, 'signal');
+  await new Promise((r) => setImmediate(r));
+  assert.equal(calls.length, 1);
 });
 
 test('reasoning omits xG (no bare "?") when xG stat is missing', async () => {

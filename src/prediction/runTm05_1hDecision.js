@@ -11,6 +11,23 @@ const { evaluateEvGate } = require('./evGate');
 const { isLockedPhase } = require('./lockPolicy');
 
 /**
+ * Re-read the live score from a cache-busted fetch of the match page. Used to
+ * confirm the board is still 0:0 immediately before sending a signal, so a
+ * stale 0:0 (live page lagging the real match) can't fire a doomed bet.
+ *
+ * @param {string} matchId
+ * @returns {Promise<{scoreHome:number, scoreAway:number, minute:number|null}>}
+ */
+async function defaultConfirmLiveScore(matchId) {
+  const { fetchResilient } = require('../fetcher/resilientFetcher');
+  const { buildLiveStatsUrl, withCacheBuster } = require('../enrichment/helpers/urlBuilder');
+  const { parseLiveHeader } = require('../tracker/parsers/liveHeaderParser');
+  const { html } = await fetchResilient(withCacheBuster(buildLiveStatsUrl(matchId)));
+  const h = parseLiveHeader(html);
+  return { scoreHome: h.scoreHome, scoreAway: h.scoreAway, minute: h.minute };
+}
+
+/**
  * Decide on 1HUNDER (ТМ 0.5 першого тайму) in the 25–35' window.
  * No AI — probability comes from DS1H → dsToProbability1H. Idempotent via
  * predictions.tm05_1h (locked on terminal phases).
@@ -25,6 +42,7 @@ async function runTm05_1hDecision(matchId, snapshot, date = new Date(), deps = {
   const cfg = deps.env || env;
   const store = deps.matchStore || matchStore;
   const tgDispatcher = deps.tgDispatcher || null;
+  const confirmLiveScore = deps.confirmLiveScore || defaultConfirmLiveScore;
 
   const match = store.getMatch(matchId, date);
   if (!match) return { status: 'no_match' };
@@ -92,7 +110,7 @@ async function runTm05_1hDecision(matchId, snapshot, date = new Date(), deps = {
 
   const probability = dsToProbability1H(ds.score);
   const confidence = cfg.LIVE_1H_CONFIDENCE;
-  const odds = tm05_1hOddsAt(minute);
+  const odds = tm05_1hOddsAt(minute, match.odds);
 
   const gate = (dsOff || inverted)
     ? { pass: true, reason: dsOff ? 'ds_off' : 'inverted_test', ev: null, pAdj: null }
@@ -108,8 +126,37 @@ async function runTm05_1hDecision(matchId, snapshot, date = new Date(), deps = {
   const goalBeforeHalftime = fresh?.tracking?.firstGoalMinute != null
     && fresh.tracking.firstGoalMinute <= 45;
 
-  const finalPhase = goalBeforeHalftime ? 'goal_during_decision'
+  let finalPhase = goalBeforeHalftime ? 'goal_during_decision'
     : gate.pass ? 'signal' : 'gate_blocked';
+
+  // Stale-0:0 guard: before committing a signal, re-read the live score from a
+  // cache-busted fetch. The live page can lag the real match by 1-3 min, so a
+  // 0:0 snapshot may be stale and the goal already scored. If the confirm read
+  // shows any goal, abort the signal — the next poll's discard path resolves it.
+  let confirm = null;
+  if (finalPhase === 'signal' && cfg.LIVE_1H_CONFIRM_BEFORE_SIGNAL === true) {
+    try {
+      const live = await confirmLiveScore(matchId);
+      if (live && (live.scoreHome + live.scoreAway) > 0) {
+        finalPhase = 'goal_during_decision';
+        confirm = { ok: false, score: `${live.scoreHome}:${live.scoreAway}`, minute: live.minute ?? null };
+        logger.info('runTm05_1hDecision: signal aborted — goal on confirm read', {
+          matchId, confirmScore: confirm.score, confirmMinute: confirm.minute, snapshotMinute: minute,
+        });
+      } else if (live) {
+        confirm = { ok: true, score: `${live.scoreHome}:${live.scoreAway}`, minute: live.minute ?? null };
+      } else {
+        confirm = { ok: null, reason: 'no_data' };
+      }
+    } catch (err) {
+      // Transient fetch failure — don't drop a legit signal; the snapshot was
+      // read seconds ago. Proceed but record that confirmation didn't run.
+      confirm = { ok: null, reason: err.message };
+      logger.warn('runTm05_1hDecision: confirm read failed, proceeding with signal', {
+        matchId, err: err.message,
+      });
+    }
+  }
 
   const keySignals = buildKeySignals(ds, snapshot);
   const reasoning = buildReasoning(match, ds, snapshot, minute);
@@ -127,6 +174,7 @@ async function runTm05_1hDecision(matchId, snapshot, date = new Date(), deps = {
     evGate: gate,
     calibrated: cfg.LIVE_1H_CALIBRATED === true,
     requestedAtMinute: minute,
+    ...(confirm ? { confirm } : {}),
     decidedAt: new Date().toISOString(),
   };
 

@@ -118,7 +118,7 @@ function buildOneHPrompt(match, snapshot, direction) {
   const isOver = direction === 'over';
   const system = isOver ? SYSTEM_OVER : SYSTEM_UNDER;
   const minute = snapshot?.observedMinute || 25;
-  const odds = isOver ? tb05_1hOddsAt(minute) : tm05_1hOddsAt(minute);
+  const odds = isOver ? tb05_1hOddsAt(minute, match.odds) : tm05_1hOddsAt(minute, match.odds);
 
   const stand = match.standings || {};
   const homePpg = stand.home?.mp ? (stand.home.pts / stand.home.mp).toFixed(2) : 'n/a';

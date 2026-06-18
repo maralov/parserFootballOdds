@@ -97,7 +97,7 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
   }
 
   const { p, confidence, reasoning, key_signals, data_availability } = aiResult.output;
-  const odds = direction === 'over' ? tb05_1hOddsAt(minute) : tm05_1hOddsAt(minute);
+  const odds = direction === 'over' ? tb05_1hOddsAt(minute, match.odds) : tm05_1hOddsAt(minute, match.odds);
 
   const baseline = direction === 'over'
     ? (cfg.LIVE_1H_OVER_BASELINE_P ?? 0.40)
