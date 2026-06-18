@@ -158,8 +158,9 @@ test('low p (0.30) → gate_blocked', async () => {
   const store = fakeStore(baseRecord());
   // p=0.30, odds at 25'=2.60, baseline=0.42, confidence=0.65
   // pAdj = 0.42 + (0.30-0.42)*0.65 = 0.42 - 0.078 = 0.342, ev = 0.342*2.60 = 0.889 < 1.10 → blocked
+  // LIVE_1H_MIN_P=0 disables the floor so the test exercises the EV gate directly.
   const res = await runOneH_AiDecision('m1', SNAP, new Date(), {
-    env: CFG,
+    env: { ...CFG, LIVE_1H_MIN_P: 0 },
     matchStore: store,
     callAI: mockAI({ output: { track: 'ONEH', p: 0.30, confidence: 0.65, reasoning: 'test', key_signals: [], data_availability: 'partial' } }),
   });
@@ -289,4 +290,36 @@ test('data_availability="partial" from AI → recorded in payload as dataAvailab
 
   const pred = store.record.predictions.tm05_1h;
   assert.equal(pred.dataAvailability, 'partial');
+});
+
+// 11. P1: under + high goal-leaning signals → flips to over, stored under tb05_1h
+test('P1: under + high goal-leaning signals → flips to over, stored under tb05_1h', async () => {
+  const store = fakeStore(baseRecord()); // no favorite → direction=under
+  const ai = mockAI({ output: { p: 0.46, confidence: 0.6, reasoning: 'x', data_availability: 'partial',
+    key_signals: [{ signal: 'both_defensive_issues', value: 'пропустили 5/6', weight: 'high' }] } });
+  const res = await runOneH_AiDecision('m1', { observedMinute: 27 }, new Date(),
+    { env: { ...CFG, LIVE_1H_MIN_P: 0.50, LIVE_1H_CONSENSUS_GATE: true }, matchStore: store, callAI: ai });
+  assert.equal(res.direction, 'over');                                  // flipped
+  assert.equal(store.record.predictions.tm05_1h.phase, 'flipped_away'); // original pending closed
+  assert.ok(store.record.predictions.tb05_1h);                          // final stored under over key
+});
+
+// 12. P2: under p<0.50 with no contradiction → skipped_by_min_p
+test('P2: under p<0.50 with no contradiction → skipped_by_min_p', async () => {
+  const store = fakeStore(baseRecord());
+  const ai = mockAI({ output: { p: 0.45, confidence: 0.6, reasoning: 'x', data_availability: 'partial',
+    key_signals: [{ signal: 'low_first_half_goals', value: '0.7', weight: 'high' }] } });
+  const res = await runOneH_AiDecision('m1', { observedMinute: 27 }, new Date(),
+    { env: { ...CFG, LIVE_1H_MIN_P: 0.50, LIVE_1H_CONSENSUS_GATE: true }, matchStore: store, callAI: ai });
+  assert.equal(res.status, 'skipped_by_min_p');
+});
+
+// 13. P1: under + only med goal-leaning → skipped_by_consensus
+test('P1: under + only med goal-leaning → skipped_by_consensus', async () => {
+  const store = fakeStore(baseRecord());
+  const ai = mockAI({ output: { p: 0.62, confidence: 0.6, reasoning: 'x', data_availability: 'partial',
+    key_signals: [{ signal: 'recent_first_half_goals', value: 'frequent', weight: 'med' }] } });
+  const res = await runOneH_AiDecision('m1', { observedMinute: 27 }, new Date(),
+    { env: { ...CFG, LIVE_1H_MIN_P: 0.50, LIVE_1H_CONSENSUS_GATE: true }, matchStore: store, callAI: ai });
+  assert.equal(res.status, 'skipped_by_consensus');
 });

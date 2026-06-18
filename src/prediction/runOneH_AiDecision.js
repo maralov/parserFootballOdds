@@ -9,6 +9,7 @@ const { validateOneHResponse } = require('../ai/schemas/oneHSchema');
 const { tm05_1hOddsAt, tb05_1hOddsAt } = require('../scoring/oddsTable');
 const { evaluateEvGate } = require('./evGate');
 const { isLockedPhase } = require('./lockPolicy');
+const { evaluateConsensus } = require('./signalConsensus');
 
 /**
  * Re-read the live score from a cache-busted fetch of the match page. Used to
@@ -97,13 +98,59 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
   }
 
   const { p, confidence, reasoning, key_signals, data_availability } = aiResult.output;
-  const odds = direction === 'over' ? tb05_1hOddsAt(minute, match.odds) : tm05_1hOddsAt(minute, match.odds);
 
-  const baseline = direction === 'over'
+  // P1 — consensus gate: flip-when-confident / skip-when-weak.
+  // Directions are complementary (HT 0:0 vs ≥1 goal) → pComplement = 1 - p.
+  let effDirection = direction;
+  let effP = p;
+  let consensus = null;
+  if (cfg.LIVE_1H_CONSENSUS_GATE !== false) {
+    consensus = evaluateConsensus({ direction, keySignals: key_signals });
+    if (consensus.verdict === 'skip') {
+      setDecision(matchId, {
+        phase: 'skipped_by_consensus', direction, p, confidence,
+        keySignals: key_signals, consensus, requestedAtMinute: minute,
+        decidedAt: new Date().toISOString(),
+      }, date);
+      logger.info('runOneH_AiDecision: SKIP by consensus', { matchId, direction, reason: consensus.reason });
+      return { status: 'skipped_by_consensus', direction };
+    }
+    if (consensus.verdict === 'flip') {
+      effDirection = direction === 'over' ? 'under' : 'over';
+      effP = +(1 - p).toFixed(4);
+    }
+  }
+
+  // P2 — probability floor (after any flip). Never bet against our own probability.
+  const minP = cfg.LIVE_1H_MIN_P ?? 0.50;
+  if (effP < minP) {
+    setDecision(matchId, {
+      phase: 'skipped_by_min_p', direction: effDirection, p: effP, confidence,
+      keySignals: key_signals, ...(consensus ? { consensus } : {}), requestedAtMinute: minute,
+      decidedAt: new Date().toISOString(),
+    }, date);
+    logger.info('runOneH_AiDecision: SKIP by min_p', { matchId, direction: effDirection, p: effP, minP });
+    return { status: 'skipped_by_min_p', direction: effDirection };
+  }
+
+  // Re-bind store target for the (possibly flipped) effective direction.
+  const effStoreKey = effDirection === 'over' ? 'tb05_1h' : 'tm05_1h';
+  const effSetDecision = effDirection === 'over'
+    ? (id, payloadX, d) => store.setTb05_1hDecision(id, payloadX, d)
+    : (id, payloadX, d) => store.setTm05_1hDecision(id, payloadX, d);
+  if (effStoreKey !== storeKey) {
+    setDecision(matchId, {
+      phase: 'flipped_away', direction, flippedTo: effDirection,
+      decidedAt: new Date().toISOString(),
+    }, date);
+  }
+
+  const odds = effDirection === 'over' ? tb05_1hOddsAt(minute, match.odds) : tm05_1hOddsAt(minute, match.odds);
+  const baseline = effDirection === 'over'
     ? (cfg.LIVE_1H_OVER_BASELINE_P ?? 0.40)
     : (cfg.LIVE_1H_UNDER_BASELINE_P ?? cfg.LIVE_1H_BASELINE_P ?? 0.42);
 
-  const gate = evaluateEvGate({ probability: p, confidence, odds, baseline });
+  const gate = evaluateEvGate({ probability: effP, confidence, odds, baseline });
 
   // Goal-during-decision race: if a goal appeared during the ~90s AI call, the live
   // 0:0 line is already closed — we can't place a bet regardless of direction.
@@ -116,10 +163,10 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
 
   if (goalBeforeHalftime) {
     logger.info('runOneH_AiDecision: goal during AI call — signal aborted', {
-      matchId, direction,
+      matchId, direction: effDirection,
       // For OVER: this goal would have been a HIT, but the live line is closed once a goal shows.
       // htOutcome is still recorded at halftime via resolveOneH for offline analysis.
-      wouldBeHit: direction === 'over',
+      wouldBeHit: effDirection === 'over',
     });
   }
 
@@ -135,9 +182,9 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
         finalPhase = 'goal_during_decision';
         confirm = { ok: false, score: `${live.scoreHome}:${live.scoreAway}`, minute: live.minute ?? null };
         logger.info('runOneH_AiDecision: signal aborted — goal on confirm read', {
-          matchId, direction, confirmScore: confirm.score,
+          matchId, direction: effDirection, confirmScore: confirm.score,
           // For OVER: goal confirms the OVER bet would win, but live line is now closed.
-          wouldBeHit: direction === 'over',
+          wouldBeHit: effDirection === 'over',
         });
       } else if (live) {
         confirm = { ok: true, score: `${live.scoreHome}:${live.scoreAway}`, minute: live.minute ?? null };
@@ -152,8 +199,8 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
 
   const payload = {
     phase: finalPhase,
-    direction,
-    p,
+    direction: effDirection,
+    p: effP,
     confidence,
     dataAvailability: data_availability,
     reasoning,
@@ -162,18 +209,20 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
     evGate: gate,
     aiCostUsd: aiResult.costUsd ?? null,
     requestedAtMinute: minute,
+    ...(effDirection !== direction ? { flippedFrom: direction } : {}),
+    ...(consensus ? { consensus } : {}),
     ...(confirm ? { confirm } : {}),
     decidedAt: new Date().toISOString(),
   };
 
-  setDecision(matchId, payload, date);
+  effSetDecision(matchId, payload, date);
 
   if (finalPhase === 'signal' && tgDispatcher && cfg.LIVE_1H_TG_ENABLED) {
     setImmediate(() => {
       tgDispatcher.enqueueEntry({
         match: store.getMatch(matchId, date) || match,
         prediction: payload,
-        decisionKey: storeKey,
+        decisionKey: effStoreKey,
         minute,
         score: '0:0',
         date,
@@ -184,11 +233,11 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
   }
 
   logger.info('runOneH_AiDecision: done', {
-    matchId, direction, p, confidence, dataAvailability: data_availability,
+    matchId, direction: effDirection, p: effP, confidence, dataAvailability: data_availability,
     odds, ev: gate.ev, pass: gate.pass, phase: finalPhase,
   });
 
-  return { status: finalPhase, ev: gate.ev, direction, dataAvailability: data_availability };
+  return { status: finalPhase, ev: gate.ev, direction: effDirection, dataAvailability: data_availability };
 }
 
 module.exports = { runOneH_AiDecision };

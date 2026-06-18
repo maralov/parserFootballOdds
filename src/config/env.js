@@ -124,6 +124,10 @@ const env = {
   LIVE_1H_AI_DAILY_CAP: envInt('LIVE_1H_AI_DAILY_CAP', 0),  // 0 = unlimited
   // Max sleep while a first-half match is in the discovery window (keep polling tight)
   LIVE_1H_POLL_MS: envInt('LIVE_1H_POLL_MS', 120_000),
+  // P1 consensus gate: flip on high-weight contradictions, skip on weak ones
+  LIVE_1H_CONSENSUS_GATE: envBool('LIVE_1H_CONSENSUS_GATE', true),
+  // P2 probability floor: after any flip, skip if effective p < this value
+  LIVE_1H_MIN_P: Number(process.env.LIVE_1H_MIN_P) || 0.50,
 
   // Stage 5 — Telegram notifications
   LIVE_TG_ENABLED: envBool('LIVE_TG_ENABLED', true),
