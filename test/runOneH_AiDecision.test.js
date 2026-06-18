@@ -240,6 +240,44 @@ test('confirmLiveScore returns goal → status=goal_during_decision, no TG enque
   assert.equal(pred.confirm.score, '1:0');
 });
 
+// confirm still 0:0 → signal sent (moved from DS test; coverage lives here since AI path fires signals)
+test('confirm still 0:0 → signal sent', async () => {
+  const cfg = { ...CFG, LIVE_1H_CONFIRM_BEFORE_SIGNAL: true };
+  const store = fakeStore(baseRecord());
+  const calls = [];
+  const tg = { enqueueEntry: (a) => { calls.push(a); return Promise.resolve(); } };
+  const confirmLiveScore = async () => ({ scoreHome: 0, scoreAway: 0, minute: 27 });
+  const res = await runOneH_AiDecision('m1', SNAP, new Date(), {
+    env: cfg,
+    matchStore: store,
+    callAI: mockAI(),
+    tgDispatcher: tg,
+    confirmLiveScore,
+  });
+  assert.equal(res.status, 'signal');
+  await new Promise((r) => setImmediate(r));
+  assert.equal(calls.length, 1);
+});
+
+// confirm fetch fails → signal still sent (moved from DS test; coverage lives here since AI path fires signals)
+test('confirm fetch fails → signal still sent (no regression)', async () => {
+  const cfg = { ...CFG, LIVE_1H_CONFIRM_BEFORE_SIGNAL: true };
+  const store = fakeStore(baseRecord());
+  const calls = [];
+  const tg = { enqueueEntry: (a) => { calls.push(a); return Promise.resolve(); } };
+  const confirmLiveScore = async () => { throw new Error('network'); };
+  const res = await runOneH_AiDecision('m1', SNAP, new Date(), {
+    env: cfg,
+    matchStore: store,
+    callAI: mockAI(),
+    tgDispatcher: tg,
+    confirmLiveScore,
+  });
+  assert.equal(res.status, 'signal');
+  await new Promise((r) => setImmediate(r));
+  assert.equal(calls.length, 1);
+});
+
 // 10. dataAvailability recorded in payload
 test('data_availability="partial" from AI → recorded in payload as dataAvailability', async () => {
   const store = fakeStore(baseRecord());

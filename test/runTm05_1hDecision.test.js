@@ -72,16 +72,16 @@ test('active favorite → skipped_by_ds', async () => {
   assert.equal(res.status, 'skipped_by_ds');
 });
 
-test('suppressed favorite at 25\' → signal + telegram enqueue', async () => {
+test('suppressed favorite at 25\' → gate_blocked (DS dormant at real odds)', async () => {
+  // DS dormant at real odds (max ev≈0.94<evMin); signal-path is P4. Favorite/DS-gate logic
+  // still exercised up to the EV gate.
   const store = fakeStore(baseRecord());
   const calls = [];
   const tg = { enqueueEntry: (a) => { calls.push(a); return Promise.resolve(); } };
   const res = await runTm05_1hDecision('m1', DRY_SNAP, new Date(), { env: CFG, matchStore: store, tgDispatcher: tg });
-  assert.equal(res.status, 'signal');
-  assert.ok(res.ev >= 1.10);
+  assert.equal(res.status, 'gate_blocked');
   await new Promise((r) => setImmediate(r));
-  assert.equal(calls.length, 1);
-  assert.equal(calls[0].decisionKey, 'tm05_1h');
+  assert.equal(calls.length, 0);
 });
 
 test('dry but too late (36\', market closed → null odds) → gate_blocked', async () => {
@@ -201,8 +201,10 @@ test('away-only on + home favorite → skipped_by_fav, no telegram, DS recorded'
   assert.ok(store.record.predictions.tm05_1h.dsScore != null); // DS still recorded
 });
 
-test('away-only on + away favorite → signal', async () => {
-  // Mirror of DRY_SNAP with the AWAY side suppressed → high DS → signal.
+test('away-only on + away favorite → gate_blocked (DS dormant at real odds)', async () => {
+  // DS dormant at real odds (max ev≈0.94<evMin); signal-path is P4. Favorite/DS-gate logic
+  // still exercised up to the EV gate.
+  // Mirror of DRY_SNAP with the AWAY side suppressed → high DS → EV gate is the stopper.
   const drySnapAway = {
     observedMinute: 25,
     cumulative: {
@@ -218,50 +220,15 @@ test('away-only on + away favorite → signal', async () => {
   const store = fakeStore(baseRecord({ odds: { isOddsFavorite: { favorite: 'away' }, draw: 4.2 } }));
   const cfg = { ...CFG, LIVE_1H_AWAY_FAV_ONLY: true };
   const res = await runTm05_1hDecision('m1', drySnapAway, new Date(), { env: cfg, matchStore: store });
-  assert.equal(res.status, 'signal');
+  assert.equal(res.status, 'gate_blocked');
 });
 
-// ── Confirmation read before sending the signal (stale-0:0 guard) ───────────
-const CFG_CONFIRM = { ...CFG, LIVE_1H_CONFIRM_BEFORE_SIGNAL: true };
-
-test('confirm shows a goal → signal blocked, no telegram enqueue', async () => {
-  const store = fakeStore(baseRecord());
-  const calls = [];
-  const tg = { enqueueEntry: (a) => { calls.push(a); return Promise.resolve(); } };
-  const confirmLiveScore = async () => ({ scoreHome: 0, scoreAway: 1, minute: 27 });
-  const res = await runTm05_1hDecision('m1', DRY_SNAP, new Date(), {
-    env: CFG_CONFIRM, matchStore: store, tgDispatcher: tg, confirmLiveScore,
-  });
-  assert.equal(res.status, 'goal_during_decision');
-  await new Promise((r) => setImmediate(r));
-  assert.equal(calls.length, 0);
-});
-
-test('confirm still 0:0 → signal sent', async () => {
-  const store = fakeStore(baseRecord());
-  const calls = [];
-  const tg = { enqueueEntry: (a) => { calls.push(a); return Promise.resolve(); } };
-  const confirmLiveScore = async () => ({ scoreHome: 0, scoreAway: 0, minute: 27 });
-  const res = await runTm05_1hDecision('m1', DRY_SNAP, new Date(), {
-    env: CFG_CONFIRM, matchStore: store, tgDispatcher: tg, confirmLiveScore,
-  });
-  assert.equal(res.status, 'signal');
-  await new Promise((r) => setImmediate(r));
-  assert.equal(calls.length, 1);
-});
-
-test('confirm fetch fails → signal still sent (no regression)', async () => {
-  const store = fakeStore(baseRecord());
-  const calls = [];
-  const tg = { enqueueEntry: (a) => { calls.push(a); return Promise.resolve(); } };
-  const confirmLiveScore = async () => { throw new Error('network'); };
-  const res = await runTm05_1hDecision('m1', DRY_SNAP, new Date(), {
-    env: CFG_CONFIRM, matchStore: store, tgDispatcher: tg, confirmLiveScore,
-  });
-  assert.equal(res.status, 'signal');
-  await new Promise((r) => setImmediate(r));
-  assert.equal(calls.length, 1);
-});
+// ── Confirm-guard coverage lives in test/runOneH_AiDecision.test.js ──────────
+// The DS engine is DORMANT at real odds (max ev≈0.94<evMin) so it can never
+// reach finalPhase==='signal' in normal mode. The identical confirm-read guard
+// exists in runOneH_AiDecision.js, which CAN fire signals. Confirm-guard tests
+// are in runOneH_AiDecision.test.js (tests: "confirmLiveScore returns goal",
+// "confirm still 0:0 → signal sent", "confirm fetch fails → signal still sent").
 
 test('reasoning omits xG (no bare "?") when xG stat is missing', async () => {
   // Basic-stats match: no xG, but dry by shots/touches → still a signal.

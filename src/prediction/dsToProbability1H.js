@@ -7,20 +7,20 @@
 // this is THE calibration point. As real outcomes accumulate, refit slope/intercept
 // from scripts/firstHalfCalibration.js.
 //
-// Calibration note (2026-06-18, P0): SLOPE/INTERCEPT were updated from
-// (0.0045/0.30) to (0.006/0.52) to align with real market odds (max ~1.95
-// for 1H UNDER vs the stale fictional 2.60). At DS=90 (very dry match):
-// p≈0.76, pAdj≈0.62 at conf=0.6, ev≈1.22 at odds=1.95 — +EV confirmed.
+// Note (2026-06-18, P0): at realistic 1H-UNDER odds (max ~1.95) this calibration
+// yields max ev≈0.94 < evMin, so the DS engine is effectively DORMANT in normal
+// mode — the live AI engine (runOneH_AiDecision) carries 1H. Refitting slope/
+// intercept from real outcomes is deferred to P4 (scripts/firstHalfCalibration.js).
 
 function clamp(v, min, max) {
   return Math.max(min, Math.min(max, v));
 }
 
-const SLOPE = 0.006;       // probability gained per DS point above the pivot
+const SLOPE = 0.0045;      // probability gained per DS point above the pivot
 const PIVOT = 50;          // DS at which p == INTERCEPT
-const INTERCEPT = 0.52;
+const INTERCEPT = 0.30;
 const P_MIN = 0.30;
-const P_MAX = 0.80;
+const P_MAX = 0.75;
 
 /**
  * @param {number|null} dsScore  first-half dryness score (0..100)
