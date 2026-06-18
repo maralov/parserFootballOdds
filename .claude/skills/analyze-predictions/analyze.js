@@ -23,6 +23,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { evaluateConsensus } = require('../../../src/prediction/signalConsensus');
 
 const LINES = {
   tm05_1h: { label: 'ТМ (1H 0:0)', dir: 'under' },
@@ -50,30 +51,11 @@ function resolveHit(entry, pred) {
   return dir === 'under' ? ht.dry : !ht.dry;
 }
 
-// Heuristic classifier of the AI keySignals vs the bet direction. Returns a
-// contradiction record when the signals argue the OPPOSITE of the bet:
-//  - under bet whose signals say a goal is coming (defensive issues, H2H first-
-//    half GOALS, "frequent first-half goals", win streaks / high scoring);
-//  - over bet whose LIVE signals show no danger (xG≈0, 0 shots on target).
-// Heuristic + keyword-based — meant to FLAG for human review, not to decide.
-const UNDER_CONTEXT = /\blow\b|low_|under|0:0|0_0|низьк|обережн|\bfew\b|рівн|солідн/i;
-const GOAL_LEANING = /defensive_issues|пропустили|first_half_goals|frequent|часто|поспіль|streak|гола за гру|goals per game|7-0/i;
-const DEAD_LIVE = /shots_on_target[=:\s]*0(\D|$)|\bsot[=:\s]*0(\D|$)|xg[=:\s]*0\.0[0-9]/i;
-
+// Thin adapter over the canonical src/prediction/signalConsensus module.
+// Preserves the {contradiction, why} return shape used by the rest of analyze.js.
 function classifyContradiction(pred) {
-  const dir = pred.direction;
-  const signals = pred.keySignals || [];
-  if (dir === 'under') {
-    const goalSig = signals.filter((s) => {
-      const t = `${s.signal} ${s.value}`;
-      return !UNDER_CONTEXT.test(t) && GOAL_LEANING.test(t);
-    });
-    if (goalSig.length) return { contradiction: true, why: `сигнали тягнуть на гол: ${goalSig.map((s) => s.signal).join(', ')}` };
-  } else if (dir === 'over') {
-    const dead = signals.filter((s) => DEAD_LIVE.test(`${s.signal} ${s.value}`));
-    if (dead.length) return { contradiction: true, why: `лайв показує відсутність небезпеки: ${dead.map((s) => s.signal).join(', ')}` };
-  }
-  return { contradiction: false, why: null };
+  const v = evaluateConsensus({ direction: pred.direction, keySignals: pred.keySignals || [] });
+  return { contradiction: v.verdict !== 'ok', why: v.reason };
 }
 
 function round(n, d = 1) {
