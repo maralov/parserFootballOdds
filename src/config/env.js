@@ -127,7 +127,7 @@ const env = {
   // P1 consensus gate: flip on high-weight contradictions, skip on weak ones
   LIVE_1H_CONSENSUS_GATE: envBool('LIVE_1H_CONSENSUS_GATE', true),
   // P2 probability floor: after any flip, skip if effective p < this value
-  LIVE_1H_MIN_P: Number(process.env.LIVE_1H_MIN_P) || 0.50,
+  LIVE_1H_MIN_P: process.env.LIVE_1H_MIN_P != null && process.env.LIVE_1H_MIN_P !== '' ? Number(process.env.LIVE_1H_MIN_P) : 0.50,
 
   // Stage 5 — Telegram notifications
   LIVE_TG_ENABLED: envBool('LIVE_TG_ENABLED', true),

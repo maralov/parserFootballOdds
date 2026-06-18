@@ -37,3 +37,19 @@ test('consistent signals → ok (no contradiction)', () => {
   assert.equal(under.verdict, 'ok');
   assert.equal(over.verdict, 'ok');
 });
+
+// Fix 2: over-path flips on ANY dead-live signal regardless of weight
+test('over + low-weight dead-live still flips (objective live evidence, weight-independent)', () => {
+  const r = evaluateConsensus({ direction: 'over', keySignals: [
+    { signal: 'shots_on_target', value: '0', weight: 'low' },
+  ]});
+  assert.equal(r.verdict, 'flip');
+});
+
+// Fix 3: _low suffix in signal name treated as under-context (not goal-leaning)
+test('under + "_low" suffix signal is treated as under-context (not goal-leaning)', () => {
+  const r = evaluateConsensus({ direction: 'under', keySignals: [
+    { signal: 'first_half_goals_low', value: 'рідко', weight: 'high' },
+  ]});
+  assert.equal(r.verdict, 'ok');
+});
