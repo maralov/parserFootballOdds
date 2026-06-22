@@ -20,6 +20,9 @@ const tgDispatcher             = require('../integrations/telegram/dispatcher');
 const env                      = require('../config/env');
 const logger                   = require('../observability/logger');
 const { printEvent }           = require('../observability/display');
+const { runHtTotalDecision }   = require('../prediction/runHtTotalDecision');
+const { resolveHtTotal }       = require('../prediction/resolveHtTotal');
+const { collectFinal }         = require('./finalCollector');
 
 function matchLabel(match) {
   if (!match) return '?';
@@ -128,6 +131,24 @@ async function collectSnapshot1H(matchId, scheduleNext, date = new Date()) {
   // gate for both goal-discard and HT settlement — never minute >= 45.
   const inFirstHalf = !isHalftime && !isSecondHalf && !isFinished;
 
+  // D2: 2H phase — tracking to FT after HT resolution
+  if (match.tracking?.phase === '2H') {
+    if (isFinished) {
+      logger.info('snapshotCollector1H: 2H finished — collecting final + resolving htTotal', { matchId });
+      try {
+        await collectFinal(matchId, date);
+      } catch (err) {
+        logger.warn('snapshotCollector1H: collectFinal failed in 2H phase', { matchId, err: err.message });
+      }
+      resolveHtTotal(matchId, date);
+      return 'resolved_ft';
+    }
+    // Not finished: reschedule at 2H cadence
+    const pollMs = (env.LIVE_2H_POLL_MIN || 15) * 60_000;
+    scheduleNext(matchId, pollMs);
+    return 'tracking_2h';
+  }
+
   // Goal during the first half (including 45+ stoppage) → MISS.
   if ((scoreHome + scoreAway) > 0 && inFirstHalf) {
     matchStore.markDiscarded(matchId, 'goal_before_halftime', date);
@@ -174,6 +195,32 @@ async function collectSnapshot1H(matchId, scheduleNext, date = new Date()) {
       logger.info('snapshotCollector1H: resolved at halftime', {
         matchId, statusText, htScore: `${htHome}:${htAway}`,
       });
+
+      // D2: HT total predictor — fire for matches in 1H scope
+      if (env.LIVE_HT_TOTAL_ENABLED) {
+        const lastSnap = matchStore.getLastSnapshot(matchId, date);
+        const htScoreObj = { home: htHome, away: htAway };
+        setImmediate(() => {
+          runHtTotalDecision(matchId, lastSnap, htScoreObj, date).catch((err) => {
+            logger.warn('snapshotCollector1H: runHtTotalDecision failed', { matchId, err: err.message });
+          });
+        });
+      }
+
+      // D2: 2H→FT tracking — reschedule at slow cadence to catch FT result
+      if (env.LIVE_2H_TRACK_TO_FT) {
+        const store2h = matchStore.readStore(date);
+        const m2h = store2h[matchId];
+        if (m2h) {
+          m2h.tracking.status = 'active';
+          m2h.tracking.phase = '2H';
+          matchStore.writeStore(store2h, date);
+        }
+        const pollMs = (env.LIVE_2H_POLL_MIN || 15) * 60_000;
+        scheduleNext(matchId, pollMs);
+        return 'handoff_2h_ht_total';
+      }
+
       return 'resolved_1h';
     }
     logger.info('snapshotCollector1H: handoff to 2H track', { matchId, minute, statusText });
