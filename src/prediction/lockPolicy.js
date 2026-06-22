@@ -5,6 +5,8 @@ const TERMINAL_PHASES = new Set([
   'skipped_by_consensus',
   'skipped_by_min_p',
   'flipped_away',
+  'skipped_by_xg',
+  'skipped_by_basic',
 ]);
 function isLockedPhase(phase) {
   return TERMINAL_PHASES.has(phase);
