@@ -138,6 +138,11 @@ const env = {
   LIVE_1H_XG_UNDER_MAX: envFloat('LIVE_1H_XG_UNDER_MAX', 0.15),
   LIVE_1H_XG_OVER_MAX: envFloat('LIVE_1H_XG_OVER_MAX', 0.50),
 
+  // D2: 2H→FT tracking + HT total predictor
+  LIVE_2H_TRACK_TO_FT: envBool('LIVE_2H_TRACK_TO_FT', true),
+  LIVE_2H_POLL_MIN: envInt('LIVE_2H_POLL_MIN', 15),
+  LIVE_HT_TOTAL_ENABLED: envBool('LIVE_HT_TOTAL_ENABLED', true),
+
   // Stage 5 — Telegram notifications
   LIVE_TG_ENABLED: envBool('LIVE_TG_ENABLED', true),
   LIVE_TG_DRY_RUN: envBool('LIVE_TG_DRY_RUN', false),
