@@ -168,3 +168,49 @@ test('prompt instructs to trust live evidence over history on conflict', () => {
   assert.match(under.system, /перевага|пріоритет|важлив/i);
   assert.match(over.system, /лайв/i);
 });
+
+// ── Base-anchor phrases (D1 xG routing) ──────────────────────────────────────
+
+test('under system contains base-anchor ~60% dry', () => {
+  const { system } = buildOneHPrompt(BASE_MATCH, BASE_SNAP, 'under');
+  assert.match(system, /60%/);
+});
+
+test('under system contains ЯКІР keyword', () => {
+  const { system } = buildOneHPrompt(BASE_MATCH, BASE_SNAP, 'under');
+  assert.match(system, /ЯКІР/i);
+});
+
+test('under system forbids inflating p from weak stats', () => {
+  const { system } = buildOneHPrompt(BASE_MATCH, BASE_SNAP, 'under');
+  assert.match(system, /НЕ РОЗДУВАЙ/i);
+});
+
+test('over system contains base-anchor 40-55%', () => {
+  const { system } = buildOneHPrompt(BASE_MATCH, BASE_SNAP, 'over');
+  assert.match(system, /40.{0,5}55%/);
+});
+
+test('over system contains ЯКІР keyword', () => {
+  const { system } = buildOneHPrompt(BASE_MATCH, BASE_SNAP, 'over');
+  assert.match(system, /ЯКІР/i);
+});
+
+test('over system forbids inflating p from weak stats', () => {
+  const { system } = buildOneHPrompt(BASE_MATCH, BASE_SNAP, 'over');
+  assert.match(system, /НЕ РОЗДУВАЙ/i);
+});
+
+test('both systems contain quality web_search instruction', () => {
+  const under = buildOneHPrompt(BASE_MATCH, BASE_SNAP, 'under');
+  const over = buildOneHPrompt(BASE_MATCH, BASE_SNAP, 'over');
+  assert.match(under.system, /ОБОВ.{1,5}ЯЗКОВО/i);
+  assert.match(over.system, /ОБОВ.{1,5}ЯЗКОВО/i);
+});
+
+test('both systems mention character/style search (item 0)', () => {
+  const under = buildOneHPrompt(BASE_MATCH, BASE_SNAP, 'under');
+  const over = buildOneHPrompt(BASE_MATCH, BASE_SNAP, 'over');
+  assert.match(under.system, /характер|стиль/i);
+  assert.match(over.system, /характер|стиль/i);
+});
