@@ -10,6 +10,7 @@ const { tm05_1hOddsAt, tb05_1hOddsAt } = require('../scoring/oddsTable');
 const { evaluateEvGate } = require('./evGate');
 const { isLockedPhase } = require('./lockPolicy');
 const { evaluateConsensus } = require('./signalConsensus');
+const { routeByXg } = require('./xgRouting');
 
 /**
  * Re-read the live score from a cache-busted fetch of the match page. Used to
@@ -30,7 +31,12 @@ async function defaultConfirmLiveScore(matchId) {
 
 /**
  * AI-powered decision engine for 1H UNDER/OVER.
- * Routes by direction: favorite → OVER (tb05_1h), no favorite → UNDER (tm05_1h).
+ * Gate order:
+ *   1. Detailed gate: skip if match.statsLevel !== 'detailed' (when LIVE_1H_DETAILED_ONLY !== false)
+ *   2. xG routing: compute cumulative xG from snapshot, call routeByXg → direction or skip
+ *   3. Mark ai_pending for the xG-determined direction
+ *   4. AI call, consensus, min_p, goal-race, confirm-read
+ *   5. EV gate: recorded for ROI analysis only (never blocks signal)
  * Idempotent via predictions.tm05_1h / predictions.tb05_1h (locked on terminal phases).
  *
  * @param {string} matchId
@@ -50,9 +56,30 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
   if (!match) return { status: 'no_match' };
   if (match.tracking?.status !== 'active') return { status: 'not_active' };
 
-  // Direction routing: favorite → OVER (tb05_1h), no favorite → UNDER (tm05_1h)
-  const favorite = match.odds?.isOddsFavorite?.favorite;
-  const direction = favorite ? 'over' : 'under';
+  // Gate 1 — Detailed-only: skip matches without detailed stats
+  if (cfg.LIVE_1H_DETAILED_ONLY !== false && match.statsLevel !== 'detailed') {
+    const skippedAt = new Date().toISOString();
+    store.setTm05_1hDecision(matchId, { phase: 'skipped_by_basic', decidedAt: skippedAt }, date);
+    store.setTb05_1hDecision(matchId, { phase: 'skipped_by_basic', decidedAt: skippedAt }, date);
+    logger.info('runOneH_AiDecision: SKIP by basic stats', { matchId, statsLevel: match.statsLevel });
+    return { status: 'skipped_by_basic' };
+  }
+
+  // Gate 2 — xG routing: derive direction from cumulative expected goals
+  const xgHome = snapshot?.cumulative?.expectedGoalsXg?.home ?? null;
+  const xgAway = snapshot?.cumulative?.expectedGoalsXg?.away ?? null;
+  const liveXg = (xgHome != null && xgAway != null) ? xgHome + xgAway : null;
+  const xgRoute = routeByXg(liveXg, cfg);
+
+  if (xgRoute === 'skip') {
+    const skippedAt = new Date().toISOString();
+    store.setTm05_1hDecision(matchId, { phase: 'skipped_by_xg', liveXg, decidedAt: skippedAt }, date);
+    store.setTb05_1hDecision(matchId, { phase: 'skipped_by_xg', liveXg, decidedAt: skippedAt }, date);
+    logger.info('runOneH_AiDecision: SKIP by xG routing', { matchId, liveXg });
+    return { status: 'skipped_by_xg' };
+  }
+
+  const direction = xgRoute; // 'under' | 'over'
   const storeKey = direction === 'over' ? 'tb05_1h' : 'tm05_1h';
   const setDecision = direction === 'over'
     ? (id, payload, d) => store.setTb05_1hDecision(id, payload, d)
@@ -94,6 +121,11 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
       decidedAt: new Date().toISOString(),
     }, date);
     logger.warn('runOneH_AiDecision: AI error', { matchId, direction, error: aiResult.error });
+    if (tgDispatcher?.sendAlert) {
+      const matchName = `${match.homeTeam || '?'} — ${match.awayTeam || '?'}`;
+      const errSnippet = String(aiResult.error || 'no output').slice(0, 120);
+      tgDispatcher.sendAlert(`⚠️ AI помилка [${storeKey}]\n${matchName}\n${errSnippet}`).catch(() => {});
+    }
     return { status: 'ai_error', error: aiResult.error };
   }
 
@@ -170,8 +202,8 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
     });
   }
 
-  let finalPhase = goalBeforeHalftime ? 'goal_during_decision'
-    : gate.pass ? 'signal' : 'gate_blocked';
+  // EV gate is record-only: result stored in payload for ROI analysis, never blocks the signal.
+  let finalPhase = goalBeforeHalftime ? 'goal_during_decision' : 'signal';
 
   // Stale-0:0 guard: re-read live score before committing a signal
   let confirm = null;
