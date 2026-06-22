@@ -14,6 +14,11 @@ function envInt(key, def) {
   return Number.isFinite(n) && n >= 0 ? n : def;
 }
 
+function envFloat(key, def) {
+  const n = Number(process.env[key]);
+  return Number.isFinite(n) ? n : def;
+}
+
 const env = {
   LIVE_BASE_URL: process.env.LIVE_BASE_URL || FLASHSCORE_LIVE_URL,
   LIVE_IGNORE_HOURS: envBool('LIVE_IGNORE_HOURS', false),
@@ -130,8 +135,8 @@ const env = {
   LIVE_1H_MIN_P: process.env.LIVE_1H_MIN_P != null && process.env.LIVE_1H_MIN_P !== '' ? Number(process.env.LIVE_1H_MIN_P) : 0.50,
   // D1: xG-routing gates
   LIVE_1H_DETAILED_ONLY: envBool('LIVE_1H_DETAILED_ONLY', true),
-  LIVE_1H_XG_UNDER_MAX: process.env.LIVE_1H_XG_UNDER_MAX != null && process.env.LIVE_1H_XG_UNDER_MAX !== '' ? Number(process.env.LIVE_1H_XG_UNDER_MAX) : 0.15,
-  LIVE_1H_XG_OVER_MAX: process.env.LIVE_1H_XG_OVER_MAX != null && process.env.LIVE_1H_XG_OVER_MAX !== '' ? Number(process.env.LIVE_1H_XG_OVER_MAX) : 0.50,
+  LIVE_1H_XG_UNDER_MAX: envFloat('LIVE_1H_XG_UNDER_MAX', 0.15),
+  LIVE_1H_XG_OVER_MAX: envFloat('LIVE_1H_XG_OVER_MAX', 0.50),
 
   // Stage 5 — Telegram notifications
   LIVE_TG_ENABLED: envBool('LIVE_TG_ENABLED', true),

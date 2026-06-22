@@ -160,7 +160,6 @@ test('missing standings → PPG shows n/a', () => {
 });
 
 test('prompt instructs to trust live evidence over history on conflict', () => {
-  const { buildOneHPrompt } = require('../src/ai/prompts/oneH_Prompt');
   const match = { homeTeam: 'A', awayTeam: 'B', league: 'L', country: 'C', odds: { home: 2, draw: 3, away: 4 } };
   const under = buildOneHPrompt(match, { observedMinute: 27, cumulative: {} }, 'under');
   const over  = buildOneHPrompt(match, { observedMinute: 27, cumulative: {} }, 'over');

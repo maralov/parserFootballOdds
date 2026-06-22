@@ -245,7 +245,7 @@ test('AI returns error → status=ai_error, tm05_1h.phase=ai_error', async () =>
 });
 
 // 10. Low p — EV gate does NOT block (new behavior: always 'signal')
-test('EV gate is record-only: low p=0.30 still results in status=signal', async () => {
+test('EV gate is record-only: min_p=0 bypass, p=0.30 still reaches signal', async () => {
   const store = fakeStore(baseRecord());
 
   const res = await runOneH_AiDecision('m1', SNAP_UNDER, new Date(), {

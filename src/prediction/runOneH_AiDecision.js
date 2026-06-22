@@ -168,8 +168,11 @@ async function runOneH_AiDecision(matchId, snapshot, date = new Date(), deps = {
   // Re-bind store target for the (possibly flipped) effective direction.
   const effStoreKey = effDirection === 'over' ? 'tb05_1h' : 'tm05_1h';
   const effSetDecision = effDirection === 'over'
-    ? (id, payloadX, d) => store.setTb05_1hDecision(id, payloadX, d)
-    : (id, payloadX, d) => store.setTm05_1hDecision(id, payloadX, d);
+    ? (id, payload, d) => store.setTb05_1hDecision(id, payload, d)
+    : (id, payload, d) => store.setTm05_1hDecision(id, payload, d);
+  if (effStoreKey !== storeKey && isLockedPhase(match.predictions?.[effStoreKey]?.phase)) {
+    return { status: 'already_decided' };
+  }
   if (effStoreKey !== storeKey) {
     setDecision(matchId, {
       phase: 'flipped_away', direction, flippedTo: effDirection,
