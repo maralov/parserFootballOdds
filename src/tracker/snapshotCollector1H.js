@@ -140,7 +140,7 @@ async function collectSnapshot1H(matchId, scheduleNext, date = new Date()) {
       } catch (err) {
         logger.warn('snapshotCollector1H: collectFinal failed in 2H phase', { matchId, err: err.message });
       }
-      resolveHtTotal(matchId, date);
+      await resolveHtTotal(matchId, date);
       return 'resolved_ft';
     }
     // Not finished: reschedule at 2H cadence

@@ -1,0 +1,222 @@
+[
+  {
+    "matchId": "On5HOkVj",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-19T01:28:16.309Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2172,
+      "sentAt": "2026-06-19T01:28:16.473Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2173,
+      "sentAt": "2026-06-19T01:50:17.765Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 29,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.8,
+      "odds": 1.7,
+      "ev": 1.1628,
+      "reasoning": "На 29-й хвилині рахунок 0:0, xG становить 0.11, що свідчить про низьку активність в атаці. Обидві команди мають однакову турнірну мотивацію, оскільки перемога забезпечить вихід з групи. Історично матчі між цими командами були результативними, але поточна низька активність гри підвищує ймовірність безгольового першого тайму.",
+      "keySignals": [
+        {
+          "signal": "xG",
+          "value": "0.11",
+          "weight": "high"
+        },
+        {
+          "signal": "SoT",
+          "value": "1",
+          "weight": "high"
+        },
+        {
+          "signal": "Possession",
+          "value": "60-40",
+          "weight": "med"
+        },
+        {
+          "signal": "Big Chances",
+          "value": "0",
+          "weight": "high"
+        },
+        {
+          "signal": "Historical H2H",
+          "value": "High-scoring",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "fNVO3cCk",
+    "decisionKey": "tb05_1h",
+    "tier": null,
+    "createdAt": "2026-06-19T09:56:25.963Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2174,
+      "sentAt": "2026-06-19T09:56:26.153Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2175,
+      "sentAt": "2026-06-19T10:18:13.486Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.8,
+      "ev": 1.161,
+      "reasoning": "Gold Coast Knights мають значну перевагу у володінні м'ячем (69%) та вже завдали 3 удари в площину воріт. У попередніх матчах вони часто забивали в першому таймі, зокрема, у березні 2026 року перемогли Magic United з рахунком 7:0, забивши 3 голи до перерви. Magic United наразі займає 11-те місце в лізі, що свідчить про їхню слабку форму. Однак відсутність детальної інформації про стартові склади та поточну турнірну мотивацію обмежує впевненість у прогнозі.",
+      "keySignals": [
+        {
+          "signal": "possession",
+          "value": "69%",
+          "weight": "high"
+        },
+        {
+          "signal": "shots_on_target",
+          "value": "3",
+          "weight": "high"
+        },
+        {
+          "signal": "previous_h2h",
+          "value": "7-0 (3-0 HT)",
+          "weight": "med"
+        },
+        {
+          "signal": "league_position",
+          "value": "11th",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "bB2Cu3qp",
+    "decisionKey": "tb05_1h",
+    "tier": null,
+    "createdAt": "2026-06-19T19:29:38.978Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2176,
+      "sentAt": "2026-06-19T19:29:39.278Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2177,
+      "sentAt": "2026-06-19T19:31:45.286Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 30,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.1,
+      "ev": 1.155,
+      "reasoning": "Fjölnir демонструє активну гру в першому таймі з 66% володінням м'ячем і 2 ударами в площину воріт. Однак, відсутність детальної інформації про стартові склади та турнірну мотивацію обмежує впевненість у прогнозі.",
+      "keySignals": [
+        {
+          "signal": "possession",
+          "value": "66%",
+          "weight": "high"
+        },
+        {
+          "signal": "shots_on_target",
+          "value": "2",
+          "weight": "med"
+        },
+        {
+          "signal": "starting_lineup_info",
+          "value": "відсутня",
+          "weight": "low"
+        },
+        {
+          "signal": "tournament_motivation",
+          "value": "невідома",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "SMPIRuHN",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-19T20:55:47.703Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2178,
+      "sentAt": "2026-06-19T20:55:47.896Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2179,
+      "sentAt": "2026-06-19T21:20:32.828Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.7,
+      "ev": 1.1067,
+      "reasoning": "У попередніх матчах між Alianza Atlético та César Vallejo часто спостерігалися безгольові перші тайми. Поточна гра характеризується низькою активністю в атаці: відсутні удари в площину воріт, а xG не надано. Високий відсоток володіння м'ячем господарями (65%) не призвів до небезпечних моментів. Це свідчить про обережну гру обох команд, що підвищує ймовірність завершення першого тайму з рахунком 0:0.",
+      "keySignals": [
+        {
+          "signal": "H2H_1st_half_0_0",
+          "value": "Часті безгольові перші тайми в очних зустрічах",
+          "weight": "high"
+        },
+        {
+          "signal": "Live_SoT",
+          "value": "0 ударів у площину воріт",
+          "weight": "high"
+        },
+        {
+          "signal": "Live_Possession",
+          "value": "65% володіння м'ячем господарями без результату",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  }
+]

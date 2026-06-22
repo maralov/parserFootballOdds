@@ -1,0 +1,277 @@
+[
+  {
+    "matchId": "nPizIgbU",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-19T23:26:17.921Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2180,
+      "sentAt": "2026-06-19T23:26:18.104Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2181,
+      "sentAt": "2026-06-19T23:50:19.175Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.8,
+      "odds": 1.95,
+      "ev": 1.3338,
+      "reasoning": "Поточна статистика матчу свідчить про низьку активність обох команд: xG = 0, лише 1 удар у площину воріт, відсутність дотиків у штрафному майданчику та великих шансів. Це вказує на обережну гру з обох сторін. Історія зустрічей також демонструє низьку результативність у перших таймах. Відсутність ключових гравців у складі Audax Italiano через травми та дискваліфікації може додатково знижувати атакувальний потенціал команди.",
+      "keySignals": [
+        {
+          "signal": "low_live_xG",
+          "value": "0",
+          "weight": "high"
+        },
+        {
+          "signal": "few_shots_on_target",
+          "value": "1",
+          "weight": "high"
+        },
+        {
+          "signal": "no_touches_in_box",
+          "value": "0",
+          "weight": "high"
+        },
+        {
+          "signal": "missing_key_players",
+          "value": "Audax Italiano: Paolo Guajardo, Ignacio Fuenzalida, Nicolás Aedo, Nicolás Orellana, Cristóbal Muñoz",
+          "weight": "med"
+        },
+        {
+          "signal": "historical_low_first_half_goals",
+          "value": "H2H: 1-1, 0-2",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "WzZ4YAN5",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-20T04:55:33.460Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2182,
+      "sentAt": "2026-06-20T04:55:33.656Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2183,
+      "sentAt": "2026-06-20T05:20:04.138Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.95,
+      "ev": 1.1329,
+      "reasoning": "На 26-й хвилині рахунок 0:0, з двома ударами в площину та перевагою Logan Lightning у володінні м'ячем (63%). Обидві команди мають схожі результати в сезоні, з середньою кількістю забитих голів понад 1.5 за матч. Попередня зустріч між цими командами завершилася з рахунком 1:1. Враховуючи поточну низьку активність у матчі, ймовірність безгольового першого тайму оцінюється в 65%.",
+      "keySignals": [
+        {
+          "signal": "low_shots_on_target",
+          "value": "2",
+          "weight": "high"
+        },
+        {
+          "signal": "possession_advantage",
+          "value": "Logan Lightning 63%",
+          "weight": "med"
+        },
+        {
+          "signal": "previous_meeting_draw",
+          "value": "1:1",
+          "weight": "med"
+        },
+        {
+          "signal": "average_goals_per_match",
+          "value": "Robina City 1.82, Logan Lightning 1.67",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "xK2C9GIP",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-20T05:24:24.838Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2184,
+      "sentAt": "2026-06-20T05:24:25.012Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2185,
+      "sentAt": "2026-06-20T05:49:03.175Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 25,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.95,
+      "ev": 1.1329,
+      "reasoning": "На 25-й хвилині рахунок 0:0, з рівним володінням м'ячем (47-53) та трьома ударами в площину воріт. Останні матчі між цими командами часто завершувалися з мінімальною кількістю голів у першому таймі. Враховуючи поточну низьку активність у матчі та історичні дані, ймовірність збереження рахунку 0:0 до перерви є помірно високою.",
+      "keySignals": [
+        {
+          "signal": "low_first_half_goals",
+          "value": "Останні матчі між командами мали мало голів у першому таймі",
+          "weight": "high"
+        },
+        {
+          "signal": "current_match_low_activity",
+          "value": "Лише 3 удари в площину воріт на 25-й хвилині",
+          "weight": "med"
+        },
+        {
+          "signal": "equal_possession",
+          "value": "Володіння м'ячем 47-53%",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "lrWqth9D",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-20T05:56:11.166Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2186,
+      "sentAt": "2026-06-20T05:56:11.368Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2187,
+      "sentAt": "2026-06-20T06:25:41.922Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.95,
+      "ev": 1.1329,
+      "reasoning": "Поточна гра характеризується низькою активністю: за 26 хвилин жодного удару в площину воріт, а володіння м'ячем на користь гостей (61%). Історично, команди часто завершували перші тайми без голів, як, наприклад, у матчі 20 березня 2026 року, де перший тайм завершився 0:0. ([365scores.com](https://www.365scores.com/football/match/npl-south-australian-6347/adelaide-comets-adelaide-united-youth-29183-66801-6347?utm_source=openai)) Однак, відсутність детальної інформації про стартові склади, травми та турнірну мотивацію обмежує впевненість у прогнозі.",
+      "keySignals": [
+        {
+          "signal": "live_shots_on_target",
+          "value": "0",
+          "weight": "high"
+        },
+        {
+          "signal": "live_possession",
+          "value": "39-61",
+          "weight": "med"
+        },
+        {
+          "signal": "h2h_first_half_results",
+          "value": "0:0 on 20.03.2026",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "tzvCqRF5",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-20T07:54:15.354Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2188,
+      "sentAt": "2026-06-20T07:54:15.542Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2189,
+      "sentAt": "2026-06-20T07:55:26.723Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 25,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.7,
+      "ev": 1.1067,
+      "reasoning": "На 25-й хвилині рахунок 0:0, жодного удару в площину, володіння м'ячем 24-76 на користь гостей. Історично, обидві команди часто забивають у першому таймі, але поточна низька активність знижує ймовірність голу до перерви.",
+      "keySignals": [
+        {
+          "signal": "SoT",
+          "value": "0",
+          "weight": "high"
+        },
+        {
+          "signal": "Possession",
+          "value": "24-76",
+          "weight": "med"
+        },
+        {
+          "signal": "H2H 1st Half Goals",
+          "value": "High",
+          "weight": "med"
+        },
+        {
+          "signal": "Current xG",
+          "value": "n/a",
+          "weight": "low"
+        },
+        {
+          "signal": "Big Chances",
+          "value": "n/a",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  }
+]

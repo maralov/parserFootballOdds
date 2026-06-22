@@ -1,0 +1,612 @@
+[
+  {
+    "matchId": "8n1rKb6s",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T11:24:34.433Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2191,
+      "sentAt": "2026-06-21T11:24:34.615Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2192,
+      "sentAt": "2026-06-21T11:40:42.175Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 25,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.95,
+      "ev": 1.1329,
+      "reasoning": "Обидві команди демонструють тенденцію до низькорезультативних перших таймів. Поточна гра характеризується відсутністю ударів у площину воріт та низьким показником володіння м'ячем у господарів, що свідчить про обмежену атакувальну активність.",
+      "keySignals": [
+        {
+          "signal": "LIVE_SoT",
+          "value": "0",
+          "weight": "high"
+        },
+        {
+          "signal": "LIVE_Poss",
+          "value": "31-69",
+          "weight": "high"
+        },
+        {
+          "signal": "PITEA_1H_GOALS_LAST3",
+          "value": "0, 0, 0",
+          "weight": "med"
+        },
+        {
+          "signal": "AFC_1H_GOALS_LAST3",
+          "value": "0, 0, 0",
+          "weight": "med"
+        },
+        {
+          "signal": "H2H_1H_GOALS",
+          "value": "0, 0",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "OnRKvCT7",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T13:27:33.644Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2193,
+      "sentAt": "2026-06-21T13:27:33.818Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2195,
+      "sentAt": "2026-06-21T13:33:57.951Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 28,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.7,
+      "ev": 1.1067,
+      "reasoning": "На 28-й хвилині рахунок 0:0, з одним ударом у площину та перевагою володіння м'ячем у господарів (59-41). Історично, обидві команди часто завершували перші тайми без голів. Судячи з поточної низької активності, ймовірність збереження рахунку 0:0 до перерви висока.",
+      "keySignals": [
+        {
+          "signal": "low_live_activity",
+          "value": "1 удар у площину на 28-й хвилині",
+          "weight": "high"
+        },
+        {
+          "signal": "historical_first_half_draws",
+          "value": "часті 0:0 у перших таймах",
+          "weight": "med"
+        },
+        {
+          "signal": "possession_advantage",
+          "value": "59-41 на користь господарів",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "zmNuXGAM",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T13:29:52.706Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2194,
+      "sentAt": "2026-06-21T13:29:52.868Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2196,
+      "sentAt": "2026-06-21T13:51:18.914Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 30,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.8,
+      "odds": 1.55,
+      "ev": 1.1842,
+      "reasoning": "Обидві команди демонструють низьку результативність у перших таймах, а поточна статистика матчу свідчить про відсутність ударів у площину воріт та рівне володіння м'ячем.",
+      "keySignals": [
+        {
+          "signal": "H2H_1st_half_goalless",
+          "value": "2 з 3 останніх очних зустрічей завершилися 0:0 у першому таймі",
+          "weight": "high"
+        },
+        {
+          "signal": "Live_SoT",
+          "value": "0 ударів у площину воріт на 30-й хвилині",
+          "weight": "high"
+        },
+        {
+          "signal": "Live_Possession",
+          "value": "50-50 володіння м'ячем",
+          "weight": "med"
+        },
+        {
+          "signal": "Mekelle_1st_half_goals",
+          "value": "1 гол у першому таймі за останні 5 матчів",
+          "weight": "med"
+        },
+        {
+          "signal": "Adama_1st_half_goals",
+          "value": "2 голи у першому таймі за останні 5 матчів",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "8Iq9tPWa",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T15:26:23.710Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2197,
+      "sentAt": "2026-06-21T15:26:23.912Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2199,
+      "sentAt": "2026-06-21T15:42:50.251Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.95,
+      "ev": 1.1329,
+      "reasoning": "Поточна статистика матчу свідчить про низьку активність в атаці: xG 0.38, лише 1 удар у площину воріт та 6 дотиків у штрафному майданчику за 26 хвилин. Володіння м'ячем на користь гостей (34-66), що може свідчити про їхню перевагу в контролі гри, але без значних загроз. Історично, матчі між цими командами мали різні результати в першому таймі, включаючи 0:0 та 2:1. Враховуючи поточну низьку активність, ймовірність завершення першого тайму з рахунком 0:0 оцінюється в 65% з впевненістю 70%.",
+      "keySignals": [
+        {
+          "signal": "low_xG",
+          "value": "0.38",
+          "weight": "high"
+        },
+        {
+          "signal": "few_shots_on_target",
+          "value": "1",
+          "weight": "high"
+        },
+        {
+          "signal": "possession_advantage_away",
+          "value": "34-66",
+          "weight": "med"
+        },
+        {
+          "signal": "historical_first_half_results",
+          "value": "0:0, 2:1",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "A3k2ikDD",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T15:30:23.295Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2198,
+      "sentAt": "2026-06-21T15:30:23.496Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2200,
+      "sentAt": "2026-06-21T15:48:54.608Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 31,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.7,
+      "ev": 1.1067,
+      "reasoning": "На 31-й хвилині рахунок 0:0, з 3 ударами в площину та перевагою володіння м'ячем у Nordic United (61%). Обидві команди мають середню результативність у перших таймах, а Norrby демонструє слабку форму в останніх матчах. Відсутність ключового гравця Aziz Harabi у Nordic United може вплинути на їхню оборону.",
+      "keySignals": [
+        {
+          "signal": "SoT",
+          "value": "3",
+          "weight": "high"
+        },
+        {
+          "signal": "Poss(h-a)",
+          "value": "39-61",
+          "weight": "med"
+        },
+        {
+          "signal": "Norrby_last_5",
+          "value": "0-2, 0-2, 1-2, 2-1, 2-2",
+          "weight": "med"
+        },
+        {
+          "signal": "Nordic_last_5",
+          "value": "0-2, 1-1, 2-0, 1-0, 1-4",
+          "weight": "med"
+        },
+        {
+          "signal": "Harabi_suspension",
+          "value": "Yes",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "OpRgHyuh",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T18:24:19.820Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2201,
+      "sentAt": "2026-06-21T18:24:20.036Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2206,
+      "sentAt": "2026-06-21T18:51:31.545Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 25,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.7,
+      "ev": 1.1067,
+      "reasoning": "Поточна гра демонструє низьку активність в атаці: лише 1 удар у площину воріт за 24 хвилини та відсутність значущих моментів. Історично, матчі між Guarani de Palhoca та Nacao часто завершувалися з низькою результативністю в першому таймі. Враховуючи ці фактори, ймовірність того, що перший тайм завершиться з рахунком 0:0, є високою.",
+      "keySignals": [
+        {
+          "signal": "low_live_shots_on_target",
+          "value": "1",
+          "weight": "high"
+        },
+        {
+          "signal": "low_live_xG",
+          "value": "n/a",
+          "weight": "high"
+        },
+        {
+          "signal": "historical_low_first_half_goals",
+          "value": "multiple matches",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "ju7zCt3C",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T18:27:43.893Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2202,
+      "sentAt": "2026-06-21T18:27:44.082Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2205,
+      "sentAt": "2026-06-21T18:46:41.875Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 28,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.7,
+      "ev": 1.1067,
+      "reasoning": "На 28-й хвилині рахунок 0:0, з рівним володінням м'ячем (52-48) та лише одним ударом у площину воріт. Історично, матчі між цими командами часто завершувалися з низькою результативністю в першому таймі. Однак, відсутність детальної інформації про стартові склади, травми та турнірну мотивацію обмежує впевненість у прогнозі.",
+      "keySignals": [
+        {
+          "signal": "low_first_half_goals",
+          "value": "Історично низька результативність у перших таймах",
+          "weight": "high"
+        },
+        {
+          "signal": "current_match_stats",
+          "value": "Мінімальна активність в атаці (1 удар у площину)",
+          "weight": "high"
+        },
+        {
+          "signal": "possession_balance",
+          "value": "Рівне володіння м'ячем (52-48)",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "AD0bCWB6",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T18:32:13.395Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2203,
+      "sentAt": "2026-06-21T18:32:13.561Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2204,
+      "sentAt": "2026-06-21T18:33:13.090Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 33,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.7,
+      "ev": 1.1067,
+      "reasoning": "Обидві команди демонструють низьку результативність у перших таймах останніх матчів. Поточна гра рівна, з мінімальною кількістю ударів у площину воріт, що свідчить про низьку атакувальну активність.",
+      "keySignals": [
+        {
+          "signal": "low_first_half_goals",
+          "value": "Newells Old Boys W: 0 голів у 1-х таймах останніх 3 матчів; Banfield W: 1 гол у 1-х таймах останніх 3 матчів",
+          "weight": "high"
+        },
+        {
+          "signal": "low_live_shots_on_target",
+          "value": "3 удари в площину воріт за 32 хвилини",
+          "weight": "high"
+        },
+        {
+          "signal": "even_possession",
+          "value": "Володіння м'ячем 49-51%",
+          "weight": "med"
+        },
+        {
+          "signal": "recent_h2h_first_half_results",
+          "value": "Остання зустріч: 0:0 у 1-му таймі",
+          "weight": "med"
+        },
+        {
+          "signal": "recent_team_form",
+          "value": "Newells Old Boys W: 0 перемог у останніх 5 матчах; Banfield W: 2 перемоги у останніх 5 матчах",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "t42VhIFM",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T20:28:04.275Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2207,
+      "sentAt": "2026-06-21T20:28:04.451Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2210,
+      "sentAt": "2026-06-21T20:53:00.325Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 28,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.7,
+      "ev": 1.1067,
+      "reasoning": "Обидві команди демонструють низьку результативність у перших таймах, а поточна статистика матчу свідчить про домінування Santos у володінні м'ячем, але з обмеженою кількістю ударів у площину воріт. Це вказує на високу ймовірність завершення першого тайму з рахунком 0:0.",
+      "keySignals": [
+        {
+          "signal": "low_first_half_goals",
+          "value": "Santos: 0.5, Ayacucho: 0.3",
+          "weight": "high"
+        },
+        {
+          "signal": "possession_dominance",
+          "value": "Santos 68% - Ayacucho 32%",
+          "weight": "med"
+        },
+        {
+          "signal": "low_shots_on_target",
+          "value": "1 (combined)",
+          "weight": "high"
+        },
+        {
+          "signal": "recent_h2h_first_half_results",
+          "value": "0:0, 0:0",
+          "weight": "med"
+        },
+        {
+          "signal": "recent_form",
+          "value": "Santos: 3W-3L, Ayacucho: 2W-2D-2L",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "OfPYrQXG",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T20:41:20.422Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2208,
+      "sentAt": "2026-06-21T20:41:20.625Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2209,
+      "sentAt": "2026-06-21T20:48:48.296Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.95,
+      "ev": 1.2694,
+      "reasoning": "Поточна статистика матчу свідчить про низьку активність в атаці: xG 0.15, жодного удару в площину воріт, лише 10 торкань у штрафному майданчику та відсутність великих шансів. Володіння м'ячем значно на користь Вікінгура (72%), що може свідчити про контроль гри без гострих моментів. Історично, обидві команди мають тенденцію забивати більше у другому таймі. Враховуючи ці фактори, ймовірність того, що перший тайм завершиться з рахунком 0:0, оцінюється як висока.",
+      "keySignals": [
+        {
+          "signal": "xG",
+          "value": "0.15",
+          "weight": "high"
+        },
+        {
+          "signal": "SoT",
+          "value": "0",
+          "weight": "high"
+        },
+        {
+          "signal": "Possession",
+          "value": "28-72",
+          "weight": "med"
+        },
+        {
+          "signal": "FirstHalfGoals",
+          "value": "Fram 40%, Vikingur 35.3%",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "I3n37HUF",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T20:58:05.168Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2211,
+      "sentAt": "2026-06-21T20:58:05.340Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2212,
+      "sentAt": "2026-06-21T21:18:41.929Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 28,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.7,
+      "ev": 1.1067,
+      "reasoning": "На 28-й хвилині рахунок 0:0, ударів у площину немає, володіння м'ячем рівне. Це свідчить про низьку активність обох команд. Історичні дані обмежені, але поточна гра вказує на високу ймовірність безгольового першого тайму.",
+      "keySignals": [
+        {
+          "signal": "live_shots_on_target",
+          "value": "0",
+          "weight": "high"
+        },
+        {
+          "signal": "live_possession",
+          "value": "51-49",
+          "weight": "med"
+        },
+        {
+          "signal": "live_score",
+          "value": "0-0",
+          "weight": "high"
+        }
+      ],
+      "calibrated": null
+    }
+  }
+]

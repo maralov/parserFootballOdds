@@ -46,6 +46,9 @@ async function fetchHttp(url, opts = {}) {
           'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
           'Accept-Language': 'en-US,en;q=0.9',
           'Referer': 'https://www.google.com/',
+          // Live scores must be current — never accept an intermediary-cached page.
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache',
         },
         timeout: 15_000,
         maxRedirects: 5,

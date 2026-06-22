@@ -1,0 +1,547 @@
+[
+  {
+    "matchId": "vajb0IZp",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-16T13:24:26.991Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2114,
+      "sentAt": "2026-06-16T13:24:27.195Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2120,
+      "sentAt": "2026-06-16T13:53:03.691Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 25,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": 1.2948,
+      "reasoning": "Обидві команди демонструють низьку результативність у першому таймі, а поточна статистика матчу свідчить про рівну гру з мінімальною кількістю ударів у площину воріт.",
+      "keySignals": [
+        {
+          "signal": "low_first_half_goals",
+          "value": "Sheger Ketema: 0.8, Welwalo Adigrat: 0.8",
+          "weight": "high"
+        },
+        {
+          "signal": "recent_draws",
+          "value": "Sheger Ketema: 1-1, Welwalo Adigrat: 1-1",
+          "weight": "med"
+        },
+        {
+          "signal": "current_match_stats",
+          "value": "SoT: 1, Possession: 51-49",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "WhwpOLRi",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-16T13:26:18.983Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2116,
+      "sentAt": "2026-06-16T13:26:19.178Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2118,
+      "sentAt": "2026-06-16T13:36:09.402Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 2.6,
+      "ev": 1.5106,
+      "reasoning": "Історія очних зустрічей між Bahir Dar Kenema та Welayta Dicha свідчить про низьку результативність у перших таймах, зокрема, у трьох останніх матчах першого тайму рахунок був 0:0. Поточна статистика матчу показує відсутність ударів у площину воріт до 26-ї хвилини, що вказує на низьку атакувальну активність обох команд. Враховуючи ці фактори, ймовірність того, що перший тайм завершиться з рахунком 0:0, оцінюється як помірно висока.",
+      "keySignals": [
+        {
+          "signal": "H2H_1stHalf_0_0",
+          "value": "3/3",
+          "weight": "high"
+        },
+        {
+          "signal": "Live_SoT",
+          "value": "0",
+          "weight": "high"
+        },
+        {
+          "signal": "Live_Possession",
+          "value": "57-43",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "d4xHOHf5",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-16T15:27:25.202Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2122,
+      "sentAt": "2026-06-16T15:27:25.447Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2124,
+      "sentAt": "2026-06-16T15:47:01.495Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 28,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 2.6,
+      "ev": 1.3286,
+      "reasoning": "З огляду на рівну гру, відсутність явного фаворита та історію матчів між командами, ймовірність завершення першого тайму з рахунком 0:0 оцінюється в 55%.",
+      "keySignals": [
+        {
+          "signal": "H2H_Recent",
+          "value": "Останні 3 матчі між командами завершилися з рахунком 0:0 у першому таймі.",
+          "weight": "high"
+        },
+        {
+          "signal": "Live_Stats",
+          "value": "На 28-й хвилині xG становить 0.93, що свідчить про низьку результативність.",
+          "weight": "med"
+        },
+        {
+          "signal": "Form_Home",
+          "value": "BFC Daugavpils не виграв жодного з останніх 5 матчів.",
+          "weight": "med"
+        },
+        {
+          "signal": "Form_Away",
+          "value": "Super Nova виграла 2 з останніх 5 матчів.",
+          "weight": "low"
+        },
+        {
+          "signal": "Possession",
+          "value": "Super Nova має перевагу у володінні м'ячем 64% проти 36%.",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "vHfT9Y0C",
+    "decisionKey": "tb05_1h",
+    "tier": null,
+    "createdAt": "2026-06-16T16:24:25.237Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2126,
+      "sentAt": "2026-06-16T16:24:25.408Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2130,
+      "sentAt": "2026-06-16T16:40:39.341Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 25,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 2.1,
+      "ev": 1.2075,
+      "reasoning": "Azam FC є явним фаворитом з коефіцієнтом 1.32 на перемогу. Вони мають сильну домашню форму, вигравши 69% матчів вдома, і забивають в середньому 1.62 гола за гру. Mashujaa FC, навпаки, мають слабку виїзну форму, вигравши лише 8% матчів на виїзді, і забивають в середньому 0.38 гола за гру. Однак, в останніх очних зустрічах між цими командами було забито мало голів, зокрема, останній матч завершився з рахунком 0:0. Поточна жива статистика показує, що Azam FC домінує у володінні м'ячем (66%) та має 2 удари в площину воріт, що свідчить про їхню атакувальну активність.",
+      "keySignals": [
+        {
+          "signal": "home_form",
+          "value": "69% перемог вдома",
+          "weight": "high"
+        },
+        {
+          "signal": "away_form",
+          "value": "8% перемог на виїзді",
+          "weight": "high"
+        },
+        {
+          "signal": "h2h_results",
+          "value": "Останній матч 0:0",
+          "weight": "med"
+        },
+        {
+          "signal": "live_possession",
+          "value": "66% володіння м'ячем",
+          "weight": "med"
+        },
+        {
+          "signal": "live_shots_on_target",
+          "value": "2 удари в площину",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "IicPRKC5",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-16T16:26:22.769Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2128,
+      "sentAt": "2026-06-16T16:26:23.060Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2131,
+      "sentAt": "2026-06-16T16:42:12.571Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": 1.1388,
+      "reasoning": "Обидві команди демонструють нестабільну форму та мають проблеми в обороні. Статистика попередніх матчів свідчить про схильність до пропускання голів у першому таймі. Поточна гра показує помірну активність, що знижує ймовірність збереження рахунку 0:0 до перерви.",
+      "keySignals": [
+        {
+          "signal": "Kuressaare_defensive_issues",
+          "value": "Пропустили в 5 з останніх 6 матчів",
+          "weight": "high"
+        },
+        {
+          "signal": "Narva_defensive_issues",
+          "value": "Пропустили в 5 з останніх 6 матчів",
+          "weight": "high"
+        },
+        {
+          "signal": "H2H_first_half_goals",
+          "value": "Голи в першому таймі в 4 з останніх 5 очних зустрічей",
+          "weight": "med"
+        },
+        {
+          "signal": "Current_match_activity",
+          "value": "1 удар в площину воріт за 26 хвилин",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "WIXxUfFk",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-16T17:29:54.317Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2134,
+      "sentAt": "2026-06-16T17:29:54.562Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2136,
+      "sentAt": "2026-06-16T17:36:02.168Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 30,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 2.2,
+      "ev": 1.2782,
+      "reasoning": "Обидві команди демонструють низьку результативність у першому таймі, а поточна статистика матчу свідчить про обмежену кількість ударів у площину воріт. Відсутність ключових травмованих гравців та рівна гра підвищують ймовірність безгольового першого тайму.",
+      "keySignals": [
+        {
+          "signal": "low_first_half_goals",
+          "value": "Обидві команди мають тенденцію до низької результативності у перших таймах",
+          "weight": "high"
+        },
+        {
+          "signal": "current_match_stats",
+          "value": "Лише 1 удар у площину воріт за 30 хвилин",
+          "weight": "high"
+        },
+        {
+          "signal": "no_key_injuries",
+          "value": "Відсутність інформації про травми ключових гравців",
+          "weight": "med"
+        },
+        {
+          "signal": "even_possession",
+          "value": "Володіння м'ячем 47-53%",
+          "weight": "med"
+        },
+        {
+          "signal": "recent_head_to_head",
+          "value": "Попередні зустрічі часто завершувалися з низькою кількістю голів у першому таймі",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "4UTYz4WH",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-16T18:11:23.925Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2138,
+      "sentAt": "2026-06-16T18:11:24.104Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2140,
+      "sentAt": "2026-06-16T18:34:52.215Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 2.6,
+      "ev": 1.3286,
+      "reasoning": "Історія очних зустрічей між Казмою та Аль-Арабі свідчить про низьку результативність у перших таймах. Поточна статистика матчу показує, що за 26 хвилин було лише 4 удари в площину воріт, що вказує на обережну гру обох команд. Відсутність інформації про травми чи дискваліфікації також не свідчить про потенційні зміни в грі.",
+      "keySignals": [
+        {
+          "signal": "H2H_1stHalf_Under1.5",
+          "value": "8/8",
+          "weight": "high"
+        },
+        {
+          "signal": "Live_ShotsOnTarget",
+          "value": "4",
+          "weight": "med"
+        },
+        {
+          "signal": "Live_Possession",
+          "value": "40-60",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "ALxYcMw2",
+    "decisionKey": "tb05_1h",
+    "tier": null,
+    "createdAt": "2026-06-16T19:25:42.721Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2142,
+      "sentAt": "2026-06-16T19:25:42.900Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2148,
+      "sentAt": "2026-06-16T19:54:26.647Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 2.1,
+      "ev": 1.2075,
+      "reasoning": "Франція виступає фаворитом матчу, маючи в складі ключових атакуючих гравців, таких як Кіліан Мбаппе та Усман Дембеле. Команда демонструє високий рівень володіння м'ячем (63%) та контролює гру. Однак, на 26-й хвилині першого тайму показники очікуваних голів (xG) та ударів у площину воріт залишаються низькими, що свідчить про обмежену кількість створених небезпечних моментів.",
+      "keySignals": [
+        {
+          "signal": "starting_lineup",
+          "value": "Mbappe, Dembele, Olise, Doue",
+          "weight": "high"
+        },
+        {
+          "signal": "possession",
+          "value": "63%",
+          "weight": "med"
+        },
+        {
+          "signal": "xG",
+          "value": "0.06",
+          "weight": "med"
+        },
+        {
+          "signal": "shots_on_target",
+          "value": "0",
+          "weight": "med"
+        },
+        {
+          "signal": "recent_form",
+          "value": "9 wins in last 11 matches",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "ELZlqZRa",
+    "decisionKey": "tb05_1h",
+    "tier": null,
+    "createdAt": "2026-06-16T19:41:04.821Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2144,
+      "sentAt": "2026-06-16T19:41:05.013Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2151,
+      "sentAt": "2026-06-16T19:59:12.132Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 2.1,
+      "ev": 1.2075,
+      "reasoning": "Vikingur Reykjavik демонструє сильну форму, вигравши останні 6 матчів з середнім показником 3.83 гола за гру. Вони мають перевагу в особистих зустрічах з KR Reykjavik, вигравши 4 з останніх 5 матчів, включаючи перемогу 7-0 у вересні 2025 року. Однак, поточна жива статистика показує, що на 26-й хвилині рахунок 0:0, з xG 0.19 та лише одним ударом у площину воріт, що свідчить про обмежену атакувальну активність. Відсутність детальної інформації про стартові склади та турнірну мотивацію обмежує впевненість у прогнозі.",
+      "keySignals": [
+        {
+          "signal": "VikingurForm",
+          "value": "6 перемог поспіль, 3.83 гола за гру",
+          "weight": "high"
+        },
+        {
+          "signal": "HeadToHead",
+          "value": "4 перемоги Vikingur у останніх 5 матчах, включаючи 7-0 у вересні 2025",
+          "weight": "high"
+        },
+        {
+          "signal": "LiveStats",
+          "value": "xG 0.19, 1 удар у площину на 26-й хвилині",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "SlqFWerf",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-16T19:44:23.848Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2145,
+      "sentAt": "2026-06-16T19:44:24.116Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2150,
+      "sentAt": "2026-06-16T19:59:08.883Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 30,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 2.2,
+      "ev": 1.1242,
+      "reasoning": "Обидві команди демонструють помірну активність у першому таймі, з рівним володінням м'ячем та низьким показником xG. Історично, їхні зустрічі часто завершувалися з голами в першому таймі, але поточна статистика матчу вказує на можливість збереження рахунку 0:0 до перерви.",
+      "keySignals": [
+        {
+          "signal": "low_xG",
+          "value": "0.41",
+          "weight": "high"
+        },
+        {
+          "signal": "equal_possession",
+          "value": "49-51",
+          "weight": "med"
+        },
+        {
+          "signal": "recent_first_half_goals",
+          "value": "frequent",
+          "weight": "med"
+        }
+      ],
+      "calibrated": null
+    }
+  }
+]

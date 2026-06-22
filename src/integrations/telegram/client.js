@@ -54,9 +54,9 @@ async function sendMessage({
     const payload = {
       chat_id: resolvedChatId,
       text: String(text ?? ''),
-      parse_mode: parseMode,
       disable_web_page_preview: disableWebPagePreview,
     };
+    if (parseMode != null) payload.parse_mode = parseMode;
     if (replyToMessageId != null) payload.reply_to_message_id = replyToMessageId;
 
     try {

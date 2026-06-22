@@ -138,5 +138,165 @@
       ],
       "calibrated": false
     }
+  },
+  {
+    "matchId": "UN2t4nGq",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-14T11:24:08.707Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2098,
+      "sentAt": "2026-06-14T11:24:08.942Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2100,
+      "sentAt": "2026-06-14T11:50:33.768Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 25,
+      "score": "0:0",
+      "dsScore": 66,
+      "psScore": null,
+      "pNoGoal": 0.372,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Hammarby TFF) не пробиває до 25' (у площину=1). DS1H=66.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "QDZh6Hfl",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-14T12:25:25.455Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2102,
+      "sentAt": "2026-06-14T12:25:25.623Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2104,
+      "sentAt": "2026-06-14T12:27:42.459Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 63,
+      "psScore": null,
+      "pNoGoal": 0.3585,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Thimphu City) не пробиває до 26' (у площину=1). DS1H=63.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "zqWI4Gk3",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-14T14:26:04.887Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2106,
+      "sentAt": "2026-06-14T14:26:05.061Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2108,
+      "sentAt": "2026-06-14T14:40:05.623Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 27,
+      "score": "0:0",
+      "dsScore": 36,
+      "psScore": null,
+      "pNoGoal": 0.3,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (Kongsvinger) не пробиває до 27' (у площину=2). DS1H=36.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 2,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
+  },
+  {
+    "matchId": "YVBzdmSb",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-14T16:41:01.824Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2110,
+      "sentAt": "2026-06-14T16:41:01.995Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2112,
+      "sentAt": "2026-06-14T16:44:27.779Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": 67,
+      "psScore": null,
+      "pNoGoal": 0.3765,
+      "pGoal": null,
+      "confidence": 0.6,
+      "odds": 2.6,
+      "ev": null,
+      "reasoning": "Фаворит (HB Torshavn) не пробиває до 26' (у площину=1). DS1H=67.",
+      "keySignals": [
+        {
+          "signal": "fav_shots_on_target",
+          "value": 1,
+          "weight": "high"
+        }
+      ],
+      "calibrated": false
+    }
   }
 ]

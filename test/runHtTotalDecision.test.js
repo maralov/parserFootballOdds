@@ -242,6 +242,27 @@ test('features1H contains htScore and xG from snapshot', async () => {
   assert.deepEqual(f.ballPossession, { home: 50, away: 50 });
 });
 
+// 11a. idempotency: ht_error → returns ht_error immediately, AI not called
+test('idempotency: ht_error → returns ht_error immediately, AI not called', async () => {
+  const record = baseRecord({
+    predictions: {
+      tm05_1h: { phase: 'signal' },
+      tb05_1h: null,
+      htTotal: { phase: 'ht_error', aiError: 'prior_timeout' },
+    },
+  });
+  const store = fakeStore(record);
+  let aiCalled = false;
+  const callAI = async () => { aiCalled = true; return mockAI()(); };
+
+  const res = await runHtTotalDecision('m1', SNAP, HT_SCORE, new Date(), {
+    env: CFG, matchStore: store, callAI,
+  });
+
+  assert.equal(res.status, 'ht_error');
+  assert.equal(aiCalled, false);
+});
+
 // 11. no_match: returns no_match if matchId unknown
 test('no_match: returns no_match if matchId unknown', async () => {
   const store = { getMatch() { return null; }, setHtTotalDecision() {} };

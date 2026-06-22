@@ -1,0 +1,117 @@
+[
+  {
+    "matchId": "44WkITED",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-21T21:55:56.108Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2213,
+      "sentAt": "2026-06-21T21:55:56.278Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2214,
+      "sentAt": "2026-06-21T22:14:33.828Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": false
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.7,
+      "ev": 1.1067,
+      "reasoning": "Обидві команди демонструють низьку результативність у перших таймах, а поточна гра характеризується відсутністю ударів у площину воріт та перевагою Ferroviaria у володінні м'ячем. Це свідчить про низьку ймовірність голів до перерви.",
+      "keySignals": [
+        {
+          "signal": "low_first_half_goals",
+          "value": "Ferroviaria: 0.6 голів за матч; Inter de Limeira: 0.4 голів за матч",
+          "weight": "high"
+        },
+        {
+          "signal": "no_shots_on_target",
+          "value": "0 ударів у площину воріт на 26-й хвилині",
+          "weight": "high"
+        },
+        {
+          "signal": "possession_dominance",
+          "value": "62% володіння м'ячем у Ferroviaria",
+          "weight": "med"
+        },
+        {
+          "signal": "recent_h2h_first_half_results",
+          "value": "Останні 3 матчі: 0:0, 0:1, 0:0",
+          "weight": "med"
+        },
+        {
+          "signal": "recent_team_form",
+          "value": "Ferroviaria: 2 перемоги, 3 нічиї, 1 поразка; Inter de Limeira: 3 перемоги, 2 нічиї, 1 поразка",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  },
+  {
+    "matchId": "2whypbwh",
+    "decisionKey": "tm05_1h",
+    "tier": null,
+    "createdAt": "2026-06-22T02:25:52.241Z",
+    "status": "resolved",
+    "entry": {
+      "messageId": 2215,
+      "sentAt": "2026-06-22T02:25:52.409Z",
+      "attempts": 0,
+      "lastError": null
+    },
+    "result": {
+      "messageId": 2216,
+      "sentAt": "2026-06-22T02:50:37.081Z",
+      "attempts": 0,
+      "lastError": null,
+      "hit": true
+    },
+    "snapshot": {
+      "minute": 26,
+      "score": "0:0",
+      "dsScore": null,
+      "psScore": null,
+      "pNoGoal": null,
+      "pGoal": null,
+      "confidence": 0.7,
+      "odds": 1.95,
+      "ev": 1.1329,
+      "reasoning": "На 26-й хвилині рахунок 0:0, xG становить 0.21, жодного удару в площину, що свідчить про низьку активність в атаці. Історично, в останніх 9 матчах між цими командами 8 завершилися з понад 2.5 голами, що вказує на схильність до результативних ігор. Однак поточна низька активність знижує ймовірність голу до перерви.",
+      "keySignals": [
+        {
+          "signal": "low_live_xG",
+          "value": "0.21",
+          "weight": "high"
+        },
+        {
+          "signal": "no_SoT",
+          "value": "0",
+          "weight": "high"
+        },
+        {
+          "signal": "high_H2H_over_2.5",
+          "value": "8/9",
+          "weight": "med"
+        },
+        {
+          "signal": "low_possession_home",
+          "value": "36%",
+          "weight": "low"
+        }
+      ],
+      "calibrated": null
+    }
+  }
+]

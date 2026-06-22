@@ -12,6 +12,10 @@ const { dateKeyLocal } = require('../../helpers/date');
 const inFlightEntries = new Set();
 const inFlightResults = new Set();
 
+// Throttle: max 1 alert per 5 minutes so OpenAI outages don't spam 20+ messages.
+let lastAlertAt = 0;
+const ALERT_THROTTLE_MS = 5 * 60_000;
+
 const PRIMARY_DECISION_KEYS = new Set(['tm05', 'tb05', 'tm05_1h', 'tb05_1h']);
 
 function entryKey(matchId, decisionKey) {
@@ -279,7 +283,7 @@ async function dispatchOneHResult({ matchId, htScoreHome, htScoreAway, firstGoal
 
     // Running day tally — count this match as settled even though its outbox
     // record is still 'pending_result' at send time.
-    const tally = tally1H(tgOutbox.readOutbox(dayDir), { matchId, hit });
+    const tally = tally1H(tgOutbox.readOutbox(dayDir), { matchId, hit, decisionKey });
     const tallyLine = formatDayTallyLine(tally);
     const message = formatOneHResultMessage({ htScoreHome, htScoreAway, hit, firstGoalMinute, tallyLine, decisionKey });
 
@@ -427,6 +431,26 @@ async function flushPending({ date = new Date() } = {}) {
   }
 }
 
+/**
+ * Send a plain-text alert to Telegram (errors, system events).
+ * Throttled to 1 message per 5 minutes to avoid spam during outages.
+ *
+ * @param {string} text
+ * @returns {Promise<void>}
+ */
+async function sendAlert(text) {
+  if (!LIVE_TG_ENABLED) return;
+  const now = Date.now();
+  if (now - lastAlertAt < ALERT_THROTTLE_MS) return;
+  lastAlertAt = now;
+  try {
+    await client.sendMessage({ text: String(text ?? ''), parseMode: null });
+    logger.info('tg.alert.sent', { preview: String(text ?? '').slice(0, 80) });
+  } catch (err) {
+    logger.warn('tg.alert.failed', { err: err?.message || String(err) });
+  }
+}
+
 module.exports = {
   enqueueEntry,
   isPrimaryDecision,
@@ -437,4 +461,5 @@ module.exports = {
   flushPending,
   pendingResultRecords,
   resultHitForRecord,
+  sendAlert,
 };
